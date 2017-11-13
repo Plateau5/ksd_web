@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看档案</title>
+    {{include('./../inc/metaData')}}
+    <script type="text/javascript" src="/static/js/employee/information.js"></script>
+    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="/static/css/employee/information.css"/>
+    <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
+    <style>
+        .formML{
+            overflow: initial;
+        }
+    </style>
+</head>
+<style type="text/css">
+    body{overflow-x: hidden;}
+    *{margin:0;padding:0;list-style:none;}
+    html{ font-size:14px; color:#000; font-family:'微软雅黑'}
+    h2{line-height:30px; font-size:20px;}
+    a,a:hover{ text-decoration:none;}
+    pre{font-family:'微软雅黑'}
+    .box{width:970px; padding:10px 20px; background-color:#fff; margin:10px auto;}
+    .box a{padding-right:20px;}
+    .demo1,.demo2,.demo3,.demo4,.demo5,.demo6{margin:25px 0;}
+    .laydate-icon{height:34px;}
+    h3{margin:10px 0;}
+    .layinput{height: 22px;line-height: 22px;width: 150px;margin: 0;}
+    #position{font-size: 12px;padding-top:9px;}
+    #position .span1{margin-left:5px;}
+    .domicile_province{cursor: pointer;}
+
+    .jedatebox .jedateym .prev, .jedatebox .jedateym .next{
+        border: none;
+        background-color: transparent;
+    }
+</style>
+<body>
+
+<!--header start-->
+{{include('./../inc/header')}}
+<!--header end-->
+
+<!--container start-->
+
+<div class="container minWidth">
+    <div class="row section">
+        <!--navLeft start-->
+        {{include('./../inc/sideNav')}}
+        <!--navLeft end-->
+
+
+        <!--inviteCon start-->
+
+        <div class="listCon">
+            <div class="inviteCon">
+                <ul>
+                    <li class="inline colorB"><a class="TS" href="/employee/list">同事</a></li>
+                    <li class="inline before"><a href="javascript:;">${name}的档案</a></li>
+                </ul>
+            </div>
+            <!--form start-->
+            <div class="inviteForm inviteConB formMT" style="border:0;">
+                <ul class="inforT">
+                    <li class="inline inforLActive cursor" id="infO">基本信息</li>
+                    <li class="inline inforLL cursor colorM" id="infT">个人信息</li>
+                    <li class="inline inforLL cursor colorM" id="infTh">岗位信息</li>
+                </ul>
+                <input type="hidden" value="0" id="inforVail">
+                <form class="form-horizontal formML" id = "baseInfo" style="padding-left: 4%">
+                    <input type="hidden" name="id" value="${employee_id}">
+                    <!--基本信息-->
+                    <div class="inforMT" id="inforOne">
+                        <input type="hidden" value="1" id="jibenForm">
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">姓名：</label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" 
+                                id="name" name="name" value="${vo.name}" 
+                                placeholder="请输入姓名" placeholder="0" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入姓名';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
+                            </div>
+                            <span class="formProm"></span>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">性别：</label>
+                            <div class="col-xs-5">
+                                <select class="form-control" name="gender" id="gender">
+                                    <option value="-1">请选择</option>
+                                    <option value="1" <c:if test="${vo.gender eq 1}">selected</c:if>>男</option>
+                                    <option value="0" <c:if test="${vo.gender eq 0}">selected</c:if>>女</option>
+                                </select>
+                            </div>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">手机号：</label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" id="phone" name="phone" value="${vo.phone }" placeholder="请输入11位手机号" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入11位手机号';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
+                            </div>
+                            <span class="formProm"></span>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">身份证号：</label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" id="card_no" name="card_no" value="${vo.card_no }" placeholder="请输入有效身份证号" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入有效身份证号';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
+                            </div>
+                            <span class="formProm"></span>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">身份证照片：</label>
+                            <div class="col-xs-5" style="width:410px;padding:0;">
+                                <div class="form-control" style="background:#F5F5F5;height:120px;border:1px solid #F5F5F5;-webkit-appearance: none;">
+                                    <span style="position: absolute;left:7%;top:112px;color:#D8D8D8;">图片格式为JPG/JPGE/PNG,大小不超过2M</span>
+                                    <div class="add inline">
+                                        <span>正面</span>
+                                        <img class="tianjiaImg img1" src="/static/img/employee/imgAdd.png" alt="">
+                                        <div class="imgBox">
+
+                                            <input type="file" name="obverse" onchange="selectImage1(this);">
+                                        </div>
+                                        <div class="img">
+                                            <img src="${vo.card_url_one }" alt="" id="img1">
+                                        </div>
+
+                                        <input type="hidden" name="card_url_one" value="${vo.card_url_one }">
+                                    </div>
+                                    <div class="add inline cardImgML">
+                                        <span>反面</span>
+                                        <img class="tianjiaImg img2" src="/static/img/employee/imgAdd.png" alt="">
+                                        <div class="imgBox cursor">
+
+                                            <input type="file" name="reverse" onchange="selectImage2(this);">
+                                        </div>
+                                        <div class="img">
+                                            <img src="${vo.card_url_two }" alt="" id="img2">
+                                        </div>
+                                        <input type="hidden" name="card_url_two" value="${vo.card_url_two }">
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel" >工资银行卡号：</label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" id="bank_no" name="bank_no" value="${vo.bank_no}" placeholder="请输入工资银行卡号" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入工资银行卡号';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
+                            </div>
+                            <span class="formProm"></span>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group" style="margin-bottom:80px;">
+                            <label class="col-xs-2 control-label inviteLabel">开户行：</label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" id="bank_address" name="bank_address" value="${vo.bank_address}" placeholder="请输入工资卡开户地址" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入工资卡开户地址';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
+                            </div>
+                            <span class="formProm"></span>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group jibenBtn" style="background:#fff;margin-left:-4.5%;">
+                            <label class="col-xs-2 control-label inviteLabel"></label>
+                            <div class="col-xs-10" style="margin-top:50px;margin-bottom:50px;margin-left:-12px;">
+                                <input type="button" id="jibenBtnY" value="保存更新"/>
+                                <a href="/employee/list">
+                                    <input type="button" id="jibenBtnN" value="取消"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <form class="form-horizontal formML" style="margin-top:-20px;padding-left: 4%" id = "personalInfo" >
+                    <input type="hidden" name="id" value="${employee_id}">
+                    <!--个人信息-->
+                    <div class="inforMT" id="inforTwo">
+                        <input type="hidden" value="0" id="gerenForm">
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">英文名：</label>
+                                <div class="col-xs-5">
+                                    <input type="text" class="form-control" id="en_name" name="en_name" value="${vo.en_name}" placeholder="请输入英文名" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入英文名';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
+                                </div>
+                                <span class="formProm"></span>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">婚姻状况：</label>
+                                <div class="col-xs-5">
+                                    <select class="form-control" name="is_marry" id="is_marry">
+                                        <option value="-1">请选择</option>
+                                        <option value="0" <c:if test="${vo.is_marry eq 0}">selected</c:if>>未婚</option>
+                                        <option value="1" <c:if test="${vo.is_marry eq 1}">selected</c:if>>已婚</option>
+                                        <option value="2" <c:if test="${vo.is_marry eq 2}">selected</c:if>>离异</option>
+                                        <option value="3" <c:if test="${vo.is_marry eq 3}">selected</c:if>>丧偶</option>
+                                    </select>
+                                </div>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">民族：</label>
+                                <div class="col-xs-5">
+                                    <input type="text" class="form-control" id="nation" name="nation" value="${vo.nation}" placeholder="请输入所属民族" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入所属民族';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
+                                </div>
+                                <span class="formProm"></span>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">生日：</label>
+                                <div class="col-xs-5">
+                                    <input class="form-control laydate-icon" id="demo3" name="birthday" onfocus=this.blur() value="${vo.birthday}">
+                                </div>
+                                <span class="formProm"></span>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">星座：</label>
+                                <div class="col-xs-5">
+                                    <select class="form-control" name = "constellation" id="constellation">
+                                        <option value="0"<c:if test="${vo.constellation eq 0 || empty vo.constellation}">selected</c:if>>请选择</option>
+                                        <option value="1"<c:if test="${vo.constellation eq 1}">selected</c:if>>水瓶座</option>
+                                        <option value="2"<c:if test="${vo.constellation eq 2}">selected</c:if>>双鱼座</option>
+                                        <option value="3"<c:if test="${vo.constellation eq 3}">selected</c:if>>白羊座</option>
+                                        <option value="4"<c:if test="${vo.constellation eq 4}">selected</c:if>>金牛座</option>
+                                        <option value="5"<c:if test="${vo.constellation eq 5}">selected</c:if>>双子座</option>
+                                        <option value="6"<c:if test="${vo.constellation eq 6}">selected</c:if>>巨蟹座</option>
+                                        <option value="7"<c:if test="${vo.constellation eq 7}">selected</c:if>>狮子座</option>
+                                        <option value="8"<c:if test="${vo.constellation eq 8}">selected</c:if>>处女座</option>
+                                        <option value="9"<c:if test="${vo.constellation eq 9}">selected</c:if>>天秤座</option>
+                                        <option value="10"<c:if test="${vo.constellation eq 10}">selected</c:if>>天蝎座</option>
+                                        <option value="11"<c:if test="${vo.constellation eq 11}">selected</c:if>>射手座</option>
+                                        <option value="12"<c:if test="${vo.constellation eq 12}">selected</c:if>>摩羯座</option>
+                                    </select>
+                                </div>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">户籍所在地：</label>
+                                <div class="col-xs-2 domicile_province">
+                                    <select class="form-control" name="domicile_province" id="domicile_province">
+                                        <option value="0">请选择</option>
+                                        <c:forEach items="${province}" var="bean">
+                                            <option value="${bean.id}"<c:if test="${vo.domicile_province eq bean.id}">selected</c:if>>${bean.name }</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="col-xs-2">
+                                    <select class="form-control" name="domicile_city" id="domicile_city" data="city1">
+                                        <option value="0">请选择</option>
+                                        <c:forEach items="${city}" var="bean">
+                                            <option value="${bean.id}"<c:if test="${vo.domicile_city eq bean.id}">selected</c:if>>${bean.name }</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">详细地址：</label>
+                                <div class="col-xs-5">
+                                    <input type="text" class="form-control" id="address" name="address" value="${vo.address}" placeholder="请输入户籍所在详细地址" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入户籍所在详细地址';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
+                                </div>
+                                <span class="formProm"></span>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">现居住地：</label>
+                                <div class="col-xs-5">
+                                    <select class="form-control" name="live_place" id="live_place" data="city2">
+                                        <option value="0">请选择</option>
+                                        <c:forEach items="${live_city}" var="bean">
+                                            <option value="${bean.id}"<c:if test="${vo.live_place eq bean.id}">selected</c:if>>${bean.name }</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">个人邮箱：</label>
+                                <div class="col-xs-5">
+                                    <input type="text" class="form-control" id="email_personal" name="email_personal" value="${vo.email_personal}" placeholder="请输入个人邮箱" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入个人邮箱';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
+                                </div>
+                                <span class="formProm"></span>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">紧急联系人：</label>
+                                <div class="col-xs-5">
+                                    <input type="text" class="form-control" id="emergency_contact" name="emergency_contact" value="${vo.emergency_contact}" placeholder="请输入紧急联系人" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入紧急联系人';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
+                                </div>
+                                <span class="formProm"></span>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">紧急联系电话：</label>
+                                <div class="col-xs-5">
+                                    <input type="text" class="form-control" id="emergency_phone" name="emergency_phone" value="${vo.emergency_phone}" placeholder="请输入紧急联系电话" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入紧急联系电话';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
+                                </div>
+                                <span class="formProm"></span>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">毕业证书：</label>
+                                <div class="col-xs-5" style="position: relative;padding:0;">
+                                    <span style="position: absolute;left:7%;top:112px;COLOR:#D8D8D8;">图片格式为JPG/JPGE/PNG,大小不超过2M</span>
+                                    <div class="form-control"style="background:#F5F5F5;height:120px;border:1px solid #F5F5F5;-webkit-appearance: none;">
+                                        <div class="add inline">
+                                            <img class="tianjiaImg img3" src="/static/img/employee/imgAdd.png" alt="">
+                                            <div class="img">
+                                                <img src="${vo.diploma_url }" alt="" id="img3">
+                                            </div>
+                                            <div class="imgBox">
+
+                                                <div class="cardImg cursor">
+                                                    <input type="file" name="file" onchange="selectImage3(this);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="diploma_url" value="${vo.diploma_url }">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">毕业院校：</label>
+                                <div class="col-xs-5">
+                                    <input type="text" class="form-control" id="graduation_school" name="graduation_school" value="${vo.graduation_school}" placeholder="请输入毕业院校" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入毕业院校';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
+                                </div>
+                                <span class="formProm"></span>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label inviteLabel">最高学历：</label>
+                                <div class="col-xs-5">
+                                    <select class="form-control" name="education" id="education">
+                                        <option value="0">请选择</option>
+                                        <option value="1" <c:if test="${vo.education eq 1}">selected</c:if>>博士</option>
+                                        <option value="2" <c:if test="${vo.education eq 2}">selected</c:if>>硕士</option>
+                                        <option value="3" <c:if test="${vo.education eq 3}">selected</c:if>>本科</option>
+                                        <option value="4" <c:if test="${vo.education eq 4}">selected</c:if>>专科</option>
+                                        <option value="5" <c:if test="${vo.education eq 5}">selected</c:if>>其它</option>
+                                    </select>
+                                </div>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group" style="margin-bottom:80px;">
+                                <label class="col-xs-2 control-label inviteLabel">专业：</label>
+                                <div class="col-xs-5">
+                                    <input type="text" class="form-control" id="profession" name="profession" value="${vo.profession}" placeholder="请输入所学专业" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入所学专业';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
+                                </div>
+                                <div class="trueImg"></div>
+                                <span class="formError"></span>
+                            </div>
+                            <div class="form-group gerenBtn" style="background:#fff;margin-left:-4.5%;">
+                                <label class="col-xs-2 control-label inviteLabel"></label>
+                                <div class="col-xs-10" style="margin-top:50px;margin-bottom:50px;margin-left:-12px;">
+                                    <input type="button" id="gerenBtnY" value="保存更新"/>
+                                    <a href="/employee/list">
+                                        <input type="button" id="gerenBtnN" value="取消"/>
+                                    </a>
+                                </div>
+                            </div>
+
+                    </div>
+                </form>
+                <form class="form-horizontal formML" id = "gangwei_form"  style="padding-left: 4%">
+                    <input type="hidden" name="id" value="${employee_id}">
+                    <!--岗位信息-->
+                    <div class="inforMT" id="inforThird">
+                        <input type="hidden" value="0" id="gangweiForm">
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">入职日期：</label>
+                            <div class="col-xs-5">
+                                <input class="form-control laydate-icon" id="demo1" name="hire_date" onfocus=this.blur() value="${vo.hire_date}">
+                            </div>
+                            <span class="formProm"></span>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">聘用形式：</label>
+                            <div class="col-xs-5">
+                                <select class="form-control" name="hire_type" id="hire_type">
+                                    <option value="-1">请选择</option>
+                                    <option value="1" <c:if test="${vo.hire_type eq 1}">selected</c:if>>正式</option>
+                                    <option value="2" <c:if test="${vo.hire_type eq 2}">selected</c:if>>试用</option>
+                                    <option value="3" <c:if test="${vo.hire_type eq 3}">selected</c:if>>劳务</option>
+                                </select>
+                            </div>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">转正日期：</label>
+                            <div class="col-xs-5">
+                                <input class="form-control laydate-icon" id="demo2" name="positive_date" value="${vo.positive_date}"onfocus=this.blur()>
+                            </div>
+                            <span class="formProm"></span>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">司龄：</label>
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control" id="company_age" name="company_age" value="${vo.company_age }" disabled="disabled"/>
+                            </div>
+                            <span>年</span>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">工龄：</label>
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control" id="work_age" name="work_age" value="${vo.work_age}" placeholder="请输入工龄" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入工龄';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}" onkeypress="IsNum(event,work_age);"/>
+                            </div>
+                            <span>年</span>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">部门：</label>
+                            <div class="col-xs-5">
+                                <input type="hidden" name="department_id" id="department_id" value="${vo.department_id}">
+                                <div class="form-control dep_list" >
+                                    <em class="dep_icon"></em>
+                                    <span value="${vo.department_id}" class="department_desc">${vo.department_name}</span>
+                                    <!--部门列表 begin-->
+                                    <div class="list_box">
+
+                                    </div>
+                                    <!--部门列表 end-->
+                                </div>
+                            </div>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">职务：</label>
+                            <div class="col-xs-5 domicile">
+                                <div class="form-control" id="position">
+                                    <span class="span">${vo.position_parent_desc }</span>
+                                </div>
+                                <input type="hidden" id="position_id" name="position_id" value="${vo.position_id }">
+                                <input type="hidden" id="position_parent_id" name="position_parent_id" value="${vo.position_parent_id }">
+								<input type="hidden" id="position_desc" name="position_desc" value="${vo.position_desc }">
+                            </div>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">工作地点：</label>
+                            <div class="col-xs-5">
+                            	<input type="hidden" name="old_work_city" value="${vo.work_city}">
+                                <select class="form-control"  id="work_city" name="work_city">
+                                    <c:forEach items="${work_city}" var="bean">
+                                        <option value="${bean.id }" <c:if test="${vo.work_city eq bean.id}">selected</c:if>>${bean.name}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">合同期限：</label>
+                            <div class="col-xs-5">
+                                <select class="form-control" name="contract_period" id="contract_period">
+                                    <option value="-1">请选择</option>
+                                    <option value="1" <c:if test="${vo.contract_period eq 1}">selected</c:if> >6个月</option>
+                                    <option value="2" <c:if test="${vo.contract_period eq 2}">selected</c:if>>12个月</option>
+                                    <option value="3" <c:if test="${vo.contract_period eq 3}">selected</c:if>>18个月</option>
+                                    <option value="4" <c:if test="${vo.contract_period eq 4}">selected</c:if>>24个月</option>
+                                    <option value="5" <c:if test="${vo.contract_period eq 5}">selected</c:if>>36个月</option>
+                                    <option value="6" <c:if test="${vo.contract_period eq 6}">selected</c:if>>48个月</option>
+                                    <option value="7" <c:if test="${vo.contract_period eq 7}">selected</c:if>>60个月</option>
+                                    <option value="0" <c:if test="${vo.contract_period eq 0}">selected</c:if>>其他</option>
+                                </select>
+                            </div>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">续签次数：</label>
+                            <div class="col-xs-5">
+                                <select class="form-control" name="renew_count" id="renew_count">
+                                    <option value="-1">请选择</option>
+                                    <option value="0" <c:if test="${vo.renew_count eq 0}">selected</c:if>>0次</option>
+                                    <option value="1" <c:if test="${vo.renew_count eq 1}">selected</c:if>>1次</option>
+                                    <option value="2" <c:if test="${vo.renew_count eq 2}">selected</c:if>>2次</option>
+                                    <option value="3" <c:if test="${vo.renew_count eq 3}">selected</c:if>>3次</option>
+                                    <option value="4" <c:if test="${vo.renew_count eq 4}">selected</c:if>>4次</option>
+                                    <option value="5" <c:if test="${vo.renew_count eq 5}">selected</c:if>>5次及以上</option>
+                                </select>
+                            </div>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group" style="margin-bottom:80px;">
+                            <label class="col-xs-2 control-label inviteLabel">招聘渠道：</label>
+                            <div class="col-xs-5">
+                                <select class="form-control" name="origin" id="origin">
+                                    <option value="-1">请选择</option>
+                                    <option value="1" <c:if test="${vo.origin eq 1}">selected</c:if>>拉勾网</option>
+                                    <option value="2" <c:if test="${vo.origin eq 2}">selected</c:if>>58同城</option>
+                                    <option value="3" <c:if test="${vo.origin eq 3}">selected</c:if>>智联招聘</option>
+                                    <option value="4" <c:if test="${vo.origin eq 4}">selected</c:if>>纳人</option>
+                                    <option value="5" <c:if test="${vo.origin eq 5}">selected</c:if>>猎聘</option>
+                                    <option value="6" <c:if test="${vo.origin eq 6}">selected</c:if>>前程无忧</option>
+                                    <option value="7" <c:if test="${vo.origin eq 7}">selected</c:if>>Boss直聘</option>
+                                    <option value="8" <c:if test="${vo.origin eq 8}">selected</c:if>>猎头</option>
+                                    <option value="9" <c:if test="${vo.origin eq 9}">selected</c:if>>校园招聘</option>
+                                    <option value="10" <c:if test="${vo.origin eq 10}">selected</c:if>>员工推荐</option>
+                                    <option value="11" <c:if test="${vo.origin eq 11}">selected</c:if>>其他</option>
+                                </select>
+                            </div>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group gangweiBtn" style="background:#fff;margin-left:-4.5%;">
+                            <label class="col-xs-2 control-label inviteLabel"></label>
+                            <div class="col-xs-10" style="margin-top:50px;margin-bottom:50px;margin-left:-12px;">
+                                <input type="button" id="gangweiBtnY" value="保存更新"/>
+                                <a href="/employee/list">
+                                    <input type="button" id="gangweiBtnN" value="取消"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--form end-->
+        </div>
+        <!--inviteCon end-->
+    </div>
+</div>
+
+<!--container end-->
+</body>
+<!--操作成功页  开始-->
+<div id="delS">
+    <div class="container">
+        <div class="row section">
+
+            <div class="inviteBox delhtml">
+                <div class="col-sm-8 invSBox">
+                    <div class="col-sm-12 invSText">
+                        <div>操作成功</div>
+
+                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
+                    </div>
+                </div>
+                <div class="col-sm-3 invSBtn cursor" id="delSBtn">确定</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--操作成功页  结束-->
+
+
+<!--操作确认页  开始-->
+
+<div id="delQ">
+    <div class="container">
+        <div class="row section">
+            <input type="hidden" value="" lang="${bean.id}">
+            <div class="inviteBox delhtml">
+                <div class="col-sm-8 invSBox">
+                    <div class="col-sm-12 invSText">
+                        <div>确认提交信息</div>
+
+                        <img class="delQImg" src="/static/img/employee/failIcon.png" alt=""/>
+                    </div>
+                </div>
+                <div class="col-sm-12 btnMT">
+                    <div class="cursor inline delA" id="delQDBtn">确定</div>
+                    <div class="cursor inline delM" id="delQXBtn">取消</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--操作确认页  结束-->
+
+<!--职务列表-->
+<div id="position_back">
+    <div class="position_mask"></div>
+    <div class="position_box">
+    <c:forEach items="${position_list}" var="bean">
+	        <div class="tr">
+	            <div class="tr_left" lang="${bean.id}">
+	            	${bean.name}
+	            </div>
+	            <div class="tr_right tr_right_bottom">
+	            	<c:forEach items="${bean.list}" var="bean_2">
+		                <span lang="${bean_2.id}" <c:if test="${bean_2.id eq vo.position_id}">class="select"</c:if> >${bean_2.name}</span>
+	            	</c:forEach>
+	            </div>
+	        </div>
+    	
+    </c:forEach>
+    </div>
+</div>
+<script src="/static/jedate/jquery.jedate.min.js"></script>
+<script type="text/javascript">
+    (function ($) {
+        const depList = ${data};
+        /*!function(){
+            laydate.skin('molv');
+            laydate({elem: '#demo1'});
+            laydate({elem: '#demo2'});
+            laydate({elem: '#demo3'});
+        }();
+
+        //日期范围限制
+        var start = {
+            elem: '#start',
+            format: 'YYYY-MM-DD',
+            min: laydate.now(), //设定最小日期为当前日期
+            max: '2099-06-16', //最大日期
+            istime: true,
+            istoday: false,
+            choose: function(datas){
+                end.min = datas; //开始日选好后，重置结束日的最小日期
+                end.start = datas; //将结束日的初始值设定为开始日
+            }
+        };
+
+        var end = {
+            elem: '#end',
+            format: 'YYYY-MM-DD',
+            min: laydate.now(),
+            max: '2099-06-16',
+            istime: true,
+            istoday: false,
+            choose: function(datas){
+                start.max = datas; //结束日选好后，充值开始日的最大日期
+            }
+        };
+        laydate(start);
+        laydate(end);
+
+        //自定义日期格式
+        laydate({
+            elem: '#test1',
+            format: 'YYYY年MM月DD日',
+            festival: true, //显示节日
+            choose: function(datas){ //选择日期完毕的回调
+                alert('得到：'+datas);
+            }
+        });
+
+        //日期范围限定在昨天到明天
+        laydate({
+            elem: '#hello3',
+            min: laydate.now(-1), //-1代表昨天，-2代表前天，以此类推
+            max: laydate.now(+1) //+1代表明天，+2代表后天，以此类推
+        });*/
+
+        /*function setLevelOneHover() {
+            $(".list_item").hover(function (e) {
+                $(this).parents(".list_item").find(">span").css("color", "#535E6A");
+                $(this).find(">span").css("color", "#1DC6BC");
+            }, function (e) {
+                $(this).find(">span").css("color", "#535E6A");
+            });
+        }*/
+
+        /**
+         * Normal时间插件
+         * @author Arley Joe 2017-8-9 14:50:11
+         * @param target {string} 目标触发元素
+         */
+        function initDateAll (target) {
+            $(target).jeDate({
+                isinitVal : false,
+                festival : false,
+                ishmsVal : false,
+                format : "YYYY-MM-DD",
+                zIndex : 3000,
+                isClear : true
+            });
+            $(target).addClass('datainp wicon');
+        }
+
+        //初始加载时间默认部门展开
+        function initSelected () {
+            var t = $(".list_box").find(".selected");
+            var tp = t.parent(".sub_list");
+            var levelTop = t.parent(".sub_list").parent(".list_item");
+            if (tp.length != 0) {
+                tp.show();
+                levelTop.addClass("selected");
+            }
+        }
+
+
+        //获取创建部门选择数据
+        var level = 0;
+        function showDepartmentData (data) {
+            level++;
+            var ele = "";
+            ele += '<div class="sub_list">';
+            var hisId = $.trim($(".department_desc").attr("value"));
+            for (var i = 0, len = data.length; i < len; i++) {
+                if (data[i].children.length == 0 || data[i].children == [] || data[i].children == undefined) {
+                    ele += '<div class="list_item '+ ((hisId == data[i].id) && "selected") +'" data-parent="'+ data[i].parent_id +'" data-value="'+ data[i].id +'"><span>'+ data[i].name +'</span></div>';
+                } else {
+                    var subEle = showDepartmentData(data[i].children);
+                    ele += '<div class="list_item '+ ((hisId == data[i].id) && "selected") +' has_children" data-parent="'+ data[i].parent_id +'" data-value="'+ data[i].id +'"><em class="arrow_icon"></em><span>'+ data[i].name +'</span>'+ subEle +'</div>'
+                }
+            }
+            ele += '</div>';
+
+            return ele;
+        }
+
+        //展开或者隐藏部门列表
+        function dropDownDepList() {
+            var target = $(".dep_list");
+            var body = $("body:not('.list_box')");
+            target.off("click").on("click", function (e) {
+                var e = e || window.event;
+                e.stopPropagation();
+                e.preventDefault();
+                var t = target.find(".list_box");
+                if (t.is(':hidden')) {
+                    t.show();
+                } else {
+                    t.hide();
+                }
+            });
+            body.off("click").on("click", function () {
+                var t = $(".list_box");
+                if (!t.is(':hidden')) {
+                    t.hide();
+                }
+            });
+        }
+
+
+        var chooseId = '';//选择的部门ID
+        //选中当前部门
+        function chooseDep () {
+            var t = $(".list_box").find(".list_item");
+            t.each(function () {
+                var _this = $(this);
+                _this.off("click").on("click", function (e) {
+                    var e = e || window.event;
+                    e.stopPropagation();
+                    e.preventDefault();
+                    var target = $(this);
+                    var depName = [];
+                    var depId = target.attr("data-value");
+                    chooseId = depId;
+                    var thisName = target.find(">span").text();
+                    target.parents(".list_item").each(function () {
+                        var tp = $(this);
+                        var tpName = tp.find(">span").text();
+                        tpName && depName.push(tpName);
+                    });
+                    depName.push(thisName);
+                    target.parents(".list_box").find(".list_item").removeClass("selected");
+                    target.addClass("selected");
+                    $("#department_id").val(depId);
+                    $(".department_desc").text(depName.join("-")).attr("value", depId);
+                    t.parents(".list_box").hide();
+                });
+            });
+        }
+        //展开下级部门
+        function slideDownChildrenDep () {
+            var target = $(".has_children >.arrow_icon");
+            target.each(function () {
+                var $target = $(this);
+                $target.off("click").on("click", function (e) {
+                    var _this = $(this);
+                    var subList = _this.siblings(".sub_list");
+                    var e = e || window.event;
+                    e.stopPropagation();
+                    e.preventDefault();
+                    if (subList.is(":hidden")) {
+                        _this.parents(".has_children").siblings().find(">.sub_list").slideUp(300).end().find(">.arrow_icon").removeClass("up_arrow");
+                        subList.slideDown(300);
+                        _this.addClass("up_arrow");
+                    } else {
+                        //depId = target.attr("data-value");
+                        _this.parents(".has_children").siblings().find(">.sub_list").slideUp(300);
+                        subList.slideUp(300);
+                        _this.removeClass("up_arrow");
+                    }
+                });
+            });
+
+
+
+        }
+
+        $(function () {
+            initDateAll('#demo1, #demo2, #demo3');
+            dropDownDepList();
+            var listEles = showDepartmentData(depList[0].children);
+            $(".list_box").html(listEles);
+            initSelected();
+            //setLevelOneHover();
+           slideDownChildrenDep();
+            chooseDep();
+        });
+    })(jQuery, undefined);
+	</script>
+</html>

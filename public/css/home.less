@@ -1,0 +1,90 @@
+/**
+ * Created by Arley on 2017/5/12.
+ */
+@import "variate.less";
+
+/************ 待办事项部分 ************/
+.home_container{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    .module{
+        border: 1px solid @border-color;
+    }
+}
+
+/************ 待办事项部分 Begin ************/
+.todo_content{
+    width: 98%;
+    height: auto;
+    .title{
+        position: relative;
+        padding-left: 20px;
+        background: @th-bg-color;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        &:before{
+            display: block;
+            position: absolute;
+            top: 11px;
+            left: 8px;
+            content: '';
+            height: 18px;
+            border-left: 4px solid @active-color;
+        }
+    }
+    .todo_list{
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        .no_pending_data{
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 14px;
+            color: #535e6a;
+            opacity: .5;
+        }
+        .list_item{
+            height: 90px;
+            padding: 0 20px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-size: 0;
+            cursor: pointer;
+            .item_detail{
+                display: inline-block;
+                width: 80%;
+                height: 90px;
+                font-size: 12px;
+                .last_person,.desc{
+                    height: 45px;
+                    line-height: 60px;
+                    overflow: hidden;
+                }
+                .last_person{
+                    opacity: .9;
+                }
+                .desc{
+                    line-height: 20px;
+                }
+            }
+            &:hover{
+                background: @th-bg-color;
+            }
+        }
+        .last_time{
+            font-size: 12px;
+            display: inline-block;
+            width: 20%;
+            height: 90px;
+            line-height: 90px;
+            text-align: right;
+            vertical-align: top;
+            opacity: .7;
+        }
+    }
+}
+/************ 待办事项部分 End ************/

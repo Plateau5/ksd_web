@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+.st_tree{
+	height:auto;
+}
+
+.st_tree a{ 
+	text-decoration:none;
+	color:#535E6A;
+}
+
+.department{
+	position: relative;
+}
+.clearP{
+	width:60%;height:auto;
+	margin-left:15%;
+	background:#fff;
+	margin-top:30px;
+	float:left;
+}
+
+.pad{
+	padding-left:18px;
+	margin:0;
+	position: relative;
+	/*z-index:999;*/
+}
+
+.st_tree ul li[class*="font1"]{
+	height:20px;
+	font-size:12px;
+	color:#535E6A;
+	line-height:20px;
+	/*cursor:pointer;*/
+	/*list-style:none;*/
+	position:relative;
+	margin-top:30px;
+}
+.st_tree ul li[class*="font2"]{
+	height:20px;
+	font-size:12px;
+	color:#535E6A;
+	line-height:20px;
+	/*cursor:pointer;*/
+	/*list-style:none;*/
+	position:relative;
+	margin-top:18px;
+}
+.st_tree ul li[children="1"]{
+	cursor: pointer;
+}
+.st_tree ul li[children="0"],.st_tree ul li[children="0"]>a{
+	cursor: default;
+}
+img[class*="addImgLeft"]{
+	cursor: pointer;
+}
+.st_tree>ul{
+	position: relative;
+}
+.st_tree li .departmentImg{
+	position: absolute;
+	right:106px;top:4px;
+	z-index:1;
+}
+.st_tree li .departmentImg2{
+	position: absolute;
+	right:106px;top:4px;
+	z-index:1;
+}
+
+
+.st_tree .folder{
+	list-style-image:url("/static/img/department/st_icon.png");
+}
+
+.st_tree .open{
+	list-style-image:url("/static/img/department/st_icon_open.png");
+}
+
+/*娣诲姞*/
+.treeBox{
+	width:118px;
+	background:#fff;
+	border:1px solid #1DC6BC;
+	font-size: 12px;
+	position: absolute;
+	top:20px;right:0;
+	z-index:2;
+	display:none;
+}
+.treeBox div{
+	width:100%;height:23px;
+	line-height: 23px;
+	text-align: left;
+	padding-left:26px;
+}
+.treeBox div:hover{
+	color:#1DC6BC;
+	cursor: pointer;
+}
+.mask{
+	width:100%;
+	position: absolute;
+	left:0;top:0;
+	z-index:999;
+}
+
+
+
+

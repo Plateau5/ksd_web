@@ -1,0 +1,48 @@
+
+.material_box{
+    width:856px;
+    /*margin:0 auto;*/
+    margin-top:20px;
+}
+.check{
+    width:25%;height:30px;
+    line-height: 30px;
+    float:left;
+}
+.check_img{
+    float:left;
+    margin-right:8px;
+    margin-top:9px;
+    cursor: pointer;
+}
+.clearboth{
+    display: block;
+    clear: both;
+}
+.icon_check{
+    width:12px;height:12px;
+    background:url('/static/img/organization/icon_check.png') center center no-repeat;
+}
+.icon_uncheck{
+    width:12px;height:12px;
+    background:url('/static/img/organization/icon_uncheck.png') center center no-repeat;
+}
+.material_btn{
+    width:856px;
+    /*margin:0 auto;*/
+    margin-top:50px;
+}
+.material_sub,.cancel_btn{
+    width:110px;height:30px;
+    color:#fff;
+    border-radius: 3px;
+    border:0;
+    outline: none;
+}
+.material_sub{
+    background-color:#1DC6BC;
+}
+.cancel_btn{
+    margin-left:30px;
+    background-color:#a0a0a0;
+}

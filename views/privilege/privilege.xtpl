@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/manufacturing.css">
+    <link rel="stylesheet" href="/static/css/privilege.css">
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <title>权限管理-创建角色</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        <!-------- Part of header Begin -------->
+        {{include('./../inc/header')}}
+        <!-------- Part of header End -------->
+
+        <!-------- Part of main Begin -------->
+        <div id="section" class="section normal_width">
+            <!---- Part of slide nav Begin ---->
+            {{include('./../inc/sideNav')}}
+            <!---- Part of slide na End ---->
+
+            <!---- Part of Main info Begin ---->
+            <div id="main" class="main">
+                <div class="crumbs_nav">
+                    <a href="/privilege/roles/list" class="crumbs_item">角色管理</a>
+                    <a href="javascript:;" class="crumbs_item">
+						<c:choose>
+							<c:when test="${roleId == null}">
+								新建角色
+							</c:when>
+							<c:otherwise>
+								修改角色
+							</c:otherwise>
+						</c:choose>
+					</a>
+                </div>
+                <div class="create_character">
+                    <div class="title bold">基本信息</div>
+                    <div class="form_row">
+                        <div class="column_l"><em class="require_icon">*</em>角色名称：</div>
+                        <div class="column_r">
+                            <input type="text" name="id" data-id="${roleId}" data-type="" id="rolePrivilege" placeholder="请输入角色名称，如:客服主管(15个字以内)" maxlength="15" value="${name}">
+                            <span class="error_msg mar_left_20"></span>
+                        </div>
+                    </div>
+                    <div class="form_row textarea_container">
+                        <div class="column_l">角色描述：</div>
+                        <div class="column_r">
+                            <textarea name="remark" id="roleRemark" placeholder="请输入角色描述(50个字以内)" maxlength="50" value="${remark}">${remark}</textarea>
+                            <div class="error_msg"></div>
+                        </div>
+                    </div>
+                    <div class="title bold">权限配置</div>
+                    <div class="privilege_box">
+                        <div class="no_datas">
+                            <img src="/static/img/loading_icon.gif" class="img_responsive" alt="loading：正在加载页面数据">
+                        </div>
+                        <!-- 以下位置为权限列表部分的内容 -->
+
+
+                    </div>
+                    <per:button code="1239">
+                        <div class="btn_box text_left">
+                            <a href="javascript:" class="btn orange_btn confirm save_btn">保存</a>
+                            <a href="javascript:" class="btn bg_btn cancle cancle_btn">取消</a>
+                        </div>
+                    </per:button>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+            <!---- Part of Main info End ---->
+        </div>
+        <!-------- Part of main End -------->
+
+        <!-------- Part of footer Begin -------->
+        <!--<div id="footer" class="footer"></div>-->
+        <!-------- Part of footer End -------->
+    </div>
+</body>
+<c:choose>
+    <c:when test="${roleId == null}">
+        <script>
+            var createType = '新建'; //新建
+        </script>
+    </c:when>
+    <c:otherwise>
+        <script>
+            var createType = '修改'; //修改
+        </script>
+    </c:otherwise>
+</c:choose>
+{{include('./../inc/jsSources')}}
+<script src="/static/dialog/dialog-layer.js"></script>
+</html>
+<script>
+    (function ($) {
+        /*//设置权限列表的鼠标悬停效果
+         function privilegeItemHover () {
+         var items = $(".form_group");
+         items.each(function () {
+         var t = $(this);
+         /!*t.hover(function () {
+
+         }, function () {
+         $(this).removeClass("is_hover");
+         });*!/
+         t.on('mouseenter', function () {
+         $(this).addClass("is_hover");
+         });
+         t.on("mouseleave", function () {
+         $(this).removeClass("is_hover");
+         })
+         });
+         }*/
+
+        var privilegeList = ${function_list};   //权限数据集合
+        var ROLETYPE = null;    //提交类型：1：编辑 0：创建
+        var originPrivilege = null;     //原始创建数据
+        var nameValidated = null;  //角色名称是否符合要求
+        var descValidated = null;  //角色备注是否符合要求
+
+        //生成权限列表
+        function createPrivilegeNode (list, isTopLevel) {
+            var eleHtml = [];
+            var str = "";
+            if (list.length != 0) {
+                for (var i = 0,len = list.length; i < len; i++) {
+                    str += '<ul class="sub_list" level="l'+ list[i].level +'">\
+                                <li class="list_item '+ (isTopLevel ? 'top-level_item' : '') +'" level="l'+ list[i].level +'" isParentNode="'+ ((list[i].children.length === 0) ? 'false' : 'true') +'">\
+                                    <div class="form_group" level="l'+ list[i].level +'">\
+                                        <input type="checkbox" class="" name="id" value="'+ list[i].id +'" checked="'+ (list[i].checked === 1 ? 'checked' : (list[i].checked === 0 ? 'checked' : '')) +'" level="l'+ list[i].level +'" />\
+                                        <label class="'+ (list[i].checked === -1 ? '' : (list[i].checked === 0 ? 'check' : 'checked')) +'"  level="l'+ list[i].level +'">\
+                                            <span>'+ list[i].name +'</span>'
+                            + ((list[i].description == undefined || list[i].description == "" || list[i].description == null) ?
+                                    '' :
+                            '<em class="text_mark">\
+                                <div class="mark_box">\
+                                    <div class="mark_title lf">包括权限：</div>\
+                                    <p class="mark_desc">'+ list[i].description +'</p>\
+                                                </div>\
+                                            </em>') +
+                            '</label>\
+                        </div>'
+                            +
+                            ((list[i].children.length != 0) ? createPrivilegeNode(list[i].children, false) : '')
+                            +
+                            (isTopLevel ? '<em class="slidedown_arrow slidedown_up_arrow"></em>' : '')
+                            +
+                            '</li>\
+                        </ul>';
+
+                }
+                eleHtml.push(str);
+            }
+            return eleHtml.join('');
+        }
+
+        //更新页面权限列表
+        function createPagePrivilegeView () {
+            var ele = createPrivilegeNode(privilegeList, true);
+            $(".privilege_box").find(".no_datas").hide().end().append(ele);
+        }
+        //自动识别角色创建类别
+        !(function () {
+            var ele = $("#rolePrivilege");
+            var val = ele.val();
+            val ? ele.data("type", 1) : ele.data("type", 0);
+            ROLETYPE = val ? 1 : 0;
+            //console.log(ROLETYPE);
+        })(jQuery, $);
+
+        //含有子级权限的展开折叠效果
+        function slideDownList () {
+            var arrowBtn = $(".slidedown_arrow");
+            arrowBtn.each(function () {
+                var _this = $(this);
+                _this.off("click").on("click", function () {
+                    var t = $(this);
+                    var childPrivilege = t.parents(".list_item.top-level_item").find(">.sub_list");
+                    if (childPrivilege.is(":hidden")) {
+                        childPrivilege.slideDown(300).parents(".top-level_item").find(".slidedown_arrow").addClass("slidedown_up_arrow");
+                    } else {
+                        childPrivilege.slideUp(300).parents(".top-level_item").find(".slidedown_arrow").removeClass("slidedown_up_arrow");
+                    }
+                });
+            });
+        }
+
+        //点击父级权限后全选下面的子级权限
+        function checkAllChildPrivilege () {
+            var parentPrivilege = $(".list_item[isParentNode='true'] > .form_group > label"); //所有父级权限的label元素
+            parentPrivilege.each(function () {
+                var $this = $(this);    //当前父级权限的label元素
+                var thisLevel = $this.attr("level");
+                $this.on("click", function (e) {
+                    var e = e || window.event;
+                    e.stopPropagation();
+                    e.preventDefault();
+                    var  t = $(this);
+                    t.removeClass("check"); //先去掉父级权限的半选中状态，这个很必要
+                    var $label = t.parents(".list_item[level='"+ thisLevel +"']").find(".list_item[level='l"+ (Number(thisLevel.substring(1)) + 1) +"'] label");  //子孙级权限的label元素
+                    $label.each(function () {
+                        var targetLabel = $(this);
+                        if (t.hasClass("checked")) {
+                            targetLabel.removeClass("checked check").addClass("checked").siblings("input[type='checkbox']").attr('checked', true);
+                        } else {
+                            targetLabel.removeClass("checked check").siblings("input[type='checkbox']").attr('checked', false);
+                        }
+                    });
+                    changeParentsChecked($this, thisLevel);
+                });
+
+            });
+            function changeParentsChecked (t, l) {
+                var le = Number(l.substring(1));
+                var _thisPrivilegeBox = t.parents(".sub_list[level='l"+ le +"']");   //当前点击的含有子权限的父权限节点
+                var checkedSelf = t.hasClass("checked") ? true : false; //当前点击的权限是选中或是取消选中
+                for (var level = le;level > 1;level--) {
+                    var parentPrivilege = t.parents(".sub_list[level='l"+ (level - 1) +"']"),   //当前循环时的权限直接父级权限
+                            parentLabel = parentPrivilege.find("label[level='l"+ (level - 1) +"']"),
+                            parentInput = parentPrivilege.find("input[level='l"+ (level - 1) +"']");
+                    var haveCheckedAllPrivilege = 1;    //循环的父级权限的子权限是否全选了：-1：全没选  0：未全选 1：全选
+                    var childPrivilegeLabel = parentPrivilege.find(".sub_list[level='l"+ level +"']").not(_thisPrivilegeBox).find("label");
+                    if (childPrivilegeLabel.length == 0) {
+                        haveCheckedAllPrivilege = checkedSelf ? 1 : -1;
+                    }
+                    childPrivilegeLabel.each(function () {
+                        var t = $(this);
+                        if (checkedSelf) {
+                            if (t.hasClass("check") || (!t.hasClass("checked") && !t.hasClass("check"))) {
+                                haveCheckedAllPrivilege = 0;
+                                return false;
+                            }
+                        } else {
+                            if (t.hasClass("check") || t.hasClass("checked")) {
+                                haveCheckedAllPrivilege = 0;
+                                return false;
+                            } else {
+                                haveCheckedAllPrivilege = -1;
+                            }
+                        }
+
+                    });
+                    if (haveCheckedAllPrivilege === 1) {
+                        parentLabel.removeClass("checked check").addClass("checked");
+                        parentInput.attr("checked", true);
+                    } else if (haveCheckedAllPrivilege === 0) {
+                        parentLabel.removeClass("checked check").addClass("check");
+                        parentInput.attr("checked", true);
+                    } else {
+                        parentLabel.removeClass("checked check");
+                        parentInput.attr("checked", false);
+                    }
+                }
+            }
+        }
+
+        //点击子级后反选父级权限
+        function checkParentPrivilege () {
+            /*以下所有的子权限皆为除顶级权限外的权限*/
+            var childPrivilege = $("li[isParentNode='false'] > .form_group >label");
+            childPrivilege.each(function () {
+                var $this = $(this),
+                    $level = $this.attr("level").substring(1);
+                $this.on("click", function (e) {
+                    var e = e || window.event;
+                    e.stopPropagation();
+                    e.preventDefault();
+                    var _this = $(this);
+                    var haveCheckedAllChild = false;    //是否子级权限已经全部选择：true:是 false:否
+                    var haveCheckedChild = false;
+                    for (var level = $level; level > 1; level--) {
+                        var parentPrivilege = _this.parents(".sub_list[level='l"+ (level - 1) +"']"),    //直接父级权限容器
+                                parentLabel = parentPrivilege.find("label[level='l"+ (level - 1) +"']"), //直接父级权限label元素
+                                parentInput = parentPrivilege.find("input[level='l"+ (level - 1) +"']"); //直接父级权限input元素
+                        var pChildPrivilege = parentPrivilege.find(".sub_list[level='l"+ (level) +"']");//直接父级权限下的子权限容器（即为：当前循环中的权限的兄弟权限容器）
+                        if (_this.hasClass("checked")) {
+                            //if (pChildPrivilege.length > 1) {   //子级权限是否为多个
+                                pChildPrivilege.each(function () {
+                                    var t = $(this);
+                                    var parentNodeLabel = t.find(">.list_item[level='l"+ level +"'] >.form_group  label");  //当前点击的子级权限的label元素
+                                    if (parentNodeLabel.hasClass('check')) {    //如果父级权限有check类，则父级权限下的子权限没有全部勾选
+                                        haveCheckedAllChild = false;
+                                        return false;
+                                    } else if (!parentNodeLabel.hasClass('checked')) {  //如果父级权限没有checked类，则父级权限下的子权限没有全部勾选（仅限于截止当前循环）
+                                        haveCheckedAllChild = false;
+                                        return false;
+                                    } else {
+                                        haveCheckedAllChild = true;
+                                    }
+                                });
+                                if (haveCheckedAllChild) {
+                                    parentLabel.removeClass("checked check").addClass("checked");
+                                    parentInput.attr("checked", true);
+                                } else {
+                                    parentLabel.removeClass("checked check").addClass("check");
+                                    parentInput.attr("checked", true);
+
+                                }
+                            //} else {
+                                //parentLabel.removeClass("checked check").addClass("checked");
+                               // parentInput.attr("checked", true);
+                                /*if (haveCheckedAllChild) {
+
+                                } else {
+                                    parentLabel.removeClass("checked check").addClass("check");
+                                    parentInput.attr("checked", true);
+                                }*/
+
+                           // }
+                        } else {
+                            //if (pChildPrivilege.length > 1) {
+                                pChildPrivilege.each(function () {
+                                    var t = $(this);
+                                    var checkedLabel = t.find("label.checked");
+                                    if (checkedLabel.length > 0) {
+                                        haveCheckedChild = true;
+                                        return false;
+                                    }
+                                });
+                                if (haveCheckedChild) {
+                                    parentLabel.removeClass("checked check").addClass("check");
+                                    parentInput.attr("checked", true);
+                                } else {
+                                    parentLabel.removeClass("checked check");
+                                    parentInput.attr("checked", false);
+                                }
+                            /*} else {
+                                if (haveCheckedChild) {
+                                    parentLabel.removeClass("checked check").addClass("check");
+                                    parentInput.attr("checked", false);
+                                } else {
+                                    parentLabel.removeClass("checked check");
+                                    parentInput.attr("checked", false);
+                                }
+
+                            }*/
+                        }
+                    }
+                });
+            });
+
+        }
+
+        //获取创建角色数据
+        function getRoleData () {
+            var elem = {
+                roleEle : $("#rolePrivilege"),
+                remark : $("#roleRemark"),
+                pList : $(".privilege_box .form_group")
+            };
+            var data = {};
+            var id = $.trim(elem.roleEle.data("id")),
+                name = $.trim(elem.roleEle.val()),
+                remark = elem.remark.val();
+            id && (data.id = id);
+            data.name = name;
+            remark && (data.remark = remark);
+            data.data = getCheckedPrivilege() ;
+
+            //获取选中权限集合
+            function getCheckedPrivilege () {
+                var pArr = [];  //用于保存选中的权限集合
+                elem.pList.each (function () {
+                    var $this = $(this);
+                    var _thisInput = $this.find(">input[type='checkbox'][checked='checked']"); //当前权限的input元素
+                    var _thisLabel = _thisInput.siblings("label");  //当前权限的label元素
+                    var pObj = {};  //选中的权限的数据Object
+                    var pId = $.trim(_thisInput.val());  //选中的角色ID
+                    var checkedType = null;
+                    if (_thisLabel.hasClass("check")) {
+                        checkedType = 0;
+                    } else if (_thisLabel.hasClass("checked")) {
+                        checkedType = 1;
+                    }
+                    if (checkedType === 0 || checkedType === 1) {
+                        pObj.id = pId;
+                        pObj.checked = checkedType;
+                        pArr.push(pObj);
+                    }
+                });
+                pArr = JSON.stringify(pArr);
+                return pArr;
+            }
+            return data;
+        }
+
+        //角色名称及角色描述的输入监听
+        function roleValid () {
+            var nameEle = $("#rolePrivilege");
+            var descEle = $("#roleRemark");
+            nameEle.off("input").on("input", function () {
+                nameValidated = true;
+                var _this = $(this);
+                var val = $.trim(_this.val());
+                if (val.length > 15) {
+                    nameValidated = false;
+                    _this.siblings(".error_msg").show().text("(*最多只能输入15个字)");
+                } else {
+                    nameValidated = true;
+                    _this.siblings(".error_msg").hide().text("");
+                }
+            });
+            descEle.off("input").on("input", function () {
+                var _this = $(this);
+                var val = $.trim(_this.val());
+                descValidated = true;
+                if (val.length > 50) {
+                    descValidated = false;
+                    _this.siblings(".error_msg").show().text("(*最多只能输入50个字)");
+                } else {
+                    descValidated = true;
+                    _this.siblings(".error_msg").hide().text("");
+                }
+            });
+        }
+
+        //创建结果校验
+        function validChoosedPrivilege () {
+            var result = getRoleData();
+            //result.data = eval("("+ result.data +")");
+            //originPrivilege.data = eval("("+ originPrivilege.data +")");
+            var a = eval("("+ result.data +")");
+            if (result.name == '' || result == null || result.name == undefined) {
+                $alert("请先输入创建的角色名称");
+                return false;
+            } else if (nameValidated === false) {
+                $alert("您输入的角色名称过长，请输入少于或等于15个字");
+                return false;
+            } else if (descValidated === false) {
+                $alert("您输入的角色描述文字过多，请输入少于或等于50个字");
+                return false;
+            } else if (a.length == undefined || a.length == 0) {
+                $alert("您还未选择任何权限，请先给该角色选择权限");
+                return false;
+            } else if (JSON.stringify(result) == JSON.stringify(originPrivilege)) {
+                $alert("您还未做任何更改，请先做修改后保存");
+                return false;
+            }
+            return true;
+        }
+
+        //保存按钮的事件绑定
+        function saveRoleEdit () {
+            var btn = $(".save_btn");
+            btn.off("click").on("click", function () {
+                var t = $(this);
+                saveRoleEditLogic(t);
+            });
+        }
+
+        //保存事件的逻辑
+        function saveRoleEditLogic (btn) {
+            var validated = validChoosedPrivilege();
+            if (validated) {
+                btn.off("click");
+                var data = getRoleData();
+                //console.log(JSON.stringify(data));
+                var url = null;
+                if (ROLETYPE === 1) {
+                    url = contextPath + "/api/privilege/role/update";
+                } else if (ROLETYPE === 0) {
+                    url = contextPath + "/api/privilege/role/create";
+                } else {
+                    throw new Error("The ajax url parameter is not defined. Please check it.");
+                }
+                $ajax("post", url, data, function (res) {
+                    if (res.error_code == 0) {
+                        $alert("角色"+ createType +"成功。", function () {
+                            window.location.href = contextPath + "/privilege/roles/list";
+                        });
+                    } else {
+                        $alert("角色"+ createType +"失败，请重试。", function () {
+                            saveRoleEdit(); //重新绑定按钮事件
+                        });
+                    }
+                }, function () {
+                    $alert("角色"+ createType +"失败，请重试。", function () {
+                        saveRoleEdit(); //重新绑定按钮事件
+                    });
+                });
+            }
+        }
+
+        //去掉权限tips层的事件冒泡
+        function delTipsEvent () {
+            var elem = $(".sub_list .text_mark");
+            elem.on("click", function (e) {
+                var e = e || window.event;
+                e.stopPropagation();
+                e.preventDefault();
+                return false;
+            });
+        }
+
+        $(function() {
+//            privilegeItemHover();     //权限条目的鼠标悬停效果（暂时不做处理）
+            createPagePrivilegeView();      //创建权限列表HTML元素
+            delTipsEvent();
+            originPrivilege = getRoleData();        //初始化设置当前角色原始选中权限
+            //console.log(originPrivilege);
+            roleValid();    //角色名称及详细信息输入框的监听事件
+            resetCheckboxAndRadio('checkbox', ".form_group label", ".checked");     //加载重构的checkbox样式
+            slideDownList();        //展开折叠效果加载
+            checkAllChildPrivilege();       //全选子级权限
+            checkParentPrivilege();         //反选父级权限的事件注册
+            saveRoleEdit();     //保存按钮的点击事件注册
+            cancleEvent();      //取消按钮的点击事件注册
+        });
+    })(jQuery,undefined);
+</script>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/manufacturing.css">
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/privilege.css">
+    <title>权限管理-修改人员角色</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        <!-------- Part of header Begin -------->
+        {{include('./../inc/header')}}
+        <!-------- Part of header End -------->
+
+        <!-------- Part of main Begin -------->
+        <div id="section" class="section normal_width">
+            <!---- Part of slide nav Begin ---->
+            {{include('./../inc/sideNav')}}
+            <!---- Part of slide na End ---->
+
+            <!---- Part of Main info Begin ---->
+            <div id="main" class="main">
+                <div class="crumbs_nav">
+                    <a href="/privilege/user/getList" class="crumbs_item">人员管理</a>
+                    <a href="javascript:;" class="crumbs_item">${employee_name}</a>
+                    <a href="javascript:;" class="crumbs_item">修改角色</a>
+                </div>
+                <div class="set_character">
+                    <form action="" id="editPersonnelRole">
+                        <div class="row_item">
+                            <div class="row_title" id="employeeId" data-id="${employee_id}">人员姓名：</div>
+                            <div class="row_val personnel_name">
+                                <span>${employee_name}</span>
+                            </div>
+                        </div>
+                        <div class="row_item belong_character">
+                            <div class="row_title "><em class="require_icon">*</em>所属角色：</div>
+                            <div class="row_val">
+                                <c:forEach items="${role_list}" var="bean">
+                                    <div class="form_group">
+                                        <input type="checkbox" class="" name="id" value="${bean.id}" data-name="${bean.name}" <c:if test="${bean.checked == true}">checked="checked"</c:if> />
+                                        <label <c:if test="${bean.checked == true}">class="checked"</c:if>>${bean.name}</label>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
+                        <div class="row_item data_level">
+                            <div class="row_title "><em class="require_icon">*</em>数据范围：</div>
+                            <div class="row_val">
+                                <div class="form_group pad_top_0">
+                                    <input id="city" type="radio" class="" name="data_level" value="3" <c:if test="${data_level eq 3}">checked="checked"</c:if>/>
+                                    <label for="city">城市</label>
+                                </div>
+                                <div class="form_group pad_top_0">
+                                    <input id="group" type="radio" class="" name="data_level"  value="2" <c:if test="${data_level eq 2}">checked="checked"</c:if>/>
+                                    <label for="group">小组</label>
+                                </div>
+                                <div class="form_group pad_top_0">
+                                    <input id="personnel" type="radio" class="" name="data_level" value="1" <c:if test="${data_level eq 1}">checked="checked"</c:if>/>
+                                    <label for="personnel">个人</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row_item charge_areas">
+                            <div class="row_title "><em class="require_icon">*</em>负责区域：</div>
+                            <div class="row_val">
+                                <c:forEach items="${principal_city}" var="bean">
+                                    <div class="form_group">
+                                        <input type="checkbox" class="" name="" value="${bean.id}" <c:if test="${bean.checked == true || bean.id eq work_city}">checked="checked"</c:if> />
+                                        <label  
+                                        <c:choose>
+			                                <c:when test="${bean.id eq work_city}">
+			                                    class="disabled checked" isWorkCity="true"
+			                                </c:when>
+			                                <c:when test="${bean.checked == true || bean.id eq work_city}">
+			                                    class="checked"
+			                                </c:when>
+			                                <c:when test="${data_level eq 1 || data_level eq 2}">
+			                                    class="disabled"
+			                                </c:when>
+			                            </c:choose>
+                                        >${bean.name}</label>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
+                        <div class="row_item charge_business">
+                            <div class="row_title "><em class="require_icon">*</em>负责业务：</div>
+                            <div class="row_val">
+                                <div class="form_group">
+                                    <input id="newCars" type="checkbox" <c:if test="${fn:contains(principal_car,'0') }">checked="checked"</c:if> class="apply_scope" name="apply_scope"  value="0" />
+                                    <label for="newCars" <c:if test="${fn:contains(principal_car,'0')}">class="checked"</c:if> >新车</label>
+                                </div>
+                                <div class="form_group">
+                                    <input id="usedCars" type="checkbox" <c:if test="${fn:contains(principal_car,'1') }">checked="checked"</c:if> class="apply_scope" name="apply_scope" value="1" />
+                                    <label for="usedCars" <c:if test="${fn:contains(principal_car,'1')}">class="checked"</c:if> >二手车</label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                    <per:button code="1247">
+                        <div class="btn_box text_left">
+                            <a href="javascript:" class="btn orange_btn confirm eidt_personnel_role">保存修改</a>
+                            <a href="javascript:" class="btn bg_btn cancle">取消</a>
+                        </div>
+                    </per:button>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+            <!---- Part of Main info End ---->
+        </div>
+        <!-------- Part of main End -------->
+
+        <!-------- Part of footer Begin -------->
+        <!--<div id="footer" class="footer"></div>-->
+        <!-------- Part of footer End -------->
+    </div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/dialog/dialog-layer.js" type="text/javascript"></script>
+</html>
+<script>
+    (function ($) {
+        var checkRadio = ${data_level};
+        var originRole = getCheckedRole();
+        //授权角色保存按钮逻辑
+        function saveBtnEvent () {
+            var btn = $(".eidt_personnel_role");
+            btn.off("click").on("click", function () {
+                var $this = $(this);
+                editPersonnelRole($this);
+            });
+        }
+        //监听单选按钮的切换事件
+        function dataLevelChecked () {
+            var elem = $(".data_level");
+            var radio = elem.find("input[type='radio']");
+            var dataType = false;   //城市数据类型鉴别
+            radio.on("change", function () {
+                var _this = $(this);
+                checkRadio = Number(_this.val());
+                var dataLevel = _this.val();
+                if (dataLevel != 3) {
+                    dataType = false;
+                } else {
+                    dataType = true;
+                }
+                setChargeArea();
+            });
+
+            //禁用或是重设城市的多选
+            function setChargeArea () {
+                var elem = $(".charge_areas");
+                var labels = elem.find("label");
+                labels.each(function () {
+                    var _this = $(this);
+                    if (_this.attr("isWorkCity") != 'true') {
+                        if (dataType) { //选择的为城市
+                            _this.removeClass("disabled");
+                        } else {
+                            _this.removeClass("checked").addClass("disabled").siblings("input[type='checkbox']").attr("checked", false);
+                        }
+                    }
+                });
+            }
+        }
+
+        //获取选中数据
+        function getCheckedRole () {
+            var checkedData = {};
+            //获取员工ID
+            checkedData.employee_id = $.trim($("#employeeId").data("id"));
+            checkedData.role_type = '2';
+            //获取选择角色
+            var roleEle = $(".belong_character").find("input[type='checkbox'][checked='checked']");
+            var rolesArr = [],
+                    roleNamesArr = [];
+            roleEle.each(function () {
+                var _this = $(this);
+                var val = $.trim(_this.val());
+                var name = $.trim(_this.data("name"));
+                rolesArr.push(val);
+                roleNamesArr.push(name);
+            });
+            checkedData.role_ids = rolesArr.join(",");
+            checkedData.role_names = roleNamesArr.join(",");
+
+            //获取选择数据级别
+            /*var levelEles = $(".data_level").find("input[type='radio'][checked='checked']");
+            var levelsArr = [];
+            levelEles.each(function () {
+                var _this = $(this);
+                var val = _this.val();
+                levelsArr.push(val);
+            });
+            checkedData.data_level = levelsArr.join(",");*/
+            checkedData.data_level = checkRadio;
+
+            //获取选择城市
+            var areaEles = $(".charge_areas").find("input[type='checkbox'][checked='checked']");
+            var areasArr = [];
+            areaEles.each(function () {
+                var _this = $(this);
+                var val = _this.val();
+                areasArr.push(val);
+            });
+            checkedData.principal_city = areasArr.join(",");
+
+            //获取选择业务类型
+            var businessEles = $(".charge_business").find("input[type='checkbox'][checked='checked']");
+            var businessArr = [];
+            businessEles.each(function () {
+                var _this = $(this);
+                var val = _this.val();
+                businessArr.push(val);
+            });
+            checkedData.principal_car = businessArr.join(",");
+
+            return checkedData;
+        }
+
+        //校验是否选择角色及数据权限或是变动
+        function validCheckedRole (d) {
+            //console.log(checkedData);
+            //console.log(originRole);
+            if (d.role_ids == '' || d.role_ids == undefined || d.role_ids == null) {
+                $alert("您还未选择所属角色，请先选择所属角色。");
+                return false;
+            } else if (d.data_level == '' || d.data_level == undefined || d.data_level == null) {
+                $alert("您还未选择数据范围，请先选择数据范围。");
+                return false;
+            } else if (d.principal_city == '' || d.principal_city == undefined || d.principal_city == null) {
+                $alert("您还未选择负责区域，请先选择负责区域。");
+                return false;
+            } else if (d.principal_car == '' || d.principal_car == undefined || d.principal_car == null) {
+                $alert("您还未选择负责业务，请先选择负责业务。");
+                return false;
+            } else if (JSON.stringify(d) == JSON.stringify(originRole)) {
+                $alert("您还未做任何更改。");
+                return false;
+            }
+            return true;
+        }
+
+        //检测该人员是否有待处理事项
+        function validPendingMatters (uid) {
+            var haveMatters = 0;    //是否有待处理事项：-1：报错  0：没有  1：有
+            var url = contextPath + "/api/message/employee/count";
+            var data = {
+                employee_id : uid
+            };
+            $.ajax({
+                type : 'post',
+                dataType : 'json',
+                url : url,
+                data : data,
+                async : false,
+                success : function (res) {
+                    var data = res;
+                    if (data.error_code == 0) {
+                        if (data.count > 0) {
+                            haveMatters = 1;
+                        }
+                    }
+                },
+                error : function () {
+                    $alert("网络错误，请稍后重试");
+                    haveMatters = -1;
+                }
+            });
+            return haveMatters;
+        }
+
+
+        //给人员授权角色逻辑
+        function editPersonnelRole (btn) {
+            var data = getCheckedRole();
+            var validated = validCheckedRole(data);
+            var url = contextPath + "/api/privilege/user/assignRoles";
+            if (validated) {
+                var haveMatters = validPendingMatters(data.employee_id);
+                if (haveMatters === 1) {
+                    dialog("open", {
+                        content : "此人当前角色有代办事项未完成，是否现在切换角色？",
+                        onConfirm : function (_this) {
+                            _this.close();
+                            saveEdit();
+                        },
+                        onCancel : function (_this) {
+                            _this.close();
+                        }
+                    });
+                } else if (haveMatters === 0) {
+                    saveEdit();
+                }
+            } else {
+                $alert("您未做任何更改后点击保存，或者取消修改");
+            }
+
+            function saveEdit () {
+                btn.off("click");
+                $ajax("post", url, data, function (res) {
+                    if (res.error_code == 0) {
+                        $alert("角色设置成功", function () {
+                            window.location.href = contextPath + "/privilege/user/getList";
+                        });
+                    } else {
+                        $alert("角色设置失败，请稍后重试", function () {
+                            saveBtnEvent();
+                        });
+                    }
+                }, function () {
+                    $alert("角色设置失败，请稍后重试", function () {
+                        saveBtnEvent();
+                    });
+                });
+            }
+        }
+
+
+
+
+        $(function() {
+            resetCheckboxAndRadio('checkbox', ".form_group label", ".checked");
+            dataLevelChecked();
+            saveBtnEvent();
+            cancleEvent();
+        });
+    })(jQuery,undefined);
+</script>

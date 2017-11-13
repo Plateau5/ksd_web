@@ -1,0 +1,214 @@
+<!--入库-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="/static/css/manufacturing.css">
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/warehouse.css">
+    <title>行政管理-入库</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main org_product">
+            <div class="crumbs_nav">
+                <a href="/administrative/warehouse/list" class="crumbs_item">行政仓库</a>
+                <a href="javascript:;" class="crumbs_item">${vo.name}</a>
+            </div>
+            <form action="/administrative/equipment/list" method="post" id="form_search" role="form">
+                <input type="hidden" id="warehouse_id" name="parent_id" value="${warehouse_id}">
+            </form>
+            <div class="gps_details administrative_details">
+                <div class="warehouse_info">
+                    <div class="name"><em class="name_icon"></em><span>${vo.name}</span></div>
+                    <div class="create_info nowrap">
+                        <span class="create_time">${vo.create_time}</span>
+                        <span class="founder nowrap">创建人：<samp title="${vo.create_name}">${vo.create_name}</samp></span>
+                    </div>
+                </div>
+                <div class="sn_details a_details">
+                    <div class="tab">
+                        <div class="detail_title inline_block">库存详情</div>
+                        <a href="javascript:" class="detail_title_btn create_btn create_equipment" data-id="${warehouse_id}" data-name="${vo.name}"><em></em>新增入库</a>
+                    </div>
+                    <div class="filtrate">
+                        <div class="filtrate_item date_conditions">
+
+                            <div class="inline_block">
+                                <div class="conditions_name inline_block filtrate_tags" style="margin-left: 0;">标签：</div>
+                                <select name="label_id" class="filtrate_select" id="filtrate_tags">
+                                    <option value="">--请选择--</option>
+                                    <c:forEach items="${label_list }" var="bean">
+	                                    <option value="${bean.id }" <c:if test="${bean.id eq condition.label_id }">selected</c:if> >${bean.name}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <div class="inline_block">
+                                <div class="conditions_name inline_block filtrate_city">使用情况：</div>
+                                <select name="status" class="filtrate_select order_status_select" id="filtrate_city">
+                                    <option value="">--请选择--</option>
+                                    <option value="2" <c:if test="${2 eq condition.status }">selected</c:if>>已使用</option>
+                                    <option value="1" <c:if test="${1 eq condition.status }">selected</c:if>>未使用</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 库存列表 -->
+                    <table class="sn_list not_out_list">
+                        <colgroup style="width: 100%;">
+                            <col style="width: 20%;" />
+                            <col style="width: 15%;" />
+                            <col style="width: 15%;" />
+                            <col style="width: 15%;" />
+                            <col style="width: 20%;" />
+                            <col />
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>内部编号</th>
+                            <th>标签</th>
+                            <th>使用者</th>
+                            <th>入库日期</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${list }" var="bean">
+	                        <tr>
+	                            <td class="nowrap" title="${bean.code }">${bean.code }</td>
+	                            <td class="nowrap" title="${bean.model }">${bean.model }</td>
+	                            <td>${bean.label_name }</td>
+	                            <td>
+	                            <c:if test="${empty  bean.use_name}">- -</c:if>
+	                            <c:if test="${not empty  bean.use_name}">${bean.use_name }</c:if>
+	                            </td>
+	                            <td>${bean.create_time }</td>
+	                            <td>
+	                            	<per:button code="1303">
+		                                <em class="edit_d_btn" title="编辑" data-id="${bean.id }" data-name="${vo.name}"></em>
+	                            	</per:button>
+	                            	<per:button code="1310">
+	                                	<em class="delete_d_btn" data-use_id="${bean.use_id}" title="删除" data-id="${bean.id }"></em>
+	                            	</per:button>
+	                            </td>
+	                        </tr>
+                        	
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+                <!--分页部分 Begin-->
+                {{include('./../inc/pagination')}}
+                <!--分页部分 End-->
+            </div>
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    (function ($) {
+        // 跳转新增入库页面
+        function goPutIn () {
+            var btn = $('.create_equipment');
+            btn.on('click', function () {
+                var _this = $(this);
+                var id = $.trim(_this.data('id'));
+                var name = $.trim(_this.data('name'));
+                locationTo({
+                    action : contextPath + '/administrative/equipment/create',
+                    param : {
+                        warehouse_id : id,
+                        warehouse_name : name
+                    }
+                })
+            });
+        }
+        // 跳转库存编辑页面
+        function goEdit () {
+            var btn = $('.edit_d_btn');
+            btn.on('click', function () {
+                var _this = $(this);
+                var id = $.trim(_this.data('id'));
+                var wId = $.trim($('#warehouse_id').val());
+                var name = $.trim(_this.data('name'));
+                locationTo({
+                    action : contextPath + '/administrative/equipment/edit',
+                    param : {
+                        equipment_id : id,
+                        warehouse_id : wId,
+                        warehouse_name : name
+                    }
+                })
+            });
+        }
+
+        // 删除按钮的事件绑定
+        function delSubmitBind() {
+            var btn = $('.delete_d_btn');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                submitEvent(_this);
+            });
+        }
+        // 删除物品逻辑
+        function submitEvent (btn) {
+            var useId = btn.data('use_id');
+            var equipmentId = btn.data('id');
+            if (!useId) {
+                btn.off('click');
+                var data = {
+                    equipment_id : equipmentId
+                };
+                var url = contextPath + '/api/administrative/equipment/delete';
+                $ajax('post', url, data, function(res) {
+                    if (res.error_code == 0) {
+                        //var id = $.trim($('#warehouse_id').val());
+                        $alert('物品删除成功', function () {
+                            window.location.reload();
+                        });
+                    } else {
+                        $alert(res.error_msg);
+                        delSubmitBind();
+                    }
+                }, function () {
+                    $alert('出现异常，请稍后重试');
+                    delSubmitBind();
+                });
+            } else {
+               $alert('该物品有使用者，不能删除');
+                delSubmitBind();
+            }
+        }
+
+        $(function() {
+            goPutIn();
+            goEdit();
+            selectorChange();
+            delSubmitBind();
+        });
+    })(jQuery,undefined);
+</script>
+</html>

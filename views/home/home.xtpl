@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{include ("./../inc/cssSources")}}
+    <link rel="stylesheet" href="/static/css/home.css">
+    <title>致汇金服-首页</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include ('../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include ('../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main">
+            <form action="/home" method="post" id="form_search" role="form">
+            </form>
+            <div class="home_container">
+                <div class="todo_content module" style="margin-left: -90px;">
+                    <div class="title bold">待办事项</div>
+                    <ul class="todo_list">
+                        {{#if( count === 0)}}
+                            <li class="no_pending_data">目前没有待办事项……</li>
+                        {{else}}
+                            {{#each(list)}}
+                            <!-- todo 修改返回数据中的: nextPath -->
+                                <li class="list_item" lang="{{this.msg_id}}" status="{{this.status}}" organization_id="{{this.organization_id }}" gps_apply_id="{{this.gps_apply_id}}"  financeId="{{this.finance_id}}" nextPath="{{this.next_step}}">
+                                    <div class="item_detail">
+                                        <div class="last_person">{{this.title}}</div>
+                                        <div class="desc">{{this.description}}</div>
+                                        {{#if((this.product_remark !== '') && (this.product_remark !== ''))}}">
+                                            <div class="desc">{{this.product_remark}}</div>
+                                        {{/if}}
+                                    </div>
+                                    <div class="last_time">{{this.create_time}}</div>
+                                </li>
+                            {{/each}}
+                        {{/if}}
+                    </ul>
+                </div>
+            </div>
+            <!--分页部分 Begin-->
+            {{include('./../inc/pagination')}}
+            <!--分页部分 End-->
+
+
+
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+</div>
+<div class="mask" style="display: none;"></div>
+</body>
+{{include ('../inc/jsSources')}}
+</html>
+<script>
+    (function ($) {
+        //点击列表跳转到详情页
+        function todoListClick () {
+            var items = $(".todo_list .list_item");
+            items.each(function () {
+                var target = $(this);
+                target.off("click").on("click", function () {
+                    var t = $(this);
+                    var financeId = $.trim(t.attr("finance_id"));
+                    var path = $.trim(t.attr("nextPath"));
+                    locationTo({
+                        action : contextPath + path,
+                        param : {
+                            finance_id : financeId
+                        }
+                    });
+                });
+            });
+
+        }
+
+        $(function() {
+            todoListClick();
+        });
+    })(jQuery,undefined);
+</script>

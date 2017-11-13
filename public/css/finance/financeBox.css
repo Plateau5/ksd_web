@@ -1,0 +1,170 @@
+
+.financeB{
+    padding:0;
+}
+.financeBox{
+    width:100px;height:74px;
+    background:#F5F5F5;
+    color:#535E6A;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+.financeActive{
+    width:100px;
+    height:74px;
+    background:#1DC6BC;
+    color:#fff;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    box-shadow: 2px 4px 5px rgba(182, 51, 10, .5);
+    -webkit-box-shadow: 2px 4px 5px rgba(182, 51, 10, .5);
+    -o-box-shadow: 2px 4px 5px rgba(182, 51, 10, .5);
+    -moz-box-shadow: 2px 4px 5px rgba(182, 51, 10, .5);
+    -ms-box-shadow: 2px 4px 5px rgba(182, 51, 10, .5);
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.financeB a{
+    width:100px;height:74px;
+    display:inline-block;
+}
+.financeBox>img{
+    position: absolute;
+    left:35px;top:10px;
+}
+.financeActive>img{
+    position: absolute;
+    left:35px;top:10px;
+}
+.financeBox>.span1{
+    display:inline-block;
+    width:100%;
+    text-align: center;
+    position: absolute;
+    left:0;top:45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.financeActive>.span1{
+    display:inline-block;
+    width:100%;
+    text-align: center;
+    position: absolute;
+    left:0;top:45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.financeBML{
+    margin-right:10px;
+    margin-top: 20px;
+}
+.financeCon{
+    /*margin-top:31px;*/
+}
+
+/*�ص�ɸѡ*/
+.city{
+    width: 100%;
+    height:20px;
+    color:#535E6A;
+    line-height: 20px;
+    margin-top: 22px;
+}
+.financeB a[class*="city_option"]{
+    float:left;
+    height:100%;
+    text-align: center;
+}
+.financeB a[class*="city_title"]{
+    text-align: left;
+    width: 80px;
+}
+.financeTMT{
+    margin-top:-90px;
+}
+.financeB a[class*="city_name"]{
+    width:35px;
+    margin-right:20px;
+    cursor: pointer;
+}
+.financeB a[class*="city_name"]:hover,.financeB a[class*="city_active"]:hover{
+    background-color:#1DC6BC;
+    color:#fff;
+}
+.financeB a[class*="city_active"]{
+    background-color:#1DC6BC;
+    color:#fff;
+}
+
+/*time-day*/
+.day{
+    height: 30px;
+    line-height: 30px;
+}
+.time-day{
+    height: 30px;
+}
+.time-day-icon{
+    width: 230px;
+    height: 30px;
+    cursor: pointer;
+    border: 1px solid #f2f2f2;
+    padding-left: 5px;
+    background: url('/static/laydate/js/skins/molv/laydateIcon.png') 200px center no-repeat;
+}
+
+/*name*/
+.financeB .name a[class*="city_name"],
+.financeB .day a[class*="city_name"]{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    margin-top: 5px;
+}
+.financeB a[class*="name-title"]{
+    margin-right: 5px;
+}
+
+/*shake*/
+.shake_box{
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.shake {
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.shook_sign{
+    background-color: #1DC6BC;
+}
+.agree_sign{
+    background-color: #77AB3B;
+}
+.review_sign{
+    background-color: #E39311;
+}

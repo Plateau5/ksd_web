@@ -1,0 +1,42 @@
+
+.salaryList{
+    margin-top:30px;
+}
+td[class="salaryTable"]{
+    width:18%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+td[class="salaryTable"]>div{
+    margin-left:25%;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+}
+div[class="salaryCon"]>span{
+    display:inline-block;
+}
+div[class*="salary_tishi"]{
+    color:#808991;
+    font-size: 12px;
+    text-align: center;
+    margin-top:20px;
+}
+div[class*="salary_num"]{
+    color: #535E6A;
+    font-size: 18px;
+    text-align: center;
+    margin-top:35px;
+}
+div[class*="salary_num"]>span{
+    color: #1DC6BC;
+    font-size: 18px;
+    display:inline-block;
+}
+.salaryBox{
+    height:288px;
+}
+div[class*="salaryBtn"]{
+    margin-top:25px;
+}

@@ -1,0 +1,391 @@
+
+.financeTable{
+    height:190px;
+    margin-bottom:24px;
+    position: relative;
+    margin-left:15px;
+}
+.financeTMT{
+    margin-top:155px;
+}
+.financeTable .table{
+    background:#F5F5F5;
+}
+.financeTable>table{
+    position: absolute;
+    left:0;top:0;
+    bottom:0;right:0;
+    margin:auto auto;
+}
+.financeTable>table>tbody>tr>{
+    height:50px;
+    border:none;
+}
+.financeTable>table>tbody>tr>td{
+    border:none;
+}
+.financeTable>table>tbody>tr>td>div{
+    width:60px;
+    text-align: center;
+    line-height: 30px;
+}
+td[class="tdImg"]{
+    position: relative;
+    width:150px;
+}
+.tdImg>.tdImgI{
+    position: absolute;
+    top:8px;left:6%;
+    width:100px;height:100px;
+}
+.tdImg>.tdImgI>.tdImgText{
+    width:100px;
+    height:50px;
+    /*line-height: 8px;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.financeTable>table>tbody>tr>td>div[class="tableLine"]{
+    width:1px;height:69px;
+    background:#D8D8D8;
+    position: absolute;
+    left:78%;top:17px;
+}
+.divA{
+    width:100px;
+    display: inline-block;
+    color:#1DC6BC;
+    text-align: center;
+    line-height: 30px;
+    border:1px solid #1DC6BC;
+    border-radius: 5px;
+    position: absolute;
+    top:12px;right:0;
+}
+.divAmargin{
+    right:30px;
+}
+.financeImg{
+    width:40px;height:40px;
+    border-radius: 50%;
+    margin-left:30%;
+    overflow: hidden;
+    position: relative;
+}
+.financeImg img{
+    width:40px;height:40px;
+    position: absolute;
+    left:0;top:0;
+}
+.financeTable>table>tbody>tr[class="tr1"]{
+    font-size: 12px;
+    color:#808891;
+    line-height: 30px;
+}
+.financeTable>table>tbody>tr>td[class*="tr2Td"]{
+    font-size: 14px;
+    color:#535E6A;
+    line-height: 40px;
+}
+.financeTable>table>tbody>tr>td[class*="change"]{
+    color:#1DC6BC;
+    /*letter-spacing: 2px;*/
+}
+.financeTable>table>tbody>tr>td[class*="change"]>span,.financeTable>table>tbody>tr>td[class*="tr2Td"]>span{
+    margin-right:3px;
+    font-size: 14px;
+}
+.financeTable>table>tbody>tr>td{
+    /*min-width:110px;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*修改的css*/
+ul,li,dl,dt,dd{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+}
+.nor_wrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.clearfix {
+    clear: both;
+}
+/********** 列表部分样式 Begin ***********/
+.business_list {
+    /*padding-top: 20px;*/
+}
+.finance_list {
+    width: 100%;
+    /*margin:8px;*/
+    font-size: 14px;
+    color: #535E6A;
+    text-align: center;
+    background-color: #fff;
+}
+.finance_list .list_item .list_item_detail {
+    background-color: #fafafa;
+}
+.finance_list .list_item {
+    position: relative;
+    height: 180px;
+    padding: 10px 0;
+    /*margin-bottom: 20px;*/
+}
+.finance_list .list_item .create_date {
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    color: #808891;
+    opacity: .5;
+}
+.finance_list .list_item .list_item_detail {
+    position: relative;
+    height: 140px;
+    padding: 10px 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.finance_list .list_item .list_item_detail:hover {
+    background: #ffffff;
+    -webkit-box-shadow: 0 4px 23px 5px rgba(83, 94, 106, 0.2), 0 2px 6px rgba(83, 94, 106, 0.15);
+    -moz-box-shadow: 0 4px 23px 5px rgba(83, 94, 106, 0.2), 0 2px 6px rgba(83, 94, 106, 0.15);
+    box-shadow: 0 4px 23px 5px rgba(83, 94, 106, 0.2), 0 2px 6px rgba(83, 94, 106, 0.15);
+}
+.finance_list .list_item .user_info,
+.finance_list .list_item .finance_desc {
+    float: left;
+}
+.finance_list .list_item .user_info {
+    width: 120px;
+    height: 120px;
+    padding-right: 10px;
+    position: relative;
+}
+.finance_list .list_item .user_info img,
+.finance_list .list_item .user_info .lender {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin: 10px auto 5px;
+    text-align: center;
+    line-height: 40px;
+}
+.finance_list .list_item .user_info .lender,
+.finance_list .list_item .user_info .shake-lender {
+    color: #fff;
+    border: none;
+}
+.finance_list .list_item .user_info .lender {
+    background-color: #75b32e;
+}
+.finance_list .list_item .user_info .shake-lender {
+    background-color: #4990e2;
+}
+.finance_list .list_item .user_info .user_name,
+.finance_list .list_item .user_info .user_position {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 12px;
+    font-size: 12px;
+}
+.finance_list .list_item .user_info .user_position {
+    line-height: 15px;
+    color: #808991;
+}
+.finance_list .list_item .user_info:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    height: 86px;
+    border-right: 1px solid #D8D8D8;
+}
+.finance_list .finance_desc {
+    margin-left: 30px;
+    width: 82%;
+}
+.finance_list .finance_desc dl {
+    float: left;
+    height: 100px;
+}
+.finance_list .finance_desc dl dd {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 8px;
+    font-weight: normal;
+}
+.finance_list .finance_desc dl dt {
+    height: 55px;
+    line-height: 70px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #808891;
+}
+.finance_list .finance_desc .effect_one {
+    width: 20%;
+}
+.finance_list .finance_desc .effect_two {
+    width: 16%;
+}
+.finance_list .operate_btn {
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+}
+.finance_list .operate_btn .create_date,
+.finance_list .operate_btn .remark {
+    display: inline-block;
+    float: right;
+    font-size: 12px;
+    color: #808891;
+    margin: 0 30px 0;
+}
+.finance_list .operate_btn .create_date {
+    opacity: .5;
+}
+.finance_list .operate_btn .remark span {
+    color: #1DC6BC;
+}
+.finance_list .operate_btn .btn_box {
+    position: absolute;
+    right: 28px;
+    height: auto;
+    line-height: normal;
+    margin-top: 0;
+    text-align: left;
+}
+/*.finance_list .btn_box .btn_item {
+    position: relative;
+    display: inline-block;
+    padding: 5px 15px 5px 28px;
+    height: 40px;
+    line-height: 30px;
+    margin-top: 5px;
+    color: #1DC6BC;
+    font-size: 12px;
+    opacity: .8;
+}
+.finance_list .btn_box .btn_item:before {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 28px;
+    height: 28px;
+    left: 1px;
+    top: 6px;
+    background: url("../img/operation_small_icon.png") no-repeat;
+}
+.finance_list .btn_box .btn_item:hover {
+    opacity: 1;
+}
+.finance_list .btn_box .view_details:before {
+    background-position: 0 -458px;
+}
+.finance_list .btn_box .assigning_task:before {
+    background-position: 0 -358px;
+}
+.finance_list .btn_box .affirm_applay:before {
+    background-position: 0 -285px;
+}
+.finance_list .btn_box .send_result:before {
+    background-position: 0 -434px;
+}
+.finance_list .btn_box .affirm_applay_m:before {
+    background-position: 0 -308px;
+}
+.finance_list .btn_box .affirm_loan:before {
+    background-position: 0 -333px;
+}
+.finance_list .btn_box .no_pass:before {
+    background-position: 0 -382px;
+}
+.finance_list .btn_box .operate_log:before {
+    background-position: 0 -408px;
+}
+/!*确认回款*!/
+.finance_list .btn_box .affirm_return_money:before {
+    background-position: 0 -710px;
+}
+/!*补全资料*!/
+.finance_list .btn_box .complement_datum:before {
+    background-position: 0 -734px;
+}*/
+.font14 {
+    font-size: 14px;
+}
+.font12 {
+    font-size: 12px;
+}
+.shake_box{
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.shake {
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    float: left;
+    margin-left: 10px;
+}
+.shook_sign{
+    background-color: #1DC6BC;
+}
+.agree_sign{
+    background-color: #77AB3B;
+}
+.review_sign{
+    background-color: #E39311;
+}
+.finance_list .list_item .user_info .name_color1 {
+    background: #CE89EB;
+}
+.finance_list .list_item .user_info .name_color2 {
+    background: #9EE99A;
+}
+.finance_list .list_item .user_info .name_color3 {
+    background: #5264A3;
+}
+.finance_list .list_item .user_info .name_color4 {
+    background: #75b32e;
+}
+.finance_list .list_item .user_info .name_color5 {
+    background: #4BC2F5;
+}
+.finance_list .list_item .user_info .name_color6 {
+    background: #EE838E;
+}
+.finance_list .list_item .user_info .name_color7 {
+    background: #E2D254;
+}
+.finance_list .list_item .user_info .name_color8 {
+    background: #74D0E1;
+}
+.finance_list .list_item .user_info .name_color9 {
+    background: #E98235;
+}
+.finance_list .list_item .user_info .name_color10 {
+    background: #F0578F;
+}
+.finance_list .list_item .user_info .name_color11 {
+    background: #95D051;
+}
+/********** 列表部分样式 End ***********/
+

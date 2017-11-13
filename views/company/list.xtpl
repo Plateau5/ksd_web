@@ -1,0 +1,96 @@
+<!--租户列表-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/company.css">
+    <title>租户管理-租户列表</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main org_product">
+            <!--作为租户分页加载使用-->
+            <form action="/company/list" method="post" id="form_search" role='form'>
+            </form>
+            <!--作为跳转租户详情页用-->
+            <form action="/company/detail" method="post" id="form_search_detail" role='form'>
+                <!-- 查看某租户详情 -->
+                <input type="hidden" name="company_id" id="" value="" >
+            </form>
+            <div class="new_btn_box text_right">
+                <a href="/company/create"  class="btn blue_btn add_btn"><em></em>添加租户</a>
+            </div>
+            <div class="company_list">
+                <c:forEach items="${company_list }" var="bean">
+                    <div class="company_item inline_block" data-company_id="${bean.company_id }">
+                        <div class="company_info">
+                            <div class="company_logo inline_block">租</div>
+                            <div class="company_name">${bean.company_name }</div>
+                        </div>
+                        <div class="company_time text_center">
+                            <span>租用日期：</span><span>${bean.start_date }</span>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+            <c:if test="${count eq 0 }">
+                <div class="no_list_data">
+                    <div class="toast_text">目前还未创建租户，去创建租户</div>
+                    <div class="new_btn_box">
+                        <a href="/company/create"  class="btn blue_btn add_btn"><em></em>添加租户</a>
+                    </div>
+                </div>
+            </c:if>
+            <div class="page_box">
+                {{include('./../inc/pagination')}}
+            </div>
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    (function ($) {
+        //跳转租户详情页
+        function goCompanyDetail () {
+            var btn = $(".company_item");
+            btn.off("click").on("click", function () {
+                var companyId = $.trim($(this).data("company_id"));
+                locationTo({
+                    action : contextPath + '/company/detail',
+                    param : {
+                        company_id : companyId
+                    }
+                });
+            })
+
+        }
+
+        $(function() {
+            goCompanyDetail();
+        });
+    })(jQuery,undefined);
+</script>
+</html>

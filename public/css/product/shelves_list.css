@@ -1,0 +1,117 @@
+.ellipsis{
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.check{
+    margin: 0 16% 0 10%;
+}
+.check_img{
+    float:left;
+    margin-right:14px;
+    margin-top:14px;
+    cursor: pointer;
+}
+.icon_check{
+    width:12px;height:12px;
+    background:url('/static/img/organization/icon_check.png') center center no-repeat;
+}
+.icon_uncheck{
+    width:12px;height:12px;
+    background:url('/static/img/organization/icon_uncheck.png') center center no-repeat;
+}
+.selectBox{
+    height:100px;
+    border-bottom:0;
+}
+.select{
+    width:100%;
+    height:60px;
+    color:#535E6A;
+}
+.select_firm,.select_city{
+    float:left;
+}
+select{
+    width:108px;height:30px;
+    border:1px solid #E4E4E4;
+    padding-left:5px;
+}
+.shelves_btn_box{
+    width:100%;
+    height:35px;
+    position: relative;
+    color:#808891;
+}
+.select_all_btn,.update_btn,
+.delete_btn,.publish_list_btn{
+    float:left;
+    position:absolute;
+    bottom:0;
+    line-height: 35px;
+    cursor: pointer;
+}
+.prount_count{
+    float:left;
+    position:absolute;
+    bottom:0;
+    right: 8px;
+    line-height: 35px;
+    
+}
+
+.select_all_btn .check_img{margin-top:11.5px;margin-right:5px;}
+.update_btn{left:60px;}
+.delete_btn{left:125px;}
+.publish_list_btn{right:-8px;}
+.product_table>tbody>tr>td{
+    text-align: center;
+}
+.table_header_tr{
+    height:60px;
+    background-color:#fafafa;
+    line-height: 60px;
+    font-size:14px;
+    color:#535E6A;
+}
+.product_table>tbody>tr[class*="product_tr"]>td{
+    height:60px;line-height:40px;
+    text-align: center;
+}
+.product_table>tbody>tr>td>div[class="ellipsis"]{
+    width:100%;text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    color:#535E6A;
+}
+.mar_r_10{
+    margin-right: 10px;
+}
+.view_detail_icon{
+    background-position: 0 -614px;
+}
+.view_detail_icon:hover{
+    background-position: 0 -638px;
+}
+.edit_detail_icon{
+    background-position: 0 -662px;
+}
+.edit_detail_icon:hover{
+    background-position: 0 -686px;
+}
+.product_table>tbody>tr>td[class*="detail"],
+.product_table>tbody>tr>td[class*="edit"]{
+    position: relative;
+    color:#72ACE3;
+}
+.product_table>tbody>tr>td[class*="detail"]:hover,
+.product_table>tbody>tr>td[class*="edit"]:hover{
+    color:#1DC6BC;
+}
+.del_txt1,.del_txt2{text-align: center;}
+.del_txt2{
+    font-size: 14px;
+    line-height: 26px;
+}

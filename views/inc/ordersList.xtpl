@@ -1,0 +1,130 @@
+<!-- Template of orders list -->
+<div class="business_list">
+    <ul class="finance_list">
+        <li class="list_item">
+            <div class="create_date">进件时间：${bean.create_time }</div>
+            <div class="list_item_detail">
+                <div class="shake_box">
+                    <div class="shake shook_sign shuai">甩</div>
+                </div>
+                <div class="user_info">
+                    <div class="user_photo" style="margin-top: 20px;">
+                        <div class="lender">杨</div>
+                    </div>
+                    <div class="user_name nor_wrap">阳光</div>
+                </div>
+                <div class="finance_desc">
+                    <dl class="effect_one">
+                        <dt class="font12">申请贷款产品</dt>
+                        <dd class="nor_wrap font14">先锋只会金融</dd>
+                    </dl>
+
+                    <dl  class="effect_two">
+                        <dt class="font12">贷款类型/车系</dt>
+                        <dd class="font14">新车/宝马X5</dd>
+                    </dl>
+                    <dl class="effect_two">
+                        <dt class="font12">购车价格</dt>
+                        <dd class="nor_wrap font14"> 万</dd>
+                    </dl>
+                    <dl class="effect_two">
+                        <dt class="font12">申请贷款</dt>
+                        <dd class="font14">万</dd>
+                    </dl>
+                    <dl class="effect_two">
+                        <dt class="font12">期数（月）</dt>
+                        <dd class="font14"> 期</dd>
+                    </dl>
+                    <dl  class="effect_two">
+                        <dt class="font12">BD专员</dt>
+                        <dd class="nor_wrap font14"></dd>
+                    </dl>
+                </div>
+            </div>
+
+        </li>
+        <li class="list_item">
+            <div class="create_date">进件时间：${bean.create_time }</div>
+            <div class="list_item_detail">
+                <div class="shake_box">
+                    <div class="shake shook_sign shuai">甩</div>
+                </div>
+                <div class="user_info">
+                    <div class="user_photo" style="margin-top: 20px;">
+                        <div class="lender">杨</div>
+                    </div>
+                    <div class="user_name nor_wrap">阳光</div>
+                </div>
+                <div class="finance_desc">
+                    <dl class="effect_one">
+                        <dt class="font12">申请贷款产品</dt>
+                        <dd class="nor_wrap font14">先锋只会金融</dd>
+                    </dl>
+
+                    <dl  class="effect_two">
+                        <dt class="font12">贷款类型/车系</dt>
+                        <dd class="font14">新车/宝马X5</dd>
+                    </dl>
+                    <dl class="effect_two">
+                        <dt class="font12">购车价格</dt>
+                        <dd class="nor_wrap font14"> 万</dd>
+                    </dl>
+                    <dl class="effect_two">
+                        <dt class="font12">申请贷款</dt>
+                        <dd class="font14">万</dd>
+                    </dl>
+                    <dl class="effect_two">
+                        <dt class="font12">期数（月）</dt>
+                        <dd class="font14"> 期</dd>
+                    </dl>
+                    <dl  class="effect_two">
+                        <dt class="font12">BD专员</dt>
+                        <dd class="nor_wrap font14"></dd>
+                    </dl>
+                </div>
+            </div>
+
+        </li>
+        <li class="list_item">
+            <div class="create_date">进件时间：${bean.create_time }</div>
+            <div class="list_item_detail">
+                <div class="shake_box">
+                    <div class="shake shook_sign shuai">甩</div>
+                </div>
+                <div class="user_info">
+                    <div class="user_photo" style="margin-top: 20px;">
+                        <div class="lender">杨</div>
+                    </div>
+                    <div class="user_name nor_wrap">阳光</div>
+                </div>
+                <div class="finance_desc">
+                    <dl class="effect_one">
+                        <dt class="font12">申请贷款产品</dt>
+                        <dd class="nor_wrap font14">先锋只会金融</dd>
+                    </dl>
+
+                    <dl  class="effect_two">
+                        <dt class="font12">贷款类型/车系</dt>
+                        <dd class="font14">新车/宝马X5</dd>
+                    </dl>
+                    <dl class="effect_two">
+                        <dt class="font12">购车价格</dt>
+                        <dd class="nor_wrap font14"> 万</dd>
+                    </dl>
+                    <dl class="effect_two">
+                        <dt class="font12">申请贷款</dt>
+                        <dd class="font14">万</dd>
+                    </dl>
+                    <dl class="effect_two">
+                        <dt class="font12">期数（月）</dt>
+                        <dd class="font14"> 期</dd>
+                    </dl>
+                    <dl  class="effect_two">
+                        <dt class="font12">BD专员</dt>
+                        <dd class="nor_wrap font14"></dd>
+                    </dl>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

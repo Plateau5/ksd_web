@@ -1,0 +1,203 @@
+<!--行政列表-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="/static/css/manufacturing.css">
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <title>行政管理-行政仓库列表</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main org_product">
+            <!--没有创建任何行政仓库 Begin-->
+            <c:if test="${count  eq 0 }">
+	            <per:button code="1299">
+	            <div class="no_workflow">
+	                <div class="toast_text">目前还没有仓库，尝试建造一个吧</div>
+	                <div class="new_btn_box">
+	                    <a href="/administrative/warehouse/create"  class="btn blue_btn add_btn"><em></em>新建仓库</a>
+	                </div>
+	            </div>
+	            </per:button>
+            </c:if>
+            <c:if test="${count >0 }">
+	            <per:button code="1299">
+	                <div class="new_btn_box">
+	                    <a href="/administrative/warehouse/create"  id="createOrg"  class="btn blue_btn add_btn"><em></em>新建仓库</a>
+	                </div>
+	            </per:button>
+            </c:if>
+            <!--没有创建任何行政仓库 End-->
+            <!--已创建行政仓库-->
+            <!--作为行政分页加载使用-->
+            <form action="/administrative/warehouse/list" method="post" id="form_search" role='form'>
+            </form>
+            <!--作为行政产品列表显示跳转用-->
+            <form action="/administrative/equipment/list" method="post" id="form_search_product" role='form'>
+                <input type="hidden" name="parent_id" id="parent_id" value="" >
+            </form>
+            <c:if test="${count >0 }">
+                <div class="org_list">
+                    <c:forEach items="${list }" var="bean" varStatus="status">>
+                        <div class="org_item inline_block org_bg_c${status.count}">
+                            <div class="org_info">
+                                <div class="company_logo inline_block">仓</div>
+                                <div class="org_name">${bean.name }</div>
+                            </div>
+                            <div class="org_business">
+                                <span class="business_type">库存量：${bean.warehouse_count}</span>
+                                <span class="products_count rf">标签：${bean.label_count}个</span>
+                            </div>
+                            <div class="org_mask" alt="${bean.name }" lang="${bean.id }">
+                                <!--<per:button code="1301">-->
+                                    <a href="javascript:;" title="查看" alt="${bean.name }" lang="${bean.id }" class="view_store icon_btn inline_block"></a>
+                                <!--</per:button>-->
+                                <!--<per:button code="1300">-->
+                                    <a href="javascript:;" title="编辑" alt="${bean.name }" lang="${bean.id }" class="edit_store icon_btn inline_block"></a>
+                                <!--</per:button>-->
+                                <!--<per:button code="1307">-->
+                                    <a href="javascript:;" title="删除" alt="${bean.name }" lang="${bean.id }" class="delete_store icon_btn inline_block"></a>
+                                <!--</per:button>-->
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </c:if>
+            <div class="page_box">
+                {{include('./../inc/pagination')}}
+            </div>
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    (function ($) {
+        //新建行政
+        function createOrg () {
+            var btn = $("#createOrg");
+            btn.off("click").on("click", function () {
+                locationTo({
+                    action : contextPath + "/administrative/warehouse/create",
+                });
+            });
+        }
+
+        //行政列表鼠标悬停时的动画效果
+        function displacementAnimation () {
+            var t = $(".org_item");
+            t.each(function () {
+                var _this = $(this);
+                _this.hover(function () {
+                    var that = $(this);
+                    that.find(".org_mask").show().stop().animate({bottom : "0px"}, 300);
+                }, function () {
+                    var that = $(this);
+                    that.find(".org_mask").stop().animate({bottom : "-60px"}, 300, function () {
+                        $(this).hide();
+                    });
+                })
+            });
+        }
+        //点击仓库编辑按钮后的跳转逻辑
+        function editWareHouse () {
+            var btn = $(".org_mask .edit_store");
+            btn.off("click").on("click", function () {
+                var warehouse_id = $.trim($(this).parents('.org_mask').attr("lang"));
+                locationTo({
+                    action : contextPath + '/administrative/warehouse/edit',
+                    param : {
+                    	warehouse_id : warehouse_id
+                    }
+                });
+            })
+        }
+
+        //删除行政按钮的点击事件
+        function deleteWareHouse () {
+            var delBtn = $(".delete_store");
+            delBtn.each(function () {
+                var t = $(this);
+                t.off("click").on("click", function () {
+                    var warehouse_id = $.trim($(this).parents('.org_mask').attr("lang"));
+                    var data = {
+                    	warehouse_id : warehouse_id
+                    };
+                    dialog('open', {
+                        title : '删除提醒',
+                        content : '<div style="padding: 40px 0 20px;line-height:30px;"><span style="color: #808692;font-size: 14px;">删除后此行政下的物品也将删除，删除后将不可恢复，</span><br><span>确认继续删除？</span></div>',
+                        onConfirm : function (d) {
+                            delConfirm(data, d);
+                        }
+                    })
+                });
+            });
+            //确定删除
+            function delConfirm (datas, d) {
+                var data = datas;
+                var url  = contextPath + "/api/administrative/delete";;
+                $ajax('post',url, data, function (req) {
+                    var res = eval(req);
+                    if (res.error_code == 0) {
+                        d.close();
+                        $alert('删除成功', function () {
+                            window.location.reload();
+                        });
+                    }else{
+                    	d.close();
+                    	$alert(res.error_msg);
+                    }
+                }, function () {
+                    d.close();
+                    $alert('删除失败，请稍后重试');
+                });
+            }
+        }
+
+        //跳转行政详情页
+        function goWareHouseDetail () {
+            var btn = $(".org_mask .view_store");
+            btn.off("click").on("click", function () {
+                var parent_id = $.trim($(this).parents('.org_mask').attr("lang"));
+                locationTo({
+                    action : contextPath + '/administrative/equipment/list',
+                    param : {
+                    	parent_id : parent_id
+                    }
+                });
+            })
+
+        }
+
+        $(function() {
+            displacementAnimation();
+            editWareHouse();
+            deleteWareHouse();
+            goWareHouseDetail();
+            createOrg();
+        });
+    })(jQuery,undefined);
+</script>
+</html>

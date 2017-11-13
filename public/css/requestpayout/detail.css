@@ -1,0 +1,433 @@
+
+/*img_detail*/
+.img_detail_title{
+    width:100%;
+    margin-top:33px;
+}
+.title_line{
+    width:4px;
+    height:18px;
+    float:left;
+    margin-left:10px;
+    margin-right:6px;
+    background-color:#1DC6BC;
+}
+.img_detail_title span{
+    color:#535E6A;
+    font-size: 14px;
+    font-weight: bolder;
+}
+.requestpayout_detail_container{
+    border:1px solid #e4e4e4;
+    margin-top: 18px;
+    margin-bottom:35px;
+    overflow: hidden;
+}
+.imgDetail{
+    padding-left:36px;
+    clear: both;
+}
+.requestpayout_detail_remarks{
+    float: left;
+    height:20px;
+    width:50%;
+    line-height: 20px;
+    margin-bottom:35px;
+    padding-left:36px;
+    /*overflow: hidden;*/
+}
+.requestpayout_detail_btn_box{
+    width:100%;
+    height:48px;
+    background-color:#fafafa;
+    border-top:1px solid #e4e4e4;
+}
+/*img_detail_btn*/
+.requestpayout_detail_btn{
+    height:20px;
+    line-height: 20px;
+    float:right;
+    margin-top:14px;
+    color:#1DC6BC;
+    font-size: 12px;
+    padding-left:22px;
+    margin-right:20px;
+    cursor: pointer;
+}
+.requestpayout_detail_btn:hover{
+    color:#0B9C94;
+}
+.operate_log{
+    background:url('/static/img/finance/operate_log_icon.png') left center no-repeat;
+}
+.requestpayout_noPass{
+    background:url('/static/img/finance/unPassIcon.png') left center no-repeat;
+}
+.requestpayout_entering{
+    cursor: pointer;
+    background:url('/static/img/requestpayout/entering_icon.png') left center no-repeat;
+}
+.requestpayout_his{
+    background:url('/static/img/question/his_icon.png') left center no-repeat;
+}
+.requestpayout_apply{
+    background:url("/static/img/requestpayout/apply_icon.png") left center no-repeat;
+}
+.requestpayout_download{
+    margin-right:20px;
+    background:url('/static/img/finance/downloadIcon.png') left center no-repeat;
+}
+.requestpayout_noPass:hover{
+    background:url('/static/img/finance/unPassHIcon.png') left center no-repeat;
+}
+.requestpayout_entering:hover{
+    background:url('/static/img/requestpayout/entering_icon_hover.png') left center no-repeat;
+}
+.requestpayout_apply:hover{
+    background:url("/static/img/requestpayout/apply_icon_hover.png") left center no-repeat;
+}
+.requestpayout_his:hover{
+    background:url('/static/img/question/his_icon_hover.png') left center no-repeat;
+}
+.requestpayout_download:hover{
+    background:url('/static/img/finance/downloadHIcon.png') left center no-repeat;
+}
+.print_btn{
+    color: #1DC6BC;
+    background:url('/static/img/finance/print_icon.png') left center no-repeat;
+}
+.print_btn:hover{
+    color: #0B9C94;
+    background:url('/static/img/finance/print_hover_icon.png') left center no-repeat;
+}
+.requestpayout_care{
+    background:url('/static/img/requestpayout/care_icon.png') left center no-repeat;
+}
+.requestpayout_care:hover{
+    background:url('/static/img/requestpayout/care_icon_hover.png') left center no-repeat;
+}
+.requestpayout_disagree{
+    background:url('/static/img/requestpayout/disagree_icon.png') left center no-repeat;
+}
+.requestpayout_disagree:hover{
+    background:url('/static/img/requestpayout/disagree_icon_hover.png') left center no-repeat;
+}
+.requestpayout_agree{
+    background:url('/static/img/requestpayout/agree_icon.png') left center no-repeat;
+}
+.requestpayout_agree:hover{
+    background:url('/static/img/requestpayout/agree_icon_hover.png') left center no-repeat;
+}
+.requestpayout_flied{
+    background:url('/static/img/requestpayout/flied_icon.png') left center no-repeat;
+}
+.requestpayout_flied:hover{
+    background:url('/static/img/requestpayout/flied_icon_hover.png') left center no-repeat;
+}
+.requestpayout_time{
+    background:url('/static/img/requestpayout/time_icon.png') left center no-repeat;
+}
+.requestpayout_time:hover{
+    background:url('/static/img/requestpayout/time_icon_hover.png') left center no-repeat;
+}
+.requestpayout_material{
+    background:url('/static/img/requestpayout/material_icon.png') left center no-repeat;
+}
+.requestpayout_material:hover{
+    background:url('/static/img/requestpayout/material_icon_hover.png') left center no-repeat;
+}
+.requestpayout_assigning{
+    background:url('/static/img/requestpayout/assigning_icon.png') left center no-repeat;
+}
+.requestpayout_assigning:hover{
+    background:url('/static/img/requestpayout/assigning_icon_hover.png') left center no-repeat;
+}
+.requestpayout_result{
+    background:url('/static/img/requestpayout/result_icon.png') left center no-repeat;
+}
+.requestpayout_result:hover{
+    background:url('/static/img/requestpayout/result_icon_hover.png') left center no-repeat;
+}
+.requestpayout_view{
+    background:url('/static/img/requestpayout/result_icon.png') left center no-repeat;
+}
+.requestpayout_view:hover{
+    background:url('/static/img/requestpayout/result_icon_hover.png') left center no-repeat;
+}
+.requestpayout_affirm{
+    background:url('/static/img/requestpayout/affirm_icon.png') left center no-repeat;
+}
+.requestpayout_affirm:hover{
+    background:url('/static/img/requestpayout/affirm_icon_hover.png') left center no-repeat;
+}
+/*补全材料*/
+.requestpayout_send{
+    background:url('/static/img/requestpayout/send_icon.png') left center no-repeat;
+}
+.requestpayout_send:hover{
+    background:url('/static/img/requestpayout/send_icon_hover.png') left center no-repeat;
+}
+.requestpayout_unPass{
+    background:url('/static/img/requestpayout/unPass_icon.png') left center no-repeat;
+}
+.requestpayout_unPass:hover{
+    background:url('/static/img/requestpayout/unPass_icon_hover.png') left center no-repeat;
+}
+/*请款客服确认请款及请款通过*/
+.requestpayout_affirm_submit{
+    background:url('/static/img/requestpayout_affirm_submit.png') left center no-repeat;
+}
+.requestpayout_affirm_submit:hover{
+    background:url('/static/img/requestpayout_affirm_submit_h.png') left center no-repeat;
+}
+.requestpayout_passed{
+    background:url('/static/img/requestpayout_passed.png') left center no-repeat;
+}
+.requestpayout_passed:hover{
+    background:url('/static/img/requestpayout_passed_h.png') left center no-repeat;
+}
+/*财务已回款（回款预判）*/
+.already_cashed_check{
+    background:url('/static/img/already_cashed_check.png') left center no-repeat;
+}
+.already_cashed_check:hover{
+    background:url('/static/img/already_cashed_check_h.png') left center no-repeat;
+}
+/*requestpayout_detail*/
+.requestpayout_detail_title{
+    position: relative;
+    font-size: 14px;
+    color:#1DC6BC;
+    margin-top:30px;
+    margin-bottom:15px;
+    padding-left:36px;
+    clear: both;
+}
+.requestpayout_detail_title.new:before{
+    content: "新";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #1DC6BC;
+    color: #ffffff;
+    font-size: 12px;
+}
+.requestpayout_detail_label,.requestpayout_detail_txt{
+    float:left;
+}
+.requestpayout_detail_label{
+    color:#535E6A;
+}
+.requestpayout_detail_txt{
+    width:75%;
+    color:#808891;
+    margin-left:5px;
+}
+.requestpayout_detail_txt.mask_color{
+    color: #1DC6BC;
+}
+
+/*审批流程*/
+.approve{
+    width: 100%;
+    margin-bottom: 35px;
+    height: 122px;
+    vertical-align: middle;
+    text-align: center;
+}
+.approve-title{
+    width:100%;
+    color: #535e6a;
+    font-size: 14px;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.clear{
+    display: block;
+    clear: both;
+}
+.approve-box{
+    display: inline-block;
+}
+.approve-box-detail,
+.approve-box-detail-left{
+    float: left;
+}
+.approve-box-detail:last-child .approve-shape{
+    display: none;
+}
+.approve-shape{
+    width: 88px;
+    height: 34px;
+    background: url('/static/img/question/arrow_right.png') center center no-repeat;
+    float: left;
+}
+.approve-box-detail-txt{
+    width: 100px;
+    height: 34px;
+    text-align: center;
+    line-height: 34px;
+    color: #fff;
+    background-color: #b8b8b8;
+}
+.approve-box-detail-name{
+    width:100px;
+    text-align: center;
+    color: #535e6a;
+    margin-top: 10px;
+}
+.approve-active{
+    background-color: #1DC6BC;
+}
+
+/*归档材料*/
+.filed-detail{
+    width: 100%;
+    padding:0 36px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+.filed-detail .datum_desc{
+    display: block;
+    width: 948px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e4e4e4;
+    color: #535e6a;
+}
+.filed-detail span{
+    display: inline-block;
+    width: 220px;
+    height: 30px;
+    line-height: 30px;
+}
+
+
+/*期限弹层*/
+.bgmask{
+    width: 100%;
+    background: rgba(0, 0, 0, .4);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    display: none;
+}
+.resquestpayout_term_container{
+    width:760px;height:230px;
+    background-color:#fff;
+    position: fixed;
+    left:0;top: 0;
+    right:0;bottom:0;
+    margin:auto;
+    z-index: 110;
+    display:none;
+}
+.term_title{
+    width:100%;height:78px;
+    line-height: 78px;
+    text-align: center;
+    font-size: 18px;
+    color:#535E6A;
+    font-weight: bolder;
+}
+.term_time,.flied_txt{
+    width:255px;
+    margin-left:252px;
+}
+.care_txt{
+    width:210px;
+    margin-left:275px;
+}
+.flied_txt{
+    text-align: center;
+}
+.term_time span{
+    height:30px;
+    border:none;
+    color: #1DC6BC;
+}
+.care_txt select{
+    width:80px;height:30px;
+    border:1px solid #e4e4e4;
+    padding-left:5px;
+}
+.term_btn,.flied_btn,.care_btn{
+    width:100%;margin-top:45px;
+}
+.term_sub,.flied_sub,.care_sub,.cancel_btn{
+    width:110px;height:30px;
+    color:#fff;
+    border-radius: 3px;
+    border:0;
+    outline: none;
+}
+.term_sub,.flied_sub,.care_sub{
+    margin-left:243px;
+    background-color:#1DC6BC;
+}
+.cancel_btn{
+    margin-left:54px;
+    background-color:#a0a0a0;
+}
+.height_hack{
+    height: auto !important;
+}
+.apply_order .order_detail{
+    overflow: hidden;
+}
+.apply_order .order_title{
+    position: relative;
+}
+.apply_order .order_title .slidedown_arrow{
+    position: absolute;
+    top: 4px;
+    right: 40px;
+    width: 22px;
+    height: 12px;
+    cursor: pointer;
+}
+.apply_order .order_title .slidedown_arrow{
+    background: url(../../img/slidedown_down_icon.png) no-repeat;
+}
+.apply_order .order_title .slidedown_up_arrow{
+    background: url(../../img/slidedown_up_icon.png) no-repeat;
+}
+.apply_order .order_detail{
+    display: none;
+}
+.requestpayout_detail_txt .customer_name{
+    position: relative;
+    color: #4A90E2;
+    text-decoration: underline
+}
+.requestpayout_detail_txt .customer_name .count_num{
+    z-index: 10;
+    display: block;
+    position: absolute;
+    right: -18px;
+    top: -8px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #4A90E2;
+    text-align: center;
+    font-style: normal;
+    font-size: 10px;
+    color: #ffffff;
+    -webkit-transform: scale(.8);
+    -moz-transform: scale(.8);
+    -ms-transform: scale(.8);
+    -o-transform: scale(.8);
+    transform: scale(.8);
+}

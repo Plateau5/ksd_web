@@ -1,0 +1,86 @@
+
+.allotEmp{
+    background:#F5F5F5;
+    min-width:836px;
+    height:auto;
+    padding:0;
+}
+.personBox{
+    width:20%;height:100px;
+    position: relative;
+    float:left;
+    border-bottom: 1px solid #E4E4E4;
+}
+.imgPerson{
+    width:40px;height:40px;
+    border-radius: 50%;
+    position: absolute;
+    left:10%;top:22px;
+    overflow: hidden;
+}
+.imgPerson img{
+    width:40px;
+    height:40px;
+    position: absolute;
+    left:0;
+    top:0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.personName{
+    font-size: 14px;
+    color:#535E6A;
+    position: absolute;
+    left:35%;top:22px;
+    letter-spacing: 2px;
+}
+.personJob,.personJob_address{
+    font-size: 12px;
+    height:20px;
+    color:#A4A8Ab;
+    position: absolute;
+    left:34%;
+}
+.personJob{
+    top:45px;
+}
+.personJob_address{
+    top:65px;
+}
+.allotEmpBox{
+    width:100%;height:84px;
+}
+.allotBtnY{
+     width:100px;height:30px;
+     background:#1DC6BC;
+     border:0;
+     color:#fff;
+     margin-top:50px;
+     border-radius: 4px;
+     outline: none;
+     float:right;
+ }
+.allotBtnN{
+    width:100px;height:30px;
+    background:#A0A0A0;
+    color:#fff;
+    margin-top:50px;
+    float:right;
+    margin-left:30px;
+    border-radius: 4px;
+    border:0;
+    outline: none;
+}
+.checked{
+    background:url('/static/img/finance/financeSuccess.png');
+    position: absolute;
+    left:22%;bottom:36%;
+    width:12px;height:12px;
+}
+.allotBtnY:hover{
+    background:#0B9C94;
+}
+.selected,.unselected{
+    display:none;
+}

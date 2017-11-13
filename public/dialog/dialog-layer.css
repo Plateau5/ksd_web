@@ -1,0 +1,102 @@
+/*
+ * Created by Arley on 2016.11.21.
+ * 对话框主要CSS部分。
+ * */
+html,
+body {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: #808991;
+}
+.dialog-layer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 199;
+  box-sizing: content-box;
+}
+.dialog-layer .dialog-container {
+  position: absolute;
+  z-index: 999;
+  min-width: 600px;
+  padding: 15px 15px 40px 15px;
+  border-radius: 8px;
+  text-align: center;
+  background: #FFFFFF;
+  box-sizing: content-box;
+}
+.dialog-layer .dialog-container .dialog-header {
+  height: 40px;
+  line-height: 40px;
+  color: #535E6A;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: move;
+  cursor: -ms-move;
+}
+.dialog-layer .dialog-container .dialog-header .title-text {
+  font-size: 16px;
+  font-weight: bold;
+}
+.dialog-layer .dialog-container .dialog-header .dialog-close-btn {
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  font-size: 30px;
+}
+.dialog-layer .dialog-container .dialog-header .dialog-close-btn:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+.dialog-layer .dialog-container .content {
+  color: #535E6A;
+  font-size: 15px;
+}
+.dialog-layer .dialog-container .dialog-btn {
+  height: 60px;
+  line-height: 60px;
+}
+.dialog-layer .dialog-container .dialog-btn .confirm,
+.dialog-layer .dialog-container .dialog-btn .cancel {
+  display: inline-block;
+  height: 14px;
+  line-height: 14px;
+  padding: 8px 40px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #FFFFFF;
+  box-sizing: content-box;
+  cursor: pointer;
+}
+.dialog-layer .dialog-container .dialog-btn .confirm {
+  background: #1DC6BC;
+}
+.dialog-layer .dialog-container .dialog-btn .cancel {
+  margin-left: 50px;
+  background: #a0a0a0;
+}
+.dialog-layer .dialog-container .dialog-btn .confirm:hover {
+  background: #0B9C94;
+}
+.dialog-layer .dialog-container .dialog-btn .cancel:hover {
+  background: #B4B4B4;
+}
+.dialog-layer .error_msg {
+  padding-left: 20px;
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  color: #FB2741;
+}

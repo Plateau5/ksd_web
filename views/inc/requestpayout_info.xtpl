@@ -1,0 +1,335 @@
+<!-- 进件资料 -->
+<!--贷款人及车辆信息-->
+<div class="cars_info_box">
+    <div class="requestpayout_detail_title">车辆信息</div>
+    <!--新车字段-->
+    <c:if test="${not empty vo.risk_type_value }">
+    <div class="detail_remarks requestpayout_detail_remarks">
+        <div class="requestpayout_detail_label">风险类型：</div>
+        <div class="requestpayout_detail_txt">${vo.risk_type_value}</div>
+    </div>
+    </c:if>
+    <c:if test="${not empty vo.vin }">
+    <div class="detail_remarks requestpayout_detail_remarks">
+        <div class="requestpayout_detail_label">车架号：</div>
+        <div class="requestpayout_detail_txt">${vo.vin }</div>
+    </div>
+    </c:if>
+    <!-- 此表单为车价贷款表单字段 -->
+    <!-- 循环apply_order的代码结构
+     --- @{desc} 如果是最后一个申请单，为el.slidedown_arrow的元素添加slidedown_up_arrow类，同时为order_detail的类添加样式：display:block;。
+     --- @{param} slidedown_arror：折叠  slidedown_up_arrow：展开。
+     -->
+<c:forEach var="bean" items="${req_list }" varStatus="status">
+    <div class="apply_order">
+        <div class="order_title">
+            <div class="requestpayout_detail_title
+            <c:if test="${fn:length(req_list) eq status.count}">new</c:if>
+            ">
+                <span>${bean.receipt_name }</span>
+                <em class="slidedown_arrow 
+                <c:if test="${fn:length(req_list) eq status.count}">slidedown_up_arrow</c:if>
+                "></em>
+            </div>
+        </div>
+        <div class="order_detail" style="
+        <c:if test="${fn:length(req_list) eq status.count}">display: block;</c:if>
+        ">
+            <c:if test="${not empty bean.total_charge }">
+                <div class="detail_remarks requestpayout_detail_remarks payment_info_item" style="display: block;width: 100%;">
+                    <div class="requestpayout_detail_label">收款总额：</div>
+                    <div class="requestpayout_detail_txt">${bean.total_charge }&nbsp;元 (${bean.cn_totalCharge})</div>
+                </div>
+            </c:if>
+            <c:if test="${not empty bean.car_loan_charge }">
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">车价贷款额：</div>
+                    <div class="requestpayout_detail_txt">${bean.car_loan_charge }&nbsp;元</div>
+                </div>
+            </c:if>
+            <c:if test="${not empty bean.collection_charge}">
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">代商户收取费用：</div>
+                    <div class="requestpayout_detail_txt">${bean.collection_charge }&nbsp;元</div>
+                </div>
+            </c:if>
+            <c:if test="${not empty bean.gps_installCharge}">
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">GPS安装费用：</div>
+                    <div class="requestpayout_detail_txt">${bean.gps_installCharge }&nbsp;元</div>
+                </div>
+            </c:if>
+            <c:if test="${not empty bean.gps_rebate}">
+            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                <div class="requestpayout_detail_label">GPS返点：</div>
+                <div class="requestpayout_detail_txt">${bean.gps_rebate}&nbsp;元</div>
+            </div>
+            </c:if>
+            <c:if test="${not empty bean.service_charge_rebate}">
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">服务费返点：</div>
+                    <div class="requestpayout_detail_txt">${bean.service_charge_rebate }&nbsp;元</div>
+                </div>
+            </c:if>
+            <c:if test="${not empty bean.purchase_tax }">
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">购置税：</div>
+                    <div class="requestpayout_detail_txt">${bean.purchase_tax }&nbsp;元</div>
+                </div>
+            </c:if>
+            <c:if test="${not empty bean.insurance_rebate}">
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">保险返点：</div>
+                    <div class="requestpayout_detail_txt">${bean.insurance_rebate }&nbsp;元</div>
+                </div>
+            </c:if>
+            <c:if test="${not empty bean.insurance }">
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">保险费：</div>
+                    <div class="requestpayout_detail_txt">${bean.insurance }&nbsp;元</div>
+                </div>
+            </c:if>
+            <c:if test="${not empty bean.financed_charge_rebate }">
+	            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+	                <div class="requestpayout_detail_label">融资返点：</div>
+	                <div class="requestpayout_detail_txt">${bean.financed_charge_rebate }&nbsp;元</div>
+	            </div>
+            </c:if>
+            <c:if test="${not empty bean.pledge_charge}">
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">抵押费：</div>
+                    <div class="requestpayout_detail_txt">${bean.pledge_charge }&nbsp;元</div>
+                </div>
+            </c:if>
+            <c:if test="${not empty bean.unpack_charge}">
+	            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+	                <div class="requestpayout_detail_label">解压费：</div>
+	                <div class="requestpayout_detail_txt">${bean.unpack_charge }&nbsp;元</div>
+	            </div>
+            </c:if>
+            <c:if test="${not empty bean.refund_charge}">
+	            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+	                <div class="requestpayout_detail_label">退款：</div>
+	                <div class="requestpayout_detail_txt">${bean.refund_charge}&nbsp;元</div>
+	            </div>
+            </c:if>
+            <c:if test="${not empty bean.car_credit_charge}">
+	            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+	                <div class="requestpayout_detail_label">车价贷款(反贷)：</div>
+	                <div class="requestpayout_detail_txt">${bean.car_credit_charge}&nbsp;元</div>
+	            </div>
+            </c:if>
+            <c:if test="${not empty bean.pre_interest}">
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">前置利息：</div>
+                    <div class="requestpayout_detail_txt">${bean.pre_interest }&nbsp;元</div>
+                </div>
+            </c:if>
+            <!--新车字段-->
+            <c:if test="${not empty bean.pledge_type }">
+                <div class="detail_remarks requestpayout_detail_remarks">
+                    <div class="requestpayout_detail_label">抵押方：</div>
+                    <div class="requestpayout_detail_txt">
+                        <c:if test="${bean.pledge_type eq 1}">经销商</c:if>
+                        <c:if test="${bean.pledge_type eq 2}">我司</c:if>
+                        <c:if test="${bean.pledge_type eq 3}">产品方</c:if>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${not empty bean.pledge_city}">
+                <div class="detail_remarks requestpayout_detail_remarks">
+                    <div class="requestpayout_detail_label">抵押城市：</div>
+                    <div class="requestpayout_detail_txt">${bean.pledge_city }</div>
+                </div>
+            </c:if>
+            <!--新车字段-->
+            <c:if test="${not empty bean.regist_type }">
+                <div class="detail_remarks requestpayout_detail_remarks">
+                    <div class="requestpayout_detail_label">上牌方：</div>
+                    <div class="requestpayout_detail_txt">
+                        <c:if test="${bean.regist_type eq 1}">经销商</c:if>
+                        <c:if test="${bean.regist_type eq 2}">我司</c:if>
+                        <c:if test="${bean.regist_type eq 3}">产品方</c:if>
+                    </div>
+                </div>
+            </c:if>
+            <div style="clear: both;"></div>
+            <c:if test="${not empty bean.pay_name }">
+                <div class="detail_remarks requestpayout_detail_remarks payment_info_item">
+                    <div class="requestpayout_detail_label">收款户名：</div>
+                    <div class="requestpayout_detail_txt">${bean.pay_name }</div>
+                </div>
+            </c:if>
+            <c:if test="${not empty bean.pay_open_bank }">
+                <div class="detail_remarks requestpayout_detail_remarks payment_info_item">
+                    <div class="requestpayout_detail_label">收款开户行：</div>
+                    <div class="requestpayout_detail_txt">${bean.pay_open_bank }</div>
+                </div>
+            </c:if>
+            <c:if test="${not empty bean.pay_account }">
+                <div class="detail_remarks requestpayout_detail_remarks payment_info_item">
+                    <div class="requestpayout_detail_label">收款账号：</div>
+                    <div class="requestpayout_detail_txt">${bean.pay_account }</div>
+                </div>
+            </c:if>
+            <c:if test="${not empty bean.supplier_name }">
+                <div class="detail_remarks requestpayout_detail_remarks payment_info_item">
+                    <div class="requestpayout_detail_label">商户名称：</div>
+                    <div class="requestpayout_detail_txt">${bean.supplier_name }</div>
+                </div>
+            </c:if>
+            <!--商户图片-->
+            <c:if test="${bean.receipt_id eq 1 && not empty file_list3}">
+                <div class="imgDetail">
+                    <c:forEach items="${file_list3}" var="bean2">
+                        <a href="${bean2.url}" target="_blank">
+                            <div class="request-img-box inline" style="margin-top:0;" title="${bean2.file_name}">
+                                <div class="requestImgBox cursor">
+                                    <img src="${bean2.thumbnail_120_90}" alt=""/>
+                                </div>
+                                <div class="imgText">${bean2.file_name}</div>
+                            </div>
+                        </a>
+                    </c:forEach>
+                </div>
+            </c:if>
+            <!--备注-->
+            <c:if test="${not empty bean.request_payout_remark }">
+                <div class="requestpayout_detail_title">备注</div>
+                <div class="detail_remarks requestpayout_detail_remarks height_hack" style="height: auto;float:none;width: 100%;">
+                    ${bean.request_payout_remark}
+                </div>
+            </c:if>
+
+        </div>
+        <c:if test="${fn:startsWith(uri, '/financial')}">
+        	<per:button code="1190">
+	            <div class="requestpayout_detail_btn_box" style="background: none; border: none;">
+	                <a href="${contextParh }/financial/print?orderNo=${orderNo}" target="_blank">
+	                    <div class="cursor requestpayout_detail_btn print_btn" id="print_btn">打印</div>
+	                </a>
+	            </div>
+        	</per:button>
+        </c:if>
+    </div>
+</c:forEach>  
+
+    <!--请款资料照片-->
+    <c:if test="${not empty file_list2 }">
+	    <div class="requestpayout_detail_title requestpayout_info clear">请款材料</div>
+	    <div class="imgDetail">
+	        <c:forEach items="${file_list2}" var="bean">
+	            <div class="detailBox inline" style="margin-top:0;">
+	                <div class="detailImgBox cursor">
+	                    <a href="${bean.thumbnail}" target="_blank">
+	                        <img src="${bean.thumbnail_120_90}" alt=""/>
+	                    </a>
+	                </div>
+	                <div class="imgText">${bean.file_name}</div>
+	            </div>
+	        </c:forEach>
+	    </div>
+    </c:if>
+<!--<!--二手车字段-->
+<c:if test="${not empty vo.insurance_isfinish }">
+    <div class="detail_remarks requestpayout_detail_remarks">
+        <div class="requestpayout_detail_label">保险是否完成：</div>
+        <div class="requestpayout_detail_txt">
+            <c:if test="${vo.insurance_isfinish eq 1}">是</c:if>
+            <c:if test="${vo.insurance_isfinish eq 0}">否</c:if>
+        </div>
+    </div>
+</c:if>
+<!--二手车字段-->
+<c:if test="${not empty vo.regist_isfinish }">
+    <div class="detail_remarks requestpayout_detail_remarks">
+        <div class="requestpayout_detail_label">上牌是否完成：</div>
+        <div class="requestpayout_detail_txt">
+            <c:if test="${vo.regist_isfinish eq 1}">是</c:if>
+            <c:if test="${vo.regist_isfinish eq 0}">否</c:if>
+        </div>
+    </div>
+</c:if>
+<!--新车字段-->
+<c:if test="${not empty vo.regist_type }">
+    <div class="detail_remarks requestpayout_detail_remarks">
+        <div class="requestpayout_detail_label">上牌方：</div>
+        <div class="requestpayout_detail_txt">
+            <c:if test="${vo.regist_type eq 1}">经销商</c:if>
+            <c:if test="${vo.regist_type eq 2}">我司</c:if>
+            <c:if test="${vo.regist_type eq 3}">产品方</c:if>
+        </div>
+    </div>
+</c:if>
+</div>
+<!--付款明细-->
+<div class="payment_desc_box">
+<div class="requestpayout_detail_title payment_desc">付款明细</div>
+<c:if test="${not empty vo.service_charge }">
+    <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+        <div class="requestpayout_detail_label">金融服务费：</div>
+        <div class="requestpayout_detail_txt">${vo.service_charge }&nbsp;元</div>
+    </div>
+</c:if>
+<c:if test="${not empty vo.gps_charge }">
+    <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+        <div class="requestpayout_detail_label">GPS费用：</div>
+        <div class="requestpayout_detail_txt">${vo.gps_charge }&nbsp;元</div>
+    </div>
+</c:if>
+<c:if test="${not empty vo.pledge_charge && vo.car_type eq 0}">
+    <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+        <div class="requestpayout_detail_label">上牌抵押费：</div>
+        <div class="requestpayout_detail_txt">${vo.pledge_charge }&nbsp;元</div>
+    </div>
+</c:if>
+<c:if test="${not empty vo.credit_charge}">
+    <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+        <div class="requestpayout_detail_label">征信查询费：</div>
+        <div class="requestpayout_detail_txt">${vo.credit_charge }&nbsp;元</div>
+    </div>
+</c:if>
+<c:if test="${not empty vo.renewal_deposit}">
+    <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+        <div class="requestpayout_detail_label">续保押金：</div>
+        <div class="requestpayout_detail_txt">${vo.renewal_deposit }&nbsp;元</div>
+    </div>
+</c:if>
+<c:if test="${not empty vo.supplier_rebate}">
+    <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+        <div class="requestpayout_detail_label">商户返点：</div>
+        <div class="requestpayout_detail_txt">${vo.supplier_rebate }&nbsp;元</div>
+    </div>
+</c:if>
+</div>
+<!--付款信息-->
+<div class="payment_info_box">
+<div class="requestpayout_detail_title payment_info">商户收款信息</div>
+<!--二手车字段-->
+</div>-->
+</div>
+<script>
+    (function ($) {
+        // 申请单的展开折叠效果
+        //含有子级权限的展开折叠效果
+        function slideDownList () {
+            var arrowBtn = $(".slidedown_arrow");
+            arrowBtn.each(function () {
+                var _this = $(this);
+                _this.off("click").on("click", function () {
+                    var t = $(this);
+                    var childPrivilege = t.parents(".apply_order").find(">.order_detail");
+                    if (childPrivilege.is(":hidden")) {
+                        childPrivilege.slideDown(300).parents(".apply_order").find(".slidedown_arrow").addClass("slidedown_up_arrow");
+                    } else {
+                        childPrivilege.slideUp(300).parents(".apply_order").find(".slidedown_arrow").removeClass("slidedown_up_arrow");
+                    }
+                });
+            });
+        }
+
+        $(function () {
+            slideDownList();
+        });
+    })(jQuery, window, undefined)
+</script>

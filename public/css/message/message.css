@@ -1,0 +1,100 @@
+
+.message{
+    /*background: #fff;*/
+    /*min-width: 800px;*/
+    height: auto;
+    padding: 0;
+}
+.no_message{
+    background: #fff;
+    margin-top: 30px;
+    min-width: 800px;
+    height: auto;
+    padding: 0;
+    position: relative;
+}
+.no_message div{
+    width:100%;
+    font-size: 14px;
+    color:#535E6A;
+    position: absolute;
+    text-align: center;
+    left:0;right:0;top:260px;
+}
+.messageTr{
+    width:100%;
+    position: relative;
+}
+.message_clean_bottom{
+    border-bottom: 1px solid #E4E4E4;
+}
+.messageTr:hover{
+    background:#f6f6f6;
+}
+.messageImg{
+    width:40px;height:40px;
+    border-radius: 50%;
+    position: absolute;
+    left:30px;top:23px;
+    overflow: hidden;
+}
+.messageImg img{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    position: absolute;
+    left:0;top:0;
+}
+.messageText{
+    width:50%;height:auto;
+    position: absolute;
+    left:82px;top:25px;
+}
+.messageEmp{
+    color:#535E6A;
+    font-size: 12px;
+}
+.messageCon1,.messageCon2{
+    color:#808891;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+.messageCon1{
+    margin-bottom:0;
+}
+.messageCon2{
+    margin-top:8px;
+}
+.messageTime{
+    position: absolute;
+    right:38px;top:44px;
+}
+.messageTime span{
+    color:#A4A8AB;
+    font-size: 12px;
+}
+.clearBottom{
+    border-bottom:0;
+}
+.inviteCon>ul>li[class*="count_message"]{
+    color:#535E6A;
+}
+.ready{
+    width:8px;height:8px;
+    border-radius: 50%;
+    background:#FD5722;
+    position: absolute;
+    left:14px;top:39px;
+}
+p[class="messageCon"]{
+    width:70%;height:20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.messageRight{
+    position: absolute;
+    right:38px;top:0;
+}

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>意见反馈</title>
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/home.css"/>
+    <link rel="stylesheet" href="/static/css/questions.css"/>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main">
+            <form action="/feedback/list" method="post" id="form_search" role="form">
+                <input type="hidden" name="status" value="${status }" id="feedbackType">
+            </form>
+            <div class="feedback_container">
+                <div class="todo_content module">
+                    <div class="tab">
+                        <ul class="tab_list inline_block">
+                            <li class="tab_item undisposed <c:if test="${status eq 0}">active</c:if>">未处理</li>
+                            <li class="tab_item disposed  <c:if test="${status eq 1}">active</c:if>">已处理</li>
+                        </ul>
+                    </div>
+                    <ul class="todo_list">
+                        <c:if test="${status == 0 }">
+                        	<c:if test="${count eq 0 }">
+	                        	<li class="no_pending_data">目前没有未处理……</li>
+	                        </c:if>
+                        </c:if>
+                        <c:if test="${status == 1 }">
+                        	<c:if test="${count eq 0 }">
+	                        	<li class="no_pending_data">目前没有已处理……</li>
+	                        </c:if>
+                        </c:if>
+                        <!-- 在li上面添加意见反馈的id -->
+                        <c:forEach items="${feedback_list }" var="bean">
+	                        <li class="list_item" data-id="${bean.feedback_id}">
+	                            <div class="item_detail">
+	                                <div class="personal_tag">${fn:substring(bean.emp_name, 0, 1)}</div>
+	                                <div class="last_person">${bean.position_desc }-${bean.emp_name }</div>
+	                                <c:if test="${bean.feedback_type == 1 }">
+	                                	<div class="desc">系统问题</div>
+	                                </c:if>
+	                                <c:if test="${bean.feedback_type == 2 }">
+	                                	<div class="desc">优化建议</div>
+	                                </c:if>
+	                            </div>
+	                            <div class="last_time">${bean.feedback_date }</div>
+	                        </li>
+                        </c:forEach>
+                    </ul>
+                </div>
+            </div>
+            <div class="page_box">
+                {{include('./../inc/pagination')}}
+            </div>
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+
+<script>
+    (function ($) {
+        //点击列表跳转到详情页
+        function todoListClick () {
+            var items = $(".todo_list .list_item");
+            items.each(function () {
+                var target = $(this);
+                target.off('click').on('click', function () {
+                    var t = $(this);
+                    var feedback_id = $.trim(t.data('id'));
+                    //var feedback_id = 1;
+                    var status = $.trim($('#feedbackType').val());
+                    var path = contextPath + '/feedback/detail';
+                    locationTo({
+                        action : path,
+                        param : {
+                            feedback_id : feedback_id,
+                            status : status
+                        }
+                    });
+                });
+            });
+
+        }
+        //未处理已处理视图切换
+        function switchTab () {
+            var btn = $('.tab_item');
+            btn.on('click', function () {
+                var _this = $(this);
+                if (_this.hasClass('undisposed')) {
+                    _this.addClass('active');
+                    $('#feedbackType').val('0');
+                } else {
+                    _this.addClass('active');
+                    _this.siblings('.undisposed').removeClass('active');
+                    $('#feedbackType').val('1');
+                }
+                $('form[role="form"]').submit();
+            });
+        }
+        $(function() {
+            todoListClick();
+            switchTab();
+        });
+    })(jQuery,undefined);
+</script>
+</html>

@@ -1,0 +1,181 @@
+<!--待处理-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="/static/css/manufacturing.css">
+    <link rel="stylesheet" href="/static/css/warehouse.css">
+    <title>GPS申请-待处理</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main">
+            <div class="crumbs_nav">
+                <a href="${contextPath }/home" class="crumbs_item">首页</a>
+                <a href="javascript:;" class="crumbs_item">${gpsApplyVo.applicant}的GPS预约申请</a>
+            </div>
+            <div class="apply_detail">
+                <div class="basic_info">
+                    <div class="row_item more_value warehouses">
+                        <div class="row_title">申请人：</div>
+                        <div class="row_val">${gpsApplyVo.applicant}</div>
+                    </div>
+                    <div class="row_item more_value warehouses">
+                        <div class="row_title">申请数量：</div>
+                        <div class="row_val">${gps_apply_count}</div>
+                    </div>
+                    <div class="row_item more_value warehouses">
+                        <div class="row_title">领取方式：</div>
+                        <div class="row_val">
+                            <c:choose>
+                                <c:when test="${gpsApplyVo.receive_type == 1}">当面交付</c:when>
+                                <c:otherwise>快递邮寄（${gpsApplyVo.address}，手机号：${gpsApplyVo.phone}）</c:otherwise>
+                            </c:choose></div>
+                    </div>
+                    <div class="row_item more_value warehouses">
+                        <div class="row_title">领取时间：</div>
+                        <div class="row_val">${gpsApplyVo.receive_time}</div>
+                    </div>
+                </div>
+                <div class="details_info">
+                    <div class="send_btn_box">
+                    <per:button code="1293">
+                        <a href="javascript:" class="detail_title_btn send_btn">确认发送</a>
+                    </per:button>
+                    </div>
+                    <div class="order_list">
+                        <c:forEach items="${gpsApplyVo.list}" var="bean">
+                            <div class="apply_list"><!-- 低于预警值时添加：'warning'这个class -->
+                                <ul class="store_info">
+                                    <li class="info_item nowrap">
+                                        <div class="item_name">机构</div>
+                                        <div class="item_val">${bean.warehouse_name}-${bean.label_name}</div>
+                                    </li>
+                                    <li class="info_item nowrap">
+                                        <div class="item_name">类型</div>
+                                        <div class="item_val">
+                                            <c:choose>
+                                                <c:when test="${bean.type == 0}">无线</c:when>
+                                                <c:otherwise>有线</c:otherwise>
+                                            </c:choose>
+                                        </div>
+                                    </li>
+                                    <li class="info_item nowrap">
+                                        <div class="item_name">未激活</div>
+                                        <div class="item_val">${bean.hisInventory}</div>
+                                    </li>
+                                    <li class="info_item nowrap">
+                                        <div class="item_name">申请数量</div>
+                                        <div class="item_val">${bean.gps_count}</div>
+                                    </li>
+                                    <li class="info_item nowrap">
+                                        <div class="item_name">可用库存</div>
+                                        <div class="item_val">${bean.inventory}</div><!-- 低于预警值时添加：'warning_text'这个class -->
+                                    </li>
+                                </ul>
+                                <c:if test="${fn:length(bean.gpsVOs) != 0}">
+                                    <div class="check_sn form_options">
+                                        <c:forEach items="${bean.gpsVOs}" var="bean">
+                                            <div class="form_group">
+                                                <input type="checkbox" id="code-${bean.id}" class="apply_scope" name="snCode"  value="${bean.id}" checked="checked" />
+                                                <label for="code-${bean.id}" class="nowrap checked">${bean.sn_code}</label>
+                                            </div>
+                                        </c:forEach>
+                                    </div>
+                                </c:if>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+    <input type="hidden" value="${gps_apply_id}" id="applyId">
+    <input type="hidden" value="${gpsApplyVo.receive_type}" id="receiveType">
+    <input type="hidden" value="${gpsApplyVo.applicant}" id="applicant">
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    (function ($) {
+        var finalResult = [];
+        var delResult = [];
+        // 初始化获取自动分配的gps
+        function initGps () {
+            var elem = $('.check_sn .form_group input[type="checkbox"]:checked');
+            elem.each(function () {
+                var _this = $(this);
+                var gpsId = $.trim(_this.val());
+                finalResult.push(gpsId);
+            });
+            //console.log(finalResult);
+        }
+        //默认给出SN码的启用禁用逻辑
+        function checkSN () {
+            var snEle = $('.apply_list .form_group label');
+            snEle.on('click', function () {
+                var _this = $(this);
+                var checkBox = _this.siblings('input[type="checkbox"]');
+                var snId = $.trim(checkBox.val());
+                if (!_this.hasClass('checked')) {   // 此时已经取消了checked属性
+                    delResult.push(snId);
+                    finalResult.remove(snId);
+                } else {
+                    if ($.inArray(snId, delResult) != -1) {
+                        delResult.remove(snId);
+                    }
+                    if ($.inArray(snId, finalResult) == -1) {
+                        finalResult.push(snId);
+                    }
+                }
+            });
+        }
+        //确认发送事件
+        function bindSendEvent () {
+            var btn = $('.send_btn');
+            var applyId = $.trim($('#applyId').val());
+            var receiveType = $.trim($('#receiveType').val());
+            var applicant = $.trim($('#applicant').val());
+            btn.off('click').on('click', function () {
+                locationTo({
+                    action : contextPath + '/gps/apply/confirmSend',
+                    param : {
+                        gps_apply_id : applyId,
+                        receive_type : receiveType,
+                        applicant : applicant,
+                        gps_ids : finalResult.join(','),
+                        delGps_ids : delResult.join(',')
+                    }
+                })
+            });
+        }
+
+        $(function () {
+            resetCheckboxAndRadio('checkbox', ".form_group label", ".checked");
+            initGps();
+            checkSN();
+            bindSendEvent();
+        })
+    })(jQuery,undefined);
+</script>
+</html>

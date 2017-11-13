@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{include ("./../inc/cssSources")}}
+    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
+    <title>{{title}}</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include ('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include ('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main">
+            {{include('./../inc/operationCategory')}}
+            {{include('./../inc/filtrate')}}
+            {{include('./../inc/ordersList')}}
+            {{include('./../inc/pagination')}}
+
+
+
+
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+</div>
+<div class="mask" style="display: none;"></div>
+</body>
+{{include ('./../inc/jsSources')}}
+<script src="/static/jedate/jquery.jedate.min.js"></script>
+</html>
+<script>
+    (function ($) {
+
+
+        $(function() {
+            initDateMinTodayForOrder('#filtrate_date');
+            //selectorChange();
+            toOrderDetail();
+        });
+    })(jQuery,undefined);
+</script>

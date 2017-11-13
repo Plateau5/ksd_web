@@ -1,0 +1,146 @@
+
+.message_detail{
+    margin-top: 30px;
+    min-width: 800px;
+    height: auto;
+    padding: 0;
+    font-size: 12px;
+}
+.message_detail_box{
+    height:135px;
+    padding: 0;
+}
+.state_box{
+    float:left;
+    width:11.090909%;height:135px;
+    position: relative;
+    margin-left:6%;
+}
+.cleanMargin{
+    margin-left:0 !important;
+}
+.state{
+    width:55px;height:55px;
+    border-radius: 50%;
+    background-color:#B9BEC3;
+    color:#fff;
+    position: absolute;
+    left:0;right:0;
+    top:0;
+    margin:0 auto;
+}
+.message_active .state{
+    background-color:#67AF18;
+}
+.message_failed .state{
+    background-color:#FB465C;
+}
+.state>span{
+    width:28px;height:35px;
+    display:inline-block;
+    position: absolute;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+}
+.state_line{
+    width:75%;height:1px;
+    position: absolute;
+    background-color:#B9BEC3;
+    left:89%;top:28px;
+}
+.message_active .state_line{
+    background-color:#67AF18;
+}
+.state_container{
+    width:100%;
+    position: absolute;
+    left:0;top:55px;
+}
+.state_explain{
+    width:100%;height:16px;
+    position: absolute;
+    left:0;top:12px;
+}
+.message_active .state_explain{
+    background:url(/static/img/message/passIcon.png) 30% 1.555px no-repeat;
+}
+.message_failed .state_explain{
+    background:url(/static/img/message/warningIcon.png) 33% 1.555px no-repeat;
+}
+.state_box .state_explain>span{
+    position: absolute;
+    top:0px;left:47%;
+}
+.message_active .state_explain>span{
+    color:#67AF18;
+}
+.message_failed .state_explain>span{
+    color:#FB465C;
+}
+.state_time{
+    width:100%;height:16px;
+    text-align: center;
+    line-height: 16px;
+    color:#535E6A;
+    position: absolute;
+    left:0;top:34.55555px;
+}
+.state_say{
+    width:100%;height:12px;
+    position: absolute;
+    left:0; top:81px;
+    background:url(/static/img/message/sayIcon.png) center center no-repeat;
+    display:none;
+}
+.message_end .state_say{
+    display:block;
+}
+.state_head{
+    width:100%;height:16px;
+    text-align: center;
+    line-height: 16px;
+    color:#535E6A;
+    position: absolute;
+    left:0;top:56px;
+}
+.state_notes{
+    height:auto;
+    background-color:#F5F5F5;
+    padding-bottom:50px;
+    margin-top:12px;
+}
+.state_reason{
+    width:90%;margin-left:5%;
+}
+.state_notes_title{
+    width:100%;
+    color:#FB2741;
+    font-size: 16px;
+    text-align: center;
+    line-height: 80px;
+}
+.state_reason>li{
+    width:100%;
+    font-size: 14px;
+    color:#5B5B5B;
+    text-align: center;
+    line-height: 25px;
+}
+.message_detail_btn{
+    width:100px;height:30px;
+    background-color:#1DC6BC;
+    color:#fff;
+    outline: none;
+    border:none;
+    border-radius: 4px;
+    position: absolute;
+    right:0;bottom:-60px;
+}
+.message_detail_btn:hover{
+    background-color:#0B9C94;
+}
+.state_reason>li>span{
+    font-size: 14px;
+}
+

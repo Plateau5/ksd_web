@@ -1,0 +1,109 @@
+<!-- Template of pagination -->
+{{#if (totalPages > 1) }}
+    <div class="page_box">
+        <ul class="page_list">
+            {{#if (currentPage > 1) }}
+                <li class="page_item home_page" currentPage="1" limit="{{limit}}">
+                    <a href="javascript:">首页</a>
+                </li>
+                <li class="page_item prev_page" currentPage="{{currentPage - 1}}" limit="{{limit}}">
+                    <a href="javascript:">上一页</a>
+                </li>
+
+                <!--<a currentPage="${1}" limit="{{limit}}"><li class="inline cursor first"><span>首页</span></li></a>
+                <a currentPage="${currentPage-1}" limit="{{limit}}"><li class="inline cursor forward"><span>上一页<div class="forwardIcon"></div></span></li></a>-->
+            {{/if}}
+            {{#if (currentPage === 1) }}
+                <li class="page_item home_page disabled">
+                    <a href="javascript:">首页</a>
+                </li>
+                <li class="page_item prev_page disabled">
+                    <a href="javascript:">上一页</a>
+                </li>
+            <!--<li class="inline cursor first pagesDisable"><span>首页</span></li>
+            <li class="inline cursor forward pagesDisable"><span>上一页<div class="forwardIcon"></div></span></li>-->
+            {{/if}}
+
+            {{#if (totalPages <= 10) }}
+                {{set (end = totalPages) }}
+                {{#each(range(1,end+1))}}
+                    {{#if(currentPage === this) }}
+                    <li class="page_item active">
+                        <a href="javascript:">{{this}}</a>
+                    </li>
+                    <!--<li class="inline cursor num pageActive"><span></span></li>-->
+                    {{/if}}
+
+                    {{#if(currentPage !== this )}}
+                    <li class="page_item" currentPage="{{this}}" limit="{{limit}}">
+                        <a href="javascript:">{{this}}</a>
+                    </li>
+                    <!--<a href="javascript:void(0)" currentPage="{{xindex}}" limit="{{limit}}"><li class="inline cursor num">{{xindex}}</li></a>-->
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+
+            {{#if (totalPages > 10) }}
+                {{#if (currentPage <= 10) }}
+                    {{#each (range(1, 11)) }}
+                        {{#if (currentPage === this) }}
+                        <li class="page_item active">
+                            <a href="javascript:">{{this}}</a>
+                        </li>
+                        <!--<li class="inline cursor num pageActive"><span>${i}</span></li>-->
+                        {{/if}}
+                        {{#if (currentPage !== this) }}
+                            <li class="page_item"  currentPage="{{this}}" limit="{{limit}}">
+                                <a href="javascript:">{{this}}</a>
+                            </li>
+                            <!--<a href="javascript:void(0)" currentPage="${i}" limit="${limit}"><li class="inline cursor num">${i}</li></a>-->
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+
+
+                {{#if (currentPage > 10) }}
+                    {{set ( begin = (totalPages - currentPage) > 9 ? currentPage : (totalPages - 9), end = (totalPages - currentPage) > 9 ? (currentPage + 9) : totalPages ) }}
+                    {{#each (range(begin, end + 1)) }}
+                        {{#if (currentPage === this) }}
+                            <li class="page_item active">
+                                <a href="javascript:">{{this}}</a>
+                            </li>
+                            <!--<li class="inline cursor num pageActive"><span>${i}</span></li>-->
+                        {{/if}}
+
+                        {{#if (currentPage !== this) }}
+                            <li class="page_item" currentPage="{{this}}" limit="{{limit}}">
+                                <a href="javascript:">{{this}}</a>
+                            </li>
+                        <!--<a href="javascript:void(0)" currentPage="${i}" limit="${limit}"><li class="inline cursor num">${i}</li></a>-->
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+            {{/if}}
+
+
+            {{#if (currentPage < totalPages)}}
+                <li class="page_item next_page" currentPage="{{currentPage + 1}}" limit="{{limit}}">
+                    <a href="javascript:">下一页</a>
+                </li>
+                <li class="page_item last_page" currentPage="{{totalPages}}" limit="{{limit}}">
+                    <a href="javascript:">尾页</a>
+                </li>
+                <!--<a currentPage="${currentPage+1}" limit="{{limit}}"> <li class="inline cursor next"><span>下一页<div class="nextIcon"></div></span></li></a>
+                <a currentPage="${totalPages}" limit="{{limit}}"> <li class="inline cursor last"><span>尾页</span></li></a>-->
+            {{/if}}
+            {{#if (currentPage === totalPages)}}
+                <li class="page_item next_page disabled">
+                    <a href="javascript:">下一页</a>
+                </li>
+                <li class="page_item last_page disabled">
+                    <a href="javascript:">尾页</a>
+                </li>
+                <!--<li class="inline cursor next pagesDisable"><span>下一页<div class="nextIcon"></div></span></li>
+                <li class="inline cursor last pagesDisable"><span>尾页</span></li>-->
+            {{/if}}
+        </ul>
+    </div>
+{{/if}}
+

@@ -1,0 +1,264 @@
+<!--编辑仓库-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="/static/css/manufacturing.css">
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/warehouse.css">
+    <title>行政管理-编辑仓库</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main org_product">
+            <div class="crumbs_nav">
+                <a href="/administrative/warehouse/list" class="crumbs_item">行政仓库</a>
+                <a href="javascript:;" class="crumbs_item">编辑仓库</a>
+            </div>
+            <div class="administrative_storage">
+            	<input type="hidden" id="wareHouseId" name="warehouse_id" value="${warehouse_id}">
+                <div class="row_item more_value warehouses">
+                    <div class="row_title"><em class="require_icon">*</em>物品名称：</div>
+                    <div class="row_val">
+                        <input type="text" id="name" name="name" value="${vo.name}" placeholder="请输入物品名称，如：电脑" class="item_name" />
+                    </div>
+                </div>
+                <div class="row_item more_value tags">
+                    <div class="row_title"><em class="require_icon">*</em>标签：</div>
+                    <div class="row_val tags_box">
+                        <ul class="tags_list">
+                            <c:forEach items="${list}" var="bean">
+								<li class="tag_item" data-id="${bean.id}" data-name="${bean.name}"><em class="delete_icon"></em><span class="tag_name">${bean.name}</span></li>
+							</c:forEach>
+                        </ul>
+                        <em class="add_tag_btn"></em>
+                    </div>
+                </div>
+                <div class="btn_box text_left">
+                <per:button code="1305">
+                    <a href="javascript:" class="btn orange_btn confirm submit_create">确认</a>
+                </per:button>
+                    <a href="javascript:window.history.back();" class="btn bg_btn cancel">取消</a>
+                </div>
+            </div>
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    (function ($) {
+        var elem = {
+            tagsList : $('.tags_list'),
+            wId : $('#wareHouseId'),    //仓库ID
+            wName : $('#name'),    //仓库ID
+            submit : $('.submit_create')
+        };
+        var deleteTagId = [],
+            deleteTagName = [],
+            newTag = [];
+        var createSuccessTag = [];  //已经创建的标签数据
+        // 获取原始已创建标签
+        function getOldTags () {
+            elem.tagsList.find('.tag_item').each(function () {
+                var _this = $(this);
+                var tag = $.trim(_this.text());
+                createSuccessTag.push(tag);
+            });
+        }
+
+        //标签的创建输入框显示逻辑
+        function addTagsBox () {
+            var btn = $('.add_tag_btn');
+            btn.off('click').on('click', function () {
+                var i = "<li class='tag_item add_tag_box'>\
+                        <input type='text' value='' placeholder='请输入标签名' maxlength='20' autofocus='autofocus'>\
+                </li>";
+                //$('.tags_list').append('');
+                //elem.tagsList.append(i);
+                var a = btn.siblings('.tags_list').find('.add_tag_box');
+                if (a.length <= 0) {
+                    btn.siblings('.tags_list').append(i);
+                } else {
+                    var v = $.trim(a.find('input').val());
+                    if (v) {
+                        var str = '<li class="tag_item new_tag" data-name="'+ v +'"><em class="delete_icon"></em><span class="tag_name">'+ v +'</span></li>';
+                        var isRepeat = checkRepeat(v, createSuccessTag, '该标签已存在，请创建新标签');
+                        if (!isRepeat) {
+                            createSuccessTag.push(v);
+                            a.before(str);
+                            newTag.push(v);
+                            a.find('input').val('').focus();
+                        } else {
+                            a.find('input').val('').focus();
+                        }
+                    } else {
+                        a.find('input').focus();
+                    }
+                }
+            })
+        }
+        //标签输入框的输入事件-标签创建逻辑
+        function createTag () {
+            elem.tagsList.off('input keyup').on('input keyup', '.add_tag_box input', function (e) {
+                var e = e || window.event;
+                var _this = $(this);
+                var v = $.trim(_this.val());
+                if (e.which == 13) {
+                    if (v) {
+                        var tagItem = '<li class="tag_item new_tag"  data-name="'+ v +'"><em class="delete_icon"></em><span class="tag_name">'+ v +'</span></li>';
+                        var isRepeat = checkRepeat(v, createSuccessTag, '该标签已存在，请创建新标签');
+                        if (!isRepeat) {
+                            createSuccessTag.push(v);
+                            _this.parents('.add_tag_box').before(tagItem);
+                            newTag.push(v);
+                            _this.val('').focus();
+                        } else {
+                            elem.tagsList.find('.add_tag_box input').val('').focus();
+                        }
+                    } else {
+                        _this.focus();
+                    }
+                }
+            })
+        }
+        //标签的删除逻辑
+        function deleteTag () {
+            elem.tagsList.off('click').on('click', '.delete_icon', function (e) {
+                var e = e || window.event;
+                e.stopPropagation();
+                e.preventDefault();
+                var _this = $(this);
+                var url = contextPath + '/api/administrative/label/validate';
+                var tagId = $.trim(_this.parents('.tag_item').data('id'));
+                var tagName = $.trim(_this.parents('.tag_item').data('name'));
+                var data = {
+                    label_id : tagId
+                };
+                if (!_this.parents('.tag_item').hasClass('new_tag')) {
+                    $ajax('post', url, data, function (res) {
+                        if (res.error_code == 0) {
+                            createSuccessTag.remove(tagName);
+                            _this.parents('.tag_item').remove();
+                            deleteTagId.push(tagId);
+                            deleteTagName.push(tagName);
+                        } else if (res.error_code == 1002) {
+                            $alert('该标签已有GPS使用，不允许删除');
+                        } else {
+                            $alert('删除失败，请稍后重试');
+                        }
+                    })
+                } else {
+                    var p = _this.parents('.tag_item');
+                    p.remove();
+                    newTag.remove(tagName);
+                    createSuccessTag.remove(tagName);
+                }
+            })
+        }
+
+        //获取创建数据
+        function getData () {
+            var data = {};
+            data.warehouse_id = $.trim(elem.wId.val());
+            data.name = $.trim(elem.wName.val());
+            data.delLabels = deleteTagId.join(',');
+            if (newTag.length != 0) {
+                //data.newLabels = newTag.join(',');
+                data.newLabels = newTag;
+            }
+            return data;
+        }
+        //字段校验
+        function verify () {
+        	var data = getData();
+        	if (data.name == '') {
+                $alert('请输入物品名称');
+                return false;
+            }
+            var tags = [];
+            elem.tagsList.find(".tag_item").not('add_tag_box').each(function () {
+                var _this = $(this);
+                var tagName = $.trim(_this.text());
+                tags.push(tagName);
+            });
+            var tagStr = tags.join(',');
+            if (tagStr == '') {
+                $alert('标签不能为空');
+                return false;
+            }
+            return true;
+        }
+
+        //提交按钮的事件绑定
+        function submitBind() {
+            elem.submit.off('click').on('click', function () {
+                submitEvent();
+            });
+        }
+        //提交逻辑
+        function submitEvent () {
+            var valid = verify();
+            if (valid) {
+                var data = getData();
+                data.newLabels = JSON.stringify(data.newLabels);
+                var url = contextPath + '/api/administrative/edit';
+                $ajax('post', url, data, function(res) {
+                    if (res.error_code == 0) {
+                        $alert('编辑成功', function () {
+                            window.location.href = contextPath + '/administrative/warehouse/list';
+                        });
+                    } else {
+                        $alert(res.error_msg);
+                        console.info(res.error_msg);
+                        submitBind();
+                    }
+                }, function () {
+                    $alert('网络异常，请稍后重试');
+                    submitBind();
+                });
+            } else {
+                return;
+            }
+        }
+
+        $(function () {
+            getOldTags();
+            addTagsBox();
+            createTag();
+            deleteTag();
+            submitBind();
+        })
+    })(jQuery,undefined);
+    
+    function checkRepeat (newStr, oldValue, tips) {
+        if ($.inArray(newStr, oldValue) != -1) {
+            $alert(tips);
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+</html>

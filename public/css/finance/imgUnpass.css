@@ -1,0 +1,65 @@
+
+.imgUnpass{
+    height:300px;
+}
+.reasonBox{
+    width:95%;min-width:773px;
+    height:114px;
+    margin-top:28px;
+    resize: none;
+    border:1px solid #E4E4E4;
+    padding:10px 15px;
+    outline: none;
+    color:#A4A8AB;
+}
+.send{
+    width:100px;height:30px;
+    color:#fff;
+    background:#1DC6BC;
+    border:1px solid #1DC6BC;
+    border-radius: 5px;
+    margin-left:83%;
+    margin-top:38px;
+    outline: none;
+}
+.send:hover{
+    background-color:#0B9C94;
+}
+.reason_list{
+    width:50%;height:30px;
+    color:#535E6A;
+    padding-left:35px;
+    line-height: 30px;
+    background:url("/static/img/finance/reasonIcon.png") 15px center no-repeat;
+}
+.reason_list>span{
+    display: inline-block;
+    height:30px;
+    line-height: 30px;
+}
+.question-con-box{
+    position: relative;
+}
+.question-con-box,
+.question-con{
+    width: 100%;
+}
+.question-con-box .question-con{
+    color:#808891;
+    line-height: 25px;
+    margin-top: 20px;
+}
+.question-con-box .detail-icon{
+    width: 25px;
+    height: 20px;
+    position: absolute;
+    right: 4px;
+    bottom: 2px;
+    cursor: pointer;
+}
+.question-con-box .down-icon{
+    background:url('/static/img/product/icon_shape_down.png') center center no-repeat;
+}
+.question-con-box .up-icon{
+    background:url('/static/img/product/icon_shape_up.png') center center no-repeat;
+}

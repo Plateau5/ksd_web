@@ -1,0 +1,105 @@
+
+.check{
+    float:left;
+}
+.need{
+    color:#FB2741;
+    font-size: 12px;
+    margin-right:2px;
+}
+.icon_check{
+    width:12px;height:12px;
+    background:url('/static/img/organization/icon_check.png') center center no-repeat;
+}
+.icon_uncheck{
+    width:12px;height:12px;
+    background:url('/static/img/organization/icon_uncheck.png') center center no-repeat;
+}
+.checkBox{
+    border:none;
+    background:#F5F5F5;
+    padding-left:0;
+    margin-top:2px;
+}
+.checkBox>.check>div{
+    margin-top:2px;
+    margin-right:5px;
+    cursor: pointer;
+    float:left;
+}
+.organization_logo{
+    width:56px;height:40px;
+    background:#fff;
+    float:left;
+    margin-right:30px;
+    margin-bottom:20px;
+    position: relative;
+    cursor: pointer;
+}
+.organization_logo img{
+    width:56px;height:40px;
+}
+.logo_check{
+    position: absolute;
+    right:0;bottom:0;
+}
+.radio{
+    float:left;
+    margin-right:40px;
+}
+.radio input[type='radio']{
+    margin-left:0;
+    margin-top:3px;
+}
+.adress_title{
+    float:left;
+    margin-left:-25px;
+    line-height: 34px;
+}
+.add_btn{
+    margin-left:-13%;
+}
+#add_btn_y{
+    width:110px;height:30px;
+    color:#fff;
+    background:#1DC6BC;
+    border:1px solid #1DC6BC;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 30px;
+}
+#add_btn_y:hover{
+    background:#0B9C94;
+}
+#add_btn_n{
+    width:110px;height:30px;
+    color:#fff;
+    background:#A0A0A0;
+    border:1px;
+    border-radius: 4px;
+    margin-left:30px;
+    font-size: 12px;
+    line-height:30px ;
+}
+#add_btn_n:hover {
+    background: #B4B4B4;
+}
+#delS{
+    position: fixed;
+    left:0;top: 0;
+    bottom:0;right:0;
+    margin:auto auto;
+    display:none;
+    z-index: 2;
+}
+.mask{
+    width: 100%;
+    background: rgba(0, 0, 0, .4);
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    display: none;
+}
+.have_system_url,.logo_error{
+    display:none;
+}

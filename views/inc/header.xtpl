@@ -1,0 +1,56 @@
+<!-- Template of header -->
+<div id="" class="header full_width">
+    <div class="header_content normal_width">
+        <a href="/home" class="logo">
+            <img class="block" src="/static/img/logo.png" alt="致汇金服logo">
+        </a>
+        <ul class="header_nav inline_block">
+            <li class="nav_item {{#if(startWith('/home'))}}active{{/if}}">
+                <a href="/home" class="">首页</a>
+            </li>
+            <li class="nav_item {{#if(startWith('/customer'))}}active{{/if}}">
+                <a href="/customer" class="">客户管理</a>
+            </li>
+            <li class="nav_item {{#if(startWith('/organization'))}}active{{/if}}">
+                <a href="/organization" class="">机构管理</a>
+            </li>
+            <li class="nav_item {{#if(startWith('/workflow'))}}active{{/if}}">
+                <a href="/workflow" class="">流程管理</a>
+            </li>
+            <li class="nav_item {{#if(startWith('/question'))}}active{{/if}}">
+                <a href="/question/list" class="">问题管理</a>
+            </li>
+            <li class="nav_item  {{#if(startWith('/gps || /administrative'))}}active{{/if}}">
+                <a href="/warehouse/system" class="">仓库管理</a>
+            </li>
+            <li class="nav_item {{#if(startWith('/employee || /department'))}}active{{/if}}">
+                <a href="/employee/system" class="">人员信息</a>
+            </li>
+            <li class="nav_item {{#if(startWith('/statistics'))}}active{{/if}}">
+                <a href="/statistics/system" class="">数据统计</a>
+            </li>
+            <li class="nav_item {{#if(startWith('/company || /feedback'))}}active{{/if}}">
+                <a href="/systemManagement" class="">系统管理</a>
+            </li>
+        </ul>
+        <ul class="login rf inline_block">
+            <li class="characters">
+
+                <ul class="user_setting">
+                    <li class="setting_item  {{#if(startWith('/userCenter'))}}active{{/if}}"><a href="/userCenter/information">个人中心</a></li>
+                    <li class="setting_item {{#if(startWith('/privilege'))}}active{{/if}}"><a href="/privilege/system">权限管理</a></li>
+                    <li class="setting_item"><a href="/logout">退出登录</a></li>
+                </ul>
+            </li>
+            <li class="message active">
+                <a href="javascript:">
+                    <em class="message_icon inline_block">
+                        <span class="message_count">99</span>
+                    </em>
+                </a>
+                <!--<div class="message_tip">您有<span class="count">10</span>条待处理事项</div>-->
+            </li>
+        </ul>
+    </div>
+</div>
+

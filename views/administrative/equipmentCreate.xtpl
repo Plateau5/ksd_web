@@ -1,0 +1,262 @@
+<!--入库-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="/static/css/manufacturing.css">
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/warehouse.css">
+    <title>行政管理-入库</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main org_product">
+            <div class="crumbs_nav">
+                <a href="/administrative/warehouse/list" class="crumbs_item">行政仓库</a>
+                <a href="javascript:" class="crumbs_item goDetail" data-id="${warehouse_id}">${warehouse_name}</a>
+                <a href="javascript:;" class="crumbs_item">入库</a>
+            </div>
+            <div class="administrative_storage">
+                <input type="hidden" id="warehouse_id" name="warehouse_id" value="${warehouse_id}">
+                <input type="hidden" id="warehouse_name" name="warehouse_name" value="${warehouse_name}">
+                <div class="row_item more_value warehouses">
+                    <div class="row_title"><em class="require_icon">*</em>物品编号：</div>
+                    <div class="row_val">
+                        <input type="text" id="equipmentNum" name="code" value="" placeholder="请输入物品编号" maxlength="20" class="item_name item_input" />
+                        <span class="error_msg">（<span class="msg"></span>）</span>
+                    </div>
+                </div>
+                <div class="row_item">
+                    <div class="row_title"><em class="require_icon">*</em>内部编号：</div>
+                    <div class="row_val">
+                        <input type="text" id="model" name="model" value="" placeholder="请输入物品内部编号" maxlength="30" class="item_name item_input" />
+                        <span class="error_msg">（<span class="msg"></span>）</span>
+                    </div>
+                </div>
+                <div class="row_item">
+                    <div class="row_title"><em class="require_icon">*</em>标签：</div>
+                    <div class="row_val">
+                        <select name="label_id" id="tags">
+                            <option value="">-- 请选择 --</option>
+                            <c:forEach items="${list }" var="bean">
+	                            <option value="${bean.id }">${bean.name}</option>
+                            </c:forEach>
+                        </select>
+                        <span class="error_msg">（<span class="msg"></span>）</span>
+                    </div>
+                </div>
+                <div class="row_item set_user_item">
+                    <div class="row_title">使用者：</div>
+                    <div class="row_val set_user">
+                        <input type="text" name="use_id" id="user" data-id="" value="" placeholder="输入使用者名称查询" class="item_name" />
+                        <div class="set_box" style="display: none">
+                            <ul class="user_list">
+                            	<!--<c:forEach items="${emp_list }" var="bean">
+	                                <li class="user_item"  data-id="${bean.id }" data-name="${bean.name }">
+	                                    <div class="name inline_block nowrap">${bean.name }</div>
+	                                    <div class="user_mark inline_block nowrap">${bean.account }</div>
+	                                </li>
+                            	</c:forEach>-->
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row_item">
+                    <div class="row_title">备注：</div>
+                    <div class="row_val">
+                        <textarea class="remark" id="remark" name="remark" maxlength="50" id="remark" placeholder="请输入内容(50个字以内)"></textarea>
+                    </div>
+                </div>
+                <div class="btn_box text_left">
+                <per:button code="1308">
+                    <a href="javascript:" class="btn orange_btn confirm create_btn">确认</a>
+                </per:button>    
+                    <a href="javascript:window.history.back();" class="btn bg_btn cancel">取消</a>
+                </div>
+            </div>
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/warehouse.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    var emp_list = ${emp_list};
+    (function ($) {
+        // 获取填写数据
+        function getData () {
+            var data = {};
+            data.warehouse_id = $.trim($('#warehouse_id').val());
+            data.code = $.trim($('#equipmentNum').val());
+            data.model = $.trim($('#model').val());
+            data.label_id = $.trim($('#tags').val());
+            data.use_id = $.trim($('#user').data('id'));
+            data.remark = $.trim($('#remark').val());
+            return data;
+        }
+        //校验是否为空
+        function verify () {
+            var data = getData();
+            if (data.code == '') {
+                $('#equipmentNum').siblings('.error_msg').show().find('.msg').text('物品编号不能为空');
+                return false;
+            } else {
+                $('#equipmentNum').siblings('.error_msg').hide().find('.msg').text('');
+            }
+            if (data.model == '') {
+                $('#model').siblings('.error_msg').show().find('.msg').text('内部编号不能为空');
+                return false;
+            } else {
+                $('#model').siblings('.error_msg').hide().find('.msg').text('');
+            }
+            if (data.label_id == '') {
+                $('#tags').siblings('.error_msg').show().find('.msg').text('标签不能为空');
+                return false;
+            } else {
+                $('#tags').siblings('.error_msg').hide().find('.msg').text('');
+            }
+            return true;
+        }
+        // 失去焦点后校验逻辑
+        function blurVerify () {
+            var elem = $('.item_input');
+            elem.on('blur', function () {
+                var _this = $(this);
+                var val = _this.val();
+                if (val == '') {
+                    if (_this.attr('name') == 'code') {
+                        _this.siblings('.error_msg').show().find('.msg').text('物品编号不能为空');
+                    } else {
+                        _this.siblings('.error_msg').show().find('.msg').text('内部编号不能为空');
+                    }
+                } else {
+                    _this.siblings('.error_msg').hide().find('.msg').text('');
+                }
+            });
+            elem.on('input focus', function () {
+                var _this = $(this);
+                var val = _this.val();
+                if (val != '') {
+                    _this.siblings('.error_msg').hide().find('.msg').text('');
+                }
+            });
+            var tagBox = $('#tags');
+            tagBox.on('change', function () {
+                var _this = $(this);
+                var v = _this.find('option:selected').val();
+                if (!v) {
+                    $('#tags').siblings('.error_msg').show().find('.msg').text('标签不能为空');
+                } else {
+                    $('#tags').siblings('.error_msg').hide().find('.msg').text('');
+                }
+            });
+        }
+        // 增加使用者逻辑
+        function addUser () {
+            var btn = $('#user');
+            btn.on('input', function () {
+                $('.set_box').show();
+                var queryObj = fuzzyQuery(emp_list);
+                showSearchResult(queryObj);
+                selectedUser();
+            });
+
+            // 人员选中逻辑
+            var selectedUser = function () {
+                $('.set_box .user_item').on('click', function () {
+                    var _this = $(this);
+                    var userId = $.trim(_this.data('id'));
+                    var userName = $.trim(_this.data('name'));
+                    btn.val(userName).data('id', userId);
+                    $('.set_box').hide();
+                });
+            }
+        }
+        //提交按钮的事件绑定
+        function submitBind() {
+            var btn = $('.create_btn');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                submitEvent(_this);
+            });
+        }
+        //提交逻辑
+        function submitEvent (btn) {
+            var valid = verify();
+            if (valid) {
+                btn.off('click');
+                var data = getData();
+                var url = contextPath + '/api/administrative/equipment/create';
+                $ajax('post', url, data, function(res) {
+                    if (res.error_code == 0) {
+                        //var id = $.trim($('#warehouse_id').val());
+                        $alert('物品新增成功', function () {
+                            locationTo({
+                                action : contextPath + '/administrative/equipment/list',
+                                param : {
+                                    parent_id : data.warehouse_id
+                                }
+                            })
+                        });
+                    } else {
+                        $alert(res.error_msg);
+                        submitBind();
+                    }
+                }, function () {
+                    $alert('网络异常，请稍后重试');
+                    submitBind();
+                });
+            } else {
+                return;
+            }
+        }
+
+        // 面包屑跳转详情页
+        function getDetail () {
+            var btn = $('.goDetail');
+            btn.on('click', function () {
+                var _this = $(this);
+                var id = $.trim(_this.data('id'));
+                locationTo({
+                    action : contextPath + '/administrative/equipment/list',
+                    param : {
+                        parent_id : id
+                    }
+                })
+            });
+        }
+
+
+
+        $(function() {
+            addUser();
+            submitBind();
+            blurVerify();
+            registerHideEmployeeList();
+            getDetail();
+        });
+    })(jQuery,undefined);
+</script>
+</html>

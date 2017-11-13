@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="icon" href="/static/img/favicon.ico" mce_href="/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/img/favicon.ico" mce_href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <title>致汇金服-登录</title>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        <div class="login_container">
+            <div class="login">
+                <div class="login_logo">
+                    <img src="/static/img/login_logo.png" class="logo_login img_responsive" alt="">
+                </div>
+                <div class="login_form">
+                    <div class="login_title">内网登录</div>
+                    <form action="/login" id="loginForm" method="post">
+                        {{#if (code === 900 || code === 900)}}
+                        <div class="box error_msg" style="display: block;">{{error_msg}}</div>
+                        {{else}}
+                        <div class="box error_msg" style="display: none;">{{error_msg}}</div>
+                        {{/if}}
+                        <div class="box login_input	user_name">
+                            <input autocomplete="off" type="text"  name="account" placeholder="请输入邮箱" value="{{account}}">
+                        </div>
+                        <div class="box login_input	password">
+                            <input autocomplete="off" type="password"  name="password" placeholder="请输入密码" value="{{password}}">
+                        </div>
+                        <div class="forVIEW_password"><a href="#">忘记密码？</a></div>
+                        <div class="box login_btn">登录</div>
+                    </form>
+                </div>
+            </div>
+            <div class="register_info">
+                <div class="icp_info">Copyright © 2017 zhihjf.com  All Rights Reserved<!-- 京ICP备16023598号-1--></div>
+                <div class="jing_info"><a href="http://www.beian.gov.cn" target="_blank"><em class='reg_icon'></em>京公网安备 11010802021405号</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{{include ('./inc/jsSources')}}
+<script>
+    (function ($, window, undefined) {
+        $(function () {
+            var btn = $('.login_btn');
+            var form = $('#loginForm');
+            btn.on('click', function() {
+                //window.location.href = '/home'
+                form.submit();
+            });
+        })
+    })(jQuery, window, undefined)
+</script>

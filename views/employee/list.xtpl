@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>同事</title>
+    {{include('./../inc/metaData')}}
+    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="/static/css/employee/listCon.css">
+    <script src="/static/js/employee/list.js"></script>
+    <style type="text/css">
+    	.color{
+    		color: #1DC6BC;
+    	}
+        .tableBorder{
+            table-layout: auto;
+        }
+        .tableBorder>tbody>tr{
+            border: none;
+        }
+        .emp_list{
+            width: 97%;
+            margin-left: 2%;
+        }
+    </style>
+</head>
+<body>
+
+{{include('./../inc/header')}}
+
+<!--container start-->
+
+<div class="container minWidth">
+    <div class="row section">
+        <!--navLeft start-->
+        {{include('./../inc/sideNav')}}
+
+        <!--navLeft end-->
+
+
+        <!--listCon start-->
+        <div class=" listCon relative">
+            <div class="listConHeader relative">
+                <span>全部同事</span>
+                  <per:button code="1004">
+	                <div class="inviteP cursor inline" id="toInvite">
+	                    <img  style="margin-right:5px;margin-top:-2px;" src="/static/img/employee/inviteIcon.png" alt="">
+		                    <span>邀请同事</span>
+	                </div>
+                  </per:button>
+            </div>
+            <div class="col-xs-11 col-sm-11 col-md-11 col-lg-9 zimu">
+                <form action="/employee/list" method="post" id="form_search" role='form'>
+                    <input type="hidden" id="initial" name="initial" value="${condition.initial}">
+                    <ul id="zimucondition">
+                        <li class="inline liC cursor">全部</li>
+                        <c:forEach items="${initial_list}" var="bean">
+                        	<li id="${bean}" class="inline liMarginL cursor zimuLi <c:if test="${bean eq condition.initial}">color</c:if>  ">${bean}</li>
+                        </c:forEach>
+                    </ul>
+                </form>
+
+            </div>
+
+            <!--tableList start-->
+            <c:if test="${count >0 }">
+            <!--<table class="table tableBorder">-->
+            <table class="table tableBorder emp_list">
+                <c:forEach items="${list}" var="bean">
+                	<tr>
+	            		<td><div class="person_img">
+	            			<c:choose>
+	            				<c:when test="${empty bean.image_url}">
+			                        <img src="/static/img/employee/perIcon.png" alt="">
+	            				</c:when>
+	            				<c:otherwise>
+			                        <img src="${bean.image_url}" alt="">
+	            				</c:otherwise>
+	            			</c:choose>
+	                    </div></td>
+	            		<td><div class="ellipsis">${bean.name}</div></td>
+	                    <td><div class="ellipsis">${bean.position_desc }</div></td>
+	                    <td><div class="ellipsis">${bean.department_name }</div></td>
+	                    <td><div class="ellipsis">${bean.phone }</div></td>
+	                    <td><div class="ellipsis">${bean.account }</div></td>
+	                    <!--<td class="cursor mimaNew" lang="${bean.id}">重置密码</td>-->
+	                    <per:button code="1006">
+	                    	<td class="cursor dangan" lang="${bean.id}" title="档案">
+                                <em class="emp_record_icon"></em>
+                            </td>
+	                    	<td class="cursor xinxiDel" lang="${bean.id}" title="离职">
+                                <em class="emp_dimission"></em>
+                            </td>
+	                    </per:button>
+                	</tr>
+            	</c:forEach>
+                
+            </table>
+            </c:if>
+
+            <!--tableList end-->
+			<c:if test="${count eq 0 }">
+                {{include('./../inc/empty_data')}}
+            </c:if>
+            <!--pages start-->
+            {{include('./../inc/paginition')}}
+            <!--pages end-->
+
+        </div>
+
+        <!--listCon end-->
+
+    </div>
+
+
+</div>
+
+<!--container end-->
+
+</body>
+
+<!--操作成功页  开始-->
+<div id="delS">
+    <div class="container">
+        <div class="row section">
+
+            <div class="col-xs-4 col-sm-offset-4 inviteBox delhtml">
+                <div class="col-sm-8 invSBox">
+                    <div class="col-sm-12 invSText">
+                        <div>操作成功</div>
+                        <!--<span><span class="countMin">5</span>秒后自动跳转......</span>-->
+
+                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
+                    </div>
+                    <!--<div class="col-sm-8 countMin">-->
+                       <!---->
+                    <!--</div>-->
+                </div>
+                <div class="col-sm-3 invSBtn cursor" id="delSBtn">确定</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--操作成功页  结束-->
+
+<!--操作确认页  开始-->
+<div id="delQ">
+    <div class="container">
+        <div class="row section">
+            <input type="hidden" value="" name="delLang">
+            <div class="col-xs-4 col-sm-offset-4 inviteBox delhtml">
+                <div class="col-sm-8 invSBox">
+                    <div class="col-sm-12 invSText">
+                        <div>删除信息确认<span>删除后此同事信息全部丢失并无法登录</span></div>
+
+                        <img class="delQIMG" src="/static/img/employee/failIcon.png" alt=""/>
+                    </div>
+                </div>
+                <div class="col-sm-12 BTNMT">
+                    <div class="col-sm-3 cursor inline delA" id="delQDBtn">确定</div>
+                    <div class="col-sm-3 cursor inline delM" id="delQXBtn">取消</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--操作确认页  结束-->
+</html>

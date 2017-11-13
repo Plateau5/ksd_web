@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/zTree/css/zTreeStyleUserDefined.css">
+    <link rel="stylesheet" href="/static/css/contacts.css">
+    <link rel="stylesheet" href="/static/cropper/cropper.min.css">
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <title>个人中心</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main">
+            <div class="user_center">
+                <div class="row_item user_photo_row">
+                    <div class="row_title ">头像：</div>
+                    <div class="row_val">
+                        <div class="photo_box">
+                            <img src="${image_url_96}" id="user_photo" class="user_photo img_responsive" alt="">
+                        </div>
+                        <a href="javascript:" class="upload_photo" id="upload_photo_btn">上传头像</a>
+                        <input type="file" style="display: none;" name="user_photo" id="upload_photo_file" accept="image/jpeg,image/jpg,image/png">
+                    </div>
+                </div>
+                <div class="row_item">
+                    <div class="row_title">姓名：</div>
+                    <div class="row_val">
+                        <input type="text" name="user_name" placeholder="" class="user_name" value="${user.name }" disabled>
+                    </div>
+                </div>
+                <div class="row_item">
+                    <div class="row_title">电话：</div>
+                    <div class="row_val">
+                        <input type="text" name="user_phone" placeholder="" class="user_phone" value="${user.phone }" disabled>
+                    </div>
+                </div>
+                <div class="row_item">
+                    <div class="row_title"></div>
+                    <div class="row_val">
+                        <a href="javascript:" id="save_btn" class="btn orange_btn save_btn">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</a>
+                    </div>
+                </div>
+                <div id="upload_photo_dialog" class="upload_photo_dialog" style="display:none;">
+                    <div class="upload_photo_title bold">编辑个人头像</div>
+                    <div class="content">
+                        <div class="original_photo">
+                            <div class="large_photo">
+                                <img src="" class="img_responsive" alt="">
+                            </div>
+                            <div class="tips_msg">仅支持JPG/PNG/GIF图片文件，且文件大小小于5M</div>
+                            <div class="upload_btn_box">
+                                <a href="javascript:" class="btn btn_border_orange orange_font choose_img">重新上传</a>
+                            </div>
+                        </div>
+                        <div class="thumbnail_photo">
+                            <div class="small_photo" id="small_photo">
+                                <img src="" alt="">
+                            </div>
+                            <div class="thumbnail_text">效果预览</div>
+                        </div>
+                    </div>
+                    <div class="btn_box clearfix">
+                        <a href="javascript:" class="btn orange_btn confirm submit_upload">确定</a>
+                        <a href="javascript:" class="btn bg_btn cancel_upload ">取消</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+</div>
+<div class="mask" style="display: none;"></div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/contacts.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/cropper/cropper.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+</html>
+<script>
+    (function ($) {
+        var RESETPHOTO = false;
+        var elem = {
+            userPhoto : $('#user_photo'),
+            uploadBtn : $("#upload_photo_btn"),
+            fileInput : $("#upload_photo_file"),
+            uploadDia : $('#upload_photo_dialog'),
+            mask : $(".mask"),
+            photo : $(".large_photo>img"),
+            cancel : $(".btn_box .cancel_upload"),
+            confirm : $(".btn_box .submit_upload"),
+            reChooseImg : $(".choose_img"),
+            saveBtn : $("#save_btn")
+        };
+        //上传图片按钮的点击事件
+        function uploadPhoto (ele) {
+            ele.off("click").on("click", function () {
+                elem.fileInput.click();
+
+            });
+        }
+        //重新上传图片
+        uploadPhoto(elem.reChooseImg);
+        elem.photo.cropper({
+            zoomable: true,
+            viewMode: 1,
+            preview: '#small_photo', //不同尺寸预览区
+            aspectRatio: 1, //裁剪比例，NaN-自由选择区域
+            autoCropArea: 0.8, //初始裁剪区域占图片比例
+            //modal : false
+        });
+        //选择图片后的事件
+        elem.fileInput.on('change', function () {
+            var file = this.files[0];
+            fileName = file.name;
+            var reader = new FileReader();
+            //reader回调，重新初始裁剪区
+            reader.onload = function(){
+                // 通过 reader.result 来访问生成的 DataURL
+                var url = reader.result;
+                //选择图片后重新初始裁剪区
+                elem.photo.cropper('reset', true).cropper('replace', url);
+            };
+            reader.readAsDataURL(file);
+            elem.uploadDia.show();
+            elem.mask.show();
+        });
+
+        //取消按钮的点击事件
+        elem.cancel.off("click").on("click", function () {
+            elem.uploadDia.hide();
+            elem.mask.hide();
+        });
+        //确定按钮的点击事件
+        elem.confirm.off("click").on("click", function () {
+            elem.uploadDia.hide();
+            elem.mask.hide();
+            var canVas = elem.photo.cropper("getCroppedCanvas", {});
+            //将裁剪的图片加载到face_image
+            elem.userPhoto.attr('src', canVas.toDataURL());
+            RESETPHOTO = true;
+        });
+
+        //保存按钮的点击逻辑
+        elem.saveBtn.off("click").on("click", function () {
+            saveEvent();
+        });
+        function saveEvent () {
+            if (RESETPHOTO) {
+                elem.saveBtn.off("click");
+                var imgData = elem.userPhoto.attr("src").slice(22);
+                var url = '/api/employee/upload/file';
+                var data = {
+                    uid : '1',
+                    file : imgData
+                };
+                $.ajax({
+                    type : "post",
+                    url : url,
+                    data : data,
+                    timeout : 5000,
+                    success : function (resp) {
+                        var res = eval(resp);
+                        if (res.error_code == 0) {
+                            $(".character_photo").attr("src", res.img_url);
+                            $.post(contextPath+'/personal/file/cookie',function(){});
+                            $alert('头像上传或者更新成功。', function () {
+                                RESETPHOTO = false;
+                                elem.saveBtn.on("click", saveEvent);
+                            });
+                        } else {
+                            $alert("头像上传失败，请重新上传。");
+                            elem.saveBtn.on("click", saveEvent);
+                        }
+                    },
+                    error : function () {
+                        $alert("头像上传失败，请重新上传。");
+                        elem.saveBtn.on("click", saveEvent);
+                    }
+                });
+                /*$ajax("post", url, data, function (res) {
+                    if (res.error_code == 0) {
+                        $(".character_photo").attr("src", res.img_url);
+                        $.post(contextPath+'/personal/file/cookie',function(){});
+                        $alert('头像上传或者更新成功。', function () {
+                            RESETPHOTO = false;
+                            elem.saveBtn.on("click", saveEvent);
+                        });
+                    } else {
+                        $alert("头像上传失败，请重新上传。");
+                        elem.saveBtn.on("click", saveEvent);
+                    }
+                }, function () {
+                    $alert("头像上传失败，请重新上传。");
+                    elem.saveBtn.on("click", saveEvent);
+                });*/
+            } else {
+                $alert("您的资料未做任何更改");
+            }
+        }
+
+
+
+        $(function() {
+            uploadPhoto(elem.uploadBtn);
+        });
+    })(jQuery,undefined);
+</script>

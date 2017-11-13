@@ -1,0 +1,23 @@
+<div id="slide_nav" class="contacts slide_nav">
+    <div class="slide_nav_title bold">客户管理</div>
+    <ul class="slide_nav_bar">
+        <li class="nav_item">
+            <a href="" class="">贷款管理</a>
+        </li>
+        <li class="nav_item">
+            <a href="" class="">合同管理</a>
+        </li>
+        <li class="nav_item">
+            <a href="" class="">请款管理</a>
+        </li>
+        <li class="nav_item">
+            <a href="" class="">审批管理</a>
+        </li>
+        <li class="nav_item">
+            <a href="" class="">款项管理</a>
+        </li>
+        <li class="nav_item">
+            <a href="" class="">归档管理</a>
+        </li>
+    </ul>
+</div>

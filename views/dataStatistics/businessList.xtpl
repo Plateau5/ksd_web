@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/statistics.css"/>
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css"/>
+    <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
+    <title>数据统计-业务统计</title>
+    <style>
+        body{
+            background: rgba(0,0,0,.08);
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main">
+            <div class="statistics_box">
+                {{#if (verifyCode(1341)) }}
+                    <!-- 业务量统计 -->
+                    <div class="statistics_item business_statistics" id="business_statistics">
+                        <div class="filtrate">
+                            <div class="filtrate_item date_conditions inline_block">
+                                <div class="conditions_name inline_block">日期筛选：</div>
+                                <input type="text" id="inpstart1" readonly class="filtrate_date" value="" placeholder="请选择开始时间" /> ——
+                                <input type="text" id="inpend1" readonly class="filtrate_date"  value="" placeholder="请选择结束时间" />
+                            </div>
+                            <a href="javascript:" class="confirm_btn text_center inline_block" id="businessConfirm">确认</a>
+                        </div>
+                        <div class="canvas_box onloading" id="businessStatistics">
+
+                        </div>
+                    </div>
+                {{/if}}
+                {{#if (verifyCode(1342)) }}
+                    <!-- 城市统计 -->
+                    <div class="statistics_item city_statistics" id="city_statistics">
+                        <div class="filtrate">
+                            <div class="filtrate_item date_conditions inline_block">
+                                <div class="conditions_name inline_block">日期筛选：</div>
+                                <input type="text" id="inpstart2" readonly class="filtrate_date" value="" placeholder="请选择开始时间" /> ——
+                                <input type="text" id="inpend2" readonly class="filtrate_date"  value="" placeholder="请选择结束时间" />
+                            </div>
+                            <a href="javascript:" class="confirm_btn text_center inline_block" id="cityConfirm">确认</a>
+                            <div class="inline_block">
+                                <select name="filtrate_car_type" class="filtrate_select" id="cityCarType">
+                                        <!--<option value="">全部</option>-->
+                                    <option value="0" selected="selected">新车</option>
+                                    <option value="1">二手车</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="canvas_box onloading" id="cityStatistics">
+
+                        </div>
+                    </div>
+                {{/if}}
+                {{#if (verifyCode(1343)) }}
+                    <!-- 产品 -->
+                    <div class="statistics_item product_statistics" id="product_statistics">
+                        <div class="filtrate product_filtrate">
+                            <div class="filtrate_item date_conditions inline_block">
+                                <div class="conditions_name inline_block">日期筛选：</div>
+                                <input type="text" id="inpstart3" readonly class="filtrate_date" value="" placeholder="请选择开始时间" /> ——
+                                <input type="text" id="inpend3" readonly class="filtrate_date"  value="" placeholder="请选择结束时间" />
+                            </div>
+                            <a href="javascript:" class="confirm_btn text_center inline_block" id="productConfirm">确认</a>
+                            <div class="inline_block">
+                                <select name="filtrate_city" class="filtrate_select" id="productCity">
+                                        <!--<option value="">全部</option>-->
+                                </select>
+                            </div>
+                            <div class="inline_block">
+                                <select name="filtrate_car_type2" class="filtrate_select" id="productCarType">
+                                        <!--<option value="">全部</option>-->
+                                    <option value="0">新车</option>
+                                    <option value="1">二手车</option>
+                                </select>
+                            </div>
+                            <div class="inline_block">
+                                <select name="filtrate_order_type" class="filtrate_select" id="productOrderType">
+                                        <!--<option value="">全部</option>-->
+                                    <option value="1" selected="selected">进件</option>
+                                    <option value="5">通过</option>
+                                    <option value="12">回款</option>
+                                    <option value="13">归档</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="canvas_box onloading" id="productStatistics">
+
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/echarts.min.js"></script>
+<script src="/static/js/statistics.js"></script>
+<script src="/static/jedate/jquery.jedate.min.js"></script>
+<script src="/static/dialog/dialog-layer.js"></script>
+<script>
+    (function ($) {
+        // Ajax获取数据的权限控制标识
+		var  businessType = ($("#business_statistics").length==0) ? 0 : 1;
+		var  cityType = ($("#city_statistics").length==0) ? 0 : 1;
+		var  productType = ($("#product_statistics").length==0) ? 0 : 1;
+        // 页面全局变量控制
+        elem = {
+            businessDate : {
+                start : $('#inpstart1'),
+                end : $('#inpend1'),
+                canvas : $('#businessStatistics')
+            },
+            cityDate : {
+                start : $('#inpstart2'),
+                end : $('#inpend2'),
+                carType : $('#cityCarType'),
+                canvas : $('#cityStatistics')
+            },
+            productDate : {
+                start : $('#inpstart3'),
+                end : $('#inpend3'),
+                carType : $('#productCarType'),
+                orderType : $('#productOrderType'),
+                city : $('#productCity'),
+                canvas : $('#productStatistics')
+            }
+        };
+        // 保存查询次数状态：首次：false; 其他：true.(主要用于select值渲染)
+        var queryType = {
+            business : false,
+            city : false,
+            product : false
+        };
+
+        /**
+         * 获取业务量统计数据
+         * @author Arley Joe 2017-8-4 14:25:04
+         * @param start {string} : 开始时间
+         * @param end {string} : 结束时间
+         * @returns {json} : 返回的json数据
+         */
+        function createBusinessChart (start, end) {
+            var businessData = null;
+            var data = {
+                start_date : start || "",
+                end_date : end || ""
+            };
+            var url = contextPath + '/api/statistics/business';
+            redefineAjax({
+                url : url,
+                data : data,
+                timeout : 10000,
+                success : function (res) {
+                    if (res.error_code == 0) {
+                        businessData = formatBusinessData(res);
+                        bussinessbBarChart('businessStatistics', businessData);
+                        elem.businessDate.start.val(businessData.start_date);
+                        elem.businessDate.end.val(businessData.end_date);
+                        elem.businessDate.canvas.removeClass('onloading load_error');
+                    } else {
+                        elem.businessDate.canvas.removeClass('onloading').addClass('load_error');
+                        console.error(res.error_msg);
+                    }
+                },
+                error : function () {
+                    elem.businessDate.canvas.removeClass('onloading').addClass('load_error');
+                    console.error('Request error');
+                }
+            });
+        }
+        // 格式化业务量数据
+        function formatBusinessData (data) {
+            var businessData = {
+                new_count: [],  // 新车数据
+                old_count: [],  // 二手车数据
+                xaxisdata : [], // x轴数据
+                end_date : '',  // 统计结束日期
+                start_date: ''  // 统计开始日期
+            };
+            businessData.start_date = data.start_date;
+            businessData.end_date = data.end_date;
+            var xList = data.financeList;   // x轴统计项（配置数据）
+            var newCount = data.newCount; // 新车数据
+            var oldCount = data.oldCount; // 二手车数据
+            for (var i = 0, len = xList.length; i < len; i++) {
+                businessData.xaxisdata.push(xList[i].name);
+            }
+            businessData.new_count.push(Number(newCount.order_count));
+            businessData.new_count.push(Number(newCount.pass_count));
+            businessData.new_count.push(Number(newCount.return_count));
+            businessData.new_count.push(Number(newCount.pigeonhole_count));
+            businessData.old_count.push(Number(oldCount.order_count));
+            businessData.old_count.push(Number(oldCount.pass_count));
+            businessData.old_count.push(Number(oldCount.return_count));
+            businessData.old_count.push(Number(oldCount.pigeonhole_count));
+            return businessData;
+        }
+        // 注册业务统计的确定按钮点击事件
+        function buinessConfirmBtn () {
+            var btn = $('#businessConfirm');
+            btn.off('click').on('click', function () {
+                var start = $.trim(elem.businessDate.start.val());
+                var end = $.trim(elem.businessDate.end.val());
+                if (start == '') {
+                    $alert('开始时间不能为空');
+                    return false;
+                }
+                if (end == '') {
+                    $alert('结束时间不能为空');
+                    return false;
+                }
+                createBusinessChart(start, end);
+            });
+        }
+
+        /**
+         * 获取城市统计数据
+         * @author Arley Joe 2017-8-4 14:27:42
+         * @param start {string} : 开始时间
+         * @param end {string} : 结束时间
+         * @param type {string} : 购车类型：新车（0）、二手车（1）
+         * @returns {json} : 返回的json数据
+         */
+        function createCityChart (start, end, type) {
+            var cityData = null;
+            var data = {
+                start_date : start || "",
+                end_date : end || "",
+                car_type : type || '0',  // 默认查询新车
+            };
+            var url = contextPath + '/api/statistics/city';
+            redefineAjax({
+                url : url,
+                data : data,
+                timeout : 10000,
+                success : function (res) {
+                    if (res.error_code == 0) {
+                        cityData = formatCityData(res);
+                        cityBarChart('cityStatistics', cityData);
+                        elem.cityDate.start.val(cityData.start_date);
+                        elem.cityDate.end.val(cityData.end_date);
+                        elem.cityDate.canvas.removeClass('onloading load_error');
+                    } else {
+                        elem.cityDate.canvas.removeClass('onloading').addClass('load_error');
+                        console.error(res.error_msg);
+                    }
+                },
+                error : function () {
+                    elem.cityDate.canvas.removeClass('onloading').addClass('load_error');
+                    console.error('Request error');
+                }
+            });
+        }
+        // 格式化城市数据
+        function formatCityData (data) {
+            var cityData = {
+                order_count: [],    // 进件订单量
+                pass_count : [],    // 通过订单量
+                return_count : [],    // 回款订单量
+                pigeonhole_count : [],    // 归档订单量
+                xaxisdata : [],    // X轴数据
+                end_date : '',    // 统计结束日期
+                start_date: ''    // 统计开始日期
+            };
+            cityData.end_date = data.end_date;
+            cityData.start_date = data.start_date;
+            var xList = data.cityList;   // x轴统计项（配置数据）
+            var countList = data.cityCount;     // 订单数据list
+            for (var i = 0, len = xList.length; i < len; i++) {
+                cityData.xaxisdata.push(xList[i].city_name);
+            }
+            for (var i = 0, len = countList.length; i < len; i++) {
+                cityData.order_count.push(Number(countList[i].order_count));
+                cityData.pass_count.push(Number(countList[i].pass_count));
+                cityData.return_count.push(Number(countList[i].return_count));
+                cityData.pigeonhole_count.push(Number(countList[i].pigeonhole_count));
+            }
+            return cityData;
+        }
+
+        // 注册城市统计的筛选事件
+        function cityStatistics () {
+            var btn = $('#cityConfirm');
+            var carTypeSelect = elem.cityDate.carType;
+            btn.off('click').on('click', function () {
+                queryEvent();
+            });
+            carTypeSelect.on('change', function () {
+                queryEvent();
+            });
+            var queryEvent = function () {
+                var start = $.trim(elem.cityDate.start.val());
+                var end = $.trim(elem.cityDate.end.val());
+                var carType = $.trim(carTypeSelect.find('option:selected').val());
+                if (start == '') {
+                    $alert('开始时间不能为空');
+                    return false;
+                }
+                if (end == '') {
+                    $alert('结束时间不能为空');
+                    return false;
+                }
+                if (carType == '') {
+                    $alert('车辆类型不能为空');
+                    return false;
+                }
+                createCityChart(start, end, carType);
+            }
+        }
+
+        /**
+         * 获取产品统计数据
+         * @author Arley Joe 2017-8-4 14:27:42
+         * @param start {string} : 开始时间
+         * @param end {string} : 结束时间
+         * @param type {string} : 购车类型：新车（0）、二手车（1）
+         * @returns {json} : 返回的json数据
+         */
+        function createProductChart (start, end, type, cityId , status) {
+            var productData = null;
+            var data = {
+                start_date : start || "",
+                end_date : end || "",
+                car_type : type || '0',  // 默认查询新车
+                city_id : cityId || '',     // 城市
+                status : status || '1'   // 默认进件，1进件5通过12请款13归档
+            };
+            var url = contextPath + '/api/statistics/product';
+            redefineAjax({
+                url : url,
+                data : data,
+                timeout : 10000,
+                success : function (res) {
+                    if (res.error_code == 0) {
+                        productData = formatProductData(res);
+                        orgLineChart('productStatistics', productData);
+                        elem.productDate.start.val(productData.start_date);
+                        elem.productDate.end.val(productData.end_date);
+                        if (!queryType.product) {
+                            createOptions('#productCity', res.cityList, res.city_id, {
+                                type : 'Object',
+                                key : 'city_id',
+                                name : 'city_name'
+                            });
+                            createOptions('#productOrderType', res.finance_list, res.status, {
+                                type : 'Object',
+                                key : 'id',
+                                name : 'name'
+                            });
+                            queryType.product = true;
+                        }
+                        elem.productDate.canvas.removeClass('onloading load_error');
+                    } else {
+                        elem.productDate.canvas.removeClass('onloading').addClass('load_error');
+                        console.error(res.error_msg);
+                    }
+                },
+                error : function () {
+                    elem.productDate.canvas.removeClass('onloading').addClass('load_error');
+                    console.error('Request error');
+                }
+            });
+        }
+        // 格式化产品统计数据
+        function formatProductData (data) {
+            var productData = {
+                data : [],  // 统计的订单总量数据
+                xaxisdata : [],     // X轴数据
+                end_date : '',    // 统计结束日期
+                start_date: '',    // 统计开始日期,
+                legend : elem.productDate.orderType.find('option:selected').text()
+            };
+            productData.end_date = data.end_date;
+            productData.start_date = data.start_date;
+            var list = data.data;   // 订单总量数据
+            for (var i = 0, len = list.length; i < len; i++) {
+                productData.data.push(Number(list[i].order_count));
+                productData.xaxisdata.push(list[i].organization_name);
+            }
+            return productData;
+        }
+
+        // 注册产品统计的筛选事件
+        function productStatistics () {
+            var btn = $('#productConfirm');
+            var select = $('.product_filtrate select');
+            var carTypeSelect = elem.productDate.carType;
+            var orderTypeSelect = elem.productDate.orderType;
+            var citySelect = elem.productDate.city;
+            btn.off('click').on('click', function () {
+                queryEvent();
+            });
+            select.on('change', function () {
+                queryEvent();
+            });
+            var queryEvent = function () {
+                var start = $.trim(elem.productDate.start.val());
+                var end = $.trim(elem.productDate.end.val());
+                var carType = $.trim(carTypeSelect.find('option:selected').val());
+                var orderType = $.trim(orderTypeSelect.find('option:selected').val());
+                var city = $.trim(citySelect.find('option:selected').val());
+                if (start == '') {
+                    $alert('开始时间不能为空');
+                    return false;
+                }
+                if (end == '') {
+                    $alert('结束时间不能为空');
+                    return false;
+                }
+                if (carType == '') {
+                    $alert('车辆类型不能为空');
+                    return false;
+                }
+                createProductChart(start, end, carType, city, orderType);
+            }
+        }
+
+
+        $(function() {
+            if (businessType === 1) {
+                initDateStartEnd('#inpstart1','#inpend1');
+                createBusinessChart();  // 创建业务量统计图表
+                buinessConfirmBtn();    // 注册业务量统计确定按钮点击事件
+            }
+            if (cityType === 1) {
+                initDateStartEnd('#inpstart2','#inpend2');
+                createCityChart();  // 创建城市统计图表
+                cityStatistics();    // 注册城市统计筛选事件
+            }
+            if (productType === 1) {
+                initDateStartEnd('#inpstart3','#inpend3');
+                createProductChart();  // 创建产品统计图表
+                productStatistics();    // 注册产品统计筛选事件
+            }
+        });
+    })(jQuery,undefined);
+</script>
+</html>

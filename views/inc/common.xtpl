@@ -1,0 +1,21 @@
+<!--META-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+	var contextPath = '';
+</script>
+<!-- script -->
+<link rel="stylesheet" href="/static/css/common/base.css">
+<link rel="stylesheet" href="/static/css/common/bootstrap.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="/static/icon/favicon.ico"></link>
+<link rel="icon" type="image/x-icon" href="/static/icon/favicon.ico"></link>
+<script type="text/javascript" src="/static/js/common/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("input[type='text']").blur(function(){
+		$(this).val($.trim($(this).val()));
+	});
+	$("textarea").blur(function(){
+		$(this).val($.trim($(this).val()));
+	});
+});
+</script>

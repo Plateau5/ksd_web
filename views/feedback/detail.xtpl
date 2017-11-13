@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>意见反馈</title>
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/home.css"/>
+    <link rel="stylesheet" href="/static/css/questions.css"/>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main feedback_container">
+            <div class="crumbs_nav">
+                <a href="javascript:" data-status="${status}" class="crumbs_item goDetail">意见反馈</a>
+                <a href="javascript:" class="crumbs_item">查看详情</a>
+            </div>
+            <div class="form_content form_options feedback_detail">
+                <form action="" class="basic_info_edit">
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">姓名：</span>
+                        </div>
+                        <div class="column_val">${feedback_detail.emp_name }</div>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">电话：</span>
+                        </div>
+                        <div class="column_val">${feedback_detail.emp_phone }</div>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">使用机型：</span>
+                        </div>
+                        <div class="column_val">${feedback_detail.phone_type }</div>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">版本号：</span>
+                        </div>
+                        <div class="column_val">${feedback_detail.version }</div>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">类型：</span>
+                        </div>
+                        <c:if test="${feedback_detail.feedback_type ==1 }">
+                        	<div class="column_val">系统问题</div>
+                        </c:if>
+                        <c:if test="${feedback_detail.feedback_type ==2 }">
+                        	<div class="column_val">优化建议</div>
+                        </c:if>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">问题描述：</span>
+                        </div>
+                        <div class="column_val">${feedback_detail.description }</div>
+                    </div>
+                    <c:if test="${not empty file_list}">
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">相关图片：</span>
+                            </div>
+                            <div class="column_val">
+                                <ul class="img_list">
+                                    <c:forEach items="${file_list}" var="bean">
+                                        <li class="img_item">
+                                            <a href="${bean.url}" target="_blank">
+                                                <img src="${bean.thumbnail}" alt=""/>
+                                            </a>
+                                        </li>
+                                    </c:forEach>
+                                </ul>
+                            </div>
+                        </div>
+                    </c:if>
+                    <!-- 已解决显示该项 -->
+                    <c:if test="${status ==1 }">
+		            	 <div class="option_item">
+	                        <div class="column_name">
+	                            <span class="options_name">备注：</span>
+	                        </div>
+	                        <div class="column_val">${feedback_detail.remark }</div>
+	                    </div>
+            		</c:if>
+                    
+                </form>
+            </div>
+            <c:if test="${status ==0 }">
+            	 <div class="remark_box">
+	                <textarea name="remark" id="remark" class="remark" placeholder="请输入备注信息"></textarea>
+	            </div>
+	            <div class="btn_box clearfix ">
+	                <a href="javascript:" class="btn bg_btn edit_cancel" id="cancelBtn" data-type="${status}" data-status="1" data-id="${feedback_detail.feedback_id}">不解决</a>
+	                <a href="javascript:" class="btn orange_btn confirm edit_confirm" id="submitBtn" data-type="${status}" data-status="2" data-empid="${feedback_detail.emp_id }" data-id="${feedback_detail.feedback_id}">已解决</a>
+	            </div>
+            </c:if>
+            
+           
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    (function ($) {
+        // 面包屑跳转
+        function goFeedBackList () {
+            var btn = $('.goDetail')
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                var status = $.trim(_this.data('status'));
+                locationTo({
+                    action : contextPath + '/feedback/list',
+                    param : {
+                        status : status
+                    }
+                })
+            });
+        }
+        // 确定按钮的事件绑定
+        function bindSubmitEvent () {
+            var btn = $("#submitBtn, #cancelBtn");
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                submitEvent(_this);
+            });
+        }
+        // 已解决的提交逻辑
+        function submitEvent (b) {
+            var feedback_id = $.trim(b.data('id')),
+            	emp_id = $.trim(b.data('empid')),
+                remark = $.trim($('#remark').val()),
+                status = $.trim(b.data('status')),
+                type = $.trim(b.data('type'));
+            var data = {
+                feedback_id : feedback_id,
+                emp_id : emp_id,
+                remark : remark,
+                status : status
+            };
+            if (data) {
+                b.off('click');
+                var url = contextPath + '/api/feedback/create/remark';
+                $ajax('post', url, data, function (res) {
+                    if (res.error_code == 0) {
+                        $alert('提交成功', function () {
+                            locationTo({
+                                action : contextPath + '/feedback/list',
+                                param : {
+                                    status : type
+                                }
+                            })
+                        })
+                    } else {
+                        bindSubmitEvent();
+                        $alert(res.error_msg);
+                    }
+                }, function () {
+                    bindSubmitEvent();
+                    $alert('提交失败，请稍后重试');
+                })
+            } else {
+                return;
+            }
+        }
+
+
+        $(function() {
+            goFeedBackList();
+            bindSubmitEvent();
+        });
+    })(jQuery,undefined);
+</script>
+</html>

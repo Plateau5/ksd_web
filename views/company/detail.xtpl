@@ -1,0 +1,129 @@
+<!-- 创建租户 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/company.css">
+    <title>租户管理-租户列表</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main org_product">
+            <div class="crumbs_nav">
+                <a href="/company/list" class="crumbs_item">租户管理</a>
+                <a href="javascript:;" class="crumbs_item">租户详情</a>
+            </div>
+            <div class="operate_btn_box text_right">
+                <a href="#"  class="btn blue_btn edit_btn edit_company"><em></em>编辑租户</a>
+                <!-- 跳转至编辑页所带数据  -->
+                <input type="hidden" name="account" value="${company_detail.account }" id="account">
+                <input type="hidden" name="company_id" value="${company_detail.company_id }" id="companyId">
+                <input type="hidden" name="city_names" value="${company_detail.city_names }" id="citys">
+                <input type="hidden" name="end_date" value="${company_detail.end_date }" id="endDate">
+                <input type="hidden" name="company_name" value="${company_detail.company_name }" id="companyName">
+                <input type="hidden" name="contact_name" value="${company_detail.contact_name }" id="contactName">
+                <input type="hidden" name="contact_phone" value="${company_detail.contact_phone }" id="contactPhone">
+                <input type="hidden" name="city_ids" value="${company_detail.city_ids }" id="cityIds">
+            </div>
+            <div class="form_content form_options company_view">
+                <form action="" class="basic_info_edit">
+                    <!-- 账号信息 Begin -->
+                    <div class="options_title">账号信息</div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">管理员账号：</span>
+                        </div>
+                        <div class="column_val">${company_detail.account }</div>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">业务城市：</span>
+                        </div>
+                        <div class="column_val">${company_detail.city_names }</div>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">使用截止日期：</span>
+                        </div>
+                        <div class="column_val">${company_detail.end_date }</div>
+                    </div>
+                    <!-- 公司信息 Begin -->
+                    <div class="options_title">公司信息</div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">租户名称：</span>
+                        </div>
+                        <div class="column_val">${company_detail.company_name }</div>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">联系人姓名：</span>
+                        </div>
+                        <div class="column_val">${company_detail.contact_name }</div>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">联系人手机号：</span>
+                        </div>
+                        <div class="column_val">${company_detail.contact_phone }</div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    (function ($) {
+        // 跳转租户编辑页面
+        function toCompanyEdit () {
+            var btn = $(".edit_company");
+            btn.off('click').on("click", function () {
+                locationTo({
+                    action : contextPath + '/company/to/edit',
+                    param : {
+                        company_id : $.trim($("#companyId").val()),
+                        account : $.trim($("#account").val()),
+                        city_names : $.trim($("#citys").val()),
+                        end_date : $.trim($("#endDate").val()),
+                        company_name : $.trim($("#companyName").val()),
+                        contact_name : $.trim($("#contactName").val()),
+                        contact_phone : $.trim($("#contactPhone").val()),
+                        city_ids : $.trim($("#cityIds").val())
+                    }
+                })
+            })
+        }
+
+        $(function () {
+            toCompanyEdit();
+        })
+
+    })(jQuery,undefined);
+</script>
+</html>

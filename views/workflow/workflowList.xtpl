@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{include ("./../inc/cssSources")}}
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/manufacturing.css">
+    <title>{{title}}</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include ('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include ('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main">
+            <div class="tab">
+                <ul class="tab_list inline_block">
+                    <li class="tab_item type_normal">车款审批</li>
+                    <li class="tab_item type_others active" style="width: 100px;">其他款项审批</li>
+                </ul>
+            </div>
+            <form action="/workflow/list" method="POST" id="form_search" role="form">
+                <input type="hidden" name="type" value="${type}" id="flow_type">
+            </form>
+            <!--没有创建任何流程-->
+                    <div class="no_workflow">
+                        <div class="toast_text">目前还没有审批流程，请先创建审批流程</div>
+                        <div class="new_btn_box">
+                            <a href="/workflow/toCreate?type=1"  class="btn blue_btn add_btn"><em></em>新建流程</a>
+                        </div>
+                    </div>
+            <!--已创建流程列表-->
+            <div class="filtrate workflow">
+                <div class="filtrate_item date_conditions">
+                    <div class="inline_block">
+                        <div class="conditions_name inline_block filtrate_city">城市筛选：</div>
+                        <select name="city_id" class="filtrate_select city_select" id="city_id">
+                            <option value="">--请选择--</option>
+                            <c:forEach items="${city_list }" var="bean">
+                                <option value="${bean.id}" <c:if test="${bean.id eq condition.city_id}">selected</c:if>>${bean.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                        <div class="inline_block rf">
+                            <a href="/workflow/toCreate?type=2"  class="btn blue_btn add_btn"><em></em>新建流程</a>
+                        </div>
+                </div>
+            </div>
+            <div class="workflow_content">
+                <!-- 车价审批流列表 Begin -->
+                <table class="workflow_list type_normal">
+                <colgroup style="width: 100%;">
+                    <col style="width: 20%;" />
+                    <col style="width: 15%;" />
+                    <col style="width: 20%;" />
+                    <col style="width: 13%;" />
+                    <col style="width: 14%;" />
+                    <col style="width: 18%;" />
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>适用业务</th>
+                    <th>适用城市</th>
+                    <th>风险类型</th>
+                    <th>是否甩单</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td title="${bean.name }">${bean.name }</td>
+                            <td>${bean.applyto_business_value }</td>
+                            <td title="${bean.applyto_city_value }">${bean.applyto_city_value }</td>
+                            <td title="${bean.risk_type_value }">${bean.risk_type_value }</td>
+                            <td>否是</td>
+                            <td class="operate_btn">
+                                <a href="javascript:" data-url="/workflow/toDetail" data-flow_id="${bean.id}" title="查看" class="view go_forward" lang="${bean.id }"></a>
+                                    <a href="javascript:" data-url="/workflow/toEdit" data-flow_id="${bean.id}" title="编辑" class="edit go_forward" lang="${bean.id }"></a>
+                                <a href="javascript:;" data-url="/workflow/toDelete"  title="删除" class="delete go_forward" data-flow_id="${bean.id}"  lang="${bean.id }"></a>
+                            </td>
+                        </tr>
+                    <tr>
+                </tbody>
+                </table>
+                <!-- 车价审批流列表 End -->
+                <!-- 其他款项审批流列表 Begin -->
+                <table class="workflow_list type_others">
+                <colgroup style="width: 100%;">
+                    <col style="width: 22%;" />
+                    <col style="width: 18%;" />
+                    <col style="width: 20%;" />
+                    <col style="width: 23%;" />
+                    <col style="width: 17%;" />
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>适用业务</th>
+                    <th>适用城市</th>
+                    <th>费用类型</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td title="${bean.name }">${bean.name }</td>
+                            <td>${bean.applyto_business_value }</td>
+                            <td title="${bean.applyto_city_value }">${bean.applyto_city_value }</td>
+                            <td title="${bean.charge_type_value}">${bean.charge_type_value}</td>
+                            <td class="operate_btn">
+                                <a href="javascript:" data-url="/workflow/toDetail" data-flow_id="${bean.id}" title="查看" class="view go_forward" lang="${bean.id }"></a>
+                                    <a href="javascript:" data-url="/workflow/toEdit" data-flow_id="${bean.id}" title="编辑" class="edit go_forward" lang="${bean.id }"></a>
+                                    <a href="javascript:;" data-url="/workflow/toDelete"  title="删除" class="delete go_forward" data-flow_id="${bean.id}" lang="${bean.id }"></a>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                    </tr>
+                </tbody>
+                </table>
+                <!-- 其他款项审批流列表 End -->
+                <!--分页部分 Begin-->
+                {{include('./../inc/pagination')}}
+                <!--分页部分 End-->
+            </div>
+        </div>
+
+
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+</div>
+<div class="mask" style="display: none;"></div>
+</body>
+{{include ('./../inc/jsSources')}}
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/manufacturing.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    (function ($) {
+        // tab标签的切换
+        function switchTab () {
+            var btn = $('.tab_item');
+            btn.on('click', function () {
+                var _this = $(this);
+                if (_this.hasClass('type_normal')) {
+                    _this.addClass('active');
+                    _this.siblings('.type_others').removeClass('active');
+                    $('#flow_type').val('1');
+                    $('table.type_normal').css('display', 'table');
+                    $('table.type_others').css('display', 'none');
+                } else {
+                    _this.addClass('active');
+                    _this.siblings('.type_normal').removeClass('active');
+                    $('#flow_type').val('2');
+                    $('table.type_others').css('display', 'none');
+                    $('table.type_normal').css('display', 'table');
+                }
+                $('form[role="form"]').submit();
+            });
+        }
+        // 审批流的删除功能
+        function deleteWorkFlow () {
+            var btn = $('.delete');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                deleteEvent(_this);
+            });
+        }
+        // 注册筛选项的事件
+        selectorChange();
+        // 删除的提交事件
+        function deleteEvent (t) {
+            t.off('click');
+            var type = $.trim($('#flow_type').val());
+            var id = $.trim(t.data('flow_id'));
+            var url = contextPath + '/api/workflow/delete';
+            var data = {
+                id : id
+            };
+            dialog('open',{
+                closeBtn : false,
+                title : '提醒',
+                content : '确认继续删除该审批流程？',
+                "button" : ["确认","取消"],
+                "maskClose" : false,
+                onConfirm : function (d) {
+                    onDeleteConfirm(d);
+                }
+            });
+            var onDeleteConfirm = function (d) {
+                $ajax('post', url, data, function (res) {
+                    if (res.error_code == 0) {
+                        d.close();
+                        $alert('删除成功', function () {
+                            /*locationTo({
+                                action : contextPath + '/workflow/getList',
+                                param : {
+                                    type : type
+                                }
+                            })*/
+                            window.location.reload();
+                        })
+                    } else {
+                        d.close();
+                        deleteWorkFlow();
+                        $alert(res.error_msg);
+                    }
+                }, function () {
+                    d.close();
+                    deleteWorkFlow();
+                    $alert('删除成功失败，请稍后重试');
+                })
+            }
+        }
+
+        $(function() {
+            pageJump(".go_forward");
+            switchTab();
+            deleteWorkFlow();
+        });
+    })(jQuery, undefined);
+</script>
+</html>

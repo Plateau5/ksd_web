@@ -1,0 +1,290 @@
+
+.imgDetail{
+    margin-bottom:25px;
+    margin-top:25px;
+    padding-left:46px;
+}
+.detailBox{
+    width:120px;
+    height:130px;
+    margin-top:22px;
+    margin-right:38px;
+}
+.request-img-box{
+    width:60px;
+    /*height:130px;*/
+    margin-top:22px;
+    margin-right:38px;
+}
+.detailImgBox{
+    width:120px;
+    height:90px;
+    border:1px solid #E4E4E4;
+}
+.requestImgBox{
+    width:60px;
+    height:45px;
+    background-color: rgba(0, 0, 0, .8);
+    position: relative;
+}
+.detailImgBox img{
+    width:120px;
+    height:90px;
+}
+.requestImgBox img{
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto auto;
+
+}
+.imgText{
+    width:100%;
+    line-height: 40px;
+    font-size: 14px;
+    color:#535E6A;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.download{
+    width:60px;height:30px;
+    border:0px;
+    color:#808891;
+    font-size: 12px;
+    background:#fff;
+    border-radius: 4px;
+    outline: none;
+    position: absolute;
+    top:0;left:15px;
+}
+.noPass{
+    width:85px;height:30px;
+    border:0px;
+    color:#808891;
+    font-size: 12px;
+    background:#fff;
+    border-radius: 4px;
+    outline: none;
+    position: absolute;
+    top:0;left:22px;
+}
+.detail_btn1,.detail_btn2{
+    float:left;
+    height:30px;
+    position: absolute;
+    cursor: pointer;
+}
+.detail_btn1{
+    left:80px;
+    width:94px;
+    background: url(/static/img/finance/downloadIcon.png) 0px center no-repeat;
+}
+.detail_btn2{
+    left:190px;
+    width:130px;
+    background: url(/static/img/finance/unPassIcon.png) 0px center no-repeat;
+}
+.detail_btn1:hover{
+    background: url(/static/img/finance/downloadHIcon.png) 0px center no-repeat;
+}
+.detail_btn2:hover{
+    background: url(/static/img/finance/unPassHIcon.png) 0px center no-repeat;
+}
+.detail_remarks{
+    width:100%;
+    margin-bottom:80px;
+    padding-left:15px;
+    padding-right:15px;
+    color:#808891;
+}
+.detail_remarks .remark_label{
+    width:40px; float:left;
+}
+.detail_remarks .remark_txt{
+    margin-left:40px;
+}
+
+
+/*图片放大*/
+#imgZoom{
+    width:100%;
+    background:rgba(0,0,0,.4);
+    position: absolute;
+    left:0;top:0;
+    z-index:10;
+    display:none;
+}
+.imgMask{
+    width:100%;
+    position: absolute;
+    left:0;top:0;
+    z-index:20;
+    display:none;
+}
+.imgZoomBox{
+    width:800px;
+    position: fixed;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+    z-index:30;
+    display:none;
+}
+#imgDetail{
+    position:absolute;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+}
+.zoomImg{
+    height:600px;
+    position: absolute;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+}
+.imgForward{
+    width:48px;height:82px;
+    position: absolute;
+    left:-60px;top:261px;
+    z-index:1;
+}
+.imgForward img,.imgNext img{
+    width:40px;height:62px;
+    position: absolute;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+}
+.imgNext{
+    width:48px;height:82px;
+    position: absolute;
+    right:-60px;top:261px;
+    z-index:1;
+}
+.imgClose{
+    width:40px;height:40px;
+    position: fixed;
+    right:10%;top:10%;
+    cursor: pointer;
+}
+.imgClose img{
+    position: absolute;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+}
+.rotate{
+    width:800px;height:50px;
+    background-color:rgba(0,0,0,.6);
+    position: fixed;
+    bottom:0;left:0;
+    right:0;
+    margin:0 auto;
+    display:none;
+}
+.rotate_box{
+    width:200px;height:50px;
+    position: absolute;
+    right:0;top:0;
+}
+.rotate_left{
+    width:20px;height:25px;
+    margin-top:12.555px;
+    float:left;
+    cursor: pointer;
+    background:url(/static/img/finance/rotateLeft.png) center center no-repeat;
+}
+.rotate_right{
+    width:20px;height:25px;
+    margin-left:30px;
+    margin-top:12.555px;
+    float:left;
+    cursor: pointer;
+    background:url(/static/img/finance/rotateRight.png) center center no-repeat;
+}
+.unQualified{
+    width:70px;height:50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 16px;
+    float:left;
+    color:rgba(225,225,225,.6);
+    margin-left:30px;
+    cursor: pointer;
+}
+.rotate_left:hover{
+    background:url(/static/img/finance/rotateHLeft.png) center center no-repeat;
+}
+.rotate_right:hover{
+    background:url(/static/img/finance/rotateHRight.png) center center no-repeat;
+}
+.unQualified:hover{
+    color:rgba(225,225,225,1);
+}
+
+/*照片不合格*/
+#unQualified{
+    width:460px;height:324px;
+    position: absolute;
+    left:0;top:0;
+    bottom:0;right:0;
+    margin:auto auto;
+    z-index:40;
+    background-color:#fff;
+    display:none;
+}
+.unQualified_title{
+    width:100%;height:100px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 18px;
+    color:#535E6A;
+}
+.img_reason_form{
+    width:100%;height:auto;
+}
+#reason{
+    width:352px;height:130px;
+    border:1px solid #E4E4E4;
+    color:#E4E4E4;
+    padding:8px;
+    font-size: 14px;
+    margin-left:54px;
+    outline: none;
+    resize: none;
+}
+#sub_btn{
+    width:100px;height:30px;
+    background-color:#1DC6BC;
+    color:#fff;
+    border-radius: 4px;
+    border:0;
+    outline: none;
+    letter-spacing: 2px;
+    margin-top:32px;
+    margin-left:103px;
+}
+#cancel_btn{
+    width:100px;height:30px;
+    background-color:#A0A0A0;
+    color:#fff;
+    border-radius: 4px;
+    border:0;
+    outline: none;
+    letter-spacing: 2px;
+    margin-left:54px;
+    margin-top:32px;
+}
+#sub_btn:hover{
+    background-color:#0B9C94;
+}
+#cancel_btn:hover{
+    background-color:#B4B4B4;
+}

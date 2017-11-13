@@ -1,0 +1,62 @@
+
+.file_form{
+    position: relative;
+    height:500px;
+}
+#container{
+    position: absolute;
+    left:29%;top:112px;
+}
+#wrapper{
+    position: absolute;
+    left: 0px; top: 0px;
+}
+#cropper,#preview168{
+    position: absolute;
+    left: 0px; top: 0px;
+}
+#preview168{
+    border: 1px solid #ccc;
+}
+#previewContainer{
+    position: absolute;
+    left: 270px; top: 22px;
+}
+.preview{
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+}
+#selectBtn{
+    position: absolute;
+    left: 44px;  top: 220px;
+    width: 80px; height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border:1px solid #1DC6BC;
+    color:#1DC6BC;
+    border-radius: 4px;
+}
+#saveBtn{
+    position: absolute;
+    left: -54px;  top: 297px;
+    width: 276px;  height: 40px;
+    background-color:#A0A0A0;
+    border:0;
+    color:#fff;
+    font-size: 18px;
+    letter-spacing: 3px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 4px;
+    outline: none;
+}
+
+
+
+
+
+

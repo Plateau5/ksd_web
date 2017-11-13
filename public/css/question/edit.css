@@ -1,0 +1,149 @@
+
+.colorB>a[class='TS']{
+    color:#535E6A;
+}
+.before a{
+    color:#808991;
+    font-size: 12px;
+    margin-left:4px;
+}
+.form-item{
+    width:100%;
+    margin-top:20px;
+    display:block;
+}
+label,#content,#title,.img_item,.create_btn,
+.file_btn,.file_input{
+    float:left;
+}
+label{
+    width:50px;height:30px;
+    color:#535E6A;
+    font-size: 12px;
+    font-weight: 500;
+}
+.question_container_prom{
+    line-height: 30px;
+    color:#FB2741;
+}
+#question_info_create{padding-left:35px;}
+.title{width:230px;}
+.img_item,.create_btn{margin-left:85px;}
+.img_item{height:100%;position: relative;width:100%;}
+.create_btn{margin-top:20px;margin-bottom:100px; clear: both;}
+#titleVis{
+    height:30px;
+    border:1px solid #e4e4e4;
+    padding-left:9px;
+    line-height: 30px;
+    border-radius: 0;
+    margin-left:0px;
+}
+textarea{
+    width:735px;
+    height:auto;
+    min-height: 86px;
+    overflow-y: hidden;
+    padding:9px;
+    border:1px solid #e4e4e4;
+    resize: none;
+    border-radius: 0;
+    /*margin-left:40px;*/
+}
+.file_btn,.file_input{
+    width:80px;height:20px;
+    position: absolute;
+    top:0;left:0;
+    padding-left:20px;
+    background:url('/static/img/question/upload_icon.png') 0 center no-repeat;
+}
+.need{color:#ff0000;}
+.create_sub,.cancel_btn{
+    width:110px;height:30px;
+    color:#fff;
+    border-radius: 3px;
+    border:0;
+    outline: none;
+}
+
+.file_input{opacity: 0;}
+.file_prom{
+    width:300px;
+    position: absolute;
+    left:80px;
+    color:#808891;
+}
+.file_box{
+    width:735px;height:auto;
+    margin-left:65px;
+}
+.file_item{
+    width:162px;height:40px;
+    float:left;
+    margin-left:20px;
+    margin-top:20px;
+    position: relative;
+}
+.input_img{
+    width:40px;height:40px;
+    float:left;
+    margin-left:0;
+}
+.file_item_txt{
+    width:122px;height:40px;
+    text-align: left;
+    padding-left:12px;
+    padding-top:3px;
+    float:left;
+    margin-left:0;
+    background-color:#fafafa;
+}
+.file_item_txt li{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.file_item_txt_bg{
+    width:122px;height:40px;
+    position: absolute;
+    right:0;top:0;
+    background-color:rgba(0,0,0,.4);
+    display:none;
+}
+.del_img_item{
+    width:10px;height:10px;
+    margin-top:15px;
+    margin-left:105px;
+}
+/*错误提示*/
+.error_prom{
+    width:auto;height:30px;
+    line-height: 30px;
+    float:left;
+    margin-left:50px;
+    color:#FB2741;
+}
+.create_sub{
+    background-color:#1DC6BC;
+}
+/*.create_sub:hover {
+    background-color: #0B9C94;
+}*/
+.cancel_btn{
+    margin-left:30px;
+    background-color:#a0a0a0;
+}
+.updata_img{
+    position: relative;
+}
+.updata_img_mask{
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    width: 84px;
+    height: 24px;
+    background: #000;
+    opacity: 0;
+    z-index: 10;
+    cursor: pointer;
+}

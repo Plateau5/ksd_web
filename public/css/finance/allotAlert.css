@@ -1,0 +1,61 @@
+
+#allotAlert,#allot_apply,#allot_pass{
+    width:100%;
+    background:rgba(0,0,0,.4);
+    position: fixed;
+    left:0;top:0;
+    z-index:999;
+    display:none;
+}
+.allotBox,.allotApplyBox,.allotPassBox{
+    width:30%;
+    height:250px;
+    background:#fff;
+    position: fixed;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+}
+.allotTitle,.allotApplyTitle,.allotPassTitle{
+    width:100%;
+    text-align: center;
+    line-height: 65px;
+    font-size: 18px;
+    font-weight: bolder;
+    color:#535E6A;
+    margin-top:20px;
+}
+.allotText,.allotApplyText,.allotPassText{
+    width:100%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    color:#535E6A;
+}
+.allotS,.allotApplyS,.allotPassS{
+    width:100px;height:30px;
+    background:#1DC6BC;
+    color:#fff;
+    border:1px solid #1DC6BC;
+    border-radius: 5px;
+    margin-top:50px;
+}
+.allotS:hover,.allotApplyS:hover,.allotPassS:hover{
+    background:#0B9C94;
+}
+.allotN,.allotApplyN,.allotPassN{
+    width:100px;height:30px;
+    background:#A0A0A0;
+    color:#fff;
+    border:1px;
+    border-radius: 5px;
+    margin-top:50px;
+    margin-left:30px;
+}
+.allotN:hover,.allotApplyN:hover,.allotPassN:hover{
+    background:#B4B4B4;
+}
+.btnBox,.btnApplyBox,.btnPassBox{
+    width:234px;height:30px;
+    margin:0 auto;
+}

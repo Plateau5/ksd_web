@@ -1,0 +1,246 @@
+
+.colorB>a[class='TS']{
+    color:#535E6A;
+}
+.before a{
+    color:#808991;
+    font-size: 12px;
+    margin-left:4px;
+}
+.detail_btn{
+    width:100%;height:64px;
+    position: relative;
+}
+.detail_edit,.detail_history,.detail_delete{
+    position: absolute;
+    top:32px;
+    color:#808991;
+    font-size: 12px;
+}
+.detail_edit{
+    width:48px;height:16px;
+    padding-left:20px;
+    line-height: 16px;
+    background:url('/static/img/question/edit_icon.png') left center no-repeat;
+    right:173px;
+}
+.detail_history{
+    width:75px;height:16px;
+    padding-left:20px;
+    line-height: 16px;
+    background:url('/static/img/question/his_icon.png') left center no-repeat;
+    right:78px;
+}
+.detail_delete{
+    width:48px;height:16px;
+    padding-left:20px;
+    line-height: 16px;
+    background:url('/static/img/question/delete_icon.png') left center no-repeat;
+    right:10px;
+}
+.detail_edit img,
+.detail_history img,
+.detail_delete img{
+    float:left;
+    margin-right:6px;
+}
+.detail_edit span,
+.detail_history span,
+.detail_delete span,
+.detail_top_bottom_left{
+    float:left;
+}
+/*title*/
+.detail_title_top{
+    width:100%;text-align: center;
+    font-size: 14px;
+    font-weight: bolder;
+    color:#535E6A;
+}
+.detail_title_bottom{
+    width:220px;height:20px;
+    margin:0 auto;
+    margin-top:12px;
+    font-size: 10px;
+    color:#B2B4B7;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.detail_top_bottom_right{float:right;}
+
+/*detail*/
+.detail_question{
+    margin-top:30px;
+}
+p{
+    text-indent: 2em;
+    font-size: 12px;
+    color:#535E6A;
+    word-break: break-all;
+}
+.question_detail_img_box{
+    width:828px;height:100px;
+    margin:0 auto;
+    margin-top:50px;
+    margin-bottom:80px;
+}
+.question_detail_img{
+    width:120px;height:90px;
+    margin-left:57px;
+    float:left;
+    position: relative;
+}
+.question_detail_img img{
+    position: absolute;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto;
+}
+/*删除弹出框*/
+.bgmask{
+    background: rgba(0, 0, 0, .6);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    display: none;
+}
+.delete_question_container{
+     width:760px;height:230px;
+     background-color:#fff;
+     position: fixed;
+     left:0;top: 0;
+     right:0;bottom:0;
+     margin:auto auto;
+     z-index: 2;
+     display:none;
+ }
+.delete_title{
+    width:100%;height:78px;
+    line-height: 78px;
+    text-align: center;
+    font-size: 18px;
+    color:#535E6A;
+    font-weight: bolder;
+}
+.delete_name{
+    width:100%;text-align: center;
+    font-size: 14px;
+    color:#535E6A;
+}
+.delete_btn{
+    width:100%;margin-top:45px;
+}
+.delete_sub,.cancel_btn{
+    width:110px;height:30px;
+    color:#fff;
+    border-radius: 3px;
+    border:0;
+    outline: none;
+}
+.delete_sub{
+    margin-left:243px;
+    background-color:#1DC6BC;
+}
+.cancel_btn{
+    margin-left:54px;
+    background-color:#a0a0a0;
+}
+
+/*图片放大*/
+.imgZoomBox{
+    width:800px;
+    position: fixed;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+    z-index:30;
+    display:none;
+}
+#imgDetail{
+    position:absolute;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+}
+.zoomImg{
+    height:600px;
+    position: absolute;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+}
+.imgForward{
+    width:48px;height:82px;
+    position: absolute;
+    left:-60px;top:261px;
+    z-index:1;
+}
+.imgForward img,.imgNext img{
+    width:40px;height:62px;
+    position: absolute;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+}
+.imgNext{
+    width:48px;height:82px;
+    position: absolute;
+    right:-60px;top:261px;
+    z-index:1;
+}
+.imgClose{
+    width:40px;height:40px;
+    position: fixed;
+    right:10%;top:10%;
+    cursor: pointer;
+}
+.imgClose img{
+    position: absolute;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+}
+.rotate{
+    width:800px;height:50px;
+    background-color:rgba(0,0,0,.6);
+    position: fixed;
+    bottom:0;left:0;
+    right:0;
+    margin:0 auto;
+    display:none;
+}
+.rotate_box{
+    width:200px;height:50px;
+    position: absolute;
+    right:0;
+    top:0;
+    left:0;
+    bottom:0;
+    margin:auto;
+}
+.rotate_left{
+    width:20px;height:25px;
+    margin-top:12.555px;
+    margin-left:60px;
+    float:left;
+    cursor: pointer;
+    background:url(/static/img/finance/rotateLeft.png) center center no-repeat;
+}
+.rotate_right{
+    width:20px;height:25px;
+    float:right;
+    margin-right:60px;
+    margin-top:12.555px;
+    cursor: pointer;
+    background:url(/static/img/finance/rotateRight.png) center center no-repeat;
+}
+.rotate_left:hover{
+    background:url(/static/img/finance/rotateHLeft.png) center center no-repeat;
+}
+.rotate_right:hover{
+    background:url(/static/img/finance/rotateHRight.png) center center no-repeat;
+}

@@ -1,0 +1,17 @@
+<!-- Template of main operation category -->
+<div class="operation_category">
+    <a href="javascript:;" class="category_item wait_assign active">待分配 <span class="count_num">(999)</span></a>
+    <a href="javascript:;" class="category_item assigned" >已分配 <span class="count_num">(999)</span></a>
+    <a href="javascript:;" class="category_item checking">核对中 <span class="count_num">(999)</span></a>
+    <a href="javascript:;" class="category_item under_audit">审核中 <span class="count_num">(999)</span></a>
+    <a href="javascript:;" class="category_item passed">已通过 <span class="count_num">(999)</span></a>
+    <a href="javascript:;" class="category_item applying">请款中 <span class="count_num">(999)</span></a>
+    <a href="javascript:;" class="category_item apply_pass">已放款 <span class="count_num">(999)</span></a>
+    <a href="javascript:;" class="category_item unpass">未通过 <span class="count_num">(999)</span></a>
+    <a href="javascript:;" class="category_item archived">已归档 <span class="count_num">(999)</span></a>
+    <a href="javascript:;" class="category_item registered">已录入 <span class="count_num">(999)</span></a>
+    <a href="javascript:;" class="category_item wait_dispose">待处理 <span class="count_num">(999)</span></a>
+    <a href="javascript:;" class="category_item audit_pass">我已审批 <span class="count_num">(999)</span></a>
+    <a href="javascript:;" class="category_item pending_audit">待我审批 <span class="count_num">(999)</span></a>
+    <a href="javascript:;" class="category_item cashed_check">已回款 <span class="count_num">(999)</span></a>
+</div>

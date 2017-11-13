@@ -1,0 +1,39 @@
+
+.form-item label{
+    width:85px;
+    line-height: 30px;
+}
+#question_classify_name{
+    width:230px;
+    height:30px;
+    padding-left:5px;
+    border:1px solid #e4e4e4;
+}
+.question_container{
+    margin-left:85px;
+    overflow: hidden;
+}
+.check{
+    height:30px;
+    line-height: 30px;
+    float:left;
+    margin-right:30px;
+}
+.check_img{
+    float:left;
+    margin-right:8px;
+    margin-top:9px;
+    cursor: pointer;
+}
+.clearboth{
+    display: block;
+    clear: both;
+}
+.icon_check{
+    width:12px;height:12px;
+    background:url('/static/img/organization/icon_check.png') center center no-repeat;
+}
+.icon_uncheck{
+    width:12px;height:12px;
+    background:url('/static/img/organization/icon_uncheck.png') center center no-repeat;
+}

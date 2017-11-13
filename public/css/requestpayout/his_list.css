@@ -1,0 +1,110 @@
+
+.clearfix{
+    display: block;
+    clear: both;
+}
+.question_record_box{
+    height:225px;
+}
+.question_record_avatar{
+    width:58px;
+    height:58px;
+    padding:12px;
+    margin-left:17px;
+}
+.arrow_down{
+    margin-top:162px;
+}
+.his_status{
+    text-align: center;
+    color:#fff;
+}
+.his_status_pass{
+    background-color:#66af18;
+}
+.his_status_unpass{
+    background-color:#fc465c;
+}
+.status_box{
+    width:100%;height:20px;
+    padding-left:35px;
+    margin-top:15px;
+    display: inline-block;
+}
+.status_box_pass{
+    color:#66af18;
+    background:url('/static/img/message/passIcon.png') 10px center no-repeat;
+}
+.status_box_nopass{
+    color:#fc465c;
+    background:url('/static/img/message/warningIcon.png') 15px center no-repeat;
+}
+
+/*reason_box*/
+ol{
+    padding:0;
+}
+ol li{
+    list-style-type: decimal;
+}
+.requestpayout_his_reason_box{
+    max-width: 240px;
+    padding-left:15px;
+    background-color:#f5f5f5;
+    position: absolute;
+    margin-bottom:80px;
+    border-radius: 4px;
+    box-shadow:1px 1px 6px rgba(0,0,0,0.3);
+}
+.requestpayout_his_reason_box>div{
+    padding: 15px 15px 15px 0;
+}
+.requestpayout_his_reason_txt{
+    text-align: left;
+    padding:15px 20px;
+    padding-top:0;
+    color:#FB2741;
+}
+.shape{
+    margin-left:36px;
+    width:20px;
+    height:20px;
+    position: relative;
+    z-index:1;
+    background:url('/static/img/requestpayout/say_icon_shadow.png') center 6px no-repeat;
+}
+.notes{
+    margin-top:-70px;
+    visibility: hidden;
+    color:#FB2741;
+}
+.arrow_right{
+    background:url('/static/img/question/arrow_right.png') center 28px no-repeat;
+}
+.arrow_left{
+    background:url('/static/img/question/arrow_left.png') center 28px no-repeat;
+}
+
+/*message btn*/
+.do_detail {
+    margin-bottom: 80px;
+    position: absolute;
+    right: 15px;
+}
+.do_detail .btn_item {
+    display: inline-block;
+    padding: 5px 15px 5px 26px;
+    height: 40px;
+    line-height: 30px;
+    margin-top: 5px;
+    color: #1DC6BC;
+    background: url("/static/img/finance/view_details_icon_n.png") no-repeat left center;
+    opacity: .8;
+}
+.do_detail .btn_item:hover{
+    opacity: 1;
+}
+.do_detail .view_details{
+    background: url("/static/img/finance/view_details_icon.png") no-repeat left center;
+}
+

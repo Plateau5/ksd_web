@@ -1,0 +1,74 @@
+<!--不同意-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="/static/css/manufacturing.css">
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/warehouse.css">
+    <title>GPS-不同意</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main org_product">
+            <div class="crumbs_nav">
+                <a href="${contextPath }/home" class="crumbs_item">首页</a>
+                <a href="javascript:window.history.back();" class="crumbs_item">${applicant}的GPS预约申请</a>
+                <a href="javascript:;" class="crumbs_item">不通过</a>
+            </div>
+            <div class="disagree">
+                <div class="row_item">
+                    <div class="row_title">原因：</div>
+                    <div class="row_val">
+                        <textarea class="remark" maxlength="30" id="reason" placeholder="请输入内容(30个字以内)"></textarea>
+                    </div>
+                </div>
+                <div class="btn_box text_left">
+                <per:button code="1292">
+                    <a href="javascript:" class="btn orange_btn confirm" id="submitBtn">确认</a>
+                </per:button>
+                    <a href="javascript:window.history.back();" class="btn bg_btn cancel">取消</a>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+    <input type="hidden" value="${delGps_ids}" id="delSnStr">
+    <input type="hidden" value="${gps_ids}" id="sendSn">
+    <input type="hidden" value="${gps_apply_id}" id="applyOrder">
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/warehouse.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    const RECEIVETYPE = 3;
+    (function ($) {
+        $(function () {
+            bindSubmitEvent();
+        })
+    })(jQuery,undefined);
+</script>
+</html>

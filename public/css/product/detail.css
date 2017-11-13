@@ -1,0 +1,231 @@
+.product_detail_header{
+    width:100%;height:92px;
+    position: relative;
+}
+.header_left,.header_right{
+    float:left;
+    position: absolute;
+    top:0;
+    height:92px;
+}
+.header_right{
+    color:#B0B0B0;
+    font-size: 12px;
+    line-height: 92px;
+    right:0;
+}
+.header_left_img{
+    width:112px;height:80px;
+    margin-top:6px;
+    margin-left:24px;
+    margin-right:38px;
+    background-color:#E4E4E4;
+}
+.header_left_img img{
+    width:100%;height:100%;
+}
+.header_left_img,.header_txt,
+.header_txt_bottom1,.header_txt_bottom2,
+.header_time,.header_personal{
+    float:left;
+}
+.header_txt_top{
+    height:50px;line-height: 50px;
+    font-size: 24px;
+    color:#535E6A;
+}
+.header_txt_bottom{
+    margin-top:6px;
+}
+.header_txt_bottom1,.header_txt_bottom2{
+    width:54px;height:30px;
+    line-height: 30px;
+    border:1px solid #1DC6BC;
+    border-radius: 3px;
+    color:#1DC6BC;
+    text-align: center;
+}
+.header_txt_bottom1{
+    margin-right:20px;
+}
+.header_personal{
+    margin-left:20px;
+}
+
+/*date start*/
+.product_detail_date_box{
+    width:100%;height:58px;
+    margin-top:26px;
+    margin-bottom:30px;
+    position: relative;
+}
+.product_detail_date{
+    width:25%;height:100%;
+    text-align: center;
+    float:left;
+    position: relative;
+    z-index:0;
+}
+.date_title{
+    width:100%;height:28px;
+}
+.date_title span{
+    line-height: 28px;
+    color:#808891;
+    font-size: 14px;
+    cursor: pointer;
+}
+.date_num1{
+    width:100%;height:30px;
+}
+.date_num1 span{
+    line-height: 30px;
+    color:#535E6A;
+    font-size: 18px;
+    cursor: pointer;
+}
+.date_num2_box{
+    height:38px;
+    border:1px solid #ffab91;
+    position:absolute;
+    background-color:#fff;
+    top:30px;left:0;
+    z-index:1;
+    display:none;
+}
+.date_num2{
+    width:40px;
+    display:inline-block;
+    line-height: 48px;
+    margin-left:8px;
+    color:#535E6A;
+    font-size: 12px;
+    text-align: center;
+}
+.date_num2_box em,
+.date_num2_box .shape{
+    display:block;
+    width:16px;height:16px;
+    font-size:30px;
+    position:relative;
+    margin:0 auto;
+}
+.date_num2_box em{
+    margin-top:-23px;
+    color:#ffab91;
+    font-style:normal;
+}
+.date_num2_box .shape{
+    margin-top:-14px;
+    color:white;
+}
+.shape_img{
+    width:13px;height:8px;
+    cursor: pointer;
+    margin-top:-3px;
+}
+
+/*detail start*/
+.product_detail_box{
+    width:100%;
+    border:1px solid #e4e4e4;
+    background-color:#fff;
+}
+.detail_title{
+    width:100%;height:60px;
+    line-height: 60px;
+    color:#535E6A;
+    font-size: 14px;
+    border-bottom: 1px solid #e4e4e4;
+    background-color:#fafafa;
+}
+.detail_line,.detail_title_txt,
+.detail_about_label,.detail_about_date{
+    float:left;
+}
+.detail_line{
+    width:4px;height:18px;
+    margin-left:9px;
+    background-color:#1DC6BC;
+    margin-top:21px;
+    margin-right:6px;
+}
+.detail_about_txt{
+    width:100%;
+    margin-bottom:30px;
+}
+.detail_about{
+    padding-left:29px;
+    padding-right:29px;
+    padding-bottom:20px;
+    font-size: 12px;
+}
+.detail_about_label{
+    height:100%;
+}
+.detail_about_date{
+    width:85%;
+    display:inline-block;
+    color:#808891;
+    margin-left:5px;
+    margin-top:0;
+    word-break: break-all;
+}
+.icon_remarks{
+    width:15px;height:15px;
+    margin-left:8px;
+    margin-top:-5px;
+    float:left;
+    cursor: pointer;
+    background:url('/static/img/product/icon_remarks.png') center center no-repeat;
+}
+.icon_remarks:hover{
+    background:url('/static/img/product/icon_remarks_hover.png') center center no-repeat;
+}
+.bg_mask{
+    width: 100%;height:700px;
+    background: rgba(0, 0, 0, .4);
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    display: none;
+}
+#detail_remarks_box{
+    width:40%;
+    position: fixed;
+    left:0;top:0;
+    bottom:0;right:0;
+    margin:auto auto;
+    background:#fff;
+    z-index: 2;
+    display: none;
+}
+.detail_remarks_title{
+    width:100%;height:60px;
+    color:#535E6A;
+    font-size: 18px;
+    font-weight: bolder;
+    text-align: center;
+    line-height: 60px;
+    margin-top:20px;
+}
+.detail_remarks_txt{
+    width:100%;
+    height:auto;
+    color:#535E6A;
+    text-align: center;
+    line-height: 20px;
+    padding-left:7%;
+    padding-right:7%;
+    font-size: 12px;
+    word-break: break-all;
+}
+.detail_remarks_close{
+    width:16px;height:16px;
+    position: absolute;
+    right:5%;top:10px;
+    cursor: pointer;
+    background:url('/static/img/finance/close.png') center center no-repeat;
+}
+
+

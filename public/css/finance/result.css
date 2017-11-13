@@ -1,0 +1,102 @@
+
+#reviewResult{
+    width:100%;height:700px;
+    background:rgba(0,0,0,.4);
+    position: absolute;
+    left:0;top:0;
+    z-index:999;
+    display:none;
+}
+.resultBox{
+    width:60%;min-width:805px;
+    height:300px;
+    background:#fff;
+    position: fixed;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+}
+.resultTitle{
+    width:100%;
+    line-height: 60px;
+    text-align: center;
+    color:#535E6A;
+    font-size: 18px;
+    font-weight: bolder;
+}
+.form1{
+    background:#F5F5F5;
+    width:35%;min-width:250px;
+    height:150px;
+    /*margin-left:10%;*/
+    position: absolute;
+    left:10%;top:60px;
+}
+.form2{
+    background:#F5F5F5;
+    width:35%;min-width:250px;
+    height:150px;
+    position: absolute;
+    right:10%;top:60px;
+    /*margin-left:54%;*/
+    /*margin-top:-18.5555555%;*/
+}
+.form1 form{
+    padding-left:7%;
+    font-size: 12px;
+}
+.formTitle{
+    width:100%;
+    color:#535E6A;
+    line-height:40px;
+    text-align: center;
+}
+.form1Text{
+    width:40px;height:25px;
+    border:1px solid #D8D8D8;
+}
+.yuanyin{
+    width:93%;height:70px;
+    border:1px solid #D8D8D8;
+    color:#A4A8AB;
+    margin-left:3%;
+    resize:none;
+    outline: none;
+}
+.tongzhiS{
+    width:100px;height:30px;
+    background:#1DC6BC;
+    color:#fff;
+    font-size: 12px;
+    border:1px;
+    border-radius: 5px;
+    position: absolute;
+    right:55%;bottom:33px;
+}
+.tongzhiS:hover{
+    background:#0B9C94;
+}
+.tongzhiN{
+    width:100px;height:30px;
+    background:#A0A0A0;
+    color:#fff;
+    font-size: 12px;
+    border:1px;
+    border-radius: 5px;
+    position: absolute;
+    left:55%;bottom:33px;
+}
+.tongzhiN:hover{
+    background:#B4B4B4;
+}
+.reviewResult form{
+    font-size: 12px;
+}
+.form1 .div1{
+    margin-left:9%;
+    margin-top:-25px;
+}
+.form1 .div2{
+    margin-left:9%;
+    margin-top:-21px;
+}

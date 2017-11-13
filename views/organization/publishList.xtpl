@@ -1,0 +1,286 @@
+<!--产品列表-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/customerService.css">
+    <title>快收单</title>
+    <style>
+        .dialog-layer .dialog-btn{margin-top: 20px;}
+    </style>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main org_product">
+            <div class="crumbs_nav">
+                <a href="/organization/list" class="crumbs_item">金融机构</a>
+                <a href="/organization/list" class="crumbs_item">${parent_name}</a>
+                <a href="javascript:;" class="crumbs_item">产品列表</a>
+            </div>
+            <div class="filtrate">
+                <form action="/organization/product/publishList" method="post" id="form_search" role='form'>
+                    <input type="hidden" id="parent_id" name="parent_id" value="${parent_id }">
+                    <input type="hidden" id="parent_name" name="parent_name" value="${parent_name }">
+                    <div class="filtrate_item date_conditions">
+                        <div class="inline_block">
+                            <div class="conditions_name inline_block filtrate_business">适用业务：</div>
+                            <select name="applyto_business" class="filtrate_select" id="filtrate_business">
+                                <option value="-1" <c:if test="${condition.applyto_business eq -1 ||  empty condition.applyto_business }">selected</c:if>>--请选择--</option>
+                                <option value="0" <c:if test="${condition.applyto_business eq 0 }">selected</c:if> >新车</option>
+                                <option value="1" <c:if test="${condition.applyto_business eq 1 }">selected</c:if> >二手车</option>
+                            </select>
+                        </div>
+                        <div class="inline_block">
+                            <div class="conditions_name inline_block filtrate_city">适用城市：</div>
+                            <select name="applyto_city" class="filtrate_select" id="filtrate_city">
+                                <option value="-1" <c:if test="${condition.applyto_city eq -1 ||  empty condition.applyto_city }">selected</c:if>>--请选择--</option>
+                                <c:forEach items="${list_city }" var="bean">
+                                    <option value="${bean.id }" <c:if test="${condition.applyto_city eq bean.id }">selected</c:if> >${bean.name}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- 产品操作按钮 Begin -->
+            <div class="detail_btn_box left">
+                <span>共${count}个产品</span>
+                <div class="rf">
+                    <per:button code="1077">
+                        <a href="javascript:" id="publish_product" data-parent_id="${parent_id}" class="detail_title_btn operation_small_icon publish_product">发布新产品</a>
+                    </per:button>
+                    <per:button code="1076">
+                        <a href="javascript:" id="store_product" data-parent_id="${parent_id}" class="detail_title_btn operation_small_icon store_product">仓库中的产品</a>
+                    </per:button>
+                </div>
+            </div>
+            <!-- 产品操作按钮 End -->
+            <c:if test="${count >0 }">
+                <form action="/product/material" method="post" id="toProductEdit">
+                    <input type="hidden" name="product_id" value="" id="product_edit_input">
+                    <table class="org_product_list">
+                        <colgroup style="width: 100%;">
+                            <col style="width: 20%;" />
+                            <col style="width: 15%;" />
+                            <col style="width: 15%;" />
+                            <col style="width: 15%;" />
+                            <col style="width: 15%;" />
+                            <col style="width: 20%;" />
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>产品名称</th>
+                            <th>首付比例</th>
+                            <th>年利率</th>
+                            <th>申请人数</th>
+                            <th>通过率</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${list }" var="bean">
+                            <tr>
+                                <td title="${bean.name }">${bean.name }</td>
+                                <td>
+                                    <c:if test="${bean.downpayment_type eq 1 }">
+                                        ${bean.downpayment_rate }%
+                                    </c:if>
+                                    <c:if test="${bean.downpayment_type eq 2 }">
+                                        ${bean.downpayment_money }元
+                                    </c:if>
+                                </td>
+                                <td>${bean.interest_rate}%</td>
+                                <td>${bean.apply_count }</td>
+                                <td>${bean.pass_rate }%</td>
+                                <td class="operate_btn">
+                                    <per:button code="1079">
+                                        <a href="javascript:;" lang="${bean.id }" data_num="0" title="查看" class="view view_detail"></a>
+                                    </per:button>
+                                    <per:button code="1087">
+                                        <a href="javascript:;" lang="${bean.id }" data_num="0" title="下架" class="unshelve unshelves"></a>
+                                    </per:button>
+                                    <per:button code="1193">
+                                        <a href="javascript:;" lang="${bean.id }" data_num="0" title="请款材料" class="edit material product_edit_material"></a>
+                                    </per:button>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </form>
+            </c:if>
+            <c:if test="${count eq 0 }">
+                {{include('./../inc/empty_data')}}
+            </c:if>
+            <div class="page_box">
+                {{include('./../inc/pagination')}}
+            </div>
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    (function ($) {
+        //发布新产品
+        function createProduct () {
+            var btn = $("#publish_product");
+            btn.off("click").on("click", function () {
+                var t = $(this);
+                var productId = $.trim(t.attr("lang"));
+                var parentId = $.trim(t.data("parent_id"));
+                locationTo({
+                    action : contextPath + "/organization/product/toAdd",
+                    param : {
+                        product_id : productId,
+                        parent_id : parentId
+                    }
+                });
+            })
+        }
+
+        //仓库中的产品
+        function storeProduct () {
+            var btn = $("#store_product");
+            btn.off("click").on("click", function () {
+                var t = $(this);
+                var productId = $.trim(t.attr("lang"));
+                var parentId = $.trim(t.data("parent_id"));
+                locationTo({
+                    action : contextPath + "/organization/product/warehouseList",
+                    param : {
+                        product_id : productId,
+                        parent_id : parentId
+                    }
+                });
+            })
+        }
+
+        //编辑产品请款材料
+        function editProductsMaterial () {
+            var btn = $(".product_edit_material");
+            btn.off("click").on("click", function () {
+                var t = $(this);
+                var productId = $.trim(t.attr("lang"));
+                locationTo({
+                    action : contextPath + "/organization/product/material",
+                    param : {
+                        product_id : productId
+                    }
+                });
+            })
+        }
+        //查看产品详情
+        function viewProductDetail () {
+            var btn = $(".view_detail");
+            btn.off("click").on("click", function () {
+                var t = $(this);
+                var productId = $.trim(t.attr("lang"));
+                var data_num = $.trim(t.attr("data_num"));
+                locationTo({
+                    action : contextPath + "/organization/product/detail",
+                    param : {
+                        id : productId,
+                        data_num : data_num
+                    }
+                });
+            })
+        }
+        //产品下架逻辑
+        function unshelvesProduct () {
+            var btn = $(".unshelves");
+            var url = contextPath + "/api/product/unShelve";
+            var data = {};
+            btn.off("click").on("click", function () {
+                var t = $(this);
+                var productId = $.trim(t.attr("lang"));
+                //var data_num = $.trim(t.attr("data_num"));
+                data.id = productId;
+                dialog("open", {
+                    title : "下架原因",
+                    content: 'textarea',
+                    errorMsg : "请先填写下架原因",
+                    textarea : {
+                        show : true,
+                        name : 'unShelve_reason',
+                        placeholder : '请输入下架该产品的原因',
+                        height : 80 ,
+                        maxlength : 200
+                    },
+                    onConfirm : function (d) {
+                        onConfirmEvent(d, data);
+                    }
+                });
+            });
+
+            function onConfirmEvent (d, reqData) {
+                //d.close();
+                var unShelveReason = $("#dialog-layer #dialog-layer-textarea").val();
+                if (unShelveReason == '' || unShelveReason == undefined || unShelveReason == null) {
+                    $("#dialog-layer #errorMsg").show();
+                    dialogTextareaInput();
+                } else {
+                    var reason = $("#dialog-layer #dialog-layer-textarea").val();
+                    reqData.unShelve_reason = reason;
+                    d.close();
+                    $ajax('post', url, reqData, function (res) {
+                        if (res.error_code == 0) {
+                            $alert("产品下架成功", function () {
+                                window.location.reload();
+                            })
+                        } else {
+                            $alert("产品下架失败", function () {
+                                window.location.reload();
+                            })
+                        }
+                    });
+                }
+
+            }
+
+            //注册弹出层文本域的输入监听
+            function dialogTextareaInput () {
+                var target = $("#dialog-layer #dialog-layer-textarea");
+                target.off("input").on("input", function () {
+                    var $this = $(this);
+                    var val = $this.val();
+                    if (val != '') {
+                        $("#dialog-layer #errorMsg").hide();
+                    } else {
+                        $("#dialog-layer #errorMsg").show();
+                    }
+                });
+            }
+        }
+        $(function() {
+            selectorChange();
+            editProductsMaterial();
+            viewProductDetail();
+            unshelvesProduct();
+            createProduct();
+            storeProduct();
+        });
+    })(jQuery,undefined);
+</script>
+</html>

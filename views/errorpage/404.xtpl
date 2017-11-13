@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="icon" href="/static/icon/favicon.ico" mce_href="/static/icon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/icon/favicon.ico" mce_href="/static/icon/favicon.ico" type="image/x-icon">
+    <title>404</title>
+    <style>
+        * {margin: 0;padding: 0;font-size: 12px;color: #535e6a;}.container {text-align: center;}.container img {display: inline-block;width: 35%;margin: 8% auto 4%;}.content {height: 40px;line-height: 40px;text-align: center;margin-bottom: 100px;}.content span, .content a {font-size: 18px;}.content a {color: #2D80E9;}
+    </style>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <div class="container">
+        <img src="/static/img/404.png" alt="">
+        <div class="content">
+            <span>您访问的页面失踪啦，请<a href="javascript:window.history.back();">点击这里</a>火速返回</span>
+        </div>
+    </div>
+</div>
+</body>
+<script>console.log(404);</script>
+</html>

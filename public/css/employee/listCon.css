@@ -1,0 +1,307 @@
+
+.listCon{
+    padding:0;
+    margin:15px 0 0 180px;
+}
+.listConHeader{
+    line-height: 55px;
+    font-size: 14px;
+    /*padding-left:2%;*/
+    border-bottom:1px solid #E4E4E4;
+}
+.formML{
+    margin-bottom:50px;
+    /*padding-left:4%;*/
+    overflow: hidden;
+}
+.inviteP{
+    width:110px;
+    height:30px;
+    border-radius: 4px;
+    background:#1DC6BC;
+    color:#fff;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    top:12px;right:0;
+}
+.zimu{
+    height:60px;line-height:60px;
+    background:#fff;
+    color:#000;
+    margin-left:0.5555555%;
+}
+.zimuLi{
+    color:#535E6A;
+}
+.zimuLi:hover{
+    color:#1DC6BC;
+}
+.liC{
+    color:#1DC6BC;
+}
+.liMarginL{
+    margin-left:11px;
+}
+.person_img{
+    width:40px;height:40px;
+    border-radius: 50%;
+    /*margin-top:10px;*/
+    overflow: hidden;
+    position: relative;
+}
+.person_img img{
+    width:40px;
+    height:40px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+}
+.tableBorder{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.tableBorder>tbody>tr{
+    height: 60px;
+    border: 1px solid #e4e4e4;
+}
+.tableBorder>tbody>tr>td{
+    border:none;
+    line-height: 60px;
+    text-align: left;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.trW{
+    width:90px;
+}
+.navLeft{
+    width:165px;
+}
+.pagination>li{
+    margin-left:10px;
+}
+.pages{
+    /*height:200px;*/
+    vertical-align: middle;
+    text-align: center;
+    line-height: 120px;
+}
+.pagesBox{
+    display: inline-block;
+}
+
+.mimaNew,.dangan,.xinxiDel,.salary{
+    color:#72ACE3;
+}
+.forward,.next{
+    width:70px;height:28px;
+    text-align: center;
+    line-height: 28px;
+    background:#FFF;
+    border:1px solid #D8D8D8;
+    border-radius: 2px;
+    color:#1DC6BC;
+    position: relative;
+}
+.first,.last{
+    width:46px;height:28px;
+    text-align: center;
+    line-height: 28px;
+    background:#FFF;
+    border:1px solid #D8D8D8;
+    border-radius: 2px;
+    color:#1DC6BC;
+}
+
+.pagesBox>li[class*="first"]{
+    margin-left:0;
+}
+
+.pagesBox>a>li,.pagesBox>li{
+    margin-left:10px;
+}
+.pagesBox li[class*="forward"]{
+    margin-right:10px;
+}
+.pagesBox li[class*="next"]{
+    margin-left:20px;
+}
+.pageActive:hover,.forward:hover,.next:hover,.num:hover,.inviteP:hover,.next:hover,.first:hover,.last:hover{
+    background:#0B9C94;
+    border:1px solid #0B9C94;
+    color:#fff;
+    line-height:28px;
+}
+.forward>span{
+    margin-right:-10px;
+}
+.next>span{
+    margin-left:-10px;
+}
+.forwardIcon{
+     width:5px;height:9px;
+     position: absolute;
+     top:9px;left:10px;
+     background:url(/static/img/employee/forwardIcon.png);
+ }
+.nextIcon{
+    width:5px;height:9px;
+    position: absolute;
+    top:9px;right:10px;
+    background:url(/static/img/employee/nextIcon.png);
+}
+.num{
+    width:30px;height:28px;
+    color:#1dc6bc;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 28px;
+    margin-left:10px;
+    border:1px solid #D8D8D8;
+}
+.pageActive{
+    color:#fff;
+    background:#1dc6bc;
+    border-radius: 2px;
+    border:1px solid #1dc6bc;
+}
+.dangan:hover,.xinxiDel:hover,.salary:hover{
+    color:#1DC6BC;
+}
+td[class*="dangan"]{
+    width:68px;
+}
+td[class*="salary"]{
+    width:68px;
+}
+.pagesDisable{
+    color:#fff;
+    background:#D8D8D8;
+    border:1px solid #D8D8D8;
+}
+.pagesDisable .forwardIcon{
+    width:5px;height:9px;
+    position: absolute;
+    top:9px;left:10px;
+    background:url(/static/img/employee/forward_disable.png);
+}
+.pagesDisable .nextIcon{
+    width:5px;height:9px;
+    position: absolute;
+    top:9px;right:10px;
+    background:url(/static/img/employee/next_disable.png);
+}
+.pagesDisable:hover{
+    background:#D8D8D8;
+    border:1px solid #D8D8D8;
+    color:#fff;
+    cursor:text;
+}
+.tableBorder>tbody>tr>td>div[class="ellipsis"]{
+    width:72%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*成功页  开始*/
+#delS{
+    width: 100%;
+    background: rgba(0, 0, 0, .4);
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: none;
+}
+#delQ{
+    width: 100%;
+    background: rgba(0, 0, 0, .4);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto !important;
+    z-index: 1;
+    display: none;
+}
+#delQDBtn{
+    width:110px;
+    height:30px;line-height: 30px;
+    text-align: center;
+    border-radius: 4px;
+    margin-left:20%;
+}
+#delQXBtn{
+    width:110px;
+    height:30px;line-height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    margin-left:10%;
+}
+.delA{
+    color:#fff;
+    background:#1DC6BC;
+}
+.delM{
+    color:#fff;
+    background:#A0A0A0;
+}
+.delA:hover{
+    background:#0B9C94;
+}
+.delM:hover{
+    background:#B4B4B4;
+}
+.btnMT{
+    margin-top:65px;
+}
+.delQIMG{
+    margin-right:8.3333333%;
+    margin-left:24%;
+    margin-top:35px;
+}
+.BTNMT{
+    margin-top:40px;
+}
+.delhtml{
+    position: fixed;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+}
+#delSBtn:hover{
+    background:#0B9C94;
+}
+
+/*成功页  结束*/
+
+.emp_record_icon,.emp_dimission{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+.emp_record_icon{
+    background-image: url("../../img/employee/emp_record_icon.png");
+}
+.emp_record_icon:hover{
+    background-image: url("../../img/employee/emp_record_icon_h.png");
+}
+.emp_dimission{
+    background-image: url("../../img/employee/emp_dimission.png");
+}
+.emp_dimission:hover{
+    background-image: url("../../img/employee/emp_dimission_h.png");
+}

@@ -1,0 +1,329 @@
+<!--GPS仓库编辑-->
+<%@ taglib prefix="c"         uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="per" uri="com/mvc/web/common/tag/permissionTag"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="/static/css/manufacturing.css">
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/warehouse.css">
+    <title>GPS管理-GPS仓库编辑</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main org_product">
+            <div class="crumbs_nav">
+                <a href="/gps/warehouse/list" class="crumbs_item">GPS</a>
+                <a href="javascript:" class="crumbs_item goDetail">${warehouseVO.name}</a>
+                <a href="javascript:;" class="crumbs_item">入库</a>
+            </div>
+
+            <div class="gps_put_in">
+                <div class="row_item">
+                    <div class="row_title"><em class="require_icon">*</em>城市：</div>
+                    <div class="row_val" id="storeCity">
+                        <c:forEach items="${city_list}" var="bean">
+                            <div class="form_group">
+	                            <input id="" type="radio" class="apply_city" name="apply_city" value="${bean.id}" />
+	                            <label for="">${bean.name}</label>
+                        	</div>
+                       </c:forEach>
+                    </div>
+                </div>
+                <div class="row_item">
+                    <div class="row_title"><em class="require_icon">*</em>类型：</div>
+                    <div class="row_val">
+                        <select name="" id="selectType">
+                            <option value="">-- 请选择 --</option>
+                            <option value="1">有线</option>
+                            <option value="0">无线</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row_item">
+                    <div class="row_title"><em class="require_icon">*</em>标签：</div>
+                    <div class="row_val">
+                        <select name="" id="selectTag">
+                            <option value="">-- 请选择 --</option>
+                            <c:forEach items="${warehouseVO.labelVOs }" var="bean">
+								<option value="${bean.id}">${bean.name}</option>
+							</c:forEach>
+                        </select>
+                    </div>
+                </div>
+                <div class="row_item">
+                    <div class="row_title"><em class="require_icon">*</em>SN码：</div>
+                    <div class="row_val sn_code_box">
+                        <ul class="sn_code_list">
+                            <li class="new_sn">
+                                <input type="text" id="new_sn_input" class="new_sn_input" maxlength="20" placeholder="SN号" value="" />
+                            </li>
+                            <!-- 添加按钮 -->
+                            <li class="add_sn_btn"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btn_box text_left">
+                <per:button code="1279">
+                    <a href="javascript:" class="btn orange_btn confirm submit_btn">确认</a>
+                </per:button>
+                    <a href="javascript:window.history.back()" class="btn bg_btn cancel">取消</a>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+    <!-- 隐藏数据：创建人，创建时间 -->
+    <input type="hidden" value="${warehouseVO.creator}" id="creator">
+    <input type="hidden" value="${warehouseVO.create_time}" id="create_time" class="createTime">
+    <input type="hidden" value="${warehouseVO.id}" id="storeId">
+    <input type="hidden" value="${warehouseVO.name}" id="storeName">
+    <input type="hidden" value="${warehouseVO.organization_id}" id="orgId">
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/warehouse.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    (function ($) {
+        var elem = {
+            addBtn : $('.add_sn_btn'),
+            snList : $('.sn_code_list'),
+            newSN : $('#new_sn_input'),
+            submitBtn : $('.submit_btn')
+        };
+        var createdSN = [];
+        var reg = /^[a-zA-Z0-9]{1,}$/;
+        //SN码添加逻辑
+        function addSN() {
+            elem.addBtn.off('click').on('click', function () {
+                var _this = $(this);
+                var i = '<li class="new_sn">\
+                            <input type="text" id="new_sn_input" class="new_sn_input" autofocus="autofocus" maxlength="20" placeholder="SN号" value="" />\
+                        </li>';
+                var a = elem.snList.find('.new_sn');
+                if (a.length <= 0) {
+                    elem.addBtn.before(i);
+                } else {
+                    var v = $.trim(a.find('#new_sn_input').val());
+                    if (v) {
+                        if (createdSN.length >= 500) {
+                            $alert('最多可添加500个');
+                            return false;
+                        } else {
+                            var str = '<li class="sn">\
+                                    <span>'+ v +'</span>\
+                                    <em class="delete_icon"></em>\
+                                </li>';
+                            if (!reg.test(v)) {
+                                $alert('SN码只能为英文及数字', function () {
+                                    a.find('#new_sn_input').focus();
+                                });
+                                return false;
+                            }
+                            var isRepeat = checkRepeat(v, createdSN, '该SN码已存在，请输入其它SN码');
+                            if (!isRepeat) {
+                                createdSN.push(v);
+                                a.before(str);
+                                a.find('.new_sn_input').val('').focus();
+                            } else {
+                                a.find('.new_sn_input').val('').focus();
+                            }
+                        }
+                    } else {
+                        a.find('.new_sn_input').focus();
+                    }
+                }
+            });
+        }
+        //SN码的创建逻辑
+        function createSNCode () {
+            elem.snList.off('input keyup').on('input keyup', '.new_sn_input', function (e) {
+                var e = e || window.event;
+                var _this = $(this);
+                var v = $.trim(_this.val());
+                if (v) {
+                    var str = '<li class="sn">\
+                                    <span>'+ v +'</span>\
+                                    <em class="delete_icon"></em>\
+                                </li>';
+                    if (e.which == 13) {
+                        if (createdSN.length >= 500) {
+                            $alert('最多可添加500个');
+                            return false;
+                        } else {
+                            if (!reg.test(v)) {
+                                $alert('SN码只能为英文及数字', function () {
+                                    _this.focus();
+                                });
+                                return false;
+                            }
+                            var isRepeat = checkRepeat(v, createdSN, '该SN码已存在，请输入其它SN码');
+                            if (!isRepeat) {
+                                createdSN.push(v);
+                                _this.parents('.new_sn').before(str);
+                                _this.val('').focus();
+                            } else {
+                                _this.parents('.new_sn').find('.new_sn_input').val('').focus();
+                            }
+                            //_this.parents('.new_sn').before(str).remove();
+                        }
+                    }
+                } else {
+                    _this.focus();
+                }
+            });
+        }
+
+        //SN码删除逻辑
+        function  deleteSNCode () {
+            elem.snList.on('click', '.delete_icon', function (e) {
+                var e = e || window.event;
+                e.stopPropagation();
+                e.preventDefault();
+                var _this = $(this);
+                var p = _this.parents('.sn');
+                var thisTag = $.trim(p.text());
+                p.remove();
+                createdSN.remove(thisTag);
+            })
+        }
+
+        //获取提交数据
+        function getData () {
+            var data = {};
+            var city = $('#storeCity').find('input[type=\'radio\']:checked').val();
+            var storeId =  $.trim($('#storeId').val());
+            var orgId = $.trim($('#orgId').val());
+            var tagId = $.trim($('#selectTag option:selected').val());
+            var type = $.trim($('#selectType option:selected').val());
+            var snArr = [];
+            elem.snList.find('.sn').each(function () {
+                var _this = $(this);
+                var sn = $.trim(_this.find('span').text().replace(/\s/ig,''));
+                snArr.push(sn);
+            });
+            data.sn_codes = snArr.join(',');
+            data.city_id = $.trim(city);
+            data.warehouse_id = storeId;
+            data.organization_id = orgId;
+            data.label_id = tagId;
+            data.type = type;
+            return data;
+        }
+
+        //校验必选项
+        function verifyChecked () {
+            var data = getData();
+            if (data.city_id == '') {
+                $alert('请先选择城市');
+                return false;
+            }
+            if (data.type === '') {
+                $alert('请选择类型');
+                return false;
+            }
+            if (data.label_id == '') {
+                $alert('请选择所属标签');
+                return false;
+            }
+            if (data.sn_codes == '') {
+                $alert('SN码至少要填写一个');
+                return false;
+            }
+            return true;
+        }
+        // 注册提交点击事件
+        function bindSubmitEvent () {
+            elem.submitBtn.off('click').on('click', function () {
+                var _this = $(this);
+                submitEvent();
+            });
+        }
+        // 提交逻辑
+        function submitEvent () {
+            var valid = verifyChecked();
+            if (valid) {
+                elem.submitBtn.off('click');
+                var url = contextPath + '/api/gps/putin/warehouse';
+                var data = getData();
+                $ajax('post', url, data, function (res) {
+                    if (res.error_code == 0) {
+                        $alert('入库成功', function () {
+                            locationTo({
+                                action : contextPath + '/gps/warehouse/toDetail',
+                                param : {
+                                    warehouse_id : data.warehouse_id,
+                                    warehouse_name : $.trim($('#storeName').val()),
+                                    inWarehouse : 0,
+                                    create_time : $.trim($('#create_time').val()),
+                                    creator : $.trim($('#creator').val())
+                                }
+                            });
+                        })
+                    } else {
+                        bindSubmitEvent();
+                        $alert(res.error_msg);
+                    }
+                }, function () {
+                    bindSubmitEvent();
+                    $alert('网络异常，请稍后重试');
+                })
+            } else {
+                return;
+            }
+        }
+        //面包屑跳转详情页
+        function goDetail () {
+            var btn = $('.goDetail');
+            btn.on('click', function () {
+                locationTo({
+                    action : contextPath + '/gps/warehouse/toDetail',
+                    param : {
+                        warehouse_id : $.trim($('#storeId').val()),
+                        warehouse_name : $.trim($('#storeName').val()),
+                        inWarehouse : 0,
+                        create_time : $.trim($('#create_time').val()),
+                        creator : $.trim($('#creator').val())
+                    }
+                });
+            });
+        }
+
+        $(function () {
+            addSN();
+            createSNCode();
+            deleteSNCode();
+            bindSubmitEvent();
+            goDetail();
+        })
+
+    })(jQuery,undefined);
+</script>
+</html>

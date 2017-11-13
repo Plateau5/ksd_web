@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/statistics.css"/>
+    <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
+    <title>数据统计-业务统计</title>
+    <style>
+        body{
+            background: rgba(0,0,0,.08);
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main">
+            <div class="crumbs_nav">
+                <a href="/statistics/person/system" class="crumbs_item">人效统计</a>
+                <a href="javascript:;" class="crumbs_item">{{personal.emp_name}}</a>
+            </div>
+            <div class="statistics_box">
+                <div class="description_title gray_font">本月截止到今天</div>
+                <!-- 个人信息及总量统计 -->
+                <div class="personal_info">
+                    <div class="personal_desc inline_block">
+                    		
+                        <div class="bg_photo">
+                            {{#if (personal.emp_logo !== '') }}
+                                <div class="bg_img_box">
+                                    <img src="{{personal.emp_logo}}"  class="bg_img" alt="">
+                                </div>
+                                <div class="photo">
+                                    <img src="{{personal.emp_logo}}" alt="">
+                                </div>
+                            {{else}}
+                                <div class="bg_img_box">
+                                    <img src="/static/img/normal_photo_bg.png"  class="bg_img" alt="">
+                                </div>
+                                <div class="photo">
+                                    <img src="/static/img/normal_photo.png" alt="">
+                                </div>
+                            {{/if}}
+                        </div>
+                        <div class="position_info">
+                            <div class="personal_name nowrap text_center">
+                                <span class="department gray_font">姓名：</span>
+                                <span class="value">{{personal.emp_name}}</span>
+                            </div>
+                            <div class="inline_block">
+                                <span class="department gray_font">部门：</span>
+                                <span class="value">{{personal.department_name}}</span>
+                            </div>
+                            <div class="inline_block text_right">
+                                <span class="position gray_font">职位：</span>
+                                <span class="value">{{personal.position_desc}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="statistics_desc inline_block">
+                        {{#if (orderType === 1) }}
+                            <div class="count_item inline_block incoming" data-status="1" data-name="{{personal.emp_name}}" data-id="{{personal.emp_id}}">
+                                <div class="name gray_font">进件</div>
+                                <div class="num">
+                                    {{#if (personal.order_count === '') }}
+                                        0
+                                    {{else}}
+                                        {{personal.order_count}}
+                                    {{/if}}
+                                </div>
+                            </div>
+                        {{/if}}
+                        {{#if (requestType === 1) }}
+                            <div class="count_item inline_block requestpayout" data-status="2" data-name="{{personal.emp_name}}" data-id="{{personal.emp_id}}">
+                                <div class="name gray_font">请款</div>
+                                <div class="num">
+                                    {{#if (personal.request_count === '') }}
+                                        0
+                                    {{else}}
+                                        {{personal.request_count}}
+                                    {{/if}}
+                                </div>
+                            </div>
+                        {{/if}}
+                        {{#if (pigeonholeType === 1) }}
+                            <div class="count_item inline_block pigeonhole" data-status="3" data-name="{{personal.emp_name}}" data-id="{{personal.emp_id}}">
+                                <div class="name gray_font">归档</div>
+                                <div class="num">
+                                    {{#if (personal.pigeonhole_count === '') }}
+                                    0
+                                    {{else}}
+                                    {{personal.pigeonhole_count}}
+                                    {{/if}}
+                                </div>
+                            </div>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="chart_container">
+                    {{#if (orderType === 1) }}
+                        <div class="incoming">
+                            <div class="statistics_item incoming_statistics">
+                                <div class="filtrate">
+                                    <div class="inline_block">
+                                        <select name="filtrate_month month_start" data-type="incomingSelect" class="filtrate_select month_start" id="incomingMothStart">
+
+                                        </select>
+                                    </div>
+                                    <div class="compare inline_block">VS</div>
+                                    <div class="inline_block">
+                                        <select name="filtrate_month month_end" data-type="incomingSelect" class="filtrate_select month_end" id="incomingMothEnd">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="canvas_box onloading" id="orderIncoming">
+
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if (requestType === 1) }}
+                        <div class="requestpayout inline_block">
+                            <div class="statistics_item  requestpayout_statistics">
+                                <div class="filtrate">
+                                    <div class="inline_block">
+                                        <select name="filtrate_month month_start" data-type="requestpayoutSelect" class="filtrate_select month_start" id="requestpayoutMothStart">
+
+                                        </select>
+                                    </div>
+                                    <div class="compare inline_block">VS</div>
+                                    <div class="inline_block">
+                                        <select name="filtrate_month month_end" data-type="requestpayoutSelect" class="filtrate_select month_end" id="requestpayoutMothEnd">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="canvas_box onloading requestpayout_canvas" id="requestpayout">
+
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if (pigeonholeType === 1) }}
+                        <div class="pigeonhole inline_block">
+                            <div class="statistics_item pigeonhole_statistics">
+                                <div class="filtrate">
+                                    <div class="inline_block">
+                                        <select name="filtrate_month month_start" data-type="pigeonholeSelect" class="filtrate_select month_start" id="pigeonholeMothStart">
+
+                                        </select>
+                                    </div>
+                                    <div class="compare inline_block">VS</div>
+                                    <div class="inline_block">
+                                        <select name="filtrate_month month_end" data-type="pigeonholeSelect" class="filtrate_select month_end" id="pigeonholeMothEnd">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="canvas_box onloading pigeonhole_canvas" id="pigeonhole">
+
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+
+
+
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+</div>
+<input type="hidden" id="empId" value="{{personal.emp_id}}">
+<!-- 给的Month日期值 根据start_date往上加到最新的日期end_date-->
+<input type="hidden" id="startDate" value="{{start_date}}">
+<input type="hidden" id="endDate" value="{{end_date}}">
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/echarts.min.js"></script>
+<script src="/static/js/statistics.js"></script>
+<script src="/static/jedate/jquery.jedate.min.js"></script>
+<script>
+    (function ($) {
+        var  orderType = {{ orderType }};
+		var  requestType = {{ requestType }};
+		var  pigeonholeType = {{ pigeonholeType }};
+        var empId = $.trim($('#empId').val());
+        // 全局DOM
+        var elem = {
+            incoming : {
+                canvas : $('#orderIncoming')
+            },
+            requestpayout : {
+                canvas : $('#requestpayout')
+            },
+            pigeonhloe : {
+                canvas : $('#pigeonhole')
+            }
+        };
+        // 跳转个人进件、请款、归档详情页
+        function toPersonalDetail () {
+            var elem = $('.count_item');
+            elem.off('click').on('click', function () {
+                var _this = $(this);
+                var empId = $.trim(_this.data('id'));   // 员工id
+                var empName = $.trim(_this.data('name'));   // 员工id
+                var url = contextPath + '/statistics/personal/business';    // 跳转路径
+                var statusType = $.trim(_this.data('status'));
+                locationTo({
+                    action : url,
+                    param : {
+                        status : statusType,
+                        emp_id : empId,
+                        emp_name : empName,
+                    }
+                })
+            });
+        }
+
+        // 获取月份值
+        function getMonthList () {
+            var monthStart = createMonthOption(true);
+            var monthEnd = createMonthOption(false);
+            $('#incomingMothStart, #requestpayoutMothStart, #pigeonholeMothStart').html(monthStart);
+            $('#incomingMothEnd, #requestpayoutMothEnd, #pigeonholeMothEnd').html(monthEnd);
+        }
+
+        /**
+         * 获取个人进件统计数据
+         * @author Arley Joe 2017-8-7 18:56:28
+         * @desc 次循环为倒序循环
+         * @param target {string} : 目标select元素
+         * @param type {Boolean} : 目标元素时间类型: start日期：true; end日期：false;
+         * @returns {*}
+         */
+        function createMonthOption (type) {
+            var starteDateEle = $('#startDate');
+            var endDateEle = $('#endDate');
+            // var selectedRender = false; // 是否已经渲染完选中状态
+            var start = $.trim(starteDateEle.val());    // 最小日期（租户开通时间）
+            var end = $.trim(endDateEle.val());    // 最大日期（当前月）
+            /*var start = '1970-12';    // 最小日期（租户开通时间）
+            var end = '2017-01';    // 最大日期（当前月）*/
+            var options = {};
+            options.startYear = Number(start.split('-')[0]);    // 最小日期年份
+            options.startMonth = Number(start.split('-')[1]);   // 最小日期月份
+            var startYear = options.endYear = Number(end.split('-')[0]);    //  开始循环日期的年份（最大日期年份）
+            var startMoth = options.endMonth = Number(end.split('-')[1]);   // 开始循环日期的月份（最大日期月份）
+            options.currentYear = options.endYear;  // 循环中日期的年份
+            options.currentMonth = options.endMonth;  // 循环中日期的月份
+            var optionElem = '';
+            for (var i = options.currentMonth; i >= 0; i--) {
+                var v;
+                // 如果i为0，重置为12，年份-1
+                if (i <= 0) {
+                    i = 12;
+                    options.currentYear -= 1;
+                }
+                // 判断i的值，满足条件后退出循环
+                if (options.startMonth === 1) { // 最小月份为1时特殊处理。
+                    if ((i != 1) && (options.currentYear < options.startYear)) {
+                        break;
+                    }
+                } else if ((i < options.startMonth) && (options.currentYear <= options.startYear)) {    // 最小月份为其他值
+                    break;
+                }
+                // 如果i小于10，则在前面补0
+                if (i < 10) {
+                    v = options.currentYear + '-' + '0' + i;
+                } else {
+                    v = options.currentYear + '-' + i;
+                }
+                if (type) { //  开始日期
+                    if (i == startMoth && Number(options.currentYear) == startYear) {
+                        optionElem += '<option selected="selected" value="'+ v +'">'+ v +'</option>';
+                    } else {
+                        if (i == (startMoth -1) && Number(options.currentYear) == startYear ) {
+                            optionElem += '<option disabled="disabled" value="'+ v +'">'+ v +'</option>';
+                        } else {
+                            optionElem += '<option value="'+ v +'">'+ v +'</option>';
+                        }
+
+                    }
+                } else {
+                    if ((i + 1) == startMoth && Number(options.currentYear) == startYear) {
+                        optionElem += '<option selected="selected" value="'+ v +'">'+ v +'</option>';
+                    } else {
+                        if (i == startMoth && Number(options.currentYear) == startYear) {
+                            optionElem += '<option disabled="disabled" value="'+ v +'">'+ v +'</option>';
+                        } else {
+                            optionElem += '<option value="'+ v +'">'+ v +'</option>';
+                        }
+                    }
+                }
+            }
+            // $(target).html(optionElem);
+            return optionElem;
+        }
+
+        /**
+         * 获取个人进件统计数据
+         * @author Arley Joe 2017-8-4 14:27:42
+         * @param start {string} : 开始时间
+         * @param end {string} : 结束时间
+         * @param type {string} : 购车类型：新车（0）、二手车（1）
+         * @returns {json} : 返回的json数据
+         */
+        function createIncomingChart (start, end) {
+            var incomingData = null;
+            var data = {
+                emp_id : empId,
+                order_date1 : start || "",
+                order_date2 : end || ""
+            };
+            var url = contextPath + '/api/statistics/personal/order';
+            redefineAjax({
+                url : url,
+                data : data,
+                timeout : 10000,
+                success : function (res) {
+                    if (res.error_code == 0) {
+                        incomingData = formatIncomingData(res);
+                        personIncomingLineChart('orderIncoming', incomingData);
+                        elem.incoming.canvas.removeClass('onloading load_error');
+                    } else {
+                        elem.incoming.canvas.removeClass('onloading').addClass('load_error');
+                        console.error(res.error_msg);
+                    }
+                },
+                error : function () {
+                    elem.incoming.canvas.removeClass('onloading').addClass('load_error');
+                    console.error('Request error');
+                }
+            });
+        }
+        // 格式化个人进件统计数据
+        function formatIncomingData (data) {
+            var incomingData = {
+                list1 : [],
+                list2 : [],
+                xaxisdata : [],
+                startDate : '',
+                endDate : ''
+            };
+            var xlist = data.time_list;   // x轴统计项（配置数据）
+            var list1 = data.personList1;
+            var list2 = data.personList2;
+            incomingData.startDate = data.order_date1;
+            incomingData.endDate = data.order_date2;
+            for (var i = 0, len = xlist.length; i < len; i++) {
+                incomingData.xaxisdata.push(xlist[i].name);
+            }
+            for (var i = 0, len = list1.length; i < len; i++) {
+                incomingData.list1.push(Number(list1[i].order_count));
+            }
+            for (var i = 0, len = list2.length; i < len; i++) {
+                incomingData.list2.push(Number(list2[i].order_count));
+            }
+            return incomingData;
+        }
+
+
+        /**
+         * 获取个人请款统计数据
+         * @author Arley Joe 2017-8-4 14:27:42
+         * @param start {string} : 开始时间
+         * @param end {string} : 结束时间
+         * @param type {string} : 购车类型：新车（0）、二手车（1）
+         * @returns {json} : 返回的json数据
+         */
+        function createRequestpayoutChart (start, end) {
+            var requestpayoutData = null;
+            var data = {
+                emp_id : empId,
+                request_date1 : start || "",
+                request_date2 : end || ""
+            };
+            var url = contextPath + '/api/statistics/personal/request';
+            redefineAjax({
+                url : url,
+                data : data,
+                timeout : 10000,
+                success : function (res) {
+                    if (res.error_code == 0) {
+                        requestpayoutData = formatRequestpayoutData(res);
+                        personRequestpayoutPieChart('requestpayout', requestpayoutData);
+                        elem.requestpayout.canvas.removeClass('onloading load_error');
+                    } else {
+                        elem.requestpayout.canvas.removeClass('onloading').addClass('load_error');
+                        console.error(res.error_msg);
+                    }
+                },
+                error : function () {
+                    elem.requestpayout.canvas.removeClass('onloading').addClass('load_error');
+                    console.error('Request error');
+                }
+            });
+        }
+        // 格式化个人请款统计数据
+        function formatRequestpayoutData (data) {
+            return requestpayoutData = {
+                count1 : {value: data.personRequestCount1, name : data.request_date1 + '：' + data.personRequestCount1 + ' 单'},
+                count2 : {value: data.personRequestCount2, name : data.request_date2 + '：' + data.personRequestCount2 + ' 单'},
+                xaxisdata : [data.request_date1, data.request_date2]
+            };
+        }
+
+        /**
+         * 获取个人归档统计数据
+         * @author Arley Joe 2017-8-4 14:27:42
+         * @param start {string} : 开始时间
+         * @param end {string} : 结束时间
+         * @param type {string} : 购车类型：新车（0）、二手车（1）
+         * @returns {json} : 返回的json数据
+         */
+        function createPigeonholeChart (start, end) {
+            var pigeonholeData = null;
+            var data = {
+                emp_id : empId,
+                pigeonhole_date1 : start || "",
+                pigeonhole_date2 : end || ""
+            };
+            var url = contextPath + '/api/statistics/personal/pigeonhole';
+            redefineAjax({
+                url : url,
+                data : data,
+                timeout : 10000,
+                success : function (res) {
+                    if (res.error_code == 0) {
+                        pigeonholeData = formatPigeonholeData(res);
+                        personPigeonholePieChart('pigeonhole', pigeonholeData);
+                        elem.pigeonhloe.canvas.removeClass('onloading load_error');
+                    } else {
+                        elem.pigeonhloe.canvas.removeClass('onloading').addClass('load_error');
+                        console.error(res.error_msg);
+                    }
+                },
+                error : function () {
+                    elem.pigeonhloe.canvas.removeClass('onloading').addClass('load_error');
+                    console.error('Request error');
+                }
+            });
+        }
+        // 格式化个人归档统计数据
+        function formatPigeonholeData (data) {
+            return pigeonholeData = {
+                count1 : {value: data.personPigeonholeCount1, name : data.pigeonhole_date1 + '：' + data.personPigeonholeCount1 + ' 单'},
+                count2 : {value: data.personPigeonholeCount2, name : data.pigeonhole_date2 + '：' + data.personPigeonholeCount2 + ' 单'},
+                xaxisdata : [data.pigeonhole_date1, data.pigeonhole_date2]
+            };
+        }
+
+
+        // 注册进件/请款/归档统计的筛选事件
+        function bindFiltrateStatistics () {
+            var select = $('.filtrate select');
+            select.on('change', function () {
+                var _this = $(this);
+                var _thisVal = _this.find('option:selected').val(); // 保留当前值
+                var queryType = $.trim(_this.data('type'));
+                var start = $.trim(_this.parents('.filtrate').find('select.month_start option:selected').val());
+                var end = $.trim(_this.parents('.filtrate').find('select.month_end option:selected').val());
+                if (start == '') {
+                    $alert('开始时间不能为空');
+                    return false;
+                }
+                if (end == '') {
+                    $alert('结束时间不能为空');
+                    return false;
+                }
+                if (queryType == 'incomingSelect') {
+                    createIncomingChart(start, end);
+                } else if (queryType == 'requestpayoutSelect') {
+                    createRequestpayoutChart(start, end);
+                } else if (queryType == 'pigeonholeSelect') {
+                    createPigeonholeChart(start, end);
+                }
+                // 禁用兄弟元素相同选项
+                var sibling = _this.parents('.filtrate').find('select').not(_this);
+                sibling.find('option:disabled').attr('disabled', false);
+                sibling.find('option[value="'+ _thisVal +'"]').attr('disabled', true);
+            });
+        }
+
+        $(function() {
+            getMonthList();
+            toPersonalDetail();
+            // 根据权限加载图表
+            if (orderType === 1) {
+                createIncomingChart();
+            }
+            if (requestType === 1) {
+                createRequestpayoutChart();
+            }
+            if (pigeonholeType === 1) {
+                createPigeonholeChart();
+            }
+            bindFiltrateStatistics();
+        });
+    })(jQuery,undefined);
+</script>
+</html>

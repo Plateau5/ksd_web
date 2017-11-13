@@ -1,0 +1,35 @@
+<!-- Template of filtrate item -->
+<div class="filtrate">
+    <div class="filtrate_item date_conditions">
+        <div class="inline_block">
+            <div class="conditions_name inline_block">时间筛选：</div>
+            <input type="text" id="filtrate_date" class="filtrate_date laydate-icon" />
+        </div>
+        <div class="inline_block">
+            <div class="conditions_name inline_block filtrate_city">地点筛选：</div>
+            <select name="filtrate_city" class="filtrate_select" id="filtrate_city">
+                <option value="">--请选择--</option>
+            </select>
+        </div>
+        <div class="inline_block">
+            <div class="conditions_name inline_block filtrate_audit_type">审核类型：</div>
+            <select name="filtrate_audit_type" class="filtrate_select" id="filtrate_audit_type">
+                <option value="">--请选择--</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="filtrate_item first_letter_conditions">
+        <div class="conditions_name inline_block lf">姓名筛选：</div>
+        <div class="filtrate_box inline_block">
+            <a href="javascript:;" class="conditions_item choose_all">全部</a>
+            <a href="javascript:;" class="conditions_item">A</a>
+            <a href="javascript:;" class="conditions_item active">B</a>
+            <a href="javascript:;" class="conditions_item">C</a>
+            <a href="javascript:;" class="conditions_item">D</a>
+            <a href="javascript:;" class="conditions_item">E</a>
+            <a href="javascript:;" class="conditions_item">F</a>
+            <a href="javascript:;" class="conditions_item">G</a>
+        </div>
+    </div>
+</div>

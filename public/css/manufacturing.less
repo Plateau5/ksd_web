@@ -1,0 +1,554 @@
+/**
+ * Created by Arley on 2016/12/20.
+ */
+
+@import "variate.less";
+
+/*********** 人员管理列表样式 Begin ***********/
+.employee_list{
+    width: 100%;
+    height: auto;
+    .list_box{
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        table-layout: fixed;
+        tr{
+            height: @tr-height;
+            line-height: @tr-height;
+            td{
+                height: inherit;
+                line-height: inherit;
+                padding-right: 2%;
+                color: @normal-color;
+                overflow: hidden;
+            }
+            td.set_charcter{
+                padding-right: 0;
+            }
+        }
+        .e_photo{
+            width: 40px;
+            height: 40px;
+            margin-right:10px;
+            border-radius: 50%;
+            background: @border-color;
+            vertical-align: middle;
+        }
+        .set_character_btn{
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            //margin-left: 30px;
+            background: url("../img/operation_small_icon.png") no-repeat 0 -548px;
+            vertical-align: middle;
+        }
+        .set_character_btn:hover{
+            background-position: 0 -590px;
+        }
+    }
+}
+.dialog_box{
+    z-index: 999;
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    .mask{
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: rgba(0,0,0,.5);
+        z-index: 10;
+    }
+}
+.character_list{
+    position: absolute;
+    left: 50%;
+    width: 700px;
+    padding-bottom: 20px;
+    margin-left: -350px;
+    color: @normal-color;
+    background: #FFFFFF;
+    z-index: 9999;
+    .character_title{
+        height: 80px;
+        line-height: 80px;
+        font-weight: bold;
+        font-size: 14px;
+        text-align: center;
+    }
+    .list_box{
+        width: 80%;
+        padding: 0 10%;
+        height: auto;
+        overflow: hidden;
+        .list_item{
+            width: 20%;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 3% 0 2%;
+            float: left;
+            label{
+                width: 95%;
+            }
+        }
+    }
+    .btn_box{
+        height: 60px;
+        line-height: 60px;
+        padding: 30px 0;
+        text-align: center;
+        color: #FFFFFF;
+    }
+}
+/*********** 人员管理列表样式 End ***********/
+
+/*********** 审批管理列表页样式 Begin ***********/
+.tab{
+    margin-top: 20px;
+}
+.filtrate.workflow .filtrate_item{
+    margin: 15px 0;
+}
+.filtrate.workflow .filtrate_city{
+    margin-left: 0;
+}
+.no_workflow{
+    margin-top: 100px;
+    text-align: center;
+    .toast_text{
+        height: 60px;
+        line-height: 60px;
+        color: #c7c7c7;
+        font-size: 14px;
+    }
+    .new_btn_box{
+        height: 80px;
+        line-height:80px;
+        text-align: center;
+    }
+}
+.new_btn_box{
+    height: 70px;
+    line-height: 70px;
+    text-align: right;
+    //padding-bottom: 30px;
+    .add_btn{
+        width: 85px;
+        height: 20px;
+        line-height: 20px;
+    }
+    .character_total{
+        float: left;
+        padding-left: 15px;
+        height: inherit;
+        line-height: 100px;
+        opacity: .8;
+        overflow: hidden;
+    }
+}
+.workflow_list,.table_list{
+    width: 100%;
+    text-align: center;
+    tr{
+        height: @tr-height;
+        line-height: @tr-height;
+        border: 1px solid @border-color;
+        th,td{
+            color: @normal-color;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding:0 2%;
+        }
+        td.role_desc{
+            color: #808991;
+        }
+        th:last-child,td:last-child{
+             padding:0 0 0 2%;
+        }
+        th:first-child,td:first-child{
+            padding:0 2% 0 0;
+        }
+    }
+    thead tr{
+        background: #fafafa;
+        th{
+            font-weight: normal;
+            font-size: 14px;
+        }
+    }
+    .operate_btn{
+        .view,.edit,.delete{
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: url("../img/operation_small_icon.png") no-repeat;
+            vertical-align: middle;
+        }
+        .view{
+            margin-right: 10px;
+            background-position: 0 -614px;
+
+        }
+        .view:hover{
+            background-position: 0 -638px
+        }
+        .edit{
+            margin-right: 10px;
+            background-position: 0 -662px;
+        }
+        .edit:hover{
+            background-position: 0 -686px;
+        }
+        .delete{
+            background-position: -54px 0;
+        }
+        .delete:hover{
+            background-position: -54px -24px;
+        }
+    }
+}
+/*********** 审批管理列表页样式 End ***********/
+
+/*********** 审批管理创建流程样式 Begin ***********/
+.create_options{
+    position: relative;
+    height: auto;
+    margin-top: 30px;
+    padding: 20px 0 50px 40px;
+    background: @th-bg-color;
+    color: @normal-color;
+    .column_name{
+        text-align: left;
+    }
+    .option_item{
+        //height: 60px;
+        line-height: 60px;
+        overflow: hidden;
+        .require_icon{
+            color: rgb(255,0,0);
+        }
+        .workflow_name{
+            width: 200px;
+            height: 30px;
+            border:1px solid @border-color;
+            padding:0 15px;
+        }
+        .tips_info{
+            //display: none;
+            margin-left:10px;
+            color: red;
+        }
+    }
+    .principal_opt{
+        height: auto;
+        overflow: hidden;
+    }
+    .principal_item{
+        //height: 60px;
+        line-height: 40px;
+        position: relative;
+        >span{
+            display: inline-block;
+        }
+        .character{
+            position: relative;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            margin:0 8px 0 0;
+            background: @active-color;
+            text-align: center;
+            color: #FFFFFF;
+            cursor: pointer;
+
+        }
+        .detail_character{
+            cursor: default;
+        }
+        .close_icon{
+            position: absolute;
+            display: block;
+            top: 5px;
+            left: 84px;
+            width: 16px;
+            height: 16px;
+            background: url("../img/input-icon.png") no-repeat 0 -32px;
+            cursor: pointer;
+            z-index: 99;
+        }
+        .down_arrow{
+            width: 16px;
+            height: 30px;
+            margin-left: 42px;
+            background: url("../img/input-icon.png") no-repeat 0 -74px;
+        }
+    }
+
+    .principal_item:first-child{
+        padding-top: 12px;
+        .close_icon{
+            top: 17px;
+        }
+    }
+    .principal_item:nth-last-child(2) .down_arrow{
+        display: none;
+    }
+    .add_btn{
+        width: 32px;
+        height: 32px;
+        margin:10px 0 0 34px;
+        background: url("../img/input-icon.png") no-repeat 0 -44px;
+        cursor: pointer;
+    }
+}
+.create_wf_btn_box{
+    text-align: left;
+    margin-left: 200px;
+}
+
+.add_principal_dialog{
+    position: fixed;
+    width: 700px;
+    height: auto;
+    left: 50%;
+    margin-left: -350px;
+    padding:0 0 20px;
+    background: #FFFFFF;
+    color: @normal-color;
+    z-index: 999;
+    .add_title{
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+
+    }
+    .content{
+        width: 480px;
+        margin: auto;
+        overflow: hidden;
+        box-shadow: 0 0 1px 2px #ddd;
+        border: 1px solid #ddd;
+    }
+    .principal_list,.employee_list{
+        float: left;
+        max-height: 400px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .principal_list{
+        width: 215px;
+        padding-top: 2px;
+        background: @category-bg-color;
+        .list_item{
+            position: relative;
+            width:192px;
+            height: 36px;
+            margin: 0 auto;
+            line-height: 36px;
+            padding: 0 8px;
+            background: @category-bg-color;
+            cursor: pointer;
+        }
+        .list_item.active,.list_item:hover{
+            box-shadow: 0 0 3px 1px @active-color;
+            background: @active-color;
+            color: #FFFFFF;
+            z-index: 10;
+        }
+        /*.list_item.active:before{
+            position: absolute;
+            top: 13px;
+            right: 0;
+            display: block;
+            content: '';
+            border-right: 10px solid @category-bg-color;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid transparent;
+            z-index: 10;
+        }*/
+    }
+    .employee_list{
+        width: 263px;
+        //border: 1px solid @active-color;
+        //background: @th-bg-color;
+        .list_item{
+            position: relative;
+            float: left;
+            width: 42%;
+            height: 80px;
+            line-height: 80px;
+            padding-left: 8%;
+            text-align: left;
+            cursor: pointer;
+            img{
+                width: 40px;
+                height: 40px;
+                border: 1px solid @border-color;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+                vertical-align: middle;
+                background: #cccccc;
+            }
+        }
+        .list_item.active{
+            &:before{
+                position: absolute;
+                top: 46px;
+                left: 20px;
+                display: block;
+                content: '';
+                width: 20px;
+                height: 20px;
+                background: url("../img/operation_small_icon.png") no-repeat 0 -498px;
+
+            }
+        }
+        .list_item.active,.list_item:hover{
+            color: @active-color;
+        }
+    }
+    .btn_box{
+        height: auto;
+        line-height: 60px;
+        overflow: hidden;
+    }
+    ::-webkit-scrollbar
+    {
+        width: 8px;
+        height: 8px;
+        background-color: #fff;
+    }
+
+    /*定义滚动条轨道 内阴影+圆角*/
+    ::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px #fff;
+        border-radius: 10px;
+        background-color: #fff;
+    }
+
+    /*定义滑块 内阴影+圆角*/
+    ::-webkit-scrollbar-thumb
+    {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px #fff;
+        background-color: #f5f5f5;
+    }
+}
+/*********** 审批管理创建流程样式 End ***********/
+
+/*********** 审批管理详情页 Begin ***********/
+.workflow_detail{
+    padding: 0;
+    border: 1px solid @border-color;
+    background: #FFFFFF;
+    .principal_item:nth-last-child(2) .down_arrow{
+        display: block;
+    }
+    .principal_item:nth-last-child(1) .down_arrow{
+        display: none;
+    }
+    .workflow_name{
+        position: relative;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 20px;
+        background: @th-bg-color;
+        border-bottom: 1px solid @border-color;
+        font-size: 14px;
+        &:before{
+            position: absolute;
+            display: block;
+            left: 10px;
+            top: 15px;
+            content: '';
+            height: 20px;
+            border-left: 4px solid @active-color;
+        }
+        .create_time,.creator{
+            float: right;
+            font-size: 12px;
+            font-weight: normal;
+            color: #b8b8b8;
+        }
+        .create_time{
+            margin-right: 20px;
+        }
+    }
+    .column_name{
+        width: 9%;
+    }
+    .column_val{
+        width: 90%;
+    }
+    .form_group{
+        margin-right: 15px;
+    }
+    .content_info{
+        padding: 20px 0 50px 40px;
+    }
+}
+/*********** 审批管理详情页 End ***********/
+
+/*********** 修改人员角色页 Begin ***********/
+.set_character{
+    margin-top: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    .row_item{
+        min-height: 0;
+        height: 30px;
+        clear: both;
+    }
+    .row_title{
+        width: 8%;
+        padding-right: 2%;
+        height: 30px;
+        line-height: 30px;
+        text-align: right;
+    }
+    .row_val{
+        width: 90%;
+        line-height: 30px;
+    }
+    .form_group{
+        width: 20%;
+        float:  left;
+        padding-top: 4px;
+        line-height: 30px;
+        label{
+            width: 85%;
+            overflow: hidden;
+            white-space: nowrap;
+            -ms-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+        }
+    }
+    .charge_area,.belong_character{
+        height: auto;
+        overflow: hidden;
+        .row_val{
+            height: auto;
+        }
+    }
+    .personnel_name{
+        opacity: .8;
+    }
+    .btn_box{
+        padding-left: 10%;
+    }
+}
+/*********** 修改人员角色页 End ***********/
+

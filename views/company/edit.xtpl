@@ -1,0 +1,330 @@
+<!-- 创建租户 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/company.css">
+    <title>租户管理-租户列表</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main org_product">
+            <div class="crumbs_nav">
+                <a href="/company/list" class="crumbs_item">租户管理</a>
+                <a href="javascript:window.history.back();" class="crumbs_item">租户详情</a>
+                <a href="javascript:;" class="crumbs_item">编辑租户</a>
+            </div>
+            <div class="form_content form_options company_edit">
+                <form action="" class="basic_info_edit">
+                    <!-- 车辆基本信息 Begin -->
+                    <div class="options_title">账号信息</div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">管理员账号：</span>
+                        </div>
+                        <div class="column_val">
+                        	<input type="hidden" value="${company.company_id }" id="companyId">
+                            <input type="text" class="" id="companyAccount" name=""  value="${company.account }" placeholder="请输入有效邮箱" disabled readonly="readonly" />
+                        </div>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">密码：</span>
+                        </div>
+                        <div class="column_val">
+                            <a href="#" class="btn blue_btn reset_btn">重置</a>
+                        </div>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">使用截止日期：</span>
+                        </div>
+                        <div class="column_val">
+                            <input type="text"  id="endDate" class="" name="" value="${company.end_date }"  placeholder="请选择" readonly="readonly" />
+                            <span class="tips_info">(*请先选择截止日期)</span>
+                        </div>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">业务城市：</span>
+                            <input type="hidden" name="city_ids" >
+                        </div>
+                        <div class="column_val city_box">
+                                <ul class="city_list" >
+                                    <c:forEach items="${city_list }" var="bean">
+                                        <li class="city" data-id="${bean.city_id }">${bean.city_name }</li>
+                                    </c:forEach>
+                                </ul>
+                            <div class="choose_box">
+                                <div class="add_city_btn"></div><span class="tips_info" id="cityTips">(*<span class="msg"></span>)</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="form_content form_options company_create">
+                <form action="" class="basic_info_edit">
+                    <!-- 车辆基本信息 Begin -->
+                    <div class="options_title">公司信息</div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">租户名称：</span>
+                        </div>
+                        <div class="column_val">
+                            <input type="text" class="" id="companyName" name="account"  value="${company.company_name}" placeholder="请输入公司名称"  />
+                            <span class="tips_info">(*请输入公司名称)</span>
+                        </div>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">联系人姓名：</span>
+                        </div>
+                        <div class="column_val">
+                            <input type="text" class="" name="contact_name" id="contacts" value="${company.contact_name}"  placeholder="请输入姓名" />
+                            <span class="tips_info">(*请输入姓名)</span>
+                        </div>
+                    </div>
+                    <div class="option_item">
+                        <div class="column_name">
+                            <span class="options_name">请输入手机号：</span>
+                        </div>
+                        <div class="column_val">
+                            <input type="number" class="" name="contact_phone" oninput="if(this.value.length>11)this.value=this.value.slice(0,11)" value="${company.contact_phone}" id="phoneNum" size="11" maxlength="11" placeholder="请输入手机号" />
+                            <span class="tips_info">(*请先输入手机号)</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="btn_box text_left pad_btm_50 clearfix">
+                <a href="javascript:" class="btn orange_btn confirm edit_confirm">保存修改</a>
+                <a href="javascript:window.history.back();" class="btn bg_btn edit_cancel">取消</a>
+            </div>
+
+
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/jedate/jquery.jedate.min.js"></script>
+<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/citySet.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    var list = ${list};
+    var cityArr = [];   //  存储已经选择的城市数据
+    var newArr = [];
+    (function ($) {
+        var cId = $.trim($('#companyId').val());
+        // 初始化原始城市数据
+        function initCityData () {
+            var elem = $('.city');
+            elem.each(function () {
+                var _this = $(this);
+                var id = $.trim(_this.data('id'));
+                cityArr.push(id);
+            });
+        }
+        // 密码重置逻辑
+        function bindRestEvent () {
+            var btn = $('.reset_btn');
+            btn.off('click').on("click", function () {
+                var _this = $(this);
+                resetPassword(_this);
+            });
+        }
+        function resetPassword (b) {
+            b.off('click');
+            var url = contextPath + '/api/company/reset/password';
+            var data = {
+                company_id : cId
+            };
+            $ajax('post', url, data, function (res) {
+                if (res.error_code == 0) {
+                    $alert('密码修改成功', function () {
+                        window.location.reload();
+                    })
+                } else if (res.error_code == 500) {
+                    bindRestEvent();
+                    $alert('出现异常，请稍后重试');
+                } else {
+                    bindRestEvent();
+                    $alert(res.error_msg);
+                }
+            }, function () {
+                bindRestEvent();
+                $alert('出现异常，请稍后重试');
+            })
+        }
+
+        var elem = {
+            account :   $('#companyAccount'),
+            citys : $('#citys'),
+            endDate : $('#endDate'),
+            cName : $('#companyName'),
+            contacts : $('#contacts'),
+            phone : $('#phoneNum'),
+            submit : $('.edit_confirm'),
+        };
+        // 添加城市
+        function addCity () {
+            $(".add_city_btn").on('click', function (e) {
+                SelCity(this,e);
+            });
+            $('.city_box').off('click').on('click', '.delete_btn', function (e) {
+                var e = e || window.event;
+                e.stopPropagation();
+                e.preventDefault();
+                var _this = $(this);
+                var parent = _this.parents('.city');
+                var cityId = $.trim(parent.data('id'));
+                parent.remove();
+                cityArr.remove(cityId);
+                newArr.remove(cityId);
+            });
+        }
+
+
+        //输入框空值
+        function verifyInput () {
+            if (!$.trim(elem.endDate.val())) {
+                elem.endDate.siblings('.tips_info').find('.tips_msg').text('使用截止日期不能为空').end().show();
+                return false;
+            }
+            if (!$.trim(elem.cName.val())) {
+                elem.cName.siblings('.tips_info').find('.tips_msg').text('租户名称不能为空').end().show();
+                return false;
+            }
+            if (!$.trim(elem.contacts.val())) {
+                elem.contacts.siblings('.tips_info').find('.tips_msg').text('联系人不能为空').end().show();
+                return false;
+            }
+            if (!$.trim(elem.phone.val())) {
+                elem.phone.siblings('.tips_info').find('.tips_msg').text('联系人手机号不能为空').end().show();
+                return false;
+            } else {
+                var reg = /^1[3|4|5|8|7]\d{9}$/;
+                var phone = $.trim(elem.phone.val());
+                if (!reg.test(phone)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        // 输入内容校验
+        function inputValVerify () {
+            elem.cName.on('blur', function () {
+                var _this = $(this);
+                var val = $.trim(_this.val());
+                if (!val) {
+                    _this.siblings('.tips_info').find('.tips_msg').text('租户名称不能为空').end().show();
+                    return false;
+                } else {
+                    _this.siblings('.tips_info').find('.tips_msg').text('').end().hide();
+                    return true;
+                }
+            });
+            elem.contacts.on('blur', function () {
+                var _this = $(this);
+                var val = $.trim(_this.val());
+                if (!val) {
+                    _this.siblings('.tips_info').find('.tips_msg').text('联系人不能为空').end().show();
+                    return false;
+                } else {
+                    _this.siblings('.tips_info').find('.tips_msg').text('').end().hide();
+                    return true;
+                }
+            });
+            elem.phone.on('blur', function () {
+                var _this = $(this);
+                var reg = /^1[3|4|5|8|7]\d{9}$/;
+                var val = $.trim(_this.val());
+                if (val) {
+                    if (!reg.test(val)) {
+                        _this.siblings('.tips_info').find('.tips_msg').text('请输入正确的联系人手机号').end().show();
+                        return false;
+                    } else {
+                        _this.siblings('.tips_info').find('.tips_msg').text('').end().hide();
+                        return true;
+                    }
+                } else {
+                    _this.siblings('.tips_info').find('.tips_msg').text('联系人手机号不能为空').end().show();
+                    return false;
+                }
+
+            })
+        }
+
+        //绑定提交事件
+        function bindSubmitEvent () {
+            elem.submit.off('click').on('click', function () {
+                submitEvent();
+            });
+
+        }
+        // 提交逻辑
+        function submitEvent () {
+            elem.submit.off('click');
+            var valid = verifyInput();
+            if (!valid) {
+                bindSubmitEvent();
+                return;
+            }
+            var data = {
+                account : $.trim(elem.account.val()),
+                city_ids : $.trim(newArr.join(',')),
+                end_date : $.trim(elem.endDate.val()),
+                name : $.trim(elem.cName.val()),
+                contact_name : $.trim(elem.contacts.val()),
+                contact_phone : $.trim(elem.phone.val()),
+                company_id : cId
+            }
+            var url = contextPath + '/api/company/edit/submit';
+            $ajax('post', url, data, function (res) {
+                if (res.error_code == 0) {
+                    $alert('租户信息修改成功', function () {
+                        window.location.href = contextPath + '/company/list';
+                    })
+                } else {
+                    bindSubmitEvent();
+                    $alert(res.error_msg);
+                }
+            }, function () {
+                bindSubmitEvent();
+                $alert('网络异常，请稍后重试');
+            })
+        }
+
+        $(function () {
+            initCityData();
+            bindRestEvent();
+            initDateMinToday('#endDate');
+            addCity();
+            inputValVerify();
+            bindSubmitEvent();
+        })
+
+    })(jQuery,undefined);
+</script>
+</html>

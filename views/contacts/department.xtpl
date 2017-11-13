@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/zTree/css/zTreeStyleUserDefined.css">
+    <link rel="stylesheet" href="/static/css/contacts.css">
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <title>人员信息-部门</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        <!-------- Part of header Begin -------->
+        {{include('./../inc/header')}}
+        <!-------- Part of header End -------->
+
+        <!-------- Part of main Begin -------->
+        <div id="section" class="section normal_width">
+            <!---- Part of slide nav Begin ---->
+            {{include('./../inc/sideNav')}}
+            <!---- Part of slide na End ---->
+
+            <!---- Part of Main info Begin ---->
+            <div id="main" class="main">
+                <div class="title">
+                    <span class="title_name">部门</span>
+                </div>
+                <div class="container">
+                    <div id="zTree" class="ztree">
+                        <ul id="dep_tree" class="dep_tree">
+
+                        </ul>
+                    </div>
+                    <div class="set_managers">
+                        <div class="manages_desc">
+                            <h3 class="department_name nowrap"></h3>
+                            <div class="manager_name">
+                                <span>负责人：</span>
+                                <span class="p_name"></span>
+                                <div class="set_btn">
+                                    <a href="javascript:;" class="btn_icon add_btn">添加负责人</a>
+                                    <div class="search_box" style="display: none;">
+                                        <div class="search_input">
+                                            <input class="m_search" type="text" />
+                                        </div>
+                                        <ul class="search_result">
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+            <!---- Part of Main info End ---->
+        </div>
+        <!-------- Part of main End -------->
+
+        <!-------- Part of footer Begin -------->
+        <!--<div id="footer" class="footer"></div>-->
+        <!-------- Part of footer End -------->
+    </div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/zTree/js/jquery.ztree.all.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/js/contacts.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+</html>
+<script>
+    (function ($) {
+        var list = ${data};
+        var emp_list = ${emp_list};
+        var zTreeObj,
+            setObj = {
+                "depName" : $(".department_name"),
+                "mName" : $(".manager_name .p_name"),
+                "btn" : $(".add_btn"),
+                "sBox" : $(".search_box"),
+                "input" : $(".m_search "),
+                "resBox" : $(".search_result")
+            };
+
+            function initZTree(ele,res) {
+            var zTree, zTreeObj;
+            var setting = {
+                view : {
+                    showIcon : false,
+                    addHoverDom: addHoverDom,
+                    removeHoverDom: removeHoverDom,
+                    dblClickExpand: true
+                },
+                edit : {
+                    enable: true,
+                    editNameSelectAll: true,
+                    showRemoveBtn: true,
+                    showRenameBtn: true,
+                    removeTitle : "删除",
+                    renameTitle : "重命名",
+                    drag : {
+                        isMove : false
+                    }
+                },
+                simpleData : {
+                    enable: true,
+                    idKey : "id",
+                    pIdKye : "parent_id"
+                },
+                callback : {
+                    beforeDrag: beforeDrag,
+                    beforeRemove: beforeRemove,
+                    beforeRename: beforeRename,
+                    onRename: onRename,
+                    onDblClick: zTreeOnDblClick,
+                    onClick : treeNodeClick
+                }
+            };
+            var c = $(ele);
+            zTree = $.fn.zTree.init(c, setting, res);
+            zTreeObj = $.fn.zTree.getZTreeObj("dep_tree");
+            var nodes = zTreeObj.getNodes();
+            if (nodes.length > 0) {
+                zTreeObj.selectNode(nodes[0].children[0]);
+                //setManager(setObj, nodes[0].children[0]);
+            }
+            return zTreeObj;
+        }
+
+
+        function addHoverDom(treeId, treeNode) {
+            var newCount = 1;
+            var sObj = $("#" + treeNode.tId + "_span");
+            //console.log(sObj[0]);
+            if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
+            var addStr = "<span class='button add node_add_btn' id='addBtn_" + treeNode.tId
+                + "' title='增加部门' onfocus='this.blur();'></span>";
+            sObj.after(addStr);
+            var btn = $("#addBtn_"+treeNode.tId);
+            if (btn) btn.bind("click", function(){
+                //var treeObj = $.fn.zTree.getZTreeObj("dep_tree");
+                var newTreeNode = zTreeObj.addNodes(treeNode, {id:(1000000 + newCount), pId:treeNode.id, name:"新建部门" + (newCount++)});
+                if (newTreeNode) {
+                    zTreeObj.editName(newTreeNode[0]);
+                }
+                return false;
+            });
+        }
+        function removeHoverDom(treeId, treeNode) {
+            $("#addBtn_"+treeNode.tId).unbind().remove();
+        }
+
+        //禁用拖拽功能
+        function beforeDrag (treeId, treeNodes) {
+            return false;
+        }
+
+        //删除部门逻辑
+        function beforeRemove (treeId, treeNode) {
+            var data = {
+                department_id : treeNode.id
+            };
+            $ajax('POST', contextPath + '/api/department/delete', data, function (res) {
+                var data = eval(res);
+                if (data.error_code == 0) {
+                    $alert("删除部门成功", function () {
+                        window.location.reload();
+                    });
+                    return true;
+                } else {
+                    $alert("网络异常，请重新提交");
+                    return false;
+                }
+
+            }, function () {
+                $alert("网络繁忙，请稍后重试");
+                return false;
+            });
+        }
+
+        //重命名逻辑
+        function beforeRename (treeId, treeNode, newName, isCancel ) {
+            if (newName.length == 0) {
+                $alert("部门名称不能为空");
+                zTreeObj.cancelEditName();
+                //zTreeObj.editName(treeNode);
+                return false;
+            }
+            if (treeNode.pId) {
+                //这时间是创建部门
+                var datas = {
+                    parent_id : treeNode.pId,
+                    name : newName
+                };
+                var node = zTreeObj.getNodeByParam('id', treeNode.id);
+                $ajax('POST', contextPath +  '/api/department/create', datas, function (res) {
+                     var data = eval(res);
+                     if (data.error_code == 0) {
+                         $alert("部门创建成功", function () {
+                             treeNode.id = data.id;     // 设置当前创建的节点的id属性为真实的属性
+                             delete treeNode.pId;      // 删除当前节点的pId属性，防止多次重命名造成的创建多个泄露
+                             zTreeObj.setting.callback.onClick(null, zTreeObj.setting.treeId, node);    // 调用当前添加的节点的点击事件
+                         });
+                         return true;
+                     } else {
+                         $alert("网络异常，请重新提交", function () {
+                             $('#'+treeNode.tId+'_input').focus();
+                         });
+                         return false;
+                     }
+
+                 }, function () {
+                     $alert("网络繁忙，请稍后重试");
+                     return false;
+                 });
+
+            } else {
+                //这时间是更改部门名称
+                var datas = {
+                    department_id : treeNode.id,
+                    department_name : treeNode.name
+                };
+                $ajax('POST', contextPath +  '/api/department/update', datas, function (res) {
+                     var data = eval(res);
+                     if (data.error_code == 0) {
+                         $alert("设置成功");
+                         return true;
+                     } else {
+                         $alert("网络异常，请重新提交");
+                         return false;
+                     }
+                 }, function () {
+                     $alert("设置失败");
+                     return false;
+                 });
+            }
+
+            //return true;
+        }
+        function onRename (event, treeId, treeNode, isCancel) {
+
+        }
+        function zTreeOnDblClick(event, treeId, treeNode) {
+            return false;
+        }
+        function treeNodeClick (event, treeId, treeNode) {
+            var nodeObj = treeNode;
+            var pId = nodeObj.pId;
+            /*屏蔽顶级点击并设置负责人*/
+            /*if (nodeObj.id == 1) {
+                return false;
+            }*/
+            setManager(setObj, nodeObj);
+        }
+        function setManager (obj, nodeObj) {
+            obj.depName.text(nodeObj.name);
+            var leader = nodeObj.leader_name ? nodeObj.leader_name : "暂无";
+            obj.mName.text(nodeObj.leader_name ? nodeObj.leader_name : "暂无");
+            obj.depName.attr("data-depId", nodeObj.id);
+            (leader != "暂无") ? obj.btn.text("更改负责人") : obj.btn.text("添加负责人");
+        }
+
+        //负责人的模糊查询功能
+        function searchManagers () {
+            setObj.btn.off("click").on("click", function (e) {
+                var e = e || window.event;
+                e.stopPropagation();
+                setObj.sBox.show();
+                setObj.input.focus();
+                setObj.input.off("input click").on("input click", function (e) {
+                    var e = e || window.event;
+                    e.stopPropagation();
+                    var val = $.trim($(this).val());
+                    if (val) {
+                        var queryObj = fuzzyQuery(emp_list);
+                        //var queryObj = emp_list;
+                        //console.log(queryObj);
+                        showSearchResult(queryObj);
+                    }
+                });
+
+            })
+        }
+        //模糊查询逻辑
+        function fuzzyQuery (res) {
+            var queryStr = $.trim(setObj.input.val()),
+                queryArr = queryStr.split(""),
+                data = res,
+                resArr;
+            if(queryStr) {
+                for (var i = 0, len = queryArr.length; i < len; i++) {
+                    resArr = [];
+                    for (var k = 0; k < data.length; k++) {
+                        if (data[k].name.indexOf(queryArr[i]) != -1) {
+                            resArr.push(data[k]);
+                        }
+                    }
+                    data = resArr;
+                }
+            }
+            return resArr;
+        }
+        //创建模糊查询结果展示并绑定事件
+        function showSearchResult (res) {
+            var html = [];
+            if (res.length == 0 || res.length == undefined) {
+                return setObj.resBox.html('<li class="res_item" style="text-align: center;">暂无数据</li>');
+            } else {
+                for (var i = 0, len = res.length; i < len; i++) {
+                    var str = '';
+                    str =   '<li class="res_item" title="">' +
+                        '<span class="name nowrap" title="" data-lId="'+ res[i].id +'">' + res[i].name + '</span> ' +
+                        '<span class="p_dep nowrap" title="">' + (res[i].department_name ? res[i].department_name : '暂无部门') + '</span> ' +
+                        '</li>';
+                    html.push(str);
+                }
+            }
+
+
+            setObj.resBox.html(html.join(""));
+
+            var item = setObj.resBox.find(".res_item");
+            item.each(function () {
+                var t = $(this);
+                t.off("click").on("click", function () {
+                    var e = $(this);
+                    var leaderEle = e.find(".name"),
+                        pName = leaderEle.text(),
+                        depId = setObj.depName.attr("data-depId"),
+                        lId = leaderEle.attr("data-lId");
+
+                    setObj.input.val("");
+                    setObj.resBox.html("");
+                    setObj.sBox.hide();
+                    //发送添加负责人据请求
+                    var datas = {
+                        department_id : depId,
+                        emp_id : lId
+                    };
+                    $ajax('POST', contextPath +  '/api/department/addLeader', datas, function (res) {
+                        var data = eval(res);
+                        if (data.error_code == 0) {
+                            setObj.mName.text(pName);
+                            $alert("设置成功", function () {
+                                window.location.reload();
+                            });
+                        } else {
+                            $alert("网络异常，请重新提交");
+                        }
+                    }, function () {
+                        $alert("网络繁忙，请稍后重试");
+                    })
+                });
+            });
+        }
+
+
+
+        $(function() {
+            zTreeObj = initZTree("#dep_tree", list);
+            $("#dep_tree_1_a").click();
+            searchManagers();
+            $("body").click(function (e) {
+                if (!setObj.sBox.is(":hidden")){
+                    setObj.sBox.hide();
+                    setObj.input.val("");
+                    setObj.resBox.html("");
+                }
+            });
+        });
+    })(jQuery,undefined);
+</script>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>邀请同事</title>
+    {{include('./../inc/metaData')}}
+    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="/static/css/employee/information.css"/>
+    <script src="/static/js/employee/invite.js"></script>
+</head>
+<style>
+    body{overflow-x: hidden;}
+</style>
+<body>
+
+<!--header start-->
+{{include('./../inc/header')}}
+<!--header end-->
+
+<!--container start-->
+
+<div class="container minWidth">
+    <div class="row section">
+        <!--navLeft start-->
+        {{include('./../inc/sideNav')}}
+        <!--navLeft end-->
+
+
+        <!--inviteCon start-->
+
+        <div class="listCon">
+            <div class="listConHeader inviteCon">
+                <ul>
+                    <li class="inline colorB"><a class="TS" href="/employee/list">同事</a></li>
+                    <li class="inline before"><a href="javascript:;">邀请同事</a></li>
+                </ul>
+            </div>
+            <!--form start-->
+            <div class="inviteForm inviteConB formMT" style="padding-left: 4%">
+                <form class="form-horizontal formML">
+                		<input type="hidden" id="mail_domain" name="mail_domain" value="${mail_domain}">
+                        <div class="formTitle">联系人信息</div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">姓名：</label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.placeholder=='') {this.placeholder='请输入姓名';this.style.color='#A4A8AB';}"/>
+                            </div>
+                            <span class="formProm"></span>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" id="position_id" name="position_id" value="${vo.position_id }">
+                            <input type="hidden" id="position_parent_id" name="position_parent_id" value="${vo.position_parent_id }">
+                            <input type="hidden" id="position_name" name="position_desc" value="${vo.position_desc }">
+                            <label class="col-xs-2 control-label inviteLabel">职务：</label>
+                            <div class="col-xs-5 col-offset-1">
+                                <input type="text" class="form-control"  id="position_desc" name="" placeholder="请选择职务" readonly="readonly" style="background-color:#fff;cursor: pointer;"/>
+                            </div>
+                            <span class="formProm"></span>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">手机：</label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control" maxlength="11" id="phone" name="phone" placeholder="请输入11位手机号" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.placeholder=='') {this.placeholder='请输入11位手机号';this.style.color='#A4A8AB';}"/>
+                            </div>
+                            <span class="formProm"></span>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                </form>
+            </div>
+            <div class="inviteForm inviteConB formMT" style="padding-left: 4%">
+                <form class="form-horizontal formML">
+                        <div class="formTitle">账号信息</div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">邮箱：</label>
+                            <div class="col-xs-5">
+                                <input type="email" class="form-control"  id="account" name="account" placeholder="请输入有效邮箱地址" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.placeholder=='') {this.placeholder='请输入有效邮箱地址';this.style.color='#A4A8AB';}">
+                            </div>
+                            <span class="formProm"></span>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label inviteLabel">工作地点：</label>
+                            <div class="col-xs-5">
+                                <select class="form-control"  id="work_city" name="work_city">
+                                    <c:forEach items="${city}" var="bean">
+                                        <option value="${bean.id }">${bean.name}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <div class="trueImg"></div>
+                            <span class="formError"></span>
+                        </div>
+
+                </form>
+            </div>
+            <input type="hidden" value="1" id="valite">
+            <div class="form-group add_btn" style="margin-top:50px;margin-bottom:50px;">
+                <label class="col-xs-2 control-label inviteLabel"></label>
+                <div class="col-xs-10" style="padding-left:2px;">
+                    <input type="button" class="btn btn-default invB" style="margin-left:0;" id="invBtnY" value="邀请"/>
+                    <a href="/employee/list"><input type="button" class="btn btn-default invB" id="invBtnN" value="取消"/></a>
+                </div>
+
+            </div>
+            <!--form end-->
+        </div>
+    </div>
+</div>
+<!--container end-->
+<!--邀请确认页  开始-->
+<div id="inviteS">
+    <div class="container">
+        <div class="row section">
+
+            <div class="inviteBox" id="invB">
+                <div class="col-sm-12 invitePromTitle">邀请信息确认</div>
+                <table class="invitePTable">
+                    <tr>
+                        <td class="center">姓名：</td>
+                        <td class="left" colspan="3" id="invName">张三</td>
+                    </tr>
+                    <tr>
+                        <td class="center">手机：</td>
+                        <td class="left" colspan="3" id="invPhone">18000000000</td>
+                    </tr>
+                    <tr>
+                        <td class="center">邮箱：</td>
+                        <td class="left" colspan="3" id="invEmail">zhangs@qmaiche.com</td>
+                    </tr>
+                </table>
+                <div class="col-sm-8 inviteProm">我们将通过短信方式通知同事开通快收单工作平台的账号，请确保手机号和邮箱的正确信息</div>
+                <input type="button" class="col-sm-2 inviteBtn inviteSBtn" value="确定" id="invSure"/>
+                <input type="button" class="col-sm-2 inviteBtn inviteFBtn" value="取消" id="invNo"/>
+
+            </div>
+
+
+            <!--成功页 开始-->
+            <div class="inviteBox delhtml" id="inviteSuccess">
+                <div class="col-sm-8 invSBox">
+                    <div class="col-sm-12 invSText">
+                        <div>操作成功</div>
+
+                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
+                    </div>
+                </div>
+                <div class="col-sm-3 invSBtn cursor" id="inviteSBtn">确定</div>
+            </div>
+
+            <!--成功页 结束-->
+
+        </div>
+    </div>
+</div>
+<!--邀请确认页  结束-->
+
+<!--职务列表-->
+<div id="position_back">
+    <div class="position_mask"></div>
+    <div class="position_box">
+        <c:forEach items="${position_list}" var="bean">
+            <div class="tr">
+                <div class="tr_left" lang="${bean.id}">
+                        ${bean.name}
+                </div>
+                <div class="tr_right tr_right_bottom">
+                    <c:forEach items="${bean.list}" var="bean_2">
+                        <span lang="${bean_2.id}" <c:if test="${bean_2.id eq vo.position_id}">class="select"</c:if> >${bean_2.name}</span>
+                    </c:forEach>
+                </div>
+            </div>
+
+        </c:forEach>
+    </div>
+</div>
+
+</body>
+<script>
+    var width = $('.form-group').eq(5).width();
+    var padding_left = width * 4 / 100 - 40;
+    $('.add_btn').css('padding-left',padding_left  + 'px');
+</script>
+</html>

@@ -1,0 +1,215 @@
+<!-- 通知回款结果 -->
+<%@ taglib prefix="c"         uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="per" uri="com/mvc/web/common/tag/permissionTag"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="${contentPath}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="${contentPath}/static/css/finance.css">
+    <title>客户管理-款项管理</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/customer_slide_nav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main">
+            <div class="crumbs_nav">
+                <a href="/financial/system" class="crumbs_item">款项管理</a>
+                <a href="/financial/pendingDispose/list" class="crumbs_item">待回款</a>
+                <a href="javascript:window.history.back();" class="crumbs_item">${vo.user_name }</a>
+                <a href="javascript:;" class="crumbs_item">已回款</a>
+            </div>
+            <div class="cashed_mark">
+                <form action="<!--/api/financial/return/submit-->" method="post" id="returnResult">
+                    <input type="hidden" name="finance_id" value="${finance_id}">
+                    <input type="hidden" name="advance_id" value="${vo.advance_id}">
+                    <div class="form_row">
+                        <div class="column_l"><span class="asterisk">*</span>款项类型：</div>
+                        <div class="column_r">
+                            <select name="is_allReturn" id="is_allReturn">
+                                <option value="-1">-- 请选择 --</option>
+                                <option value="1">全部到我司</option>
+                                <option value="0">部分到我司</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form_row amount_count"  style="display: none;">
+                        <div class="column_l"><span class="asterisk">*</span>款项金额：</div>
+                        <div class="column_r">
+                            <input type="text" name='return_money' class="" id="cashed_check" value="" placeholder="如：10000" style="width: 60px; ime-mode: disabled;"  maxlength="12" />
+                            <label>元</label>
+                        </div>
+                    </div>
+                    <div class="form_row textarea_container">
+                        <div class="column_l">备注：</div>
+                        <div class="column_r">
+                            <textarea name="remark" id="remark" placeholder="请输入对此订单的描述"></textarea>
+                        </div>
+                    </div>
+                    <div class="img_upload">
+                        <div class="img_upload_layer"><span class="text">上传图片</span><span class="text_tip">（最多5张图片，每张大小不超过5M）</span></div>
+                        <input type="file" class="img_upload_btn" name="file" accept="image/jpeg,image/jpg,image/png" value="上传图片" style="display: none" />
+                        <div class="error_msg img_error">请使用正确格式的图片</div>
+                        <div class="img_box">
+                            <!-- 上传图片缩略图 -->
+
+                        </div>
+
+                    </div>
+                    <div class="error_msg is_return_msg" style="padding-left: 10%;height:auto;line-height: normal;">(请先选择款项类型)</div>
+                </form>
+                <per:button code="1215">
+                    <div class="btn_box clearfix text_left">
+                        <a href="javascript:" class="btn orange_btn confirm return_confirm" data-advance_id="${vo.advance_id}">确认</a>
+                        <a href="javascript:" class="btn bg_btn return_cancel">取消</a>
+                    </div>
+                </per:button>
+            </div>
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/dialog/dialog-layer.js"></script>
+<script>
+    (function ($) {
+        //只允许输入数字或者输入两位小数
+        function checkNum (ele) {
+            ele.on("keyup input", function () {
+                var reg = /^\d{0,7}(\.\d{0,2})?$/g;
+                var _this = $(this);
+                var val = _this.val();
+                if (reg.test(val)) {
+                    $(".is_return_msg").hide();
+                    return true;
+                } else {
+                    val = Number(val);
+                    if (!isNaN(val) && val != 0) {
+                        val = (/\d+(\.\d{1,2})?/g.exec(val))[0];
+                        _this.val(val);
+                        $(".is_return_msg").hide().text("");
+                    } else {
+                        _this.val("");
+                        $(".is_return_msg").show().text("只允许输入数字或两位小数");
+                    }
+                }
+                if (val > 99999999) {
+                    $(".is_return_msg").show().text("最大可输入数值为99999999.");
+                } else {
+                    $(".is_return_msg").hide().text("");
+                }
+            });
+        }
+
+        //注册下拉选择框的选择事件
+        function bindConfirm () {
+            var s = $("#is_allReturn");
+            s.on("change", function () {
+                var checkVal = $(this).find(":selected").val();
+                if (checkVal != -1) {
+                    $(".is_return_msg").hide();
+                    if (checkVal === "0") {
+                        $(".amount_count").show();
+                    } else {
+                        $(".amount_count").hide();
+                        $(".amount_count").find('input[name="return_money"]').val("");
+                    }
+                } else {
+                    $(".is_return_msg").show();
+                }
+            });
+        }
+
+        /*校验是否选择款项类型（必选项）*/
+        function valiSelected () {
+            var s = $("#is_allReturn");
+            var check = s.find(":selected").val();
+            if (check == -1 || check == undefined ) {
+                $(".is_return_msg").show().text("请先选择款项类型");
+                return false;
+            } else {
+                if (check === "0") {
+                    var returnMoney = $(".amount_count").find("input[name='return_money']").val();
+                    if (returnMoney == '') {
+                        $(".is_return_msg").show().text("请输入款项金额");
+                        return false;
+                    } else {
+                        if (returnMoney > 99999999) {
+                            $(".is_return_msg").show().text("款项金额最大输入值为99999999。");
+                            return false;
+                        } else {
+                            $(".is_return_msg").hide().text("");
+                            return true;
+                        }
+                    }
+                } else {
+                    $(".is_return_msg").hide().text("");
+                    return true;
+                }
+            }
+        }
+        //绑定确定按钮的点击事件
+        rebind(".return_confirm", "click", returnSubmit);
+        //确定按钮的点击事件逻辑
+        function returnSubmit () {
+            var isCheck = valiSelected();
+            if (isCheck) {
+                disabled(".return_confirm", "click", returnSubmit);//禁用按钮
+                var url = contextPath + "/api/financial/return/submit";
+                var data = new FormData(document.getElementById("returnResult"));
+                $.ajax({
+                    type : "post",
+                    url : url,
+                    data : data,
+                    async : true,
+                    processData: false,
+                    contentType: false,
+                    success : function (req) {
+                        var res = eval(req);
+                        if (res.error_code == 0) {
+                            window.location.href = contextPath + "/financial/pendingDispose/list";
+                        } else {
+                            $alert(res.error_msg, function () {
+                                rebind(".return_confirm", "click", returnSubmit);
+                            });
+                        }
+                    },
+                    error : function () {
+                        $alert("网络错误，请稍后重试", function () {
+                            rebind(".return_confirm", "click", returnSubmit);
+                        });
+                    }
+                });
+            } else {
+                //$alert("请先选择款项类型，然后再提交");
+            }
+        }
+
+        //取消按钮的点击逻辑
+        bindEvents("click", ".return_cancel", function () {
+            window.history.back();
+        });
+
+        $(function() {
+            imgUpload();
+            checkNum($("#cashed_check"));
+            bindConfirm();
+        });
+    })(jQuery,undefined);
+</script>
+</html>

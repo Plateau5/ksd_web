@@ -1,0 +1,133 @@
+{{#if (startWith('/home'))}}
+<div class="contacts slide_nav" style="display: none;">
+    <div class="slide_nav_title bold">首页</div>
+    <ul class="slide_nav_bar">
+        <li class="nav_item {{#if(startWith('/home'))}}active{{/if}}">
+            <a href="/home" class="">待办事项</a>
+        </li>
+    </ul>
+</div>
+{{ elseif (startWith('/customer'))}}
+<div class="contacts slide_nav">
+    <div class="slide_nav_title bold">客户管理</div>
+    <ul class="slide_nav_bar">
+        <li class="nav_item {{#if(startWith('/customer'))}}active{{/if}}">
+            <a href="" class="">贷款管理</a>
+        </li>
+        <li class="nav_item">
+            <a href="" class="">合同管理</a>
+        </li>
+        <li class="nav_item">
+            <a href="" class="">请款管理</a>
+        </li>
+        <li class="nav_item">
+            <a href="" class="">审批管理</a>
+        </li>
+        <li class="nav_item">
+            <a href="" class="">款项管理</a>
+        </li>
+        <li class="nav_item">
+            <a href="" class="">归档管理</a>
+        </li>
+    </ul>
+</div>
+{{ elseif (startWith('/organization'))}}
+<div class="contacts slide_nav">
+    <div class="slide_nav_title bold">机构管理</div>
+    <ul class="slide_nav_bar">
+        <li class="nav_item {{#if(startWith('/organization'))}}active{{/if}}">
+            <a href="/organization/list" class="">金融机构</a>
+        </li>
+    </ul>
+</div>
+{{ elseif (startWith('/workflow'))}}
+<div class="contacts slide_nav">
+    <div class="slide_nav_title bold">流程管理</div>
+    <ul class="slide_nav_bar">
+        <li class="nav_item {{#if(startWith('/workflow'))}}active{{/if}}">
+            <a href="/workflow/list" class="">审批流程</a>
+        </li>
+    </ul>
+</div>
+{{ elseif (startWith('/question'))}}
+<div class="contacts slide_nav">
+    <div class="slide_nav_title bold">问题管理</div>
+    <ul class="slide_nav_bar">
+        <li class="nav_item {{#if(startWith('/question'))}}active{{/if}}">
+            <a href="/question/list" class="">问题列表</a>
+        </li>
+    </ul>
+</div>
+{{ elseif (startWith('/gps || /administrative'))}}
+<div class="contacts slide_nav">
+    <div class="slide_nav_title bold">仓库管理</div>
+    <ul class="slide_nav_bar">
+        <li class="nav_item {{#if(startWith('/gps'))}}active{{/if}}">
+            <a href="/gps/warehouse/list" class="">GPS仓库</a>
+        </li>
+        <li class="nav_item {{#if(startWith('/administrative'))}}active{{/if}}">
+            <a href="/administrative/warehouse/list" class="">行政仓库</a>
+        </li>
+    </ul>
+</div>
+{{ elseif (startWith('/employee || /department'))}}
+<div class="contacts slide_nav">
+    <div class="slide_nav_title bold">人员信息</div>
+    <ul class="slide_nav_bar">
+        <li class="nav_item {{#if(startWith('/employee'))}}active{{/if}}">
+            <a href="/employee/list" class="">同事</a>
+        </li>
+        <li class="nav_item {{#if(startWith('/department'))}}active{{/if}}">
+            <a href="/department" class="">部门</a>
+        </li>
+    </ul>
+</div>
+{{ elseif (startWith('/statistics'))}}
+<div class="contacts slide_nav">
+    <div class="slide_nav_title bold">数据统计</div>
+    <ul class="slide_nav_bar">
+        <li class="nav_item {{#if(startWith('/statistics/business'))}}active{{/if}}">
+            <a href="/statistics/business/list" class="">业务统计</a>
+        </li>
+        <li class="nav_item {{#if(startWith('/statistics/person || /statistics/personal'))}}active{{/if}}">
+            <a href="/statistics/person/system" class="">人效统计</a>
+        </li>
+    </ul>
+</div>
+{{ elseif (startWith('/company || /feedback'))}}
+<div class="contacts slide_nav">
+    <div class="slide_nav_title bold">系统管理</div>
+    <ul class="slide_nav_bar">
+        <li class="nav_item {{#if(startWith('/company'))}}active{{/if}}">
+            <a href="" class="">租户管理</a>
+        </li>
+        <li class="nav_item {{#if(startWith('/feedback'))}}active{{/if}}">
+            <a href="/feedback/list" class="">意见反馈</a>
+        </li>
+    </ul>
+</div>
+{{ elseif (startWith('/userCenter'))}}
+<div class="contacts slide_nav">
+    <div class="slide_nav_title bold">个人中心</div>
+    <ul class="slide_nav_bar">
+        <li class="nav_item {{#if(startWith('/userCenter/information'))}}active{{/if}}">
+            <a href="/userCenter/information" class="">人员信息</a>
+        </li>
+        <li class="nav_item {{#if(startWith('/userCenter/resetPassword'))}}active{{/if}}">
+            <a href="/userCenter/resetPassword" class="">修改密码</a>
+        </li>
+    </ul>
+</div>
+{{ elseif (startWith('/privilege'))}}
+<div class="contacts slide_nav">
+    <div class="slide_nav_title bold">权限管理</div>
+    <ul class="slide_nav_bar">
+        <li class="nav_item {{#if(startWith('/privilege/roles/list'))}}active{{/if}}">
+            <a href="/privilege/roles/list" class="">角色管理</a>
+        </li>
+        <li class="nav_item {{#if(startWith('/privilege/user/list'))}}active{{/if}}">
+            <a href="/privilege/user/list" class="">人员管理</a>
+        </li>
+    </ul>
+</div>
+{{/if}}

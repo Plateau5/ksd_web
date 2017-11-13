@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="/static/css/statistics.css"/>
+    <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
+    <title>数据统计-业务统计</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main personal_detail">
+            <div class="crumbs_nav">
+                <a href="/statistics/person/system" class="crumbs_item">人效统计</a>
+                <a href="javascript:;" class="crumbs_item go_detail" data-id="{{emp_id}}">{{emp_name }}</a>
+                <a href="javascript:;" class="crumbs_item">
+                    {{#if (status === 1) }}
+                        进件统计
+                    {{elseif (status === 2) }}
+                        请款统计
+                    {{else}}
+                        归档统计
+                    {{/if}}
+                </a>
+            </div>
+            <div class="statistics_list">
+                <form action="/statistics/personal/business" method="post" id="form_search" role="form">
+                    <input type="hidden" id="empId" name="emp_id" value="{{emp_id }}">
+                    <input type="hidden" id="empName" name="emp_name" value="{{emp_name }}">
+                    <input type="hidden" id="status" name="status" value="{{status }}">
+                    <input type="hidden" id="start_date" name="start_date" value="{{start_date }}">
+                    <input type="hidden" id="end_date" name="end_date" value="{{end_date }}">
+                    <input type="hidden" id="timeType" name="timeType" value="{{timeType}}">
+                    <input type="hidden" id="organization_id" name="organization_id" value="{{organization_id }}">
+                </form>
+                <div class="filtrate">
+                    <div class="filtrate_item date_conditions inline_block">
+                        <div class="conditions_name inline_block">日期筛选：</div>
+                        <input type="text" id="queryPersonalOrderDateStart" name="start_date" readonly class="filtrate_date" placeholder="请选择起始日期" value="{{start_date }}" /> ——
+                        <input type="text" id="queryPersonalOrderDateEnd" name="end_date" readonly class="filtrate_date" placeholder="请选择结束日期" value="{{end_date }}"/>
+                        <a href="javascript:" class="confirm_btn text_center inline_block queryPersonalOrderBtn">确认</a>
+                        <span class="error_msg"></span>
+                    </div>
+                    <div class="filtrate_item">
+                        {{#if (status === 1) }}
+                    	    <div class="conditions_name inline_block">区间筛选：</div>
+			            	<div class="inline_block sub_item">
+	                            <select name="timeType" data-type="timeType" class="filtrate_select" id="personalOrderDateStart">
+	                                <option value="">全部</option>
+                                    {{#each (time_list) }}
+                                        {{#if (this.id === timeType) }}
+                                            <option value="{{this.id}}" selected>{{this.name }}</option>
+                                        {{else}}
+                                            <option value="{{this.id}}">{{this.name }}</option>
+                                        {{/if}}
+                                    {{/each}}
+	                            </select>
+	                        </div>
+	            		{{/if}}
+                        <!--<div class="inline_block sub_item">
+                            <div class="conditions_name inline_block">时间：</div>
+                            <select name="filtrate_audit_type" class="filtrate_select" id="personalOrderDateEnd">
+                                <option value="">--请选择--</option>
+                                <option value="">上午</option>
+                                <option value="">下午</option>
+                            </select>
+                        </div>-->
+                        <div class="inline_block">
+                            <div class="conditions_name inline_block">机构：</div>
+                            <select name="filtrate_audit_type"  data-type="orgType" name="organization_id" class="filtrate_select" id="">
+                                <option value="">全部</option>
+                                {{#each (organizationList) }}
+                                    {{#if (organizationId === this.organization_id) }}
+                                        <option value="{{this.organization_id}}" selected>{{this.organization_name }}</option>
+                                    {{else}}
+                                        <option value="{{this.organization_id}}">{{this.organization_name }}</option>
+                                    {{/if}}
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="order_count inline_block rf">共<span class="num">{{count }}</span>单</div>
+                    </div>
+                </div>
+                <table class="normal">
+                    <colgroup style="width: 100%;">
+                        <col style="width: 25%;" />
+                        <col style="width: 25%;" />
+                        <col style="width: 25%;" />
+                        <col />
+                    </colgroup>
+                    <tr>
+                        <th>客户</th>
+                        <th>类型</th>
+                        <th>产品</th>
+                        <th>
+                            用时(分钟)
+                        </th>
+                    </tr>
+                    {{#each (list) }}
+                        <tr>
+                            <td>{{this.user_name }}</td>
+                            <td>
+                                {{#if (this.car_type === 0) }}
+                                    新车
+                                {{elseif (this.car_type === 1) }}
+                                    二手车
+                                {{/if}}
+                            </td>
+                            <td>{{this.product_name }}</td>
+                            <td>
+                                {{#if (status === 1) }}
+                                    {{this.timeValue}}
+                                {{else}}
+                                    --
+                                {{/if}}
+                            </td>
+                        </tr>
+                    {{/each}}
+
+                </table>
+
+                {{#if (count === 0) }}
+					<div class="no_list_data">
+						<div class="toast_text">目前还未数据</div>
+					</div>
+				{{/if}}
+            </div>
+            <div class="page_box">
+                {{include('./../inc/pagination')}}
+            </div>
+
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="/static/js/statistics.js"></script>
+<script src="/static/jedate/jquery.jedate.min.js"></script>
+<script>
+    (function ($) {
+        // 全局DOM元素
+        elem = {
+            confirm : $('.queryPersonalOrderBtn'),
+            start : $('#queryPersonalOrderDateStart'),
+            end : $('#queryPersonalOrderDateEnd'),
+            form : $('form[role="form"]')
+        };
+        // 点击面包屑人名返回个人详情页
+        function goBackToPersonDetail () {
+            var btn = $('.go_detail');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                var id = $.trim(_this.data('id'));
+                locationTo({
+                    action : contextPath + '/statistics/personal',
+                    param : {
+                        emp_id : id
+                    }
+                })
+            });
+        }
+
+        // 时间查询
+        function dateQueryEvent () {
+            elem.confirm.off('click').on('click', function () {
+                var _this = $(this);
+                var start = $.trim(elem.start.val());
+                var end = $.trim(elem.end.val());
+                if (start == '') {
+                    _this.parents('.filtrate').find('.error_msg').show().text('(查询起始时间不能为空)');
+                    return false;
+                }
+                if (end == '') {
+                    _this.parents('.filtrate').find('.error_msg').show().text('(查询结束时间不能为空)');
+                    return false;
+                }
+                $('#start_date').val(start);
+                $('#end_date').val(end);
+                $('#timeType, #organization_id').val('');
+                elem.form.submit();
+            });
+        }
+
+        // 下拉筛选项的查询
+        function filtralteSelectEvent () {
+            var select = $('.filtrate select');
+            select.on('change', function () {
+                var _this = $(this);
+                var type = $.trim(_this.data('type'));
+                var v = $.trim(_this.find('option:selected').val());
+                if (type == 'timeType') {
+                    $('#timeType').val(v);
+                } else if (type == 'orgType') {
+                    $('#organization_id').val(v);
+                }
+                elem.form.submit();
+            });
+        }
+
+
+        $(function() {
+            goBackToPersonDetail();
+            initDateStartEnd('#queryPersonalOrderDateStart','#queryPersonalOrderDateEnd');
+            dateQueryEvent();
+            filtralteSelectEvent();
+        });
+    })(jQuery,undefined);
+</script>
+</html>

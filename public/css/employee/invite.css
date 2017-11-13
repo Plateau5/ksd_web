@@ -1,0 +1,283 @@
+
+
+.inviteCon{
+    border-bottom:1px solid #E4E4E4;
+    line-height: 30px;
+    margin-top:12px;
+    margin-bottom:30px;
+    /*padding-left:1%;*/
+}
+.inviteConB{
+    padding-left:12px;
+    background:#F5F5F5;
+    border:1px solid #F5F5F5;
+}
+.formTitle{
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom:10px;
+    line-height: 40px;
+}
+.formMT{
+    min-width:865px;
+    margin-top:15px;
+    padding:0;
+}
+.inviteLabel{
+    text-align: left !important;
+    font-weight: 500;
+    padding-left:20px;
+}
+.formML{
+    margin-bottom:50px;
+    /*padding-left:4%;*/
+    overflow: hidden;
+}
+.imgBackground{
+    width:160px;height:100px;
+    position: absolute;
+    left:0;top:0;
+    background:#fff;
+}
+.btn{
+    margin-left:30px;
+}
+ul[class="inforT"]{
+    border-bottom:1px solid #E4E4E4;
+}
+/*邀请确认*/
+#inviteS {
+    width: 100%;height:785px;
+    background: rgba(0, 0, 0, .4);
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    display: none;
+}
+#invSure{
+    margin-left:18%;
+    line-height: 30px;
+}
+#invNo{
+    margin-left:10%;
+    line-height: 30px;
+}
+#invSure:hover{
+    background:#0B9C94;
+}
+.inviteBox{
+    width:447px;height:368px;
+    position: fixed;
+    left:0;top:0;
+    right:0;bottom:0;
+    margin:auto auto;
+    background:#fff;
+}
+.invitePromTitle{
+    text-align: center;
+    line-height: 44px;
+    font-size: 18px;
+    /*margin-left:17%;*/
+    margin-top:33px;
+}
+.invitePTable{
+    margin-top:20%;
+    margin-left:18%;
+}
+.invitePTable>tbody>tr{
+    line-height: 34px;
+}
+.inviteProm{
+    margin-top:40px;
+    margin-left:14%;
+}
+.inviteBtn{
+    width:110px;height:30px;
+    border-radius: 4px;
+    margin-top:25px;
+    border:0px;
+    outline: none;
+}
+#inviteSuccess{
+    min-width:400px;
+    display:none;
+}
+.invSBox{
+    margin-left:16.6666666%;
+    /*border:1px solid red;*/
+}
+.delQImg{
+    margin-right:8.3333333%;
+    margin-top:10px;
+    margin-left:27%;
+}
+.delSImg{
+    margin-right:8.3333333%;
+    margin-top:26px;
+    margin-left:27%;
+}
+.invSText div{
+    line-height: 60px;
+    font-size: 20px;
+    color:#535E6A;
+    width:100%;
+    text-align: center;
+}
+.invSText>div>.month{
+    display:inline-block;
+    line-height: 60px;
+    font-size: 20px;
+    color:#535E6A;
+}
+.invSText{
+    margin-top: 40px;
+}
+.invSText>div>span{
+    display:block;
+    line-height: 30px;
+    font-size: 12px;
+}
+.invSBtn{
+    height:30px;line-height: 30px;
+    text-align: center;
+    color:#fff;
+    background:#1DC6BC;
+    margin-top:50px;
+    border-radius: 5px;
+    margin-left:37%;
+}
+.invSIBtn{
+    height:40px;line-height: 40px;
+    text-align: center;
+    color:#fff;
+    background:#1DC6BC;
+    margin-top:75px;
+    border-radius: 5px;
+    margin-left:37%;
+}
+#invB{
+    display:block;
+}
+.colorB>a[class="TS"]{
+    color:#535E6A;
+}
+.before a{
+    color:#808991;
+    font-size: 12px;
+    margin-left:4px;
+}
+
+input[id="invBtnN"]{
+    width:110px;height:30px;
+    color:#fff;
+    background:#A0A0A0;
+    margin-bottom:30px;
+    border:0px;
+    outline: none;
+}
+input[id="invBtnY"]{
+    width:110px;height:30px;
+    color:#fff;
+    background:#1DC6BC;
+    margin-bottom:30px;
+    border:0px;
+    outline: none;
+}
+.inviteSBtn{
+    color:#fff;
+    background:#1DC6BC;
+}
+.inviteFBtn{
+    color:#fff;
+    background:#A0A0A0;
+}
+.inviteSBtn:hover{
+    background:#0B9C94;
+}
+.inviteFBtn:hover{
+    background:#B4B4B4;
+}
+.form-group .trueImg{
+    width:14px;height:14px;
+    margin-top:8px;
+    background:url("/static/img/employee/true.png") center center no-repeat;
+    display:none;
+}
+label[class="role_input"]{
+    vertical-align: middle;
+    font-weight: 100;
+    margin-left:2px;
+}
+.radioMargin{
+    margin-right:24px;
+}
+
+/*职务弹层*/
+#position_back{
+    width:100%;height:900px;
+    background:rgba(0,0,0,.4);
+    position: absolute;
+    z-index:1;
+    left:0;top:0;
+    display:none;
+}
+.position_mask{
+    width:100%;
+    position: relative;
+    z-index:2;
+}
+.position_box{
+    width:694px;
+    background:#fff;
+    position: absolute;
+    left:0;top:10%;
+    right:0;
+    margin:auto auto;
+    padding-top:10px;
+    padding-bottom:20px;
+    z-index:3;
+}
+.tr{
+    width:100%;height:auto;
+}
+.tr_left{
+    width:25%;
+    font-size: 14px;
+    color:#535E6A;
+    line-height:34px ;
+    padding-left:6%;
+    padding-top:20px;
+    float:left;
+}
+.tr_right{
+    width:75%;height:auto;
+    font-size: 12px;
+    color:#808891;
+    float:left;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.tr_right_bottom{
+    border-bottom:1px solid #E4E4E4;
+}
+.tr_right>span{
+    width:20%;height:30px;
+    display: inline-block;
+    line-height:30px ;
+    float:left;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.tr_right>span:hover{
+    color:#1DC6BC;
+}
+.tr_right>span[class*="select"]{
+    color:#1DC6BC;
+}
+
+
+
+

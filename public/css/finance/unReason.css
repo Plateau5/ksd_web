@@ -1,0 +1,39 @@
+
+#unReason{
+    width:100%;
+    background:rgba(0,0,0,.4);
+    position: absolute;
+    left:0;top:0;
+    z-index:999;
+    display:none;
+}
+.reasonBox{
+    width:40%;min-width:500px;
+    max-height:500px;
+    position : fixed;
+    top : 0; bottom : 0;
+    left : 0; right : 0;
+    margin : auto auto;
+    background:#fff;
+}
+.reasonTitle {
+    width: 100%;
+    line-height: 40px;
+    color: #535E6A;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-top:50px;
+}
+.reasonText{
+    width:100%;min-width:500px;
+    text-align: center;
+    line-height: 30px;
+    color: #535E6A;
+    font-size: 14px;
+}
+.reasonBox img{
+    position: absolute;
+    right:20px;top:15px;
+}
+

@@ -1,0 +1,87 @@
+/**
+ * Created by Arley on 2017/6/21.
+ */
+@import "variate.less";
+.questions_list{
+    .new_btn_box{
+        margin: 15px 0 30px;
+    }
+    .questions_list{
+        width: 100%;
+        height: auto;
+        .list_item{
+            height: 40px;
+            line-height:  40px;
+            padding: 0 20px;
+            .btn_box{
+                float: right;
+                height: 30px;
+                line-height: 30px;
+                margin: 5px 0;
+                font-size: 12px;
+                font-weight: normal;
+            }
+            &:hover{
+                background: @th-bg-color;
+            }
+        }
+    }
+}
+
+/******* 意见反馈页面的CSS Begin *********/
+.feedback_container{
+    margin-top: 20px;
+    margin-bottom: 80px;
+    .personal_tag{
+        float: left;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        margin: 18px;
+        border: 1px solid @border-color;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        text-align:  center;
+        font-size: 16px;
+    }
+    .btn_box{
+        width: 90%;
+        margin-top: 0;
+        text-align: right;
+    }
+    .remark_box{
+        padding: 20px 0 0;
+        .remark{
+            box-sizing: border-box;
+            height: 80px;
+            border: 1px solid @border-color;
+            -webkit-border-radius: @normal-radius;
+            -moz-border-radius: @normal-radius;
+            border-radius: @normal-radius;
+            background: #FFFFFF;
+        }
+    }
+    .todo_list{
+        margin-top: 20px;
+    }
+}
+.feedback_detail{
+    margin: 40px 0 0;
+    padding: 15px 0 0;
+    .column_name {
+        width: 10%;
+    }
+    .option_item{
+        line-height: 40px;
+    }
+}
+.img_list{
+    overflow: hidden;
+    margin-top: 10px;
+    .img_item{
+        float: left;
+        margin: 0 15px 15px 0;
+    }
+}
+/******* 意见反馈页面的CSS End *********/

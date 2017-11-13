@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    {{include('./../inc/metaData')}}
+    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="/static/css/employee/information.css"/>
+    <link rel="stylesheet" href="/static/css/organization/create.css">
+    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
+    <script src="/static/js/common/validate_form.js"></script>
+    <script src="/static/js/organization/create.js"></script>
+    <style type="text/css">
+        body{overflow-x: hidden;}
+        .formML{margin-bottom:50px;margin-top:35px;padding-left:4%;}
+    </style>
+</head>
+<body>
+
+{{include('./../inc/header')}}
+
+<!--container start-->
+
+<div class="container minWidth">
+    <div class="row section">
+        <!--navLeft start-->
+        {{include('./../inc/sideNav')}}
+
+        <!--navLeft end-->
+
+        <!--listCon start-->
+        <div class="listCon">
+            <div class="listConHeader inviteCon">
+                <ul>
+                    <li class="inline colorB"><a class="TS" href="/organization/list">机构管理</a></li>
+                    <li class="inline before"><a href="javascript:;">新建</a></li>
+                </ul>
+            </div>
+            <!--form start-->
+            <div class="inviteForm inviteConB formMT">
+                <form class="form-horizontal formML" id="organization_info_create">
+                    <input type="hidden" id="" value="">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label inviteLabel">
+                            <span class="need">*</span>机构名称：</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" id="name" name="name" maxlength="20" placeholder="请输入机构名称" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.placeholder=='') {this.placeholder='请输入机构名称';this.style.color='#A4A8AB';}"/>
+                        </div>
+                        <span class="formProm"></span>
+                        <div class="trueImg"></div>
+                        <span class="formError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label inviteLabel">
+                            <span class="need">*</span>适用业务：</label>
+                        <div class="col-xs-3" style="margin-left:-40px;">
+                            <div class="form-control checkBox" id="applyto_business">
+                                <div class="check">
+                                    <input type="checkbox" name="applyto_business" value="0" style="display:none;">
+                                    <div class="check_img icon_uncheck"></div>
+                                    <span>新车</span>
+                                </div>
+                                <div class="check" style="margin-left:30px;">
+                                    <input type="checkbox" name="applyto_business" value="1" style="display:none;">
+                                    <div class="check_img icon_uncheck"></div>
+                                    <span>二手车</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="formProm"></span>
+                        <div class="trueImg"></div>
+                        <span class="formError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label inviteLabel">机构类别：</label>
+                        <div class="col-xs-5">
+                            <select class="form-control"  id="type" name="type">
+                                <option value="0">请选择</option>
+                                <option value="1">融资租赁</option>
+                                <option value="2">银行</option>
+                                <option value="3">信托</option>
+                                <option value="4">汽车金融</option>
+                                <option value="5">担保公司</option>
+                            </select>
+                        </div>
+                        <span class="formProm"></span>
+                        <div class="trueImg"></div>
+                        <span class="formError"></span>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label class="col-xs-2 control-label inviteLabel">
+                            <span class="need">*</span>机构LOGO：</label>
+                        <div class="col-xs-10" style="margin-left:-40px;">
+                        	<!--<c:forEach items="${logo_list}" var="bean">-->
+	                            <div class="organization_logo" id="image_url">
+                                    <input type="radio" name="image_url" value="${bean.image_url}" hidden="hidden">
+	                                <img src="${bean.image_url}" alt="">
+	                            </div>
+                        	<!--</c:forEach>-->
+                        </div>
+                        <span class="formProm"></span>
+                        <div class="trueImg"></div>
+                    </div>
+                    <span class="formError logo_error"></span>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label inviteLabel">
+                            <span class="need">*</span>有无系统：</label>
+                        <div class="col-xs-3" style="margin-left:-40px;">
+                            <div class="form-control" style="border:0;background:#F5F5F5;padding:0;" id="have_system">
+                                <div class="radio">
+                                    <input type="radio" name="have_system" value="1">
+                                    <label>有</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" name="have_system" value="0">
+                                    <label>无</label>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="formProm"></span>
+                        <div class="trueImg"></div>
+                        <span class="formError"></span>
+                    </div>
+                    <div class="form-group have_system_url">
+                        <label class="col-xs-2 control-label inviteLabel">
+                            <span class="need">*</span>系统地址：</label>
+                        <div class="col-xs-5">
+                            <input class="form-control" type="text" placeholder="例如：http://www.zhihjf.com" maxlength="100" id="system_url" name="system_url" value=""/>
+                        </div>
+                        <span class="formProm"></span>
+                        <div class="trueImg"></div>
+                        <span class="formError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label inviteLabel">官方电话：</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" placeholder="请输入官方电话" maxlength="12" id="mobile" name="mobile" value=""/>
+                        </div>
+                        <span class="formProm"></span>
+                        <div class="trueImg"></div>
+                        <span class="formError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label inviteLabel">联系人：</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" placeholder="请输入联系人姓名" maxlength="20" id="link_name" name="link_name" value=""/>
+                        </div>
+                        <span class="formProm"></span>
+                        <div class="trueImg"></div>
+                        <span class="formError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label inviteLabel">联系人手机：</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" maxlength="11" placeholder="请输入联系人手机号" id="link_phone" name="link_phone" value=""/>
+                        </div>
+                        <span class="formProm"></span>
+                        <div class="trueImg"></div>
+                        <span class="formError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label inviteLabel">联系人座机：</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" maxlength="12" placeholder="请输入联系人座机电话" id="link_mobile" name="link_mobile" value=""/>
+                        </div>
+                        <span class="formProm"></span>
+                        <div class="trueImg"></div>
+                        <span class="formError"></span>
+                    </div>
+                </form>
+            </div>
+            <!--form end-->
+        </div>
+        <!--<per:button code="1069">-->
+            <div class="form-group add_btn">
+                <div class="col-xs-10" style="margin-top:50px;margin-bottom:50px;margin-left:38.5555555%;">
+                    <input type="button" id="add_btn_y" value="保存"/>
+                    <a href="/organization/getList">
+                        <input type="button" id="add_btn_n" value="取消"/>
+                    </a>
+                </div>
+            </div>
+        <!--</per:button>-->
+        <!--listCon end-->
+
+    </div>
+
+
+</div>
+
+<!--container end-->
+
+</body>
+
+<!--操作成功页  开始-->
+<div class="mask"></div>
+<div id="delS">
+    <div class="container">
+        <div class="row section">
+
+            <div class="col-xs-4 col-sm-offset-4 inviteBox delhtml">
+                <div class="col-sm-8 invSBox">
+                    <div class="col-sm-12 invSText">
+                        <div>操作成功</div>
+
+                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
+                    </div>
+                </div>
+                <div class="col-sm-3 invSBtn cursor" id="delSBtn">确定</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--操作成功页  结束-->
+<script type="text/javascript">
+    var width = $('#organization_info_create').width();
+    var left = $('.col-xs-2').width();
+    $('.add_btn').css('marginLeft',-left - 95 + 'px');
+    $('.logo_error').css('marginLeft',left - 40 + 'px');
+    $('#add_btn_y').click(function(){
+        send_organization_form(contextPath + "/api/organization/create");
+    });
+</script>
+</html>
