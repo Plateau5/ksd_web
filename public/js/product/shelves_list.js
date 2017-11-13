@@ -1,7 +1,7 @@
 $(function(){
 	
 	$('#publish_list_btn').click(function(){
-		window.location.href=contextPath+"/organization/product/publishList";
+		window.location.href=contextPath+"/product/publishList";
 	});
 	/*$('.detail').click(function(){
 		var id = $(this).attr('lang');
@@ -13,7 +13,7 @@ $(function(){
         var id = _this.attr('lang');
         var data_num = _this.attr('data_num');
         locationTo({
-            action : contextPath + "/organization/product/detail",
+            action : contextPath + "/product/detail",
             param : {
                 id : id,
                 data_num : data_num
@@ -24,7 +24,7 @@ $(function(){
         var _this = $(this);
         var id = _this.attr('lang');
         locationTo({
-            action : contextPath + "/organization/product/toEdit",
+            action : contextPath + "/product/toEdit",
             param : {
                 id : id
             }

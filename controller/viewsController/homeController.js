@@ -55,6 +55,8 @@ exports.LOGIN_CONTROL =  function(req, res, next) {
                         account: account,
                         password: password
                     });
+                } else {
+                    res.redirect('/404');
                 }
             } else {
                 res.redirect('/404');
@@ -64,7 +66,8 @@ exports.LOGIN_CONTROL =  function(req, res, next) {
     }
 };
 exports.LOGIN_PAGE =  function(req, res, next) {
-    res.render('index', { title: '快收单'});
+    /*res.render('index', { title: '快收单'});*/
+    res.redirect('/customer/system');
 };
 exports.VIEW_HOME_DATA = function(req, res, next) {
     var url = contextPath + '/home';
@@ -77,6 +80,20 @@ exports.VIEW_HOME_DATA = function(req, res, next) {
             res.render('./home/home', data);
         } else {
             res.render(data.error_msg);
+        }
+    }, req, res, next);
+};
+
+exports.API_MESSAGE_GETNOTICE = function(req, res, next) {
+    var url = contextPath + '/api/message/getNotice?query_type=1';
+    common.httpRequest({
+        url : url
+    }, function (result) {
+        var data = result;
+        if (data.error_code === 0) {
+            res.send(data);
+        } else {
+            res.send(data);
         }
     }, req, res, next);
 };

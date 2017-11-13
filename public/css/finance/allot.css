@@ -226,6 +226,10 @@ ul,li,dl,dt,dd{
     line-height: 45px;
     padding: 0 8px;
     font-weight: normal;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .finance_list .finance_desc dl dt {
     height: 55px;

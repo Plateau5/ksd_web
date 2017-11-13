@@ -53,7 +53,7 @@ $(function(){
 		});
 	});
     //忘记密码
-    $("#forVIEW_btn").click(function(){
+    $("#forget_btn").click(function(){
     	window.location.href = contextPath + "/forgetPassword";
     });
 

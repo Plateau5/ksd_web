@@ -4,6 +4,7 @@ $(function(){
     //开始录入
     $('#entering').on('click', function(){
         var finance_id = $('#finance_id').val();
+        var locationUrl = LOCALURL;
         $.ajax({
             type:"post",
             url :contextPath + '/api/finance/startApplyloan',
@@ -15,7 +16,14 @@ $(function(){
             },
             success:function(data){
                 if(data.error_code =='0'){
-                    window.location.reload();
+                    locationTo({
+                        action : contextPath + '/finance/getFile',
+                        param : {
+                            finance_id : finance_id,
+                            active : 'active',
+                            url : locationUrl
+                        }
+                    })
                 }else{
                     alert(data.error_msg);
                 }

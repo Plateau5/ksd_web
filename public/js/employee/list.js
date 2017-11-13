@@ -1,32 +1,35 @@
 $(function(){
 
 	var initial = $("#initial").val();
-	// todo 解开注释并做页面值回显
-	//$("#"+initial).addClass("color");
+	$("#"+initial).addClass("color");
 	
 	$("#zimucondition .inline").click(function(){
 		var initial = $(this).html();
 		if(initial == '全部'){
-			$("#initial").val(null);
+			//$("#initial").val(null);
+            $("#form_search").find('#initial').remove();
+            $('allEmp').removeClass('liC').addClass('liC');
 		}else{
-			$("#initial").val(initial);
+			//$("#initial").val(initial);
+            $("#form_search").find('#initial').remove().end().append('<input type="hidden" id="initial" name="initial" value="'+ initial + '" />');
+            $('#allEmp').removeClass('liC');
 		}
 		$("#form_search").submit();
 	});
 	
 	$("#toInvite").click(function(){
-		window.location.href=contextPath + "/employee/invite";
+		window.location.href=contextPath + "/employee/toInvite";
 	});
 
 	$(".dangan").click(function(){
 		var id = $(this).attr('lang');
         locationTo({
-            action : contextPath + "/employee/detail",
+            action : contextPath + "/employee/getDetail",
             param : {
                 id : id
             }
         });
-		//window.location.href=contextPath + "/employee/detail?id="+id;
+		//window.location.href=contextPath + "/employee/getDetail?id="+id;
         var img1=$("#img1").attr("src");
         if(img1==""){
             $(".img1").css("visibility","hidden");

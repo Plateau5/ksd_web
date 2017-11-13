@@ -342,9 +342,9 @@ function workflowCreateAndEdit (createType, url, flowType) {
     //页面底部的取消按钮的点击事件
     bindEvents("click", ".create_cancel", function (e) {
         e.stopPropagation();
-        //window.location.href = contextPath + "/workflow/list";
+        //window.location.href = contextPath + "/workflow/getList";
         /*locationTo({
-            action : contextPath + '/workflow/list',
+            action : contextPath + '/workflow/getList',
             param : {
                 type : flowType
             }
@@ -369,7 +369,7 @@ function workflowCreateAndEdit (createType, url, flowType) {
                     if (createType == 0) {
                         $alert("审批流程创建成功", function () {
                             locationTo({
-                                action : contextPath + '/workflow/list',
+                                action : contextPath + '/workflow/getList',
                                 param : {
                                     type : flowType
                                 }
@@ -378,7 +378,7 @@ function workflowCreateAndEdit (createType, url, flowType) {
                     } else if (createType == 1) {
                         $alert("审批流程更改成功", function () {
                             locationTo({
-                                action : contextPath + '/workflow/list',
+                                action : contextPath + '/workflow/getList',
                                 param : {
                                     type : flowType
                                 }
@@ -403,9 +403,9 @@ function workflowCreateAndEdit (createType, url, flowType) {
                             d.close();
                         },
                         onCancel : function () {
-                            // window.location.href = contextPath + "/workflow/list";
+                            // window.location.href = contextPath + "/workflow/getList";
                             locationTo({
-                                action : contextPath + '/workflow/list',
+                                action : contextPath + '/workflow/getList',
                                 param : {
                                     type : flowType
                                 }
@@ -453,7 +453,7 @@ function goWorkflowList () {
         var type = $.trim(_this.data('type'));
         var cityId = $.trim(_this.data('city_id'));
         locationTo({
-            action : contextPath + '/workflow/list',
+            action : contextPath + '/workflow/getList',
             param : {
                 type : type,
                 city : cityId

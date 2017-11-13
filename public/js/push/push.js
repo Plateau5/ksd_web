@@ -92,15 +92,27 @@ function getMessagesInfo(selector) {
 		$.post(contextPath+"/api/message/getNotice?query_type=1",function(datas){
 			var data = eval(datas);
 			if (data.error_code == 0) {
+				$("#header_image_url").attr("src",data.image_url);
+				$("#header_username").html(data.name);
+				$("#id_center").show();
 				//if (data.cookie != cookieValue) {
 					//alert("登录失效，请重新登录");
 					//window.location.href = contextPath + "/login/logout";
 				//} else {
-					if(data.count > '0'){
-						newMessage = data.count;
+					if (data.other_count > 0) {
+						newMessage = data.other_count;
 						$(selector).addClass('active');
-						$(".message_count").find("span").text(data.count).end().show();
-						$(".message_tip").show().find(".count").text(data.count);
+						$(".message_count").find("span").text(data.other_count).end().show();
+					} else if(data.other_count =='0'){
+                        $(selector).removeClass('active');
+                        $(".message_count ").hide().find("span").text("");
+                        $(".message_tip").hide().find(".count").text("");
+                    }
+					if(data.count > '0'){
+						/*newMessage = data.count;
+						$(selector).addClass('active');
+						$(".message_count").find("span").text(data.count).end().show();*/
+						// $(".message_tip").show().find(".count").text(data.count);
 						//五秒钟后隐藏页面提示框。
 						var timer = setTimeout(function () {
 							$(".message_tip").hide();
@@ -110,13 +122,13 @@ function getMessagesInfo(selector) {
 						if (!WINDOWFOCUS) {
 							messageNotification("快收单", "您有"+ data.count +"条待处理事项", contextPath + "/home", contextPath + "/static/icon/kuaisd_m_logo.png");
 						}
-					}else if(data.count =='0'){
+					}/*else if(data.count =='0'){
 						$(selector).removeClass('active');
 						$(".message_count ").hide().find("span").text("");
-						$(".message_tip").hide().find(".count").text("");
-					}
+						// $(".message_tip").hide().find(".count").text("");
+					}*/
 				//}
-			} else if (data.error_code == 800) {
+			} else if (data.error_code == 800||data.error_code == 1000) {
 				alert("登录失效，请重新登录");
 				window.location.href = contextPath + "/login/logout";
 			} else {

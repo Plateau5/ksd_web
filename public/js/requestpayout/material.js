@@ -16,8 +16,11 @@ $('#material_sub').on('click',function(){
         ids.push(material_id);
     }
     if(material_arr.length == 0){
+        $('.error_prom').text('(请先选择所需材料)');
         $('#material_sub').attr('disabled',false);
         return;
+    } else {
+        $('.error_prom').text('');
     }
     var url = contextPath + '/api/pigeonhole/material';
     var finance_id = $('#finance_id').val();

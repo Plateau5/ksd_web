@@ -81,7 +81,7 @@ $(function(){
             ids_arr.push(ids);
         }
         if(reason_arr.length == 0){
-            $('.question_container').next().html('请选择问题详情内容');
+            $('.question_container').next().html('(请先选择问题详情)');
             $("#message_sub").attr('disabled',false);
             return;
         }

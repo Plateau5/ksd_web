@@ -12,7 +12,7 @@ var COMMONUTIL = require('./util/commonUtil');  // 主加密方法类文件
 
 var index = require('./routes/index');
 var common = require('./controller/common');
-global.contextPath = 'http://localhost:8899/api';
+global.contextPath = 'http://localhost:8080';
 //global.contextPath = 'http://101.200.157.103:8898/api';
 //global.contextPath = 'http://192.168.200.12:8899/api';
 var app = express();
@@ -68,10 +68,8 @@ app.use(common.verifyCode);
 // 启动登录拦截功能。
 app.use(function (req, res, next) {
     var url = req.originalUrl;//获取浏览器中当前访问的nodejs路由地址；
-    //console.log(req.cookies);
-    var log_info = req.cookies.log_info; //获取客户端存取的cookie,userCookies为cookie的名称；//有时拿不到cookie值，可能是因为拦截器位置放错，获取该cookie的方式是依赖于nodejs自带的cookie模块，//因此，获取cookie必须在1,2步之后才能使用，否则拿到的cookie就是undefined.
-    // console.log(log_info);
-    if((url !== '/login' && url !== '/' && url !== '/logout') && (log_info === '' || log_info === undefined || log_info === null)){ //通过判断控制用户登录后不能访问登录页面；
+    var logininfo = req.cookies.logininfo; //获取客户端存取的cookie,userCookies为cookie的名称；//有时拿不到cookie值，可能是因为拦截器位置放错，获取该cookie的方式是依赖于nodejs自带的cookie模块，//因此，获取cookie必须在1,2步之后才能使用，否则拿到的cookie就是undefined.
+    if((url !== '/login' && url !== '/' && url !== '/logout') && (logininfo === '' || logininfo === undefined || logininfo === null)){ //通过判断控制用户登录后不能访问登录页面；
         // console.log((url !== '/login' && url !== '/' && url !== '/logout'));
         // console.log((log_info !== ''));
         res.redirect('/login');    //页面重定向

@@ -492,7 +492,7 @@ $(function(){
         if(val == '0'){
             //window.location.href = contextPath+"/product/warehouseList";
             locationTo({
-                action : contextPath+"/organization/product/warehouseList",
+                action : contextPath+"/product/warehouseList",
                 param : {
                     parent_id : PARENTID
                 }
@@ -500,7 +500,7 @@ $(function(){
         }else{
             //window.location.href = contextPath+"/product/publishList";
             locationTo({
-                action : contextPath+"/organization/product/publishList",
+                action : contextPath+"/product/publishList",
                 param : {
                     parent_id : PARENTID
                 }
@@ -608,12 +608,29 @@ function send_product_form(url,save){
         return;
     }*/
     //适用城市
-    var applyto_city  = $('#applyto_city input[name="applyto_city"]:checked ').val();
-    if(!applyto_city){
-        $('#applyto_city').find('.formError').html('请选择适用城市');
-        $('#add_btn_y').attr('disabled',false);
-        $('#add_btn_n').attr('disabled',false);
-        return;
+    if (!TYPE) {
+        var applyto_city  = $('#applyto_city input[name="applyto_city"]:checked ').val();
+        if(!applyto_city){
+            $('#applyto_city').find('.formError').html('请选择适用城市');
+            $('#add_btn_y').attr('disabled',false);
+            $('#add_btn_n').attr('disabled',false);
+            return;
+        }
+    }
+    if (TYPE) {
+        var cityIds = [];
+        var citys = $('#cityIdsCont .icon_check');
+        for(var i = 0; i < citys.length; i++){
+            var text = $.trim($('#cityIdsCont .icon_check').eq(i).parents('.check').data('id'));
+            cityIds.push(text);
+        }
+        $('input[name="city_ids"]').val(cityIds.join(','));
+        if(cityIds.length == 0){
+            $('#applyto_city').find('.formError').html('请选择适用城市');
+            $('#add_btn_y').attr('disabled',false);
+            $('#add_btn_n').attr('disabled',false);
+            return;
+        }
     }
 
     //首付金额

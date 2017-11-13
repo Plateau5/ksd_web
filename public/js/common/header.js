@@ -1,8 +1,8 @@
 $(function(){
 	
-    var inner_logininfo = $.cookie('inner_logininfo');
+    /*var inner_logininfo = $.cookie('inner_logininfo');
     var logininfo = $.cookie('logininfo');
-     /*if(!inner_logininfo || !logininfo){
+     if(!inner_logininfo || !logininfo){
     	 alert('Please login again');
          window.location.href=contextPath+"/login/logout";
      }*/

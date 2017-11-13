@@ -149,8 +149,11 @@ $('#disagree_sub').click(function() {
         reason_arr.push(check_inner);
     }
     if (question_id_arr.length == 0) {
+        $('.error_prom').text('(请先选择问题详情)');
         $('#disagree_sub').attr('disabled', false);
         return;
+    } else {
+        $('.error_prom').text('');
     }
     $('#select_question_ids').val(question_id_arr.join(','));
     $('#select_reason').val(reason_arr.join(','));

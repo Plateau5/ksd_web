@@ -6,6 +6,7 @@
 const VERSION = '2.1.0';
 var contextPath = '';
 var LOCALURL = window.location;
+var DOMAIN = '';
 
 /**
  * 扩展Date()方法的格式化
@@ -300,7 +301,8 @@ function redefineAjax (option) {
             if (!!options.error) {
                 options.error();
             } else {
-                console.log(textStatus);
+                //console.log(textStatus);
+                $alert('操作失败，请重新尝试');
             }
         },
         complete : function (XMLHttpRequest, textStatus) {      //请求完成
@@ -759,9 +761,9 @@ function checkboxMonitor (that) {
  */
 function dropDownIcon (selector) {
     var ele = $(selector),
-            downIcon = '<em class="down_icon"></em>';
+        downIcon = '<em class="down_icon"></em>';
     var curHeight = ele.height(),
-            maxHeight = parseInt(ele.css("max-height"));
+        maxHeight = parseInt(ele.css("max-height"));
     var childrenCount = ele.find(".form_group").length;
     var newHeight = ((childrenCount % 4) > 0) ? (Math.ceil(childrenCount / 4)) * 30 : Math.floor(childrenCount / 4) * 30;
     if (newHeight > maxHeight) {
@@ -843,7 +845,7 @@ function filtrateChoose (eventType, selector, checkedClassName, callback) {
 
 function bindEvents (type, selector, callback) {
     if (!type || !selector) {
-        console.log("The parameters of 'type' or 'selector' is not defined.")
+        console.log("The parameters of 'type' or 'selector' is not defined.");
         return false;
     } else {
         if (typeof type != "string") {
@@ -885,31 +887,43 @@ function getMessagesInfo(selector) {
         $.post(contextPath+"/api/message/getNotice?query_type=1",function(datas){
             var data = eval(datas);
             if (data.error_code == 0) {
+                $("#header_image_url").attr("src",data.image_url);
+                $("#header_username").html(data.name);
+                $("#id_center").show();
                 //if (data.cookie != cookieValue) {
-                    //alert("登录失效，请重新登录");
-                    //window.location.href = contextPath + "/login/logout";
+                //alert("登录失效，请重新登录");
+                //window.location.href = contextPath + "/login/logout";
                 //} else {
-                    if(data.count > '0'){
-                        newMessage = data.count;
-                        $(selector).addClass('active');
-                        $(".message_count").find("span").text(data.count).end().show();
-                        $(".message_tip").show().find(".count").text(data.count);
-                        //五秒钟后隐藏页面提示框。
-                        var timer = setTimeout(function () {
-                            $(".message_tip").hide();
-                            clearTimeout(timer);
-                        }, 5000);
-                        //当前页面处于屏幕最前端视口时不弹出桌面提示
-                        if (!WINDOWFOCUS) {
-                            messageNotification("快收单", "您有"+ data.count +"条待处理事项", contextPath + "/home", contextPath + "/static/icon/kuaisd_m_logo.png");
-                        }
-                    }else if(data.count =='0'){
+                if (data.other_count > 0) {
+                    newMessage = data.other_count;
+                    $(selector).addClass('active');
+                    $(".message_count").find("span").text(data.other_count).end().show();
+                }else if(data.other_count =='0'){
+                    $(selector).removeClass('active');
+                    $(".message_count ").hide().find("span").text("");
+                    $(".message_tip").hide().find(".count").text("");
+                }
+                if(data.count > '0'){
+                    /*newMessage = data.count;
+                    $(selector).addClass('active');
+                    $(".message_count").find("span").text(data.count).end().show();*/
+                    // $(".message_tip").show().find(".count").text(data.count);
+                    //五秒钟后隐藏页面提示框。
+                    var timer = setTimeout(function () {
+                        $(".message_tip").hide();
+                        clearTimeout(timer);
+                    }, 5000);
+                    //当前页面处于屏幕最前端视口时不弹出桌面提示
+                    if (!WINDOWFOCUS) {
+                        messageNotification("快收单", "您有"+ data.count +"条待处理事项", contextPath + "/home", contextPath + "/static/icon/kuaisd_m_logo.png");
+                    }
+                }/*else if(data.count =='0'){
                         $(selector).removeClass('active');
                         $(".message_count ").hide().find("span").text("");
                         $(".message_tip").hide().find(".count").text("");
-                    }
+                    }*/
                 //}
-            } else if (data.error_code == 800) {
+            } else if (data.error_code == 800||data.error_code == 1000) {
                 alert("登录失效，请重新登录");
                 window.location.href = contextPath + "/login/logout";
             } else {
@@ -1076,7 +1090,7 @@ var Cookie = {
     get : function (name, callback) {
         if (document.cookie.length > 0) {
             var arr,
-                    reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+                reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
             if(arr = document.cookie.match(reg))
                 return arr[2];
             else
@@ -1103,6 +1117,9 @@ function searchBusinessList (firstLetter) {
     var status = $("select.order_status_select option:selected").val();//状态筛选
     var alreadyRequest = $("select.req_type_select option:selected").val();//请款类型筛选
     var label_id = $("select#filtrate_tags option:selected").val();//GPS标签筛选
+    var carType = $("select#typeBusiness option:selected").val();   // 商户-业务类型
+    var merchantsStatus = $("select#merchantsState option:selected").val();   // 商户-状态
+    var ownType = $("select#hadType option:selected").val();   // 商户-拥有状态
 
     label_id && $("#"+id).append('<input type="hidden" id="label_id" name="label_id" value="'+ label_id + '" />');
     var gps_type = $("select#gps_type option:selected").val();//GPS类型筛选
@@ -1116,6 +1133,9 @@ function searchBusinessList (firstLetter) {
     status && $("#"+id).append('<input type="hidden" id="status" name="status" value="'+ status +'" />');
     alreadyRequest && $("#"+id).append('<input type="hidden" id="alreadyRequest" name="already_request" value="'+ alreadyRequest +'" />');
     riskType && $("#"+id).append('<input type="hidden" id="riskType" name="risk_type" value="'+ riskType +'" />');
+    carType && $("#"+id).append('<input type="hidden" id="car_type" name="car_type" value="'+ carType +'" />');
+    merchantsStatus && $("#"+id).append('<input type="hidden" id="status" name="status" value="'+ merchantsStatus +'" />');
+    ownType && $("#"+id).append('<input type="hidden" id="own_type" name="own_type" value="'+ ownType +'" />');
     $("#"+id).submit();
 }
 
@@ -1135,14 +1155,17 @@ function pageChange (e, firstLetter) {
         var id = $('body').find("form[role='form']").attr('id');
         var currentPage = $('.page_list .page_item.active').attr('currentPage') || '';
         var limit = $('.page_list .page_item.active').attr('limit') || '';
-        var time = $("#filtrate_date").val() || '';
+        var time = $("#filtrate_date").val() || '';     // 时间
         var start_with = firstLetter;
-        var cityId = $("select.city_select option:selected").val();
+        var cityId = $("select.city_select option:selected").val(); // 城市
         var initial = $(".first_letter_conditions .personnel_query.active").text();
         var riskType = $("select.risk_type_select option:selected").val();
         var status = $("select.order_status_select option:selected").val();
         var alreadyRequest = $("select.req_type_select option:selected").val();//请款类型筛选
         var label_id = $("select#filtrate_tags option:selected").val();//GPS标签筛选
+        var carType = $("select#typeBusiness option:selected").val();   // 商户-业务类型
+        var merchantsStatus = $("select#merchantsState option:selected").val();   // 商户-状态
+        var ownType = $("select#hadType option:selected").val();   // 商户-拥有状态
 
 
         label_id && $("#"+id).append('<input type="hidden" id="label_id" name="label_id" value="'+ label_id + '" />');
@@ -1161,6 +1184,9 @@ function pageChange (e, firstLetter) {
         limit && $("#"+id).append('<input type="hidden" id="limit" name="limit" value="'+ limit +'" />');
         currentPage && $("#"+id).append('<input type="hidden" id="currentPage" name="currentPage" value="'+ currentPage +'" />');
         riskType && $("#"+id).append('<input type="hidden" id="riskType" name="risk_type" value="'+ riskType +'" />');
+        carType && $("#"+id).append('<input type="hidden" id="car_type" name="car_type" value="'+ carType +'" />');
+        merchantsStatus && $("#"+id).append('<input type="hidden" id="status" name="status" value="'+ merchantsStatus +'" />');
+        ownType && $("#"+id).append('<input type="hidden" id="own_type" name="own_type" value="'+ ownType +'" />');
         $("#"+id).submit();
     }
 }
@@ -1171,7 +1197,7 @@ function pageChange (e, firstLetter) {
  * @param callback {function} : 回调函数
  */
 function firstLetterQuery (callback) {
-    var letterBtn = $('.letter_conditions');
+    var letterBtn = $(' .letter_conditions');
     var checkedBox = $('.checked_first_letter .letter_list');
     letterBtn.off('click');   // 必须项，去除人名筛选的默认点击事件
     letterBtn.off('click').on('click', function (e) {
@@ -1182,18 +1208,20 @@ function firstLetterQuery (callback) {
         var _thisLetter = $.trim(_this.text());
         var len = Number(checkedBox.find('.letter_item').length);
         if (_thisLetter == '全部') {
-            searchBusinessList();
+            if (FILTRATETYPE === 1){
+                searchBusinessList();
+            }
             return;
         } else {
-            if (len > 10) {
-                var errorTips = checkedBox.find('.error_msg');
+            var errorTips = checkedBox.find('.error_msg');
+            if (len >= 10) {
                 if (errorTips.is(':hidden')) {
                     errorTips.show();
                     var timer = setTimeout(function () {
                         errorTips.hide();
                         clearTimeout(timer);
                     }, 3000);
-                }
+                };
                 return false;
             } else {
                 if (_thisLetter == '#') {
@@ -1202,10 +1230,10 @@ function firstLetterQuery (callback) {
                     checkedBox.find('.letter_item[data-value="#"]').remove();
                 }
                 var liElem = '<li class="letter_item" dat-value="'+ _thisLetter +'">' +
-                        '            <span class="letter_val">'+ _thisLetter +'</span>' +
-                        '            <em class="remove_btn"></em>' +
-                        '        </li>';
-                checkedBox.append(liElem);
+                    '            <span class="letter_val">'+ _thisLetter +'</span>' +
+                    '            <em class="remove_btn"></em>' +
+                    '        </li>';
+                checkedBox.find('li.error_msg').before(liElem);
                 callback();
             }
         }
@@ -1225,12 +1253,14 @@ function firstLetterQuery (callback) {
 }
 
 /**
- *
+ * 获取选中的首字母
  */
 function getCheckedFirstLetter () {
     var checkedStr = '';
     var checkedArr = [];
     var elem = $('.letter_item');
+    var firstLetters = $('.letter_conditions');
+    firstLetters.off('click');  // 屏蔽连续点击造成的数据错误
     elem.each(function () {
         var _this = $(this);
         var v = $.trim(_this.find('.letter_val').text());
@@ -1256,11 +1286,11 @@ function personnelSearch () {
  * 下拉框筛选条件更改的提交事件
  *  @author Arley   10|03|2017
  *
- * 备注：该方法为简单的selector框提交事件
- * Role：selector必须含有“filtrate_select”类，同时要提交的表单ID为：#form_search
+ * 备注：该方法为简单的select框提交事件
+ * Role：select必须含有“filtrate_select”类，同时要提交的表单ID为：#form_search
  * 注意：请遵循Role引用
  */
-function selectorChange () {
+function selectChange () {
     var s = $(".filtrate_select");
     s.off("change").on("change", function () {
         //$("#form_search").submit();
@@ -1297,11 +1327,11 @@ function toOrderDetail () {
     orderList.each(function () {
         var currentOrder = $(this);
         currentOrder.off("click").on("click", function () {
-            /*var t = $(this);
+            $('.business_list .order_mask').show();     // 禁用多次点击
+            var t = $(this);
             var financeId = $.trim(t.parents(".list_item").attr("lang"));
             input.val(financeId);
-            form.submit();*/
-            window.location = '/customer/detail'
+            form.submit();
         });
     });
 }
@@ -1413,13 +1443,13 @@ function chooseImage (f) {
     fileRender.onload = function (e) {
         var result = e.target.result;
         var imgViewItem =    '<div class="img_item">'
-                +     '<img src="'+ result +'" alt="">'
-                +     '<span class="img_name nor_wrap">'+ fileName +'</span>'
-                +     '<span class="img_size">'+ filseSize.toFixed(2) +'M</span>'
-                +     '<div class="remove_mask">'
-                +         '<em class="remove_btn"></em>'
-                +     '</div>'
-                + '</div>'
+            +     '<img src="'+ result +'" alt="">'
+            +     '<span class="img_name nor_wrap">'+ fileName +'</span>'
+            +     '<span class="img_size">'+ filseSize.toFixed(2) +'M</span>'
+            +     '<div class="remove_mask">'
+            +         '<em class="remove_btn"></em>'
+            +     '</div>'
+            + '</div>'
         imgViewBox.append(imgViewItem);
     };
     fileRender.readAsDataURL(file.files[0]);
@@ -1539,7 +1569,10 @@ function fileUpload (opt) {
         fileFormat : [],        // {Array}  允许上传文件的格式集合。
         imgFormat : ['png', 'jpg', 'jpeg', 'svg', 'gif', 'bmp', 'raw', 'cdr'],       // 常见图片格式
         wordFormat : ['doc', 'docx', 'dot', 'dotx', 'docm', 'dotm'],     // 所有word文档后缀格式
-        excelFormat : ['xls', 'xlsx', 'xlsm']       // 常用excel文档后缀格式。
+        excelFormat : ['xls', 'xlsx', 'xlsm'],       // 常用excel文档后缀格式。
+        needThumbnails : true,      // 是否需要缩略图
+        thumbnailsElem : null,    // 缩略图元素
+        callback : null,    // 回调函数
     };
     var options = $.extend({}, option, opt);
     var parent = $(".file_upload");
@@ -1564,24 +1597,30 @@ function fileUpload (opt) {
                 if (options.maxCount) {
                     if (fileCount >= options.maxCount) {
                         btn.addClass("disabled");
+                        options.callback && options.callback(t);    // 回传点击的按钮
+                        fileCount--;
                     } else {
                         btn.removeClass("disabled");
                         if (success) {
                             that.append(inputFile);
+                            options.callback && options.callback(t);    // 回传点击的按钮
                         } else {
                             targetFile.remove();
                             that.append(inputFile);
                             fileCount--;
+                            options.callback && options.callback(t);    // 回传点击的按钮
                         }
                     }
                 } else {
                     btn.removeClass("disabled");
                     if (success) {
                         that.append(inputFile);
+                        options.callback && options.callback(t);    // 回传点击的按钮
                     } else {
                         targetFile.remove();
                         that.append(inputFile);
                         fileCount--;
+                        options.callback && options.callback(t);    // 回传点击的按钮
                     }
                 }
             });
@@ -1656,15 +1695,21 @@ function fileUpload (opt) {
             } else {
                 result = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAABNlJREFUWAntmWtMWlccwOUKKC9B8UHFJ8oFRbBa106XbJq2qctqK6uvWVPbL8uaZjHL2n5Zl65Ll2aPLl2s2m3p0jXG2NqHurjNTWdat1qnGFFACaDgg+JERZArL+nuMSEhfPGCpvEDJyH3HO7/nP+P37k5/5uAS3zW8zJkFzc8YJvJP3hlNzImDfRehnYjmDdTENDbRiD9oMFArHnPCRr0thFIf9cb3DyoA/llW825qlNn96wYs/V2G4sUCiFpJMrcpWRuXy41YnWrud73d9zgkstBKB77t+oHva50yemIhEmUKQaeYJFazIIKmeRsg17L8wbYqr+jBs0uF14sk1RrbevJx2JYfTfSBf1ogs1a/8xsiqpTycpvzE2Li+jMhkwKzbIVHLi/YwbX3O5QsWy4SruOpNTGJXTdTBc8/W35P9a9RX2Sze2GCiIYy99xs9rc7pDQz3SqQixwIGZHDAKAMtlwuWrdmlYZy+4+n8iRHpYOvqdE1mCQ5PrMlKFdmHcHQKaSyNOadSQBfI+lbdugKyQEVyaTvKuwWnjHY1h/XU6Fh8TyoU24okjmgDh6T6/BYWdd0aoKAFAMgWhadTkZWOBAzLYNVsglx8esZkExM7b/a07GP8fGhyrVCMIpj4v/4zonYwAk6V5ZzJ+32Zig/8Jhj2YSiEugj6Vty2CFYqRk2GzKBqYaYWHfCbnkxCS6rSXMuD4P3EXN5AFkw0UW0GizncaF+GkbksInU7RY4EBMwAZPToy+/Xx1JbeAETV8m7/3T3SbS8fXzJmHo2L+boCznoLF0W3NaV3UH0khkbU1seyJmonRWgoUar3G4T8B97G0gAyeUUoP9ZuW9udF0EdbMnK6qhUj74xYTKI3GczB2zxRL0j81eyU8CfDbEkiMWwOPW7aT09KT5pdTvrFpLTH8cRwOxY4EOM34FmV7K3eZeMb2dQI+X1BXmftxGgxanLf6/TIkeaMvb+DRevntfzGeW0pixhmqIeFDz9QjlWih3b0+SRO22lWwhSIwdr8AvxIrSjoMi4Uooessk2w79EFtSL/iWnpQA6NPtaamfsLSPrji5n0b2enyqIJxMUmWHjvnEpWtuB0sD5MSHl0Lj5FiRXME4f5GXywaEh8aDQc4pIomgdZeW3hEOR2hrzEo+YkLZm5XeCX3jHMca7p1JVoaVv5nidqrVPJxfN2G/v9PUkdHydw5J6k/lwxA96c1xbRoNA1FOY+FYI2QBJQLTzJQMX4XKeqouLxllt8YQtq96jOhiSfYiV2XUpOl3ri/L1i3mLwViKg0lRxRKLDN0mHcYH9iUZZTYYg5BYsav5UoyxWo1WlAq0qV1PhYd94f8aYAcMgyG7d2Aj3Xbx7xRh3QTNRQ4QgZyNX1PyFTnUQnIWgqnyTxn/uG+/vGDMgj0yZlqPlDNjyJPkVfRlAn7NTEA7nboSzfh5HVpngLARVpR59k/HEbeeK+Rn8Mj2z56h0EK5Ty8806bUqkFSJWLkECGev5wrvFjKYxmwqfZUKEe7WstjT24HynovZYFoYCWkXvtYEzr8Zm40NPiJqhKJTuL/pSGT0Alg0Eo937iQcWBOzQRDMI1GsHVl5j0H/VTXMBl8VkG+eIKCvEX/HQYP+GvONDxr0NeLvOGjQX2O+8bjd/jfE/2Mi4D596XZHAAAAAElFTkSuQmCC';
             }
-            var imgViewItem =    '<div class="file_item">'
-                    +     '<img src="'+ result +'" alt="">'
-                    +     '<span class="file_name nor_wrap">'+ fileName +'</span>'
-                    +     '<span class="file_size">'+ filesSize.toFixed(2) +'M</span>'
-                    +     '<div class="remove_mask">'
-                    +         '<em class="remove_btn"></em>'
-                    +     '</div>'
-                    + '</div>'
-            imgViewBox.append(imgViewItem);
+            if (options.needThumbnails) {
+                if (!options.thumbnailsElem) {
+                    var imgViewItem =    '<div class="file_item">'
+                        +     '<img src="'+ result +'" alt="">'
+                        +     '<span class="file_name nor_wrap">'+ fileName +'</span>'
+                        +     '<span class="file_size">'+ filesSize.toFixed(2) +'M</span>'
+                        +     '<div class="remove_mask">'
+                        +         '<em class="remove_btn"></em>'
+                        +     '</div>'
+                        + '</div>';
+                } else {
+                    var imgViewItem = options.thumbnailsElem;
+                }
+                imgViewBox.append(imgViewItem);
+            }
         };
         fileRender.readAsDataURL(file.files[0]);
         return true;
@@ -1774,11 +1819,135 @@ function initDateMinTodayForOrder (target) {
     $(target).addClass('datainp wicon');
 }
 
+/**
+ * 开关样式的单选按钮重构
+ * @author Arley Joe 2017-9-11 17:12:22
+ * @param opt
+ */
+function radioSwitch (opt) {
+    var option = {
+        on : function () {}, // 开启/选中的回调逻辑
+        off : function () {}, // 关闭/未选中的回调逻辑
+        restore : function (target) { // 重置为原始状态
+            if (target.attr('type') == 'off') {
+                target.find('div').stop().animate({
+                    'left' : '28px'
+                },200);
+                target.removeClass('off').attr('type', 'on');
+            }else {
+                target.find('div').stop().animate({
+                    'left' : '2px'
+                },200);
+                target.addClass('off').attr("type","off");
+            }
+        }
+    };
+    var options = $.extend({}, option, opt);
+    var s = $(".r_radio");  // 重置单选按钮（开关样式）
+    s.on('mousedown', function() {
+        var _this = $(this);
+        if (_this.attr('type') == 'off') {
+            _this.find('div').stop().animate({
+                'left' : '28px'
+            },200);
+            _this.removeClass('off').attr('type', 'on');
+            options.on(_this, options);
+        }else {
+            _this.find('div').stop().animate({
+                'left' : '2px'
+            },200);
+            _this.addClass('off').attr("type","off");
+            options.off(_this, options);
+        }
+    });
+}
 
+/**
+ * 格式化城市数据
+ * @author Arley Joe 2017-9-13 16:54:36
+ * @param data 后台返回的城市数据
+ * @returns {{list: {}, relations: {}, category: {provinces: Array}}}
+ */
+function formatCityData (data) {
+    var __LocalDataCities = {list: {},relations: {},category: {provinces: [],}};
+    for (var i = 0, len = list.length; i < len; i++) {
+        var provinceId = list[i].id,
+            provinceName = list[i].name;
+        var province = [provinceName, "", "", provinceId];
+        __LocalDataCities.list[provinceId] = province;
+        __LocalDataCities.category.provinces.push(provinceId);
+        var citysCode = [];
+        for (var k = 0, clist = list[i].city_list, cLen = clist.length; k < cLen ; k++ ){
+            var cityId = clist[k].id,
+                cityName = clist[k].name;
+            var city = [cityName, "", "", provinceId, provinceName];
+            citysCode.push(cityId);
+            __LocalDataCities.list[cityId] = city;
+            __LocalDataCities.relations[provinceId] = citysCode;
+        }
+    }
+    return __LocalDataCities;
+}
+
+/**
+ * 禁用订单列表多次点击的遮罩层
+ * @author Arley Joe 2017-9-14 09:46:16
+ * @desc : 该方法已经全局调用，不用重复调用。
+ */
+function customerListMask () {
+    var disabledMask = $('.business_list .order_mask');
+    if (disabledMask.length > 0) {
+        disabledMask.off('click');
+    }
+}
+
+/**
+ * 跳转下一个页面
+ * @author Arley Joe 2017-10-31 16:39:02
+ * @param target：目标元素
+ * @param param：需要传递的参数
+ */
+function toNextPage(target, params) {
+    var btn = $(target);
+    var param = {
+        url : LOCALURL
+    };
+    var options = $.extend({}, param, params);
+    btn.off('click').on('click', function (){
+        var _this = $(this);
+        var url = $.trim(_this.data('url'));
+        locationTo({
+            action : contextPath + url,
+            param : options
+        })
+    });
+}
+
+//只允许输入数字或者输入两位小数
+function checkNum (ele) {
+    ele.on("keyup input", function () {
+        var reg = /^\d{0,7}(\.\d{0,2})?$/g;
+        var _this = $(this);
+        var val = _this.val();
+        if (reg.test(val)) {
+            $(".is_return_msg").hide();
+            return true;
+        } else {
+            val = parseInt(val);
+            if (!isNaN(val) && val != 0) {
+                val = (/\d+(\.\d{1,2})?/g.exec(val))[0];
+                _this.val(val);
+            } else {
+                _this.val("");
+            }
+        }
+    });
+}
 
 $(function () {
-    //windowInFocus();
-    //getMessagesInfo('#header_messages');
+    customerListMask(); // 禁用订单多次点击跳转
+    windowInFocus();    // 判断当前标签页的活动状态
+    getMessagesInfo('#header_messages');
     switcher(".nav_item", ".active");
     filtrateChoose("click", ".category_item", "active", function () {});
     /*filtrateChoose("click", ".conditions_item", "active" , function () {
@@ -1786,8 +1955,10 @@ $(function () {
     });*/
     // 姓名字母查询
     firstLetterQuery(function () {
-        var checkedLetter = getCheckedFirstLetter();
-        searchBusinessList(checkedLetter);
+        if (FILTRATETYPE === 1){
+            var checkedLetter = getCheckedFirstLetter();
+            searchBusinessList(checkedLetter);
+        }
     });
     /*// 姓名全部查询
     filtrateChoose("click", ".first_letter_conditions .choose_all", "active", function (e) {

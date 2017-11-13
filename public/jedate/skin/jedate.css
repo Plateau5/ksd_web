@@ -31,7 +31,7 @@
 .jedateblue .jedateym span{width:70%;padding: 0;float:left;text-align: center;text-overflow: ellipsis; display:block;}
 .jedateblue .jedateym span input{width:100%;float:left;padding: 0;border:none;background-color:transparent;text-align: center;}
 .jedateblue .jedateym .triangle{margin: 0;padding:0;font-style:normal;}
-.jedateblue .jedateym .triangle:hover{background-color:#00B9E8;}
+.jedateblue .jedateym .triangle:hover{background-color:#0B9C94;}
 .jedateblue .jedatesety,.jedateblue .jedatesetm{width: 100%; position:absolute;left:0; top:40px; bottom:0;background-color: #fff; z-index:50;}
 .jedateblue .jedatesety .ymdropul,.jedateblue .jedatesetm .ymdropul{width:100%;height:246px;overflow:auto;}
 .jedateblue .jedatesety .ymdropul li{width:33.3%;float:left;text-align: center;height:49px; line-height:49px;font-size: 16px;}

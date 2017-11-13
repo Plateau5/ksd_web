@@ -184,8 +184,8 @@ $(function(){
     //$("input[name='role.id']").
     $("#account").blur(function(){
         var val=$("#account").val();
-        //var reg= /^(([0-9a-zA-Z]+)|([0-9a-zA-Z]+[_.0-9a-zA-Z-]*[0-9a-zA-Z]+))@([a-zA-Z0-9-]+[.])+([a-zA-Z]){2}|net|NET|com|COM|gov|GOV|mil|MIL|org|ORG|edu|EDU|int|INT|cn|CN$/;
-        var reg= eval("/^(([0-9a-zA-Z]+)|([0-9a-zA-Z]+[_.0-9a-zA-Z-]*[0-9a-zA-Z]+))@"+ mailDomain + "/");
+        var reg= /^(([0-9a-zA-Z]+)|([0-9a-zA-Z]+[_.0-9a-zA-Z-]*[0-9a-zA-Z]+))@([a-zA-Z0-9-]+[.])+([a-zA-Z]){2}|net|NET|com|COM|gov|GOV|mil|MIL|org|ORG|edu|EDU|int|INT|cn|CN$/;
+        //var reg= eval("/^(([0-9a-zA-Z]+)|([0-9a-zA-Z]+[_.0-9a-zA-Z-]*[0-9a-zA-Z]+))@"+ mailDomain + "/");
         //console.log(reg);
         if(!reg.test(val)){
             $("#account").parent().next().next().next().html("请输入有效的邮箱地址");
@@ -252,7 +252,7 @@ $(function(){
     //创建成功确认跳转到档案信息
     $("#inviteSBtn").click(function(){
     	var uid = $(this).attr('lang'); 
-    	window.location.href=contextPath + "/employee/detail?id="+uid;
+    	window.location.href=contextPath + "/employee/getDetail?id="+uid; 
     });
 
 });

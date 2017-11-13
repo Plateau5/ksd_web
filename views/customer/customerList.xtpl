@@ -20,11 +20,27 @@
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
-            {{include('./../inc/operationCategory')}}
-            {{include('./../inc/filtrate')}}
-            {{include('./../inc/ordersList')}}
-            {{include('./../inc/pagination')}}
+            <form action="{{originUrl}}" method="post" id="form_search" role="form"></form>
 
+
+
+
+            <div class="operation_category">
+                {{include('./../inc/operationCategory')}}
+            </div>
+            {{include('./../inc/filtrate')}}
+            <div class="business_list">
+                <form action="${contextPath }/finance/getFile" method="post" id="to_order_detail">
+                    <input type="hidden" name="active" value="active">
+                    <input type="hidden" name="finance_id" value="" id="financeId">
+                </form>
+                {{include('./../inc/ordersList')}}
+                <!--分页部分 Begin-->
+                <div class="page_box">
+                    {{include('./../inc/pagination')}}
+                </div>
+                <!--分页部分 End-->
+            </div>
 
 
 
@@ -44,11 +60,10 @@
 </html>
 <script>
     (function ($) {
-
-
         $(function() {
+
             initDateMinTodayForOrder('#filtrate_date');
-            //selectorChange();
+            selectChange();
             toOrderDetail();
         });
     })(jQuery,undefined);

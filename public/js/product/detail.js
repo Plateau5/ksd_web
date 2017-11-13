@@ -9,7 +9,7 @@ $(function(){
             //window.location.href=contextPath+"/product/warehouseList";
             var parentId = $.trim($(this).data("id"));
             locationTo({
-                action : contextPath + "/organization/product/warehouseList",
+                action : contextPath + "/product/warehouseList",
                 param : {
                     parent_id : parentId
                 }
@@ -20,7 +20,7 @@ $(function(){
             //window.location.href=contextPath+"/product/publishList";
             var parentId = $.trim($(this).data("id"));
             locationTo({
-                action : contextPath + "/organization/product/publishList",
+                action : contextPath + "/product/publishList",
                 param : {
                     parent_id : parentId
                 }

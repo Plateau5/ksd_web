@@ -211,7 +211,7 @@ function cityBarChart (target, data) {
         dataZoom: {
             show: true,
             start : 0,
-            end: 100,
+            end: 40,
             bottom : 20,
             left: 80,
             right: 80,
@@ -239,6 +239,9 @@ function cityBarChart (target, data) {
             {
                 type : 'category',
                 data : data.xaxisdata,
+                axisLabel:{
+                    interval:0
+                },
                 splitLine: {           // 分隔线
                     show: false
                 },

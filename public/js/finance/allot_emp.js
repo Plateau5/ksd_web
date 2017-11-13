@@ -97,6 +97,10 @@ $(function(){
     $("#delSBtn").click(function(){
         $("#delS").css("display","none");
     });
-
+    
+    //分配成功
+    $("#success_allot").click(function(){
+    	window.location.href=contextPath +"/finance/getAllotList";
+    });
 
 });

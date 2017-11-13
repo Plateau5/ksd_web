@@ -1,7 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="" />
+    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/copy_template_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/dropdown_369a8965.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/simple_s_468f567e.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/diy/1_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/diy/1_open.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/diy/2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/diy/3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/diy/4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/diy/5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/diy/6.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/diy/7.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/diy/8.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/diy/9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/line_conn.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/zTreeStandard.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/zTreeStandard.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/ztree-icon-line.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/img/ztree-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/citySelect.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/citySelect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/zTreeStyle.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/css/zTreeStyleUserDefined.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/js/jquery.ztree.all.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/zTree/js/jquery.ztree.all.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/viewsController/customerController.js" afterPath="$PROJECT_DIR$/controller/viewsController/customerController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/viewsController/homeController.js" afterPath="$PROJECT_DIR$/controller/viewsController/homeController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/common/base.css" afterPath="$PROJECT_DIR$/public/css/common/base.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/company.css" afterPath="$PROJECT_DIR$/public/css/company.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/contacts.css" afterPath="$PROJECT_DIR$/public/css/contacts.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/employee/reset_password.css" afterPath="$PROJECT_DIR$/public/css/employee/reset_password.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/finance/allot.css" afterPath="$PROJECT_DIR$/public/css/finance/allot.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/home.css" afterPath="$PROJECT_DIR$/public/css/home.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/login/login.css" afterPath="$PROJECT_DIR$/public/css/login/login.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/manufacturing.css" afterPath="$PROJECT_DIR$/public/css/manufacturing.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/message/message.css" afterPath="$PROJECT_DIR$/public/css/message/message.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/orderDetails.css" afterPath="$PROJECT_DIR$/public/css/orderDetails.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/privilege.css" afterPath="$PROJECT_DIR$/public/css/privilege.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/product/detail.css" afterPath="$PROJECT_DIR$/public/css/product/detail.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/questions.css" afterPath="$PROJECT_DIR$/public/css/questions.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/statistics.css" afterPath="$PROJECT_DIR$/public/css/statistics.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/warehouse.css" afterPath="$PROJECT_DIR$/public/css/warehouse.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/jedate/skin/jedate.css" afterPath="$PROJECT_DIR$/public/jedate/skin/jedate.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/common/check.js" afterPath="$PROJECT_DIR$/public/js/common/check.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/common/header.js" afterPath="$PROJECT_DIR$/public/js/common/header.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/employee/invite.js" afterPath="$PROJECT_DIR$/public/js/employee/invite.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/employee/list.js" afterPath="$PROJECT_DIR$/public/js/employee/list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/finance/allot_emp.js" afterPath="$PROJECT_DIR$/public/js/finance/allot_emp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/finance/img_detail.js" afterPath="$PROJECT_DIR$/public/js/finance/img_detail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/finance/img_unpass.js" afterPath="$PROJECT_DIR$/public/js/finance/img_unpass.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/login/login.js" afterPath="$PROJECT_DIR$/public/js/login/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/manufacturing.js" afterPath="$PROJECT_DIR$/public/js/manufacturing.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/organization/create.js" afterPath="$PROJECT_DIR$/public/js/organization/create.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/product/create.js" afterPath="$PROJECT_DIR$/public/js/product/create.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/product/detail.js" afterPath="$PROJECT_DIR$/public/js/product/detail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/product/publish_list.js" afterPath="$PROJECT_DIR$/public/js/product/publish_list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/product/shelves_list.js" afterPath="$PROJECT_DIR$/public/js/product/shelves_list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/public.js" afterPath="$PROJECT_DIR$/public/js/public.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/push/push.js" afterPath="$PROJECT_DIR$/public/js/push/push.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/requestpayout/disagree.js" afterPath="$PROJECT_DIR$/public/js/requestpayout/disagree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/requestpayout/material.js" afterPath="$PROJECT_DIR$/public/js/requestpayout/material.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/statistics.js" afterPath="$PROJECT_DIR$/public/js/statistics.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/customerList.xtpl" afterPath="$PROJECT_DIR$/views/customer/customerList.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/filtrate.xtpl" afterPath="$PROJECT_DIR$/views/inc/filtrate.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/header.xtpl" afterPath="$PROJECT_DIR$/views/inc/header.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/ordersList.xtpl" afterPath="$PROJECT_DIR$/views/inc/ordersList.xtpl" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -17,62 +87,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="www" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/www">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1050">
-              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+            <state relative-caret-position="93">
+              <caret line="91" column="9" lean-forward="true" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log4.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util/log4.js">
+      <file leaf-file-name="header.xtpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/inc/header.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="commonUtil.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util/commonUtil.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="homeController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/viewsController/homeController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1365">
-              <caret line="65" column="18" lean-forward="false" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="18" />
-              <folding />
+            <state relative-caret-position="210">
+              <caret line="10" column="78" lean-forward="true" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="78" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#span#0;n#em#0;n#a#0;n#li#1;n#ul#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -80,9 +112,66 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="27" lean-forward="false" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+            <state relative-caret-position="315">
+              <caret line="39" column="39" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="39" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customerController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="statisticsController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/viewsController/statisticsController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ordersList.xtpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/inc/ordersList.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="14" column="68" lean-forward="true" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#li#0;n#ul#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customerList.xtpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/customer/customerList.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="public.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/js/public.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="1960" column="9" lean-forward="true" selection-start-line="1960" selection-start-column="9" selection-end-line="1960" selection-end-column="9" />
+              <folding>
+                <marker date="1510566293790" expanded="true" signature="46415:46428" ph="..." />
+                <marker date="1510566293790" expanded="true" signature="53453:53466" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,7 +188,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>/gps/warehouse/toList</find>
       <find>&quot;/gps/warehouse/toAdd&quot;</find>
       <find>{{include('./../inc/page_list')}}</find>
       <find>{{include('./../inc/warehouse_side_nav')}}</find>
@@ -129,6 +217,7 @@
       <find>${</find>
       <find>您的账号暂无权限查看</find>
       <find>verifyCode</find>
+      <find>selectChange</find>
     </findStrings>
     <replaceStrings>
       <replace>lang=&quot;en&quot;</replace>
@@ -165,6 +254,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -174,11 +268,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/administrative/create.xtpl" />
-        <option value="$PROJECT_DIR$/views/administrative/edit.xtpl" />
-        <option value="$PROJECT_DIR$/views/administrative/equipmentCreate.xtpl" />
-        <option value="$PROJECT_DIR$/views/administrative/list.xtpl" />
-        <option value="$PROJECT_DIR$/views/administrative/equipment_edit.jsp" />
         <option value="$PROJECT_DIR$/views/administrative/equipmentList.xtpl" />
         <option value="$PROJECT_DIR$/views/employee/list.xtpl" />
         <option value="$PROJECT_DIR$/views/employee/invite.xtpl" />
@@ -208,23 +297,28 @@
         <option value="$PROJECT_DIR$/util/commonUtil.js" />
         <option value="$PROJECT_DIR$/views/inc/sideNav.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/pagination.xtpl" />
-        <option value="$PROJECT_DIR$/views/home/home.xtpl" />
         <option value="$PROJECT_DIR$/controller/viewsController/contactController.js" />
-        <option value="$PROJECT_DIR$/controller/viewsController/homeController.js" />
         <option value="$PROJECT_DIR$/views/dataStatistics/personList.xtpl" />
         <option value="$PROJECT_DIR$/public/css/statistics.less" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/dataStatistics/personDetail.xtpl" />
         <option value="$PROJECT_DIR$/controller/viewsController/statisticsController.js" />
         <option value="$PROJECT_DIR$/views/dataStatistics/personBusiness.xtpl" />
         <option value="$PROJECT_DIR$/views/dataStatistics/businessList.xtpl" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.eslintrc.js" />
-        <option value="$PROJECT_DIR$/views/inc/header.xtpl" />
         <option value="$PROJECT_DIR$/controller/common.js" />
         <option value="$PROJECT_DIR$/util/log4js.js" />
         <option value="$PROJECT_DIR$/util/log4.js" />
+        <option value="$PROJECT_DIR$/views/home/home.xtpl" />
+        <option value="$PROJECT_DIR$/controller/viewsController/homeController.js" />
+        <option value="$PROJECT_DIR$/views/inc/header.xtpl" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/inc/filtrate.xtpl" />
+        <option value="$PROJECT_DIR$/views/inc/ordersList.xtpl" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/controller/viewsController/customerController.js" />
+        <option value="$PROJECT_DIR$/views/customer/customerList.xtpl" />
+        <option value="$PROJECT_DIR$/public/js/public.js" />
       </list>
     </option>
   </component>
@@ -295,60 +389,56 @@
         <subPane>
           <expand>
             <path>
-              <item name="kuaisd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kuaisd" type="462c0819:PsiDirectoryNode" />
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="kuaisd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kuaisd" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kuaisd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kuaisd" type="462c0819:PsiDirectoryNode" />
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="kuaisd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kuaisd" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="viewsController" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="kuaisd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kuaisd" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="kuaisd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kuaisd" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-              <item name="error" type="462c0819:PsiDirectoryNode" />
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="kuaisd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kuaisd" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-              <item name="rate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kuaisd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kuaisd" type="462c0819:PsiDirectoryNode" />
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="kuaisd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kuaisd" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kuaisd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kuaisd" type="462c0819:PsiDirectoryNode" />
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="kuaisd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kuaisd" type="462c0819:PsiDirectoryNode" />
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="customer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="inc" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -383,16 +473,16 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\develop\kuaisd\views\organization" />
+      <recent name="E:\develop\kuaisd" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\develop\ksd_web\public" />
       <recent name="E:\develop\kuaisd\public\img" />
       <recent name="E:\develop\kuaisd\controller\viewsController" />
       <recent name="E:\develop\kuaisd\public" />
       <recent name="E:\develop\kuaisd\views\inc" />
-      <recent name="E:\develop\kuaisd\views\organization" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\develop\kuaisd\views\organization" />
-      <recent name="E:\develop\kuaisd" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -504,7 +594,7 @@
       <workItem from="1508222380535" duration="108000" />
       <workItem from="1508308645099" duration="705000" />
       <workItem from="1510278769456" duration="6998000" />
-      <workItem from="1510541449228" duration="26000" />
+      <workItem from="1510541449228" duration="15427000" />
     </task>
     <task id="LOCAL-00001" summary="增加权限等路由  2017年8月16日18:28:04">
       <created>1502879359304</created>
@@ -573,7 +663,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233379000" />
+    <option name="totallyTimeSpent" value="248780000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -595,9 +685,9 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8444688" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.029572837" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33187294" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22343922" sideWeight="0.48946258" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22124863" sideWeight="0.48946258" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -659,6 +749,12 @@
           <line>329</line>
           <option name="timeStamp" value="179" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/controller/viewsController/homeController.js</url>
+          <line>69</line>
+          <properties />
+          <option name="timeStamp" value="201" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -668,381 +764,11 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="184" />
+      <option name="time" value="211" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="uml://JavaScript-modules-diagram/E:/develop/kuaisd">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JavaScript-modules-diagram</ID>
-          <OriginalElement>$PROJECT_DIR$</OriginalElement>
-          <nodes>
-            <node x="" y="">$PROJECT_DIR$/views/errorpage/404.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/public/css/common/address_list_header.css</node>
-            <node x="" y="">$PROJECT_DIR$/app.js#bodyParser#183;E:/develop/kuaisd/app.js#common#313;E:/develop/kuaisd/app.js#cookieParser#138;E:/develop/kuaisd/app.js#express#4;E:/develop/kuaisd/app.js#favicon#66;E:/develop/kuaisd/app.js#index#274;E:/develop/kuaisd/app.js#lessMiddleware#224;E:/develop/kuaisd/app.js#log4js#106;E:/develop/kuaisd/app.js#path#38;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/hbs/examples/partial/app.js#express#54;E:/develop/kuaisd/node_modules/hbs/examples/partial/app.js#fs#16;E:/develop/kuaisd/node_modules/hbs/examples/partial/app.js#hbs#88;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/hbs/examples/extend/app.js#express#17;E:/develop/kuaisd/node_modules/hbs/examples/extend/app.js#hbs#51;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/application.js#Router#274;E:/develop/kuaisd/node_modules/express/lib/application.js#View#485;E:/develop/kuaisd/node_modules/express/lib/application.js#compileETag#557;E:/develop/kuaisd/node_modules/express/lib/application.js#compileQueryParser#614;E:/develop/kuaisd/node_modules/express/lib/application.js#compileTrust#672;E:/develop/kuaisd/node_modules/express/lib/application.js#debug#432;E:/develop/kuaisd/node_modules/express/lib/application.js#deprecate#709;E:/develop/kuaisd/node_modules/express/lib/application.js#finalhandler#230;E:/develop/kuaisd/node_modules/express/lib/application.js#flatten#753;E:/develop/kuaisd/node_modules/express/lib/application.js#http#515;E:/develop/kuaisd/node_modules/express/lib/application.js#merge#793;E:/develop/kuaisd/node_modules/express/lib/application.js#methods#308;E:/develop/kuaisd/node_modules/express/lib/application.js#middleware#342;E:/develop/kuaisd/node_modules/express/lib/application.js#query#389;E:/develop/kuaisd/node_modules/express/lib/application.js#resolve#839;E:/develop/kuaisd/node_modules/express/lib/application.js#setPrototypeOf#868;</node>
-            <node x="" y="">$PROJECT_DIR$/views/gps/applyDetail.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/gps/applyDisagree.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/gps/applyExpress.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/gps/applyToface.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/array-flatten/array-flatten.js</node>
-            <node x="" y="">$PROJECT_DIR$/views/privilege/assignRoles.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtemplate/lib/compiler/ast.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/hbs/lib/async.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/request/lib/auth.js#Auth#4752;E:/develop/kuaisd/node_modules/request/lib/auth.js#caseless#18;E:/develop/kuaisd/node_modules/request/lib/auth.js#helpers#80;E:/develop/kuaisd/node_modules/request/lib/auth.js#uuid#53;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/aws4/aws4.js</node>
-            <node x="" y="">$PROJECT_DIR$/public/css/common/base.css</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/debug/src/browser.js#debug.js#130;</node>
-            <node x="" y="">$PROJECT_DIR$/views/dataStatistics/businessList.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/combined-stream/lib/combined_stream.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtemplate/lib/runtime/commands.js#Scope#62;E:/develop/kuaisd/node_modules/xtemplate/lib/runtime/commands.js#util#94;</node>
-            <node x="" y="">$PROJECT_DIR$/controller/common.js</node>
-            <node x="" y="">$PROJECT_DIR$/views/inc/common.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/inc/compact_info.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtemplate/lib/compiler.js#XTemplateRuntime#65;E:/develop/kuaisd/node_modules/xtemplate/lib/compiler.js#ast.js#161;E:/develop/kuaisd/node_modules/xtemplate/lib/compiler.js#compilerTools#323;E:/develop/kuaisd/node_modules/xtemplate/lib/compiler.js#parser#110;</node>
-            <node x="" y="">$PROJECT_DIR$/controller/viewsController/contactController.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/tough-cookie/lib/cookie.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/request/lib/cookies.js#tough#18;</node>
-            <node x="" y="">$PROJECT_DIR$/views/workflow/create.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/administrative/create.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/company/create.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/organization/create.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/public/cropper/cropper.js#jquery#288;</node>
-            <node x="" y="">$PROJECT_DIR$/views/inc/cssSources.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/inc/css_source.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/controller/viewsController/customerController.js</node>
-            <node x="" y="">$PROJECT_DIR$/views/customer/customerDetail.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/customer/customerList.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/debug/src/debug.js#index.js#354;</node>
-            <node x="" y="">$PROJECT_DIR$/views/contacts/department.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/workflow/detail.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/company/detail.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/organization/detail.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/feedback/detail.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/workflow/edit.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/administrative/edit.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/company/edit.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/organization/edit.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/personal/editFile.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/inc/entry_info.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/administrative/equipmentCreate.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/administrative/equipmentEdit.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/administrative/equipmentList.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/express.js#EventEmitter#233;E:/develop/kuaisd/node_modules/express/lib/express.js#Route#349;E:/develop/kuaisd/node_modules/express/lib/express.js#Router#388;E:/develop/kuaisd/node_modules/express/lib/express.js#index.js#1513;E:/develop/kuaisd/node_modules/express/lib/express.js#mixin#269;E:/develop/kuaisd/node_modules/express/lib/express.js#proto#311;E:/develop/kuaisd/node_modules/express/lib/express.js#query.js#1465;E:/develop/kuaisd/node_modules/express/lib/express.js#req#422;E:/develop/kuaisd/node_modules/express/lib/express.js#res#454;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/form-data/lib/form_data.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/request/lib/getProxyFromURI.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/request/lib/har.js#Har#4803;E:/develop/kuaisd/node_modules/request/lib/har.js#extend#113;E:/develop/kuaisd/node_modules/request/lib/har.js#fs#18;E:/develop/kuaisd/node_modules/request/lib/har.js#qs#41;E:/develop/kuaisd/node_modules/request/lib/har.js#validate#73;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/hbs/lib/hbs.js#async#90;E:/develop/kuaisd/node_modules/hbs/lib/hbs.js#create#387;E:/develop/kuaisd/node_modules/hbs/lib/hbs.js#fs#4;E:/develop/kuaisd/node_modules/hbs/lib/hbs.js#path#28;E:/develop/kuaisd/node_modules/hbs/lib/hbs.js#walk#63;</node>
-            <node x="" y="">$PROJECT_DIR$/views/inc/header.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/request/lib/helpers.js#Buffer#113;E:/develop/kuaisd/node_modules/request/lib/helpers.js#crypto#73;E:/develop/kuaisd/node_modules/request/lib/helpers.js#jsonSafeStringify#18;</node>
-            <node x="" y="">$PROJECT_DIR$/views/question/hisList.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/home/home.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/controller/viewsController/homeController.js#request#45;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/node_modules/iconv-lite/lib/index.d.ts</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/iconv-lite/lib/index.d.ts</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/aws-sign2/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/http-signature/lib/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/statuses/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/parseurl/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/type-is/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/hawk/lib/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/methods/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/node_modules/on-finished/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/accepts/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/cookie/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/fresh/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/node_modules/qs/lib/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/vary/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/request/index.js#cookies#687;E:/develop/kuaisd/node_modules/request/index.js#extend#641;E:/develop/kuaisd/node_modules/request/index.js#helpers#740;E:/develop/kuaisd/node_modules/request/index.js#request.js#3705;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/node_modules/raw-body/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/node_modules/type-is/index.js</node>
-            <node x="" y="">mime;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/etag/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/cookie-parser/node_modules/cookie-signature/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/cookie-parser/node_modules/cookie/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/depd/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/debug/node_modules/ms/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/escape-html/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/qs/lib/index.js</node>
-            <node x="" y="">create;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/less-middleware/node_modules/node.extend/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/uuid/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtpl/index.js#version#65;E:/develop/kuaisd/node_modules/xtpl/index.js#xtpl.js#17;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/cookie-parser/index.js#cookie#190;E:/develop/kuaisd/node_modules/cookie-parser/index.js#signature#222;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/tunnel-agent/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/less-middleware/node_modules/less/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/morgan/index.js#auth#411;E:/develop/kuaisd/node_modules/morgan/index.js#debug#444;E:/develop/kuaisd/node_modules/morgan/index.js#deprecate#483;E:/develop/kuaisd/node_modules/morgan/index.js#onFinished#525;E:/develop/kuaisd/node_modules/morgan/index.js#onHeaders#565;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/index.js#deprecate#156;E:/develop/kuaisd/node_modules/body-parser/index.js#json.js#2302;E:/develop/kuaisd/node_modules/body-parser/index.js#raw.js#2373;E:/develop/kuaisd/node_modules/body-parser/index.js#text.js#2444;E:/develop/kuaisd/node_modules/body-parser/index.js#urlencoded.js#2522;</node>
-            <node x="" y="">Buffer;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/serve-favicon/index.js#Buffer#236;E:/develop/kuaisd/node_modules/serve-favicon/index.js#etag#270;E:/develop/kuaisd/node_modules/serve-favicon/index.js#fresh#297;E:/develop/kuaisd/node_modules/serve-favicon/index.js#fs#326;E:/develop/kuaisd/node_modules/serve-favicon/index.js#ms#349;E:/develop/kuaisd/node_modules/serve-favicon/index.js#parseUrl#372;E:/develop/kuaisd/node_modules/serve-favicon/index.js#path#407;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/less-middleware/node_modules/mkdirp/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/oauth-sign/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/mime-types/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/morgan/node_modules/basic-auth/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/routes/index.js#contactCtrl#613;E:/develop/kuaisd/routes/index.js#customerCtrl#203;E:/develop/kuaisd/routes/index.js#express#4;E:/develop/kuaisd/routes/index.js#homeCtrl#131;E:/develop/kuaisd/routes/index.js#organizationCtrl#283;E:/develop/kuaisd/routes/index.js#privilegeCtrl#951;E:/develop/kuaisd/routes/index.js#questionCtrl#451;E:/develop/kuaisd/routes/index.js#request#69;E:/develop/kuaisd/routes/index.js#settingsCtrl#871;E:/develop/kuaisd/routes/index.js#statisticsCtrl#691;E:/develop/kuaisd/routes/index.js#systemManagementCtrl#775;E:/develop/kuaisd/routes/index.js#warehouseCtrl#531;E:/develop/kuaisd/routes/index.js#workflowCtrl#371;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/morgan/node_modules/depd/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/debug/src/index.js#browser.js#186;E:/develop/kuaisd/node_modules/debug/src/index.js#node.js#239;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtpl/benchmark/index.js#Benchmark#104;E:/develop/kuaisd/node_modules/xtpl/benchmark/index.js#consolidate#371;E:/develop/kuaisd/node_modules/xtpl/benchmark/index.js#dust#256;E:/develop/kuaisd/node_modules/xtpl/benchmark/index.js#ejs#230;E:/develop/kuaisd/node_modules/xtpl/benchmark/index.js#handlebars#295;E:/develop/kuaisd/node_modules/xtpl/benchmark/index.js#hbs#419;E:/develop/kuaisd/node_modules/xtpl/benchmark/index.js#jade#202;E:/develop/kuaisd/node_modules/xtpl/benchmark/index.js#nunjucks#335;E:/develop/kuaisd/node_modules/xtpl/benchmark/index.js#path#174;E:/develop/kuaisd/node_modules/xtpl/benchmark/index.js#util#458;E:/develop/kuaisd/node_modules/xtpl/benchmark/index.js#xtpl#142;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/index.js#express.js#198;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/router/index.js#Layer#262;E:/develop/kuaisd/node_modules/express/lib/router/index.js#Route#230;E:/develop/kuaisd/node_modules/express/lib/router/index.js#debug#364;E:/develop/kuaisd/node_modules/express/lib/router/index.js#deprecate#412;E:/develop/kuaisd/node_modules/express/lib/router/index.js#flatten#456;E:/develop/kuaisd/node_modules/express/lib/router/index.js#methods#294;E:/develop/kuaisd/node_modules/express/lib/router/index.js#mixin#328;E:/develop/kuaisd/node_modules/express/lib/router/index.js#parseUrl#496;E:/develop/kuaisd/node_modules/express/lib/router/index.js#setPrototypeOf#532;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/morgan/node_modules/on-finished/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/morgan/node_modules/on-headers/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/serve-favicon/node_modules/etag/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/serve-favicon/node_modules/fresh/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/serve-favicon/node_modules/ms/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/serve-favicon/node_modules/parseurl/index.js</node>
-            <node x="" y="">strict;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtemplate/lib/index.js#Compiler#392;E:/develop/kuaisd/node_modules/xtemplate/lib/index.js#XTemplateRuntime#313;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/content-disposition/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/merge-descriptors/index.js</node>
-            <node x="" y="">sign;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/setprototypeof/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/path-to-regexp/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/forever-agent/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/serve-static/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/node_modules/bytes/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/range-parser/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/node_modules/content-type/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/extend/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/qs/lib/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/finalhandler/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/content-type/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/utils-merge/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/node_modules/depd/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/on-finished/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/node_modules/http-errors/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/caseless/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/encodeurl/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/views/index.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/employee/information.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/middleware/init.js#setPrototypeOf#230;</node>
-            <node x="" y="">$PROJECT_DIR$/views/employee/invite.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/isstream/isstream.js</node>
-            <node x="" y="">$PROJECT_DIR$/views/inc/jsSources.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/inc/js_source.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/lib/types/json.js#bytes#190;E:/develop/kuaisd/node_modules/body-parser/lib/types/json.js#contentType#219;E:/develop/kuaisd/node_modules/body-parser/lib/types/json.js#createError#261;E:/develop/kuaisd/node_modules/body-parser/lib/types/json.js#debug#302;E:/develop/kuaisd/node_modules/body-parser/lib/types/json.js#read#351;E:/develop/kuaisd/node_modules/body-parser/lib/types/json.js#typeis#381;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtpl/lib/koa.js#Path#96;E:/develop/kuaisd/node_modules/xtpl/lib/koa.js#xtpl#66;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/router/layer.js#debug#274;E:/develop/kuaisd/node_modules/express/lib/router/layer.js#pathRegexp#230;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtemplate/lib/runtime/linked-buffer.js#util#78;</node>
-            <node x="" y="">$PROJECT_DIR$/views/question/list.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/administrative/list.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/company/list.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/feedback/list.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/employee/list.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/log4js/lib/log4js.js</node>
-            <node x="" y="">$PROJECT_DIR$/views/organization/material.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/inc/metaData.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/less-middleware/lib/middleware.js#extend#168;E:/develop/kuaisd/node_modules/less-middleware/lib/middleware.js#fs#205;E:/develop/kuaisd/node_modules/less-middleware/lib/middleware.js#less#229;E:/develop/kuaisd/node_modules/less-middleware/lib/middleware.js#mkdirp#257;E:/develop/kuaisd/node_modules/less-middleware/lib/middleware.js#path#289;E:/develop/kuaisd/node_modules/less-middleware/lib/middleware.js#url#317;E:/develop/kuaisd/node_modules/less-middleware/lib/middleware.js#utilities#343;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/request/lib/multipart.js#Buffer#137;E:/develop/kuaisd/node_modules/request/lib/multipart.js#CombinedStream#45;E:/develop/kuaisd/node_modules/request/lib/multipart.js#Multipart#2642;E:/develop/kuaisd/node_modules/request/lib/multipart.js#isstream#93;E:/develop/kuaisd/node_modules/request/lib/multipart.js#uuid#18;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/debug/node.js#node.js#17;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/debug/src/node.js#debug.js#214;E:/develop/kuaisd/node_modules/debug/src/node.js#fs#4359;E:/develop/kuaisd/node_modules/debug/src/node.js#net#4528;E:/develop/kuaisd/node_modules/debug/src/node.js#tty#37;E:/develop/kuaisd/node_modules/debug/src/node.js#util#63;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/request/lib/oauth.js#Buffer#202;E:/develop/kuaisd/node_modules/request/lib/oauth.js#OAuth#3971;E:/develop/kuaisd/node_modules/request/lib/oauth.js#caseless#66;E:/develop/kuaisd/node_modules/request/lib/oauth.js#crypto#162;E:/develop/kuaisd/node_modules/request/lib/oauth.js#oauth#128;E:/develop/kuaisd/node_modules/request/lib/oauth.js#qs#43;E:/develop/kuaisd/node_modules/request/lib/oauth.js#url#18;E:/develop/kuaisd/node_modules/request/lib/oauth.js#uuid#101;</node>
-            <node x="" y="">$PROJECT_DIR$/views/inc/operate_logs.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/controller/viewsController/organizationController.js</node>
-            <node x="" y="">$PROJECT_DIR$/views/organization/organizationList.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtpl/package.json#version#2671;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtemplate/lib/compiler/parser.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/performance-now/lib/performance-now.js</node>
-            <node x="" y="">$PROJECT_DIR$/views/dataStatistics/personBusiness.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/dataStatistics/personDetail.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/privilege/personList.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/dataStatistics/personList.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/inc/pigeonhole_info.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/privilege/privilege.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/controller/viewsController/privilegeController.js</node>
-            <node x="" y="">$PROJECT_DIR$/views/organization/productCreate.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/organization/productDetail.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/organization/productEdit.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/har-validator/lib/node4/promise.js</node>
-            <node x="" y="">$PROJECT_DIR$/views/organization/publishList.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/middleware/query.js#merge#218;E:/develop/kuaisd/node_modules/express/lib/middleware/query.js#parseUrl#253;E:/develop/kuaisd/node_modules/express/lib/middleware/query.js#qs#289;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/request/lib/querystring.js#Querystring#1299;E:/develop/kuaisd/node_modules/request/lib/querystring.js#qs#18;E:/develop/kuaisd/node_modules/request/lib/querystring.js#querystring#41;</node>
-            <node x="" y="">$PROJECT_DIR$/controller/viewsController/questionController.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/lib/types/raw.js#bytes#144;E:/develop/kuaisd/node_modules/body-parser/lib/types/raw.js#debug#173;E:/develop/kuaisd/node_modules/body-parser/lib/types/raw.js#read#221;E:/develop/kuaisd/node_modules/body-parser/lib/types/raw.js#typeis#251;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/lib/read.js#createError#156;E:/develop/kuaisd/node_modules/body-parser/lib/read.js#getBody#197;E:/develop/kuaisd/node_modules/body-parser/lib/read.js#iconv#231;E:/develop/kuaisd/node_modules/body-parser/lib/read.js#onFinished#265;E:/develop/kuaisd/node_modules/body-parser/lib/read.js#zlib#305;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/request/lib/redirect.js#Redirect#4622;E:/develop/kuaisd/node_modules/request/lib/redirect.js#url#18;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/request/request.js#Auth#858;E:/develop/kuaisd/node_modules/request/request.js#Buffer#1123;E:/develop/kuaisd/node_modules/request/request.js#ForeverAgent#427;E:/develop/kuaisd/node_modules/request/request.js#FormData#471;E:/develop/kuaisd/node_modules/request/request.js#Har#822;E:/develop/kuaisd/node_modules/request/request.js#Multipart#942;E:/develop/kuaisd/node_modules/request/request.js#OAuth#897;E:/develop/kuaisd/node_modules/request/request.js#Querystring#771;E:/develop/kuaisd/node_modules/request/request.js#Redirect#994;E:/develop/kuaisd/node_modules/request/request.js#Tunnel#1042;E:/develop/kuaisd/node_modules/request/request.js#aws2#211;E:/develop/kuaisd/node_modules/request/request.js#aws4#243;E:/develop/kuaisd/node_modules/request/request.js#caseless#392;E:/develop/kuaisd/node_modules/request/request.js#cookies#663;E:/develop/kuaisd/node_modules/request/request.js#extend#507;E:/develop/kuaisd/node_modules/request/request.js#getProxyFromURI#702;E:/develop/kuaisd/node_modules/request/request.js#hawk#184;E:/develop/kuaisd/node_modules/request/request.js#helpers#624;E:/develop/kuaisd/node_modules/request/request.js#http#18;E:/develop/kuaisd/node_modules/request/request.js#httpSignature#270;E:/develop/kuaisd/node_modules/request/request.js#https#45;E:/develop/kuaisd/node_modules/request/request.js#isTypedArray#588;E:/develop/kuaisd/node_modules/request/request.js#isstream#538;E:/develop/kuaisd/node_modules/request/request.js#mime#316;E:/develop/kuaisd/node_modules/request/request.js#now#1077;E:/develop/kuaisd/node_modules/request/request.js#stream#126;E:/develop/kuaisd/node_modules/request/request.js#stringstream#349;E:/develop/kuaisd/node_modules/request/request.js#url#74;E:/develop/kuaisd/node_modules/request/request.js#util#99;E:/develop/kuaisd/node_modules/request/request.js#zlib#157;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/request.js#accepts#230;E:/develop/kuaisd/node_modules/express/lib/request.js#deprecate#264;E:/develop/kuaisd/node_modules/express/lib/request.js#fresh#401;E:/develop/kuaisd/node_modules/express/lib/request.js#http#373;E:/develop/kuaisd/node_modules/express/lib/request.js#isIP#315;E:/develop/kuaisd/node_modules/express/lib/request.js#parse#473;E:/develop/kuaisd/node_modules/express/lib/request.js#parseRange#431;E:/develop/kuaisd/node_modules/express/lib/request.js#proxyaddr#506;E:/develop/kuaisd/node_modules/express/lib/request.js#typeis#340;</node>
-            <node x="" y="">$PROJECT_DIR$/views/inc/requestpayout_info.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/personal/resetPassword.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/response.js#contentDisposition#194;E:/develop/kuaisd/node_modules/express/lib/response.js#cookie#793;E:/develop/kuaisd/node_modules/express/lib/response.js#deprecate#251;E:/develop/kuaisd/node_modules/express/lib/response.js#encodeUrl#295;E:/develop/kuaisd/node_modules/express/lib/response.js#escapeHtml#333;E:/develop/kuaisd/node_modules/express/lib/response.js#http#374;E:/develop/kuaisd/node_modules/express/lib/response.js#isAbsolute#415;E:/develop/kuaisd/node_modules/express/lib/response.js#merge#554;E:/develop/kuaisd/node_modules/express/lib/response.js#normalizeType#651;E:/develop/kuaisd/node_modules/express/lib/response.js#normalizeTypes#706;E:/develop/kuaisd/node_modules/express/lib/response.js#onFinished#450;E:/develop/kuaisd/node_modules/express/lib/response.js#path#491;E:/develop/kuaisd/node_modules/express/lib/response.js#send#825;E:/develop/kuaisd/node_modules/express/lib/response.js#setCharset#758;E:/develop/kuaisd/node_modules/express/lib/response.js#sign#597;E:/develop/kuaisd/node_modules/express/lib/response.js#statuses#519;E:/develop/kuaisd/node_modules/express/lib/response.js#vary#931;</node>
-            <node x="" y="">$PROJECT_DIR$/views/privilege/rolesList.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/router/route.js#Layer#324;E:/develop/kuaisd/node_modules/express/lib/router/route.js#debug#230;E:/develop/kuaisd/node_modules/express/lib/router/route.js#flatten#284;E:/develop/kuaisd/node_modules/express/lib/router/route.js#methods#356;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtemplate/lib/runtime.js#LinkedBuffer#197;E:/develop/kuaisd/node_modules/xtemplate/lib/runtime.js#Scope#157;E:/develop/kuaisd/node_modules/xtemplate/lib/runtime.js#nativeCommands#86;E:/develop/kuaisd/node_modules/xtemplate/lib/runtime.js#util#48;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtemplate/lib/runtime/scope.js</node>
-            <node x="" y="">$PROJECT_DIR$/controller/viewsController/settingsController.js</node>
-            <node x="" y="">$PROJECT_DIR$/controller/viewsController/statisticsController.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/json-stringify-safe/stringify.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/stringstream/stringstream.js</node>
-            <node x="" y="">$PROJECT_DIR$/controller/viewsController/systemManagementController.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/lib/types/text.js#bytes#144;E:/develop/kuaisd/node_modules/body-parser/lib/types/text.js#contentType#173;E:/develop/kuaisd/node_modules/body-parser/lib/types/text.js#debug#215;E:/develop/kuaisd/node_modules/body-parser/lib/types/text.js#read#264;E:/develop/kuaisd/node_modules/body-parser/lib/types/text.js#typeis#294;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtemplate/lib/compiler/tools.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/request/lib/tunnel.js#Tunnel#4513;E:/develop/kuaisd/node_modules/request/lib/tunnel.js#tunnel#43;E:/develop/kuaisd/node_modules/request/lib/tunnel.js#url#18;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/lib/types/urlencoded.js#bytes#190;E:/develop/kuaisd/node_modules/body-parser/lib/types/urlencoded.js#contentType#219;E:/develop/kuaisd/node_modules/body-parser/lib/types/urlencoded.js#createError#261;E:/develop/kuaisd/node_modules/body-parser/lib/types/urlencoded.js#debug#302;E:/develop/kuaisd/node_modules/body-parser/lib/types/urlencoded.js#deprecate#357;E:/develop/kuaisd/node_modules/body-parser/lib/types/urlencoded.js#index.js#4477;E:/develop/kuaisd/node_modules/body-parser/lib/types/urlencoded.js#querystring#4539;E:/develop/kuaisd/node_modules/body-parser/lib/types/urlencoded.js#read#404;E:/develop/kuaisd/node_modules/body-parser/lib/types/urlencoded.js#typeis#434;</node>
-            <node x="" y="">$PROJECT_DIR$/routes/users.js#express#4;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtemplate/lib/runtime/util.js#escapeHtml#143;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/less-middleware/lib/utilities.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/utils.js#compileETag#3405;E:/develop/kuaisd/node_modules/express/lib/utils.js#compileQueryParser#3955;E:/develop/kuaisd/node_modules/express/lib/utils.js#compileTrust#4605;E:/develop/kuaisd/node_modules/express/lib/utils.js#contentDisposition#198;E:/develop/kuaisd/node_modules/express/lib/utils.js#contentType#255;E:/develop/kuaisd/node_modules/express/lib/utils.js#deprecate#298;E:/develop/kuaisd/node_modules/express/lib/utils.js#etag#415;E:/develop/kuaisd/node_modules/express/lib/utils.js#flatten#342;E:/develop/kuaisd/node_modules/express/lib/utils.js#isAbsolute#1267;E:/develop/kuaisd/node_modules/express/lib/utils.js#mime#389;E:/develop/kuaisd/node_modules/express/lib/utils.js#normalizeType#1874;E:/develop/kuaisd/node_modules/express/lib/utils.js#normalizeTypes#2152;E:/develop/kuaisd/node_modules/express/lib/utils.js#proxyaddr#443;E:/develop/kuaisd/node_modules/express/lib/utils.js#qs#482;E:/develop/kuaisd/node_modules/express/lib/utils.js#querystring#506;E:/develop/kuaisd/node_modules/express/lib/utils.js#setCharset#5202;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/view.js#__express#1537;E:/develop/kuaisd/node_modules/express/lib/view.js#debug#230;E:/develop/kuaisd/node_modules/express/lib/view.js#fs#304;E:/develop/kuaisd/node_modules/express/lib/view.js#path#276;</node>
-            <node x="" y="">walk;</node>
-            <node x="" y="">$PROJECT_DIR$/controller/viewsController/warehouseController.js</node>
-            <node x="" y="">$PROJECT_DIR$/views/gps/warehouseCreate.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/gps/warehouseDetail.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/gps/warehouseEdit.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/gps/warehouseList.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/organization/warehouseList.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/views/gps/warehousePutin.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/controller/viewsController/workflowController.js</node>
-            <node x="" y="">$PROJECT_DIR$/views/workflow/workflowList.xtpl</node>
-            <node x="" y="">$PROJECT_DIR$/bin/www#app#58;E:/develop/kuaisd/bin/www#debug#87;E:/develop/kuaisd/bin/www#http#133;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/xtpl/lib/xtpl.js#Path#110;E:/develop/kuaisd/node_modules/xtpl/lib/xtpl.js#fs#86;E:/develop/kuaisd/node_modules/xtpl/lib/xtpl.js#index.d.ts#223;E:/develop/kuaisd/node_modules/xtpl/lib/xtpl.js#index.js#284;</node>
-            <node x="" y="">${bean.emp_logo}</node>
-            <node x="" y="">${bean.image_url }</node>
-            <node x="" y="">${bean.image_url}</node>
-            <node x="" y="">${bean.thumbnail_120_90}</node>
-            <node x="" y="">${bean.thumbnail}</node>
-            <node x="" y="">${bean2.thumbnail_120_90}</node>
-            <node x="" y="">${image_url_96}</node>
-            <node x="" y="">${materialList.small_image_url }</node>
-            <node x="" y="">${personal.emp_logo }</node>
-            <node x="" y="">${vo.card_url_one }</node>
-            <node x="" y="">${vo.card_url_two }</node>
-            <node x="" y="">${vo.diploma_url }</node>
-            <node x="" y="">${vo.image_url}</node>
-            <node x="" y="">${vo.parent_logo }</node>
-            <node x="" y="">../static/css/orderDetails.css</node>
-            <node x="" y="">../static/img/a.jpg</node>
-            <node x="" y="">/static/cropper/cropper.js</node>
-            <node x="" y="">/static/cropper/cropper.min.css</node>
-            <node x="" y="">/static/css/common/base.css</node>
-            <node x="" y="">/static/css/common/bootstrap.min.css</node>
-            <node x="" y="">/static/css/company.css</node>
-            <node x="" y="">/static/css/contacts.css</node>
-            <node x="" y="">/static/css/customerService.css</node>
-            <node x="" y="">/static/css/employee/information.css</node>
-            <node x="" y="">/static/css/employee/invite.css</node>
-            <node x="" y="">/static/css/employee/listCon.css</node>
-            <node x="" y="">/static/css/home.css</node>
-            <node x="" y="">/static/css/login.css</node>
-            <node x="" y="">/static/css/manufacturing.css</node>
-            <node x="" y="">/static/css/organization/create.css</node>
-            <node x="" y="">/static/css/organization/detail.css</node>
-            <node x="" y="">/static/css/personal/edit_pwd.css</node>
-            <node x="" y="">/static/css/privilege.css</node>
-            <node x="" y="">/static/css/product/create.css</node>
-            <node x="" y="">/static/css/product/detail.css</node>
-            <node x="" y="">/static/css/product/shelves_list.css</node>
-            <node x="" y="">/static/css/public.css</node>
-            <node x="" y="">/static/css/question/his_list.css</node>
-            <node x="" y="">/static/css/questions.css</node>
-            <node x="" y="">/static/css/statistics.css</node>
-            <node x="" y="">/static/css/warehouse.css</node>
-            <node x="" y="">/static/dialog/dialog-layer.css</node>
-            <node x="" y="">/static/dialog/dialog-layer.js</node>
-            <node x="" y="">/static/icon/favicon.ico</node>
-            <node x="" y="">/static/img/404.png</node>
-            <node x="" y="">/static/img/employee/failIcon.png</node>
-            <node x="" y="">/static/img/employee/imgAdd.png</node>
-            <node x="" y="">/static/img/employee/inviteIcon.png</node>
-            <node x="" y="">/static/img/employee/perIcon.png</node>
-            <node x="" y="">/static/img/employee/successIcon.png</node>
-            <node x="" y="">/static/img/favicon.ico</node>
-            <node x="" y="">/static/img/header-nav-icon.png</node>
-            <node x="" y="">/static/img/loading_icon.gif</node>
-            <node x="" y="">/static/img/login_logo.png</node>
-            <node x="" y="">/static/img/logo.png</node>
-            <node x="" y="">/static/img/normal_photo.png</node>
-            <node x="" y="">/static/img/normal_photo_bg.png</node>
-            <node x="" y="">/static/img/product/edit_white_icon.png</node>
-            <node x="" y="">/static/img/product/icon_delete.png</node>
-            <node x="" y="">/static/img/product/icon_shape_up.png</node>
-            <node x="" y="">/static/img/product/icon_update.png</node>
-            <node x="" y="">/static/img/product/province.png</node>
-            <node x="" y="">/static/jedate/jquery.jedate.min.js</node>
-            <node x="" y="">/static/jedate/skin/jedate.css</node>
-            <node x="" y="">/static/js/base.js</node>
-            <node x="" y="">/static/js/citySet.js</node>
-            <node x="" y="">/static/js/common/check.js</node>
-            <node x="" y="">/static/js/common/financeBox.js</node>
-            <node x="" y="">/static/js/common/header.js</node>
-            <node x="" y="">/static/js/common/is_num.js</node>
-            <node x="" y="">/static/js/common/jquery-1.11.3.js</node>
-            <node x="" y="">/static/js/common/jquery.cookie-1.3.js</node>
-            <node x="" y="">/static/js/common/mouse_hover.js</node>
-            <node x="" y="">/static/js/common/validate_form.js</node>
-            <node x="" y="">/static/js/contacts.js</node>
-            <node x="" y="">/static/js/customerService.js</node>
-            <node x="" y="">/static/js/echarts.min.js</node>
-            <node x="" y="">/static/js/employee/information.js</node>
-            <node x="" y="">/static/js/employee/invite.js</node>
-            <node x="" y="">/static/js/employee/list.js</node>
-            <node x="" y="">/static/js/jquery-1.11.3.min.js</node>
-            <node x="" y="">/static/js/manufacturing.js</node>
-            <node x="" y="">/static/js/organization/create.js</node>
-            <node x="" y="">/static/js/page/page.js</node>
-            <node x="" y="">/static/js/personal/edit_pwd.js</node>
-            <node x="" y="">/static/js/product/create.js</node>
-            <node x="" y="">/static/js/product/detail.js</node>
-            <node x="" y="">/static/js/product/shelves_list.js</node>
-            <node x="" y="">/static/js/public.js</node>
-            <node x="" y="">/static/js/push/push.js</node>
-            <node x="" y="">/static/js/question/his_list.js</node>
-            <node x="" y="">/static/js/statistics.js</node>
-            <node x="" y="">/static/js/warehouse.js</node>
-            <node x="" y="">/static/zTree/css/zTreeStyleUserDefined.css</node>
-            <node x="" y="">/static/zTree/js/jquery.ztree.all.js</node>
-            <node x="" y="">benchmark</node>
-            <node x="" y="">consolidate</node>
-            <node x="" y="">crypto</node>
-            <node x="" y="">debug</node>
-            <node x="" y="">dustjs-linkedin</node>
-            <node x="" y="">ejs</node>
-            <node x="" y="">EventEmitter;</node>
-            <node x="" y="">fs</node>
-            <node x="" y="">handlebars</node>
-            <node x="" y="">http</node>
-            <node x="" y="">https</node>
-            <node x="" y="">jade</node>
-            <node x="" y="">jquery</node>
-            <node x="" y="">__express;</node>
-            <node x="" y="">isIP;</node>
-            <node x="" y="">nunjucks</node>
-            <node x="" y="">resolve;</node>
-            <node x="" y="">querystring</node>
-            <node x="" y="">stream</node>
-            <node x="" y="">tty</node>
-            <node x="" y="">url</node>
-            <node x="" y="">util</node>
-            <node x="" y="">zlib</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.1" x="2709.0" y="3167.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>All</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/default-17.log" />
-    <entry file="file://$PROJECT_DIR$/logs/default17-21-17.log" />
-    <entry file="file://$PROJECT_DIR$/logs/default17-23-17.log" />
-    <entry file="file://$PROJECT_DIR$/logs/error17-23-17.log" />
-    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="171" column="2" lean-forward="false" selection-start-line="171" selection-start-column="2" selection-end-line="171" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -1109,13 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/home/home.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/viewsController/contactController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -1127,20 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="488">
           <caret line="363" column="7" lean-forward="true" selection-start-line="363" selection-start-column="7" selection-end-line="363" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/dataStatistics/personList.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="77" column="56" lean-forward="false" selection-start-line="77" selection-start-column="52" selection-end-line="77" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/dataStatistics/personBusiness.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1822">
-          <caret line="16" column="51" lean-forward="true" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -1187,31 +892,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/public.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/inc/sideNav.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1764">
           <caret line="84" column="38" lean-forward="false" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/viewsController/statisticsController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/dataStatistics/businessList.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1240,62 +924,7 @@
     <entry file="file://$PROJECT_DIR$/logs/error/2017-09-27.log" />
     <entry file="file://$PROJECT_DIR$/logs/default/2017-09-27.log" />
     <entry file="file://$PROJECT_DIR$/logs/default/2017-08-22.log" />
-    <entry file="file://$PROJECT_DIR$/views/inc/header.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="44" column="39" lean-forward="true" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="27" lean-forward="false" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/util/log4js.js" />
-    <entry file="file://$PROJECT_DIR$/controller/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/viewsController/homeController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="65" column="18" lean-forward="false" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/log4.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/commonUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logs/default/2017-11-10.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1317,11 +946,177 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/util/commonUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/log4.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/dataStatistics/businessList.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="246" column="14" lean-forward="false" selection-start-line="246" selection-start-column="14" selection-end-line="246" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/cropper/cropper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+          <folding>
+            <marker date="1510543002014" expanded="true" signature="27730:27911" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/error/2017-11-13.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+        <state relative-caret-position="182">
+          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/home/home.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/dataStatistics/personBusiness.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3444">
+          <caret line="16" column="51" lean-forward="true" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/dataStatistics/personList.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-483">
+          <caret line="77" column="56" lean-forward="false" selection-start-line="77" selection-start-column="52" selection-end-line="77" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/filtrate.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2268">
+          <caret line="108" column="21" lean-forward="true" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#4;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/viewsController/homeController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="81" column="39" lean-forward="true" selection-start-line="81" selection-start-column="39" selection-end-line="81" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="91" column="9" lean-forward="true" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/header.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="78" lean-forward="true" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="78" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#span#0;n#em#0;n#a#0;n#li#1;n#ul#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="39" column="39" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/ordersList.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="68" lean-forward="true" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#li#0;n#ul#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/viewsController/statisticsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/customer/customerList.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/public.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="1960" column="9" lean-forward="true" selection-start-line="1960" selection-start-column="9" selection-end-line="1960" selection-end-column="9" />
+          <folding>
+            <marker date="1510566293790" expanded="true" signature="46415:46428" ph="..." />
+            <marker date="1510566293790" expanded="true" signature="53453:53466" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

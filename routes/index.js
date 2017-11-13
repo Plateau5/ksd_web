@@ -29,11 +29,17 @@ router.post('/login', homeCtrl.LOGIN_CONTROL);
 // 首页访问路由
 router.get('/home', homeCtrl.VIEW_HOME_DATA);
 
+router.post('/api/message/getNotice', homeCtrl.API_MESSAGE_GETNOTICE);
 
+
+// 客户访问路径
+router.all('/customer/system', customerCtrl.VIEW_CUSTOMER_SYSTEM);
+// 客户-贷款管理-访问路径
+router.all('/customer/loan/system', customerCtrl.VIEW_CUSTOMER_LOAN_SYSTEM);
+// 客户-贷款管理-待分配
+router.all('/customer/loan/pendingAllot', customerCtrl.VIEW_CUSTOMER_LOAN_PENDINGALLOT);
 // 客户管理访问路径
-router.get('/customer', customerCtrl.VIEW_CUSTOMER_DATA);
-// 客户管理访问路径
-router.get('/customer/detail', customerCtrl.VIEW_CUSTOMER_DETAIL_DATA);
+router.all('/customer/detail', customerCtrl.VIEW_CUSTOMER_DETAIL_DATA);
 
 
 // 机构管理访问路径
