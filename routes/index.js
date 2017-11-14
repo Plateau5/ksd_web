@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var request = require('request');
+// var request = require('request');
 // Require the controllers.
 var homeCtrl = require('../controller/viewsController/homeController');
 var customerCtrl = require('../controller/viewsController/customerController');
@@ -34,79 +34,80 @@ router.post('/api/message/getNotice', homeCtrl.API_MESSAGE_GETNOTICE);
 
 // 客户访问路径
 router.get('/customer/system', customerCtrl.VIEW_CUSTOMER_SYSTEM);
-// 客户-贷款管理-访问路径
+// 客户-贷款管理-访问路径 1016
 router.get('/customer/loan/system', customerCtrl.VIEW_CUSTOMER_LOAN_SYSTEM);
-// 客户-贷款管理-待分配
+// 客户-贷款管理-待分配 1017
 router.all('/customer/loan/pendingAllot', customerCtrl.VIEW_CUSTOMER_LOAN_PENDINGALLOT);
-// 客户-贷款管理-已分配
+// 客户-贷款管理-已分配 1018
 router.all('/customer/loan/alreadyAllot', customerCtrl.VIEW_CUSTOMER_LOAN_ALREADYALLOT);
-// 客户-贷款管理-已录入
+// 客户-贷款管理-已录入 1019
 router.all('/customer/loan/entered', customerCtrl.VIEW_CUSTOMER_LOAN_ENTERED);
-// 客户-贷款管理-已通过
+// 客户-贷款管理-已通过 1020
 router.all('/customer/loan/passed', customerCtrl.VIEW_CUSTOMER_LOAN_PASSED);
-// 客户-贷款管理-未通过
+// 客户-贷款管理-未通过 1021
 router.all('/customer/loan/unpass', customerCtrl.VIEW_CUSTOMER_LOAN_UNPASS);
-// 客户-合同管理-访问路径
+
+// 客户-合同管理-访问路径 1260
 router.get('/customer/compact/system', customerCtrl.VIEW_CUSTOMER_COMPACT_SYSTEM);
-// 客户-合同管理-待出合同
+// 客户-合同管理-待出合同 1261
 router.all('/customer/compact/pendingPass', customerCtrl.VIEW_CUSTOMER_COMPACT_PENDINGPASS);
-// 客户-合同管理-已通过
+// 客户-合同管理-已通过 1262
 router.all('/customer/compact/pass', customerCtrl.VIEW_CUSTOMER_COMPACT_PASS);
-// 客户-合同管理-未通过
+// 客户-合同管理-未通过 1263
 router.all('/customer/compact/unpass', customerCtrl.VIEW_CUSTOMER_COMPACT_UNPASS);
 
-// 客户-请款管理-访问路径
+// 客户-请款管理-访问路径 1225
 router.get('/customer/requestpayout/system', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_SYSTEM);
-// 客户-请款管理-待请款
+// 客户-请款管理-待请款 1202
 router.all('/customer/requestpayout/pendingDispose', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PENDINGDISPOSE);
-// 客户-请款管理-待通过
+// 客户-请款管理-待通过 1203
 router.all('/customer/requestpayout/pendingPass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PENDINGPASS);
-// 客户-请款管理-待审批
+// 客户-请款管理-待审批 1110
 router.all('/customer/requestpayout/pendingAudit', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PENDINGAUDIT);
-// 客户-请款管理-已通过
+// 客户-请款管理-已通过 1204
 router.all('/customer/requestpayout/pass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PASS);
-// 客户-请款管理-未通过
+// 客户-请款管理-未通过 1205
 router.all('/customer/requestpayout/unpass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_UNPASS);
 
-// 客户-审批管理-访问路径
+// 客户-审批管理-访问路径 1226
 router.get('/customer/approval/system', customerCtrl.VIEW_CUSTOMER_APPROVAL_SYSTEM);
-// 客户-审批管理-待审批
+// 客户-审批管理-待审批 1162
 router.all('/customer/approval/pendingAudit', customerCtrl.VIEW_CUSTOMER_APPROVAL_PENDINGAUDIT);
-// 客户-审批管理-已通过
+// 客户-审批管理-已通过 1206
 router.all('/customer/approval/pass', customerCtrl.VIEW_CUSTOMER_APPROVAL_PASS);
-// 客户-审批管理-未通过
+// 客户-审批管理-未通过 1207
 router.all('/customer/approval/unpass', customerCtrl.VIEW_CUSTOMER_APPROVAL_UNPASS);
-// 客户-审批管理-已回款
+// 客户-审批管理-已回款 1164
 router.all('/customer/approval/return', customerCtrl.VIEW_CUSTOMER_APPROVAL_RETURN);
 
-// 客户-款项管理-访问路径
+// 客户-款项管理-访问路径 1227
 router.get('/customer/financial/system', customerCtrl.VIEW_CUSTOMER_FINANCIAL_SYSTEM);
-// 客户-款项管理-待回款
+// 客户-款项管理-待回款 1208
 router.all('/customer/financial/pendingReturn', customerCtrl.VIEW_CUSTOMER_FINANCIAL_PENDINGRETURN);
-// 客户-款项管理-待审批
+// 客户-款项管理-待审批 1170
 router.all('/customer/financial/pendingAudit', customerCtrl.VIEW_CUSTOMER_FINANCIAL_PENDINGAUDIT);
-// 客户-款项管理-已通过
+// 客户-款项管理-已通过 1209
 router.all('/customer/financial/pass', customerCtrl.VIEW_CUSTOMER_FINANCIAL_PASS);
-// 客户-款项管理-未通过
+// 客户-款项管理-未通过 1210
 router.all('/customer/financial/unpass', customerCtrl.VIEW_CUSTOMER_FINANCIAL_UNPASS);
-// 客户-款项管理-已回款
+// 客户-款项管理-已回款 1172
 router.all('/customer/financial/return', customerCtrl.VIEW_CUSTOMER_FINANCIAL_RETURN);
 
-// 客户-归档管理-访问路径
-router.all('/customer/pigeonhole/system', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_SYSTEM);
-// 客户-归档管理-待处理
+// 客户-归档管理-访问路径 1228
+router.get('/customer/pigeonhole/system', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_SYSTEM);
+// 客户-归档管理-待处理 1177
 router.all('/customer/pigeonhole/pending', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_PENDING);
-// 客户-归档管理-已归档
+// 客户-归档管理-已归档 1178
 router.all('/customer/pigeonhole/archived', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_ARCHIVED);
 
-// 客户-其他管理-访问路径
+// 客户-其他管理-访问路径 1330
 router.get('/customer/otherfund/system', customerCtrl.VIEW_CUSTOMER_OTHERFUND_SYSTEM);
-// 客户-其他管理-待审核
-router.get('/customer/otherfund/pendingAudit', customerCtrl.VIEW_CUSTOMER_OTHERFUND_PENDINGAUDIT);
-// 客户-其他管理-已通过
-router.get('/customer/otherfund/pass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_PASS);
-// 客户-其他管理-未通过
-router.get('/customer/otherfund/unpass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_UNPASS);
+// 客户-其他管理-待审核 1331
+router.all('/customer/otherfund/pendingAudit', customerCtrl.VIEW_CUSTOMER_OTHERFUND_PENDINGAUDIT);
+// 客户-其他管理-已通过 1332
+router.all('/customer/otherfund/pass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_PASS);
+// 客户-其他管理-未通过 1333
+router.all('/customer/otherfund/unpass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_UNPASS);
 
 
 // 客户管理-详情页访问路径

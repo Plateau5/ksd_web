@@ -2,21 +2,47 @@
  * Created by Arley on 2017/8/6.
  */
 
-var express = require('express');
-var router = require('./../../routes/index');
+// var express = require('express');
+// var router = require('./../../routes/index');
 var common = require('./../common');
-var request = require('request');
-var COMMONUTIL = require('./../../util/commonUtil');  // 主加密方法类文件
+// var request = require('request');
+// var COMMONUTIL = require('./../../util/commonUtil');  // 主加密方法类文件
 
 
 // 客户-主导航跳转
 exports.VIEW_CUSTOMER_SYSTEM = function(req, res, next) {
     // TODO 增加根据权限跳转
-    res.redirect('/customer/loan/system');
+    if (common.checkPrivilege(1016, req)) {
+        res.redirect('/customer/loan/system');
+    } else if (common.checkPrivilege(1260, req)) {
+        res.redirect('/customer/compact/system');
+    } else if (common.checkPrivilege(1225, req)) {
+        res.redirect('/customer/requestpayout/system');
+    } else if (common.checkPrivilege(1226, req)) {
+        res.redirect('/customer/approval/system');
+    } else if (common.checkPrivilege(1227, req)) {
+        res.redirect('/customer/financial/system');
+    } else if (common.checkPrivilege(1228, req)) {
+        res.redirect('/customer/pigeonhole/system');
+    } else if (common.checkPrivilege(1330, req)) {
+        res.redirect('/customer/otherfund/system');
+    }
 };
+
+
 // 客户-贷款管理跳转
 exports.VIEW_CUSTOMER_LOAN_SYSTEM = function(req, res, next) {
-    res.redirect('/customer/loan/pendingAllot');
+    if (common.checkPrivilege(1017, req)) {
+        res.redirect('/customer/loan/pendingAllot');
+    } else if (common.checkPrivilege(1018, req)) {
+        res.redirect('/customer/loan/alreadyAllot');
+    } else if (common.checkPrivilege(1019, req)) {
+        res.redirect('/customer/loan/entered');
+    } else if (common.checkPrivilege(1020, req)) {
+        res.redirect('/customer/loan/passed');
+    } else if (common.checkPrivilege(1021, req)) {
+        res.redirect('/customer/loan/unpass');
+    }
 };
 // 客户-待分配跳转
 exports.VIEW_CUSTOMER_LOAN_PENDINGALLOT = function(req, res, next) {
@@ -43,9 +69,17 @@ exports.VIEW_CUSTOMER_LOAN_UNPASS = function(req, res, next) {
     var url = '/api/finance/getUnPassList';
     common.getCustomerList(url, '未通过', req, res, next);
 };
+
+
 // 客户-合同管理-跳转
 exports.VIEW_CUSTOMER_COMPACT_SYSTEM = function(req, res, next) {
-    res.redirect('/customer/compact/pendingPass');
+    if (common.checkPrivilege(1261, req)) {
+        res.redirect('/customer/compact/pendingPass');
+    } else if (common.checkPrivilege(1262, req)) {
+        res.redirect('/customer/compact/pass');
+    } else if (common.checkPrivilege(1263, req)) {
+        res.redirect('/customer/compact/unpass');
+    }
 };
 // 客户-合同管理-待出合同
 exports.VIEW_CUSTOMER_COMPACT_PENDINGPASS = function(req, res, next) {
@@ -65,7 +99,17 @@ exports.VIEW_CUSTOMER_COMPACT_UNPASS = function(req, res, next) {
 
 // 客户-请款管理-跳转
 exports.VIEW_CUSTOMER_RESQUESTPAYOUT_SYSTEM = function(req, res, next) {
-    res.redirect('/customer/requestpayout/pendingDispose');
+    if (common.checkPrivilege(1202, req)) {
+        res.redirect('/customer/requestpayout/pendingDispose');
+    } else if (common.checkPrivilege(1203, req)) {
+        res.redirect('/customer/requestpayout/pendingPass');
+    } else if (common.checkPrivilege(1110, req)) {
+        res.redirect('/customer/requestpayout/pendingAudit');
+    } else if (common.checkPrivilege(1204, req)) {
+        res.redirect('/customer/requestpayout/pass');
+    } else if (common.checkPrivilege(1205, req)) {
+        res.redirect('/customer/requestpayout/unpass');
+    }
 };
 // 客户-请款管理-待请款
 exports.VIEW_CUSTOMER_RESQUESTPAYOUT_PENDINGDISPOSE = function(req, res, next) {
@@ -93,9 +137,18 @@ exports.VIEW_CUSTOMER_RESQUESTPAYOUT_UNPASS = function(req, res, next) {
     common.getCustomerList(url, '未通过', req, res, next);
 };
 
+
 // 客户-审批管理-跳转
 exports.VIEW_CUSTOMER_APPROVAL_SYSTEM = function(req, res, next) {
-    res.redirect('/customer/approval/pendingAudit');
+    if (common.checkPrivilege(1162, req)) {
+        res.redirect('/customer/approval/pendingAudit');
+    } else if (common.checkPrivilege(1206, req)) {
+        res.redirect('/customer/approval/pass');
+    } else if (common.checkPrivilege(1207, req)) {
+        res.redirect('/customer/approval/unpass');
+    } else if (common.checkPrivilege(1164, req)) {
+        res.redirect('/customer/approval/return');
+    }
 };
 // 客户-审批管理-待审批
 exports.VIEW_CUSTOMER_APPROVAL_PENDINGAUDIT = function(req, res, next) {
@@ -121,7 +174,17 @@ exports.VIEW_CUSTOMER_APPROVAL_RETURN = function(req, res, next) {
 
 // 客户-款项管理-跳转
 exports.VIEW_CUSTOMER_FINANCIAL_SYSTEM = function(req, res, next) {
-    res.redirect('/customer/financial/pendingReturn');
+    if (common.checkPrivilege(1208, req)) {
+        res.redirect('/customer/financial/pendingReturn');
+    } else if (common.checkPrivilege(1170, req)) {
+        res.redirect('/customer/financial/pendingAudit');
+    } else if (common.checkPrivilege(1209, req)) {
+        res.redirect('/customer/financial/pass');
+    } else if (common.checkPrivilege(1210, req)) {
+        res.redirect('/customer/financial/unpass');
+    } else if (common.checkPrivilege(1172, req)) {
+        res.redirect('/customer/financial/return');
+    }
 };
 // 客户-款项管理-待回款
 exports.VIEW_CUSTOMER_FINANCIAL_PENDINGRETURN = function(req, res, next) {
@@ -149,9 +212,15 @@ exports.VIEW_CUSTOMER_FINANCIAL_RETURN = function(req, res, next) {
     common.getCustomerList(url, '已回款', req, res, next);
 };
 
+
+
 // 客户-归档管理-跳转
 exports.VIEW_CUSTOMER_PIGEONHOLE_SYSTEM = function(req, res, next) {
-    res.redirect('/customer/pigeonhole/pending');
+    if (common.checkPrivilege(1177, req)) {
+        res.redirect('/customer/pigeonhole/pending');
+    } else if (common.checkPrivilege(1178, req)) {
+        res.redirect('/customer/pigeonhole/archived');
+    }
 };
 // 客户-归档管理-待处理
 exports.VIEW_CUSTOMER_PIGEONHOLE_PENDING = function(req, res, next) {
@@ -164,9 +233,17 @@ exports.VIEW_CUSTOMER_PIGEONHOLE_ARCHIVED = function(req, res, next) {
     common.getCustomerList(url, '已归档', req, res, next);
 };
 
+
+
 // 客户-其他管理-跳转
 exports.VIEW_CUSTOMER_OTHERFUND_SYSTEM = function(req, res, next) {
-    res.redirect('/customer/otherfund/pendingAudit');
+    if (common.checkPrivilege(1331, req)) {
+        res.redirect('/customer/otherfund/pendingAudit');
+    } else if (common.checkPrivilege(1332, req)) {
+        res.redirect('/customer/otherfund/pass');
+    } else if (common.checkPrivilege(1333, req)) {
+        res.redirect('/customer/otherfund/unpass');
+    }
 };
 // 客户-其他管理-待审核
 exports.VIEW_CUSTOMER_OTHERFUND_PENDINGAUDIT = function(req, res, next) {

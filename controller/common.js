@@ -95,6 +95,19 @@ exports.verifyCode = function (req, res, next) {
     next();
 };
 
+exports.checkPrivilege = function (p, req) {
+    var privilegeCookie = COMMONUTIL.decrypt(req.cookies.logininfo);
+    var privilegeArr = privilegeCookie.split(',');
+    p = Number(p);
+    for (var i = 0, len = privilegeArr.length; i < len; i++) {
+        var _thisPrivilege = Number(privilegeArr[i]);
+        if (p === _thisPrivilege) {
+            return true;
+        }
+    }
+    return false;
+};
+
 /**
  *
  * @param opt
