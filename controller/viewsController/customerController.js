@@ -11,7 +11,6 @@ var common = require('./../common');
 
 // 客户-主导航跳转
 exports.VIEW_CUSTOMER_SYSTEM = function(req, res, next) {
-    // TODO 增加根据权限跳转
     if (common.checkPrivilege(1016, req)) {
         res.redirect('/customer/loan/system');
     } else if (common.checkPrivilege(1260, req)) {
