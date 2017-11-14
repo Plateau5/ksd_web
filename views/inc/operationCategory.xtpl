@@ -1,17 +1,204 @@
 <!-- Template of main operation category -->
 <div class="operation_category">
-    <a href="javascript:;" class="category_item wait_assign active">待分配 <span class="count_num">(999)</span></a>
-    <a href="javascript:;" class="category_item assigned" >已分配 <span class="count_num">(999)</span></a>
-    <a href="javascript:;" class="category_item checking">核对中 <span class="count_num">(999)</span></a>
-    <a href="javascript:;" class="category_item under_audit">审核中 <span class="count_num">(999)</span></a>
-    <a href="javascript:;" class="category_item passed">已通过 <span class="count_num">(999)</span></a>
-    <a href="javascript:;" class="category_item applying">请款中 <span class="count_num">(999)</span></a>
-    <a href="javascript:;" class="category_item apply_pass">已放款 <span class="count_num">(999)</span></a>
-    <a href="javascript:;" class="category_item unpass">未通过 <span class="count_num">(999)</span></a>
-    <a href="javascript:;" class="category_item archived">已归档 <span class="count_num">(999)</span></a>
-    <a href="javascript:;" class="category_item registered">已录入 <span class="count_num">(999)</span></a>
-    <a href="javascript:;" class="category_item wait_dispose">待处理 <span class="count_num">(999)</span></a>
-    <a href="javascript:;" class="category_item audit_pass">我已审批 <span class="count_num">(999)</span></a>
-    <a href="javascript:;" class="category_item pending_audit">待我审批 <span class="count_num">(999)</span></a>
-    <a href="javascript:;" class="category_item cashed_check">已回款 <span class="count_num">(999)</span></a>
+    <!-- 客服主管、普通客服主操作分类 Begin -->
+    {{#if (active === 'finance') }}
+        {{#if (verifyCode(1017)) }}
+            <a href="/customer/loan/pendingAllot" class="category_item wait_assign
+                {{#if (startWith('/customer/loan/pendingAllot')) }}active{{/if}}
+            ">待分配 <span class="count_num">({{countvo.wait_allot}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1018)) }}
+            <a href="/customer/loan/alreadyAllot" class="category_item assigned {{#if (startWith('/customer/loan/alreadyAllot')) }}active{{/if}}">
+            {{#if (role_id === 4) }}
+                待录入
+            {{else}}
+                已分配
+            {{/if}}
+            <span class="count_num">({{countvo.checkin}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1019)) }}
+            <a href="/customer/loan/entered" class="category_item registered
+                {{#if (startWith('/customer/loan/entered')) }}active{{/if}}
+            ">已录入 <span class="count_num">({{countvo.review}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1020)) }}
+            <a href="/customer/loan/passed" class="category_item passed
+                {{#if (startWith('/customer/loan/passed')) }}active{{/if}}
+            ">已通过 <span class="count_num">({{countvo.pass}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1021)) }}
+            <a href="/customer/loan/unpass" class="category_item unpass
+                {{#if (startWith('/customer/loan/unpass')) }}active{{/if}}
+            ">未通过 <span class="count_num">({{countvo.unpass}})</span></a>
+        {{/if}}
+    {{/if}}
+    <!-- 客服主管、普通客服主操作分类 End -->
+    <!-- 合同客服主操作分类 Begin -->
+    {{#if (active === 'compact') }}
+        {{#if (verifyCode(1261)) }}
+            <a href="/customer/compact/pendingPass" class="category_item wait_assign
+                {{#if (startWith('/customer/compact/pendingPass')) }}active{{/if}}
+            ">待出合同 <span class="count_num">({{countvo.wait_check}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1262)) }}
+            <a href="/customer/compact/pass" class="category_item passed
+                {{#if (startWith('/customer/compact/pass')) }}active{{/if}}
+            ">已通过 <span class="count_num">({{countvo.pass}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1263)) }}
+            <a href="/customer/compact/unpass" class="category_item unpass
+                {{#if (startWith('/customer/compact/unpass')) }}active{{/if}}
+            ">未通过 <span class="count_num">({{countvo.unpass}})</span></a>
+        {{/if}}
+    {{/if}}
+    <!-- 合同客服主操作分类 End -->
+     <!-- 请款客服主操作分类 Begin -->
+    {{#if (active === 'requestPayout') }}
+            <!-- 请款客服待处理 -->
+            {{#if (verifyCode(1202)) }}
+                <a href="/customer/requestpayout/pendingDispose" class="category_item wait_dispose
+                {{#if (startWith('/customer/requestpayout/pendingDispose')) }}active{{/if}}
+        ">待请款 <span class="count_num">({{countvo.pending_dispose}})</span></a>
+        {{/if}}
+        <!-- 请款客服待通过 -->
+        {{#if (verifyCode(1203)) }}
+            <a href="/customer/requestpayout/pendingPass" class="category_item pending_pass
+                {{#if (startWith('/customer/requestpayout/pendingPass')) }}active
+            {{/if}}
+            ">待通过 <span class="count_num">({{countvo.pending_pass}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1110)) }}
+            <a href="/customer/requestpayout/pendingAudit" class="category_item pending_audit
+                {{#if (startWith('/customer/requestpayout/pendingAudit')) }}active
+            {{/if}}
+            ">待审批 <span class="count_num">({{countvo.wait_check}})</span></a>
+        {{/if}}
+        <!-- 请款客服已通过 -->
+        {{#if (verifyCode(1204)) }}
+            <a href="/customer/requestpayout/pass" class="category_item passed
+                {{#if (startWith('/customer/requestpayout/pass')) }}active
+            {{/if}}
+            ">已通过 <span class="count_num">({{countvo.pass}})</span></a>
+        {{/if}}
+        <!-- 请款客服未通过 -->
+        {{#if (verifyCode(1205)) }}
+            <a href="/customer/requestpayout/unpass" class="category_item unpass
+                {{#if (startWith('/customer/requestpayout/unpass')) }}active
+            {{/if}}
+            ">未通过 <span class="count_num">({{countvo.unpass}})</span></a>
+        {{/if}}
+    {{/if}}
+        <!-- 请款客服主操作分类 End -->
+        <!-- 归档客服主操作分类 Begin -->
+    {{#if (active === 'pigeonhole') }}
+            {{#if (verifyCode(1177)) }}
+                <a href="/customer/pigeonhole/pending" class="category_item wait_dispose
+                {{#if (startWith('/customer/pigeonhole/pending')) }}active
+        {{/if}}
+        ">待处理 <span class="count_num">({{countvo.already_return}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1178)) }}
+            <a href="/customer/pigeonhole/archived" class="category_item archived
+                {{#if (startWith('/customer/pigeonhole/archived')) }}active
+            {{/if}}
+            ">已归档 <span class="count_num">({{countvo.already_pigeonhole}})</span></a>
+        {{/if}}
+    {{/if}}
+        <!-- 归档客服主操作分类 End -->
+        <!-- 运营主操作分类 Begin -->
+    {{#if (active === 'operation') }}
+         {{#if (verifyCode(1162)) }}
+             <a href="/customer/approval/pendingAudit" class="category_item pending_audit
+             {{#if (startWith('/customer/approval/pendingAudit')) }}active{{/if}}
+             ">待审批 <span class="count_num">({{countvo.wait_check}})</span></a>
+         {{/if}}
+        {{#if (verifyCode(1206)) }}
+            <a href="/customer/approval/pass" class="category_item passed
+                {{#if (startWith('/customer/approval/pass')) }}active{{/if}}
+            ">已通过 <span class="count_num">({{countvo.pass}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1207)) }}
+            <a href="/customer/approval/unpass" class="category_item unpass
+                {{#if (startWith('/customer/approval/unpass')) }}active{{/if}}
+            ">未通过 <span class="count_num">({{countvo.unpass}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1164)) }}
+            <a href="/customer/approval/return" class="category_item cashed_check
+                {{#if (startWith('/customer/approval/return')) }}active{{/if}}
+            ">已回款 <span class="count_num">({{countvo.already_return}})</span></a>
+        {{/if}}
+    {{/if}}
+        <!-- 运营主操作分类 End -->
+        <!-- 财务主操作分类 Begin -->
+    {{#if (active === 'financial') }}
+        {{#if (verifyCode(1208)) }}
+            <a href="/customer/financial/pendingReturn" class="category_item wait_dispose
+                {{#if (startWith('/customer/financial/pendingReturn')) }}active{{/if}}
+            ">待回款 <span class="count_num">({{countvo.pending_dispose}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1170)) }}
+            <a href="/customer/financial/pendingAudit" class="category_item pending_audit
+                {{#if (startWith('/customer/financial/pendingAudit')) }}active{{/if}}
+            ">待审批 <span class="count_num">({{countvo.wait_check}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1209)) }}
+            <a href="/customer/financial/pass" class="category_item passed
+                {{#if (startWith('/customer/financial/pass')) }}active{{/if}}
+            ">已通过 <span class="count_num">({{countvo.pass}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1210)) }}
+            <a href="/customer/financial/unpass" class="category_item unpass
+                {{#if (startWith('/customer/financial/unpass')) }}active{{/if}}
+            ">未通过 <span class="count_num">({{countvo.unpass}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1172)) }}
+            <a href="/customer/financial/return" class="category_item cashed_check
+                {{#if (startWith('/customer/financial/return')) }}active{{/if}}
+            ">已回款 <span class="count_num">({{countvo.already_return}})</span></a>
+        {{/if}}
+    {{/if}}
+        <!-- 财务主操作分类 End -->
+        <!-- 其他款项主操作分类 Begin -->
+    {{#if (active === 'otherfund') }}
+        {{#if (verifyCode(1331)) }}
+            <a href="/customer/otherfund/pendingAudit" class="category_item pending_audit
+            {{#if (startWith('/customer/otherfund/pendingAudit')) }}active{{/if}}
+            ">待审批 <span class="count_num">({{countvo.wait_check}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1332)) }}
+            <a href="/customer/otherfund/pass" class="category_item passed
+                {{#if (startWith('/customer/otherfund/pass')) }}active{{/if}}
+            ">已通过 <span class="count_num">({{countvo.pass}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1333)) }}
+            <a href="/customer/otherfund/unpass" class="category_item unpass
+                {{#if (startWith('/customer/otherfund/unpass')) }}active{{/if}}
+            ">未通过 <span class="count_num">({{countvo.unpass}})</span></a>
+        {{/if}}
+    {{/if}}
+        <!-- 其他款项主操作分类 End -->
+        <!-- 商户管理列表页分类 Begin -->
+    {{#if (active === 'supplier') }}
+        {{#if (verifyCode(1370)) }}
+            <a href="${contextPath}/supplier/audit/list" class="category_item pending_audit
+                {{#if (startWith('/supplier/audit/list')) }}active{{/if}}
+            ">待审核 <span class="count_num">({{countvo.wait_check}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1371)) }}
+            <a href="${contextPath}/supplier/pass/list" class="category_item passed
+                {{#if (startWith('/supplier/pass/list')) }}active{{/if}}
+            ">已通过 <span class="count_num">({{countvo.already_check}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1372)) }}
+            <a href="${contextPath}/supplier/unpass/list" class="category_item unpass
+                {{#if (startWith('/supplier/unpass/list')) }}active{{/if}}
+            ">未通过 <span class="count_num">({{countvo.pending_dispose}})</span></a>
+        {{/if}}
+        {{#if (verifyCode(1369)) }}
+            <a href="${contextPath}/supplier/unrecords/list" class="category_item not_records
+                {{#if (startWith('/supplier/unrecords/list')) }}active{{/if}}
+            ">未备案 <span class="count_num">({{countvo.pending_pass}})</span></a>
+        {{/if}}
+    {{/if}}
+    <!-- 商户管理列表页分类 End -->
 </div>

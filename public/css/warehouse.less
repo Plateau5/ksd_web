@@ -696,3 +696,38 @@
         }
     }
 }
+
+/**** 城市管理部分 BEGIN ****/
+.workflow_list,.table_list{
+    width: 100%;
+    text-align: center;
+    tr{
+        height: @tr-height;
+        line-height: @tr-height;
+        border: 1px solid @border-color;
+        th,td{
+            color: @normal-color;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding:0 2%;
+        }
+        td.role_desc{
+            color: #808991;
+        }
+        th:last-child,td:last-child{
+            padding:0 0 0 2%;
+        }
+        th:first-child,td:first-child{
+            padding:0 2% 0 0;
+        }
+    }
+    thead tr{
+        background: #fafafa;
+        th{
+            font-weight: normal;
+            font-size: 14px;
+        }
+    }
+}
+/**** 城市管理部分 END ****/

@@ -1,8 +1,12 @@
 
 $(function(){
-
+    var questionType = $.trim($('#questionType').val());
     var question_id = $('#question_id').val();
-    var url=contextPath + "/api/question/getHisList";
+    if (questionType == '0') {
+        var url=contextPath + "/api/question/getHisList";
+    } else if (questionType == '1') {
+        var url=contextPath + "/api/merquestion/getHisList";
+    }
     var eq;
     $.ajax({
         type:"post",

@@ -33,13 +33,93 @@ router.post('/api/message/getNotice', homeCtrl.API_MESSAGE_GETNOTICE);
 
 
 // 客户访问路径
-router.all('/customer/system', customerCtrl.VIEW_CUSTOMER_SYSTEM);
+router.get('/customer/system', customerCtrl.VIEW_CUSTOMER_SYSTEM);
 // 客户-贷款管理-访问路径
-router.all('/customer/loan/system', customerCtrl.VIEW_CUSTOMER_LOAN_SYSTEM);
+router.get('/customer/loan/system', customerCtrl.VIEW_CUSTOMER_LOAN_SYSTEM);
 // 客户-贷款管理-待分配
 router.all('/customer/loan/pendingAllot', customerCtrl.VIEW_CUSTOMER_LOAN_PENDINGALLOT);
-// 客户管理访问路径
+// 客户-贷款管理-已分配
+router.all('/customer/loan/alreadyAllot', customerCtrl.VIEW_CUSTOMER_LOAN_ALREADYALLOT);
+// 客户-贷款管理-已录入
+router.all('/customer/loan/entered', customerCtrl.VIEW_CUSTOMER_LOAN_ENTERED);
+// 客户-贷款管理-已通过
+router.all('/customer/loan/passed', customerCtrl.VIEW_CUSTOMER_LOAN_PASSED);
+// 客户-贷款管理-未通过
+router.all('/customer/loan/unpass', customerCtrl.VIEW_CUSTOMER_LOAN_UNPASS);
+// 客户-合同管理-访问路径
+router.get('/customer/compact/system', customerCtrl.VIEW_CUSTOMER_COMPACT_SYSTEM);
+// 客户-合同管理-待出合同
+router.all('/customer/compact/pendingPass', customerCtrl.VIEW_CUSTOMER_COMPACT_PENDINGPASS);
+// 客户-合同管理-已通过
+router.all('/customer/compact/pass', customerCtrl.VIEW_CUSTOMER_COMPACT_PASS);
+// 客户-合同管理-未通过
+router.all('/customer/compact/unpass', customerCtrl.VIEW_CUSTOMER_COMPACT_UNPASS);
+
+// 客户-请款管理-访问路径
+router.get('/customer/requestpayout/system', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_SYSTEM);
+// 客户-请款管理-待请款
+router.all('/customer/requestpayout/pendingDispose', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PENDINGDISPOSE);
+// 客户-请款管理-待通过
+router.all('/customer/requestpayout/pendingPass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PENDINGPASS);
+// 客户-请款管理-待审批
+router.all('/customer/requestpayout/pendingAudit', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PENDINGAUDIT);
+// 客户-请款管理-已通过
+router.all('/customer/requestpayout/pass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PASS);
+// 客户-请款管理-未通过
+router.all('/customer/requestpayout/unpass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_UNPASS);
+
+// 客户-审批管理-访问路径
+router.get('/customer/approval/system', customerCtrl.VIEW_CUSTOMER_APPROVAL_SYSTEM);
+// 客户-审批管理-待审批
+router.all('/customer/approval/pendingAudit', customerCtrl.VIEW_CUSTOMER_APPROVAL_PENDINGAUDIT);
+// 客户-审批管理-已通过
+router.all('/customer/approval/pass', customerCtrl.VIEW_CUSTOMER_APPROVAL_PASS);
+// 客户-审批管理-未通过
+router.all('/customer/approval/unpass', customerCtrl.VIEW_CUSTOMER_APPROVAL_UNPASS);
+// 客户-审批管理-已回款
+router.all('/customer/approval/return', customerCtrl.VIEW_CUSTOMER_APPROVAL_RETURN);
+
+// 客户-款项管理-访问路径
+router.get('/customer/financial/system', customerCtrl.VIEW_CUSTOMER_FINANCIAL_SYSTEM);
+// 客户-款项管理-待回款
+router.all('/customer/financial/pendingReturn', customerCtrl.VIEW_CUSTOMER_FINANCIAL_PENDINGRETURN);
+// 客户-款项管理-待审批
+router.all('/customer/financial/pendingAudit', customerCtrl.VIEW_CUSTOMER_FINANCIAL_PENDINGAUDIT);
+// 客户-款项管理-已通过
+router.all('/customer/financial/pass', customerCtrl.VIEW_CUSTOMER_FINANCIAL_PASS);
+// 客户-款项管理-未通过
+router.all('/customer/financial/unpass', customerCtrl.VIEW_CUSTOMER_FINANCIAL_UNPASS);
+// 客户-款项管理-已回款
+router.all('/customer/financial/return', customerCtrl.VIEW_CUSTOMER_FINANCIAL_RETURN);
+
+// 客户-归档管理-访问路径
+router.all('/customer/pigeonhole/system', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_SYSTEM);
+// 客户-归档管理-待处理
+router.all('/customer/pigeonhole/pending', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_PENDING);
+// 客户-归档管理-已归档
+router.all('/customer/pigeonhole/archived', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_ARCHIVED);
+
+// 客户-其他管理-访问路径
+router.get('/customer/otherfund/system', customerCtrl.VIEW_CUSTOMER_OTHERFUND_SYSTEM);
+// 客户-其他管理-待审核
+router.get('/customer/otherfund/pendingAudit', customerCtrl.VIEW_CUSTOMER_OTHERFUND_PENDINGAUDIT);
+// 客户-其他管理-已通过
+router.get('/customer/otherfund/pass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_PASS);
+// 客户-其他管理-未通过
+router.get('/customer/otherfund/unpass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_UNPASS);
+
+
+// 客户管理-详情页访问路径
 router.all('/customer/detail', customerCtrl.VIEW_CUSTOMER_DETAIL_DATA);
+
+
+
+
+
+
+
+
+
 
 
 // 机构管理访问路径

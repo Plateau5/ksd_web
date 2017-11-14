@@ -1,8 +1,8 @@
 
 $(function(){
 
-    var document_h = document.body.scrollHeight;
-    $('.bgmask').css('height',document_h + 'px');
+    /*var document_h = document.body.scrollHeight;
+    $('.bgmask').css('height',document_h + 'px');*/
 
     //新建问题、重命名按钮交互
     $('.create_question').each(function(index){

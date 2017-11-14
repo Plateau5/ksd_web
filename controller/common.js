@@ -110,7 +110,8 @@ exports.httpRequest = function (opt, callback, req, res, next) {
         url : '',
         timeout : 10000,
         headers : {
-            Cookie : cookies
+            Cookie : cookies,
+            ctype : 1
         }
     };
     var  options = extend(true, option, opt);
@@ -132,4 +133,28 @@ exports.httpRequest = function (opt, callback, req, res, next) {
         res.end();
     });
 
+};
+
+/**
+ * 获取客户列表页数据公用方法
+ * @author Arley Joe 2017-11-14 11:31:11
+ *
+ */
+exports.getCustomerList = function(url,title, req, res, next) {
+    var body = req.body;
+    var data = {};
+    var localUrl = req.originalUrl;
+    this.httpRequest({
+        url : contextPath + url,
+        formData : body
+    }, function (result) {
+        data = result;
+        if (data.error_code === 0) {
+            data.title = title;
+            data.originUrl = localUrl;
+            res.render('./customer/customerList', data);
+        } else {
+            res.render(data.error_msg);
+        }
+    }, req, res, next);
 };

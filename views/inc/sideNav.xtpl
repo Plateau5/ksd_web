@@ -11,23 +11,26 @@
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">客户管理</div>
     <ul class="slide_nav_bar">
-        <li class="nav_item {{#if(startWith('/customer'))}}active{{/if}}">
-            <a href="" class="">贷款管理</a>
+        <li class="nav_item {{#if (startWith('/customer/loan/pendingAllot || /customer/loan/alreadyAllot || /customer/loan/entered || /customer/loan/passed || /customer/loan/unpass')) }}active{{/if}}">
+            <a href="/customer/loan/system" class="">贷款管理</a>
         </li>
-        <li class="nav_item">
-            <a href="" class="">合同管理</a>
+        <li class="nav_item {{#if (startWith('/customer/compact/pendingPass || /customer/compact/pass || /customer/compact/unpass')) }}active{{/if}}">
+            <a href="/customer/compact/system" class="">合同管理</a>
         </li>
-        <li class="nav_item">
-            <a href="" class="">请款管理</a>
+        <li class="nav_item {{#if (startWith('/customer/requestpayout/pendingDispose || /customer/requestpayout/pendingPass || /customer/requestpayout/pendingAudit || /customer/requestpayout/pass || /customer/requestpayout/unpass')) }}active{{/if}}">
+            <a href="/customer/requestpayout/system" class="">请款管理</a>
         </li>
-        <li class="nav_item">
-            <a href="" class="">审批管理</a>
+        <li class="nav_item {{#if (startWith('/customer/approval/pendingAudit || /customer/approval/pass || /customer/approval/unpass || /customer/approval/return')) }}active{{/if}}">
+            <a href="/customer/approval/system" class="">审批管理</a>
         </li>
-        <li class="nav_item">
-            <a href="" class="">款项管理</a>
+        <li class="nav_item {{#if (startWith('/customer/financial/pendingReturn || /customer/financial/pendingAudit || /customer/financial/pass || /customer/financial/unpass || /customer/financial/return')) }}active{{/if}}">
+            <a href="/customer/financial/system" class="">款项管理</a>
         </li>
-        <li class="nav_item">
-            <a href="" class="">归档管理</a>
+        <li class="nav_item {{#if (startWith('/customer/pigeonhole/pending || /customer/pigeonhole/archived')) }}active{{/if}}">
+            <a href="/customer/pigeonhole/system" class="">归档管理</a>
+        </li>
+        <li class="nav_item {{#if (startWith('/customer/otherfund/pendingAudit || /customer/otherfund/pass || /customer/otherfund/unpass')) }}active{{/if}}">
+            <a href="/customer/otherfund/system" class="">其他管理</a>
         </li>
     </ul>
 </div>

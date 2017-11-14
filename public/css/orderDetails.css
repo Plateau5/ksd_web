@@ -106,6 +106,7 @@
   width: 20%;
   text-align: right;
   vertical-align: top;
+  color: #808891;
 }
 .details_item .classify_content .item_row .item_name.long_text {
   line-height: 18px;
@@ -120,7 +121,24 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: #808891;
+}
+.details_item .classify_content .item_row.whole_line {
+  width: 100%;
+  height: auto;
+}
+.details_item .classify_content .item_row.whole_line:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.details_item .classify_content .item_row.whole_line .item_name {
+  width: 10%;
+}
+.details_item .classify_content .item_row.whole_line .item_value {
+  width: 84%;
+  line-height: 20px;
+  padding: 15px 1% 0;
+  white-space: normal;
 }
 .details_item .classify_img .img_list {
   overflow: hidden;

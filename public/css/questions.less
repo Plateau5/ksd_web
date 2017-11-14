@@ -10,21 +10,64 @@
         width: 100%;
         height: auto;
         .list_item{
-            height: 40px;
-            line-height:  40px;
+            height: 50px;
+            line-height:  50px;
             padding: 0 20px;
-            .btn_box{
-                float: right;
-                height: 30px;
-                line-height: 30px;
-                margin: 5px 0;
-                font-size: 12px;
-                font-weight: normal;
-            }
             &:hover{
                 background: @th-bg-color;
+                .question_btns{
+                    display: block;
+                }
             }
         }
+    }
+    .question_list_detail_txt_null{
+        height: 50px;
+        line-height:  50px;
+        text-align: center;
+    }
+    .detail_title_btn{
+        font-size: 14px;
+    }
+    .detail_title_btn.delete_btn{
+        margin-right: 20px;
+    }
+    .question_btns{
+        display: none;
+        float: right;
+        width: 100px;
+        height: 50px;
+        line-height:50px;
+        margin-right: 10px;
+        text-align: right;
+        .question_btn{
+            display: inline-block;
+            width: 23px;
+            height: 23px;
+            margin-top: 13px;
+            margin-right: 5px;
+            background: url("../img/operation_small_icon.png") no-repeat 0 0;
+            cursor: pointer;
+        }
+        .edit_btn{
+            background-position: -61px -361px;
+            &:hover{
+                background-position: -61px -380px;
+            }
+        }
+        .history_btn{
+            background-position: -61px -399px;
+            &:hover{
+                background-position: -61px -418px;
+            }
+        }
+        .remove_btn{
+            background-position: -61px -437px;
+            &:hover{
+                background-position: -61px -456px;
+            }
+        }
+
     }
 }
 

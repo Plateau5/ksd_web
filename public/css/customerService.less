@@ -261,6 +261,13 @@
     margin-top: 30px;
     /*font-size: 0;*/
     color: @normal-color;
+    overflow: hidden;
+    .store_title{
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        color: @active-color;
+    }
     .material_detail,.material_text{
         font-size: 12px;
     }
@@ -515,12 +522,10 @@
     margin:20px 0 100px;
     padding-bottom: 40px;
     color: #535e6a;
-    overflow: hidden;
     /*定义滚动条轨道 内阴影+圆角*/
     /*定义滑块 内阴影+圆角*/
     .record_list {
-        max-height: 518px;
-        padding-left:150px;
+        padding-left:160px;
         margin: 0;
         .list_item {
             border-left: 1px solid #CCCCCC;
@@ -589,7 +594,7 @@
             }
             .date{
                 position: absolute;
-                left: -160px;
+                left: -170px;
                 top: 0;
             }
             .apply_desc{
@@ -624,6 +629,18 @@
     .record_list .list_item:nth-child(even) .record_item_info:after {
         background-position: -4px -115px;
     }
-
+    .classify_img{
+        padding-left: 10px;
+        .img_list .img_item{
+            height: auto;
+            overflow: hidden;
+        }
+        .img_list .img_item:nth-child(10n) {
+            margin-right: 0;
+        }
+        .img_list .img_item:nth-child(11n) {
+            margin-right: 20px;
+        }
+    }
 }
 /********** 历史订单 End **********/

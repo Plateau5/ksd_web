@@ -5,7 +5,7 @@
  * Created by Arley on 2016/12/14.
  */
 /*** Basic configuration variables ***/
-/************ ��������� ************/
+/************ 待办事项部分 ************/
 .home_container {
   width: 100%;
   height: auto;
@@ -14,7 +14,7 @@
 .home_container .module {
   border: 1px solid #e4e4e4;
 }
-/************ ��������� Begin ************/
+/************ 待办事项部分 Begin ************/
 .todo_content {
   width: 98%;
   height: auto;
@@ -34,7 +34,7 @@
   left: 8px;
   content: '';
   height: 18px;
-  border-left: 4px solid #1DC6BC;
+  border-left: 4px solid #1dc6bc;
 }
 .todo_content .todo_list {
   width: 100%;
@@ -89,4 +89,4 @@
   vertical-align: top;
   opacity: .7;
 }
-/************ ��������� End ************/
+/************ 待办事项部分 End ************/

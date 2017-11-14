@@ -145,7 +145,7 @@ $(function(){
 			},
 			success : function(data) {
 				$("#domicile_city").empty();
-				var select = $("<option/>").text("请选择").attr("value","0");  
+				var select = $("<option/>").text("全部").attr("value","0");
 				$("#domicile_city").append(select);
 				$.each(data.data, function(n, value) {
 					var opt = $("<option/>").text(value.name).attr("value", value.id);  

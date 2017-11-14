@@ -21,13 +21,7 @@
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
             <form action="{{originUrl}}" method="post" id="form_search" role="form"></form>
-
-
-
-
-            <div class="operation_category">
-                {{include('./../inc/operationCategory')}}
-            </div>
+            {{include('./../inc/operationCategory')}}
             {{include('./../inc/filtrate')}}
             <div class="business_list">
                 <form action="${contextPath }/finance/getFile" method="post" id="to_order_detail">

@@ -134,10 +134,13 @@ $(document).delegate('.file_item', 'mouseout', function(e) {
 $('#disagree_sub').click(function() {
     $('#disagree_sub').attr('disabled', true);
     var localUrl = $(this).attr("data-url");
-    if (isCompact) {
+    // OPERATIONTYPE：1：请款客服；2：合同客服；3：商户审核
+    if (OPERATIONTYPE === 2) {
         var url = contextPath + '/api/compact/disagree';
-    } else {
+    } else if (OPERATIONTYPE === 1) {
         var url = contextPath + '/api/requestPayout/disagree';
+    } else if (OPERATIONTYPE === 3) {
+        var url = contextPath + '/api/supplier/records/check';
     }
     var check_obj = $('.icon_check');
     var question_id_arr = [];
@@ -165,9 +168,11 @@ $('#disagree_sub').click(function() {
         //成功
         if (data.error_code == '0') {
             //window.location.href = contextPath + '/requestPayout/waitList';
-            window.location.href = localUrl;
+            $alert('提交成功', function (){
+                window.location.href = localUrl;
+            });
         } else {
-            alert(data.error_msg);
+            $alert(data.error_msg);
         }
 
     }, false);

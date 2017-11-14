@@ -197,7 +197,7 @@ img {
 }
 .loading{
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
@@ -1173,11 +1173,32 @@ table.normal{
             }
         }
     }
+    .not_records{
+        &:before{
+            background-position: 0 -479px;
+        }
+        &.active,&:hover{
+            &:before{
+                background-position: -34px -479px;
+            }
+        }
+    }
 }
 /********** 列表主分类部分样式 End ***********/
 
 /********** 列表部分样式 Begin ***********/
 .business_list{
+    position: relative;
+    .order_mask{
+        z-index: 100000;
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: rgba(255,255,255,0);
+    }
     /*padding-top: 20px;*/
 }
 .finance_list {
@@ -1292,6 +1313,10 @@ table.normal{
     line-height: 45px;
     padding: 0 8px;
     font-weight: normal;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .finance_list .finance_desc dl dt {
     height: 55px;
@@ -1398,22 +1423,31 @@ table.normal{
 .shake_box{
     height: 30px;
     position: absolute;
-    left: 0;
+    right: 60px;
     top: 0;
 }
 .shake {
-    width: 20px;
+    float: left;
+    width: 40px;
     height: 20px;
     color: #fff;
     text-align: center;
     line-height: 20px;
     font-size: 12px;
-    float: left;
-    margin-left: 10px;
+    margin-right: 10px;
     margin-top: 5px;
+    -webkit-border-radius: @normal-radius;
+    -moz-border-radius: @normal-radius;
+    border-radius: @normal-radius;
 }
 .shook_sign{
+    background-color: #FF7448;
+}
+.personal_sign{
     background-color: #1DC6BC;
+}
+.company_sign{
+    background-color: #E3D184;
 }
 .agree_sign{
     background-color: #77AB3B;
@@ -1528,7 +1562,11 @@ table.normal{
     .option_item {
         //height: 60px;
         line-height: 60px;
-        overflow: hidden;
+        &:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
         .require_icon {
             color: rgb(255, 0, 0);
         }
@@ -1572,9 +1610,11 @@ table.normal{
         display: inline-block;
         width: 38%;
         .column_name{
+            position: relative;
             width: 40%;
         }
         .column_val{
+            position: relative;
             width: 60%;
         }
     }
@@ -1588,6 +1628,7 @@ table.normal{
         padding-top: 20px;
     }
     .column_name,.column_val{
+        position: relative;
         float: left;
         height: auto;
         -webkit-box-sizing: border-box;
@@ -2274,6 +2315,7 @@ textarea{
     width: 100%;
     height: auto;
     border: 1px solid @border-color;
+    margin-bottom: 40px;
     .modules_title{
         position: relative;
         height: 50px;
@@ -2322,8 +2364,14 @@ textarea{
 /******** 财务已回款标记页面 End *********/
 /************ 无数据及新建按钮 Begin **********/
 .no_list_data{
-    margin-top: 100px;
+    margin: 100px 0;
     text-align: center;
+    .toast_img{
+        width: 121px;
+        height: 108px;
+        background: url("../img/no-data.png") no-repeat center;
+        margin:auto;
+    }
     .toast_text{
         height: 60px;
         line-height: 60px;
@@ -2334,6 +2382,13 @@ textarea{
         height: 80px;
         line-height:80px;
         text-align: center;
+    }
+    input{
+        width: 260px;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid @border-color;
+        text-indent: .8em;
     }
 }
 .new_btn_box,.operate_btn_box{
@@ -2354,11 +2409,127 @@ textarea{
 }
 /************ 无数据及新建按钮 Begin **********/
 
+/***** 单选按钮-开关效果 Begin ******/
+.r_radio {
+    position: relative;
+    width: 60px;
+    height: 24px;
+    background: #1DC6BC;
+    border-radius: 12px;
+    margin: 0 auto;
+    box-shadow: inset 0px -1px 3px #1DC6BC,inset 0px 1px 3px #1DC6BC;
+    vertical-align: middle;
+    cursor: pointer;
+}
 
+.r_radio span{
+    float: left;
+    display: block;
+    width: 30px;
+    height: 24px;
+    line-height:24px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 10px;
+}
+.r_radio div {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width:30px;
+    height: 20px;
+    border-radius: 10px;
+    background: #fff;
+}
+.r_radio.off{
+    background: #dddddd;
+    box-shadow: inset 0px -1px 3px #dddddd,inset 0px 1px 3px #dddddd;
+}
+.r_radio.off span{
+    color: #535E6A;
+}
+/***** 单选按钮-开关效果 End ******/
 
-
-
-
-
-
-
+/***** 中等大小图片上传 Begin ******/
+.img_md_box{
+    overflow: hidden;
+    .img_item, .add_img_md_btn{
+        position: relative;
+        float: left;
+        width: 160px;
+        height: 100px;
+        margin: 0 20px 30px 0;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,.8);
+            overflow: hidden;
+            border: none;
+        }
+    }
+    .add_img_md_btn{
+        background-image: url('../img/img_md_add_btn.png');
+        background-repeat:no-repeat;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+    }
+}
+/***** 中等大小图片上传 End ******/
+/***** 无底色按钮-sm类 Begin ******/
+.section .add_sm_btn,.section  .delete_sm_btn,.section  .edit_sm_btn{
+    position: relative;
+    padding: 5px 8px 5px 22px;
+    color: @gray-font-color;
+    &:before{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 23px;
+        height: 23px;
+        margin-top: 1px;
+        background: url("../img/operation_small_icon.png") no-repeat;
+        vertical-align: middle;
+    }
+}
+.section .add_sm_btn{
+    color: @active-color;
+    &:before{
+        background-position: 0 -918px;
+    }
+    &:hover{
+        color: @font-hover-color;
+        &:before{
+            background-position: 0 -1005px;
+        }
+    }
+}
+.section .edit_sm_btn{
+    height: 26px;
+    color: @active-color;
+    &:before{
+        left: -1px;
+        top: -3px;
+        background-position: 0 -1087px;
+    }
+    &:hover{
+        color: @font-hover-color;
+        &:before{
+            background-position: 0 -1109px;
+        }
+    }
+}
+.section .delete_sm_btn{
+    color: @gray-font-color;
+    &:before{
+        background-position: 0 -796px;
+    }
+    &:hover{
+        color: @normal-color;
+        &:before{
+            background-position: 0 -1024px;
+        }
+    }
+}
+/***** 无底色按钮-sm类 End ******/
