@@ -110,8 +110,20 @@ router.all('/customer/otherfund/pass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_PASS
 router.all('/customer/otherfund/unpass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_UNPASS);
 
 
-// 客户管理-详情页访问路径
-router.all('/customer/detail', customerCtrl.VIEW_CUSTOMER_DETAIL_DATA);
+// 客户管理-详情页-贷款管理
+router.post('/customer/loan/detail', customerCtrl.VIEW_CUSTOMER_LOAN_DETAIL);
+// 客户管理-详情页-合同管理
+router.post('/customer/compact/detail', customerCtrl.VIEW_CUSTOMER_COMPACT_DETAIL);
+// 客户管理-详情页-请款管理
+router.post('/customer/requestpayout/detail', customerCtrl.VIEW_CUSTOMER_REQUESTPAYOUT_DETAIL);
+/*// 客户管理-详情页-审批管理
+router.post('/customer/approval/detail', customerCtrl.VIEW_CUSTOMER_APPROVAL_DETAIL);
+// 客户管理-详情页-款项管理
+router.post('/customer/financial/detail', customerCtrl.VIEW_CUSTOMER_FINANCIAL_DETAIL);
+// 客户管理-详情页-归档管理
+router.post('/customer/pigeonhole/detail', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_DETAIL);
+// 客户管理-详情页-其他管理
+router.post('/customer/otherfund/detail', customerCtrl.VIEW_CUSTOMER_OTHERFUND_DETAIL);*/
 
 
 

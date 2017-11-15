@@ -24,7 +24,7 @@
             {{include('./../inc/operationCategory')}}
             {{include('./../inc/filtrate')}}
             <div class="business_list">
-                <form action="${contextPath }/finance/getFile" method="post" id="to_order_detail">
+                <form action="{{detailUrl}}" method="post" id="to_order_detail">
                     <input type="hidden" name="active" value="active">
                     <input type="hidden" name="finance_id" value="" id="financeId">
                 </form>

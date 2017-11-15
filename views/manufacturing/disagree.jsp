@@ -7,12 +7,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>客户管理-不同意</title>
-    {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css">
-    <link rel="stylesheet" href="/static/css/finance/imgUnpass.css"/>
-    <link rel="stylesheet" href="/static/css/question/edit.css">
-    <link rel="stylesheet" href="/static/css/requestpayout/disagree.css">
+    <title>客户-不同意</title>
+    <jsp:include page="/WEB-INF/inc/metaData.jsp"></jsp:include>
+    <link rel="stylesheet" href="${contextPath}/static/css/employee/listCon.css">
+    <link rel="stylesheet" href="${contextPath}/static/css/finance/imgUnpass.css"/>
+    <link rel="stylesheet" href="${contextPath}/static/css/question/edit.css">
+    <link rel="stylesheet" href="${contextPath}/static/css/requestpayout/disagree.css">
 </head>
 <style>
     .form-item{
@@ -29,14 +29,14 @@
 </style>
 <body>
 
-{{include('./../inc/header')}}
+<jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
 
 <!--container start-->
 
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-        {{include('./../inc/customer_slide_nav')}}
+        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
 
         <!--navLeft end-->
 
@@ -74,11 +74,11 @@
                             </div>
                         </div>
                         <span class="error"></span>
-                        <!--<input type="button" class="send" id="sendBtn" value="确认发送"/>-->
+                        <%--<input type="button" class="send" id="sendBtn" value="确认发送"/>--%>
                         <per:button code="1119">
                             <div class="form-item" style="margin-left: 0;">
                                 <div class="create_btn" style="margin-left: 0;">
-                                    <input type="button" class="send" data-advance_id="${vo.advance_id}" id="sendBtn" value="确认发送" data-url="/operation/getWaitList"  style="margin:0;"/>
+                                    <input type="button" class="send" data-advance_id="${vo.advance_id}" id="sendBtn" value="确认发送" data-url="${contextPath}/operation/getWaitList"  style="margin:0;"/>
                                     <a href="javascript:window.history.back();">
                                         <input type="button" class="cancel_btn" value="取消">
                                     </a>
@@ -103,8 +103,8 @@
 <!--container end-->
 
 </body>
-<script src="/static/js/finance/img_unpass.js"></script>
-<script src="/static/js/requestpayout/disagree.js"></script>
+<script src="${contextPath}/static/js/finance/img_unpass.js"></script>
+<script src="${contextPath}/static/js/requestpayout/disagree.js"></script>
 <script>
     $('.form-item').eq(0).css('marginTop','15px');
 </script>

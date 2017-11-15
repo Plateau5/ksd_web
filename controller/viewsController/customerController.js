@@ -262,17 +262,18 @@ exports.VIEW_CUSTOMER_OTHERFUND_UNPASS = function(req, res, next) {
 
 
 
-
-
-
-
-
-
-
-
-// 客户-详情页跳转
-exports.VIEW_CUSTOMER_DETAIL_DATA = function(req, res, next) {
-
-
-    //res.render('./customer/customerDetail', { title: '订单详情'});
+// 客户管理-详情页-贷款管理
+exports.VIEW_CUSTOMER_LOAN_DETAIL = function(req, res, next) {
+    var url = '/api/finance/getFile';
+    common.getCustomerDetail(url, req, res, next);
+};
+// 客户管理-详情页-合同管理
+exports.VIEW_CUSTOMER_COMPACT_DETAIL = function(req, res, next) {
+    var url = '/api/compact/getFile';
+    common.getCustomerDetail(url, req, res, next);
+};
+// 客户管理-详情页-请款管理
+exports.VIEW_CUSTOMER_REQUESTPAYOUT_DETAIL = function(req, res, next) {
+    var url = '/api/requestPayout/getFile';
+    common.getCustomerDetail(url, req, res, next);
 };

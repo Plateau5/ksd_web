@@ -1,4 +1,4 @@
-<!-- 同意 -->
+<%-- 同意 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -7,21 +7,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {{include('./../inc/cssSources')}}
+    <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
     <link rel="stylesheet" href="${contentPath}/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="/static/css/customerService.css">
-    <title>客户管理-同意</title>
+    <link rel="stylesheet" href="${contextPath}/static/css/customerService.css">
+    <title>客户-同意</title>
 </head>
 <body>
 <div id="wrapper" class="wrapper">
     <!-------- Part of header Begin -------->
-    {{include('./../inc/header')}}
+    <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
     <!-------- Part of header End -------->
 
     <!-------- Part of main Begin -------->
     <div id="section" class="section normal_width">
         <!---- Part of slide nav Begin ---->
-        {{include('./../inc/customer_slide_nav')}}
+        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
         <!---- Part of slide na End ---->
 
         <!---- Part of Main info Begin ---->
@@ -34,15 +34,15 @@
             <div class="email_content">
                 <form id="send_email">
                     <input type="hidden" value="${finance_id }" name="finance_id">
-                    <input type="hidden" value="${vo.account }" name="email">
+                    <input type="hidden" value="${vo.account }" id="account" name="email">
                     <input type="hidden" value="关于客户${vo.user_name}的贷款合同资料" name="subject">
                     <div class="recipient">
                         <span class="item_key">收件人：</span>
-                        <span class="item_val">${vo.create_name }（${vo.account }）</span>
+                        <span style="background: #f5f5f5;padding-left:10px;width: 300px;" class="item_val inline_block">${vo.create_name } 【 <span id="emailAccount" class="inline_block" style="min-width: 10px;" contenteditable="true">${vo.account }</span> 】 </span>
                     </div>
                     <div class="subject">
                         <span class="item_key">主题：</span>
-                        <span class="item_val">关于客户<span>${vo.user_name}</span>的贷款合同资料</span>
+                        <span class="item_val" style="background: none;">关于客户<span>${vo.user_name}</span>的贷款合同资料</span>
                     </div>
                     <div class="file_upload">
                         <div class="file_upload_layer"><span class="text">上传附件</span><span class="text_tip">（20M以内）</span></div>
@@ -74,8 +74,8 @@
 </div>
 <div class="loading" id="loading"></div>
 </body>
-{{include('./../inc/jsSources')}}
-<script src="/static/dialog/dialog-layer.js"></script>
+<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
+<script src="${contextPath}/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {
         var elem = {
@@ -86,6 +86,12 @@
         function  verify () {
             var elem = $('.file_box');
             var files = elem.find('.file_item');
+            var email = $.trim($('#emailAccount').text());
+            var reg = /@./ig;
+            if (!reg.test(email)) {
+                $alert('邮箱格式不对，请输入正确邮箱。');
+                return false;
+            }
             if (files.length <= 0) {
                 $alert('附件不能为空');
                 return false;
@@ -103,6 +109,8 @@
             var valid = verify();
             if (valid) {
                 elem.confirm.off("click");
+                var email = $.trim($('#emailAccount').text());
+                $('#account').val(email);
                 var data = new FormData($('#send_email')[0]);
                 var url = contextPath + '/api/compact/agree';
                 $.ajax({

@@ -157,6 +157,22 @@ exports.getCustomerList = function(url,title, req, res, next) {
     var body = req.body;
     var data = {};
     var localUrl = req.originalUrl;
+    // 回显详情页访问路由
+    if (localUrl.indexOf('/customer/loan') !== -1) {
+        var detailUrl = '/customer/loan/detail';
+    } else if (localUrl.indexOf('/customer/compact') !== -1) {
+        var detailUrl = '/customer/compact/detail';
+    } else if (localUrl.indexOf('/customer/requestpayout') !== -1) {
+        var detailUrl = '/customer/requestpayout/detail';
+    } else if (localUrl.indexOf('/customer/approval') !== -1) {
+        var detailUrl = '/customer/approval/detail';
+    } else if (localUrl.indexOf('/customer/financial') !== -1) {
+        var detailUrl = '/customer/financial/detail';
+    } else if (localUrl.indexOf('/customer/pigeonhole') !== -1) {
+        var detailUrl = '/customer/pigeonhole/detail';
+    } else if (localUrl.indexOf('/customer/otherfund') !== -1) {
+        var detailUrl = '/customer/otherfund/detail';
+    }
     this.httpRequest({
         url : contextPath + url,
         formData : body
@@ -164,10 +180,53 @@ exports.getCustomerList = function(url,title, req, res, next) {
         data = result;
         if (data.error_code === 0) {
             data.title = title;
-            data.originUrl = localUrl;
+            data.originUrl = localUrl;  // 页面访问路径
+            data.detailUrl = detailUrl; // 详情页访问路径
             res.render('./customer/customerList', data);
         } else {
-            res.render(data.error_msg);
+            //res.render(data.error_msg);
+            res.redirect('/404');
         }
+    }, req, res, next);
+};
+
+/**
+ * 获取客户列表页数据公用方法
+ * @author Arley Joe 2017-11-14 11:31:11
+ *
+ */
+exports.getCustomerDetail = function(url, req, res, next) {
+    var body = req.body;
+    var data = {};
+    var localUrl = req.originalUrl;
+    this.httpRequest({
+        url : contextPath + url,
+        formData : body
+    }, function (result) {
+        data = result;
+        if (data.error_code === 0) {
+            data.title = '客户-订单详情';
+            data.originUrl = localUrl;
+            if (localUrl.indexOf('/customer/loan') !== -1) {
+                res.render('./customer/imgDetail', data);
+            } else if (localUrl.indexOf('/customer/compact') !== -1) {
+                res.render('./compact/imgDetail', data);
+            } else if (localUrl.indexOf('/customer/requestpayout') !== -1) {
+                res.render('./requestpayout/imgDetail', data);
+            } else if (localUrl.indexOf('/customer/approval') !== -1) {
+                res.render('./approval/imgDetail', data);
+            } else if (localUrl.indexOf('/customer/financial') !== -1) {
+                res.render('./financial/imgDetail', data);
+            } else if (localUrl.indexOf('/customer/pigeonhole') !== -1) {
+                res.render('./pigeonhole/imgDetail', data);
+            } else if (localUrl.indexOf('/customer/otherfund') !== -1) {
+                res.render('./otherfund/imgDetail', data);
+            }
+        } else {
+            //res.render(data.error_msg);
+            console.log(data);
+            res.redirect('/404');
+        }
+        /*res.send(data);*/
     }, req, res, next);
 };

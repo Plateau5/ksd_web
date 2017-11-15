@@ -8,15 +8,15 @@
 	request.setAttribute("contextPath", contextPath);
 %>
 <script type="text/javascript">
-    var contextPath = '';
+    var contextPath = '${contextPath}';
 </script>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="shortcut icon" type="image/x-icon" href="/static/icon/favicon.ico"/>
-	<link rel="icon" type="image/x-icon" href="/static/icon/favicon.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="${contextPath}/static/icon/favicon.ico"/>
+	<link rel="icon" type="image/x-icon" href="${contextPath}/static/icon/favicon.ico" />
 	<title>打印详情</title>
 	<style>
 		*{padding:0;margin:0;list-style:none;font-family:"宋体"}@media screen and (min-width: 1366px){.detail_content{width:60%;height:auto;margin:auto;padding-bottom:100px;font-size:14px}}@media screen and (max-width: 1366px){.detail_content{width:90%;height:auto;margin:auto;padding-bottom:100px;font-size:14px}}@media print{.detail_content{width:100%;height:auto;margin:auto;font-size:14px}}.content_box{width:100%;margin:0 auto;border-collapse:collapse}table{table-layout:fixed}table td{word-break:break-word}table.content_box tr td{padding:0 6px;border:2px solid #666}table tr{height:30px;line-height:30px}.title{width:100%;height:60px;line-height:60px;font-size:24px;font-weight:bolder;text-align:center;font-family:"microsoft yahei"}.title_info{width:100%;height:28px;line-height:28px;margin:0 auto 5px}.title_info > div{display:inline-block;height:inherit}.title_info .apply_time{margin-left:30px}table.content_box > tbody > tr > td:first-child{width:12%}.content_box .card_num{width:5%}.approval_box{height:auto}.content_box tr td.approval_flow{padding:0}.flow_lists{width:100%;border-collapse:collapse;font-size:12px}.flow_lists tbody tr{line-height:22px}table.flow_lists tbody tr td{border:0;border-bottom:2px solid #666}table.flow_lists tbody tr:last-child td{border:0}
@@ -52,24 +52,24 @@
 				<td colspan="4">${vo.dpartment_name}</td>
 				<td colspan="2">上牌方</td>
 				<td colspan="4">${vo.regist_type_value}</td>
-				<!-- <c:if test="${vo.car_type eq 0 }">
+				<%-- <c:if test="${vo.car_type eq 0 }">
 				</c:if>
 				<c:if test="${vo.car_type eq 1 }">
 					<td>保险是否完成</td>
 					<td colspan="3"><c:if test="${vo.insurance_isfinish eq 1 }">是</c:if><c:if test="${vo.insurance_isfinish eq 0 }">否</c:if></td>
-				</c:if> -->
+				</c:if> --%>
 			</tr>
 			<tr>
 				<td colspan="2">客户姓名</td>
 				<td colspan="4">${vo.user_name}</td>
 				<td colspan="2">抵押方</td>
 				<td colspan="4">${vo.pledge_type_value}</td>
-				<!-- <c:if test="${vo.car_type eq 0 }">
+				<%-- <c:if test="${vo.car_type eq 0 }">
 				</c:if>
 				<c:if test="${vo.car_type eq 1 }">
 					<td>上牌是否完成</td>
 					<td colspan="3"><c:if test="${vo.regist_isfinish eq 1 }">是</c:if><c:if test="${vo.regist_isfinish eq 0 }">否</c:if></td>
-				</c:if> -->
+				</c:if> --%>
 			</tr>
 			<tr>
 				<td colspan="2">放款类型</td>

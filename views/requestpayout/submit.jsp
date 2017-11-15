@@ -7,13 +7,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>客户管理-请款管理</title>
-    {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css">
-    <link rel="stylesheet" href="/static/css/question/edit.css">
+    <title>客户-请款管理</title>
+    <jsp:include page="/WEB-INF/inc/metaData.jsp"></jsp:include>
+    <link rel="stylesheet" href="${contextPath}/static/css/employee/listCon.css">
+    <link rel="stylesheet" href="${contextPath}/static/css/question/edit.css">
     <link rel="stylesheet" href="${contentPath}/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="/static/css/requestpayout/agree.css">
-    <script src="/static/js/question/submit_form.js"></script>
+    <link rel="stylesheet" href="${contextPath}/static/css/requestpayout/agree.css">
+    <script src="${contextPath}/static/js/question/submit_form.js"></script>
 </head>
 <style>
     .file_item{
@@ -22,14 +22,14 @@
 </style>
 <body>
 
-{{include('./../inc/header')}}
+<jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
 
 <!--container start-->
 
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-        {{include('./../inc/customer_slide_nav')}}
+        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
 
         <!--navLeft end-->
 
@@ -67,7 +67,7 @@
                 <div class="form-item">
                     <div class="create_btn"  style="margin-left: 0">
                         <per:button code="1211">
-                            <input type="button" class="create_sub" id="confirm_sub_t" value="确认" data-advance_id="${vo.advance_id}" data-url="/requestPayout/pendingDispose/list" />
+                            <input type="button" class="create_sub" id="confirm_sub_t" value="确认" data-advance_id="${vo.advance_id}" data-url="${contextPath}/requestPayout/pendingDispose/list" />
                         </per:button>
                         <a href="javascript:window.history.back();">
                             <input type="button" class="cancel_btn" value="取消">
@@ -88,8 +88,8 @@
 <!--container end-->
 
 </body>
-<script src="/static/js/requestpayout/agree.js"></script>
-<script src="/static/dialog/dialog-layer.js"></script>
+<script src="${contextPath}/static/js/requestpayout/agree.js"></script>
+<script src="${contextPath}/static/dialog/dialog-layer.js"></script>
 <script>
     $('.form-item').eq(0).css('marginTop','32px');
     (function () {

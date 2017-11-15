@@ -8,40 +8,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {{include('./../inc/cssSources')}}
+    <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
     <link rel="stylesheet" href="${contentPath}/static/dialog/dialog-layer.css">
     <link rel="stylesheet" href="${contentPath}/static/css/finance.css">
-    <title>客户管理-款项管理</title>
+    <title>客户-款项管理</title>
 </head>
 <body>
 <div id="wrapper" class="wrapper">
     <!-------- Part of header Begin -------->
-    {{include('./../inc/header')}}
+    <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
     <!-------- Part of header End -------->
 
     <!-------- Part of main Begin -------->
     <div id="section" class="section normal_width">
         <!---- Part of slide nav Begin ---->
-        {{include('./../inc/customer_slide_nav')}}
+        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
         <!---- Part of slide na End ---->
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
             <div class="crumbs_nav">
-                <a href="/financial/system" class="crumbs_item">款项管理</a>
-                <a href="/financial/pendingDispose/list" class="crumbs_item">待回款</a>
+                <a href="${contextPath}/financial/system" class="crumbs_item">款项管理</a>
+                <a href="${contextPath}/financial/pendingDispose/list" class="crumbs_item">待回款</a>
                 <a href="javascript:window.history.back();" class="crumbs_item">${vo.user_name }</a>
                 <a href="javascript:;" class="crumbs_item">已回款</a>
             </div>
             <div class="cashed_mark">
-                <form action="<!--/api/financial/return/submit-->" method="post" id="returnResult">
+                <form action="<%--${contextPath}/api/financial/return/submit--%>" method="post" id="returnResult">
                     <input type="hidden" name="finance_id" value="${finance_id}">
                     <input type="hidden" name="advance_id" value="${vo.advance_id}">
                     <div class="form_row">
                         <div class="column_l"><span class="asterisk">*</span>款项类型：</div>
                         <div class="column_r">
                             <select name="is_allReturn" id="is_allReturn">
-                                <option value="-1">-- 请选择 --</option>
+                                <option value="-1">全部</option>
                                 <option value="1">全部到我司</option>
                                 <option value="0">部分到我司</option>
                             </select>
@@ -50,7 +50,7 @@
                     <div class="form_row amount_count"  style="display: none;">
                         <div class="column_l"><span class="asterisk">*</span>款项金额：</div>
                         <div class="column_r">
-                            <input type="text" name='return_money' class="" id="cashed_check" value="" placeholder="如：10000" style="width: 60px; ime-mode: disabled;"  maxlength="12" />
+                            <input type="text" name='return_money' class="" id="cashed_check" value="" placeholder="如：10000" style="width: 110px; ime-mode: disabled;"  maxlength="12" />
                             <label>元</label>
                         </div>
                     </div>
@@ -84,8 +84,8 @@
     </div>
 </div>
 </body>
-{{include('./../inc/jsSources')}}
-<script src="/static/dialog/dialog-layer.js"></script>
+<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
+<script src="${contextPath}/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {
         //只允许输入数字或者输入两位小数

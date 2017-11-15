@@ -5,10 +5,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {{include('./../inc/cssSources')}}
-	<link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
-    <link rel="stylesheet" href="/static/css/finance.css">
-    <title>客户管理-款项管理</title>
+    <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
+	<link rel="stylesheet" href="${contextPath}/static/jedate/skin/jedate.css"/>
+    <link rel="stylesheet" href="${contextPath}/static/css/finance.css">
+    <title>客户-款项管理</title>
 </head>
 <style>
 	.overflow{
@@ -20,85 +20,32 @@
 <body>
     <div id="wrapper" class="wrapper">
         <!-------- Part of header Begin -------->
-        {{include('./../inc/header')}}
+        <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
         <!-------- Part of header End -------->
 
         <!-------- Part of main Begin -------->
         <div id="section" class="section normal_width">
             <!---- Part of slide nav Begin ---->
-            {{include('./../inc/customer_slide_nav')}}
+            <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
             <!---- Part of slide na End ---->
 
             <!---- Part of Main info Begin ---->
             <div id="main" class="main">
-                <form action="/financial/getReturnList" method="post" id="form_search" role="form">
+                <form action="${contextPath}/financial/getReturnList" method="post" id="form_search" role="form">
                 </form>
 				<div class="operation_category">
-					{{include('./../inc/operation_category')}}
+					<jsp:include page="/WEB-INF/inc/operation_category.jsp"></jsp:include>
 				</div>
                 <div class="filtrate">
-                    {{include('./../inc/filtrate')}}
+                    <jsp:include page="/WEB-INF/inc/filtrate.jsp"></jsp:include>
                 </div>
                 <div class="business_list">
 					<form action="${contextPath }/financial/getFile" method="post" id="to_order_detail">
 						<input type="hidden" name="finance_id" value="" id="financeId">
 					</form>
-					<c:if test="${count > 0}">
-					   <a class="finance_list">
-							 <c:forEach items="${list}" step="1" var="bean" varStatus="status">
-								<li class="list_item" lang="${bean.finance_id}">
-								    <div class="create_date">进件时间：${bean.create_time } / ${bean.city_name}</div>
-									<div class="list_item_detail">
-										<div class="shake_box">
-											<c:if test="${bean.is_throw eq 1}">
-												<div class="shake shook_sign shuai">甩</div>
-											</c:if>
-										</div>
-										<div class="user_info">
-											<div class="user_photo" style="margin-top: 20px;">
-												<div class="lender name_color${status.count}">${fn:substring(bean.user_name, 0, 1)}</div>
-											</div>
-											<div class="user_name nor_wrap">${bean.user_name}</div>
-										</div>
-										<div class="finance_desc">
-											<dl class="effect_one">
-												<dt class="font12">申请贷款产品</dt>
-												<dd class="nor_wrap font14">${bean.product_name}</dd>
-											</dl>
-											<dl  class="effect_two">
-												<dt class="font12">贷款类型 / 车系</dt>
-												<dd class="font14 overflow" title="<c:if test="${bean.car_type eq 0}">新车 </c:if><c:if test="${bean.car_type eq 1}">二手车 </c:if>/ ${bean.series_name}">
-													<c:if test="${bean.car_type eq 0}">新车 </c:if><c:if test="${bean.car_type eq 1}">二手车 </c:if> / ${bean.series_name}
-												</dd>
-											</dl>
-											<dl class="effect_two">
-												<dt class="font12">购车价格</dt>
-												<dd class="nor_wrap font14">${bean.car_price} 万</dd>
-											</dl>
-											<dl class="effect_two">
-												<dt class="font12">申请贷款</dt>
-												<dd class="font14">${bean.loan_amount} 万</dd>
-											</dl>
-											<dl class="effect_two">
-												<dt class="font12">期数（月）</dt>
-												<dd class="font14">${bean.pay_periods} 期</dd>
-											</dl>
-											<dl  class="effect_two">
-												<dt class="font12">${bean.position_desc}</dt>
-												<dd class="nor_wrap font14">${bean.create_name}</dd>
-											</dl>
-										</div>
-									</div>
-
-								</li>
-							</c:forEach>
-						</ul>
-					</c:if>
-					<c:if test="${count eq 0 }">
-						{{include('./../inc/empty_data')}}
-					</c:if>
+					<jsp:include page="/WEB-INF/inc/customers_list.jsp"></jsp:include>
                     <div class="page_box">
-                        {{include('./../inc/pagination')}}
+                        <jsp:include page="/WEB-INF/inc/page_list.jsp"></jsp:include>
                     </div>
                 </div>
             <!---- Part of Main info End ---->
@@ -111,14 +58,14 @@
     </div>
     </div>
 </body>
-{{include('./../inc/jsSources')}}
-<script src="/static/jedate/jquery.jedate.min.js"></script>
+<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
+<script src="${contextPath}/static/jedate/jquery.jedate.min.js"></script>
 <script>
     (function ($) {
 
         $(function() {
             initDateMinTodayForOrder('#filtrate_date');
-			selectorChange();
+			selectChange();
 			toOrderDetail();
         });
     })(jQuery,undefined);

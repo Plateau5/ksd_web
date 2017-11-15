@@ -7,17 +7,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>客户管理-客户详情</title>
-    {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
-	<link rel="stylesheet" href="/static/dialog/dialog-layer.css"/>
-    <link rel="stylesheet" href="/static/css/finance/detail.css"/>
-    <link rel="stylesheet" href="/static/css/requestpayout/detail.css"/>
+    <title>客户-客户详情</title>
+    <jsp:include page="/WEB-INF/inc/metaData.jsp"></jsp:include>
+    <link rel="stylesheet" href="${contextPath}/static/css/employee/listCon.css"/>
+	<link rel="stylesheet" href="${contextPath}/static/dialog/dialog-layer.css"/>
+    <link rel="stylesheet" href="${contextPath}/static/css/finance/detail.css"/>
+    <link rel="stylesheet" href="${contextPath}/static/css/requestpayout/detail.css"/>
 </head>
 <body>
 
 <!--header start-->
-{{include('./../inc/header')}}
+<jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
 <!--header end-->
 
 <!--container start-->
@@ -25,9 +25,9 @@
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-		{{include('./../inc/customer_slide_nav')}}
+		<jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
         <!--navLeft end-->
-    <form action="/finance/file/download" id="finance_download" method="post">
+    <form action="${contextPath}/finance/file/download" id="finance_download" method="post">
         <input id="finance_download_finance_id" value="${finance_id}" name="finance_id" type="hidden">
         <input id="user_name" value="${vo.user_name}" name="user_name" type="hidden">
         <input id="material_type" value="" name="material_type" type="hidden">
@@ -38,8 +38,8 @@
         <div class="listCon">
             <div class="listConHeader inviteCon" style="margin-bottom:20px;">
                 <ul class="crumbs_nav">
-                    <li class="inline colorB first_nav"><a class="TS" href="/financial/system">款项管理</a></li>
-                    <li class="inline before  second_nav"><a href="${url}">${navigation}</a></li>
+                    <li class="inline colorB first_nav"><a class="TS" href="${contextPath}/financial/system">款项管理</a></li>
+                    <li class="inline before  second_nav"><a href="${contextPath}${url}">${navigation}</a></li>
                     <li class="inline before"><a href="javascript:;">${vo.user_name }</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">查看资料</a></li>
                 </ul>
@@ -49,13 +49,13 @@
                 <input type="hidden" id="request_status" value="${vo.request_status }">
                 <input type="hidden" id="orderNo" value="${orderNo }">
                 <!--img_file start-->
-				{{include('./../inc/entry_info')}}
+				<jsp:include page="/WEB-INF/inc/entry_info.jsp"></jsp:include>
                 <!--img_file end-->
 				<!-- 基本信息 Begin -->
-				{{include('./../inc/customer_basic_info')}}
+				<jsp:include page="/WEB-INF/inc/customer_basic_info.jsp"></jsp:include>
 				<!-- 基本信息 End -->
 				<!-- 合同资料 Begin -->
-				{{include('./../inc/compact_info')}}
+				<jsp:include page="/WEB-INF/inc/compact_info.jsp"></jsp:include>
 				<!-- 合同资料 End -->
 				<c:if test="${is_show eq 1 }">
                 <!--requestpayout_detail start-->
@@ -65,13 +65,13 @@
 	                    <span>请款资料</span>
 	                </div>
 	                <div class="requestpayout_detail_container">
-						{{include('./../inc/requestpayout_info')}}
+						<jsp:include page="/WEB-INF/inc/requestpayout_info.jsp"></jsp:include>
 						<div class="requestpayout_detail_btn_box">
-	                    	<!--<c:if test="${url eq '/financial/pass/list' || url eq '/financial/getReturnList'}">
+	                    	<%--<c:if test="${url eq '/financial/pass/list' || url eq '/financial/getReturnList'}">
 								<a href="${contextParh }/financial/print?orderNo=${orderNo}" target="_blank">
 									<div class="cursor requestpayout_detail_btn print_btn" id="print_btn">打印</div>
 								</a>
-	                    	</c:if>-->
+	                    	</c:if>--%>
 	                        <div class="cursor requestpayout_detail_btn requestpayout_download download_file" id="" alt="2" lang="${finance_id}">全部下载</div>
 		                    <c:if test="${url eq '/financial/getWaitList' && vo.present_id eq present_id && vo.receipt_id eq 1}">
 		                        <per:button code="1186">
@@ -81,25 +81,25 @@
 			                    </per:button>
 			                    <per:button code="1175">     
 			                        <a href="javascript:" class="go_forward" data-url="${contextParh }/financial/toDisagree" data-id="${finance_id}" data-advance_id="${vo.advance_id}">
-				                        <div class="cursor requestpayout_detail_btn requestpayout_disagree">不同意</div>
+				                        <div class="cursor requestpayout_detail_btn requestpayout_disagree" data-advance_id="${vo.advance_id}" data-id="${finance_id}">不同意</div>
 			                        </a>
 			                    </per:button>
 			                    <per:button code="1176">  
 			                        <a href="javascript:" class="go_forward" data-url="${contextParh }/financial/toAgree" data-id="${finance_id}" data-advance_id="${vo.advance_id}">
-			                        	<div class="cursor requestpayout_detail_btn requestpayout_agree" lang="${finance_id}">同意</div>
+			                        	<div class="cursor requestpayout_detail_btn requestpayout_agree" data-advance_id="${vo.advance_id}" lang="${finance_id}">同意</div>
 			                        </a>
 			                    </per:button>
 		                    </c:if>
 		                    <c:if test="${url eq '/financial/pass/list' && vo.receipt_id eq 1 && (vo.is_allReturn eq 0 || empty vo.is_allReturn) && (vo.advance_status eq 10 || vo.advance_status eq 11)}">
 			                    <per:button code="1158">  
 									<a href="javascript:;" class="btn_item affirm_return_money" lang="${finance_id}" data-advance_id="${vo.advance_id}">
-										<div class="cursor requestpayout_detail_btn requestpayout_affirm" alt="2" lang="${finance_id}">确认回款</div>
+										<div class="cursor requestpayout_detail_btn requestpayout_affirm" alt="2" data-advance_id="${vo.advance_id}" lang="${finance_id}">确认回款</div>
 									</a>
 			                    </per:button>
 		                    </c:if>
 		                    <c:if test="${url eq '/financial/pendingDispose/list' && vo.receipt_id eq 1 && vo.risk_type eq 3 && vo.is_OperationCommit eq 0}">
 								<per:button code="1215">
-									<a href="javascript:;"  lang="${finance_id}">
+									<a href="javascript:;"  lang="${finance_id}" data-advance_id="${vo.advance_id}">
 										<div class="cursor requestpayout_detail_btn already_cashed_check"  lang="${finance_id}" data-advance_id="${vo.advance_id}">已回款</div>
 									</a>
 								</per:button>
@@ -110,14 +110,14 @@
                 <!--requestpayout_detail end-->
 
 				<!-- 归档资料 start -->
-					{{include('./../inc/pigeonhole_info')}}
+					<jsp:include page="/WEB-INF/inc/pigeonhole_info.jsp"></jsp:include>
 				<!-- 归档资料 end -->
 				</c:if>
 
 
-				<!--操作记录部分-->
+				<%--操作记录部分--%>
 				<!-- 操作记录 Begin -->
-				{{include('./../inc/operate_logs')}}
+				<jsp:include page="/WEB-INF/inc/operate_logs.jsp"></jsp:include>
 				<!-- 操作记录 End -->
 
 
@@ -151,7 +151,7 @@
         </select>
     </div>
     <div class="care_btn">
-        <input type="button" class="term_sub" id="care_sub" value="确定"  data-url="/financial/getWaitList">
+        <input type="button" class="term_sub" id="care_sub" value="确定"  data-url="${contextPath}/financial/getWaitList">
         <input type="button" class="cancel_btn" value="取消">
     </div>
 </div>
@@ -187,8 +187,8 @@
 
 	});
 </script>
-<script src="/static/js/finance/img_detail.js"></script>
-<script src="/static/dialog/dialog-layer.js"></script>
-<script src="/static/js/requestpayout/detail.js"></script>
+<script src="${contextPath}/static/js/finance/img_detail.js"></script>
+<script src="${contextPath}/static/dialog/dialog-layer.js"></script>
+<script src="${contextPath}/static/js/requestpayout/detail.js"></script>
 </body>
 </html>

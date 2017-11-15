@@ -7,16 +7,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>客户管理-客户详情</title>
-    {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="/static/css/finance/detail.css"/>
-    <link rel="stylesheet" href="/static/css/requestpayout/detail.css"/>
+    <title>客户-客户详情</title>
+    <jsp:include page="/WEB-INF/inc/metaData.jsp"></jsp:include>
+    <link rel="stylesheet" href="${contextPath}/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="${contextPath}/static/css/finance/detail.css"/>
+    <link rel="stylesheet" href="${contextPath}/static/css/requestpayout/detail.css"/>
 </head>
 <body>
 
 <!--header start-->
-{{include('./../inc/header')}}
+<jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
 <!--header end-->
 
 <!--container start-->
@@ -24,15 +24,15 @@
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-        {{include('./../inc/customer_slide_nav')}}
+        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
         <!--navLeft end-->
-	<form action="/finance/picture/reason" id="picture_reason_form" method="post">
+	<form action="${contextPath}/finance/picture/reason" id="picture_reason_form" method="post">
         <input id="finance_id_picture_reason" value="${finance_id}" name="finance_id" type="hidden">
         <input value="${vo.user_name}" name="user_name" type="hidden">
         <input value="${vo.create_name}" name="create_name" type="hidden">
         <input type="hidden" id="reason_inner" name="reason_inner" value="">
     </form>
-    <form action="/finance/file/download" id="finance_download" method="post">
+    <form action="${contextPath}/finance/file/download" id="finance_download" method="post">
         <input id="finance_download_finance_id" value="${finance_id}" name="finance_id" type="hidden">
         <input id="user_name" value="${vo.user_name}" name="user_name" type="hidden">
         <input id="material_type" value="" name="material_type" type="hidden">
@@ -43,8 +43,8 @@
         <div class="listCon">
             <div class="listConHeader inviteCon" style="margin-bottom:20px;">
                 <ul class="crumbs_nav">
-                    <li class="inline colorB first_nav"><a class="TS" href="/pigeonhole/system">归档管理</a></li>
-                    <li class="inline before second_nav"><a href="${url}">${navigation}</a></li>
+                    <li class="inline colorB first_nav"><a class="TS" href="${contextPath}/pigeonhole/system">归档管理</a></li>
+                    <li class="inline before second_nav"><a href="${contextPath}${url}">${navigation}</a></li>
                     <li class="inline before"><a href="javascript:;">${vo.user_name }</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">查看资料</a></li>
                 </ul>
@@ -53,13 +53,13 @@
                 <input type="hidden" id="finance_id" value="${finance_id}">
                 <input type="hidden" id="request_status" value="${vo.request_status }">
                 <!--img_file start-->
-				{{include('./../inc/entry_info')}}
+				<jsp:include page="/WEB-INF/inc/entry_info.jsp"></jsp:include>
                 <!--img_file end-->
 				<!-- 基本信息 Begin -->
-				{{include('./../inc/customer_basic_info')}}
+				<jsp:include page="/WEB-INF/inc/customer_basic_info.jsp"></jsp:include>
 				<!-- 基本信息 End -->
 				<!-- 合同资料 Begin -->
-				{{include('./../inc/compact_info')}}
+				<jsp:include page="/WEB-INF/inc/compact_info.jsp"></jsp:include>
 				<!-- 合同资料 End -->
                 <!--requestpayout_detail start-->
                 <c:if test="${vo.status >=10 }">
@@ -68,10 +68,10 @@
 						<span>请款资料</span>
 					</div>
 					<div class="requestpayout_detail_container">
-						{{include('./../inc/requestpayout_info')}}
+						<jsp:include page="/WEB-INF/inc/requestpayout_info.jsp"></jsp:include>
 						<div class="requestpayout_detail_btn_box">
 							<div class="cursor requestpayout_detail_btn requestpayout_download download_file" id="" alt="2" lang="${finance_id}">全部下载</div>
-							<c:if test="${vo.status eq 12}">
+                            <c:if test="${empty vo.pigeonhole_material && vo.status eq 12}">
 								<c:if test="${vo.is_pigeonhole eq 0}">
 									<per:button code="1121">
 										<div class="cursor requestpayout_detail_btn requestpayout_flied" id="flied_btn" lang="${finance_id}" data-advance_id="${vo.advance_id}">确认归档</div>
@@ -96,14 +96,14 @@
                 <!--requestpayout_detail end-->
 
 				<!-- 归档资料 start -->
-				{{include('./../inc/pigeonhole_info')}}
+				<jsp:include page="/WEB-INF/inc/pigeonhole_info.jsp"></jsp:include>
 				<!-- 归档资料 end -->
 
 
 
-				<!--操作记录部分-->
+				<%--操作记录部分--%>
 				<!-- 操作记录 Begin -->
-				{{include('./../inc/operate_logs')}}
+				<jsp:include page="/WEB-INF/inc/operate_logs.jsp"></jsp:include>
 				<!-- 操作记录 End -->
 
 
@@ -132,7 +132,7 @@
         天未归档，请尽快归档。
     </div>
     <div class="term_btn">
-        <input type="button" class="term_sub" data-advance_id="${vo.advance_id}" id="term_sub" value="确定"  data-url="/pigeonhole/getWaitList">
+        <input type="button" class="term_sub" data-advance_id="${vo.advance_id}" id="term_sub" value="确定"  data-url="${contextPath}/pigeonhole/getWaitList">
         <input type="button" class="cancel_btn" value="取消">
     </div>
 </div>
@@ -144,7 +144,7 @@
         您确定将此订单归档吗？
     </div>
     <div class="flied_btn">
-        <input type="button" class="flied_sub" data-advance_id="${vo.advance_id}" id="flied_sub" value="确定"  data-url="/pigeonhole/getWaitList">
+        <input type="button" class="flied_sub" data-advance_id="${vo.advance_id}" id="flied_sub" value="确定"  data-url="${contextPath}/pigeonhole/getWaitList">
         <input type="button" class="cancel_btn" value="取消">
     </div>
 </div>
@@ -161,7 +161,7 @@
         </select>
     </div>
     <div class="care_btn">
-        <input type="button" class="term_sub" id="care_sub" value="确定"  data-url="/pigeonhole/getWaitList">
+        <input type="button" class="term_sub" id="care_sub" value="确定"  data-url="${contextPath}/pigeonhole/getWaitList">
         <input type="button" class="cancel_btn" value="取消">
     </div>
 </div>
@@ -176,7 +176,7 @@
 		car_type : ${vo.car_type}
 	});
 </script>
-<script src="/static/js/finance/img_detail.js"></script>
-<script src="/static/js/requestpayout/detail.js"></script>
+<script src="${contextPath}/static/js/finance/img_detail.js"></script>
+<script src="${contextPath}/static/js/requestpayout/detail.js"></script>
 </body>
 </html>

@@ -13,31 +13,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/css/transfer.css">
+    <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
+    <link rel="stylesheet" href="${contextPath}/static/css/transfer.css">
     <title>转交他人</title>
 </head>
 <body>
 <div id="wrapper" class="wrapper">
     <!-------- Part of header Begin -------->
-    {{include('./../inc/header')}}
+    <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
     <!-------- Part of header End -------->
 
     <!-------- Part of main Begin -------->
     <div id="section" class="section normal_width">
         <!---- Part of slide nav Begin ---->
-        {{include('./../inc/customer_slide_nav')}}
+        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
         <!---- Part of slide na End ---->
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
             <input type="hidden" id="advance_id" value="${vo.advance_id}">
-            <input type="hidden" name="finance_id" value="${finance_id}">
+            <input type="hidden" id="finance_id" name="finance_id" value="${finance_id}">
             <input type="hidden" id="emp_id" value="">
             <div class="crumbs_nav">
-                <a href="/otherfund/system" class="crumbs_item">款项管理</a>
-                <a href="/otherfund/pending/list" class="crumbs_item">待审批</a>
-                <a href="javascript:window.history.back();" data-url="/otherfund/getFile" data-id="${finance_id}" class="crumbs_item">${vo.user_name }</a>
+                <a href="${contextPath}/otherfund/system" class="crumbs_item">其他款项</a>
+                <a href="${contextPath}/otherfund/pending/list" class="crumbs_item">待审批</a>
+                <a href="javascript:window.history.back();" data-url="${contextPath}/otherfund/getFile" data-id="${finance_id}" class="crumbs_item">${vo.user_name }</a>
                 <a href="javascript:;" class="crumbs_item">转交他人</a>
             </div>
 
@@ -54,7 +54,7 @@
                                 <li class="list_item employee_item" lang="${bean.role_id }" style="display:none;">
                                     <c:choose>
                                         <c:when test="${empty bean.image_url}">
-                                            <img src="/static/img/employee/perIcon.png" alt="">
+                                            <img src="${contextPath}/static/img/employee/perIcon.png" alt="">
                                         </c:when>
                                         <c:otherwise>
                                             <img src="${bean.image_url}" alt="">
@@ -72,7 +72,7 @@
                     <per:button code="1340">
                         <div class="btn_box">
                             <a href="javascript:" class="btn orange_btn confirm dialog_confirm" data-advance_id="${vo.advance_id}" data-id="${finance_id }" id="dialog_confirm">确定</a>
-                            <a href="javascript:window.history.back();" data-url="/financial/getFile" data-id="${finance_id}" class="btn bg_btn cancel">取消</a>
+                            <a href="javascript:window.history.back();" data-url="${contextPath}/financial/getFile" data-id="${finance_id}" class="btn bg_btn cancel">取消</a>
                         </div>
                     </per:button>
                 </div>
@@ -94,7 +94,7 @@
     <!-------- Part of footer End -------->
 </div>
 </body>
-{{include('./../inc/jsSources')}}
+<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
 
 <script>
     $(function(){
@@ -188,7 +188,7 @@
                 },
                 success:function(data){
                     if(data.error_code =='0'){
-                        window.location.href = contextPath + "/otherfund/getFile";
+                        window.location.href = contextPath + "/otherfund/pending/list";
                     }else{
                         $('.error').text(data.error_msg);
                         $('.error').css('display','block');

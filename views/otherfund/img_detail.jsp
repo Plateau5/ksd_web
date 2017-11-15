@@ -8,17 +8,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>客户管理-客户详情</title>
-    {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="/static/css/finance/detail.css"/>
-    <link rel="stylesheet" href="/static/dialog/dialog-layer.css"/>
-    <link rel="stylesheet" href="/static/css/requestpayout/detail.css"/>
+    <title>客户-客户详情</title>
+    <jsp:include page="/WEB-INF/inc/metaData.jsp"></jsp:include>
+    <link rel="stylesheet" href="${contextPath}/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="${contextPath}/static/css/finance/detail.css"/>
+    <link rel="stylesheet" href="${contextPath}/static/dialog/dialog-layer.css"/>
+    <link rel="stylesheet" href="${contextPath}/static/css/requestpayout/detail.css"/>
 </head>
 <body>
 
 <!--header start-->
-{{include('./../inc/header')}}
+<jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
 <!--header end-->
 
 <!--container start-->
@@ -26,7 +26,7 @@
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-        {{include('./../inc/customer_slide_nav')}}
+        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
         <!--navLeft end-->
 
 
@@ -35,13 +35,13 @@
         <div class="listCon">
             <div class="listConHeader inviteCon" style="margin-bottom:20px;">
                 <ul class="crumbs_nav">
-                    <li class="inline colorB first_nav"><a class="TS" href="/otherfund/system">其他款项</a></li>
-                    <li class="inline before second_nav"><a href="${url}">${navigation}</a></li>
+                    <li class="inline colorB first_nav"><a class="TS" href="${contextPath}/otherfund/system">其他款项</a></li>
+                    <li class="inline before second_nav"><a href="${contextPath}${url}">${navigation}</a></li>
                     <li class="inline before"><a href="javascript:;">${vo.user_name }</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">查看资料</a></li>
                 </ul>
             </div>
-            <form action="/finance/file/download" id="finance_download" method="post">
+            <form action="${contextPath}/finance/file/download" id="finance_download" method="post">
                 <input id="finance_download_finance_id" value="${finance_id}" name="finance_id" type="hidden">
                 <input id="user_name" value="${vo.user_name}" name="user_name" type="hidden">
                 <input id="material_type" value="" name="material_type" type="hidden">
@@ -50,13 +50,13 @@
                 <input type="hidden" id="finance_id" value="${finance_id}">
                 <input type="hidden" id="request_status" value="${vo.request_status }">
                 <!--img_file start-->
-                {{include('./../inc/entry_info')}}
+                <jsp:include page="/WEB-INF/inc/entry_info.jsp"></jsp:include>
                 <!--img_file end-->
                 <!-- 基本信息 Begin -->
-                {{include('./../inc/customer_basic_info')}}
+                <jsp:include page="/WEB-INF/inc/customer_basic_info.jsp"></jsp:include>
                 <!-- 基本资料 End -->
                 <!-- 合同资料 Begin -->
-                {{include('./../inc/compact_info')}}
+                <jsp:include page="/WEB-INF/inc/compact_info.jsp"></jsp:include>
                 <!-- 合同资料 End -->
                 <!--requestpayout_detail start-->
                 <div class="img_detail_title">
@@ -64,7 +64,7 @@
                     <span>请款资料</span>
                 </div>
                 <div class="requestpayout_detail_container">
-                    {{include('./../inc/requestpayout_info')}}
+                    <jsp:include page="/WEB-INF/inc/requestpayout_info.jsp"></jsp:include>
 
                     <div class="requestpayout_detail_btn_box">
                     <c:if test="${not empty file_list2 }">
@@ -94,11 +94,11 @@
                 <!--requestpayout_detail end-->
 
                 <!-- 归档资料 start -->
-                {{include('./../inc/pigeonhole_info')}}
+                <jsp:include page="/WEB-INF/inc/pigeonhole_info.jsp"></jsp:include>
                 <!-- 归档资料 end -->
-                <!--操作记录部分-->
+                <%--操作记录部分--%>
                 <!-- 操作记录 Begin -->
-                {{include('./../inc/operate_logs')}}
+                <jsp:include page="/WEB-INF/inc/operate_logs.jsp"></jsp:include>
                 <!-- 操作记录 End -->
             </div>
         </div>
@@ -114,20 +114,20 @@
     <div class="care_txt">
         确认将此订单转交给
         <select name="emp_id" id="emp_id">
-            <option value="0">请选择</option>
+            <option value="0">全部</option>
             <c:forEach items="${emp_list }" var="bean">
                 <option value="${bean.id}">${bean.name}</option>
             </c:forEach>
         </select>
     </div>
     <div class="care_btn">
-        <input type="button" class="term_sub" id="care_sub" value="确定" data-url="/requestPayout/waitList">
+        <input type="button" class="term_sub" id="care_sub" value="确定" data-url="${contextPath}/requestPayout/waitList">
         <input type="button" class="cancel_btn" value="取消">
     </div>
 </div>
-<script src="/static/js/finance/img_detail.js"></script>
-<script src="/static/dialog/dialog-layer.js"></script>
-<script src="/static/js/requestpayout/detail.js"></script>
+<script src="${contextPath}/static/js/finance/img_detail.js"></script>
+<script src="${contextPath}/static/dialog/dialog-layer.js"></script>
+<script src="${contextPath}/static/js/requestpayout/detail.js"></script>
 <script>
     var btn = $('.detail_btn1').length;
     if(btn != '0'){

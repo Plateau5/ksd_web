@@ -7,12 +7,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>客户管理-不同意</title>
-    {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css">
-    <link rel="stylesheet" href="/static/css/finance/imgUnpass.css"/>
-    <link rel="stylesheet" href="/static/css/question/edit.css">
-    <link rel="stylesheet" href="/static/css/requestpayout/disagree.css">
+    <jsp:include page="/WEB-INF/inc/metaData.jsp"></jsp:include>
+    <link rel="stylesheet" href="${contextPath}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="${contextPath}/static/css/employee/listCon.css">
+    <link rel="stylesheet" href="${contextPath}/static/css/finance/imgUnpass.css"/>
+    <link rel="stylesheet" href="${contextPath}/static/css/question/edit.css">
+    <link rel="stylesheet" href="${contextPath}/static/css/requestpayout/disagree.css">
+    <title>客户-不同意</title>
 </head>
 <style>
     body{overflow-x:hidden;}
@@ -20,14 +21,14 @@
 </style>
 <body>
 
-{{include('./../inc/header')}}
+<jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
 
 <!--container start-->
 
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-        {{include('./../inc/customer_slide_nav')}}
+        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
 
         <!--navLeft end-->
 
@@ -59,11 +60,10 @@
                          </c:forEach>
                         </select>
                     </div>
-                   <!-- <div class="error_prom"></div>-->
                 </div>
                 <div class="form-item">
                     <label>
-                        <span class="need">*</span>问题标题：</label>
+                        <span class="need">*</span>问题详情：</label>
                     <div class="question_container">
                     <c:if test="${empty child_list }">
                     	<div class="question_container_prom">该分类暂无问题详情，请重新选择问题分类</div>
@@ -74,13 +74,14 @@
                                 <div class="check_img icon_uncheck" data_id="${bean.id }"></div>
                                 <span>${bean.value}</span>
                             </div>
-                            <!--<p class="question-con">${bean.content}</p>-->
+                            <%--<p class="question-con">${bean.content}</p>--%>
                             <input type="hidden" class="question-val" value="${bean.content}">
                         </div>
                     </c:forEach>
                     </div>
-                    <!--<div class="error_prom"></div>-->
+                    <%--<div class="error_prom"></div>--%>
                 </div>
+                <div class="error_prom" style="margin-left: 0;"></div>
                 <div class="form-item" style="padding-top:20px;">
                     <label style="text-align: right;padding-right:20px;">备注：</label>
                     <textarea name="remark" id="remark" style="border:1px solid #e4e4e4;resize: none;margin-left:0;" placeholder="请输入内容(200字以内)" maxlength="200"></textarea>
@@ -98,7 +99,7 @@
                 <per:button code="1119">
                     <div class="form-item" style="margin-left: 0;margin-top:40px;padding-left: 96px;">
                         <div class="create_btn" style="margin-left: 0;">
-                            <input type="button" class="create_sub" data-advance_id="${vo.advance_id}" id="disagree_sub" value="确认" data-url="${url}"  style="margin:0;"/>
+                            <input type="button" class="create_sub" data-advance_id="${vo.advance_id}" id="disagree_sub" value="确认" data-url="${contextPath}${url}"  style="margin:0;"/>
                             <a href="javascript:window.history.back();">
                                 <input type="button" class="cancel_btn" value="取消">
                             </a>
@@ -118,12 +119,14 @@
 <!--container end-->
 
 </body>
-<script src="/static/js/finance/img_unpass.js"></script>
-<script src="/static/js/requestpayout/disagree.js"></script>
+<script src="${contextPath}/static/js/finance/img_unpass.js"></script>
+<script src="${contextPath}/static/js/requestpayout/disagree.js"></script>
+<script src="${contextPath}/static/dialog/dialog-layer.js" type="text/javascript"></script>
 <script>
-    var isCompact = false;
+    // OPERATIONTYPE：1：请款客服；2：合同客服；3：商户审核
+    var OPERATIONTYPE = 1;
     $('.form-item').eq(0).css('marginTop','15px');
-    $(function(){
+    /*$(function(){
         $('body').off('click').on('click','.check_img',function(e){
             var e = e || window.event;
             e.preventDefault();
@@ -136,7 +139,7 @@
             }
 
         });
-    });
+    });*/
 
 
     // 上传图片按钮

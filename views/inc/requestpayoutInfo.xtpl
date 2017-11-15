@@ -1,0 +1,281 @@
+<!-- 进件资料 -->
+<!--贷款人及车辆信息-->
+{{set (x = startWith('/customer/financial'), y = verifyCode(1190)) }}
+<div class="cars_info_box">
+    <div class="requestpayout_detail_title">车辆信息</div>
+    <!--新车字段-->
+    {{#if (vo.risk_type_value !== '') }}
+        <div class="detail_remarks requestpayout_detail_remarks">
+            <div class="requestpayout_detail_label">风险类型：</div>
+            <div class="requestpayout_detail_txt">{{vo.risk_type_value}}</div>
+        </div>
+    {{/if}}
+    {{#if (vo.vin !== '') }}
+        <div class="detail_remarks requestpayout_detail_remarks">
+            <div class="requestpayout_detail_label">车架号：</div>
+            <div class="requestpayout_detail_txt">{{vo.vin}}</div>
+        </div>
+    {{/if}}
+    <!-- 此表单为车价贷款表单字段 -->
+    <!-- 循环apply_order的代码结构
+     --- @{desc} 如果是最后一个申请单，为el.slidedown_arrow的元素添加slidedown_up_arrow类，同时为order_detail的类添加样式：display:block;。
+     --- @{param} slidedown_arror：折叠  slidedown_up_arrow：展开。
+     -->
+{{#each (req_list) }}
+    <div class="apply_order">
+        <div class="order_title">
+            <div class="requestpayout_detail_title
+            {{#if (req_list.length === (xindex + 1)) }}new{{/if}}
+            ">
+                <span>{{this.receipt_name}}</span>
+                <em class="slidedown_arrow
+                {{#if (req_list.length === (xindex + 1)) }}slidedown_up_arrow{{/if}}
+                "></em>
+            </div>
+        </div>
+        {{#if (req_list.length === (xindex + 1)) }}
+            <div class="order_detail" style="display: block;">
+        {{else}}
+            <div class="order_detail">
+        {{/if}}
+            {{#if (this.total_charge !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_info_item" style="display: block;width: 100%;">
+                    <div class="requestpayout_detail_label">收款总额：</div>
+                    <div class="requestpayout_detail_txt">{{this.total_charge}}&nbsp;元 ({{this.cn_totalCharge}})</div>
+                </div>
+            {{/if}}
+            {{#if (this.car_loan_charge !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">车价贷款额：</div>
+                    <div class="requestpayout_detail_txt">{{this.car_loan_charge}}&nbsp;元</div>
+                </div>
+            {{/if}}
+            {{#if (this.collection_charge !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">代商户收取费用：</div>
+                    <div class="requestpayout_detail_txt">{{this.collection_charge}}&nbsp;元</div>
+                </div>
+            {{/if}}
+            {{#if (this.gps_installCharge !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">GPS安装费用：</div>
+                    <div class="requestpayout_detail_txt">{{this.gps_installCharge}}&nbsp;元</div>
+                </div>
+            {{/if}}
+            {{#if (this.gps_rebate !== '') }}
+            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                <div class="requestpayout_detail_label">GPS返点：</div>
+                <div class="requestpayout_detail_txt">{{this.gps_rebate}}&nbsp;元</div>
+            </div>
+            {{/if}}
+            {{#if (this.service_charge_rebate !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">服务费返点：</div>
+                    <div class="requestpayout_detail_txt">{{this.service_charge_rebate}}&nbsp;元</div>
+                </div>
+            {{/if}}
+            {{#if (this.purchase_tax !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">购置税：</div>
+                    <div class="requestpayout_detail_txt">{{this.purchase_tax}}&nbsp;元</div>
+                </div>
+            {{/if}}
+            {{#if (this.insurance_rebate !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">保险返点：</div>
+                    <div class="requestpayout_detail_txt">{{this.insurance_rebate}}&nbsp;元</div>
+                </div>
+            {{/if}}
+            {{#if (this.insurance !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">保险费：</div>
+                    <div class="requestpayout_detail_txt">{{this.insurance}}&nbsp;元</div>
+                </div>
+            {{/if}}
+            {{#if (this.financed_charge_rebate !== '') }}
+	            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+	                <div class="requestpayout_detail_label">融资返点：</div>
+	                <div class="requestpayout_detail_txt">{{this.financed_charge_rebate}}&nbsp;元</div>
+	            </div>
+            {{/if}}
+            {{#if (this.pledge_charge !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">抵押费：</div>
+                    <div class="requestpayout_detail_txt">{{this.pledge_charge}}&nbsp;元</div>
+                </div>
+            {{/if}}
+            {{#if (this.unpack_charge !== '') }}
+	            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+	                <div class="requestpayout_detail_label">解压费：</div>
+	                <div class="requestpayout_detail_txt">{{this.unpack_charge}}&nbsp;元</div>
+	            </div>
+            {{/if}}
+            {{#if (this.refund_charge !== '') }}
+	            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+	                <div class="requestpayout_detail_label">退款：</div>
+	                <div class="requestpayout_detail_txt">{{this.refund_charge}}&nbsp;元</div>
+	            </div>
+            {{/if}}
+            {{#if (this.car_credit_charge !== '') }}
+	            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+	                <div class="requestpayout_detail_label">车价贷款(反贷)：</div>
+	                <div class="requestpayout_detail_txt">{{this.car_credit_charge}}&nbsp;元</div>
+	            </div>
+            {{/if}}
+            {{#if (this.pre_interest !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
+                    <div class="requestpayout_detail_label">前置利息：</div>
+                    <div class="requestpayout_detail_txt">{{this.pre_interest }}&nbsp;元</div>
+                </div>
+            {{/if}}
+            <!--新车字段-->
+            {{#if (this.pledge_type !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks">
+                    <div class="requestpayout_detail_label">抵押方：</div>
+                    <div class="requestpayout_detail_txt">
+                        {{#if (this.pledge_type !== 1) }}
+                            经销商
+                        {{elseif (this.pledge_type !== 2) }}
+                            我司
+                        {{elseif (this.pledge_type !== 3) }}
+                            产品方
+                        {{/if}}
+                    </div>
+                </div>
+            {{/if}}
+            {{#if (this.pledge_city !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks">
+                    <div class="requestpayout_detail_label">抵押城市：</div>
+                    <div class="requestpayout_detail_txt">{{this.pledge_city}}</div>
+                </div>
+            {{/if}}
+            <!--新车字段-->
+            {{#if (this.regist_type !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks">
+                    <div class="requestpayout_detail_label">上牌方：</div>
+                    <div class="requestpayout_detail_txt">
+                        {{#if (this.regist_type !== 1) }}
+                            经销商
+                        {{elseif (this.regist_type !== 2) }}
+                            我司
+                        {{elseif (this.regist_type !== 3) }}
+                            产品方
+                        {{/if}}
+                    </div>
+                </div>
+            {{/if}}
+            <div style="clear: both;"></div>
+            {{#if (this.pay_name !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_info_item">
+                    <div class="requestpayout_detail_label">收款户名：</div>
+                    <div class="requestpayout_detail_txt">{{this.pay_name}}</div>
+                </div>
+            {{/if}}
+            {{#if (this.pay_open_bank !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_info_item">
+                    <div class="requestpayout_detail_label">收款开户行：</div>
+                    <div class="requestpayout_detail_txt">{{this.pay_open_bank}}</div>
+                </div>
+            {{/if}}
+            {{#if (this.pay_account !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_info_item">
+                    <div class="requestpayout_detail_label">收款账号：</div>
+                    <div class="requestpayout_detail_txt">{{this.pay_account}}</div>
+                </div>
+            {{/if}}
+            {{#if (this.supplier_name !== '') }}
+                <div class="detail_remarks requestpayout_detail_remarks payment_info_item">
+                    <div class="requestpayout_detail_label">商户名称：</div>
+                    <div class="requestpayout_detail_txt">{{this.supplier_name}}</div>
+                </div>
+            {{/if}}
+            <!--商户图片-->
+            {{#if (this.receipt_id === 1 && file_list3.length > 0) }}
+                <div class="imgDetail">
+                    {{#each (file_list3) }}
+                        <a href="{{this.url}}" target="_blank">
+                            <div class="request-img-box inline" style="margin-top:0;" title="{{this.file_name}}">
+                                <div class="requestImgBox cursor">
+                                    <img src="{{this.thumbnail_120_90}}" alt=""/>
+                                </div>
+                                <div class="imgText">{{this.file_name}}</div>
+                            </div>
+                        </a>
+                    {{/each}}
+                    <!--<c:forEach items="${file_list3}" var="bean2">
+                        <a href="${bean2.url}" target="_blank">
+                            <div class="request-img-box inline" style="margin-top:0;" title="${bean2.file_name) }}">
+                                <div class="requestImgBox cursor">
+                                    <img src="${bean2.thumbnail_120_90}" alt=""/>
+                                </div>
+                                <div class="imgText">${bean2.file_name}</div>
+                            </div>
+                        </a>
+                    </c:forEach>-->
+                </div>
+            {{/if}}
+            <!--备注-->
+            {{#if (this.request_payout_remark !== '') }}
+                <div class="requestpayout_detail_title">备注</div>
+                <div class="detail_remarks requestpayout_detail_remarks height_hack" style="height: auto;float:none;width: 100%;">
+                    {{this.request_payout_remark}}
+                </div>
+            {{/if}}
+
+        </div>
+
+        {{#if (x) }}    <!--页面头部设置-->
+            {{#if (y) }}    <!--页面头部设置-->
+	            <div class="requestpayout_detail_btn_box" style="background: none; border: none;">
+                    <!--todo 增加dmsHost地址-->
+	                <a href="{{dmsHost}}/financial/print?orderNo={{orderNo}}" target="_blank">
+	                    <div class="cursor requestpayout_detail_btn print_btn" id="print_btn">打印</div>
+	                </a>
+	            </div>
+            {{/if}}
+        {{/if}}
+    </div>
+{{/each}}
+
+    <!--请款资料照片-->
+    {{#if (file_list2.length > 0 ) }}
+	    <div class="requestpayout_detail_title requestpayout_info clear">请款材料</div>
+	    <div class="imgDetail">
+	        {{#each (file_list2) }}
+	            <div class="detailBox inline" style="margin-top:0;">
+	                <div class="detailImgBox cursor">
+	                    <a href="{{this.thumbnail}}" target="_blank">
+	                        <img src="{{this.thumbnail_120_90}}" alt=""/>
+	                    </a>
+	                </div>
+	                <div class="imgText">{{this.file_name}}</div>
+	            </div>
+	        {{/each}}
+	    </div>
+    {{/if}}
+</div>
+<script>
+    (function ($) {
+        // 申请单的展开折叠效果
+        //含有子级权限的展开折叠效果
+        function slideDownList () {
+            var arrowBtn = $(".slidedown_arrow");
+            arrowBtn.each(function () {
+                var _this = $(this);
+                _this.off("click").on("click", function () {
+                    var t = $(this);
+                    var childPrivilege = t.parents(".apply_order").find(">.order_detail");
+                    if (childPrivilege.is(":hidden")) {
+                        childPrivilege.slideDown(300).parents(".apply_order").find(".slidedown_arrow").addClass("slidedown_up_arrow");
+                    } else {
+                        childPrivilege.slideUp(300).parents(".apply_order").find(".slidedown_arrow").removeClass("slidedown_up_arrow");
+                    }
+                });
+            });
+        }
+
+        $(function () {
+            slideDownList();
+        });
+    })(jQuery, window, undefined)
+</script>

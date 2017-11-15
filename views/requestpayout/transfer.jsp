@@ -13,20 +13,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/css/transfer.css">
-    <title>客户管理-请款管理</title>
+    <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
+    <link rel="stylesheet" href="${contextPath}/static/css/transfer.css">
+    <title>客户-请款管理</title>
 </head>
 <body>
 <div id="wrapper" class="wrapper">
     <!-------- Part of header Begin -------->
-    {{include('./../inc/header')}}
+    <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
     <!-------- Part of header End -------->
 
     <!-------- Part of main Begin -------->
     <div id="section" class="section normal_width">
         <!---- Part of slide nav Begin ---->
-        {{include('./../inc/customer_slide_nav')}}
+        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
         <!---- Part of slide na End ---->
 
         <!---- Part of Main info Begin ---->
@@ -34,8 +34,8 @@
             <input type="hidden" id="finance_id" value="${finance_id}">
             <input type="hidden" id="emp_id" value="">
             <div class="crumbs_nav">
-                <a href="/requestPayout/system" class="crumbs_item">请款管理</a>
-                <a href="/requestPayout/waitList" class="crumbs_item">待审批</a>
+                <a href="${contextPath}/requestPayout/system" class="crumbs_item">请款管理</a>
+                <a href="${contextPath}/requestPayout/waitList" class="crumbs_item">待审批</a>
                 <a href="javascript:window.history.back();" class="crumbs_item">${vo.user_name }</a>
                 <a href="javascript:;" class="crumbs_item">转交他人</a>
             </div>
@@ -53,7 +53,7 @@
                                 <li class="list_item employee_item" lang="${bean.role_id }" style="display:none;">
                                     <c:choose>
                                         <c:when test="${empty bean.image_url}">
-                                            <img src="/static/img/employee/perIcon.png" alt="">
+                                            <img src="${contextPath}/static/img/employee/perIcon.png" alt="">
                                         </c:when>
                                         <c:otherwise>
                                             <img src="${bean.image_url}" alt="">
@@ -93,7 +93,7 @@
     <!-------- Part of footer End -------->
 </div>
 </body>
-{{include('./../inc/jsSources')}}
+<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
 
 <script>
     $(function(){
