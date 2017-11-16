@@ -7,12 +7,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <jsp:include page="/WEB-INF/inc/metaData.jsp"></jsp:include>
-    <link rel="stylesheet" href="${contextPath}/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/employee/listCon.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/finance/imgUnpass.css"/>
-    <link rel="stylesheet" href="${contextPath}/static/css/question/edit.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/requestpayout/disagree.css">
+    {{include ("./../inc/metaData")}}
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/employee/listCon.css">
+    <link rel="stylesheet" href="/static/css/finance/imgUnpass.css"/>
+    <link rel="stylesheet" href="/static/css/question/edit.css">
+    <link rel="stylesheet" href="/static/css/requestpayout/disagree.css">
     <title>客户-不同意</title>
 </head>
 <style>
@@ -21,14 +21,14 @@
 </style>
 <body>
 
-<jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+{{include ('./../inc/header')}}
 
 <!--container start-->
 
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
 
         <!--navLeft end-->
 
@@ -99,7 +99,7 @@
                 <per:button code="1119">
                     <div class="form-item" style="margin-left: 0;margin-top:40px;padding-left: 96px;">
                         <div class="create_btn" style="margin-left: 0;">
-                            <input type="button" class="create_sub" data-advance_id="${vo.advance_id}" id="disagree_sub" value="确认" data-url="${contextPath}${url}"  style="margin:0;"/>
+                            <input type="button" class="create_sub" data-advance_id="${vo.advance_id}" id="disagree_sub" value="确认" data-url="${url}"  style="margin:0;"/>
                             <a href="javascript:window.history.back();">
                                 <input type="button" class="cancel_btn" value="取消">
                             </a>
@@ -119,9 +119,9 @@
 <!--container end-->
 
 </body>
-<script src="${contextPath}/static/js/finance/img_unpass.js"></script>
-<script src="${contextPath}/static/js/requestpayout/disagree.js"></script>
-<script src="${contextPath}/static/dialog/dialog-layer.js" type="text/javascript"></script>
+<script src="/static/js/finance/img_unpass.js"></script>
+<script src="/static/js/requestpayout/disagree.js"></script>
+<script src="/static/dialog/dialog-layer.js" type="text/javascript"></script>
 <script>
     // OPERATIONTYPE：1：请款客服；2：合同客服；3：商户审核
     var OPERATIONTYPE = 1;

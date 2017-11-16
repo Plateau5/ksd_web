@@ -6,7 +6,7 @@
 <div class="operate_logs">
 	<ul class="log_list">
 		<!--第一个为当前审批人-->
-		{{#if (current_name !== '') }}
+		{{#if (current_name) }}
 			<li class="list_item current_audit_p">
 				<div class="log_item_info">
 					<div class="date" id="currentTime"></div>
@@ -20,7 +20,7 @@
 				<div class="log_item_info">
 					<div class="date">{{this.modify_time }}</div>
 					<div class="text">{{this.modify_des}}/{{this.status_value}}&nbsp;&nbsp;{{this.position_desc}}：{{this.modify_name}} &nbsp;&nbsp;
-						{{#if (this.remark !== '' || this.reason !== '') }}
+						{{#if (this.remark || this.reason) }}
 							{{this.reason}}&nbsp;&nbsp;{{this.remark }}
 						{{/if}}
 					</div>

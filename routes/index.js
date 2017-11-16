@@ -116,13 +116,13 @@ router.post('/customer/loan/detail', customerCtrl.VIEW_CUSTOMER_LOAN_DETAIL);
 router.post('/customer/compact/detail', customerCtrl.VIEW_CUSTOMER_COMPACT_DETAIL);
 // 客户管理-详情页-请款管理
 router.post('/customer/requestpayout/detail', customerCtrl.VIEW_CUSTOMER_REQUESTPAYOUT_DETAIL);
-/*// 客户管理-详情页-审批管理
+// 客户管理-详情页-审批管理
 router.post('/customer/approval/detail', customerCtrl.VIEW_CUSTOMER_APPROVAL_DETAIL);
 // 客户管理-详情页-款项管理
 router.post('/customer/financial/detail', customerCtrl.VIEW_CUSTOMER_FINANCIAL_DETAIL);
 // 客户管理-详情页-归档管理
 router.post('/customer/pigeonhole/detail', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_DETAIL);
-// 客户管理-详情页-其他管理
+/*// 客户管理-详情页-其他管理
 router.post('/customer/otherfund/detail', customerCtrl.VIEW_CUSTOMER_OTHERFUND_DETAIL);*/
 
 

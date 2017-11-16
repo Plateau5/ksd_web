@@ -8,16 +8,16 @@
 <head>
     <meta charset="UTF-8">
     <title>客户-贷款管理</title>
-    <jsp:include page="/WEB-INF/inc/metaData.jsp"></jsp:include>
-    <link rel="stylesheet" href="${contextPath}/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="${contextPath}/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="${contextPath}/static/css/question/edit.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/finance/imgUnpass.css"/>
-    <link rel="stylesheet" href="${contextPath}/static/css/question/edit.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/requestpayout/disagree.css">
-    <script src="${contextPath}/static/js/finance/img_unpass.js"></script>
-    <script src="${contextPath}/static/js/finance/get_file.js"></script>
-    <script src="${contextPath}/static/js/question/submit_form.js"></script>
+    {{include ("./../inc/metaData")}}
+    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="/static/css/question/edit.css">
+    <link rel="stylesheet" href="/static/css/finance/imgUnpass.css"/>
+    <link rel="stylesheet" href="/static/css/question/edit.css">
+    <link rel="stylesheet" href="/static/css/requestpayout/disagree.css">
+    <script src="/static/js/finance/img_unpass.js"></script>
+    <script src="/static/js/finance/get_file.js"></script>
+    <script src="/static/js/question/submit_form.js"></script>
 </head>
 <style>
     .error_prom{margin-left:82px;}
@@ -25,7 +25,7 @@
 <body>
 
 <!--header start-->
-<jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+{{include ('./../inc/header')}}
 <!--header end-->
 
 <!--container start-->
@@ -33,10 +33,10 @@
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
         <!--navLeft end-->
 
-		<form action="${contextPath}/finance/getFile" id="getFile" method="post">
+		<form action="/finance/getFile" id="getFile" method="post">
 			<input id="finance_id_file" value="" name="finance_id" type="hidden">
 			<input id="active" value="" name="active" type="hidden">
 			<input id="url" value="" name="url" type="hidden">
@@ -46,8 +46,8 @@
         <div class=" listCon relative">
             <div class="listConHeader inviteCon">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="${contextPath}/finance/system">贷款管理</a></li>
-                    <li class="inline before colorB"><a class="TS" href="${contextPath}/finance/getCheckInList">已分配</a></li>
+                    <li class="inline colorB"><a class="TS" href="/finance/system">贷款管理</a></li>
+                    <li class="inline before colorB"><a class="TS" href="/finance/getCheckInList">已分配</a></li>
                     <li class="inline before"><a class="TS"  href="javascript:;">${user_name}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">资料不合格</a></li>
                 </ul>
@@ -128,7 +128,7 @@
                     <div class="col-sm-12 invSText">
                         <div>已通知贷前<span>${create_name}</span></div>
 
-                        <img class="delSImg" src="${contextPath}/static/img/employee/successIcon.png" alt=""/>
+                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
                     </div>
                     <%--<div class="col-sm-8 countMin">--%>
                     <%----%>

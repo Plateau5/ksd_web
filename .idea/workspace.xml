@@ -1,55 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="列表页根据权限加载跳转  2017年11月14日17:58:28">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/customer/allot_emp.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/customer/customer_his.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/customer/imgDetail.xtpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/customer/img_unpass.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/customer/result.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/customer/unpass_list.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/inc/head.jsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/inc/approval_slide_nav.xtpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/inc/center_left_nav.xtpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/inc/entry_info.xtpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/requestpayout/pass_list.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/requestpayout/pending_dispose_list.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/requestpayout/pending_pass_list.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/requestpayout/unpass_list.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/requestpayout/wait_list.jsp" afterPath="" />
+    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/financial/cashed_check.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/financial/pass_list.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/financial/pending_audit.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/financial/pending_dispose_list.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/financial/unpass_list.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/manufacturing/cashed_check.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/manufacturing/pass_list.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/manufacturing/pending_audit.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/manufacturing/unpass_list.jsp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/common.js" afterPath="$PROJECT_DIR$/controller/common.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/viewsController/customerController.js" afterPath="$PROJECT_DIR$/controller/viewsController/customerController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/public.js" afterPath="$PROJECT_DIR$/public/js/public.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/compact/agree.jsp" afterPath="$PROJECT_DIR$/views/compact/agree.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/compact/disagree.jsp" afterPath="$PROJECT_DIR$/views/compact/disagree.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/compact/imgDetail.xtpl" afterPath="$PROJECT_DIR$/views/compact/imgDetail.xtpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/compact/pass_list.jsp" afterPath="$PROJECT_DIR$/views/compact/pass_list.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/compact/unpass_list.jsp" afterPath="$PROJECT_DIR$/views/compact/unpass_list.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/compact/wait_list.jsp" afterPath="$PROJECT_DIR$/views/compact/wait_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/customerList.xtpl" afterPath="$PROJECT_DIR$/views/customer/customerList.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/allot_emp.jsp" afterPath="$PROJECT_DIR$/views/customer/allot_emp.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/customer_his.jsp" afterPath="$PROJECT_DIR$/views/customer/customer_his.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/imgDetail.xtpl" afterPath="$PROJECT_DIR$/views/customer/imgDetail.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/img_unpass.jsp" afterPath="$PROJECT_DIR$/views/customer/img_unpass.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/result.jsp" afterPath="$PROJECT_DIR$/views/customer/result.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/unpass_list.jsp" afterPath="$PROJECT_DIR$/views/customer/unpass_list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/dataStatistics/personDetail.xtpl" afterPath="$PROJECT_DIR$/views/dataStatistics/personDetail.xtpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/financial/agree.jsp" afterPath="$PROJECT_DIR$/views/financial/agree.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/financial/cashed_check.jsp" afterPath="$PROJECT_DIR$/views/financial/cashed_check.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/financial/disagree.jsp" afterPath="$PROJECT_DIR$/views/financial/disagree.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/financial/img_detail.jsp" afterPath="$PROJECT_DIR$/views/financial/img_detail.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/financial/other_print.jsp" afterPath="$PROJECT_DIR$/views/financial/other_print.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/financial/pass_list.jsp" afterPath="$PROJECT_DIR$/views/financial/pass_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/financial/pending_audit.jsp" afterPath="$PROJECT_DIR$/views/financial/pending_audit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/financial/pending_dispose_list.jsp" afterPath="$PROJECT_DIR$/views/financial/pending_dispose_list.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/financial/print.jsp" afterPath="$PROJECT_DIR$/views/financial/print.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/financial/return_result.jsp" afterPath="$PROJECT_DIR$/views/financial/return_result.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/financial/transfer.jsp" afterPath="$PROJECT_DIR$/views/financial/transfer.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/financial/unpass_list.jsp" afterPath="$PROJECT_DIR$/views/financial/unpass_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/sideNav.xtpl" afterPath="$PROJECT_DIR$/views/inc/sideNav.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manufacturing/agree.jsp" afterPath="$PROJECT_DIR$/views/manufacturing/agree.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manufacturing/cashed_check.jsp" afterPath="$PROJECT_DIR$/views/manufacturing/cashed_check.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manufacturing/disagree.jsp" afterPath="$PROJECT_DIR$/views/manufacturing/disagree.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manufacturing/img_detail.jsp" afterPath="$PROJECT_DIR$/views/manufacturing/img_detail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manufacturing/pass_list.jsp" afterPath="$PROJECT_DIR$/views/manufacturing/pass_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manufacturing/pending_audit.jsp" afterPath="$PROJECT_DIR$/views/manufacturing/pending_audit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manufacturing/submit.jsp" afterPath="$PROJECT_DIR$/views/manufacturing/submit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manufacturing/transfer.jsp" afterPath="$PROJECT_DIR$/views/manufacturing/transfer.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manufacturing/unpass_list.jsp" afterPath="$PROJECT_DIR$/views/manufacturing/unpass_list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/home/home.xtpl" afterPath="$PROJECT_DIR$/views/home/home.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/compactInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/compactInfo.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/entryInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/head.jsp" afterPath="$PROJECT_DIR$/views/inc/head.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/operateLogs.xtpl" afterPath="$PROJECT_DIR$/views/inc/operateLogs.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/operationCategory.xtpl" afterPath="$PROJECT_DIR$/views/inc/operationCategory.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/otherfund/agree.jsp" afterPath="$PROJECT_DIR$/views/otherfund/agree.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/otherfund/disagree.jsp" afterPath="$PROJECT_DIR$/views/otherfund/disagree.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/otherfund/img_detail.jsp" afterPath="$PROJECT_DIR$/views/otherfund/img_detail.jsp" />
@@ -58,20 +52,20 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/otherfund/transfer.jsp" afterPath="$PROJECT_DIR$/views/otherfund/transfer.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/otherfund/unpass_list.jsp" afterPath="$PROJECT_DIR$/views/otherfund/unpass_list.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/pigeonhole/already_pigeonhole_list.jsp" afterPath="$PROJECT_DIR$/views/pigeonhole/already_pigeonhole_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/pigeonhole/img_detail.jsp" afterPath="$PROJECT_DIR$/views/pigeonhole/img_detail.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/pigeonhole/material.jsp" afterPath="$PROJECT_DIR$/views/pigeonhole/material.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/pigeonhole/wait_list.jsp" afterPath="$PROJECT_DIR$/views/pigeonhole/wait_list.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/requestpayout/agree.jsp" afterPath="$PROJECT_DIR$/views/requestpayout/agree.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/requestpayout/disagree.jsp" afterPath="$PROJECT_DIR$/views/requestpayout/disagree.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl" afterPath="$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/requestpayout/submit.jsp" afterPath="$PROJECT_DIR$/views/requestpayout/submit.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/requestpayout/transfer.jsp" afterPath="$PROJECT_DIR$/views/requestpayout/transfer.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/compact/img_detail.jsp" afterPath="$PROJECT_DIR$/views/compact/imgDetail.xtpl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/inc/compact_info.xtpl" afterPath="$PROJECT_DIR$/views/inc/compactInfo.xtpl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/inc/customer_basic_info.xtpl" afterPath="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/inc/operate_logs.xtpl" afterPath="$PROJECT_DIR$/views/inc/operateLogs.xtpl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/inc/pigeonhole_info.xtpl" afterPath="$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/inc/requestpayout_info.xtpl" afterPath="$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/requestpayout/img_detail.jsp" afterPath="$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/views/financial/img_detail.jsp" afterPath="$PROJECT_DIR$/views/financial/imgDetail.xtpl" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/views/manufacturing/agree.jsp" afterPath="$PROJECT_DIR$/views/approval/agree.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/views/manufacturing/disagree.jsp" afterPath="$PROJECT_DIR$/views/approval/disagree.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/views/manufacturing/img_detail.jsp" afterPath="$PROJECT_DIR$/views/approval/imgDetail.xtpl" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/views/manufacturing/submit.jsp" afterPath="$PROJECT_DIR$/views/approval/submit.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/views/manufacturing/transfer.jsp" afterPath="$PROJECT_DIR$/views/approval/transfer.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/views/pigeonhole/img_detail.jsp" afterPath="$PROJECT_DIR$/views/pigeonhole/imgDetail.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -91,8 +85,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="117" column="93" lean-forward="false" selection-start-line="117" selection-start-column="59" selection-end-line="117" selection-end-column="93" />
+            <state relative-caret-position="378">
+              <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="123" selection-end-column="89" />
               <folding />
             </state>
           </provider>
@@ -101,65 +95,8 @@
       <file leaf-file-name="customerController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="275" column="71" lean-forward="true" selection-start-line="275" selection-start-column="71" selection-end-line="275" selection-end-column="71" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="imgDetail.xtpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="32" column="71" lean-forward="false" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="71" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="requestpayoutInfo.xtpl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="51" column="19" lean-forward="true" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#1931#1937#0" expanded="true" />
-                <element signature="e#2312#2318#0" expanded="true" />
-                <element signature="e#2673#2679#0" expanded="true" />
-                <element signature="e#3034#3040#0" expanded="true" />
-                <element signature="e#3367#3373#0" expanded="true" />
-                <element signature="e#3730#3736#0" expanded="true" />
-                <element signature="e#4077#4083#0" expanded="true" />
-                <element signature="e#4433#4439#0" expanded="true" />
-                <element signature="e#4774#4780#0" expanded="true" />
-                <element signature="e#5133#5139#0" expanded="true" />
-                <element signature="e#5479#5485#0" expanded="true" />
-                <element signature="e#5819#5825#0" expanded="true" />
-                <element signature="e#6155#6161#0" expanded="true" />
-                <element signature="e#6505#6511#0" expanded="true" />
-                <element signature="e#6851#6857#0" expanded="true" />
-                <element signature="n#style#0;n#div#18;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#a#0;n#div#23;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#25;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.xtpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/inc/header.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="47" />
+            <state relative-caret-position="674">
+              <caret line="290" column="68" lean-forward="true" selection-start-line="290" selection-start-column="68" selection-end-line="290" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -168,22 +105,48 @@
       <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="207" column="35" lean-forward="true" selection-start-line="207" selection-start-column="35" selection-end-line="207" selection-end-column="35" />
+            <state relative-caret-position="254">
+              <caret line="205" column="10" lean-forward="true" selection-start-line="205" selection-start-column="10" selection-end-line="205" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="imgDetail.xtpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/customer/imgDetail.xtpl">
+        <entry file="file://$PROJECT_DIR$/views/compact/imgDetail.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="399">
+              <caret line="70" column="16" lean-forward="true" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="55" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="imgDetail.xtpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/pigeonhole/imgDetail.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="93" column="55" lean-forward="true" selection-start-line="93" selection-start-column="55" selection-end-line="93" selection-end-column="55" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pigeonholeInfo.xtpl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="56">
+              <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -201,52 +164,38 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>decodeURIComponent</find>
-      <find>dep</find>
-      <find>bean</find>
-      <find>&lt;c:if test=&quot;${</find>
-      <find>&lt;%--</find>
-      <find>${limit}</find>
-      <find>${i}</find>
-      <find>--%&gt;</find>
-      <find>javascript:;</find>
-      <find>logger</find>
-      <find>GET_</find>
-      <find>${</find>
-      <find>您的账号暂无权限查看</find>
-      <find>selectChange</find>
-      <find>&quot;&gt;</find>
-      <find>}}})</find>
-      <find>'</find>
-      <find>uri ===</find>
-      <find>startWidth</find>
-      <find>otherfund</find>
       <find>all</find>
       <find>no_data_list</find>
       <find>locals</find>
       <find>verifyCode</find>
       <find>)) {</find>
       <find>}&quot;&gt;</find>
-      <find>}&quot;&gt;</find>
       <find>&lt;/c:if&gt;</find>
       <find>startWith</find>
       <find>--&gt;</find>
+      <find>!== ''</find>
+      <find>!==</find>
+      <find>===</find>
+      <find>toO</find>
+      <find>url</find>
+      <find>&lt;jsp:include page=&quot;/WEB-INF/inc/head.jsp&quot;&gt;&lt;/jsp:include&gt;</find>
+      <find>&lt;jsp:include page=&quot;/WEB-INF/inc/customer_slide_nav.jsp&quot;&gt;&lt;/jsp:include&gt;</find>
+      <find>&lt;jsp:include page=&quot;/WEB-INF/inc/entry_info.jsp&quot;&gt;&lt;/jsp:include&gt;</find>
+      <find>&lt;jsp:include page=&quot;/WEB-INF/inc/customer_basic_info.jsp&quot;&gt;&lt;/jsp:include&gt;</find>
+      <find>&lt;jsp:include page=&quot;/WEB-INF/inc/compact_info.jsp&quot;&gt;&lt;/jsp:include&gt;</find>
+      <find>&lt;jsp:include page=&quot;/WEB-INF/inc/requestpayout_info.jsp&quot;&gt;&lt;/jsp:include&gt;</find>
+      <find>&lt;jsp:include page=&quot;/WEB-INF/inc/pigeonhole_info.jsp&quot;&gt;&lt;/jsp:include&gt;</find>
+      <find>&lt;jsp:include page=&quot;/WEB-INF/inc/operate_logs.jsp&quot;&gt;&lt;/jsp:include&gt;</find>
+      <find>${contextPath}</find>
+      <find>&lt;/per:button&gt;</find>
+      <find>&lt;jsp:include page=&quot;/WEB-INF/inc/metaData.jsp&quot;&gt;&lt;/jsp:include&gt;</find>
+      <find>/financial/pendingDispose/list</find>
+      <find>is_show</find>
+      <find>${vo.user_name }</find>
+      <find>${vo.advance_id}</find>
+      <find>&lt;per:button code=&quot;</find>
     </findStrings>
     <replaceStrings>
-      <replace>{{include('./../inc/cssSource')}}</replace>
-      <replace>{{include('./../inc/jsSource')}}</replace>
-      <replace>{{include('./../inc/jsSources')}}</replace>
-      <replace>{{include('./../inc/cssSources')}}</replace>
-      <replace>/gps/warehouse/list</replace>
-      <replace>{{include('./../inc/pagination')}}</replace>
-      <replace>/administrative/warehouse/list</replace>
-      <replace>/employee/detail</replace>
-      <replace>/employee/list</replace>
-      <replace>/company/create</replace>
-      <replace>{{include('./../inc/sideNav')}}</replace>
-      <replace>/privilege/roles/list</replace>
-      <replace>/privilege/roles/create</replace>
-      <replace>.txt</replace>
       <replace>this</replace>
       <replace>&lt;!--</replace>
       <replace>{{xindex}}</replace>
@@ -262,7 +211,21 @@
       <replace>checkPrivilege</replace>
       <replace>, req)) {</replace>
       <replace>) }}</replace>
+      <replace>{{include ('./../inc/header')}}</replace>
+      <replace>{{include ('./../inc/sideNav')}}</replace>
+      <replace>{{include ('./../inc/entryInfo')}}</replace>
+      <replace>{{include ('./../inc/customerBasicInfo')}}</replace>
+      <replace>{{include ('./../inc/compactInfo')}}</replace>
+      <replace>{{include ('./../inc/requestpayoutInfo')}}</replace>
+      <replace>{{include ('./../inc/pigeonholeInfo')}}</replace>
+      <replace>{{include ('./../inc/operateLogs')}}</replace>
+      <replace />
       <replace>{{/if}}</replace>
+      <replace>/customer/financial/pendingReturn</replace>
+      <replace>{{include (&quot;./../inc/metaData&quot;)}}</replace>
+      <replace>{{vo.user_name}}</replace>
+      <replace>{{vo.advance_id}}</replace>
+      <replace>{{#if (verifyCode(</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -281,20 +244,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/privilege/createRole.xtpl" />
-        <option value="$PROJECT_DIR$/views/privilege/rolesList.xtpl" />
-        <option value="$PROJECT_DIR$/views/privilege/personList.xtpl" />
-        <option value="$PROJECT_DIR$/controller/viewsController/privilegeController.js" />
-        <option value="$PROJECT_DIR$/views/privilege/assignRoles.xtpl" />
-        <option value="$PROJECT_DIR$/logs/result-17.log" />
-        <option value="$PROJECT_DIR$/logs/default-17.log" />
         <option value="$PROJECT_DIR$/logs/default17-21-17.log" />
         <option value="$PROJECT_DIR$/views/index.xtpl" />
         <option value="$PROJECT_DIR$/util/commonUtil.js" />
         <option value="$PROJECT_DIR$/controller/viewsController/contactController.js" />
         <option value="$PROJECT_DIR$/views/dataStatistics/personList.xtpl" />
         <option value="$PROJECT_DIR$/public/css/statistics.less" />
-        <option value="$PROJECT_DIR$/views/dataStatistics/personDetail.xtpl" />
         <option value="$PROJECT_DIR$/controller/viewsController/statisticsController.js" />
         <option value="$PROJECT_DIR$/views/dataStatistics/personBusiness.xtpl" />
         <option value="$PROJECT_DIR$/views/dataStatistics/businessList.xtpl" />
@@ -306,7 +261,6 @@
         <option value="$PROJECT_DIR$/controller/viewsController/homeController.js" />
         <option value="$PROJECT_DIR$/views/inc/header.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/filtrate.xtpl" />
-        <option value="$PROJECT_DIR$/public/js/public.js" />
         <option value="$PROJECT_DIR$/views/inc/empty_data.xtpl" />
         <option value="$PROJECT_DIR$/public/css/404.less" />
         <option value="$PROJECT_DIR$/views/inc/ordersSideNav.xtpl" />
@@ -317,21 +271,30 @@
         <option value="$PROJECT_DIR$/views/customer/img_detail.jsp" />
         <option value="$PROJECT_DIR$/views/inc/entry_info.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/ordersList.xtpl" />
-        <option value="$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/operateLogs.xtpl" />
         <option value="$PROJECT_DIR$/views/customer/customerList.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/sideNav.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" />
-        <option value="$PROJECT_DIR$/views/customer/imgDetail.xtpl" />
-        <option value="$PROJECT_DIR$/views/compact/imgDetail.xtpl" />
-        <option value="$PROJECT_DIR$/views/inc/compactInfo.xtpl" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/requestpayout/imgDetail.jsp" />
-        <option value="$PROJECT_DIR$/controller/viewsController/customerController.js" />
         <option value="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
         <option value="$PROJECT_DIR$/controller/common.js" />
-        <option value="$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl" />
+        <option value="$PROJECT_DIR$/views/dataStatistics/personDetail.xtpl" />
+        <option value="$PROJECT_DIR$/views/inc/compactInfo.xtpl" />
+        <option value="$PROJECT_DIR$/views/customer/imgDetail.xtpl" />
+        <option value="$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl" />
+        <option value="$PROJECT_DIR$/public/js/public.js" />
+        <option value="$PROJECT_DIR$/views/inc/head.jsp" />
+        <option value="$PROJECT_DIR$/views/compact/imgDetail.xtpl" />
+        <option value="$PROJECT_DIR$/views/manufacturing/imgDetail.xtpl" />
+        <option value="$PROJECT_DIR$/views/approval/imgDetail.xtpl" />
+        <option value="$PROJECT_DIR$/views/financial/img_detail.jsp" />
+        <option value="$PROJECT_DIR$/views/approval/agree.jsp" />
+        <option value="$PROJECT_DIR$/views/financial/imgDetail.xtpl" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/controller/viewsController/customerController.js" />
+        <option value="$PROJECT_DIR$/views/pigeonhole/imgDetail.xtpl" />
+        <option value="$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl" />
       </list>
     </option>
   </component>
@@ -398,7 +361,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -436,25 +398,13 @@
               <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="compact" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="customer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="dataStatistics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="inc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pigeonhole" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
@@ -466,6 +416,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
@@ -476,7 +427,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="add_unversioned_files" value="true" />
     <property name="node.js.path.for.package.jscs" value="project" />
@@ -618,7 +569,8 @@
       <workItem from="1510622337906" duration="23842000" />
       <workItem from="1510653726103" duration="61000" />
       <workItem from="1510653809518" duration="759000" />
-      <workItem from="1510711237253" duration="22383000" />
+      <workItem from="1510711237253" duration="22513000" />
+      <workItem from="1510796892082" duration="10884000" />
     </task>
     <task id="LOCAL-00001" summary="增加权限等路由  2017年8月16日18:28:04">
       <created>1502879359304</created>
@@ -704,11 +656,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510653921842</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="详情页  2017年11月15日19:03:56">
+      <created>1510743867458</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1510743867458</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="296704000" />
+    <option name="totallyTimeSpent" value="307718000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -726,14 +685,14 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18756586" sideWeight="0.4885845" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22891566" sideWeight="0.4873551" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2286652" sideWeight="0.5126449" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36452666" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36363637" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2594235" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18756586" sideWeight="0.51141554" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8444688" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37458926" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28587076" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46221247" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -788,7 +747,8 @@
     <MESSAGE value="列表页数据渲染完毕 2017年11月14日17:02:05" />
     <MESSAGE value="列表页根据权限加载跳转  2017年11月14日17:58:28" />
     <MESSAGE value="列表页根据权限加载跳转  2017年11月14日18:05:14" />
-    <option name="LAST_COMMIT_MESSAGE" value="列表页根据权限加载跳转  2017年11月14日18:05:14" />
+    <MESSAGE value="详情页  2017年11月15日19:03:56" />
+    <option name="LAST_COMMIT_MESSAGE" value="详情页  2017年11月15日19:03:56" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -807,48 +767,11 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="271" />
+      <option name="time" value="282" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/js/common/common/check.js" />
-    <entry file="file://$PROJECT_DIR$/public/js/common/check.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/empty_data.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/viewsController/homeController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="69" column="3" lean-forward="false" selection-start-line="69" selection-start-column="3" selection-end-line="69" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/public.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/finance_header.xtpl" />
-    <entry file="file://$PROJECT_DIR$/views/inc/approval_slide_nav.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/inc/filtrate.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2268">
@@ -910,7 +833,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1533">
           <caret line="73" column="7" lean-forward="false" selection-start-line="73" selection-start-column="7" selection-end-line="73" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -926,7 +848,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2142">
           <caret line="102" column="7" lean-forward="false" selection-start-line="102" selection-start-column="7" selection-end-line="102" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -942,7 +863,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="819">
           <caret line="39" column="29" lean-forward="false" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -957,7 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="1" column="32" lean-forward="true" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -965,7 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="584">
           <caret line="39" column="7" lean-forward="false" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -985,27 +903,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/customerService/check_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/customerService/already_return_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/views/customerService/check_list.jsp" />
+    <entry file="file://$PROJECT_DIR$/views/customerService/already_return_list.jsp" />
     <entry file="file://$PROJECT_DIR$/views/customer/customerDetail.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,30 +925,6 @@
         <state relative-caret-position="1260">
           <caret line="64" column="78" lean-forward="false" selection-start-line="64" selection-start-column="72" selection-end-line="64" selection-end-column="78" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/dataStatistics/personDetail.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3780">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="48" column="83" lean-forward="false" selection-start-line="48" selection-start-column="83" selection-end-line="48" selection-end-column="83" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#2;n#div#2;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1087,7 +966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1099,49 +977,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/customer/customerList.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/compactInfo.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="56" column="73" lean-forward="true" selection-start-line="56" selection-start-column="73" selection-end-line="56" selection-end-column="73" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#6;n#div#0;n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/compact/imgDetail.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="57" column="58" lean-forward="true" selection-start-line="57" selection-start-column="58" selection-end-line="57" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/inc/entryInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="86">
           <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/head.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1154,46 +993,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/public/zTree/css/img/diy/1_close.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/dataStatistics/personDetail.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="117" column="93" lean-forward="false" selection-start-line="117" selection-start-column="59" selection-end-line="117" selection-end-column="93" />
+        <state relative-caret-position="248">
+          <caret line="99" column="68" lean-forward="false" selection-start-line="99" selection-start-column="52" selection-end-line="99" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="275" column="71" lean-forward="true" selection-start-line="275" selection-start-column="71" selection-end-line="275" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="207" column="35" lean-forward="true" selection-start-line="207" selection-start-column="35" selection-end-line="207" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/customer/imgDetail.xtpl">
+    <entry file="file://$PROJECT_DIR$/views/inc/compactInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
-          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#6;n#div#0;n#div#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/head.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="76" column="18" lean-forward="true" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/public.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="195" column="43" lean-forward="false" selection-start-line="195" selection-start-column="40" selection-end-line="195" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#1910#1916#0" expanded="false" />
+            <element signature="e#2284#2290#0" expanded="false" />
+            <element signature="e#2638#2644#0" expanded="false" />
+            <element signature="e#2992#2998#0" expanded="false" />
+            <element signature="e#3318#3324#0" expanded="false" />
+            <element signature="e#3674#3680#0" expanded="false" />
+            <element signature="e#4014#4020#0" expanded="false" />
+            <element signature="e#4363#4369#0" expanded="false" />
+            <element signature="e#4697#4703#0" expanded="false" />
+            <element signature="e#5049#5055#0" expanded="false" />
+            <element signature="e#5388#5394#0" expanded="false" />
+            <element signature="e#5721#5727#0" expanded="false" />
+            <element signature="e#6050#6056#0" expanded="false" />
+            <element signature="e#6393#6399#0" expanded="false" />
+            <element signature="e#6732#6738#0" expanded="false" />
+            <element signature="n#style#0;n#div#18;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#23;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#25;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#3;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="32" column="71" lean-forward="false" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="71" />
+        <state relative-caret-position="-678">
+          <caret line="66" column="163" lean-forward="false" selection-start-line="66" selection-start-column="160" selection-end-line="66" selection-end-column="163" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1202,33 +1075,112 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl">
+    <entry file="file://$PROJECT_DIR$/views/customer/customerList.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="51" column="19" lean-forward="true" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+        <state relative-caret-position="359">
+          <caret line="46" column="49" lean-forward="true" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/customer/imgDetail.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="76" column="30" lean-forward="true" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/approval/imgDetail.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="128" column="47" lean-forward="true" selection-start-line="128" selection-start-column="47" selection-end-line="128" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/financial/return_result.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-630">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/approval/agree.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/financial/imgDetail.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="101" column="39" lean-forward="true" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#1931#1937#0" expanded="true" />
-            <element signature="e#2312#2318#0" expanded="true" />
-            <element signature="e#2673#2679#0" expanded="true" />
-            <element signature="e#3034#3040#0" expanded="true" />
-            <element signature="e#3367#3373#0" expanded="true" />
-            <element signature="e#3730#3736#0" expanded="true" />
-            <element signature="e#4077#4083#0" expanded="true" />
-            <element signature="e#4433#4439#0" expanded="true" />
-            <element signature="e#4774#4780#0" expanded="true" />
-            <element signature="e#5133#5139#0" expanded="true" />
-            <element signature="e#5479#5485#0" expanded="true" />
-            <element signature="e#5819#5825#0" expanded="true" />
-            <element signature="e#6155#6161#0" expanded="true" />
-            <element signature="e#6505#6511#0" expanded="true" />
-            <element signature="e#6851#6857#0" expanded="true" />
-            <element signature="n#style#0;n#div#18;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#23;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#25;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="205" column="10" lean-forward="true" selection-start-line="205" selection-start-column="10" selection-end-line="205" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="123" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="290" column="68" lean-forward="true" selection-start-line="290" selection-start-column="68" selection-end-line="290" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/compact/imgDetail.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="70" column="16" lean-forward="true" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pigeonhole/imgDetail.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="93" column="55" lean-forward="true" selection-start-line="93" selection-start-column="55" selection-end-line="93" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

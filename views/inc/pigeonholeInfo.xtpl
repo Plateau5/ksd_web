@@ -1,13 +1,14 @@
 <!-- 归档资料 -->
-{{#if (vo.pigeonhole_material !== '') }}
+{{#if (vo.pigeonhole_material) }}
 	<div class="img_detail_title" style="margin-top:15px;">
 		<div class="title_line"></div>
 		<span>归档资料</span>
 	</div>
 	<!-- 归档资料 -->
-	{{#if (file_list5.length > 0) }}
-		<div class="imgDetail">
-			{{#each (file_list5) }}
+	<div class="requestpayout_detail_container">
+		{{#if (file_list5.length > 0) }}
+			<div class="imgDetail">
+				{{#each (file_list5) }}
 				<div class="detailBox inline" style="margin-top:0;">
 					<div class="detailImgBox cursor">
 						<a href="{{this.thumbnail}}" target="_blank">
@@ -16,15 +17,14 @@
 					</div>
 					<div class="imgText">{{this.file_name}}</div>
 				</div>
-			{{/each}}
-		</div>
-	{{/if}}
-	<div class="requestpayout_detail_container">
+				{{/each}}
+			</div>
+			{{/if}}
 		<div class="filed-detail">
 			<div class="datum_desc">
 				{{#each (pigeonhole_material) }}
 					<span>{{this}}</span>
-				</c:forEach>
+				{{/each}}
 			</div>
 		</div>
 		{{#if (vo.express_type === 2 || vo.express_type === 1) }}

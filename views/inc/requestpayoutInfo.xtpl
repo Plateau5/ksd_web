@@ -4,13 +4,13 @@
 <div class="cars_info_box">
     <div class="requestpayout_detail_title">车辆信息</div>
     <!--新车字段-->
-    {{#if (vo.risk_type_value !== '') }}
+    {{#if (vo.risk_type_value) }}
         <div class="detail_remarks requestpayout_detail_remarks">
             <div class="requestpayout_detail_label">风险类型：</div>
             <div class="requestpayout_detail_txt">{{vo.risk_type_value}}</div>
         </div>
     {{/if}}
-    {{#if (vo.vin !== '') }}
+    {{#if (vo.vin) }}
         <div class="detail_remarks requestpayout_detail_remarks">
             <div class="requestpayout_detail_label">车架号：</div>
             <div class="requestpayout_detail_txt">{{vo.vin}}</div>
@@ -38,98 +38,98 @@
         {{else}}
             <div class="order_detail">
         {{/if}}
-            {{#if (this.total_charge !== '') }}
+            {{#if (this.total_charge) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_info_item" style="display: block;width: 100%;">
                     <div class="requestpayout_detail_label">收款总额：</div>
                     <div class="requestpayout_detail_txt">{{this.total_charge}}&nbsp;元 ({{this.cn_totalCharge}})</div>
                 </div>
             {{/if}}
-            {{#if (this.car_loan_charge !== '') }}
+            {{#if (this.car_loan_charge) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
                     <div class="requestpayout_detail_label">车价贷款额：</div>
                     <div class="requestpayout_detail_txt">{{this.car_loan_charge}}&nbsp;元</div>
                 </div>
             {{/if}}
-            {{#if (this.collection_charge !== '') }}
+            {{#if (this.collection_charge) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
                     <div class="requestpayout_detail_label">代商户收取费用：</div>
                     <div class="requestpayout_detail_txt">{{this.collection_charge}}&nbsp;元</div>
                 </div>
             {{/if}}
-            {{#if (this.gps_installCharge !== '') }}
+            {{#if (this.gps_installCharge) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
                     <div class="requestpayout_detail_label">GPS安装费用：</div>
                     <div class="requestpayout_detail_txt">{{this.gps_installCharge}}&nbsp;元</div>
                 </div>
             {{/if}}
-            {{#if (this.gps_rebate !== '') }}
+            {{#if (this.gps_rebate) }}
             <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
                 <div class="requestpayout_detail_label">GPS返点：</div>
                 <div class="requestpayout_detail_txt">{{this.gps_rebate}}&nbsp;元</div>
             </div>
             {{/if}}
-            {{#if (this.service_charge_rebate !== '') }}
+            {{#if (this.service_charge_rebate) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
                     <div class="requestpayout_detail_label">服务费返点：</div>
                     <div class="requestpayout_detail_txt">{{this.service_charge_rebate}}&nbsp;元</div>
                 </div>
             {{/if}}
-            {{#if (this.purchase_tax !== '') }}
+            {{#if (this.purchase_tax) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
                     <div class="requestpayout_detail_label">购置税：</div>
                     <div class="requestpayout_detail_txt">{{this.purchase_tax}}&nbsp;元</div>
                 </div>
             {{/if}}
-            {{#if (this.insurance_rebate !== '') }}
+            {{#if (this.insurance_rebate) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
                     <div class="requestpayout_detail_label">保险返点：</div>
                     <div class="requestpayout_detail_txt">{{this.insurance_rebate}}&nbsp;元</div>
                 </div>
             {{/if}}
-            {{#if (this.insurance !== '') }}
+            {{#if (this.insurance) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
                     <div class="requestpayout_detail_label">保险费：</div>
                     <div class="requestpayout_detail_txt">{{this.insurance}}&nbsp;元</div>
                 </div>
             {{/if}}
-            {{#if (this.financed_charge_rebate !== '') }}
+            {{#if (this.financed_charge_rebate) }}
 	            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
 	                <div class="requestpayout_detail_label">融资返点：</div>
 	                <div class="requestpayout_detail_txt">{{this.financed_charge_rebate}}&nbsp;元</div>
 	            </div>
             {{/if}}
-            {{#if (this.pledge_charge !== '') }}
+            {{#if (this.pledge_charge) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
                     <div class="requestpayout_detail_label">抵押费：</div>
                     <div class="requestpayout_detail_txt">{{this.pledge_charge}}&nbsp;元</div>
                 </div>
             {{/if}}
-            {{#if (this.unpack_charge !== '') }}
+            {{#if (this.unpack_charge) }}
 	            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
 	                <div class="requestpayout_detail_label">解压费：</div>
 	                <div class="requestpayout_detail_txt">{{this.unpack_charge}}&nbsp;元</div>
 	            </div>
             {{/if}}
-            {{#if (this.refund_charge !== '') }}
+            {{#if (this.refund_charge) }}
 	            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
 	                <div class="requestpayout_detail_label">退款：</div>
 	                <div class="requestpayout_detail_txt">{{this.refund_charge}}&nbsp;元</div>
 	            </div>
             {{/if}}
-            {{#if (this.car_credit_charge !== '') }}
+            {{#if (this.car_credit_charge) }}
 	            <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
 	                <div class="requestpayout_detail_label">车价贷款(反贷)：</div>
 	                <div class="requestpayout_detail_txt">{{this.car_credit_charge}}&nbsp;元</div>
 	            </div>
             {{/if}}
-            {{#if (this.pre_interest !== '') }}
+            {{#if (this.pre_interest) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_desc_item">
                     <div class="requestpayout_detail_label">前置利息：</div>
                     <div class="requestpayout_detail_txt">{{this.pre_interest }}&nbsp;元</div>
                 </div>
             {{/if}}
             <!--新车字段-->
-            {{#if (this.pledge_type !== '') }}
+            {{#if (this.pledge_type) }}
                 <div class="detail_remarks requestpayout_detail_remarks">
                     <div class="requestpayout_detail_label">抵押方：</div>
                     <div class="requestpayout_detail_txt">
@@ -143,14 +143,14 @@
                     </div>
                 </div>
             {{/if}}
-            {{#if (this.pledge_city !== '') }}
+            {{#if (this.pledge_city) }}
                 <div class="detail_remarks requestpayout_detail_remarks">
                     <div class="requestpayout_detail_label">抵押城市：</div>
                     <div class="requestpayout_detail_txt">{{this.pledge_city}}</div>
                 </div>
             {{/if}}
             <!--新车字段-->
-            {{#if (this.regist_type !== '') }}
+            {{#if (this.regist_type) }}
                 <div class="detail_remarks requestpayout_detail_remarks">
                     <div class="requestpayout_detail_label">上牌方：</div>
                     <div class="requestpayout_detail_txt">
@@ -165,25 +165,25 @@
                 </div>
             {{/if}}
             <div style="clear: both;"></div>
-            {{#if (this.pay_name !== '') }}
+            {{#if (this.pay_name) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_info_item">
                     <div class="requestpayout_detail_label">收款户名：</div>
                     <div class="requestpayout_detail_txt">{{this.pay_name}}</div>
                 </div>
             {{/if}}
-            {{#if (this.pay_open_bank !== '') }}
+            {{#if (this.pay_open_bank) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_info_item">
                     <div class="requestpayout_detail_label">收款开户行：</div>
                     <div class="requestpayout_detail_txt">{{this.pay_open_bank}}</div>
                 </div>
             {{/if}}
-            {{#if (this.pay_account !== '') }}
+            {{#if (this.pay_account) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_info_item">
                     <div class="requestpayout_detail_label">收款账号：</div>
                     <div class="requestpayout_detail_txt">{{this.pay_account}}</div>
                 </div>
             {{/if}}
-            {{#if (this.supplier_name !== '') }}
+            {{#if (this.supplier_name) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_info_item">
                     <div class="requestpayout_detail_label">商户名称：</div>
                     <div class="requestpayout_detail_txt">{{this.supplier_name}}</div>
@@ -215,7 +215,7 @@
                 </div>
             {{/if}}
             <!--备注-->
-            {{#if (this.request_payout_remark !== '') }}
+            {{#if (this.request_payout_remark) }}
                 <div class="requestpayout_detail_title">备注</div>
                 <div class="detail_remarks requestpayout_detail_remarks height_hack" style="height: auto;float:none;width: 100%;">
                     {{this.request_payout_remark}}

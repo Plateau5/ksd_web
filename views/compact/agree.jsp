@@ -9,19 +9,19 @@
     <meta charset="UTF-8">
     <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
     <link rel="stylesheet" href="${contentPath}/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/customerService.css">
+    <link rel="stylesheet" href="/static/css/customerService.css">
     <title>客户-同意</title>
 </head>
 <body>
 <div id="wrapper" class="wrapper">
     <!-------- Part of header Begin -------->
-    <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+    {{include ('./../inc/header')}}
     <!-------- Part of header End -------->
 
     <!-------- Part of main Begin -------->
     <div id="section" class="section normal_width">
         <!---- Part of slide nav Begin ---->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
         <!---- Part of slide na End ---->
 
         <!---- Part of Main info Begin ---->
@@ -75,7 +75,7 @@
 <div class="loading" id="loading"></div>
 </body>
 <jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
-<script src="${contextPath}/static/dialog/dialog-layer.js"></script>
+<script src="/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {
         var elem = {

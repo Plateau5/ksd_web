@@ -204,6 +204,7 @@ exports.getCustomerDetail = function(url, req, res, next) {
         formData : body
     }, function (result) {
         data = result;
+        // res.send(data);
         if (data.error_code === 0) {
             data.title = '客户-订单详情';
             data.originUrl = localUrl;
@@ -227,6 +228,5 @@ exports.getCustomerDetail = function(url, req, res, next) {
             console.log(data);
             res.redirect('/404');
         }
-        /*res.send(data);*/
     }, req, res, next);
 };

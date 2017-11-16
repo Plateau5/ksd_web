@@ -34,7 +34,7 @@
                                     <div class="item_detail">
                                         <div class="last_person">{{this.title}}</div>
                                         <div class="desc">{{this.description}}</div>
-                                        {{#if((this.product_remark !== '') && (this.product_remark !== ''))}}">
+                                        {{#if((this.product_remark) && (this.product_remark))}}">
                                             <div class="desc">{{this.product_remark}}</div>
                                         {{/if}}
                                     </div>

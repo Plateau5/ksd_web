@@ -6,13 +6,13 @@
 	
 <div id="header" class="header full_width">
 	<div class="header_content normal_width">
-		<a href="${contextPath}/home" class="logo">
-			<%--<img class="block img_responsive" src="${contextPath}/static/img/logo/${domain}_logo.png" alt="快收单logo">--%>
-			<img class="block img_responsive" src="${contextPath}/static/img/logo/logo.png" alt="快收单logo">
+		<a href="/home" class="logo">
+			<%--<img class="block img_responsive" src="/static/img/logo/${domain}_logo.png" alt="快收单logo">--%>
+			<img class="block img_responsive" src="/static/img/logo/logo.png" alt="快收单logo">
 		</a>
 		<ul class="header_nav inline_block">
 			<li class="home nav_item <c:if test="${fn:startsWith(uri, '/home')||fn:startsWith(uri, '/login')}">active</c:if>">
-				<a href="${contextPath}/home" class="">首页</a>
+				<a href="/home" class="">首页</a>
 			</li>
 			<per:button code="1091">
 			<li class=" nav_item <c:if test="${fn:startsWith(uri, '/finance') || fn:startsWith(uri, '/compact') 
@@ -24,52 +24,52 @@
 			</per:button>
 			<per:button code="1366">
 				<li class="nav_item <c:if test="${fn:startsWith(uri, '/supplier') || fn:startsWith(uri, '/records')}">active</c:if>">
-					<a href="${contextPath}/supplier/system" class="">商户</a>
+					<a href="/supplier/system" class="">商户</a>
 				</li>
 			</per:button>
 			<per:button code="1067">
 			<li class=" nav_item <c:if test="${fn:startsWith(uri, '/organization') || fn:startsWith(uri, '/product')}">active</c:if>">
-				<a href="${contextPath}/organization/getList">供应商</a>
+				<a href="/organization/getList">供应商</a>
 			</li>
 			</per:button>
 			<per:button code="1312">
 			<li class=" nav_item <c:if test="${fn:startsWith(uri, '/workflow') || fn:startsWith(uri, '/gps') || fn:startsWith(uri, '/administrative') || fn:startsWith(uri, '/citymanage') || fn:startsWith(uri, '/question') || fn:startsWith(uri, '/merquestion')}">active</c:if>">
-				<a href="${contextPath}/warehouse/system">业务</a>
+				<a href="/warehouse/system">业务</a>
 			</li>
 			</per:button>
 			<per:button code="1352">
 				<li class=" nav_item <c:if test="${fn:startsWith(uri, '/statistics')}">active</c:if>">
-					<a href="${contextPath}/statistics/system">统计</a>
+					<a href="/statistics/system">统计</a>
 				</li>
 			</per:button>
 			<li class=" nav_item <c:if test="${fn:startsWith(uri, '/employee') || fn:startsWith(uri, '/department')}">active</c:if>">
-				<a href="${contextPath}/employee/getList">人员</a>
+				<a href="/employee/getList">人员</a>
 			</li>
 			<per:button code="1270">
 				<li class=" nav_item <c:if test="${fn:startsWith(uri, '/company') || fn:startsWith(uri, '/feedback')}">active</c:if>">
-				<a href="${contextPath}/company/list">系统</a>
+				<a href="/company/list">系统</a>
 			</li>
 			</per:button>
 		</ul>
 		<ul class="login rf inline_block" id="id_center" style="display: none;">
 
 			<li class="characters">
-				<%--<a href="${contextPath}/personal/center">--%>
+				<%--<a href="/personal/center">--%>
 				<a href="javascript:">
 					<img id="header_image_url" src="" class="character_photo" />
 					<span id="header_username" class="header_username"></span>
 				</a>
 				<ul class="user_setting">
-					<li class="setting_item"><a href="${contextPath}/personal/file">账号设置</a></li>
+					<li class="setting_item"><a href="/personal/file">账号设置</a></li>
 					<per:button code="1251">
-						<li class="setting_item"><a href="${contextPath}/privilege/system">权限管理</a></li>
+						<li class="setting_item"><a href="/privilege/system">权限管理</a></li>
 					</per:button>
-					<li class="setting_item"><a href="${contextPath}/login/logout">退出登录</a></li>
+					<li class="setting_item"><a href="/login/logout">退出登录</a></li>
 				</ul>
 			</li>
 
 			<li class="message" id="header_messages">
-				<a href="${contextPath}/message/getAllList">
+				<a href="/message/getAllList">
 					<span class="message_icon inline_block">
 						<span class="message_count"><span style="display:inline-block;transform:scale(0.8);"></span></span>
 					</span>
@@ -79,7 +79,7 @@
 		</ul>
 	</div>
 </div>
-<script>
+<script type="text/javascript">
 	var LOCALURL = '${local_url}';
 	var DOMAIN = '${domain}';
 </script>

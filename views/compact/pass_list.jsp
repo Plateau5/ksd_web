@@ -8,24 +8,24 @@
 <head>
     <meta charset="UTF-8">
     <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
-    <link rel="stylesheet" href="${contextPath}/static/jedate/skin/jedate.css"/>
+    <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
     <title>客户-合同管理</title>
 </head>
 <body>
 <div id="wrapper" class="wrapper">
     <!-------- Part of header Begin -------->
-    <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+    {{include ('./../inc/header')}}
     <!-------- Part of header End -------->
 
     <!-------- Part of main Begin -------->
     <div id="section" class="section normal_width">
         <!---- Part of slide nav Begin ---->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
         <!---- Part of slide na End ---->
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
-            <form action="${contextPath}/compact/pass/list" method="POST" id="form_search" role="form">
+            <form action="/compact/pass/list" method="POST" id="form_search" role="form">
             </form>
             <div class="operation_category">
                 <jsp:include page="/WEB-INF/inc/operation_category.jsp"></jsp:include>
@@ -51,7 +51,7 @@
 </div>
 </body>
 <jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
-<script src="${contextPath}/static/jedate/jquery.jedate.min.js"></script>
+<script src="/static/jedate/jquery.jedate.min.js"></script>
 <script>
     (function ($) {
         $(function() {

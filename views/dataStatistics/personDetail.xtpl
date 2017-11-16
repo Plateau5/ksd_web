@@ -37,7 +37,7 @@
                     <div class="personal_desc inline_block">
                     		
                         <div class="bg_photo">
-                            {{#if (personal.emp_logo !== '') }}
+                            {{#if (personal.emp_logo) }}
                                 <div class="bg_img_box">
                                     <img src="{{personal.emp_logo}}"  class="bg_img" alt="">
                                 </div>

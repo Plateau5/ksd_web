@@ -16,20 +16,20 @@
 <body>
 <div id="wrapper" class="wrapper">
     <!-------- Part of header Begin -------->
-    <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+    {{include ('./../inc/header')}}
     <!-------- Part of header End -------->
 
     <!-------- Part of main Begin -------->
     <div id="section" class="section normal_width">
         <!---- Part of slide nav Begin ---->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
         <!---- Part of slide na End ---->
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
             <div class="crumbs_nav">
-                <a href="${contextPath}/operation/system" class="crumbs_item">审批管理</a>
-                <a href="${contextPath}/operation/getWaitList" class="crumbs_item">待审批</a>
+                <a href="/operation/system" class="crumbs_item">审批管理</a>
+                <a href="/operation/getWaitList" class="crumbs_item">待审批</a>
                 <a href="javascript:window.history.back();" class="crumbs_item">${vo.user_name}</a>
                 <a href="javascript:;" class="crumbs_item">确认提交</a>
             </div>
@@ -93,7 +93,7 @@
 </div>
 </body>
 <jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
-<script src="${contextPath}/static/dialog/dialog-layer.js"></script>
+<script src="/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {
         //只允许输入数字或者输入两位小数

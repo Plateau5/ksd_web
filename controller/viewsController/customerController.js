@@ -277,3 +277,18 @@ exports.VIEW_CUSTOMER_REQUESTPAYOUT_DETAIL = function(req, res, next) {
     var url = '/api/requestPayout/getFile';
     common.getCustomerDetail(url, req, res, next);
 };
+// 客户管理-详情页-审批管理
+exports.VIEW_CUSTOMER_APPROVAL_DETAIL = function(req, res, next) {
+    var url = '/api/operation/getFile';
+    common.getCustomerDetail(url, req, res, next);
+};
+// 客户管理-详情页-款项管理
+exports.VIEW_CUSTOMER_FINANCIAL_DETAIL = function(req, res, next) {
+    var url = '/api/financial/getFile';
+    common.getCustomerDetail(url, req, res, next);
+};
+// 客户管理-详情页-归档管理
+exports.VIEW_CUSTOMER_PIGEONHOLE_DETAIL = function(req, res, next) {
+    var url = '/api/pigeonhole/getFile';
+    common.getCustomerDetail(url, req, res, next);
+};

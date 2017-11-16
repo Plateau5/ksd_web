@@ -8,16 +8,16 @@
 <head>
     <meta charset="UTF-8">
     <title>通知审核结果</title>
-    <jsp:include page="/WEB-INF/inc/metaData.jsp"></jsp:include>
-    <link rel="stylesheet" href="${contextPath}/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="${contextPath}/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="${contextPath}/static/css/question/edit.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/requestpayout/disagree.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/finance/review_result.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/finance/imgUnpass.css">
-    <script src="${contextPath}/static/js/finance/img_unpass.js"></script>
-    <script src="${contextPath}/static/js/finance/get_file.js"></script>
-    <script src="${contextPath}/static/js/finance/result.js"></script>
+    {{include ("./../inc/metaData")}}
+    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="/static/css/question/edit.css">
+    <link rel="stylesheet" href="/static/css/requestpayout/disagree.css">
+    <link rel="stylesheet" href="/static/css/finance/review_result.css">
+    <link rel="stylesheet" href="/static/css/finance/imgUnpass.css">
+    <script src="/static/js/finance/img_unpass.js"></script>
+    <script src="/static/js/finance/get_file.js"></script>
+    <script src="/static/js/finance/result.js"></script>
 </head>
 <style>
     body{
@@ -27,7 +27,7 @@
 <body>
 
 <!--header start-->
-<jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+{{include ('./../inc/header')}}
 <!--header end-->
 
 <!--container start-->
@@ -35,9 +35,9 @@
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
         <!--navLeft end-->
-        <form action="${contextPath}/finance/getFile" id="getFile" method="post">
+        <form action="/finance/getFile" id="getFile" method="post">
 			<input id="finance_id_file" value="" name="finance_id" type="hidden">
 			<input id="active" value="" name="active" type="hidden">
 			<input id="url" value="" name="url" type="hidden">
@@ -47,8 +47,8 @@
         <div class=" listCon relative">
             <div class="listConHeader inviteCon" style="margin-bottom: 0;">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="${contextPath}/finance/system">贷款管理</a></li>
-                    <li class="inline before"><a class="TS"  href="${contextPath}/finance/getReviewList" lang="${finance_id}">已录入</a></li>
+                    <li class="inline colorB"><a class="TS" href="/finance/system">贷款管理</a></li>
+                    <li class="inline before"><a class="TS"  href="/finance/getReviewList" lang="${finance_id}">已录入</a></li>
                     <li class="inline before"><a class="TS"  href="javascript:;" id="goDetail" data-id="${finance_id}" data-url="${contextPath }/finance/getFile" lang="${finance_id}">${vo.user_name}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">通知审核结果</a></li>
                 </ul>
@@ -139,7 +139,7 @@
                     <div class="form-item">
                         <div class="create_btn">
                             <input type="button" class="create_sub" id="review_sub" value="确认"/>
-                            <a href="javascript:" class="go_detail" data-id="${finance_id}" data-url="${contextPath}/finance/getFile">
+                            <a href="javascript:" class="go_detail" data-id="${finance_id}" data-url="/finance/getFile">
                                 <input type="button" class="cancel_btn" value="取消">
                             </a>
                         </div>

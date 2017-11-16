@@ -16,7 +16,7 @@
 			</div>
 		{{/each}}
 	</div>
-	{{#if (vo.remark !== null && vo.remark !== '') }}
+	{{#if (vo.remark !== null && vo.remark) }}
 		<div class="detail_remarks requestpayout_detail_remarks height_hack" style="height:auto !important;float: none;width: 100%;">
 			<div class="remark_label">备注：</div>
 			<div class="remark_txt">

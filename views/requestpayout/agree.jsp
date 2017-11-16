@@ -8,11 +8,11 @@
 <head>
     <meta charset="UTF-8">
     <title>客户-同意</title>
-    <jsp:include page="/WEB-INF/inc/metaData.jsp"></jsp:include>
-    <link rel="stylesheet" href="${contextPath}/static/css/employee/listCon.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/question/edit.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/requestpayout/agree.css">
-    <script src="${contextPath}/static/js/question/submit_form.js"></script>
+    {{include ("./../inc/metaData")}}
+    <link rel="stylesheet" href="/static/css/employee/listCon.css">
+    <link rel="stylesheet" href="/static/css/question/edit.css">
+    <link rel="stylesheet" href="/static/css/requestpayout/agree.css">
+    <script src="/static/js/question/submit_form.js"></script>
     <style>
         .file_item{
             margin-left: 0;
@@ -21,14 +21,14 @@
 </head>
 <body>
 
-<jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+{{include ('./../inc/header')}}
 
 <!--container start-->
 
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
 
         <!--navLeft end-->
 
@@ -66,7 +66,7 @@
                 <per:button code="1118">
                     <div class="form-item">
                         <div class="create_btn" style="margin-left: 0">
-                            <input type="button" class="create_sub" id="argee_sub" value="确认" data-url="${contextPath}/requestPayout/waitList" />
+                            <input type="button" class="create_sub" id="argee_sub" value="确认" data-url="/requestPayout/waitList" />
                             <a href="javascript:window.history.back();">
                                 <input type="button" class="cancel_btn" value="取消">
                             </a>
@@ -86,7 +86,7 @@
 <!--container end-->
 
 </body>
-<script src="${contextPath}/static/js/requestpayout/agree.js"></script>
+<script src="/static/js/requestpayout/agree.js"></script>
 <script>
     $('.form-item').eq(0).css('marginTop','32px');
 </script>

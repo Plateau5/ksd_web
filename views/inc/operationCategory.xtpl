@@ -180,22 +180,22 @@
         <!-- 商户管理列表页分类 Begin -->
     {{#if (active === 'supplier') }}
         {{#if (verifyCode(1370)) }}
-            <a href="${contextPath}/supplier/audit/list" class="category_item pending_audit
+            <a href="/supplier/audit/list" class="category_item pending_audit
                 {{#if (startWith('/supplier/audit/list')) }}active{{/if}}
             ">待审核 <span class="count_num">({{countvo.wait_check}})</span></a>
         {{/if}}
         {{#if (verifyCode(1371)) }}
-            <a href="${contextPath}/supplier/pass/list" class="category_item passed
+            <a href="/supplier/pass/list" class="category_item passed
                 {{#if (startWith('/supplier/pass/list')) }}active{{/if}}
             ">已通过 <span class="count_num">({{countvo.already_check}})</span></a>
         {{/if}}
         {{#if (verifyCode(1372)) }}
-            <a href="${contextPath}/supplier/unpass/list" class="category_item unpass
+            <a href="/supplier/unpass/list" class="category_item unpass
                 {{#if (startWith('/supplier/unpass/list')) }}active{{/if}}
             ">未通过 <span class="count_num">({{countvo.pending_dispose}})</span></a>
         {{/if}}
         {{#if (verifyCode(1369)) }}
-            <a href="${contextPath}/supplier/unrecords/list" class="category_item not_records
+            <a href="/supplier/unrecords/list" class="category_item not_records
                 {{#if (startWith('/supplier/unrecords/list')) }}active{{/if}}
             ">未备案 <span class="count_num">({{countvo.pending_pass}})</span></a>
         {{/if}}

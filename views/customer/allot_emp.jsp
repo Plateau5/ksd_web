@@ -10,17 +10,17 @@
 <head>
     <meta charset="UTF-8">
     <title>客户-贷款管理</title>
-    <jsp:include page="/WEB-INF/inc/metaData.jsp"></jsp:include>
-    <link rel="stylesheet" href="${contextPath}/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="${contextPath}/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="${contextPath}/static/css/finance/allot_emp_list.css"/>
-    <script src="${contextPath}/static/js/employee/invite.js"></script>
-    <script src="${contextPath}/static/js/finance/allot_emp.js"></script>
+    {{include ("./../inc/metaData")}}
+    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="/static/css/finance/allot_emp_list.css"/>
+    <script src="/static/js/employee/invite.js"></script>
+    <script src="/static/js/finance/allot_emp.js"></script>
 </head>
 <body>
 
 <!--header start-->
-<jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+{{include ('./../inc/header')}}
 <!--header end-->
 
 <!--container start-->
@@ -28,7 +28,7 @@
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
         <!--navLeft end-->
 
 
@@ -37,7 +37,7 @@
         <div class="" style="padding-bottom:50px;padding-left:180px;">
             <div class="listConHeader inviteCon">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="${contextPath}/finance/getAllotList">待分配</a></li>
+                    <li class="inline colorB"><a class="TS" href="/finance/getAllotList">待分配</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">分配任务</a></li>
                 </ul>
             </div>
@@ -50,7 +50,7 @@
 	                        <div class="imgPerson">
 		                        <c:choose>
 		            				<c:when test="${empty bean.image_url}">
-				                        <img src="${contextPath}/static/img/employee/perIcon.png" alt="">
+				                        <img src="/static/img/employee/perIcon.png" alt="">
 		            				</c:when>
 		            				<c:otherwise>
 				                        <img src="${bean.image_url}" alt="">
@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            <a href="${contextPath}/finance/getAllotList"><input type="button" class="allotBtnN" id="allotBtnN" value="取消"  style="margin-bottom: 100px;" /></a>
+            <a href="/finance/getAllotList"><input type="button" class="allotBtnN" id="allotBtnN" value="取消"  style="margin-bottom: 100px;" /></a>
             <input type="button" class="allotBtnY" disabled="disabled" id="allotBtnY" value="分配" lang="${finance_id}"/>
             <!--form end-->
         </div>
@@ -128,7 +128,7 @@
                         <div>分配成功</div>
                         <%--<span><span class="countMin">5</span>秒后自动跳转......</span>--%>
 
-                        <img class="delSImg" src="${contextPath}/static/img/employee/successIcon.png" alt=""/>
+                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
                     </div>
                     <%--<div class="col-sm-8 countMin">--%>
                     <%----%>

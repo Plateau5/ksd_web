@@ -8,12 +8,12 @@
 <head>
     <meta charset="UTF-8">
     <title>客户-同意</title>
-    <jsp:include page="/WEB-INF/inc/metaData.jsp"></jsp:include>
-    <link rel="stylesheet" href="${contextPath}/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/employee/listCon.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/question/edit.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/requestpayout/agree.css">
-    <script src="${contextPath}/static/js/question/submit_form.js"></script>
+    {{include ("./../inc/metaData")}}
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/employee/listCon.css">
+    <link rel="stylesheet" href="/static/css/question/edit.css">
+    <link rel="stylesheet" href="/static/css/requestpayout/agree.css">
+    <script src="/static/js/question/submit_form.js"></script>
 </head>
 <style>
     .file_item{
@@ -23,14 +23,14 @@
 
 <body>
 
-<jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+{{include ('./../inc/header')}}
 
 <!--container start-->
 
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
 
         <!--navLeft end-->
 
@@ -89,8 +89,8 @@
 <!--container end-->
 
 </body>
-<script src="${contextPath}/static/dialog/dialog-layer.js"></script>
-<script src="${contextPath}/static/js/requestpayout/agree.js"></script>
+<script src="/static/dialog/dialog-layer.js"></script>
+<script src="/static/js/requestpayout/agree.js"></script>
 <script>
     $('.form-item').eq(0).css('marginTop','32px');
     isFinancial = true;//判断是否为财务

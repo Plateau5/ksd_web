@@ -14,7 +14,7 @@
 				</div>
 			{{/if}}
 			{{#if (vo.gps_install_type !== 0) }}
-				{{#if (vo.gps_count !== '') }}
+				{{#if (vo.gps_count) }}
 					<div class="detail_remarks requestpayout_detail_remarks">
 						<div class="requestpayout_detail_label">安装数量：</div>
 						<div class="requestpayout_detail_txt">{{vo.gps_count}}</div>
@@ -31,13 +31,13 @@
 						{{/if}}
 					</div>
 				</div>
-				{{#if (vo.gps_install_time !== '') }}
+				{{#if (vo.gps_install_time) }}
 					<div class="detail_remarks requestpayout_detail_remarks">
 						<div class="requestpayout_detail_label">安装时间：</div>
 						<div class="requestpayout_detail_txt">{{vo.gps_install_time}}</div>
 					</div>
 				{{/if}}
-				{{#if (vo.gps_install_address !== '') }}
+				{{#if (vo.gps_install_address) }}
 					<div class="detail_remarks requestpayout_detail_remarks">
 						<div class="requestpayout_detail_label">安装地点：</div>
 						<div class="requestpayout_detail_txt">{{vo.gps_install_address}}</div>

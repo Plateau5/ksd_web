@@ -7,21 +7,21 @@
 <head>
     <meta charset="UTF-8">
     <title>客户-请款材料</title>
-    <jsp:include page="/WEB-INF/inc/metaData.jsp"></jsp:include>
-    <link rel="stylesheet" href="${contextPath}/static/css/employee/listCon.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/question/edit.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/requestpayout/material.css">
+    {{include ("./../inc/metaData")}}
+    <link rel="stylesheet" href="/static/css/employee/listCon.css">
+    <link rel="stylesheet" href="/static/css/question/edit.css">
+    <link rel="stylesheet" href="/static/css/requestpayout/material.css">
 </head>
 <body>
 
-<jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+{{include ('./../inc/header')}}
 
 <!--container start-->
 
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
 
         <!--navLeft end-->
 
@@ -30,8 +30,8 @@
         <div class=" listCon relative">
             <div class="listConHeader inviteCon" style="line-height: normal;margin-top:32px;">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="${contextPath}/pigeonhole/system">归档管理</a></li>
-                    <li class="inline before"><a href="${contextPath}/pigeonhole/getWaitList">待处理</a></li>
+                    <li class="inline colorB"><a class="TS" href="/pigeonhole/system">归档管理</a></li>
+                    <li class="inline before"><a href="/pigeonhole/getWaitList">待处理</a></li>
                     <li class="inline before"><a href="javascript:" class="marterial_back" data-id="${finance_id}">${vo.user_name}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">通知所需材料</a></li>
                 </ul>
@@ -55,7 +55,7 @@
             <per:button code="1123">
                 <div class="material_btn">
                     <input type="button" class="material_sub" id="material_sub" data-advance_id="${vo.advance_id}" value="确认"/>
-                    <a href="javascript:" id="marterialBack" data-url="${contextPath}/pigeonhole/getFile" data-id="${finance_id}">
+                    <a href="javascript:" id="marterialBack" data-url="/pigeonhole/getFile" data-id="${finance_id}">
                         <input type="button" class="cancel_btn" id="cancel_btn" value="取消">
                     </a>
                 </div>
@@ -67,8 +67,8 @@
 <!--container end-->
 
 </body>
-<script src="${contextPath}/static/js/requestpayout/sub_btn.js"></script>
-<script src="${contextPath}/static/js/requestpayout/material.js"></script>
+<script src="/static/js/requestpayout/sub_btn.js"></script>
+<script src="/static/js/requestpayout/material.js"></script>
 <script type="text/javascript">
     (function () {
         $(function(){

@@ -7,29 +7,29 @@
 <head>
     <meta charset="UTF-8">
     <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
-    <link rel="stylesheet" href="${contextPath}/static/css/orderDetails.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/customerService.css">
+    <link rel="stylesheet" href="/static/css/orderDetails.css">
+    <link rel="stylesheet" href="/static/css/customerService.css">
     <title>客户-历史订单记录</title>
 </head>
 <body>
 <div id="wrapper" class="wrapper">
     <!-------- Part of header Begin -------->
-    <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+    {{include ('./../inc/header')}}
     <!-------- Part of header End -------->
 
     <!-------- Part of main Begin -------->
     <div id="section" class="section normal_width">
         <!---- Part of slide nav Begin ---->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
         <!---- Part of slide na End ---->
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
-            <form action="${contextPath}" method="POST" id="form_search" role="form">
+            <form action="" method="POST" id="form_search" role="form">
             </form>
             <div class="crumbs_nav">
-                <a href="${contextPath}${url_first}" class="crumbs_item">${navigation_first}</a>
-                <a href="${contextPath}${url_second}" class="crumbs_item">${navigation_second }</a>
+                <a href="${url_first}" class="crumbs_item">${navigation_first}</a>
+                <a href="${url_second}" class="crumbs_item">${navigation_second }</a>
                 <a href="javascript:window.history.back();" class="crumbs_item">查看资料</a>
                 <a href="javascript:;" class="crumbs_item">申请记录（${user_name}）</a>
             </div>

@@ -16,25 +16,25 @@
 <body>
 <div id="wrapper" class="wrapper">
     <!-------- Part of header Begin -------->
-    <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+    {{include ('./../inc/header')}}
     <!-------- Part of header End -------->
 
     <!-------- Part of main Begin -------->
     <div id="section" class="section normal_width">
         <!---- Part of slide nav Begin ---->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
         <!---- Part of slide na End ---->
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
             <div class="crumbs_nav">
-                <a href="${contextPath}/otherfund/system" class="crumbs_item">其他款项</a>
-                <a href="${contextPath}/otherfund/pending/list" class="crumbs_item">待审批</a>
+                <a href="/otherfund/system" class="crumbs_item">其他款项</a>
+                <a href="/otherfund/pending/list" class="crumbs_item">待审批</a>
                 <a href="javascript:window.history.back();" class="crumbs_item">${vo.user_name }</a>
                 <a href="javascript:;" class="crumbs_item">同意</a>
             </div>
             <div class="cashed_mark">
-                <form action="<%--${contextPath}/api/financial/return/submit--%>" method="post" id="returnResult">
+                <form action="<%--/api/financial/return/submit--%>" method="post" id="returnResult">
                     <input type="hidden" name="advance_id" value="${vo.advance_id}">
                     <input type="hidden" name="finance_id" value="${finance_id}">
                     <div class="form_row textarea_container">
@@ -67,7 +67,7 @@
 </div>
 </body>
 <jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
-<script src="${contextPath}/static/dialog/dialog-layer.js"></script>
+<script src="/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {
 

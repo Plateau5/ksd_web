@@ -14,19 +14,19 @@
 <head>
     <meta charset="UTF-8">
     <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
-    <link rel="stylesheet" href="${contextPath}/static/css/transfer.css">
+    <link rel="stylesheet" href="/static/css/transfer.css">
     <title>转交他人</title>
 </head>
 <body>
 <div id="wrapper" class="wrapper">
     <!-------- Part of header Begin -------->
-    <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+    {{include ('./../inc/header')}}
     <!-------- Part of header End -------->
 
     <!-------- Part of main Begin -------->
     <div id="section" class="section normal_width">
         <!---- Part of slide nav Begin ---->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
         <!---- Part of slide na End ---->
 
         <!---- Part of Main info Begin ---->
@@ -34,9 +34,9 @@
             <input type="hidden" id="finance_id" value="${finance_id}">
             <input type="hidden" id="emp_id" value="">
             <div class="crumbs_nav">
-                <a href="${contextPath}/financial/system" class="crumbs_item">款项管理</a>
-                <a href="${contextPath}/financial/getWaitList" class="crumbs_item">待审批</a>
-                <a href="javascript:" data-url="${contextPath}/financial/getFile" data-id="${finance_id}" class="crumbs_item go_forward">${vo.user_name }</a>
+                <a href="/financial/system" class="crumbs_item">款项管理</a>
+                <a href="/financial/getWaitList" class="crumbs_item">待审批</a>
+                <a href="javascript:" data-url="/financial/getFile" data-id="${finance_id}" class="crumbs_item go_forward">${vo.user_name }</a>
                 <a href="javascript:;" class="crumbs_item">转交他人</a>
             </div>
 
@@ -53,7 +53,7 @@
                                 <li class="list_item employee_item" lang="${bean.role_id }" style="display:none;">
                                     <c:choose>
                                         <c:when test="${empty bean.image_url}">
-                                            <img src="${contextPath}/static/img/employee/perIcon.png" alt="">
+                                            <img src="/static/img/employee/perIcon.png" alt="">
                                         </c:when>
                                         <c:otherwise>
                                             <img src="${bean.image_url}" alt="">
@@ -71,7 +71,7 @@
                     <per:button code="1120">
                         <div class="btn_box">
                             <a href="javascript:" class="btn orange_btn confirm dialog_confirm" data-advance_id="${vo.advance_id}" id="dialog_confirm">确定</a>
-                            <a href="javascript:" data-url="${contextPath}/financial/getFile" data-id="${finance_id}" class="btn bg_btn cancel go_forward">取消</a>
+                            <a href="javascript:" data-url="/financial/getFile" data-id="${finance_id}" class="btn bg_btn cancel go_forward">取消</a>
                         </div>
                     </per:button>
                 </div>

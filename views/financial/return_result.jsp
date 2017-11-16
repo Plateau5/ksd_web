@@ -16,25 +16,25 @@
 <body>
 <div id="wrapper" class="wrapper">
     <!-------- Part of header Begin -------->
-    <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+    {{include ('./../inc/header')}}
     <!-------- Part of header End -------->
 
     <!-------- Part of main Begin -------->
     <div id="section" class="section normal_width">
         <!---- Part of slide nav Begin ---->
-        <jsp:include page="/WEB-INF/inc/customer_slide_nav.jsp"></jsp:include>
+        {{include ('./../inc/sideNav')}}
         <!---- Part of slide na End ---->
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
             <div class="crumbs_nav">
-                <a href="${contextPath}/financial/system" class="crumbs_item">款项管理</a>
-                <a href="${contextPath}/financial/pendingDispose/list" class="crumbs_item">待回款</a>
+                <a href="/financial/system" class="crumbs_item">款项管理</a>
+                <a href="/financial/pendingDispose/list" class="crumbs_item">待回款</a>
                 <a href="javascript:window.history.back();" class="crumbs_item">${vo.user_name }</a>
                 <a href="javascript:;" class="crumbs_item">已回款</a>
             </div>
             <div class="cashed_mark">
-                <form action="<%--${contextPath}/api/financial/return/submit--%>" method="post" id="returnResult">
+                <form action="<%--/api/financial/return/submit--%>" method="post" id="returnResult">
                     <input type="hidden" name="finance_id" value="${finance_id}">
                     <input type="hidden" name="advance_id" value="${vo.advance_id}">
                     <div class="form_row">
@@ -85,7 +85,7 @@
 </div>
 </body>
 <jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
-<script src="${contextPath}/static/dialog/dialog-layer.js"></script>
+<script src="/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {
         //只允许输入数字或者输入两位小数
