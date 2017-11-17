@@ -16,7 +16,7 @@
 			</div>
 		{{/each}}
 	</div>
-	{{#if (vo.remark !== null && vo.remark) }}
+	{{#if (vo.remark) }}
 		<div class="detail_remarks requestpayout_detail_remarks height_hack" style="height:auto !important;float: none;width: 100%;">
 			<div class="remark_label">备注：</div>
 			<div class="remark_txt">
@@ -33,7 +33,7 @@
 				<div class="requestpayout_detail_btn toAllot btn_item assigning_task requestpayout_assigning" alt="" lang="{{finance_id}}">分配任务</div>
 			{{/if}}
 		{{/if}}
-		{{#if (vo.status === 3 && active === 'checkin' && vo.start_audit_time !== '0') }}
+		{{#if (vo.status === 3 && vo.start_audit_time !== 0) }}
 			<div class="cursor requestpayout_detail_btn requestpayout_download download_file"  alt="1" lang="{{finance_id}}">全部下载</div>
 			{{#if (verifyCode(1037)) }}
 				<a href="javascript:;" id="picture_reason" lang="{{finance_id}}"  alt="{{vo.user_name}}" create_name="{{create_name}}">
@@ -44,7 +44,7 @@
 				<div class="requestpayout_detail_btn requestpayout_apply" id="requestpayout_apply" lang="{{finance_id}}">确认申请</div>
 			{{/if}}
 		{{/if}}
-		{{#if (vo.status === 3 && active === 'checkin') }}
+		{{#if (vo.status === 3 && vo.start_audit_time === 0) }}
 			{{#if (verifyCode(1161)) }}
 				{{#if (vo.status === 3 && vo.start_audit_time === 0) }}
 					<div class="requestpayout_detail_btn requestpayout_entering" id="entering" lang="{{finance_id}}">开始录入</div>

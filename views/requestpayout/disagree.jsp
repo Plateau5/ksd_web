@@ -74,12 +74,12 @@
                                 <div class="check_img icon_uncheck" data_id="${bean.id }"></div>
                                 <span>${bean.value}</span>
                             </div>
-                            <%--<p class="question-con">${bean.content}</p>--%>
+                            <!--<p class="question-con">${bean.content}</p>-->
                             <input type="hidden" class="question-val" value="${bean.content}">
                         </div>
                     </c:forEach>
                     </div>
-                    <%--<div class="error_prom"></div>--%>
+                    <!--<div class="error_prom"></div>-->
                 </div>
                 <div class="error_prom" style="margin-left: 0;"></div>
                 <div class="form-item" style="padding-top:20px;">

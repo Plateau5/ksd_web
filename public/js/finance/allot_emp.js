@@ -54,7 +54,7 @@ $(function(){
 
     //确认分配
     $("#delQDBtn").click(function(){
-    	var url = contextPath + "/api/finance/allot";
+    	var url = contextPath + "/api/customer/loan/allot";
     	var audit_id = $("#audit_id").val();
     	var audit_name = $("#audit_name").val();
     	var finance_id = $("#finance_id").val();
@@ -100,7 +100,7 @@ $(function(){
     
     //分配成功
     $("#success_allot").click(function(){
-    	window.location.href=contextPath +"/finance/getAllotList";
+    	window.location.href=contextPath +"/customer/loan/pendingAllot";
     });
 
 });

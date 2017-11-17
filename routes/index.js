@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var common = require('./../controller/common');
 // var request = require('request');
 // Require the controllers.
 var homeCtrl = require('../controller/viewsController/homeController');
@@ -31,7 +32,8 @@ router.get('/home', homeCtrl.VIEW_HOME_DATA);
 
 router.post('/api/message/getNotice', homeCtrl.API_MESSAGE_GETNOTICE);
 
-
+// 客户管理-下载资料-api 1038
+router.post('/api/files/download', customerCtrl.API_FILES_DOWNLOAD);
 // 客户访问路径
 router.get('/customer/system', customerCtrl.VIEW_CUSTOMER_SYSTEM);
 // 客户-贷款管理-访问路径 1016
@@ -46,6 +48,24 @@ router.all('/customer/loan/entered', customerCtrl.VIEW_CUSTOMER_LOAN_ENTERED);
 router.all('/customer/loan/passed', customerCtrl.VIEW_CUSTOMER_LOAN_PASSED);
 // 客户-贷款管理-未通过 1021
 router.all('/customer/loan/unpass', customerCtrl.VIEW_CUSTOMER_LOAN_UNPASS);
+// 客户管理-详情页-贷款管理 1036
+router.post('/customer/loan/detail', customerCtrl.VIEW_CUSTOMER_LOAN_DETAIL);
+// 客户管理-订单分配页面跳转 1022
+router.post('/customer/loan/allot', customerCtrl.VIEW_CUSTOMER_LOAN_ALLOT);
+// 客户管理-订单分配-api 1031
+router.post('/api/customer/loan/allot', customerCtrl.API_CUSTOMER_LOAN_ALLOT);
+// 客户管理-开始录入-api 1161
+router.post('/api/customer/loan/startApplyloan', customerCtrl.API_CUSTOMER_LOAN_STARTAPPLYLOAN);
+// 客户管理-资料不合格页面跳转 1037
+router.post('/customer/loan/unqualified', customerCtrl.VIEW_CUSTOMER_LOAN_UNQUALIFIED);
+// 客户管理-获取问题分类下的问题列表-api
+router.post('/api/customer/getQuestions', customerCtrl.API_CUSTOMER_GETQUESTIONS);
+// 客户管理-获取问题分类下的问题列表-api
+router.post('/api/customer/loan/unqualified', customerCtrl.API_CUSTOMER_GETQUESTIONS);// todo 写提交逻辑
+
+
+
+
 
 // 客户-合同管理-访问路径 1260
 router.get('/customer/compact/system', customerCtrl.VIEW_CUSTOMER_COMPACT_SYSTEM);
@@ -110,20 +130,18 @@ router.all('/customer/otherfund/pass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_PASS
 router.all('/customer/otherfund/unpass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_UNPASS);
 
 
-// 客户管理-详情页-贷款管理
-router.post('/customer/loan/detail', customerCtrl.VIEW_CUSTOMER_LOAN_DETAIL);
-// 客户管理-详情页-合同管理
+// 客户管理-详情页-合同管理 1268
 router.post('/customer/compact/detail', customerCtrl.VIEW_CUSTOMER_COMPACT_DETAIL);
-// 客户管理-详情页-请款管理
+// 客户管理-详情页-请款管理 1112
 router.post('/customer/requestpayout/detail', customerCtrl.VIEW_CUSTOMER_REQUESTPAYOUT_DETAIL);
-// 客户管理-详情页-审批管理
+// 客户管理-详情页-审批管理 1166
 router.post('/customer/approval/detail', customerCtrl.VIEW_CUSTOMER_APPROVAL_DETAIL);
-// 客户管理-详情页-款项管理
+// 客户管理-详情页-款项管理 1173
 router.post('/customer/financial/detail', customerCtrl.VIEW_CUSTOMER_FINANCIAL_DETAIL);
-// 客户管理-详情页-归档管理
+// 客户管理-详情页-归档管理 1179
 router.post('/customer/pigeonhole/detail', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_DETAIL);
-/*// 客户管理-详情页-其他管理
-router.post('/customer/otherfund/detail', customerCtrl.VIEW_CUSTOMER_OTHERFUND_DETAIL);*/
+// 客户管理-详情页-其他管理 1337
+router.post('/customer/otherfund/detail', customerCtrl.VIEW_CUSTOMER_OTHERFUND_DETAIL);
 
 
 

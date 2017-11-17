@@ -230,3 +230,64 @@ exports.getCustomerDetail = function(url, req, res, next) {
         }
     }, req, res, next);
 };
+
+/**
+ * 获取客户列表页数据公用方法
+ * @author Arley Joe 2017年11月16日16:04:35
+ * @options {Object} : 属性参数为[url, title, page]且必传
+ *          - {url} : 请求数据API路径
+ *          - {title} : 渲染页面title
+ *          - {page} : 渲染页面物理路径
+ */
+exports.getPageData = function(options, req, res, next) {
+    var body = req.body;
+    var data = {};
+    var localUrl = req.originalUrl;
+    try {
+        this.httpRequest({
+            url : contextPath + options.url,
+            formData : body
+        }, function (result) {
+            data = result;
+            if (data.error_code === 0) {
+                data.title = options.title;
+                data.originUrl = localUrl;
+                res.render(options.page, data);
+            } else {
+                console.log(data);
+                res.redirect('/404');
+            }
+        }, req, res, next);
+    } catch (err) {
+        /*logger.error(err);*/
+        console.log(err);
+        res.statusCode = 500;
+        /*return res.json({success: false, message: '服务器异常'});*/
+        res.redirect('/404');
+    }
+
+};
+
+/**
+ * 调用后台API接口公用方法
+ * @author Arley Joe 2017年11月16日16:04:35
+ * @options {String} : 后台请求接口路径
+ */
+exports.publicForApi = function(url, req, res, next) {
+    var body = req.body;
+    try {
+        this.httpRequest({
+            url : contextPath + url,
+            formData : body
+        }, function (result) {
+            var data = result;
+            res.send(data);
+        }, req, res, next);
+    } catch (err) {
+        /*logger.error(err);*/
+        console.log(err);
+        res.statusCode = 500;
+        return res.json({success: false, message: '服务器异常'});
+    }
+
+};

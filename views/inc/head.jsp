@@ -7,7 +7,7 @@
 <div id="header" class="header full_width">
 	<div class="header_content normal_width">
 		<a href="/home" class="logo">
-			<%--<img class="block img_responsive" src="/static/img/logo/${domain}_logo.png" alt="快收单logo">--%>
+			<!--<img class="block img_responsive" src="/static/img/logo/${domain}_logo.png" alt="快收单logo">-->
 			<img class="block img_responsive" src="/static/img/logo/logo.png" alt="快收单logo">
 		</a>
 		<ul class="header_nav inline_block">
@@ -54,7 +54,7 @@
 		<ul class="login rf inline_block" id="id_center" style="display: none;">
 
 			<li class="characters">
-				<%--<a href="/personal/center">--%>
+				<!--<a href="/personal/center">-->
 				<a href="javascript:">
 					<img id="header_image_url" src="" class="character_photo" />
 					<span id="header_username" class="header_username"></span>
@@ -74,13 +74,13 @@
 						<span class="message_count"><span style="display:inline-block;transform:scale(0.8);"></span></span>
 					</span>
 				</a>
-				<%--<div class="message_tip">您有&nbsp;<span class="count blod"></span>&nbsp;条待处理事项</div>--%>
+				<!--<div class="message_tip">您有&nbsp;<span class="count blod"></span>&nbsp;条待处理事项</div>-->
 			</li>
 		</ul>
 	</div>
 </div>
 <script type="text/javascript">
-	var LOCALURL = '${local_url}';
+	var LOCALURL = window.location.pathname;
 	var DOMAIN = '${domain}';
 </script>
 

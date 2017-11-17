@@ -52,24 +52,24 @@ pageEncoding="UTF-8"%>
 				<td colspan="3">${vo.dpartment_name}</td>
 				<td>上牌方</td>
 				<td colspan="4">${vo.regist_type_value}</td>
-				<%-- <c:if test="${vo.car_type eq 0 }">
+				<!-- <c:if test="${vo.car_type eq 0 }">
 				</c:if>
 				<c:if test="${vo.car_type eq 1 }">
 					<td>保险是否完成</td>
 					<td colspan="3"><c:if test="${vo.insurance_isfinish eq 1 }">是</c:if><c:if test="${vo.insurance_isfinish eq 0 }">否</c:if></td>
-				</c:if> --%>
+				</c:if> -->
 			</tr>
 			<tr>
 				<td>客户姓名</td>
 				<td colspan="3">${vo.user_name}</td>
 				<td>抵押方</td>
 				<td colspan="4">${vo.pledge_type_value}</td>
-				<%-- <c:if test="${vo.car_type eq 0 }">
+				<!-- <c:if test="${vo.car_type eq 0 }">
 				</c:if>
 				<c:if test="${vo.car_type eq 1 }">
 					<td>上牌是否完成</td>
 					<td colspan="3"><c:if test="${vo.regist_isfinish eq 1 }">是</c:if><c:if test="${vo.regist_isfinish eq 0 }">否</c:if></td>
-				</c:if> --%>
+				</c:if> -->
 			</tr>
 			<tr>
 				<td>放款类型</td>
@@ -93,9 +93,9 @@ pageEncoding="UTF-8"%>
 				<td>服务费返点(元)</td>
 				<td >GPS安装费(元)</td>
 				<td>保险(元)</td>
-				<td>购置税(元)<%-- <c:if test="${vo.car_type eq 0 }"></c:if><c:if test="${vo.car_type eq 1 }">服务费返点(元)</c:if> --%></td>
+				<td>购置税(元)<!-- <c:if test="${vo.car_type eq 0 }"></c:if><c:if test="${vo.car_type eq 1 }">服务费返点(元)</c:if> --></td>
 				<td>融资返点(元)</td>
-				<td>保险返点(元)<%-- <c:if test="${vo.car_type eq 0 }">征信查询费(元)</c:if><c:if test="${vo.car_type eq 1 }">保险费返点(元)</c:if> --%></td>
+				<td>保险返点(元)<!-- <c:if test="${vo.car_type eq 0 }">征信查询费(元)</c:if><c:if test="${vo.car_type eq 1 }">保险费返点(元)</c:if> --></td>
 				<td>GPS返点</td>
 			</tr>
 			<tr>
@@ -103,10 +103,10 @@ pageEncoding="UTF-8"%>
 				<td>${vo.service_charge }</td>
 				<td>${vo.gps_charge }</td>
 				<td>${vo.insurance }</td>
-				<td>${vo.purchase_tax }<%-- <c:if test="${vo.car_type eq 0 }">${vo.purchase_tax }</c:if><c:if test="${vo.car_type eq 1 }">${vo.service_charge_rebate } </c:if>--%></td>
-				<%-- 重新补数据 --%>
+				<td>${vo.purchase_tax }<!-- <c:if test="${vo.car_type eq 0 }">${vo.purchase_tax }</c:if><c:if test="${vo.car_type eq 1 }">${vo.service_charge_rebate } </c:if>--></td>
+				<!-- 重新补数据 -->
 				<td>${vo.financed_charge_rebate}</td>
-				<td>${vo.insurance_rebate}<%-- <c:if test="${vo.car_type eq 0 }">${vo.credit_charge }</c:if><c:if test="${vo.car_type eq 1 }">${vo.insurance_rebate }</c:if> --%></td>
+				<td>${vo.insurance_rebate}<!-- <c:if test="${vo.car_type eq 0 }">${vo.credit_charge }</c:if><c:if test="${vo.car_type eq 1 }">${vo.insurance_rebate }</c:if> --></td>
 				<td>${vo.gps_rebate}</td>
 			</tr>
 			<!--付款明细1 end-->

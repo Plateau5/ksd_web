@@ -4,9 +4,40 @@
 
 // var express = require('express');
 // var router = require('./../../routes/index');
+var fs = require('fs');
+var path=require("path");
 var common = require('./../common');
 // var request = require('request');
 // var COMMONUTIL = require('./../../util/commonUtil');  // 主加密方法类文件
+
+// 下载资料-api 1038
+exports.API_FILES_DOWNLOAD = function(req, res, next) {
+    var url = '/finance/file/download';
+    var filePath = path.join(__dirname, './');
+    console.log(filePath);
+    fs.readFile(filePath + "http://loan-file.oss-cn-beijing.aliyuncs.com/16780053671507799212784952491020.jpg", function(err, data){
+        res.set({
+            'Content-Type': 'application/octet-stream',  //告诉浏览器这是一个二进制文件
+            'Content-Disposition': 'attachment; filename=upload.png'  //告诉浏览器这是一个附件要下载是png图片
+        });
+        res.end(data);
+    });
+    /*var body = req.body;
+    try {
+        common.httpRequest({
+            url : contextPath + '/finance/file/download',
+            formData : body
+        }, function (result) {
+            var data = result;
+            res.end(data);
+        }, req, res, next);
+    } catch (err) {
+        /!*logger.error(err);*!/
+        console.log(err);
+        res.statusCode = 500;
+        return res.json({success: false, message: '服务器异常'});
+    }*/
+};
 
 
 // 客户-主导航跳转
@@ -68,6 +99,41 @@ exports.VIEW_CUSTOMER_LOAN_UNPASS = function(req, res, next) {
     var url = '/api/finance/getUnPassList';
     common.getCustomerList(url, '未通过', req, res, next);
 };
+// 客户管理-订单分配页面跳转 1022
+exports.VIEW_CUSTOMER_LOAN_ALLOT = function(req, res, next) {
+    common.getPageData({
+        url : '/api/finance/toAllot',
+        title : '客户-订单分配',
+        page : './customer/allotEmp'
+    }, req, res, next);
+};
+// 客户管理-订单分配-api 1031
+exports.API_CUSTOMER_LOAN_ALLOT = function(req, res, next) {
+    common.publicForApi('/api/finance/allot', req, res, next)
+};
+// 客户管理-开始录入-api 1161
+exports.API_CUSTOMER_LOAN_STARTAPPLYLOAN = function(req, res, next) {
+    common.publicForApi('/api/finance/startApplyloan', req, res, next)
+};
+// 客户管理-资料不合格页面跳转 1037
+exports.VIEW_CUSTOMER_LOAN_UNQUALIFIED = function(req, res, next) {
+    common.getPageData({
+        url : '/api/finance/picture/reason',
+        title : '客户-发送不合格通知',
+        page : './customer/imgUnpass'
+    }, req, res, next);
+};
+// 客户管理-获取问题分类下的问题列表-api
+exports.API_CUSTOMER_GETQUESTIONS = function(req, res, next) {
+    common.publicForApi('/api/getQuestionByClassifyId', req, res, next)
+};
+// 客户管理-资料不合格-api
+exports.API_CUSTOMER_LOAN_UNQUALIFIED = function(req, res, next) {
+    common.publicForApi('', req, res, next)
+};
+
+
+
 
 
 // 客户-合同管理-跳转
@@ -292,3 +358,40 @@ exports.VIEW_CUSTOMER_PIGEONHOLE_DETAIL = function(req, res, next) {
     var url = '/api/pigeonhole/getFile';
     common.getCustomerDetail(url, req, res, next);
 };
+// 客户管理-详情页-其他管理
+exports.VIEW_CUSTOMER_OTHERFUND_DETAIL = function(req, res, next) {
+    var url = '/api/otherfund/getFile';
+    common.getCustomerDetail(url, req, res, next);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

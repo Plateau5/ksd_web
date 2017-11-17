@@ -52,24 +52,24 @@
 				<td colspan="4">${vo.dpartment_name}</td>
 				<td colspan="2">上牌方</td>
 				<td colspan="4">${vo.regist_type_value}</td>
-				<%-- <c:if test="${vo.car_type eq 0 }">
+				<!-- <c:if test="${vo.car_type eq 0 }">
 				</c:if>
 				<c:if test="${vo.car_type eq 1 }">
 					<td>保险是否完成</td>
 					<td colspan="3"><c:if test="${vo.insurance_isfinish eq 1 }">是</c:if><c:if test="${vo.insurance_isfinish eq 0 }">否</c:if></td>
-				</c:if> --%>
+				</c:if> -->
 			</tr>
 			<tr>
 				<td colspan="2">客户姓名</td>
 				<td colspan="4">${vo.user_name}</td>
 				<td colspan="2">抵押方</td>
 				<td colspan="4">${vo.pledge_type_value}</td>
-				<%-- <c:if test="${vo.car_type eq 0 }">
+				<!-- <c:if test="${vo.car_type eq 0 }">
 				</c:if>
 				<c:if test="${vo.car_type eq 1 }">
 					<td>上牌是否完成</td>
 					<td colspan="3"><c:if test="${vo.regist_isfinish eq 1 }">是</c:if><c:if test="${vo.regist_isfinish eq 0 }">否</c:if></td>
-				</c:if> --%>
+				</c:if> -->
 			</tr>
 			<tr>
 				<td colspan="2">放款类型</td>

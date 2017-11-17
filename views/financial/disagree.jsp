@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <span class="error"></span>
-                        <%--<input type="button" class="send" id="sendBtn" value="确认发送"/>--%>
+                        <!--<input type="button" class="send" id="sendBtn" value="确认发送"/>-->
                         <per:button code="1119">
                             <div class="form-item" style="margin-left: 0;">
                                 <div class="create_btn" style="margin-left: 0;">

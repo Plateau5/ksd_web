@@ -34,7 +34,7 @@
                 <a href="javascript:;" class="crumbs_item">不同意</a>
             </div>
             <div class="cashed_mark">
-                <form action="<%--/api/financial/return/submit--%>" method="post" id="returnResult">
+                <form action="<!--/api/financial/return/submit-->" method="post" id="returnResult">
                     <input type="hidden" name="advance_id" value="${vo.advance_id}">
                     <input type="hidden" name="finance_id" value="${finance_id}">
                     <div class="form_row textarea_container">

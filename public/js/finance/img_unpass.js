@@ -42,7 +42,7 @@ $(function(){
     $('#question_classify_name').change(function(){
         // OPERATIONTYPE：1：请款客服；2：合同客服；3：商户审核
         if (OPERATIONTYPE === 1 || OPERATIONTYPE === 2) {
-            var url = contextPath + "/api/getQuestionByClassifyId";
+            var url = contextPath + "/api/customer/getQuestions";
         } else if (OPERATIONTYPE === 3) {
             var url = contextPath + "/api/getMerQuestionByClassifyId";
         }

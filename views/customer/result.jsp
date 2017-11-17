@@ -93,7 +93,7 @@
                                     <div class="check_img icon_uncheck" data_id="${bean.id }"></div>
                                     <span>${bean.value}</span>
                                 </div>
-                                <%--<p class="question-con">${bean.content}</p>--%>
+                                <!--<p class="question-con">${bean.content}</p>-->
                                 <input type="hidden" class="question-val" value="${bean.content}">
                             </div>
                         </c:forEach>

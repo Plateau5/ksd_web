@@ -59,4 +59,7 @@
         </ul>
     </div>
 </div>
-
+<script type="text/javascript">
+    var LOCALURL = window.location.pathname;
+    var DOMAIN = '${domain}';
+</script>
