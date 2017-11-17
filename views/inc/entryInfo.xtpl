@@ -54,7 +54,7 @@
 		{{#if (vo.status === 4) }}
 			<div class="cursor requestpayout_detail_btn requestpayout_download download_file" alt="1" lang="{{finance_id}}">全部下载</div>
 			{{#if (verifyCode(1236)) }}
-				<a href="javascript:" id="sendAuditResult" data-id="{{finance_id}}" data-url="" class="btn_item send_result" lang="{{finance_id}}">
+				<a href="javascript:" id="sendAuditResult" data-id="{{finance_id}}" data-url="/customer/loan/notifyResult" class="btn_item send_result" lang="{{finance_id}}">
 					<div class="requestpayout_detail_btn requestpayout_result">通知审核结果</div>
 				</a>
 			{{/if}}

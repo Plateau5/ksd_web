@@ -33,7 +33,7 @@
                 <jsp:include page="/WEB-INF/inc/filtrate.jsp"></jsp:include>
             </div>
             <div class="business_list">
-                <form action="${contextPath }/finance/getFile" method="post" id="to_order_detail">
+                <form action="${contextPath }/customer/loan/detail" method="post" id="to_order_detail">
                     <input type="hidden" name="active" value="active">
                     <input type="hidden" name="finance_id" value="" id="financeId">
                 </form>

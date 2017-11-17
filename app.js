@@ -98,5 +98,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render(err);
 });
+var proxy = require('express-http-proxy');
+const apiProxy = proxy('/api', { target: 'http://localhost:8080',changeOrigin: true });
+app.use(/^\/api/, apiProxy);
 
 module.exports = app;

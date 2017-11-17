@@ -141,7 +141,8 @@ exports.httpRequest = function (opt, callback, req, res, next) {
                 console.error(e.message);
             }
         } else {
-            res.redirect('/404');
+            // res.redirect('/404');
+            console.error(error);
         }
         res.end();
     });
@@ -286,7 +287,7 @@ exports.publicForApi = function(url, req, res, next) {
     } catch (err) {
         /*logger.error(err);*/
         console.log(err);
-        res.statusCode = 500;
+        res.statusCode = 400;
         return res.json({success: false, message: '服务器异常'});
     }
 

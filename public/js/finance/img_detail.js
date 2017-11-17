@@ -37,7 +37,7 @@ $(function(){
         var finance_id = $(this).attr('lang');
         $.ajax({
             type:"post",
-            url :contextPath + '/api/finance/applyloan',
+            url :contextPath + '/api/customer/loan/confirmApplyLoan',
             dataType:"json",
             data:{finance_id: finance_id},
             async:false,
@@ -47,7 +47,7 @@ $(function(){
             },
             success:function(data){
                 if(data.error_code =='0'){
-                    window.location.href = contextPath + '/finance/getCheckInList';
+                    window.location.href = contextPath + '/customer/loan/alreadyAllot';
                 }else{
                     $(this).attr("disabled", true);
                     alert(data.error_msg);

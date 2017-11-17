@@ -72,32 +72,6 @@ $(function(){
 
     });
 
-    //动态获取问题列表
-    $('#question_classify_name').change(function(){
-        var url = contextPath + "/api/getQuestionByClassifyId";
-        var question_classify = $(this).val();
-        var inner = '';
-        $.ajax({
-            type: "post",
-            url: url,
-            dataType: "json",
-            data: {parent_id: question_classify},
-            async: false,
-            success: function (data) {
-                $('.question_container').empty();
-                if(data.data.length == 0){
-                    inner = '<div class="question_container_prom">该分类暂无问题列表，请重新选择问题分类</div>';
-                    $('.question_container').append(inner);
-                    return;
-                }
-                $.each(data.data, function (n, value) {
-                    inner += '<div class="question-con-box"><div class="check"><div class="check_img icon_uncheck" data_id="' + value.id + '"></div><span>' + value.value + '</span></div><input type="hidden" class="question-val" value="' + value.content +'"></div>';
-                });
-                $('.question_container').append(inner);
-                ellipsis();
-            }
-        });
-    });
 
     // 上传图片按钮
     $('input[type="file"]').hover(function() {

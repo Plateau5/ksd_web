@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var common = require('./../controller/common');
-// var request = require('request');
+var multipart = require('connect-multiparty');  // 文件上传接受参数中间件
+var multipartMiddleware = multipart();      // 实例化中间件，使用参考本文件65行
+var proxy = require('express-http-proxy');
 // Require the controllers.
 var homeCtrl = require('../controller/viewsController/homeController');
 var customerCtrl = require('../controller/viewsController/customerController');
@@ -14,6 +15,7 @@ var statisticsCtrl = require('../controller/viewsController/statisticsController
 var systemManagementCtrl = require('../controller/viewsController/systemManagementController');
 var settingsCtrl = require('../controller/viewsController/settingsController');
 var privilegeCtrl = require('../controller/viewsController/privilegeController');
+
 
 /* GET login page. */
 // 根路径
@@ -58,10 +60,24 @@ router.post('/api/customer/loan/allot', customerCtrl.API_CUSTOMER_LOAN_ALLOT);
 router.post('/api/customer/loan/startApplyloan', customerCtrl.API_CUSTOMER_LOAN_STARTAPPLYLOAN);
 // 客户管理-资料不合格页面跳转 1037
 router.post('/customer/loan/unqualified', customerCtrl.VIEW_CUSTOMER_LOAN_UNQUALIFIED);
-// 客户管理-获取问题分类下的问题列表-api
+// 客户管理-获取客服问题分类下的问题列表-api
 router.post('/api/customer/getQuestions', customerCtrl.API_CUSTOMER_GETQUESTIONS);
-// 客户管理-获取问题分类下的问题列表-api
-router.post('/api/customer/loan/unqualified', customerCtrl.API_CUSTOMER_GETQUESTIONS);// todo 写提交逻辑
+// 客户管理-获取问题分类下的问题列表-api 1035
+router.post('/api/customer/loan/unqualified',multipartMiddleware, customerCtrl.API_CUSTOMER_LOAN_UNQUALIFIED);
+// 客户管理-确认申请按钮-api 1032
+router.post('/api/customer/loan/confirmApplyLoan', customerCtrl.API_CUSTOMER_LOAN_CONFIRMAPPLYLOAN);
+// 客户管理-通知审核结果-页面 1236
+router.post('/customer/loan/notifyResult', customerCtrl.VIEW_CUSTOMER_LOAN_NOTIFYRESULT);
+// 客户管理-通知审核结果-审核不通过-页面 1034
+/*router.post('/api/customer/loan/auditUnpass',multipartMiddleware, customerCtrl.API_CUSTOMER_LOAN_AUDITUNPASS);*/
+
+
+
+
+
+
+
+
 
 
 
@@ -325,7 +341,10 @@ router.get('/userCenter/resetPassword', settingsCtrl.VIEW_userCenter_resetPasswo
     });
 });*/
 // If router is undefined redirect to 404 page.
+/*const apiProxy = proxy('/api', { target: 'http://localhost:8080',changeOrigin: true });
+router.all(/^\/api/, apiProxy);*/
 router.get('*', function(req, res, next) {
+
     res.render('./errorpage/404', {title: '404'});
 });
 

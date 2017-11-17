@@ -92,7 +92,7 @@ $(function(){
         }
         $('#reason').val(reason_arr.join(','));
         $('#question_ids').val(ids_arr.join(','));
-        var url = contextPath + "/api/finance/disqualification";
+        var url = contextPath + "/api/customer/loan/unqualified";
         var vFD = new FormData(document.getElementById('message_info'));
         var oXHR = new XMLHttpRequest();
         oXHR.addEventListener('load', function(e) {
@@ -100,7 +100,7 @@ $(function(){
             var data = JSON.parse(response);
             //成功
             if (data.error_code == '0') {
-                window.location.href = contextPath + '/finance/getCheckInList';
+                window.location.href = contextPath + '/customer/loan/alreadyAllot';
                 //window.history.go(-1);
             } else {
                 alert(data.error_msg);
