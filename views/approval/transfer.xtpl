@@ -43,7 +43,7 @@
                                 {{#if (this.image_url === '' || this.image_url.length <= 0) }}
                                 <img src="/static/img/employee/perIcon.png" alt="">
                                 {{else}}
-                                <img src="${bean.image_url}" alt="">
+                                <img src="{{this.image_url}}" alt="">
                                 {{/if}}
                                 <span class="employee_name" lang="{{this.id}}">{{this.name }}</span>
                             </li>

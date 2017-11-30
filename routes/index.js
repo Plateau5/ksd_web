@@ -37,31 +37,31 @@ router.post('/api/message/getNotice', homeCtrl.API_MESSAGE_GETNOTICE);
 // 客户管理-下载资料-api 1038
 router.post('/api/files/download', customerCtrl.API_FILES_DOWNLOAD);
 // 客户访问路径
-router.get('/customer/system', customerCtrl.VIEW_CUSTOMER_SYSTEM);
+router.get(markUri + '/customer/system', customerCtrl.VIEW_CUSTOMER_SYSTEM);
 // 客户订单历史记录
-router.post('/customer/history', customerCtrl.VIEW_CUSTOMER_HISTORY);
+router.post(markUri + '/customer/history', customerCtrl.VIEW_CUSTOMER_HISTORY);
 // 客户-贷款管理-访问路径 1016
-router.get('/customer/loan/system', customerCtrl.VIEW_CUSTOMER_LOAN_SYSTEM);
+router.get(markUri + '/customer/loan/system', customerCtrl.VIEW_CUSTOMER_LOAN_SYSTEM);
 // 客户-贷款管理-待分配 1017
-router.all('/customer/loan/pendingAllot', customerCtrl.VIEW_CUSTOMER_LOAN_PENDINGALLOT);
+router.all(markUri + '/customer/loan/pendingAllot', customerCtrl.VIEW_CUSTOMER_LOAN_PENDINGALLOT);
 // 客户-贷款管理-已分配 1018
-router.all('/customer/loan/alreadyAllot', customerCtrl.VIEW_CUSTOMER_LOAN_ALREADYALLOT);
+router.all(markUri + '/customer/loan/alreadyAllot', customerCtrl.VIEW_CUSTOMER_LOAN_ALREADYALLOT);
 // 客户-贷款管理-已录入 1019
-router.all('/customer/loan/entered', customerCtrl.VIEW_CUSTOMER_LOAN_ENTERED);
+router.all(markUri + '/customer/loan/entered', customerCtrl.VIEW_CUSTOMER_LOAN_ENTERED);
 // 客户-贷款管理-已通过 1020
-router.all('/customer/loan/passed', customerCtrl.VIEW_CUSTOMER_LOAN_PASSED);
+router.all(markUri + '/customer/loan/passed', customerCtrl.VIEW_CUSTOMER_LOAN_PASSED);
 // 客户-贷款管理-未通过 1021
-router.all('/customer/loan/unpass', customerCtrl.VIEW_CUSTOMER_LOAN_UNPASS);
+router.all(markUri + '/customer/loan/unpass', customerCtrl.VIEW_CUSTOMER_LOAN_UNPASS);
 // 客户管理-详情页-贷款管理 1036
-router.post('/customer/loan/detail', customerCtrl.VIEW_CUSTOMER_LOAN_DETAIL);
+router.post(markUri + '/customer/loan/detail', customerCtrl.VIEW_CUSTOMER_LOAN_DETAIL);
 // 客户管理-订单分配页面跳转 1022
-router.post('/customer/loan/allot', customerCtrl.VIEW_CUSTOMER_LOAN_ALLOT);
+router.post(markUri + '/customer/loan/allot', customerCtrl.VIEW_CUSTOMER_LOAN_ALLOT);
 // 客户管理-订单分配-api 1031
 router.post('/api/customer/loan/allot', customerCtrl.API_CUSTOMER_LOAN_ALLOT);
 // 客户管理-开始录入-api 1161
 router.post('/api/customer/loan/startApplyloan', customerCtrl.API_CUSTOMER_LOAN_STARTAPPLYLOAN);
 // 客户管理-资料不合格页面跳转 1037
-router.post('/customer/loan/unqualified', customerCtrl.VIEW_CUSTOMER_LOAN_UNQUALIFIED);
+router.post(markUri + '/customer/loan/unqualified', customerCtrl.VIEW_CUSTOMER_LOAN_UNQUALIFIED);
 // 客户管理-获取客服问题分类下的问题列表-api
 router.post('/api/customer/getQuestions', customerCtrl.API_CUSTOMER_GETQUESTIONS);
 // 客户管理-获取问题分类下的问题列表-api 1035
@@ -69,37 +69,37 @@ router.post('/api/customer/loan/unqualified',multipartMiddleware, customerCtrl.A
 // 客户管理-确认申请按钮-api 1032
 router.post('/api/customer/loan/confirmApplyLoan', customerCtrl.API_CUSTOMER_LOAN_CONFIRMAPPLYLOAN);
 // 客户管理-通知审核结果-页面 1236
-router.post('/customer/loan/notifyResult', customerCtrl.VIEW_CUSTOMER_LOAN_NOTIFYRESULT);
+router.post(markUri + '/customer/loan/notifyResult', customerCtrl.VIEW_CUSTOMER_LOAN_NOTIFYRESULT);
 // 客户管理-通知审核结果-审核不通过-页面 1034
 /*router.post('/api/customer/loan/auditUnpass',multipartMiddleware, customerCtrl.API_CUSTOMER_LOAN_AUDITUNPASS);*/
 
 
 // 客户-合同管理-访问路径 1260
-router.get('/customer/compact/system', customerCtrl.VIEW_CUSTOMER_COMPACT_SYSTEM);
+router.get(markUri + '/customer/compact/system', customerCtrl.VIEW_CUSTOMER_COMPACT_SYSTEM);
 // 客户-合同管理-待出合同 1261
-router.all('/customer/compact/pendingPass', customerCtrl.VIEW_CUSTOMER_COMPACT_PENDINGPASS);
+router.all(markUri + '/customer/compact/pendingPass', customerCtrl.VIEW_CUSTOMER_COMPACT_PENDINGPASS);
 // 客户-合同管理-同意页面 1264
 router.post(markUri + '/customer/compact/agree', customerCtrl.VIEW_CUSTOMER_COMPACT_AGREE);
 // 客户-合同管理-不同意页面 1265
 router.post(markUri + '/customer/compact/disagree', customerCtrl.VIEW_CUSTOMER_COMPACT_DISAGREE);
 // 客户-合同管理-已通过 1262
-router.all('/customer/compact/pass', customerCtrl.VIEW_CUSTOMER_COMPACT_PASS);
+router.all(markUri + '/customer/compact/pass', customerCtrl.VIEW_CUSTOMER_COMPACT_PASS);
 // 客户-合同管理-未通过 1263
-router.all('/customer/compact/unpass', customerCtrl.VIEW_CUSTOMER_COMPACT_UNPASS);
+router.all(markUri + '/customer/compact/unpass', customerCtrl.VIEW_CUSTOMER_COMPACT_UNPASS);
 
 
 // 客户-请款管理-访问路径 1225
-router.get('/customer/requestpayout/system', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_SYSTEM);
+router.get(markUri + '/customer/requestpayout/system', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_SYSTEM);
 // 客户-请款管理-待请款 1202
-router.all('/customer/requestpayout/pendingDispose', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PENDINGDISPOSE);
+router.all(markUri + '/customer/requestpayout/pendingDispose', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PENDINGDISPOSE);
 // 客户-请款管理-待通过 1203
-router.all('/customer/requestpayout/pendingPass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PENDINGPASS);
+router.all(markUri + '/customer/requestpayout/pendingPass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PENDINGPASS);
 // 客户-请款管理-待审批 1110
-router.all('/customer/requestpayout/pendingAudit', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PENDINGAUDIT);
+router.all(markUri + '/customer/requestpayout/pendingAudit', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PENDINGAUDIT);
 // 客户-请款管理-已通过 1204
-router.all('/customer/requestpayout/pass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PASS);
+router.all(markUri + '/customer/requestpayout/pass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PASS);
 // 客户-请款管理-未通过 1205
-router.all('/customer/requestpayout/unpass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_UNPASS);
+router.all(markUri + '/customer/requestpayout/unpass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_UNPASS);
 // 客户-请款管理-待请款-确认提交页面 1220
 router.post(markUri + '/customer/requestpayout/affirmSubmit', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_AFFIRMSUBMIT);
 // 客户-请款管理-待请款-不同意页面 1116
