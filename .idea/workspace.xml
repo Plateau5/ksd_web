@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/approval/transfer.xtpl" afterPath="$PROJECT_DIR$/views/approval/transfer.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/requestpayout/transfer.xtpl" afterPath="$PROJECT_DIR$/views/requestpayout/transfer.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/viewsController/customerController.js" afterPath="$PROJECT_DIR$/controller/viewsController/customerController.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,8 +23,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="116" column="19" lean-forward="true" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+            <state relative-caret-position="168">
+              <caret line="104" column="25" lean-forward="true" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -55,8 +53,8 @@
       <file leaf-file-name="customerController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="350" column="26" lean-forward="true" selection-start-line="350" selection-start-column="26" selection-end-line="350" selection-end-column="26" />
+            <state relative-caret-position="357">
+              <caret line="428" column="25" lean-forward="true" selection-start-line="428" selection-start-column="25" selection-end-line="428" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -218,13 +216,13 @@
         <option value="$PROJECT_DIR$/views/requestpayout/agree.xtpl" />
         <option value="$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/head.jsp" />
-        <option value="$PROJECT_DIR$/controller/viewsController/customerController.js" />
         <option value="$PROJECT_DIR$/views/approval/imgDetail.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/header.xtpl" />
         <option value="$PROJECT_DIR$/views/errorpage/404.xtpl" />
         <option value="$PROJECT_DIR$/views/approval/transfer.xtpl" />
         <option value="$PROJECT_DIR$/views/requestpayout/transfer.xtpl" />
         <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/controller/viewsController/customerController.js" />
       </list>
     </option>
   </component>
@@ -515,7 +513,7 @@
       <workItem from="1510796892082" duration="23228000" />
       <workItem from="1510884039240" duration="23220000" />
       <workItem from="1511937725540" duration="1677000" />
-      <workItem from="1512008049272" duration="19423000" />
+      <workItem from="1512008049272" duration="19603000" />
     </task>
     <task id="LOCAL-00001" summary="增加权限等路由  2017年8月16日18:28:04">
       <created>1502879359304</created>
@@ -650,11 +648,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512035004356</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="审批管理三级页面  2017年11月30日18:02:49">
+      <created>1512036175582</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1512036175582</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="364382000" />
+    <option name="totallyTimeSpent" value="364562000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -742,7 +747,8 @@
     <MESSAGE value="合同管理三级页面  2017年11月30日14:26:38" />
     <MESSAGE value="请款客服三级页面 2017年11月30日16:51:53" />
     <MESSAGE value="审批管理三级页面  2017年11月30日17:43:16" />
-    <option name="LAST_COMMIT_MESSAGE" value="审批管理三级页面  2017年11月30日17:43:16" />
+    <MESSAGE value="审批管理三级页面  2017年11月30日18:02:49" />
+    <option name="LAST_COMMIT_MESSAGE" value="审批管理三级页面  2017年11月30日18:02:49" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1066,14 +1072,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/requestpayout/agree.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -1147,14 +1145,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="350" column="26" lean-forward="true" selection-start-line="350" selection-start-column="26" selection-end-line="350" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/approval/transfer.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1192,10 +1182,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="428" column="25" lean-forward="true" selection-start-line="428" selection-start-column="25" selection-end-line="428" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="116" column="19" lean-forward="true" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+        <state relative-caret-position="168">
+          <caret line="104" column="25" lean-forward="true" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
           <folding />
         </state>
       </provider>
