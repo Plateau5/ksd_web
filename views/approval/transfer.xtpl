@@ -42,7 +42,7 @@
                             <li class="list_item employee_item" lang="{{this.role_id }}" style="display:none;">
                                 {{#if (this.image_url === '' || this.image_url.length <= 0) }}
                                 <img src="/static/img/employee/perIcon.png" alt="">
-                                {{elseif () }}
+                                {{else}}
                                 <img src="${bean.image_url}" alt="">
                                 {{/if}}
                                 <span class="employee_name" lang="{{this.id}}">{{this.name }}</span>

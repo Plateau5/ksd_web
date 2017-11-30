@@ -328,6 +328,36 @@ exports.VIEW_CUSTOMER_APPROVAL_RETURN = function(req, res, next) {
     var url = '/api/operation/getReturnList';
     common.getCustomerList(url, '已回款', req, res, next);
 };
+// 客户-审批管理-待审核-同意页面 1168
+exports.VIEW_CUSTOMER_APPROVAL_AGREE = function(req, res, next) {
+    common.getPageData({
+        url : '/api/operation/toAgree',
+        title : '审批管理-同意',
+        page : './approval/agree'
+    }, req, res, next);
+};
+// 客户-审批管理-待审核-不同意页面 1168
+exports.VIEW_CUSTOMER_APPROVAL_DISAGREE = function(req, res, next) {
+    common.getPageData({
+        url : '/api/operation/toDisagree',
+        title : '审批管理-同意',
+        page : './approval/disagree'
+    }, req, res, next);
+};
+// 客户-审批管理-待审核-不同意页面 1185
+exports.VIEW_CUSTOMER_APPROVAL_TRANSFER = function(req, res, next) {
+    common.getPageData({
+        url : '/api/operation/transfer',
+        title : '审批管理-同意',
+        page : './approval/transfer'
+    }, req, res, next);
+};
+
+
+
+
+
+
 
 
 // 客户-款项管理-跳转

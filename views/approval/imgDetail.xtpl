@@ -100,12 +100,12 @@
 									<div class="cursor requestpayout_detail_btn requestpayout_download download_file" id="" alt="2" lang="{{finance_id}}">全部下载</div>
 									{{#if (vo.present_id === present_id && vo.receipt_id === 1) }}
 										{{#if (verifyCode(1185)) }}
-											<a href="javascript:" class="go_forward" data-url="{{markUri}}/operation/transfer" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
+											<a href="javascript:" class="go_forward" data-url="{{markUri}}/customer/approval/transfer" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
 												<div class="cursor requestpayout_detail_btn requestpayout_care" id="care_btn">转交他人</div>
 											</a>
 										{{/if}}
 										{{#if (verifyCode(1168)) }}
-											<a href="javascript:" class="go_forward" data-url="{{markUri}}/operation/toDisagree" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
+											<a href="javascript:" class="go_forward" data-url="{{markUri}}/customer/approval/disagree" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
 												<div class="cursor requestpayout_detail_btn requestpayout_disagree">不同意</div>
 											</a>
 										{{/if}}
@@ -117,7 +117,7 @@
 											{{/if}}
 										{{else}}
 											{{#if (verifyCode(1169)) }}
-												<a href="javascript:" class="go_forward" data-url="/operation/toAgree" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
+												<a href="javascript:" class="go_forward" data-url="{{markUri}}/customer/approval/agree" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
 													<div class="cursor requestpayout_detail_btn requestpayout_agree"  lang="{{finance_id}}">同意</div>
 												</a>
 											{{/if}}

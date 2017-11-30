@@ -110,21 +110,36 @@ router.post(markUri + '/customer/requestpayout/agree', customerCtrl.VIEW_CUSTOME
 router.post(markUri + '/customer/requestpayout/transfer', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_TRANSFER);
 
 
-
-
-
-
-
+/*// 客户-审批管理-访问路径 1226
+router.get('/ksd/customer/approval/system', customerCtrl.VIEW_CUSTOMER_APPROVAL_SYSTEM);*/
 // 客户-审批管理-访问路径 1226
-router.get('/customer/approval/system', customerCtrl.VIEW_CUSTOMER_APPROVAL_SYSTEM);
+router.get(markUri + '/customer/approval/system', customerCtrl.VIEW_CUSTOMER_APPROVAL_SYSTEM);
 // 客户-审批管理-待审批 1162
-router.all('/customer/approval/pendingAudit', customerCtrl.VIEW_CUSTOMER_APPROVAL_PENDINGAUDIT);
+router.all(markUri + '/customer/approval/pendingAudit', customerCtrl.VIEW_CUSTOMER_APPROVAL_PENDINGAUDIT);
 // 客户-审批管理-已通过 1206
-router.all('/customer/approval/pass', customerCtrl.VIEW_CUSTOMER_APPROVAL_PASS);
+router.all(markUri + '/customer/approval/pass', customerCtrl.VIEW_CUSTOMER_APPROVAL_PASS);
 // 客户-审批管理-未通过 1207
-router.all('/customer/approval/unpass', customerCtrl.VIEW_CUSTOMER_APPROVAL_UNPASS);
+router.all(markUri + '/customer/approval/unpass', customerCtrl.VIEW_CUSTOMER_APPROVAL_UNPASS);
 // 客户-审批管理-已回款 1164
-router.all('/customer/approval/return', customerCtrl.VIEW_CUSTOMER_APPROVAL_RETURN);
+router.all(markUri + '/customer/approval/return', customerCtrl.VIEW_CUSTOMER_APPROVAL_RETURN);
+// 客户-审批管理-待审核-同意页面 1168
+router.post(markUri + '/customer/approval/agree', customerCtrl.VIEW_CUSTOMER_APPROVAL_AGREE);
+// 客户-审批管理-待审核-不同意页面 1168
+router.post(markUri + '/customer/approval/disagree', customerCtrl.VIEW_CUSTOMER_APPROVAL_DISAGREE);
+// 客户-审批管理-待审核-不同意页面 1185
+router.post(markUri + '/customer/approval/transfer', customerCtrl.VIEW_CUSTOMER_APPROVAL_TRANSFER);
+
+
+
+
+
+
+
+
+
+
+
+
 
 // 客户-款项管理-访问路径 1227
 router.get('/customer/financial/system', customerCtrl.VIEW_CUSTOMER_FINANCIAL_SYSTEM);
