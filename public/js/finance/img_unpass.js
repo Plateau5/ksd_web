@@ -42,7 +42,7 @@ $(function(){
     $('#question_classify_name').change(function(){
         // OPERATIONTYPE：1：请款客服；2：合同客服；3：商户审核
         if (OPERATIONTYPE === 1 || OPERATIONTYPE === 2) {
-            var url = contextPath + "/api/customer/getQuestions";
+            var url = contextPath + "/api/getQuestionByClassifyId";
         } else if (OPERATIONTYPE === 3) {
             var url = contextPath + "/api/getMerQuestionByClassifyId";
         }
@@ -92,7 +92,7 @@ $(function(){
         }
         $('#reason').val(reason_arr.join(','));
         $('#question_ids').val(ids_arr.join(','));
-        var url = contextPath + "/api/customer/loan/unqualified";
+        var url = contextPath + "/api/finance/disqualification";
         var vFD = new FormData(document.getElementById('message_info'));
         var oXHR = new XMLHttpRequest();
         oXHR.addEventListener('load', function(e) {

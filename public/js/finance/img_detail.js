@@ -7,7 +7,7 @@ $(function(){
         var locationUrl = LOCALURL;
         $.ajax({
             type:"post",
-            url :contextPath + '/api/customer/loan/startApplyloan',
+            url :contextPath + '/api/finance/startApplyloan',
             dataType:"json",
             data:{finance_id: finance_id},
             async:false,
@@ -17,7 +17,7 @@ $(function(){
             success:function(data){
                 if(data.error_code =='0'){
                     locationTo({
-                        action : contextPath + '/customer/loan/detail',
+                        action : contextPath + '/finance/getFile',
                         param : {
                             finance_id : finance_id,
                             active : 'active',
@@ -37,7 +37,7 @@ $(function(){
         var finance_id = $(this).attr('lang');
         $.ajax({
             type:"post",
-            url :contextPath + '/api/customer/loan/confirmApplyLoan',
+            url :contextPath + '/api/finance/applyloan',
             dataType:"json",
             data:{finance_id: finance_id},
             async:false,
