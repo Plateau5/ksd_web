@@ -1,16 +1,11 @@
 <!-- 通知回款结果 -->
-<%@ taglib prefix="c"         uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="per" uri="com/mvc/web/common/tag/permissionTag"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     {{include ("./../inc/cssSources")}}
-    <link rel="stylesheet" href="${contentPath}/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="${contentPath}/static/css/manufacturing.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/manufacturing.css">
     <title>客户-同意</title>
 </head>
 <body>
@@ -22,14 +17,15 @@
     <!-------- Part of main Begin -------->
     <div id="section" class="section normal_width">
         <!---- Part of slide nav Begin ---->
+
         {{include ('./../inc/sideNav')}}
         <!---- Part of slide na End ---->
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
             <div class="crumbs_nav">
-                <a href="/operation/system" class="crumbs_item">审批管理</a>
-                <a href="/operation/getWaitList" class="crumbs_item">待审批</a>
+                <a href="{{markUri}}/customer/approval/system" class="crumbs_item">审批管理</a>
+                <a href="{{markUri}}/customer/approval/pendingAudit" class="crumbs_item">待审批</a>
                 <a href="javascript:window.history.back();" class="crumbs_item">{{vo.user_name}}</a>
                 <a href="javascript:;" class="crumbs_item">确认提交</a>
             </div>
@@ -208,7 +204,7 @@
                     success : function (req) {
                         var res = eval(req);
                         if (res.error_code == 0) {
-                            window.location.href = contextPath + "/operation/getWaitList";
+                            window.location.href = contextPath + "/customer/approval/pendingAudit";
                         } else {
                             dialog("alert",{
                                 closeBtn : false,
@@ -218,7 +214,7 @@
                                 maskClose : false,
                                 //css : 'font-size: 16px',
                                 onConfirm : function () {
-                                    window.location.href = contextPath + "/operation/getWaitList";
+                                    window.location.href = contextPath + "/customer/approval/pendingAudit";
                                 }
                             });
                         }

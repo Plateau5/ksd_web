@@ -65,17 +65,17 @@
 								<div class="cursor requestpayout_detail_btn requestpayout_download download_file" id="" alt="2" lang="{{finance_id}}">全部下载</div>
 								{{#if (url === '/customer/financial/pendingAudit' && vo.present_id === present_id && vo.receipt_id === 1) }}
 									{{#if (verifyCode(1186)) }}
-										 <a href="javascript:" class="go_forward" data-url="${contextParh }/financial/transfer" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
+										 <a href="javascript:" class="go_forward" data-url="{{markUri}}/financial/transfer" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
 											<div class="cursor requestpayout_detail_btn requestpayout_care" id="care_btn">转交他人</div>
 										</a>
 									{{/if}}
 									{{#if (verifyCode(1175)) }}
-										<a href="javascript:" class="go_forward" data-url="${contextParh }/financial/toDisagree" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
+										<a href="javascript:" class="go_forward" data-url="{{markUri}}/financial/toDisagree" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
 											<div class="cursor requestpayout_detail_btn requestpayout_disagree" data-advance_id="{{vo.advance_id}}" data-id="{{finance_id}}">不同意</div>
 										</a>
 									{{/if}}
 									{{#if (verifyCode(1176)) }}
-										<a href="javascript:" class="go_forward" data-url="${contextParh }/financial/toAgree" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
+										<a href="javascript:" class="go_forward" data-url="{{markUri}}/financial/toAgree" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
 											<div class="cursor requestpayout_detail_btn requestpayout_agree" data-advance_id="{{vo.advance_id}}" lang="{{finance_id}}">同意</div>
 										</a>
 									{{/if}}

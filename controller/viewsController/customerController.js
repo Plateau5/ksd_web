@@ -7,6 +7,8 @@
 var fs = require('fs');
 var path=require("path");
 var common = require('./../common');
+var qs = require('querystring');
+var urlParse = require('url');
 
 // var request = require('request');
 // var COMMONUTIL = require('./../../util/commonUtil');  // 主加密方法类文件
@@ -258,6 +260,40 @@ exports.VIEW_CUSTOMER_RESQUESTPAYOUT_UNPASS = function(req, res, next) {
     var url = '/api/requestPayout/unpass/list';
     common.getCustomerList(url, '未通过', req, res, next);
 };
+// 客户-请款管理-待请款-确认提交页面 1220
+exports.VIEW_CUSTOMER_RESQUESTPAYOUT_AFFIRMSUBMIT = function(req, res, next) {
+    common.getPageData({
+        url : '/api/requestPayout/affirm/tosubmit',
+        title : '请款管理-确认提交',
+        page : './requestpayout/submit'
+    }, req, res, next);
+};
+// 客户-请款管理-待请款-不同意页面 1116
+exports.VIEW_CUSTOMER_RESQUESTPAYOUT_DISAGREE = function(req, res, next) {
+    var searchParam = urlParse.parse(req.url).query;    // 获取查询参数
+    common.getPageData({
+        url : '/api/requestPayout/toDisagree?' + searchParam,
+        title : '请款管理-不同意',
+        page : './requestpayout/disagree'
+    }, req, res, next);
+};
+// 客户-请款管理-待审核-同意页面 1115
+exports.VIEW_CUSTOMER_RESQUESTPAYOUT_AGREE = function(req, res, next) {
+    common.getPageData({
+        url : '/api/requestPayout/toAgree',
+        title : '请款管理-同意',
+        page : './requestpayout/agree'
+    }, req, res, next);
+};
+// 客户-请款管理-待审核-转交他人页面 1184
+exports.VIEW_CUSTOMER_RESQUESTPAYOUT_TRANSFER = function(req, res, next) {
+    common.getPageData({
+        url : '/api/requestPayout/transfer',
+        title : '请款管理-转交他人',
+        page : './requestpayout/transfer'
+    }, req, res, next);
+};
+
 
 
 // 客户-审批管理-跳转

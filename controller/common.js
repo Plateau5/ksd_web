@@ -265,7 +265,7 @@ exports.getPageData = function(options, req, res, next) {
         }, req, res, next);
     } catch (err) {
         /*logger.error(err);*/
-        console.log(err);
+        console.log(err + '268');
         res.statusCode = 500;
         /*return res.json({success: false, message: '服务器异常'});*/
         res.redirect('/404');

@@ -29,7 +29,7 @@
         <div class="listCon">
             <div class="listConHeader inviteCon" style="margin-bottom:20px;">
                 <ul class="crumbs_nav">
-                    <li class="inline colorB first_nav"><a class="TS" href="/customer/requestPayout/system">请款管理</a></li>
+                    <li class="inline colorB first_nav"><a class="TS" href="{{markUri}}/customer/requestPayout/system">请款管理</a></li>
                     <li class="inline before second_nav"><a href="{{url}}">{{navigation}}</a></li>
                     <li class="inline before"><a href="javascript:;">{{vo.user_name }}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">查看资料</a></li>
@@ -73,24 +73,24 @@
 	                        {{/if}}
 	                        {{#if (url === '/customer/requestpayout/pendingAudit' && vo.advance_status === 10 && vo.present_id === present_id) }}
 	                            {{#if (verifyCode(1184)) }}
-	                                <a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="${contextParh }/requestPayout/transfer" data-advance_id="{{vo.advance_id}}">
+	                                <a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="{{markUri}}/customer/requestpayout/transfer" data-advance_id="{{vo.advance_id}}">
 	                                    <div class="cursor requestpayout_detail_btn requestpayout_care" id="care_btn">转交他人</div>
 	                                </a>
 	                            {{/if}}
 	                            {{#if (verifyCode(1116)) }}
-	                                <a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="${contextParh }/requestPayout/toDisagree?type=2" data-advance_id="{{vo.advance_id}}">
+	                                <a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="{{markUri}}/customer/requestpayout/disagree?type=2" data-advance_id="{{vo.advance_id}}">
 	                                    <div class="cursor requestpayout_detail_btn requestpayout_disagree">不同意</div>
 	                                </a>
 	                            {{/if}}
 	                            {{#if (verifyCode(1115)) }}
-	                                <a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="${contextParh }/requestPayout/toAgree" data-advance_id="{{vo.advance_id}}">
+	                                <a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="{{markUri}}/customer/requestpayout/agree" data-advance_id="{{vo.advance_id}}">
 	                                    <div class="cursor requestpayout_detail_btn requestpayout_agree" lang="{{finance_id}}">同意</div>
 	                                </a>
 	                            {{/if}}
 	                        {{/if}}
 	                        {{#if (url === '/customer/requestpayout/pendingDispose') }}
 	                            {{#if (verifyCode(1116)) }}
-	                                <a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="${contextParh }/requestPayout/toDisagree?type=1" data-advance_id="{{vo.advance_id}}">
+	                                <a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="{{markUri}}/customer/requestpayout/disagree?type=1" data-advance_id="{{vo.advance_id}}">
 	                                    <div class="cursor requestpayout_detail_btn requestpayout_disagree">不同意</div>
 	                                </a>
 	                            {{/if}}
@@ -208,7 +208,7 @@
                 });
             } else {
                 locationTo({
-                    action : contextPath + "/requestPayout/affirm/submit",
+                    action : contextPath + "/customer/requestpayout/affirmSubmit",
                     param : {
                         finance_id : finance_id,
                         type : reqType

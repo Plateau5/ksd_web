@@ -9,8 +9,8 @@
 <head>
     <meta charset="UTF-8">
     {{include ("./../inc/cssSources")}}
-    <link rel="stylesheet" href="${contentPath}/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="${contentPath}/static/css/finance.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/finance.css">
     <title>客户-款项管理</title>
 </head>
 <body>
@@ -30,7 +30,7 @@
             <div class="crumbs_nav">
                 <a href="/financial/system" class="crumbs_item">款项管理</a>
                 <a href="/financial/pendingDispose/list" class="crumbs_item">待回款</a>
-                <a href="javascript:window.history.back();" class="crumbs_item">${vo.user_name }</a>
+                <a href="javascript:window.history.back();" class="crumbs_item">{{vo.user_name}}</a>
                 <a href="javascript:;" class="crumbs_item">已回款</a>
             </div>
             <div class="cashed_mark">

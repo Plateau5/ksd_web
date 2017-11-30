@@ -9,8 +9,8 @@
 <head>
     <meta charset="UTF-8">
     {{include ("./../inc/cssSources")}}
-    <link rel="stylesheet" href="${contentPath}/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="${contentPath}/static/css/finance.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/finance.css">
     <title>客户-其他款项</title>
 </head>
 <body>
@@ -30,7 +30,7 @@
             <div class="crumbs_nav">
                 <a href="/otherfund/system" class="crumbs_item">其他款项</a>
                 <a href="/otherfund/pending/list" class="crumbs_item">待审批</a>
-                <a href="javascript:window.history.back();" class="crumbs_item">${vo.user_name }</a>
+                <a href="javascript:window.history.back();" class="crumbs_item">{{vo.user_name}}</a>
                 <a href="javascript:;" class="crumbs_item">同意</a>
             </div>
             <div class="cashed_mark">

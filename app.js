@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var log4js = require('log4js'); // 日志模块
+var qs = require('querystring');
 /*var logger =*/
 var logs = require('morgan');
 var cookieParser = require('cookie-parser');

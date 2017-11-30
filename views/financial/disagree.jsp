@@ -47,7 +47,7 @@
                 <ul>
                     <li class="inline colorB"><a class="TS" href="{{markUri}}/financial/system">款项管理</a></li>
                     <li class="inline before"><a href="{{markUri}}/financial/getWaitList">待审批</a></li>
-                    <li class="inline before"><a href="javascript:" id="goDetail" data-url="{{markUri}}/financial/getFile" data-id="{{finance_id}}">${vo.user_name }</a></li>
+                    <li class="inline before"><a href="javascript:" id="goDetail" data-url="{{markUri}}/financial/getFile" data-id="{{finance_id}}">{{vo.user_name}}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">不同意</a></li>
                 </ul>
             </div>

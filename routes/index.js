@@ -82,25 +82,10 @@ router.all('/customer/compact/pendingPass', customerCtrl.VIEW_CUSTOMER_COMPACT_P
 router.post(markUri + '/customer/compact/agree', customerCtrl.VIEW_CUSTOMER_COMPACT_AGREE);
 // 客户-合同管理-不同意页面 1265
 router.post(markUri + '/customer/compact/disagree', customerCtrl.VIEW_CUSTOMER_COMPACT_DISAGREE);
-
 // 客户-合同管理-已通过 1262
 router.all('/customer/compact/pass', customerCtrl.VIEW_CUSTOMER_COMPACT_PASS);
 // 客户-合同管理-未通过 1263
 router.all('/customer/compact/unpass', customerCtrl.VIEW_CUSTOMER_COMPACT_UNPASS);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // 客户-请款管理-访问路径 1225
@@ -115,6 +100,20 @@ router.all('/customer/requestpayout/pendingAudit', customerCtrl.VIEW_CUSTOMER_RE
 router.all('/customer/requestpayout/pass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PASS);
 // 客户-请款管理-未通过 1205
 router.all('/customer/requestpayout/unpass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_UNPASS);
+// 客户-请款管理-待请款-确认提交页面 1220
+router.post(markUri + '/customer/requestpayout/affirmSubmit', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_AFFIRMSUBMIT);
+// 客户-请款管理-待请款-不同意页面 1116
+router.post(markUri + '/customer/requestpayout/disagree', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_DISAGREE);
+// 客户-请款管理-待审核-同意页面 1115
+router.post(markUri + '/customer/requestpayout/agree', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_AGREE);
+// 客户-请款管理-待审核-转交他人页面 1184
+router.post(markUri + '/customer/requestpayout/transfer', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_TRANSFER);
+
+
+
+
+
+
 
 // 客户-审批管理-访问路径 1226
 router.get('/customer/approval/system', customerCtrl.VIEW_CUSTOMER_APPROVAL_SYSTEM);

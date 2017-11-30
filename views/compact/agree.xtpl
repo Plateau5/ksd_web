@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     {{include ("./../inc/cssSources")}}
-    <link rel="stylesheet" href="${contentPath}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
     <link rel="stylesheet" href="/static/css/customerService.css">
     <title>客户-同意</title>
 </head>

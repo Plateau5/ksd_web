@@ -36,7 +36,7 @@
             <div class="crumbs_nav">
                 <a href="/financial/system" class="crumbs_item">款项管理</a>
                 <a href="/financial/getWaitList" class="crumbs_item">待审批</a>
-                <a href="javascript:" data-url="/financial/getFile" data-id="{{finance_id}}" class="crumbs_item go_forward">${vo.user_name }</a>
+                <a href="javascript:" data-url="/financial/getFile" data-id="{{finance_id}}" class="crumbs_item go_forward">{{vo.user_name}}</a>
                 <a href="javascript:;" class="crumbs_item">转交他人</a>
             </div>
 

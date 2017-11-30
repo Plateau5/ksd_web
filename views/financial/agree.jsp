@@ -41,7 +41,7 @@
                 <ul>
                     <li class="inline colorB"><a class="TS" href="{{markUri}}/financial/system">款项管理</a></li>
                     <li class="inline before"><a href="{{markUri}}/financial/getWaitList">待审批</a></li>
-                    <li class="inline before"><a href="javascript:" id="goDetail" data-url="{{markUri}}/financial/getFile" data-id="{{finance_id}}">${vo.user_name }</a></li>
+                    <li class="inline before"><a href="javascript:" id="goDetail" data-url="{{markUri}}/financial/getFile" data-id="{{finance_id}}">{{vo.user_name}}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">同意</a></li>
                 </ul>
             </div>
@@ -69,7 +69,7 @@
                 <per:button code="1118">
                     <div class="form-item">
                         <div class="create_btn"   style="margin-left: 0">
-                            <input type="button" class="create_sub" id="argee_sub" value="确认" data-url="${contextParh }/financial/print?print_type=current&orderNo=${orderNo}"/>
+                            <input type="button" class="create_sub" id="argee_sub" value="确认" data-url="{{markUri}}/financial/print?print_type=current&orderNo=${orderNo}"/>
                             <a href="javascript:" class="go_detail" data-url="{{markUri}}/financial/getFile" data-id="{{finance_id}}">
                                 <input type="button" class="cancel_btn" value="取消">
                             </a>

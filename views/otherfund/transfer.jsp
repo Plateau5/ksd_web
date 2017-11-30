@@ -37,7 +37,7 @@
             <div class="crumbs_nav">
                 <a href="/otherfund/system" class="crumbs_item">其他款项</a>
                 <a href="/otherfund/pending/list" class="crumbs_item">待审批</a>
-                <a href="javascript:window.history.back();" data-url="/otherfund/getFile" data-id="{{finance_id}}" class="crumbs_item">${vo.user_name }</a>
+                <a href="javascript:window.history.back();" data-url="/otherfund/getFile" data-id="{{finance_id}}" class="crumbs_item">{{vo.user_name}}</a>
                 <a href="javascript:;" class="crumbs_item">转交他人</a>
             </div>
 
