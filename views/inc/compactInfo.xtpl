@@ -62,12 +62,12 @@
 					<div class="cursor requestpayout_detail_btn requestpayout_download download_file" alt="4" lang="{{finance_id}}">全部下载</div>
 					{{#if (url === '/customer/compact/pendingPass') }}
 						{{#if (verifyCode(1265)) }}
-							<a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="/compact/disagree">
+							<a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="{{markUri}}/customer/compact/disagree">
 								<div class="cursor requestpayout_detail_btn requestpayout_disagree">不同意</div>
 							</a>
 						{{/if}}
 						{{#if (verifyCode(1264)) }}
-							<a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="/compact/agree">
+							<a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="{{markUri}}/customermpact/agree/co">
 								<div class="cursor requestpayout_detail_btn requestpayout_agree" lang="{{finance_id}}">同意</div>
 							</a>
 						{{/if}}

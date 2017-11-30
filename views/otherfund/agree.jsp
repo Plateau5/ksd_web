@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
+    {{include ("./../inc/cssSources")}}
     <link rel="stylesheet" href="${contentPath}/static/dialog/dialog-layer.css">
     <link rel="stylesheet" href="${contentPath}/static/css/finance.css">
     <title>客户-其他款项</title>
@@ -35,8 +35,8 @@
             </div>
             <div class="cashed_mark">
                 <form action="<!--/api/financial/return/submit-->" method="post" id="returnResult">
-                    <input type="hidden" name="advance_id" value="${vo.advance_id}">
-                    <input type="hidden" name="finance_id" value="${finance_id}">
+                    <input type="hidden" name="advance_id" value="{{vo.advance_id}}">
+                    <input type="hidden" name="finance_id" value="{{finance_id}}">
                     <div class="form_row textarea_container">
                         <div class="column_r">
                             <textarea name="remark" id="remark" placeholder="请输入原因，最多500字"></textarea>
@@ -66,7 +66,7 @@
     </div>
 </div>
 </body>
-<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
+{{include ('./../inc/jsSources')}}
 <script src="/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {

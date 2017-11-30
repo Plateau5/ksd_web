@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
+    {{include ("./../inc/cssSources")}}
     <link rel="stylesheet" href="${contentPath}/static/dialog/dialog-layer.css">
     <link rel="stylesheet" href="${contentPath}/static/css/manufacturing.css">
     <title>客户-同意</title>
@@ -30,13 +30,13 @@
             <div class="crumbs_nav">
                 <a href="/operation/system" class="crumbs_item">审批管理</a>
                 <a href="/operation/getWaitList" class="crumbs_item">待审批</a>
-                <a href="javascript:window.history.back();" class="crumbs_item">${vo.user_name}</a>
+                <a href="javascript:window.history.back();" class="crumbs_item">{{vo.user_name}}</a>
                 <a href="javascript:;" class="crumbs_item">确认提交</a>
             </div>
             <div class="cashed_mark">
                 <form action="" method="post" id="returnResult">
-                    <input type="hidden" name="finance_id" value="${finance_id}">
-                    <input type="hidden"  name="advance_id" value="${vo.advance_id}" />
+                    <input type="hidden" name="finance_id" value="{{finance_id}}">
+                    <input type="hidden"  name="advance_id" value="{{vo.advance_id}}" />
                     <div class="form_row">
                         <div class="column_l" style="width: 10%;"><span class="asterisk">*</span>确认风险类型：</div>
                         <div class="column_r risk_type_box">
@@ -80,10 +80,10 @@
                     <div class="error_msg risk_type_error" style="padding-left: 13%;height:auto;line-height: normal;">(请先确认风险类型)</div>
                 </form>
                 <div class="btn_box clearfix text_left"   style="padding-left: 13%;">
-                    <per:button  code="1213">
+                    {{#if (verifyCode(1213)) }}
                         <a href="javascript:" class="btn orange_btn confirm submit_confirm">确认</a>
                         <a href="javascript:" class="btn bg_btn submit_cancel">取消</a>
-                    </per:button>
+                    {{/if}}
                 </div>
             </div>
 
@@ -92,7 +92,7 @@
     </div>
 </div>
 </body>
-<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
+{{include ('./../inc/jsSources')}}
 <script src="/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {

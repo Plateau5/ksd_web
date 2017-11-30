@@ -13,6 +13,7 @@ var COMMONUTIL = require('./util/commonUtil');  // 主加密方法类文件
 var index = require('./routes/index');
 var common = require('./controller/common');
 global.contextPath = 'http://localhost:8080';
+global.markUri = '';
 //global.contextPath = 'http://101.200.157.103:8898/api';
 //global.contextPath = 'http://192.168.200.12:8899/api';
 var app = express();
@@ -97,9 +98,15 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render(err);
+  // res.redirect('/404');
 });
-var proxy = require('express-http-proxy');
-const apiProxy = proxy('/api', { target: 'http://localhost:8080',changeOrigin: true });
-app.use(/^\/api/, apiProxy);
+
+/*var proxy = require('express-http-proxy');
+app.use(/http:\/\/localhost:3000\/api/ig, proxy('http://localhost:8080/api', {
+    proxyReqPathResolver: function(req) {
+        return require('url').parse(req.url).path;
+    }
+}));*/
+
 
 module.exports = app;

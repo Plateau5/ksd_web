@@ -1,0 +1,82 @@
+<!-- 历史记录页面 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include ("./../inc/cssSources")}}
+    <link rel="stylesheet" href="/static/css/orderDetails.css">
+    <link rel="stylesheet" href="/static/css/customerService.css">
+    <title>客户-历史订单记录</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include ('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include ('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main">
+            <form action="" method="POST" id="form_search" role="form">
+            </form>
+            <div class="crumbs_nav">
+                <a href="{{url_first}}" class="crumbs_item">{{navigation_first}}</a>
+                <a href="{{url_second}}" class="crumbs_item">{{navigation_second}}</a>
+                <a href="javascript:window.history.back();" class="crumbs_item">查看资料</a>
+                <a href="javascript:;" class="crumbs_item">申请记录（{{user_name}}）</a>
+            </div>
+            <div class="record_container">
+                <div class="details_item operate_info">
+                    <div class="detail_title">申请记录</div>
+                    <div class="apply_record">
+                        <ul class="record_list">
+                            <!--操作记录列表-->
+                            {{#each (list) }}
+                                <li class="list_item">
+                                    <div class="record_item_info">
+                                        <div class="date">{{this.modify_time}}</div>
+                                        <div class="text">
+                                            <div class="apply_desc">
+                                                <div class="desc_item apply_product"><span class="key">申请产品：</span><span class="value">{{this.product_name}}</span></div>
+                                                <div class="desc_item"><span class="key">贷款类型：</span><span class="value">{{#if (this.car_type === 0) }}新车{{elseif (this.car_type === 1) }}二手车{{/if}}</span></div>
+                                                <div class="desc_item"><span class="key">申请贷款：</span><span class="value">{{this.loan_amount}}万</span></div>
+                                                <div class="desc_item"><span class="key">状态：</span><span class="value">{{this.status_value}}</span></div>
+                                            </div>
+                                            {{#each (this.data) }}
+                                                <div class="record_log">
+                                                    <div class="unpass_item">
+                                                        <span class="key">{{this.modify_name }}：{{this.reason }}</span><span class="value"></span>
+                                                    </div>
+                                                </div>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+</div>
+</body>
+{{include ('./../inc/jsSources')}}
+<script>
+    (function ($) {
+
+
+
+        $(function() {
+
+
+        });
+    })(jQuery,undefined);
+</script>
+</html>

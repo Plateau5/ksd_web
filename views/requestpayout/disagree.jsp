@@ -37,19 +37,19 @@
         <div class=" listCon relative">
             <div class="listConHeader inviteCon" style="line-height: normal;padding-left:12px;margin-top:32px;">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="${contextPath }/requestPayout/system">请款管理</a></li>
-                    <li class="inline before"><a href="${contextPath }${url}">${navigation}</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/requestPayout/system">请款管理</a></li>
+                    <li class="inline before"><a href="{{markUri}}${url}">${navigation}</a></li>
                     <li class="inline before"><a href="javascript:window.history.back();">${vo.user_name }</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">不同意</a></li>
                 </ul>
             </div>
             <!--inviteCon end-->
             <form class="formML" id="select_info" enctype="multipart/form-data" method="post">
-                <input type="hidden" name="finance_id" value="${finance_id }">
-                <input type="hidden" name="request_status" value="${vo.request_status}">
+                <input type="hidden" name="finance_id" value="{{finance_id}}">
+                <input type="hidden" name="request_status" value="{{vo.request_status}}">
                 <input type="hidden" id="select_question_ids" name="question_ids" value="">
                 <input type="hidden" id="select_reason" name="reason" value="">
-                <input type="hidden" name="advance_id" value="${vo.advance_id}">
+                <input type="hidden" name="advance_id" value="{{vo.advance_id}}">
                 <div class="form-item" style="height:30px;">
                     <label>
                         <span class="need">*</span>问题分类：</label>
@@ -99,7 +99,7 @@
                 <per:button code="1119">
                     <div class="form-item" style="margin-left: 0;margin-top:40px;padding-left: 96px;">
                         <div class="create_btn" style="margin-left: 0;">
-                            <input type="button" class="create_sub" data-advance_id="${vo.advance_id}" id="disagree_sub" value="确认" data-url="${url}"  style="margin:0;"/>
+                            <input type="button" class="create_sub" data-advance_id="{{vo.advance_id}}" id="disagree_sub" value="确认" data-url="${url}"  style="margin:0;"/>
                             <a href="javascript:window.history.back();">
                                 <input type="button" class="cancel_btn" value="取消">
                             </a>

@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
+    {{include ("./../inc/cssSources")}}
     <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
     <title>客户-已归档</title>
 </head>
@@ -33,7 +33,7 @@
                 <jsp:include page="/WEB-INF/inc/filtrate.jsp"></jsp:include>
             </div>
             <div class="business_list">
-                <form action="${contextPath }/pigeonhole/getFile" method="post" id="to_order_detail">
+                <form action="{{markUri}}/pigeonhole/getFile" method="post" id="to_order_detail">
                     <input type="hidden" name="active" value="active">
                     <input type="hidden" name="finance_id" value="" id="financeId">
                 </form>
@@ -49,7 +49,7 @@
     </div>
 </div>
 </body>
-<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
+{{include ('./../inc/jsSources')}}
 <script src="/static/jedate/jquery.jedate.min.js"></script>
 <script>
     (function ($) {

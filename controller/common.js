@@ -134,6 +134,7 @@ exports.httpRequest = function (opt, callback, req, res, next) {
             var result = null;
             try {
                 result = JSON.parse(body);
+                result.markUri = markUri;
                 callback(result);
             } catch (e) {
                 result = body;
@@ -183,6 +184,7 @@ exports.getCustomerList = function(url,title, req, res, next) {
             data.title = title;
             data.originUrl = localUrl;  // 页面访问路径
             data.detailUrl = detailUrl; // 详情页访问路径
+            data.markUri = markUri;
             res.render('./customer/customerList', data);
         } else {
             //res.render(data.error_msg);
@@ -209,6 +211,7 @@ exports.getCustomerDetail = function(url, req, res, next) {
         if (data.error_code === 0) {
             data.title = '客户-订单详情';
             data.originUrl = localUrl;
+            data.markUri = markUri;
             if (localUrl.indexOf('/customer/loan') !== -1) {
                 res.render('./customer/imgDetail', data);
             } else if (localUrl.indexOf('/customer/compact') !== -1) {
@@ -253,6 +256,7 @@ exports.getPageData = function(options, req, res, next) {
             if (data.error_code === 0) {
                 data.title = options.title;
                 data.originUrl = localUrl;
+                data.markUri = markUri;
                 res.render(options.page, data);
             } else {
                 console.log(data);

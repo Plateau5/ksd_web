@@ -15,7 +15,7 @@ var statisticsCtrl = require('../controller/viewsController/statisticsController
 var systemManagementCtrl = require('../controller/viewsController/systemManagementController');
 var settingsCtrl = require('../controller/viewsController/settingsController');
 var privilegeCtrl = require('../controller/viewsController/privilegeController');
-
+var markUri = '';
 
 /* GET login page. */
 // 根路径
@@ -38,6 +38,8 @@ router.post('/api/message/getNotice', homeCtrl.API_MESSAGE_GETNOTICE);
 router.post('/api/files/download', customerCtrl.API_FILES_DOWNLOAD);
 // 客户访问路径
 router.get('/customer/system', customerCtrl.VIEW_CUSTOMER_SYSTEM);
+// 客户订单历史记录
+router.post('/customer/history', customerCtrl.VIEW_CUSTOMER_HISTORY);
 // 客户-贷款管理-访问路径 1016
 router.get('/customer/loan/system', customerCtrl.VIEW_CUSTOMER_LOAN_SYSTEM);
 // 客户-贷款管理-待分配 1017
@@ -72,25 +74,34 @@ router.post('/customer/loan/notifyResult', customerCtrl.VIEW_CUSTOMER_LOAN_NOTIF
 /*router.post('/api/customer/loan/auditUnpass',multipartMiddleware, customerCtrl.API_CUSTOMER_LOAN_AUDITUNPASS);*/
 
 
-
-
-
-
-
-
-
-
-
-
-
 // 客户-合同管理-访问路径 1260
 router.get('/customer/compact/system', customerCtrl.VIEW_CUSTOMER_COMPACT_SYSTEM);
 // 客户-合同管理-待出合同 1261
 router.all('/customer/compact/pendingPass', customerCtrl.VIEW_CUSTOMER_COMPACT_PENDINGPASS);
+// 客户-合同管理-同意页面 1264
+router.post(markUri + '/customer/compact/agree', customerCtrl.VIEW_CUSTOMER_COMPACT_AGREE);
+// 客户-合同管理-不同意页面 1265
+router.post(markUri + '/customer/compact/disagree', customerCtrl.VIEW_CUSTOMER_COMPACT_DISAGREE);
+
 // 客户-合同管理-已通过 1262
 router.all('/customer/compact/pass', customerCtrl.VIEW_CUSTOMER_COMPACT_PASS);
 // 客户-合同管理-未通过 1263
 router.all('/customer/compact/unpass', customerCtrl.VIEW_CUSTOMER_COMPACT_UNPASS);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // 客户-请款管理-访问路径 1225
 router.get('/customer/requestpayout/system', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_SYSTEM);

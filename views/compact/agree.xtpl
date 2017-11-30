@@ -1,13 +1,9 @@
 <!-- 同意 -->
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="per" uri="com/mvc/web/common/tag/permissionTag"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
+    {{include ("./../inc/cssSources")}}
     <link rel="stylesheet" href="${contentPath}/static/dialog/dialog-layer.css">
     <link rel="stylesheet" href="/static/css/customerService.css">
     <title>客户-同意</title>
@@ -27,22 +23,22 @@
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
             <div class="crumbs_nav">
-                <a href="${contextPath }/compact/system" class="crumbs_item">合同管理</a>
-                <a href="${contextPath }/compact/pendingPass/list" class="crumbs_item">待出合同</a>
+                <a href="{{markUri}}/customer/compact/system" class="crumbs_item">合同管理</a>
+                <a href="{{markUri}}/customer/compact/pendingPass" class="crumbs_item">待出合同</a>
                 <a href="javascript:;" class="crumbs_item">邮件</a>
             </div>
             <div class="email_content">
                 <form id="send_email">
-                    <input type="hidden" value="${finance_id }" name="finance_id">
-                    <input type="hidden" value="${vo.account }" id="account" name="email">
-                    <input type="hidden" value="关于客户${vo.user_name}的贷款合同资料" name="subject">
+                    <input type="hidden" value="{{finance_id}}" name="finance_id">
+                    <input type="hidden" value="{{vo.account}}" id="account" name="email">
+                    <input type="hidden" value="关于客户{{vo.user_name}}的贷款合同资料" name="subject">
                     <div class="recipient">
                         <span class="item_key">收件人：</span>
-                        <span style="background: #f5f5f5;padding-left:10px;width: 300px;" class="item_val inline_block">${vo.create_name } 【 <span id="emailAccount" class="inline_block" style="min-width: 10px;" contenteditable="true">${vo.account }</span> 】 </span>
+                        <span style="background: #f5f5f5;padding-left:10px;width: 300px;" class="item_val inline_block">{{vo.create_name }} 【 <span id="emailAccount" class="inline_block" style="min-width: 10px;" contenteditable="true">{{vo.account}}</span> 】 </span>
                     </div>
                     <div class="subject">
                         <span class="item_key">主题：</span>
-                        <span class="item_val" style="background: none;">关于客户<span>${vo.user_name}</span>的贷款合同资料</span>
+                        <span class="item_val" style="background: none;">关于客户<span>{{vo.user_name}}</span>的贷款合同资料</span>
                     </div>
                     <div class="file_upload">
                         <div class="file_upload_layer"><span class="text">上传附件</span><span class="text_tip">（20M以内）</span></div>
@@ -62,10 +58,10 @@
                     </div>
                 </form>
                 <div class="btn_box clearfix text_left">
-                    <per:button code="1266">
+                    {{#if (verifyCode (1266)) }}
                         <a href="javascript:" class="btn orange_btn confirm send_compact">确认</a>
                         <a href="javascript:window.history.back();" class="btn bg_btn send_cancel">取消</a>
-                    </per:button>
+                    {{/if}}
                 </div>
             </div>
         </div>
@@ -74,7 +70,7 @@
 </div>
 <div class="loading" id="loading"></div>
 </body>
-<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
+{{include ('./../inc/jsSources')}}
 <script src="/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {

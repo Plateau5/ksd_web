@@ -76,6 +76,15 @@ exports.VIEW_CUSTOMER_LOAN_SYSTEM = function(req, res, next) {
     }
 };
 // 客户-待分配跳转
+// 客户管理-通知审核结果-页面 1236
+exports.VIEW_CUSTOMER_HISTORY = function(req, res, next) {
+    common.getPageData({
+        url : '/api/finance/customer',
+        title : '客户-历史记录',
+        page : './customer/customerHis'
+    }, req, res, next);
+};
+// 客户-待分配跳转
 exports.VIEW_CUSTOMER_LOAN_PENDINGALLOT = function(req, res, next) {
     var url = '/api/finance/getAllotList';
     common.getCustomerList(url, '待分配', req, res, next);
@@ -166,26 +175,6 @@ exports.VIEW_CUSTOMER_LOAN_NOTIFYRESULT = function(req, res, next) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // 客户-合同管理-跳转
 exports.VIEW_CUSTOMER_COMPACT_SYSTEM = function(req, res, next) {
     if (common.checkPrivilege(1261, req)) {
@@ -201,6 +190,24 @@ exports.VIEW_CUSTOMER_COMPACT_PENDINGPASS = function(req, res, next) {
     var url = '/api/compact/pendingPass/list';
     common.getCustomerList(url, '待出合同', req, res, next);
 };
+
+// 客户-合同管理-同意页面 1264
+exports.VIEW_CUSTOMER_COMPACT_AGREE = function(req, res, next) {
+    common.getPageData({
+        url : '/api/tocompact/agree',
+        title : '合同管理-同意',
+        page : './compact/agree'
+    }, req, res, next);
+};
+// 客户-合同管理-不同意页面 1265
+exports.VIEW_CUSTOMER_COMPACT_DISAGREE = function(req, res, next) {
+    common.getPageData({
+        url : '/api/tocompact/disagree',
+        title : '合同管理-不同意',
+        page : './compact/disagree'
+    }, req, res, next);
+};
+
 // 客户-合同管理-已通过
 exports.VIEW_CUSTOMER_COMPACT_PASS = function(req, res, next) {
     var url = '/api/compact/pass/list';

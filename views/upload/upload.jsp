@@ -48,7 +48,7 @@ function send_form(url,vFD,callback){
 </script>  
 </head>  
 <body>      
-    <form id="jasldjld" name="userForm2" action="${contextPath }/file/upload2" enctype="multipart/form-data" method="post"">  
+    <form id="jasldjld" name="userForm2" action="{{markUri}}/file/upload2" enctype="multipart/form-data" method="post"">
         <div id="newUpload2">  
             <input type="file" name="file">  
         </div>  

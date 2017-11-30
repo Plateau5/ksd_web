@@ -38,17 +38,17 @@
         <div class=" listCon relative">
             <div class="listConHeader inviteCon" style="line-height: normal;margin-top:15px;">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="${contextPath }/requestPayout/system">款项管理</a></li>
-                    <li class="inline before"><a href="${contextPath }/requestPayout/pendingDispose/list">待处理</a></li>
-                    <li class="inline before"><a class="backOrderDetail" data-id="${finance_id}" href="javascript:">${vo.user_name }</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/requestPayout/system">款项管理</a></li>
+                    <li class="inline before"><a href="{{markUri}}/requestPayout/pendingDispose/list">待处理</a></li>
+                    <li class="inline before"><a class="backOrderDetail" data-id="{{finance_id}}" href="javascript:">${vo.user_name }</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">确认提交</a></li>
                 </ul>
             </div>
 
             <form class="formML" id="request_info_submit" enctype="multipart/form-data" method="post">
-                <input type="hidden" id="finance_id" name="finance_id" value="${finance_id }" />
+                <input type="hidden" id="finance_id" name="finance_id" value="{{finance_id}}" />
                 <input type="hidden" id="type" name="type" value="1" />
-                <input type="hidden"  name="advance_id" value="${vo.advance_id}" />
+                <input type="hidden"  name="advance_id" value="{{vo.advance_id}}" />
                 <div class="form-item" style="height:100px;">
                     <div>
                         <textarea id="content" name="remark" placeholder="请输入原因,最多可输入500个字" maxlength="500" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.placeholder=='') {this.placeholder='';this.style.color='#A4A8AB';}"></textarea>
@@ -67,7 +67,7 @@
                 <div class="form-item">
                     <div class="create_btn"  style="margin-left: 0">
                         <per:button code="1211">
-                            <input type="button" class="create_sub" id="confirm_sub_t" value="确认" data-advance_id="${vo.advance_id}" data-url="/requestPayout/pendingDispose/list" />
+                            <input type="button" class="create_sub" id="confirm_sub_t" value="确认" data-advance_id="{{vo.advance_id}}" data-url="/requestPayout/pendingDispose/list" />
                         </per:button>
                         <a href="javascript:window.history.back();">
                             <input type="button" class="cancel_btn" value="取消">
@@ -99,7 +99,7 @@
             backBtn.off("click").on("click", function () {
                 var _this = $(this);
                 var financeId = $.trim(_this.data("id"));
-                locationTo({ //${contextPath }/requestPayout/getFile?finance_id=${finance_id}&url=/requestPayout/pendingDispose/list&active=wait
+                locationTo({ //{{markUri}}/requestPayout/getFile?finance_id={{finance_id}}&url=/requestPayout/pendingDispose/list&active=wait
                     action : contextPath + "/requestPayout/getFile",
                     param : {
                         finance_id : financeId,

@@ -61,7 +61,7 @@ pageEncoding="UTF-8"%>
 			</tr>
 			<tr>
 				<td>客户姓名</td>
-				<td colspan="3">${vo.user_name}</td>
+				<td colspan="3">{{vo.user_name}}</td>
 				<td>抵押方</td>
 				<td colspan="4">${vo.pledge_type_value}</td>
 				<!-- <c:if test="${vo.car_type eq 0 }">

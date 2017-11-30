@@ -61,7 +61,7 @@
 			</tr>
 			<tr>
 				<td colspan="2">客户姓名</td>
-				<td colspan="4">${vo.user_name}</td>
+				<td colspan="4">{{vo.user_name}}</td>
 				<td colspan="2">抵押方</td>
 				<td colspan="4">${vo.pledge_type_value}</td>
 				<!-- <c:if test="${vo.car_type eq 0 }">

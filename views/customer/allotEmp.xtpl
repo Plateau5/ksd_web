@@ -64,7 +64,7 @@
                 </div>
             </div>
 
-            <a href="/finance/getAllotList"><input type="button" class="allotBtnN" id="allotBtnN" value="取消"  style="margin-bottom: 100px;" /></a>
+            <a href="{{markUri}}/customer/loan/detail"><input type="button" class="allotBtnN" id="allotBtnN" value="取消"  style="margin-bottom: 100px;" /></a>
             <input type="button" class="allotBtnY" disabled="disabled" id="allotBtnY" value="分配" lang="{{finance_id}}"/>
             <!--form end-->
         </div>

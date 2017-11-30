@@ -32,12 +32,12 @@
                 <ul>
                     <li class="inline colorB"><a class="TS" href="/pigeonhole/system">归档管理</a></li>
                     <li class="inline before"><a href="/pigeonhole/getWaitList">待处理</a></li>
-                    <li class="inline before"><a href="javascript:" class="marterial_back" data-id="${finance_id}">${vo.user_name}</a></li>
+                    <li class="inline before"><a href="javascript:" class="marterial_back" data-id="{{finance_id}}">{{vo.user_name}}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">通知所需材料</a></li>
                 </ul>
             </div>
             <div class="material_box" style="overflow: hidden;">
-                <input type="hidden" id="finance_id" value="${finance_id}">
+                <input type="hidden" id="finance_id" value="{{finance_id}}">
                 <c:forEach items="${list }" var="bean">
 	                <div class="check">
 	                    <div class="check_img icon_uncheck" data-id="${bean.id }"></div>
@@ -54,8 +54,8 @@
             </form >
             <per:button code="1123">
                 <div class="material_btn">
-                    <input type="button" class="material_sub" id="material_sub" data-advance_id="${vo.advance_id}" value="确认"/>
-                    <a href="javascript:" id="marterialBack" data-url="/pigeonhole/getFile" data-id="${finance_id}">
+                    <input type="button" class="material_sub" id="material_sub" data-advance_id="{{vo.advance_id}}" value="确认"/>
+                    <a href="javascript:" id="marterialBack" data-url="/pigeonhole/getFile" data-id="{{finance_id}}">
                         <input type="button" class="cancel_btn" id="cancel_btn" value="取消">
                     </a>
                 </div>

@@ -37,17 +37,17 @@
         <div class=" listCon relative">
             <div class="listConHeader inviteCon" style="line-height: normal;margin-top:32px;">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="${contextPath }/requestPayout/system">请款管理</a></li>
-                    <li class="inline before"><a href="${contextPath }/requestPayout/waitList">待审批</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/requestPayout/system">请款管理</a></li>
+                    <li class="inline before"><a href="{{markUri}}/requestPayout/waitList">待审批</a></li>
                     <li class="inline before"><a href="javascript:window.history.back();">${vo.user_name }</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">同意</a></li>
                 </ul>
             </div>
 
             <form class="formML" id="request_info_agree" enctype="multipart/form-data" method="post">
-                <input type="hidden" id="finance_id" name="finance_id" value="${finance_id }">
-                <input type="hidden" name="request_status" value="${vo.request_status}">
-                <input type="hidden" name="advance_id" value="${vo.advance_id}">
+                <input type="hidden" id="finance_id" name="finance_id" value="{{finance_id}}">
+                <input type="hidden" name="request_status" value="{{vo.request_status}}">
+                <input type="hidden" name="advance_id" value="{{vo.advance_id}}">
                 <div class="form-item" style="height:100px;">
                     <div>
                         <textarea id="content" name="remark" placeholder="请输入原因,最多可输入500个字" maxlength="500" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.placeholder=='') {this.placeholder='';this.style.color='#A4A8AB';}"></textarea>

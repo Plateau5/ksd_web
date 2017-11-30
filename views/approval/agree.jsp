@@ -37,17 +37,17 @@
         <div class=" listCon relative">
             <div class="listConHeader inviteCon" style="line-height: normal;margin-top:32px;">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="${contextPath }/operation/system">审批管理</a></li>
-                    <li class="inline before"><a href="${contextPath }/operation/waitList">待审批</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/operation/system">审批管理</a></li>
+                    <li class="inline before"><a href="{{markUri}}/operation/waitList">待审批</a></li>
                     <li class="inline before"><a href="javascript:window.history.back();">${vo.user_name }</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">同意</a></li>
                 </ul>
             </div>
 
             <form class="formML" id="request_info_agree" enctype="multipart/form-data" method="post">
-                <input type="hidden" id="finance_id" name="finance_id" value="${finance_id }">
-                <input type="hidden" name="request_status" value="${vo.request_status}">
-                <input type="hidden" name="advance_id" value="${vo.advance_id}">
+                <input type="hidden" id="finance_id" name="finance_id" value="{{finance_id}}">
+                <input type="hidden" name="request_status" value="{{vo.request_status}}">
+                <input type="hidden" name="advance_id" value="{{vo.advance_id}}">
                 <div class="form-item" style="height:100px;">
                     <div>
                         <textarea id="content" name="remark" placeholder="请输入备注,最多可输入500个字" maxlength="500" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.placeholder=='') {this.placeholder='';this.style.color='#A4A8AB';}"></textarea>
@@ -66,7 +66,7 @@
 
                     </div>
                 </div>
-                <per:button code="1118">
+                {{#if (verifyCode(1118)) }}
                     <div class="form-item">
                         <div class="create_btn"  style="margin-left: 0">
                             <input type="button" class="create_sub" id="argee_sub" value="确认" data-url="/operation/getWaitList" />
@@ -75,7 +75,7 @@
                             </a>
                         </div>
                     </div>
-                </per:button>
+                {{/if}}
             </form>
         </div>
 

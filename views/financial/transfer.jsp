@@ -13,7 +13,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
+    {{include ("./../inc/cssSources")}}
     <link rel="stylesheet" href="/static/css/transfer.css">
     <title>转交他人</title>
 </head>
@@ -31,12 +31,12 @@
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
-            <input type="hidden" id="finance_id" value="${finance_id}">
+            <input type="hidden" id="finance_id" value="{{finance_id}}">
             <input type="hidden" id="emp_id" value="">
             <div class="crumbs_nav">
                 <a href="/financial/system" class="crumbs_item">款项管理</a>
                 <a href="/financial/getWaitList" class="crumbs_item">待审批</a>
-                <a href="javascript:" data-url="/financial/getFile" data-id="${finance_id}" class="crumbs_item go_forward">${vo.user_name }</a>
+                <a href="javascript:" data-url="/financial/getFile" data-id="{{finance_id}}" class="crumbs_item go_forward">${vo.user_name }</a>
                 <a href="javascript:;" class="crumbs_item">转交他人</a>
             </div>
 
@@ -70,8 +70,8 @@
                     <div class="error"></div>
                     <per:button code="1120">
                         <div class="btn_box">
-                            <a href="javascript:" class="btn orange_btn confirm dialog_confirm" data-advance_id="${vo.advance_id}" id="dialog_confirm">确定</a>
-                            <a href="javascript:" data-url="/financial/getFile" data-id="${finance_id}" class="btn bg_btn cancel go_forward">取消</a>
+                            <a href="javascript:" class="btn orange_btn confirm dialog_confirm" data-advance_id="{{vo.advance_id}}" id="dialog_confirm">确定</a>
+                            <a href="javascript:" data-url="/financial/getFile" data-id="{{finance_id}}" class="btn bg_btn cancel go_forward">取消</a>
                         </div>
                     </per:button>
                 </div>
@@ -93,7 +93,7 @@
     <!-------- Part of footer End -------->
 </div>
 </body>
-<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
+{{include ('./../inc/jsSources')}}
 
 <script>
     $(function(){

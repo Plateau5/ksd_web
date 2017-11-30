@@ -45,8 +45,8 @@
         <div class=" listCon relative">
             <div class="listConHeader inviteCon" style="line-height: normal;padding-left:12px;margin-top:32px;">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="${contextPath }/operation/system">审批管理</a></li>
-                    <li class="inline before"><a href="${contextPath }/operation/getWaitList">待审批</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/operation/system">审批管理</a></li>
+                    <li class="inline before"><a href="{{markUri}}/operation/getWaitList">待审批</a></li>
                     <li class="inline before"><a href="javascript:window.history.back();">${vo.user_name }</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">不同意</a></li>
                 </ul>
@@ -54,11 +54,11 @@
 	            <!--照片不合格 开始-->
 	            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	                <form action="" id="send_info" enctype="multipart/form-data" method="post">
-                        <input type="hidden" name="finance_id" value="${finance_id }">
-                        <input type="hidden" name="request_status" value="${vo.request_status}">
+                        <input type="hidden" name="finance_id" value="{{finance_id}}">
+                        <input type="hidden" name="request_status" value="{{vo.request_status}}">
                         <input type="hidden" name="question_ids" value="">
                         <input type="hidden" name="reason" value="">
-                        <input type="hidden" name="advance_id" value="${vo.advance_id}">
+                        <input type="hidden" name="advance_id" value="{{vo.advance_id}}">
 	                    <textarea class="reasonBox" id="remark" name="remark" placeholder="备注：（如缺少资料等）" style="margin-left:0;" maxlength="200" onfocus="this.style.color = '#535E6A';" onblur="if(this.value==''){this.style.color = '#A4A8AB'}else{this.style.color = '#535E6A';}"></textarea>
                         <div class="form-item" style="height:20px;margin-left:0;">
                             <div class="img_item updata_img" style="margin-left:0;">
@@ -78,7 +78,7 @@
                         <per:button code="1119">
                             <div class="form-item" style="margin-left: 0;">
                                 <div class="create_btn" style="margin-left: 0;">
-                                    <input type="button" class="send" data-advance_id="${vo.advance_id}" id="sendBtn" value="确认发送" data-url="/operation/getWaitList"  style="margin:0;"/>
+                                    <input type="button" class="send" data-advance_id="{{vo.advance_id}}" id="sendBtn" value="确认发送" data-url="/operation/getWaitList"  style="margin:0;"/>
                                     <a href="javascript:window.history.back();">
                                         <input type="button" class="cancel_btn" value="取消">
                                     </a>
