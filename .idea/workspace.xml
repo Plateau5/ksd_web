@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/viewsController/merchantsController.js" afterPath="$PROJECT_DIR$/controller/viewsController/merchantsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/merchants.js" afterPath="$PROJECT_DIR$/public/js/merchants.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/merchantsEdit.js" afterPath="$PROJECT_DIR$/public/js/merchantsEdit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/filtrateMerchants.xtpl" afterPath="$PROJECT_DIR$/views/inc/filtrateMerchants.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/merchants/merchantsList.xtpl" afterPath="$PROJECT_DIR$/views/merchants/merchantsList.xtpl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/merchants/detail.jsp" afterPath="$PROJECT_DIR$/views/merchants/detail.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/filtrate.xtpl" afterPath="$PROJECT_DIR$/views/inc/filtrate.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,7 +23,7 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="3318">
               <caret line="209" column="39" lean-forward="false" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="39" />
               <folding />
             </state>
@@ -56,34 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="merchants.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/merchants.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="20" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <marker date="1512119439397" expanded="true" signature="6001:6055" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/merchants/edit.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="434" column="104" lean-forward="true" selection-start-line="434" selection-start-column="104" selection-end-line="434" selection-end-column="104" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="257" column="30" lean-forward="false" selection-start-line="257" selection-start-column="21" selection-end-line="257" selection-end-column="30" />
+            <state relative-caret-position="371">
+              <caret line="180" column="26" lean-forward="true" selection-start-line="180" selection-start-column="26" selection-end-line="180" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -99,11 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="filtrateMerchants.xtpl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="filtrateMerchants.xtpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/inc/filtrateMerchants.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="67" column="86" lean-forward="true" selection-start-line="67" selection-start-column="86" selection-end-line="67" selection-end-column="86" />
+            <state relative-caret-position="378">
+              <caret line="60" column="24" lean-forward="true" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -112,6 +83,16 @@
                 <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#1;n#ul#0;n#div#6;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="filtrate.xtpl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/inc/filtrate.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="86" column="69" lean-forward="true" selection-start-line="86" selection-start-column="69" selection-end-line="86" selection-end-column="69" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -208,7 +189,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/js/finance/img_detail.js" />
         <option value="$PROJECT_DIR$/views/customer/allotEmp.xtpl" />
         <option value="$PROJECT_DIR$/views/customer/customer_his.jsp" />
         <option value="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" />
@@ -259,6 +239,7 @@
         <option value="$PROJECT_DIR$/public/js/merchants.js" />
         <option value="$PROJECT_DIR$/views/merchants/merchantsList.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/filtrateMerchants.xtpl" />
+        <option value="$PROJECT_DIR$/views/inc/filtrate.xtpl" />
       </list>
     </option>
   </component>
@@ -539,7 +520,7 @@
       <workItem from="1511937725540" duration="1677000" />
       <workItem from="1512008049272" duration="20249000" />
       <workItem from="1512095130988" duration="7057000" />
-      <workItem from="1512109456448" duration="11451000" />
+      <workItem from="1512109456448" duration="12926000" />
     </task>
     <task id="LOCAL-00001" summary="增加权限等路由  2017年8月16日18:28:04">
       <created>1502879359304</created>
@@ -702,11 +683,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512119073001</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="修改商户列表筛选项  2017年12月1日17:58:10">
+      <created>1512122298966</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1512122298966</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="383716000" />
+    <option name="totallyTimeSpent" value="385191000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -731,7 +719,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19496167" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3483023" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24205914" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -773,7 +761,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加权限等路由  2017年8月16日18:28:04" />
     <MESSAGE value="增加权限等路由  2017年8月17日10:08:58" />
     <MESSAGE value="增加登录控制  2017年8月18日18:34:02" />
     <MESSAGE value="增加加密模块  2017年8月21日18:54:54" />
@@ -798,7 +785,8 @@
     <MESSAGE value="审批管理三级页面  2017年11月30日18:05:52" />
     <MESSAGE value="客户管理三级页面渲染完  2017年12月1日14:53:14" />
     <MESSAGE value="商户列表页渲染完毕  2017年12月1日17:04:20" />
-    <option name="LAST_COMMIT_MESSAGE" value="商户列表页渲染完毕  2017年12月1日17:04:20" />
+    <MESSAGE value="修改商户列表筛选项  2017年12月1日17:58:10" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改商户列表筛选项  2017年12月1日17:58:10" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -822,7 +810,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="364" />
+      <option name="time" value="367" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1177,26 +1165,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="209" column="39" lean-forward="false" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/merchants/edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="434" column="104" lean-forward="true" selection-start-line="434" selection-start-column="104" selection-end-line="434" selection-end-column="104" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="257" column="30" lean-forward="false" selection-start-line="257" selection-start-column="21" selection-end-line="257" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1220,14 +1192,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/filtrate.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="41" column="51" lean-forward="true" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/merchants/merchantsList.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -1238,8 +1202,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/inc/filtrateMerchants.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="67" column="86" lean-forward="true" selection-start-line="67" selection-start-column="86" selection-end-line="67" selection-end-column="86" />
+        <state relative-caret-position="378">
+          <caret line="60" column="24" lean-forward="true" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -1248,6 +1212,30 @@
             <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#1;n#ul#0;n#div#6;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3318">
+          <caret line="209" column="39" lean-forward="false" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="180" column="26" lean-forward="true" selection-start-line="180" selection-start-column="26" selection-end-line="180" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/filtrate.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="86" column="69" lean-forward="true" selection-start-line="86" selection-start-column="69" selection-end-line="86" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>

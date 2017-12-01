@@ -10,16 +10,16 @@
             <select name="city_id" class="filtrate_select city_select" id="city_id">
                 <option value="">全部</option>
                 {{#each(city_list)}}
-                {{#if (this.id === city_id) }}
-                <option value="{{this.id}}" selected="selected">{{this.name}}</option>
-                {{else}}
-                <option value="{{this.id}}">{{this.name}}</option>
-                {{/if}}
+                    {{#if (this.id === city_id) }}
+                        <option value="{{this.id}}" selected="selected">{{this.name}}</option>
+                    {{else}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                    {{/if}}
                 {{/each}}
             </select>
         </div>
         <!-- 请款客服已通过列表页筛选条件 Begin -->
-        {{#if(startWith('/requestPayout/pass/list'))}}
+        {{#if(startWith('/customer/requestpayout/pass'))}}
             <div class="inline_block">
                 <div class="conditions_name inline_block filtrate_requestpayout_type">类型筛选：</div>
                 <select name="already_request" class="filtrate_select req_type_select" id="request_type">
@@ -34,31 +34,51 @@
         {{/if}}
         <!-- 请款客服已通过列表页筛选条件 End -->
         <!-- 客服主管已通过列表页筛选条件 Begin -->
-        {{#if(startWith('/finance/getPassList'))}}
+        {{#if(startWith('/customer/loan/passed'))}}
             <div class="inline_block">
                 <div class="conditions_name inline_block filtrate_order_status">状态筛选：</div>
                 <select name="status" class="filtrate_select order_status_select" id="order_status">
                     <option value="">全部</option>
                     {{#if(condition.status === 5)}}
                         <option value="5" selected="selected">已通过</option>
-                    {{elseif(condition.status === 8)}}
+                    {{else}}
+                        <option value="5">已通过</option>
+                    {{/if}}
+                    {{#if(condition.status === 8)}}
                         <option value="8" selected="selected">已申请合同</option>
-                    {{elseif(condition.status === 9)}}
+                    {{else}}
+                        <option value="8">已申请合同</option>
+                    {{/if}}
+                    {{#if(condition.status === 9)}}
                         <option value="9" selected="selected">已出合同</option>
-                    {{elseif(condition.status === 10)}}
+                    {{else}}
+                        <option value="9">已出合同</option>
+                    {{/if}}
+                    {{#if(condition.status === 10)}}
                         <option value="10"  selected="selected">已请款</option>
-                    {{elseif(condition.status === 11)}}
+                    {{else}}
+                        <option value="10">已请款</option>
+                    {{/if}}
+                    {{#if(condition.status === 11)}}
                         <option value="11"  selected="selected">已放款</option>
-                    {{elseif(condition.status === 12)}}
+                    {{else}}
+                        <option value="11">已放款</option>
+                    {{/if}}
+                    {{#if(condition.status === 12)}}
                         <option value="12" selected="selected">已回款</option>
-                    {{elseif(condition.status === 13)}}
+                    {{else}}
+                        <option value="12">已回款</option>
+                    {{/if}}
+                    {{#if(condition.status === 13)}}
                         <option value="13" selected="selected">已归档</option>
+                    {{else}}
+                        <option value="13">已归档</option>
                     {{/if}}
                 </select>
             </div>
         {{/if}}
         <!-- 客服主管已通过列表页筛选条件 Begin -->
-        {{#if (risk_list) }}
+        {{#if (risk_list.length >= 0) }}
             <div class="inline_block">
                 <div class="conditions_name inline_block filtrate_audit_type">风险类型：</div>
                 <select name="risk_type" class="filtrate_select risk_type_select" id="filtrate_audit_type" style="width: 200px;">
@@ -66,7 +86,7 @@
                     {{#each (risk_list) }}
                         {{#if (this.index === condition.risk_type) }}
                             <option value="{{this.index}}" selected="selected">{{this.name}}</option>
-                        {{elseif}}
+                        {{else}}
                             <option value="{{this.index}}">{{this.name}}</option>
                         {{/if}}
                     {{/each}}
@@ -79,7 +99,7 @@
         <div class="filtrate_box  inline_block">
             <a href="javascript:;" class="conditions_item choose_all letter_conditions {{#if(condition.start_with === '')}}active{{/if}}">全部</a>
             {{#each (initial_list) }}
-            <a href="javascript:;" class="conditions_item letter_conditions">{{this}}</a>
+                <a href="javascript:;" class="conditions_item letter_conditions">{{this}}</a>
             {{/each}}
         </div>
     </div>
