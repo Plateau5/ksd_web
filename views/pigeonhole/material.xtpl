@@ -1,8 +1,4 @@
 <!-- 通知所需材料 -->
-<%@ taglib prefix="c"         uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="per" uri="com/mvc/web/common/tag/permissionTag"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,20 +26,20 @@
         <div class=" listCon relative">
             <div class="listConHeader inviteCon" style="line-height: normal;margin-top:32px;">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="/pigeonhole/system">归档管理</a></li>
-                    <li class="inline before"><a href="/pigeonhole/getWaitList">待处理</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/customer/pigeonhole/system">归档管理</a></li>
+                    <li class="inline before"><a href="{{markUri}}/customer/pigeonhole/pending">待处理</a></li>
                     <li class="inline before"><a href="javascript:" class="marterial_back" data-id="{{finance_id}}">{{vo.user_name}}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">通知所需材料</a></li>
                 </ul>
             </div>
             <div class="material_box" style="overflow: hidden;">
                 <input type="hidden" id="finance_id" value="{{finance_id}}">
-                <c:forEach items="${list }" var="bean">
+                {{#each (list) }}
 	                <div class="check">
-	                    <div class="check_img icon_uncheck" data-id="${bean.id }"></div>
-	                    <span>${bean.name }</span>
+	                    <div class="check_img icon_uncheck" data-id="{{this.id }}"></div>
+	                    <span>{{this.name }}</span>
 	                </div>
-                </c:forEach>
+                {{/each}}
             </div>
             <div class="error_prom" style="margin-left:0;width: 100%;"></div>
             <form class="formML" style="width: 100%;">
@@ -52,14 +48,14 @@
                 <textarea name="remark" id="remark" style="border:1px solid #e4e4e4;resize: none;margin-left:0;" placeholder="请输入内容(100字以内)" maxlength="100"></textarea>
             </div>
             </form >
-            <per:button code="1123">
+            {{#if (verifyCode (1123)) }}
                 <div class="material_btn">
                     <input type="button" class="material_sub" id="material_sub" data-advance_id="{{vo.advance_id}}" value="确认"/>
-                    <a href="javascript:" id="marterialBack" data-url="/pigeonhole/getFile" data-id="{{finance_id}}">
+                    <a href="javascript:" id="marterialBack" data-url="{{markUri}}/customer/pigeonhole/detail" data-id="{{finance_id}}">
                         <input type="button" class="cancel_btn" id="cancel_btn" value="取消">
                     </a>
                 </div>
-            </per:button>
+            {{/if}}
         </div>
         <!--listCon end-->
     </div>
@@ -97,7 +93,7 @@
                 var _this = $(this);
                 var financeId = $.trim(_this.data("id"));
                 locationTo({
-                    action : contextPath + '/pigeonhole/getFile',
+                    action : contextPath + '/customer/pigeonhole/detail',
                     param : {
                         finance_id : financeId
                     }

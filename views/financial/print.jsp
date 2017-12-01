@@ -185,7 +185,7 @@ pageEncoding="UTF-8"%>
 		window.onload = function () {
 			window.print();
 			if (printType == 'current') {
-				var href = contextPath + "/financial/getWaitList";
+				var href = contextPath + "/customer/financial/pendingAudit";
 				setTimeout(function () {
 					window.location.href = href;
 				}, 0);

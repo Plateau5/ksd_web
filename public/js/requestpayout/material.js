@@ -31,7 +31,7 @@ $('#material_sub').on('click',function(){
         material_ids : ids.join(','),
         advance_id : advanceId
     };
-    var location_url = contextPath + '/pigeonhole/getFile?finance_id=' + finance_id;
+    var location_url = contextPath + '/customer/pigeonhole/detail?finance_id=' + finance_id;
     sub_btn(url,data,$('#material_sub'),location_url);
 });
 

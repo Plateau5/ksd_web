@@ -33,7 +33,7 @@
         <div class="listCon">
             <div class="listConHeader inviteCon" style="margin-bottom:20px;">
                 <ul class="crumbs_nav">
-                    <li class="inline colorB first_nav"><a class="TS" href="/financial/system">款项管理</a></li>
+                    <li class="inline colorB first_nav"><a class="TS" href="{{markUri}}/customer/financial/system">款项管理</a></li>
                     <li class="inline before  second_nav"><a href="{{url}}">{{navigation}}</a></li>
                     <li class="inline before"><a href="javascript:;">{{vo.user_name }}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">查看资料</a></li>
@@ -65,17 +65,17 @@
 								<div class="cursor requestpayout_detail_btn requestpayout_download download_file" id="" alt="2" lang="{{finance_id}}">全部下载</div>
 								{{#if (url === '/customer/financial/pendingAudit' && vo.present_id === present_id && vo.receipt_id === 1) }}
 									{{#if (verifyCode(1186)) }}
-										 <a href="javascript:" class="go_forward" data-url="{{markUri}}/financial/transfer" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
+										 <a href="javascript:" class="go_forward" data-url="{{markUri}}/customer/financial/transfer" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
 											<div class="cursor requestpayout_detail_btn requestpayout_care" id="care_btn">转交他人</div>
 										</a>
 									{{/if}}
 									{{#if (verifyCode(1175)) }}
-										<a href="javascript:" class="go_forward" data-url="{{markUri}}/financial/toDisagree" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
+										<a href="javascript:" class="go_forward" data-url="{{markUri}}/customer/financial/disagree" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
 											<div class="cursor requestpayout_detail_btn requestpayout_disagree" data-advance_id="{{vo.advance_id}}" data-id="{{finance_id}}">不同意</div>
 										</a>
 									{{/if}}
 									{{#if (verifyCode(1176)) }}
-										<a href="javascript:" class="go_forward" data-url="{{markUri}}/financial/toAgree" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
+										<a href="javascript:" class="go_forward" data-url="{{markUri}}/customer/financial/agree" data-id="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
 											<div class="cursor requestpayout_detail_btn requestpayout_agree" data-advance_id="{{vo.advance_id}}" lang="{{finance_id}}">同意</div>
 										</a>
 									{{/if}}
@@ -161,7 +161,7 @@
 			var t = $(this);
 			var finance_id = $.trim(t.attr("lang"));
 			locationTo({
-				action : contextPath + "/financial/return/result",
+				action : contextPath + "/customer/financial/returnResult",
 				param : {
 					finance_id : finance_id
 				}

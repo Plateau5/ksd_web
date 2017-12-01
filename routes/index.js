@@ -130,45 +130,63 @@ router.post(markUri + '/customer/approval/disagree', customerCtrl.VIEW_CUSTOMER_
 router.post(markUri + '/customer/approval/transfer', customerCtrl.VIEW_CUSTOMER_APPROVAL_TRANSFER);
 
 
-
-
-
-
-
-
-
-
-
-
-
 // 客户-款项管理-访问路径 1227
-router.get('/customer/financial/system', customerCtrl.VIEW_CUSTOMER_FINANCIAL_SYSTEM);
+router.get(markUri + '/customer/financial/system', customerCtrl.VIEW_CUSTOMER_FINANCIAL_SYSTEM);
 // 客户-款项管理-待回款 1208
-router.all('/customer/financial/pendingReturn', customerCtrl.VIEW_CUSTOMER_FINANCIAL_PENDINGRETURN);
+router.all(markUri + '/customer/financial/pendingReturn', customerCtrl.VIEW_CUSTOMER_FINANCIAL_PENDINGRETURN);
 // 客户-款项管理-待审批 1170
-router.all('/customer/financial/pendingAudit', customerCtrl.VIEW_CUSTOMER_FINANCIAL_PENDINGAUDIT);
+router.all(markUri + '/customer/financial/pendingAudit', customerCtrl.VIEW_CUSTOMER_FINANCIAL_PENDINGAUDIT);
 // 客户-款项管理-已通过 1209
-router.all('/customer/financial/pass', customerCtrl.VIEW_CUSTOMER_FINANCIAL_PASS);
+router.all(markUri + '/customer/financial/pass', customerCtrl.VIEW_CUSTOMER_FINANCIAL_PASS);
 // 客户-款项管理-未通过 1210
-router.all('/customer/financial/unpass', customerCtrl.VIEW_CUSTOMER_FINANCIAL_UNPASS);
+router.all(markUri + '/customer/financial/unpass', customerCtrl.VIEW_CUSTOMER_FINANCIAL_UNPASS);
 // 客户-款项管理-已回款 1172
-router.all('/customer/financial/return', customerCtrl.VIEW_CUSTOMER_FINANCIAL_RETURN);
+router.all(markUri + '/customer/financial/return', customerCtrl.VIEW_CUSTOMER_FINANCIAL_RETURN);
+// 客户-款项管理-待回款-已回款页面 1214
+router.post(markUri + '/customer/financial/returnResult', customerCtrl.VIEW_CUSTOMER_FINANCIAL_RETURNRESULT);
+// 客户-款项管理-待审批-同意页面 1175
+router.post(markUri + '/customer/financial/agree', customerCtrl.VIEW_CUSTOMER_FINANCIAL_AGREE);
+// 客户-款项管理-待审批-不同意页面 1176
+router.post(markUri + '/customer/financial/disagree', customerCtrl.VIEW_CUSTOMER_FINANCIAL_DISAGREE);
+// 客户-款项管理-待审批-转交页面 1186
+router.post(markUri + '/customer/financial/transfer', customerCtrl.VIEW_CUSTOMER_FINANCIAL_TRANSFER);
+
 
 // 客户-归档管理-访问路径 1228
-router.get('/customer/pigeonhole/system', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_SYSTEM);
+router.get(markUri + '/customer/pigeonhole/system', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_SYSTEM);
 // 客户-归档管理-待处理 1177
-router.all('/customer/pigeonhole/pending', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_PENDING);
+router.all(markUri + '/customer/pigeonhole/pending', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_PENDING);
 // 客户-归档管理-已归档 1178
-router.all('/customer/pigeonhole/archived', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_ARCHIVED);
+router.all(markUri + '/customer/pigeonhole/archived', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_ARCHIVED);
+// 客户-归档管理-已归档-通知所需材料页面 1117
+router.post(markUri + '/customer/pigeonhole/notifyMaterial', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_NOTIFYMATERIAL);
+
 
 // 客户-其他管理-访问路径 1330
-router.get('/customer/otherfund/system', customerCtrl.VIEW_CUSTOMER_OTHERFUND_SYSTEM);
+router.get(markUri + '/customer/otherfund/system', customerCtrl.VIEW_CUSTOMER_OTHERFUND_SYSTEM);
 // 客户-其他管理-待审核 1331
-router.all('/customer/otherfund/pendingAudit', customerCtrl.VIEW_CUSTOMER_OTHERFUND_PENDINGAUDIT);
+router.all(markUri + '/customer/otherfund/pendingAudit', customerCtrl.VIEW_CUSTOMER_OTHERFUND_PENDINGAUDIT);
 // 客户-其他管理-已通过 1332
-router.all('/customer/otherfund/pass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_PASS);
+router.all(markUri + '/customer/otherfund/pass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_PASS);
 // 客户-其他管理-未通过 1333
-router.all('/customer/otherfund/unpass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_UNPASS);
+router.all(markUri + '/customer/otherfund/unpass', customerCtrl.VIEW_CUSTOMER_OTHERFUND_UNPASS);
+// 客户管理-详情页-其他管理 1337
+router.post(markUri + '/customer/otherfund/detail', customerCtrl.VIEW_CUSTOMER_OTHERFUND_DETAIL);
+// 客户-其他管理-待审批-同意页面 1334
+router.post(markUri + '/customer/otherfund/agree', customerCtrl.VIEW_CUSTOMER_OTHERFUND_AGREE);
+// 客户-其他管理-待审批-不同意页面 1335
+router.post(markUri + '/customer/otherfund/disagree', customerCtrl.VIEW_CUSTOMER_OTHERFUND_DISAGREE);
+// 客户-其他管理-待审批-转交他人页面 1336
+router.post(markUri + '/customer/otherfund/transfer', customerCtrl.VIEW_CUSTOMER_OTHERFUND_TRANSFER);
+
+
+
+
+
+
+
+
+
 
 
 // 客户管理-详情页-合同管理 1268
@@ -181,8 +199,7 @@ router.post('/customer/approval/detail', customerCtrl.VIEW_CUSTOMER_APPROVAL_DET
 router.post('/customer/financial/detail', customerCtrl.VIEW_CUSTOMER_FINANCIAL_DETAIL);
 // 客户管理-详情页-归档管理 1179
 router.post('/customer/pigeonhole/detail', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_DETAIL);
-// 客户管理-详情页-其他管理 1337
-router.post('/customer/otherfund/detail', customerCtrl.VIEW_CUSTOMER_OTHERFUND_DETAIL);
+
 
 
 

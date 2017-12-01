@@ -33,7 +33,7 @@
         {{/if}}
         {{#if (verifyCode(1227)) }}
             <li class="nav_item {{#if (startWith('/customer/financial')) }}active{{/if}}">
-                <a href="/customer/financial/system" class="">款项管理</a>
+                <a href="{{markUri}}/customer/financial/system" class="">款项管理</a>
             </li>
         {{/if}}
         {{#if (verifyCode(1228)) }}
@@ -43,7 +43,7 @@
         {{/if}}
         {{#if (verifyCode(1330)) }}
             <li class="nav_item {{#if (startWith('/customer/otherfund')) }}active{{/if}}">
-                <a href="/customer/otherfund/system" class="">其他管理</a>
+                <a href="{{markUri}}/customer/otherfund/system" class="">其他管理</a>
             </li>
         {{/if}}
     </ul>

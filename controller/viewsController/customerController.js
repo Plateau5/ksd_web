@@ -399,6 +399,38 @@ exports.VIEW_CUSTOMER_FINANCIAL_RETURN = function(req, res, next) {
     var url = '/api/financial/getReturnList';
     common.getCustomerList(url, '已回款', req, res, next);
 };
+// 客户-款项管理-待回款-已回款标记 1214
+exports.VIEW_CUSTOMER_FINANCIAL_RETURNRESULT = function(req, res, next) {
+    common.getPageData({
+        url : '/api/financial/return/result',
+        title : '款项管理-已回款',
+        page : './financial/returnResult'
+    }, req, res, next);
+};
+// 客户-款项管理-待审批-同意页面 1175
+exports.VIEW_CUSTOMER_FINANCIAL_AGREE = function(req, res, next) {
+    common.getPageData({
+        url : '/api/financial/toAgree',
+        title : '款项管理-同意',
+        page : './financial/agree'
+    }, req, res, next);
+};
+// 客户-款项管理-待审批-同意页面 1176
+exports.VIEW_CUSTOMER_FINANCIAL_DISAGREE = function(req, res, next) {
+    common.getPageData({
+        url : '/api/financial/toDisagree',
+        title : '款项管理-不同意',
+        page : './financial/disagree'
+    }, req, res, next);
+};
+// 客户-款项管理-待审批-转交页面 1186
+exports.VIEW_CUSTOMER_FINANCIAL_TRANSFER = function(req, res, next) {
+    common.getPageData({
+        url : '/api/financial/transfer',
+        title : '款项管理-转交他人',
+        page : './financial/transfer'
+    }, req, res, next);
+};
 
 
 
@@ -419,6 +451,14 @@ exports.VIEW_CUSTOMER_PIGEONHOLE_PENDING = function(req, res, next) {
 exports.VIEW_CUSTOMER_PIGEONHOLE_ARCHIVED = function(req, res, next) {
     var url = '/api/pigeonhole/getPigeonholeList';
     common.getCustomerList(url, '已归档', req, res, next);
+};
+// 客户-归档管理-已归档-通知所需材料页面 1117
+exports.VIEW_CUSTOMER_PIGEONHOLE_NOTIFYMATERIAL = function(req, res, next) {
+    common.getPageData({
+        url : '/api/pigeonhole/toMaterial',
+        title : '归档管理-通知所需材料',
+        page : './pigeonhole/material'
+    }, req, res, next);
 };
 
 
@@ -448,6 +488,40 @@ exports.VIEW_CUSTOMER_OTHERFUND_UNPASS = function(req, res, next) {
     var url = '/api/otherfund/unpass/list';
     common.getCustomerList(url, '未通过', req, res, next);
 };
+// 客户-其他管理-待审批-同意页面 1334
+exports.VIEW_CUSTOMER_OTHERFUND_AGREE = function(req, res, next) {
+    common.getPageData({
+        url : '/api/otherfund/toagree',
+        title : '其他管理-同意',
+        page : './otherfund/agree'
+    }, req, res, next);
+};
+// 客户-其他管理-待审批-同意页面 1335
+exports.VIEW_CUSTOMER_OTHERFUND_DISAGREE = function(req, res, next) {
+    common.getPageData({
+        url : '/api/otherfund/todisagree',
+        title : '其他管理-不同意',
+        page : './otherfund/disagree'
+    }, req, res, next);
+};
+// 客户-其他管理-待审批-转交他人页面 1336
+exports.VIEW_CUSTOMER_OTHERFUND_TRANSFER = function(req, res, next) {
+    common.getPageData({
+        url : '/api/otherfund/transfer',
+        title : '其他管理-转交他人',
+        page : './otherfund/transfer'
+    }, req, res, next);
+};
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -486,28 +560,6 @@ exports.VIEW_CUSTOMER_OTHERFUND_DETAIL = function(req, res, next) {
     var url = '/api/otherfund/getFile';
     common.getCustomerDetail(url, req, res, next);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

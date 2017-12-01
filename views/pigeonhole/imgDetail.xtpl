@@ -79,7 +79,7 @@
 								{{/if}}
 								{{#if (!vo.pigeonhole_material) }}
 									{{#if (verifyCode(1117)) }}
-										<a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="/pigeonhole/toMaterial" data-advance_id="{{vo.advance_id}}">
+										<a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="{{markUri}}/customer/pigeonhole/notifyMaterial" data-advance_id="{{vo.advance_id}}">
 											<div class="cursor requestpayout_detail_btn requestpayout_material"  lang="{{finance_id}}">通知所需材料</div>
 										</a>
 									{{/if}}
@@ -124,7 +124,7 @@
         天未归档，请尽快归档。
     </div>
     <div class="term_btn">
-        <input type="button" class="term_sub" data-advance_id="{{vo.advance_id}}" id="term_sub" value="确定"  data-url="/pigeonhole/getWaitList">
+        <input type="button" class="term_sub" data-advance_id="{{vo.advance_id}}" id="term_sub" value="确定"  data-url="{{markUri}}/customer/pigeonhole/pending">
         <input type="button" class="cancel_btn" value="取消">
     </div>
 </div>
@@ -136,7 +136,7 @@
         您确定将此订单归档吗？
     </div>
     <div class="flied_btn">
-        <input type="button" class="flied_sub" data-advance_id="{{vo.advance_id}}" id="flied_sub" value="确定"  data-url="/pigeonhole/getWaitList">
+        <input type="button" class="flied_sub" data-advance_id="{{vo.advance_id}}" id="flied_sub" value="确定"  data-url="{{markUri}}/customer/pigeonhole/pending">
         <input type="button" class="cancel_btn" value="取消">
     </div>
 </div>
@@ -153,7 +153,7 @@
         </select>
     </div>
     <div class="care_btn">
-        <input type="button" class="term_sub" id="care_sub" value="确定"  data-url="/pigeonhole/getWaitList">
+        <input type="button" class="term_sub" id="care_sub" value="确定"  data-url="{{markUri}}/customer/pigeonhole/pending">
         <input type="button" class="cancel_btn" value="取消">
     </div>
 </div>
@@ -165,7 +165,7 @@
         $('.imgDetail').css('margin-top','0');
     }
 	pageJump(".go_forward",{
-		car_type : ${vo.car_type}
+		car_type : '{{vo.car_type}}'
 	});
 </script>
 <script src="/static/js/finance/img_detail.js"></script>

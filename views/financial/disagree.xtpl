@@ -1,8 +1,4 @@
 <!-- 不同意 -->
-<%@ taglib prefix="c"         uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="per" uri="com/mvc/web/common/tag/permissionTag"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -45,9 +41,9 @@
         <div class=" listCon relative">
             <div class="listConHeader inviteCon" style="line-height: normal;padding-left:12px;">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="{{markUri}}/financial/system">款项管理</a></li>
-                    <li class="inline before"><a href="{{markUri}}/financial/getWaitList">待审批</a></li>
-                    <li class="inline before"><a href="javascript:" id="goDetail" data-url="{{markUri}}/financial/getFile" data-id="{{finance_id}}">{{vo.user_name}}</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/customer/financial/system">款项管理</a></li>
+                    <li class="inline before"><a href="{{markUri}}/customer/financial/pendingAudit">待审批</a></li>
+                    <li class="inline before"><a href="javascript:" id="goDetail" data-url="{{markUri}}/customer/financial/detail" data-id="{{finance_id}}">{{vo.user_name}}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">不同意</a></li>
                 </ul>
             </div>
@@ -75,16 +71,16 @@
                         </div>
                         <span class="error"></span>
                         <!--<input type="button" class="send" id="sendBtn" value="确认发送"/>-->
-                        <per:button code="1119">
+                        {{#if (verifyCode(1119)) }}
                             <div class="form-item" style="margin-left: 0;">
                                 <div class="create_btn" style="margin-left: 0;">
-                                    <input type="button" class="send" id="sendBtn" value="确认发送" data-advance_id="{{vo.advance_id}}" data-url="/financial/getWaitList" style="margin:0;"/>
-                                    <a href="javascript:" class="go_detail" data-url="{{markUri}}/financial/getFile" data-id="{{finance_id}}">
+                                    <input type="button" class="send" id="sendBtn" value="确认发送" data-advance_id="{{vo.advance_id}}" data-url="{{markUri}}/customer/financial/pendingAudit" style="margin:0;"/>
+                                    <a href="javascript:" class="go_detail" data-url="{{markUri}}/customer/financial/detail" data-id="{{finance_id}}">
                                         <input type="button" class="cancel_btn" value="取消">
                                     </a>
                                 </div>
                             </div>
-                        </per:button>
+                        {{/if}}
 	                </form>
 
 	            </div>
@@ -107,7 +103,7 @@
     $('.form-item').eq(0).css('marginTop','15px');
     $(function () {
         pageJump("#goDetail, .go_detail",{
-            url : "/financial/getWaitList",
+            url : "/customer/financial/pendingAudit",
             active : "wait"
         });
     });

@@ -24,7 +24,7 @@
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
-            <form action="/otherfund/pending/list" method="POST" id="form_search" role="form">
+            <form action="/customer/otherfund/pendingAudit" method="POST" id="form_search" role="form">
             </form>
             <div class="operation_category">
                 <jsp:include page="/WEB-INF/inc/operation_category.jsp"></jsp:include>
