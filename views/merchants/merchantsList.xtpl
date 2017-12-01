@@ -22,14 +22,14 @@
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main merchants">
-            <form action="{{markUri}}/supplier/audit/list" method="post" id="form_search" role="form">
+            <form action="{{markUri}}{{originUrl}}" method="post" id="form_search" role="form">
             </form>
             {{include('./../inc/operationCategory')}}
             <div class="filtrate">
                 {{include ('./../inc/filtrateMerchants')}}
             </div>
             <div class="merchants_list">
-                <form action="{{markUri}}/supplier/detail" method="post" id="">
+                <form action="{{markUri}}/merchants/detail" method="post" id="">
                     <!--查看详情传向后端的数据-->
                     <input type="hidden" name="active" value="">
                     <input type="hidden" name="supplier_id" value="" id="supplierId"><!--商户Id-->

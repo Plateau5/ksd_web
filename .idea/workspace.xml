@@ -2,23 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/viewsController/merchantsController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/inc/filtrateMerchants.xtpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/inc/merchantsList.xtpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/merchants/agree.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/merchants/detail.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/merchants/disagree.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/merchants/edit.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/merchants/records_list.jsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/otherfund/pass_list.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/otherfund/unpass_list.jsp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/merchants.css" afterPath="$PROJECT_DIR$/public/css/merchants.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/viewsController/merchantsController.js" afterPath="$PROJECT_DIR$/controller/viewsController/merchantsController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/merchants.js" afterPath="$PROJECT_DIR$/public/js/merchants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/merchantsEdit.js" afterPath="$PROJECT_DIR$/public/js/merchantsEdit.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/header.xtpl" afterPath="$PROJECT_DIR$/views/inc/header.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/operationCategory.xtpl" afterPath="$PROJECT_DIR$/views/inc/operationCategory.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/sideNav.xtpl" afterPath="$PROJECT_DIR$/views/inc/sideNav.xtpl" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/otherfund/pending_audit_list.jsp" afterPath="$PROJECT_DIR$/views/merchants/merchantsList.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/filtrateMerchants.xtpl" afterPath="$PROJECT_DIR$/views/inc/filtrateMerchants.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/merchants/merchantsList.xtpl" afterPath="$PROJECT_DIR$/views/merchants/merchantsList.xtpl" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/views/merchants/detail.jsp" afterPath="$PROJECT_DIR$/views/merchants/detail.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
-              <caret line="209" column="75" lean-forward="true" selection-start-line="209" selection-start-column="75" selection-end-line="209" selection-end-column="75" />
+              <caret line="209" column="39" lean-forward="false" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -58,8 +49,31 @@
       <file leaf-file-name="merchantsController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/viewsController/merchantsController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="60" column="27" lean-forward="true" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
+            <state relative-caret-position="233">
+              <caret line="58" column="17" lean-forward="true" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="merchants.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/merchants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="20" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <marker date="1512119439397" expanded="true" signature="6001:6055" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/merchants/edit.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="434" column="104" lean-forward="true" selection-start-line="434" selection-start-column="104" selection-end-line="434" selection-end-column="104" />
               <folding />
             </state>
           </provider>
@@ -68,8 +82,8 @@
       <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="266" column="30" lean-forward="true" selection-start-line="266" selection-start-column="30" selection-end-line="266" selection-end-column="30" />
+            <state relative-caret-position="413">
+              <caret line="257" column="30" lean-forward="false" selection-start-line="257" selection-start-column="21" selection-end-line="257" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -78,9 +92,26 @@
       <file leaf-file-name="merchantsList.xtpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/merchants/merchantsList.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="29" column="18" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+            <state relative-caret-position="233">
+              <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="filtrateMerchants.xtpl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/inc/filtrateMerchants.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="67" column="86" lean-forward="true" selection-start-line="67" selection-start-column="86" selection-end-line="67" selection-end-column="86" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#1;n#ul#0;n#div#6;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,7 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>${orderNo}</find>
       <find>/customer/financial/detail</find>
       <find>/financial/getFile</find>
       <find>/financial/toDisagree</find>
@@ -127,6 +157,7 @@
       <find>--%&gt;</find>
       <find>&lt;%--</find>
       <find>{bean</find>
+      <find>/supplier/detail</find>
     </findStrings>
     <replaceStrings>
       <replace>{{include ('./../inc/pigeonholeInfo')}}</replace>
@@ -156,9 +187,9 @@
       <replace>&lt;script type=&quot;text/javascript&quot; src=&quot;</replace>
       <replace>{{markUri}}</replace>
       <replace>&lt;!--</replace>
-      <replace>--&gt;</replace>
       <replace>{{/if}}</replace>
       <replace>{this</replace>
+      <replace>--&gt;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -177,8 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/js/finance/allot_emp.js" />
-        <option value="$PROJECT_DIR$/public/js/finance/img_unpass.js" />
         <option value="$PROJECT_DIR$/public/js/finance/img_detail.js" />
         <option value="$PROJECT_DIR$/views/customer/allotEmp.xtpl" />
         <option value="$PROJECT_DIR$/views/customer/customer_his.jsp" />
@@ -221,13 +250,15 @@
         <option value="$PROJECT_DIR$/views/inc/header.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/sideNav.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/operationCategory.xtpl" />
-        <option value="$PROJECT_DIR$/views/inc/filtrateMerchants.xtpl" />
         <option value="$PROJECT_DIR$/views/merchants/detail.jsp" />
         <option value="$PROJECT_DIR$/views/inc/merchantsList.xtpl" />
-        <option value="$PROJECT_DIR$/views/merchants/merchantsList.xtpl" />
         <option value="$PROJECT_DIR$/controller/common.js" />
-        <option value="$PROJECT_DIR$/controller/viewsController/merchantsController.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/controller/viewsController/merchantsController.js" />
+        <option value="$PROJECT_DIR$/views/merchants/detail.xtpl" />
+        <option value="$PROJECT_DIR$/public/js/merchants.js" />
+        <option value="$PROJECT_DIR$/views/merchants/merchantsList.xtpl" />
+        <option value="$PROJECT_DIR$/views/inc/filtrateMerchants.xtpl" />
       </list>
     </option>
   </component>
@@ -317,6 +348,12 @@
               <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
@@ -502,7 +539,7 @@
       <workItem from="1511937725540" duration="1677000" />
       <workItem from="1512008049272" duration="20249000" />
       <workItem from="1512095130988" duration="7057000" />
-      <workItem from="1512109456448" duration="9000000" />
+      <workItem from="1512109456448" duration="11451000" />
     </task>
     <task id="LOCAL-00001" summary="增加权限等路由  2017年8月16日18:28:04">
       <created>1502879359304</created>
@@ -658,11 +695,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512111208877</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="商户列表页渲染完毕  2017年12月1日17:04:20">
+      <created>1512119073001</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1512119073001</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="381265000" />
+    <option name="totallyTimeSpent" value="383716000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -687,7 +731,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19496167" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3483023" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3483023" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -753,7 +797,8 @@
     <MESSAGE value="审批管理三级页面  2017年11月30日18:02:49" />
     <MESSAGE value="审批管理三级页面  2017年11月30日18:05:52" />
     <MESSAGE value="客户管理三级页面渲染完  2017年12月1日14:53:14" />
-    <option name="LAST_COMMIT_MESSAGE" value="客户管理三级页面渲染完  2017年12月1日14:53:14" />
+    <MESSAGE value="商户列表页渲染完毕  2017年12月1日17:04:20" />
+    <option name="LAST_COMMIT_MESSAGE" value="商户列表页渲染完毕  2017年12月1日17:04:20" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -782,13 +827,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/requestpayout/agree.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="57" column="22" lean-forward="true" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-315">
@@ -1073,14 +1111,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/merchants/edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="434" column="104" lean-forward="true" selection-start-line="434" selection-start-column="104" selection-end-line="434" selection-end-column="104" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/customerList.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="653">
@@ -1093,37 +1123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
           <caret line="135" column="9" lean-forward="true" selection-start-line="135" selection-start-column="9" selection-end-line="135" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/filtrate.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-861">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/filtrateMerchants.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="38" column="25" lean-forward="true" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#1;n#ul#0;n#div#6;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/merchants/detail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="30" column="83" lean-forward="true" selection-start-line="30" selection-start-column="83" selection-end-line="30" selection-end-column="83" />
           <folding />
         </state>
       </provider>
@@ -1160,22 +1159,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/merchants/merchantsList.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="29" column="18" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="266" column="30" lean-forward="true" selection-start-line="266" selection-start-column="30" selection-end-line="266" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/inc/header.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -1184,19 +1167,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/viewsController/merchantsController.js">
+    <entry file="file://$PROJECT_DIR$/views/merchants/detail.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="60" column="27" lean-forward="true" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1512119346188" expanded="true" signature="39266:39320" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="209" column="75" lean-forward="true" selection-start-line="209" selection-start-column="75" selection-end-line="209" selection-end-column="75" />
+          <caret line="209" column="39" lean-forward="false" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="39" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/merchants/edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="434" column="104" lean-forward="true" selection-start-line="434" selection-start-column="104" selection-end-line="434" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="257" column="30" lean-forward="false" selection-start-line="257" selection-start-column="21" selection-end-line="257" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/merchants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1512119439397" expanded="true" signature="6001:6055" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/viewsController/merchantsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="58" column="17" lean-forward="true" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/filtrate.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="41" column="51" lean-forward="true" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/merchants/merchantsList.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/filtrateMerchants.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="67" column="86" lean-forward="true" selection-start-line="67" selection-start-column="86" selection-end-line="67" selection-end-column="86" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#6;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

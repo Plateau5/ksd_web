@@ -198,14 +198,23 @@ router.post(markUri + '/customer/otherfund/transfer', customerCtrl.VIEW_CUSTOMER
 router.get(markUri + '/merchants/system', merchantsCtrl.VIEW_MERCHANTS_SYSTEM);
 // 商户-商户管理-侧导航跳转 1367
 router.all(markUri + '/merchants/manage/system', merchantsCtrl.VIEW_MERCHANTS_MANAGE_SYSTEM);
+// 商户-商户管理-未备案 1369
+router.all(markUri + '/merchants/norecords', merchantsCtrl.VIEW_MERCHANTS_NORECORDS);
 // 商户-商户管理-待审核 1370
 router.all(markUri + '/merchants/pendingAudit', merchantsCtrl.VIEW_MERCHANTS_PENDINGAUDIT);
 // 商户-商户管理-已通过 1371
 router.all(markUri + '/merchants/pass', merchantsCtrl.VIEW_MERCHANTS_PASS);
 // 商户-商户管理-未通过 1372
 router.all(markUri + '/merchants/unpass', merchantsCtrl.VIEW_MERCHANTS_UNPASS);
-// 商户-商户管理-未备案 1369
-router.all(markUri + '/merchants/norecords', merchantsCtrl.VIEW_MERCHANTS_NORECORDS);
+// 商户-商户管理-详情页 1373
+router.all(markUri + '/merchants/detail', merchantsCtrl.VIEW_MERCHANTS_DETAIL);
+
+
+
+
+
+
+
 // 商户-商户管理-备案管理 1368
 router.all(markUri + '/records/manage', merchantsCtrl.VIEW_RECORDS_MANAGE);
 

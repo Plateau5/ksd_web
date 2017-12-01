@@ -70,7 +70,14 @@ exports.VIEW_RECORDS_MANAGE = function(req, res, next) {
         page : './merchants/merchantsList'
     }, req, res, next);
 };
-
+// 商户-商户管理-详情页 1373
+exports.VIEW_MERCHANTS_DETAIL = function(req, res, next) {
+    common.getPageData({
+        url : '/api/supplier/detail',
+        title : '商户管理-详情页',
+        page : './merchants/detail'
+    }, req, res, next);
+};
 
 
 

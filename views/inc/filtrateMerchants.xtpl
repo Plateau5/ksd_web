@@ -6,10 +6,18 @@
                 <option value="">全部</option>
                 {{#if (car_type === 0) }}
                     <option selected value="0">新车</option>
-                {{elseif (car_type === 1) }}
+                {{else}}
+                    <option value="0">新车</option>
+                {{/if}}
+                {{#if (car_type === 1) }}
                     <option selected value="1">二手车</option>
-                {{elseif (car_type === 2) }}
+                {{else}}
+                    <option value="1">二手车</option>
+                {{/if}}
+                {{#if (car_type === 2) }}
                     <option selected value="2">新车&二手车</option>
+                {{else}}
+                    <option value="2">新车&二手车</option>
                 {{/if}}
             </select>
         </div>
@@ -45,8 +53,13 @@
                 <option value="">全部</option>
                 {{#if (own_type === 2) }}
                     <option selected value="2">公海</option>
-                {{elseif (own_type === 1) }}
+                {{else}}
+                    <option value="2">公海</option>
+                {{/if}}
+                {{#if (own_type === 1) }}
                     <option selected value="1">私海</option>
+                {{else}}
+                    <option value="1">私海</option>
                 {{/if}}
             </select>
         </div>
@@ -55,7 +68,7 @@
             <select name="label_id"  class="filtrate_select merchants_tags" id="filtrate_tags">
                 <option value="">全部</option>
                 {{#each (supplierLabel) }}
-                    {{#if (this.label_id === label_id) }}
+                    {{#if (this.label_id === root.label_id) }}
                         <option value="{{this.label_id}}" selected="selected">{{this.label_name}}</option>
                     {{else}}
                         <option value="{{this.label_id}}">{{this.label_name}}</option>
