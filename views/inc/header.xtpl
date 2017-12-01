@@ -1,24 +1,24 @@
 <!-- Template of header -->
 <div id="" class="header full_width">
     <div class="header_content normal_width">
-        <a href="/home" class="logo">
+        <a href="{{markUri}}/home" class="logo">
             <img class="block" src="/static/img/logo.png" alt="致汇金服logo">
         </a>
         <ul class="header_nav inline_block">
-            <li class="nav_item {{#if(startWith('/home'))}}active{{/if}}">
-                <a href="/home" class="">首页</a>
+            <li class="nav_item {{#if(startWith(markUri + '/home'))}}active{{/if}}">
+                <a href="{{markUri}}/home" class="">首页</a>
             </li>
-            <li class="nav_item {{#if(startWith('/customer'))}}active{{/if}}">
-                <a href="/customer/system" class="">客户</a>
+            <li class="nav_item {{#if(startWith(markUri + '/customer'))}}active{{/if}}">
+                <a href="{{markUri}}/customer/system" class="">客户</a>
             </li>
-            <li class="nav_item">
-                <a href="#" class="">商户</a>
+            <li class="nav_item {{#if(startWith(markUri + '/merchants' || markUri + '/records'))}}active{{/if}}">
+                <a href="{{markUri}}/merchants/system" class="">商户</a>
             </li>
-            <li class="nav_item {{#if(startWith('/organization'))}}active{{/if}}">
-                <a href="/organization" class="">供应商</a>
+            <li class="nav_item {{#if(startWith(markUri + '/organization'))}}active{{/if}}">
+                <a href="{{markUri}}/organization" class="">供应商</a>
             </li>
-            <li class="nav_item {{#if(startWith('/workflow'))}}active{{/if}}">
-                <a href="/workflow" class="">业务</a>
+            <li class="nav_item {{#if(startWith(markUri + '/workflow'))}}active{{/if}}">
+                <a href="{{markUri}}/workflow" class="">业务</a>
             </li>
             <!--<li class="nav_item {{#if(startWith('/question'))}}active{{/if}}">
                 <a href="/question/list" class="">问题管理</a>
@@ -26,14 +26,14 @@
             <li class="nav_item  {{#if(startWith('/gps || /administrative'))}}active{{/if}}">
                 <a href="/warehouse/system" class="">仓库管理</a>
             </li>-->
-            <li class="nav_item {{#if(startWith('/statistics'))}}active{{/if}}">
-                <a href="/statistics/system" class="">统计</a>
+            <li class="nav_item {{#if(startWith(markUri + '/statistics'))}}active{{/if}}">
+                <a href="{{markUri}}/statistics/system" class="">统计</a>
             </li>
-            <li class="nav_item {{#if(startWith('/employee || /department'))}}active{{/if}}">
-                <a href="/employee/system" class="">人员</a>
+            <li class="nav_item {{#if(startWith(markUri + '/employee' || markUri + '/department'))}}active{{/if}}">
+                <a href="{{markUri}}/employee/system" class="">人员</a>
             </li>
-            <li class="nav_item {{#if(startWith('/company || /feedback'))}}active{{/if}}">
-                <a href="/systemManagement" class="">系统</a>
+            <li class="nav_item {{#if(startWith(markUri + '/company' || markUri + '/feedback'))}}active{{/if}}">
+                <a href="{{markUri}}/systemManagement" class="">系统</a>
             </li>
         </ul>
         <ul class="login rf inline_block">
@@ -43,9 +43,9 @@
                     <span id="header_username" class="header_username"></span>
                 </a>
                 <ul class="user_setting">
-                    <li class="setting_item  {{#if(startWith('/userCenter'))}}active{{/if}}"><a href="/userCenter/information">账号设置</a></li>
-                    <li class="setting_item {{#if(startWith('/privilege'))}}active{{/if}}"><a href="/privilege/system">权限管理</a></li>
-                    <li class="setting_item"><a href="/logout">退出登录</a></li>
+                    <li class="setting_item  {{#if(startWith(markUri + '/userCenter'))}}active{{/if}}"><a href="{{markUri}}/userCenter/information">账号设置</a></li>
+                    <li class="setting_item {{#if(startWith(markUri + '/privilege'))}}active{{/if}}"><a href="{{markUri}}/privilege/system">权限管理</a></li>
+                    <li class="setting_item"><a href="{{markUri}}/logout">退出登录</a></li>
                 </ul>
             </li>
             <li class="message active">

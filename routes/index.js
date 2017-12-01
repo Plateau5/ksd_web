@@ -15,6 +15,9 @@ var statisticsCtrl = require('../controller/viewsController/statisticsController
 var systemManagementCtrl = require('../controller/viewsController/systemManagementController');
 var settingsCtrl = require('../controller/viewsController/settingsController');
 var privilegeCtrl = require('../controller/viewsController/privilegeController');
+var merchantsCtrl = require('../controller/viewsController/merchantsController');
+
+
 var markUri = '';
 
 /* GET login page. */
@@ -78,6 +81,8 @@ router.post(markUri + '/customer/loan/notifyResult', customerCtrl.VIEW_CUSTOMER_
 router.get(markUri + '/customer/compact/system', customerCtrl.VIEW_CUSTOMER_COMPACT_SYSTEM);
 // 客户-合同管理-待出合同 1261
 router.all(markUri + '/customer/compact/pendingPass', customerCtrl.VIEW_CUSTOMER_COMPACT_PENDINGPASS);
+// 客户管理-详情页-合同管理 1268
+router.post(markUri + '/customer/compact/detail', customerCtrl.VIEW_CUSTOMER_COMPACT_DETAIL);
 // 客户-合同管理-同意页面 1264
 router.post(markUri + '/customer/compact/agree', customerCtrl.VIEW_CUSTOMER_COMPACT_AGREE);
 // 客户-合同管理-不同意页面 1265
@@ -100,6 +105,8 @@ router.all(markUri + '/customer/requestpayout/pendingAudit', customerCtrl.VIEW_C
 router.all(markUri + '/customer/requestpayout/pass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_PASS);
 // 客户-请款管理-未通过 1205
 router.all(markUri + '/customer/requestpayout/unpass', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_UNPASS);
+// 客户管理-详情页-请款管理 1112
+router.post(markUri + '/customer/requestpayout/detail', customerCtrl.VIEW_CUSTOMER_REQUESTPAYOUT_DETAIL);
 // 客户-请款管理-待请款-确认提交页面 1220
 router.post(markUri + '/customer/requestpayout/affirmSubmit', customerCtrl.VIEW_CUSTOMER_RESQUESTPAYOUT_AFFIRMSUBMIT);
 // 客户-请款管理-待请款-不同意页面 1116
@@ -122,6 +129,8 @@ router.all(markUri + '/customer/approval/pass', customerCtrl.VIEW_CUSTOMER_APPRO
 router.all(markUri + '/customer/approval/unpass', customerCtrl.VIEW_CUSTOMER_APPROVAL_UNPASS);
 // 客户-审批管理-已回款 1164
 router.all(markUri + '/customer/approval/return', customerCtrl.VIEW_CUSTOMER_APPROVAL_RETURN);
+// 客户管理-详情页-审批管理 1166
+router.post(markUri + '/customer/approval/detail', customerCtrl.VIEW_CUSTOMER_APPROVAL_DETAIL);
 // 客户-审批管理-待审核-同意页面 1168
 router.post(markUri + '/customer/approval/agree', customerCtrl.VIEW_CUSTOMER_APPROVAL_AGREE);
 // 客户-审批管理-待审核-不同意页面 1168
@@ -142,6 +151,8 @@ router.all(markUri + '/customer/financial/pass', customerCtrl.VIEW_CUSTOMER_FINA
 router.all(markUri + '/customer/financial/unpass', customerCtrl.VIEW_CUSTOMER_FINANCIAL_UNPASS);
 // 客户-款项管理-已回款 1172
 router.all(markUri + '/customer/financial/return', customerCtrl.VIEW_CUSTOMER_FINANCIAL_RETURN);
+// 客户管理-详情页-款项管理 1173
+router.post(markUri + '/customer/financial/detail', customerCtrl.VIEW_CUSTOMER_FINANCIAL_DETAIL);
 // 客户-款项管理-待回款-已回款页面 1214
 router.post(markUri + '/customer/financial/returnResult', customerCtrl.VIEW_CUSTOMER_FINANCIAL_RETURNRESULT);
 // 客户-款项管理-待审批-同意页面 1175
@@ -158,6 +169,8 @@ router.get(markUri + '/customer/pigeonhole/system', customerCtrl.VIEW_CUSTOMER_P
 router.all(markUri + '/customer/pigeonhole/pending', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_PENDING);
 // 客户-归档管理-已归档 1178
 router.all(markUri + '/customer/pigeonhole/archived', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_ARCHIVED);
+// 客户管理-详情页-归档管理 1179
+router.post(markUri + '/customer/pigeonhole/detail', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_DETAIL);
 // 客户-归档管理-已归档-通知所需材料页面 1117
 router.post(markUri + '/customer/pigeonhole/notifyMaterial', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_NOTIFYMATERIAL);
 
@@ -181,24 +194,22 @@ router.post(markUri + '/customer/otherfund/transfer', customerCtrl.VIEW_CUSTOMER
 
 
 
+// 商户-商户管理-主导航跳转 1366
+router.get(markUri + '/merchants/system', merchantsCtrl.VIEW_MERCHANTS_SYSTEM);
+// 商户-商户管理-侧导航跳转 1367
+router.all(markUri + '/merchants/manage/system', merchantsCtrl.VIEW_MERCHANTS_MANAGE_SYSTEM);
+// 商户-商户管理-待审核 1370
+router.all(markUri + '/merchants/pendingAudit', merchantsCtrl.VIEW_MERCHANTS_PENDINGAUDIT);
+// 商户-商户管理-已通过 1371
+router.all(markUri + '/merchants/pass', merchantsCtrl.VIEW_MERCHANTS_PASS);
+// 商户-商户管理-未通过 1372
+router.all(markUri + '/merchants/unpass', merchantsCtrl.VIEW_MERCHANTS_UNPASS);
+// 商户-商户管理-未备案 1369
+router.all(markUri + '/merchants/norecords', merchantsCtrl.VIEW_MERCHANTS_NORECORDS);
+// 商户-商户管理-备案管理 1368
+router.all(markUri + '/records/manage', merchantsCtrl.VIEW_RECORDS_MANAGE);
 
 
-
-
-
-
-
-
-// 客户管理-详情页-合同管理 1268
-router.post('/customer/compact/detail', customerCtrl.VIEW_CUSTOMER_COMPACT_DETAIL);
-// 客户管理-详情页-请款管理 1112
-router.post('/customer/requestpayout/detail', customerCtrl.VIEW_CUSTOMER_REQUESTPAYOUT_DETAIL);
-// 客户管理-详情页-审批管理 1166
-router.post('/customer/approval/detail', customerCtrl.VIEW_CUSTOMER_APPROVAL_DETAIL);
-// 客户管理-详情页-款项管理 1173
-router.post('/customer/financial/detail', customerCtrl.VIEW_CUSTOMER_FINANCIAL_DETAIL);
-// 客户管理-详情页-归档管理 1179
-router.post('/customer/pigeonhole/detail', customerCtrl.VIEW_CUSTOMER_PIGEONHOLE_DETAIL);
 
 
 

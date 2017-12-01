@@ -1,0 +1,98 @@
+<div class="filtrate">
+    <div class="filtrate merchants_filtrate">
+        <div class="filtrate_item select_item  inline_block">
+            <div class="conditions_name inline_block" style="vertical-align: top;">业务类型：</div>
+            <select name="car_type" class="filtrate_select" id="typeBusiness">
+                <option value="">全部</option>
+                {{#if (car_type === 0) }}
+                    <option selected value="0">新车</option>
+                {{elseif (car_type === 1) }}
+                    <option selected value="1">二手车</option>
+                {{elseif (car_type === 2) }}
+                    <option selected value="2">新车&二手车</option>
+                {{/if}}
+            </select>
+        </div>
+        <div class="filtrate_item select_item inline_block">
+            <div class="conditions_name inline_block" style="vertical-align: top;">城市：</div>
+            <select name="city_id"  class="filtrate_select city_select" id="cityeSelect">
+                <option value="">全部</option>
+                {{#each (cityList) }}
+                    {{#if (this.id === city_id) }}
+                        <option value="{{this.id}}" selected="selected">{{this.name}}</option>
+                    {{else}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                    {{/if}}
+                {{/each}}
+            </select>
+        </div>
+        <div class="filtrate_item select_item inline_block">
+            <div class="conditions_name inline_block" style="vertical-align: top;">状态：</div>
+            <select name="status"  class="filtrate_select merchants_state" id="merchantsState">
+                <option value="">全部</option>
+                {{#each (statusList) }}
+                    {{#if (this.id === status) }}
+                        <option value="{{this.id}}" selected="selected">{{this.value}}</option>
+                    {{else}}
+                        <option value="{{this.id}}">{{this.value}}</option>
+                    {{/if}}
+                {{/each}}
+            </select>
+        </div>
+        <div class="filtrate_item select_item inline_block">
+            <div class="conditions_name inline_block" style="vertical-align: top;">拥有类型：</div>
+            <select name="own_type"  class="filtrate_select have_type" id="hadType">
+                <option value="">全部</option>
+                {{#if (own_type === 2) }}
+                    <option selected value="2">公海</option>
+                {{elseif (own_type === 1) }}
+                    <option selected value="1">私海</option>
+                {{/if}}
+            </select>
+        </div>
+        <div class="filtrate_item select_item inline_block">
+            <div class="conditions_name inline_block" style="vertical-align: top;">标签：</div>
+            <select name="label_id"  class="filtrate_select merchants_tags" id="filtrate_tags">
+                <option value="">全部</option>
+                {{#each (supplierLabel) }}
+                    {{#if (this.label_id === label_id) }}
+                        <option value="{{this.label_id}}" selected="selected">{{this.label_name}}</option>
+                    {{else}}
+                        <option value="{{this.label_id}}">{{this.label_name}}</option>
+                    {{/if}}
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="filtrate_item first_letter_conditions">
+            <div class="conditions_name  inline_block lf">商户名称：</div>
+            <div class="filtrate_box  inline_block">
+                <a href="javascript:;" class="conditions_item choose_all letter_conditions {{#if (condition.start_with.length <= 0 || condition.start_with === '') }}active{{/if}}">全部</a>
+                {{#each (initial_list) }}
+                    <a href="javascript:;" class="conditions_item letter_conditions">{{this}}</a>
+                {{/each}}
+            </div>
+        </div>
+        <div class="filtrate_item checked_first_letter">
+            <ul class="letter_list">
+                {{#each (start_with_list) }}
+                    <li class="letter_item" data-value="{{this}}">
+                        <span class="letter_val">{{this}}</span>
+                        <em class="remove_btn"></em>
+                    </li>
+                {{/each}}
+                <li class="error_msg" style="line-height: 26px;">(最多选择10个)</li>
+            </ul>
+        </div>
+
+        <div class="btn_box text_right">
+            <a href="javascript:" class="btn bg_btn cancel merchants_search_cancel">清空</a>
+            <a href="javascript:" class="btn orange_btn confirm merchants_search_confirm">筛选</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // 1: 客户订单；2：商户列表
+    var FILTRATETYPE = 2;
+</script>

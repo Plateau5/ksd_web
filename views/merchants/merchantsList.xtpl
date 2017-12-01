@@ -1,0 +1,60 @@
+<!-- 商户列表页 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include ("./../inc/cssSources")}}
+    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="/static/css/merchants.css">
+    <title>商户管理-待审核</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include ('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include ('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main merchants">
+            <form action="{{markUri}}/supplier/audit/list" method="post" id="form_search" role="form">
+            </form>
+            {{include('./../inc/operationCategory')}}
+            <div class="filtrate">
+                {{include ('./../inc/filtrateMerchants')}}
+            </div>
+            <div class="merchants_list">
+                <form action="{{markUri}}/supplier/detail" method="post" id="">
+                    <!--查看详情传向后端的数据-->
+                    <input type="hidden" name="active" value="">
+                    <input type="hidden" name="supplier_id" value="" id="supplierId"><!--商户Id-->
+                </form>
+                {{include ('./../inc/merchantsList')}}
+                <!--分页部分 Begin-->
+
+                <div class="page_box">
+                    {{include('./../inc/pagination')}}
+                </div>
+                <!--分页部分 End-->
+            </div>
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+</div>
+</body>
+{{include ('./../inc/jsSources')}}
+<script src="/static/js/merchants.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    (function ($) {
+
+        $(function() {
+            goMerchantDetail();
+        });
+    })(jQuery,undefined);
+</script>
+</html>

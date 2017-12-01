@@ -2,8 +2,8 @@
 <div class="contacts slide_nav" style="display: none;">
     <div class="slide_nav_title bold">首页</div>
     <ul class="slide_nav_bar">
-        <li class="nav_item {{#if(startWith('/home'))}}active{{/if}}">
-            <a href="/home" class="">待办事项</a>
+        <li class="nav_item {{#if(startWith(markUri + '/home'))}}active{{/if}}">
+            <a href="{{markUri}}/home" class="">待办事项</a>
         </li>
     </ul>
 </div>
@@ -12,37 +12,37 @@
     <div class="slide_nav_title bold">客户管理</div>
     <ul class="slide_nav_bar">
         {{#if (verifyCode(1016)) }}
-            <li class="nav_item {{#if (startWith('/customer/loan')) }}active{{/if}}">
-                <a href="/customer/loan/system" class="">贷款管理</a>
+            <li class="nav_item {{#if (startWith(markUri + '/customer/loan')) }}active{{/if}}">
+                <a href="{{markUri}}/customer/loan/system" class="">贷款管理</a>
             </li>
         {{/if}}
         {{#if (verifyCode(1260)) }}
-            <li class="nav_item {{#if (startWith('/customer/compact')) }}active{{/if}}">
-                <a href="/customer/compact/system" class="">合同管理</a>
+            <li class="nav_item {{#if (startWith(markUri + '/customer/compact')) }}active{{/if}}">
+                <a href="{{markUri}}/customer/compact/system" class="">合同管理</a>
             </li>
         {{/if}}
         {{#if (verifyCode(1225)) }}
-            <li class="nav_item {{#if (startWith('/customer/requestpayout')) }}active{{/if}}">
-                <a href="/customer/requestpayout/system" class="">请款管理</a>
+            <li class="nav_item {{#if (startWith(markUri + '/customer/requestpayout')) }}active{{/if}}">
+                <a href="{{markUri}}/customer/requestpayout/system" class="">请款管理</a>
             </li>
         {{/if}}
         {{#if (verifyCode(1226)) }}
-            <li class="nav_item {{#if (startWith('/customer/approval')) }}active{{/if}}">
-                <a href="/customer/approval/system" class="">审批管理</a>
+            <li class="nav_item {{#if (startWith(markUri + '/customer/approval')) }}active{{/if}}">
+                <a href="{{markUri}}/customer/approval/system" class="">审批管理</a>
             </li>
         {{/if}}
         {{#if (verifyCode(1227)) }}
-            <li class="nav_item {{#if (startWith('/customer/financial')) }}active{{/if}}">
+            <li class="nav_item {{#if (startWith(markUri + '/customer/financial')) }}active{{/if}}">
                 <a href="{{markUri}}/customer/financial/system" class="">款项管理</a>
             </li>
         {{/if}}
         {{#if (verifyCode(1228)) }}
-            <li class="nav_item {{#if (startWith('/customer/pigeonhole')) }}active{{/if}}">
-                <a href="/customer/pigeonhole/system" class="">归档管理</a>
+            <li class="nav_item {{#if (startWith(markUri + '/customer/pigeonhole')) }}active{{/if}}">
+                <a href="{{markUri}}/customer/pigeonhole/system" class="">归档管理</a>
             </li>
         {{/if}}
         {{#if (verifyCode(1330)) }}
-            <li class="nav_item {{#if (startWith('/customer/otherfund')) }}active{{/if}}">
+            <li class="nav_item {{#if (startWith(markUri + '/customer/otherfund')) }}active{{/if}}">
                 <a href="{{markUri}}/customer/otherfund/system" class="">其他管理</a>
             </li>
         {{/if}}
@@ -52,8 +52,8 @@
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">机构管理</div>
     <ul class="slide_nav_bar">
-        <li class="nav_item {{#if(startWith('/organization'))}}active{{/if}}">
-            <a href="/organization/list" class="">金融机构</a>
+        <li class="nav_item {{#if(startWith(markUri + '/organization'))}}active{{/if}}">
+            <a href="{{markUri}}/organization/list" class="">金融机构</a>
         </li>
     </ul>
 </div>
@@ -61,8 +61,8 @@
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">流程管理</div>
     <ul class="slide_nav_bar">
-        <li class="nav_item {{#if(startWith('/workflow'))}}active{{/if}}">
-            <a href="/workflow/list" class="">审批流程</a>
+        <li class="nav_item {{#if(startWith(markUri + '/workflow'))}}active{{/if}}">
+            <a href="{{markUri}}/workflow/list" class="">审批流程</a>
         </li>
     </ul>
 </div>
@@ -70,8 +70,8 @@
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">问题管理</div>
     <ul class="slide_nav_bar">
-        <li class="nav_item {{#if(startWith('/question'))}}active{{/if}}">
-            <a href="/question/list" class="">问题列表</a>
+        <li class="nav_item {{#if(startWith(markUri + '/question'))}}active{{/if}}">
+            <a href="{{markUri}}/question/list" class="">问题列表</a>
         </li>
     </ul>
 </div>
@@ -79,11 +79,11 @@
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">仓库管理</div>
     <ul class="slide_nav_bar">
-        <li class="nav_item {{#if(startWith('/gps'))}}active{{/if}}">
-            <a href="/gps/warehouse/list" class="">GPS仓库</a>
+        <li class="nav_item {{#if(startWith(markUri + '/gps'))}}active{{/if}}">
+            <a href="{{markUri}}/gps/warehouse/list" class="">GPS仓库</a>
         </li>
-        <li class="nav_item {{#if(startWith('/administrative'))}}active{{/if}}">
-            <a href="/administrative/warehouse/list" class="">行政仓库</a>
+        <li class="nav_item {{#if(startWith(markUri + '/administrative'))}}active{{/if}}">
+            <a href="{{markUri}}/administrative/warehouse/list" class="">行政仓库</a>
         </li>
     </ul>
 </div>
@@ -91,11 +91,11 @@
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">人员信息</div>
     <ul class="slide_nav_bar">
-        <li class="nav_item {{#if(startWith('/employee'))}}active{{/if}}">
-            <a href="/employee/list" class="">同事</a>
+        <li class="nav_item {{#if(startWith(markUri + '/employee'))}}active{{/if}}">
+            <a href="{{markUri}}/employee/list" class="">同事</a>
         </li>
-        <li class="nav_item {{#if(startWith('/department'))}}active{{/if}}">
-            <a href="/department" class="">部门</a>
+        <li class="nav_item {{#if(startWith(markUri + '/department'))}}active{{/if}}">
+            <a href="{{markUri}}/department" class="">部门</a>
         </li>
     </ul>
 </div>
@@ -103,11 +103,11 @@
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">数据统计</div>
     <ul class="slide_nav_bar">
-        <li class="nav_item {{#if(startWith('/statistics/business'))}}active{{/if}}">
-            <a href="/statistics/business/list" class="">业务统计</a>
+        <li class="nav_item {{#if(startWith(markUri + '/statistics/business'))}}active{{/if}}">
+            <a href="{{markUri}}/statistics/business/list" class="">业务统计</a>
         </li>
-        <li class="nav_item {{#if(startWith('/statistics/person || /statistics/personal'))}}active{{/if}}">
-            <a href="/statistics/person/system" class="">人效统计</a>
+        <li class="nav_item {{#if(startWith(markUri + '/statistics/person' || markUri + '/statistics/personal'))}}active{{/if}}">
+            <a href="{{markUri}}/statistics/person/system" class="">人效统计</a>
         </li>
     </ul>
 </div>
@@ -115,11 +115,11 @@
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">系统管理</div>
     <ul class="slide_nav_bar">
-        <li class="nav_item {{#if(startWith('/company'))}}active{{/if}}">
+        <li class="nav_item {{#if(startWith(markUri + '/company'))}}active{{/if}}">
             <a href="" class="">租户管理</a>
         </li>
-        <li class="nav_item {{#if(startWith('/feedback'))}}active{{/if}}">
-            <a href="/feedback/list" class="">意见反馈</a>
+        <li class="nav_item {{#if(startWith(markUri + '/feedback'))}}active{{/if}}">
+            <a href="{{markUri}}/feedback/list" class="">意见反馈</a>
         </li>
     </ul>
 </div>
@@ -127,11 +127,11 @@
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">个人中心</div>
     <ul class="slide_nav_bar">
-        <li class="nav_item {{#if(startWith('/userCenter/information'))}}active{{/if}}">
-            <a href="/userCenter/information" class="">人员信息</a>
+        <li class="nav_item {{#if(startWith(markUri + '/userCenter/information'))}}active{{/if}}">
+            <a href="{{markUri}}/userCenter/information" class="">人员信息</a>
         </li>
-        <li class="nav_item {{#if(startWith('/userCenter/resetPassword'))}}active{{/if}}">
-            <a href="/userCenter/resetPassword" class="">修改密码</a>
+        <li class="nav_item {{#if(startWith(markUri + '/userCenter/resetPassword'))}}active{{/if}}">
+            <a href="{{markUri}}/userCenter/resetPassword" class="">修改密码</a>
         </li>
     </ul>
 </div>
@@ -139,12 +139,28 @@
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">权限管理</div>
     <ul class="slide_nav_bar">
-        <li class="nav_item {{#if(startWith('/privilege/roles/list'))}}active{{/if}}">
-            <a href="/privilege/roles/list" class="">角色管理</a>
+        <li class="nav_item {{#if(startWith(markUri + '/privilege/roles/list'))}}active{{/if}}">
+            <a href="{{markUri}}/privilege/roles/list" class="">角色管理</a>
         </li>
-        <li class="nav_item {{#if(startWith('/privilege/user/list'))}}active{{/if}}">
-            <a href="/privilege/user/list" class="">人员管理</a>
+        <li class="nav_item {{#if(startWith(markUri + '/privilege/user/list'))}}active{{/if}}">
+            <a href="{{markUri}}/privilege/user/list" class="">人员管理</a>
         </li>
     </ul>
 </div>
+{{ elseif (startWith('/merchants'))}}
+    <div id="slide_nav" class="contacts slide_nav">
+        <div class="slide_nav_title bold">商户</div>
+        <ul class="slide_nav_bar">
+            {{#if (verifyCode(1367)) }}
+                <li class="nav_item {{#if(startWith(markUri + '/merchants'))}}active{{/if}}">
+                    <a href="{{markUri}}/merchants/manage/system" class="">商户管理</a>
+                </li>
+            {{/if}}
+            {{#if (verifyCode(1368)) }}
+                <li class="nav_item {{#if(startWith(markUri + '/records'))}}active{{/if}}">
+                    <a href="{{markUri}}/records/manager" class="">备案管理</a>
+                </li>
+            {{/if}}
+        </ul>
+    </div>
 {{/if}}
