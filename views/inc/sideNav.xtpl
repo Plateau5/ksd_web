@@ -99,7 +99,7 @@
         </li>
     </ul>
 </div>
-{{ elseif (startWith('/statistics'))}}
+{{ elseif (startWith(markUri + '/statistics'))}}
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">数据统计</div>
     <ul class="slide_nav_bar">

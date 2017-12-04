@@ -17,14 +17,14 @@ exports.VIEW_STATISTICS_SYSTEM = function(req, res, next) {
 
 // 数据统计-业务统计跳转
 exports.VIEW_STATISTICS_BUSINESS_LIST = function(req, res, next) {
-    res.render('./dataStatistics/businessList', { title : '数据统计-业务量统计'});
+    res.render('./dataStatistics/businessList', { title : '数据统计-业务量统计', markUri : markUri});
 };
 
 // 数据统计-业务量统计-业务量统计视图数据获取
 exports.API_STATISTICS_BUSINESS_DATA = function(req, res, next) {
     var body = req.body;
     common.httpRequest({
-        url : contextPath + '/statistics/business',
+        url : contextPath + '/api/statistics/business',
         formData : body
     }, function (result) {
         var data = result;
@@ -40,7 +40,7 @@ exports.API_STATISTICS_BUSINESS_DATA = function(req, res, next) {
 exports.API_STATISTICS_CITY_DATA = function(req, res, next) {
     var body = req.body;
     common.httpRequest({
-        url : contextPath + '/statistics/city',
+        url : contextPath + '/api/statistics/city',
         formData : body
     }, function (result) {
         var data = result;
@@ -56,7 +56,7 @@ exports.API_STATISTICS_CITY_DATA = function(req, res, next) {
 exports.API_STATISTICS_PRODUCT_DATA = function(req, res, next) {
     var body = req.body;
     common.httpRequest({
-        url : contextPath + '/statistics/product',
+        url : contextPath + '/api/statistics/product',
         formData : body
     }, function (result) {
         var data = result;
@@ -78,12 +78,13 @@ exports.VIEW_STATISTICS_PERSON_SYSTEM = function(req, res, next) {
 exports.VIEW_STATISTICS_PERSON_ORDER = function(req, res, next) {
     var body = req.body;
     common.httpRequest({
-        url : contextPath + '/statistics/person/order',
+        url : contextPath + '/api/statistics/person/order',
         formData : body
     }, function (result) {
         var data = result;
         data.uri = '/statistics/person/order';
         data.title = '数据统计-人效统计';
+        data.markUri = markUri;
         if (data.error_code === 0) {
             res.render('./dataStatistics/personList', data);
         } else {
@@ -96,7 +97,7 @@ exports.VIEW_STATISTICS_PERSON_ORDER = function(req, res, next) {
 exports.VIEW_STATISTICS_PERSON_REQUEST = function(req, res, next) {
     var body = req.body;
     common.httpRequest({
-        url : contextPath + '/statistics/person/request',
+        url : contextPath + '/api/statistics/person/request',
         formData : body
     }, function (result) {
         var data = result;
@@ -114,7 +115,7 @@ exports.VIEW_STATISTICS_PERSON_REQUEST = function(req, res, next) {
 exports.VIEW_STATISTICS_PERSON_PIGEONHOLE = function(req, res, next) {
     var body = req.body;
     common.httpRequest({
-        url : contextPath + '/statistics/person/pigeonhole',
+        url : contextPath + '/api/statistics/person/pigeonhole',
         formData : body
     }, function (result) {
         var data = result;
@@ -132,7 +133,7 @@ exports.VIEW_STATISTICS_PERSON_PIGEONHOLE = function(req, res, next) {
 exports.VIEW_STATISTICS_PERSONAL = function(req, res, next) {
     var body = req.body;
     common.httpRequest({
-        url : contextPath + '/statistics/personal',
+        url : contextPath + '/api/statistics/personal',
         formData : body
     }, function (result) {
         var data = result;
@@ -150,7 +151,7 @@ exports.VIEW_STATISTICS_PERSONAL = function(req, res, next) {
 exports.API_STATISTICS_PERSONAL_ORDER_DATA = function(req, res, next) {
     var body = req.body;
     common.httpRequest({
-        url : contextPath + '/statistics/personal/order',
+        url : contextPath + '/api/statistics/personal/order',
         formData : body
     }, function (result) {
         var data = result;
@@ -166,7 +167,7 @@ exports.API_STATISTICS_PERSONAL_ORDER_DATA = function(req, res, next) {
 exports.API_STATISTICS_PERSONAL_REQUEST_DATA = function(req, res, next) {
     var body = req.body;
     common.httpRequest({
-        url : contextPath + '/statistics/personal/request',
+        url : contextPath + '/api/statistics/personal/request',
         formData : body
     }, function (result) {
         var data = result;
@@ -182,7 +183,7 @@ exports.API_STATISTICS_PERSONAL_REQUEST_DATA = function(req, res, next) {
 exports.API_STATISTICS_PERSONAL_PIGEONHOLE_DATA = function(req, res, next) {
     var body = req.body;
     common.httpRequest({
-        url : contextPath + '/statistics/personal/pigeonhole',
+        url : contextPath + '/api/statistics/personal/pigeonhole',
         formData : body
     }, function (result) {
         var data = result;
@@ -198,7 +199,7 @@ exports.API_STATISTICS_PERSONAL_PIGEONHOLE_DATA = function(req, res, next) {
 exports.VIEW_STATISTICS_PERSONAL_BUSINESS = function(req, res, next) {
     var body = req.body;
     common.httpRequest({
-        url : contextPath + '/statistics/personal/business',
+        url : contextPath + '/api/statistics/personal/business',
         formData : body
     }, function (result) {
         var data = result;

@@ -77,7 +77,7 @@
                             </select>
                         </div>-->
                         <div class="inline_block">
-                            <div class="conditions_name inline_block">机构：</div>
+                            <div class="conditions_name inline_block">机&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;构：</div>
                             <select name="filtrate_audit_type"  data-type="orgType" name="organization_id" class="filtrate_select" id="">
                                 <option value="">全部</option>
                                 {{#each (organizationList) }}
@@ -131,9 +131,10 @@
                 </table>
 
                 {{#if (count === 0) }}
-					<div class="no_list_data">
-						<div class="toast_text">目前还未数据</div>
-					</div>
+                    <div class="no_list_data">
+                        <div class="toast_img"></div>
+                        <div class="toast_text">目前暂无数据……</div>
+                    </div>
 				{{/if}}
             </div>
             <div class="page_box">
