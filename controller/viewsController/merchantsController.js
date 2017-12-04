@@ -78,6 +78,30 @@ exports.VIEW_MERCHANTS_DETAIL = function(req, res, next) {
         page : './merchants/detail'
     }, req, res, next);
 };
+// 商户-商户管理-待审核-同意页面跳转 1395
+exports.VIEW_MERCHANTS_AUDIT_AGREE = function(req, res, next) {
+    common.getPageData({
+        url : '/api/supplier/tocheck/agree',
+        title : '商户管理-审核通过',
+        page : './merchants/agree'
+    }, req, res, next);
+};
+// 商户-商户管理-待审核-不同意页面跳转 1396
+exports.VIEW_MERCHANTS_AUDIT_DISAGREE = function(req, res, next) {
+    common.getPageData({
+        url : '/api/supplier/tocheck/disagree',
+        title : '商户管理-审核不通过',
+        page : './merchants/disagree'
+    }, req, res, next);
+};
+// 商户-商户管理-待审核-不同意页面跳转 1385
+exports.VIEW_MERCHANTS_EDIT = function(req, res, next) {
+    common.getPageData({
+        url : '/api/supplier/toedit',
+        title : '商户管理-编辑商户',
+        page : './merchants/edit'
+    }, req, res, next);
+};
 
 
 

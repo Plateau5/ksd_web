@@ -18,38 +18,35 @@
         {{include ('./../inc/sideNav')}}
         <!---- Part of slide na End ---->
 
-        <input type="hidden" id="supplierId" value="${detail.id}" />
-        <input type="hidden" id="supplierName" value="${detail.name}" />
+        <input type="hidden" id="supplierId" value="{{detail.id}}" />
+        <input type="hidden" id="supplierName" value="{{detail.name}}" />
         <input type="hidden" name="type"/><!--标识：商户标签删除type=1,标签库删除标签type=2，新增公库及商户增加标签type=3，公库增加给商户type=4-->
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
             <div class="crumbs_nav">
-                <a href="{{markUri}}/supplier/manager" class="crumbs_item">商户管理</a>
-                <a href="{{markUri}}${url}" class="crumbs_item">${navigation}</a>
+                <a href="{{markUri}}/merchants/manage/system" class="crumbs_item">商户管理</a>
+                <a href="{{markUri}}${url}" class="crumbs_item">{{navigation}}</a>
                 <a href="javascript:;" class="crumbs_item">查看资料</a>
             </div>
             <div class="merchants_details">
                 <div class="merchant_info">
                     <div class="merchant_photo">
-                        <c:choose>
-                            <c:when test="${not empty detail.image_url}">
-                                <img src="${detail.image_url}" class="img_responsive" alt="商户封面图" target="商户封面图">
-                            </c:when>
-                            <c:otherwise>
-                                <img src="{{markUri}}/static/img/merchant_photo.png" class="img_responsive" alt="商户封面图" target="商户封面图">
-                            </c:otherwise>
-                        </c:choose>
+                        {{#if (!detail.image_url) }}
+                            <img src="{{detail.image_url}}" class="img_responsive" alt="商户封面图" target="商户封面图">
+                        {{else}}
+                            <img src="{{markUri}}/static/img/merchant_photo.png" class="img_responsive" alt="商户封面图" target="商户封面图">
+                        {{/if}}
                     </div>
-                    <div class="name"><em class="name_icon"></em><span>${detail.name}</span></div>
+                    <div class="name"><em class="name_icon"></em><span>{{detail.name}}</span></div>
                     <div class="create_info">
-                        <span class="founder">创建人：<samp>${detail.emp_name}</samp></span>
-                        <span class="create_time">创建时间：<samp>${detail.create_time}</samp></span>
+                        <span class="founder">创建人：<samp>{{detail.emp_name}}</samp></span>
+                        <span class="create_time">创建时间：<samp>{{detail.create_time}}</samp></span>
                         <span class="state">状态：<samp>
-                            <c:forEach items="${supplierStatus}" var="bean">
-                                <c:if test="${bean.id eq detail.status}">
-                                    <td>${bean.value}</td>
-                                </c:if>
-                            </c:forEach>
+                            {{#each (supplierStatus) }}
+                                {{#if (this.id === detail.status) }}
+                                    <td>{{this.value}}</td>
+                                {{/if}}
+                            {{/each}}
                         </samp></span>
                     </div>
 
@@ -57,58 +54,61 @@
                     <div class="tags">
                         <div class="tags_title lf">标&nbsp;&nbsp;&nbsp;签：</div>
                         <div class="tags_manage lf">
-                            <c:if test="${detail.flag eq 2 || detail.flag eq 3 || detail.flag eq 4}">
-                            <ul class="tags_list lf" id="merchantTags">
-                                <c:forEach items="${detail.child_list}" var="bean">
-                                    <li class="tag nowrap lf" data-id="${bean.label_id}">
-                                        <span>${bean.label_name}</span>
-                                        <per:button code="1380">
-                                            <em class="delete_btn"></em>
-                                        </per:button>
-                                    </li>
-                                </c:forEach>
-                                    <!--标签管理按钮-->
-                                <per:button code="1380">
-                                    <li class="tag_manage_btn lf">
-                                        <input type="hidden" name="name"/><!--标签名字-->
-                                        <span style="user-select: none;">管理</span>
-                                        <div class="tags_warehouse" style="display: none;">
-                                            <div class="add_container">
-                                                <input type="text" name="" id="addTag" autofocus="autofocus" maxlength="20" value="" placeholder="添加标签" />
-                                                <a href="" class="create_tag_btn">确认</a>
+                            {{#if (detail.flag === 2 || detail.flag === 3 || detail.flag === 4) }}
+                                <ul class="tags_list lf" id="merchantTags">
+                                    {{#each (detail.child_list) }}
+                                        <li class="tag nowrap lf" data-id="{{this.label_id}}">
+                                            <span>{{this.label_name}}</span>
+                                            {{#if (verifyCode(1380)) }}
+                                                <em class="delete_btn"></em>
+                                            {{/if}}
+                                        </li>
+                                    {{/each}}
+                                        <!--标签管理按钮-->
+                                    {{#if (verifyCode (1380)) }}
+                                        <li class="tag_manage_btn lf">
+                                            <input type="hidden" name="name"/><!--标签名字-->
+                                            <span style="user-select: none;">管理</span>
+                                            <div class="tags_warehouse" style="display: none;">
+                                                <div class="add_container">
+                                                    <input type="text" name="" id="addTag" autofocus="autofocus" maxlength="20" value="" placeholder="添加标签" />
+                                                    <a href="" class="create_tag_btn">确认</a>
+                                                </div>
+                                                <ul class="warehouse_list">
+                                                    <!--todo 优化判断方式-->
+                                                    {{#each (supplierLabel) }}
+                                                        <li class="tag_item nowrap
+                                                        {{#each (detail.child_list) }}
+                                                            {{#if (../label_id === this.label_id) }}
+                                                                active
+                                                            {{/if}}
+                                                        {{/each}}
+                                                        " data-id="{{this.label_id}}" data-name="{{this.label_name}}" title="{{this.label_name}}">
+                                                            <span>{{this.label_name}}</span>
+                                                            <a href="javascript:" class="delete_tag_btn"></a>
+                                                        </li>
+                                                    {{/each}}
+                                                </ul>
                                             </div>
-                                            <ul class="warehouse_list">
-                                                <c:forEach items="${supplierLabel}" var="bean">
-                                                    <li class="tag_item nowrap
-	                                                <c:forEach items="${detail.child_list}" var="bean2">
-	                                                    <c:if test="${bean.label_id eq bean2.label_id}">active</c:if>
-	                                                </c:forEach>
-	                                                " data-id="${bean.label_id}" data-name="${bean.label_name}" title="${bean.label_name}">
-                                                        <span>${bean.label_name}</span>
-                                                        <a href="javascript:" class="delete_tag_btn"></a>
-                                                    </li>
-                                                </c:forEach>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </per:button>
-                            </ul>
-                            </c:if>
-                            <c:if test="${detail.flag eq 1}">--</c:if>
+                                        </li>
+                                    {{/if}}
+                                </ul>
+                            {{/if}}
+                            {{#if (detail.flag === 1) }}--{{/if}}
                         </div>
                     </div>
 
                     <!-- 编辑删除操作 -->
-                    <c:if test="${detail.flag eq 3}">
+                    {{#if (detail.flag === 3) }}
                         <div class="btn_box text_left setting_merchant">
-                                <per:button code="1385">
+                                {{#if (verifyCode(1385)) }}
                                     <a href="javascript:" class="edit_sm_btn">编辑</a>
-                                </per:button>
-                                <per:button code="1060">
+                                {{/if}}
+                                {{#if (verifyCode(1060)) }}
                                     <a href="javascript:" class="delete_sm_btn">删除</a>
-                                </per:button>
+                                {{/if}}
                         </div>
-                    </c:if>
+                    {{/if}}
                 </div>
                 <div class="merchant_desc">
                     <!-- 基本信息部分 Begin -->
@@ -122,76 +122,87 @@
                                             <!-- If the text of 'item_name' is too long, add 'long_text' class to it. -->
                                             <div class="item_name">业务类型：</div>
                                             <div class="item_value">
-                                                <c:choose>
-                                                    <c:when test="${empty detail.car_type}">--</c:when>
-                                                    <c:when test="${detail.car_type  eq 0}">新车</c:when>
-                                                    <c:when test="${detail.car_type  eq 1}">二手车</c:when>
-                                                    <c:when test="${detail.car_type  eq 2}">新车&二手车</c:when>
-                                                </c:choose>
+                                                {{#if (!detail.car_type && detail.car_type !== 0) }}
+                                                    --
+                                                {{elseif (detail.car_type === 0) }}
+                                                    新车
+                                                {{elseif (detail.car_type === 1) }}
+                                                    二手车
+                                                {{elseif (detail.car_type === 2) }}
+                                                    新车&二手车
+                                                {{/if}}
                                             </div>
                                         </li>
                                         <li class="item_row">
                                             <div class="item_name">店面类型：</div>
                                             <div class="item_value">
-                                                <c:choose>
-                                                    <c:when test="${empty detail.type_value}">--</c:when>
-                                                    <c:otherwise>${detail.type_value}</c:otherwise>
-                                                </c:choose>
+                                                {{#if (!detail.type_value || detail.type_value === '' || detail.type_value.length <= 0) }}
+                                                    --
+                                                {{else}}
+                                                    {{detail.type_value}}
+                                                {{/if}}
                                             </div>
                                         </li>
                                         <li class="item_row">
                                             <div class="item_name">拥有类型：</div>
                                             <div class="item_value">
-                                                <c:choose>
-                                                    <c:when test="${empty detail.own_type}">--</c:when>
-                                                    <c:when test="${detail.own_type  eq 1}">私海</c:when>
-                                                    <c:when test="${detail.own_type  eq 2}">公海</c:when>
-                                                </c:choose>
+                                                {{#if (!detail.own_type || detail.own_type === '' || detail.own_type.length <= 0) }}
+                                                    --
+                                                {{elseif (detail.own_type === 1) }}
+                                                    私海
+                                                {{elseif (detail.own_type === 2) }}
+                                                    公海
+                                                {{/if}}
                                             </div>
                                         </li>
                                         <li class="item_row">
                                             <div class="item_name">拥有者：</div>
                                             <div class="item_value">
-                                                <c:choose>
-                                                    <c:when test="${empty detail.emp_str}">--</c:when>
-                                                    <c:otherwise>${detail.emp_str}</c:otherwise>
-                                                </c:choose>
+                                                {{#if (!detail.emp_str || detail.emp_str === '' || detail.emp_str.length <= 0) }}
+                                                    --
+                                                {{else}}
+                                                    {{detail.emp_str}}
+                                                {{/if}}
                                             </div>
                                         </li>
                                         <li class="item_row">
                                             <div class="item_name">月销量：</div>
                                             <div class="item_value">
-                                                <c:choose>
-                                                    <c:when test="${empty detail.sales_month_value}">--</c:when>
-                                                    <c:otherwise>${detail.sales_month_value}</c:otherwise>
-                                                </c:choose>
+                                                {{#if (!detail.sales_month_value || detail.sales_month_value === '' || detail.sales_month_value.length <= 0) }}
+                                                    --
+                                                {{else}}
+                                                    {{detail.sales_month_value}}
+                                                {{/if}}
                                             </div>
                                         </li>
                                         <li class="item_row">
                                             <div class="item_name">公司人数：</div>
                                             <div class="item_value">
-                                                <c:choose>
-                                                    <c:when test="${empty detail.company_num}">--</c:when>
-                                                    <c:otherwise>${detail.company_num}人</c:otherwise>
-                                                </c:choose>
+                                                {{#if ((!detail.company_num || detail.company_num === '' || detail.company_num.length <= 0) && detail.company_num !== 0) }}
+                                                    --
+                                                {{else}}
+                                                    {{detail.company_num}} 人
+                                                {{/if}}
                                             </div>
                                         </li>
                                         <li class="item_row">
                                             <div class="item_name">城市：</div>
                                             <div class="item_value">
-                                                <c:choose>
-                                                    <c:when test="${empty detail.city_name}">--</c:when>
-                                                    <c:otherwise>${detail.city_name}</c:otherwise>
-                                                </c:choose>
+                                                {{#if (!detail.city_name || detail.city_name === '' || detail.city_name.length <= 0) }}
+                                                    --
+                                                {{else}}
+                                                    {{detail.city_name}}
+                                                {{/if}}
                                             </div>
                                         </li>
                                         <li class="item_row">
                                             <div class="item_name">地址：</div>
                                             <div class="item_value">
-                                                <c:choose>
-                                                    <c:when test="${empty detail.address}">--</c:when>
-                                                    <c:otherwise>${detail.address}</c:otherwise>
-                                                </c:choose>
+                                                {{#if (!detail.address || detail.address === '' || detail.address.length <= 0) }}
+                                                    --
+                                                {{else}}
+                                                    {{detail.address}}
+                                                {{/if}}
                                             </div>
                                         </li>
                                     </ul>
@@ -204,75 +215,84 @@
                     <div class="details_item base_info">
                         <div class="detail_title">联系人信息</div>
                         <div class="detail_box">
-                            <c:forEach items="${detail.link_data}" var="bean" varStatus="link">
+                            {{#each (detail.link_data) }}
                                 <div class="classify_item">
-                                    <c:choose>
-                                        <c:when test="${fn:length(detail.link_data) eq 1}"><div class="classify_title">联系人</div></c:when>
-                                        <c:when test="${fn:length(detail.link_data) > 1}"><div class="classify_title">联系人(${link.count})</div></c:when>
-                                    </c:choose>
+                                    {{#if (detail.link_data.length === 1) }}
+                                        <div class="classify_title">联系人</div>
+                                    {{elseif (detail.link_data.length > 1)}}
+                                        <div class="classify_title">联系人({{xindex + 1}})</div>
+                                    {{/if}}
                                     <div class="classify_content">
                                         <ul class="items_list">
                                             <li class="item_row">
                                                 <!-- If the text of 'item_name' is too long, add 'long_text' class to it. -->
                                                 <div class="item_name">姓名：</div>
                                                 <div class="item_value">
-                                                    <c:choose>
-                                                        <c:when test="${empty bean.name}">--</c:when>
-                                                        <c:otherwise>${bean.name}</c:otherwise>
-                                                    </c:choose>
+                                                    {{#if (!this.name || this.name === '' || this.name.length <= 0) }}
+                                                        --
+                                                    {{else}}
+                                                        {{this.name}}
+                                                    {{/if}}
                                                 </div>
                                             </li>
                                             <li class="item_row">
                                                 <div class="item_name">手机：</div>
                                                 <div class="item_value">
-                                                    <c:choose>
-                                                        <c:when test="${empty bean.phone}">--</c:when>
-                                                        <c:otherwise>${bean.phone}</c:otherwise>
-                                                    </c:choose>
+                                                    {{#if (!this.phone || this.phone === '' || this.phone.length <= 0) }}
+                                                        --
+                                                    {{else}}
+                                                        {{this.phone}}
+                                                    {{/if}}
                                                 </div>
                                             </li>
                                             <li class="item_row">
                                                 <div class="item_name">职务：</div>
                                                 <div class="item_value">
-                                                    <c:if test="${empty bean.position_id}">--</c:if>
-                                                    <c:forEach items="${position}" var="beanPosition">
-                                                        <c:if test="${beanPosition.id eq bean.position_id}">
-                                                            ${beanPosition.value}
-                                                        </c:if>
-                                                    </c:forEach>
+                                                    {{#if (!this.position_id || this.position_id === '' || this.position_id.length <= 0) }}
+                                                        --
+                                                    {{else}}
+                                                        {{#each (position) }}
+                                                            {{#if (this.id === ../position_id) }}
+                                                                {{this.value}}
+                                                            {{/if}}
+                                                        {{/each}}
+                                                    {{/if}}
                                                 </div>
                                             </li>
                                             <li class="item_row">
                                                 <div class="item_name">微信：</div>
                                                 <div class="item_value">
-                                                    <c:choose>
-                                                        <c:when test="${empty bean.wechat}">--</c:when>
-                                                        <c:otherwise>${bean.wechat}</c:otherwise>
-                                                    </c:choose>
+                                                    {{#if (!this.wechat || this.wechat === '' || this.wechat.length <= 0) }}
+                                                        --
+                                                    {{else}}
+                                                        {{this.wechat}}
+                                                    {{/if}}
                                                 </div>
                                             </li>
                                             <li class="item_row">
                                                 <div class="item_name">生日：</div>
                                                 <div class="item_value">
-                                                    <c:choose>
-                                                        <c:when test="${empty bean.birthday}">--</c:when>
-                                                        <c:otherwise>${bean.birthday}</c:otherwise>
-                                                    </c:choose>
+                                                    {{#if (!this.birthday || this.birthday === '' || this.birthday.length <= 0) }}
+                                                        --
+                                                    {{else}}
+                                                        {{this.birthday}}
+                                                    {{/if}}
                                                 </div>
                                             </li>
                                             <li class="item_row whole_line">
                                                 <div class="item_name">备注：</div>
                                                 <div class="item_value">
-                                                    <c:choose>
-                                                        <c:when test="${empty bean.remark}">--</c:when>
-                                                        <c:otherwise>${bean.remark}</c:otherwise>
-                                                    </c:choose>
+                                                    {{#if (!this.remark || this.remark === '' || this.remark.length <= 0) }}
+                                                        --
+                                                    {{else}}
+                                                        {{this.remark}}
+                                                    {{/if}}
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                            </c:forEach>
+                            {{/each}}
                         </div>
                     </div>
                     <!-- 联系人信息部分 End -->
@@ -287,146 +307,150 @@
                                         <li class="item_row">
                                             <div class="item_name">备案类型：</div>
                                             <div class="item_value">
-                                                <c:choose>
-                                                    <c:when test="${detail.id_type  eq 1}">
-                                                        营业执照
-                                                    </c:when>
-                                                    <c:when test="${detail.id_type  eq 2}">
-                                                        身份证
-                                                    </c:when>
-                                                    <c:otherwise>--</c:otherwise>
-                                                </c:choose>
+                                                {{#if (detail.id_type === 1) }}
+                                                    营业执照
+                                                {{elseif (detail.id_type === 1) }}
+                                                    身份证
+                                                {{else}}
+                                                    --
+                                                {{/if}}
                                             </div>
                                         </li>
                                         <li class="item_row">
                                             <div class="item_name">证件号码：</div>
                                             <div class="item_value">
-                                                <c:choose>
-                                                    <c:when test="${empty detail.id_num}">--</c:when>
-                                                    <c:otherwise>${detail.id_num}</c:otherwise>
-                                                </c:choose>
+                                                {{#if (!detail.id_num || detail.id_num === '' || detail.id_num.length <= 0) }}
+                                                    --
+                                                {{else}}
+                                                    {{detail.id_num}}
+                                                {{/if}}
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                            <c:if test="${ detail.flag eq 2 || detail.flag eq 3 || detail.flag eq 4}">
+                            {{#if (detail.flag === 2 || detail.flag === 3 || detail.flag === 4) }}
                                 <!--账户信息-->
-                                <c:forEach items="${detail.record_data}" var="bean" varStatus="record">
+                                {{#each (detail.record_data) }}
                                     <div class="classify_item">
-                                        <c:choose>
-                                            <c:when test="${fn:length(detail.record_data) eq 1}">
-                                                <c:choose>
-                                                    <c:when test="${detail.flag eq 2 && bean.is_new eq 1}"><div class="classify_title new">账户信息</div></c:when>
-                                                    <c:when test="${detail.flag eq 2 && bean.is_new eq 0}"><div class="classify_title">账户信息</div></c:when>
-                                                    <c:otherwise><div class="classify_title">账户信息</div></c:otherwise>
-                                                </c:choose>
-                                            </c:when>
-                                            <c:when test="${fn:length(detail.record_data) > 1}">
-                                                <c:choose>
-                                                    <c:when test="${detail.flag eq 2 && bean.is_new eq 1}"><div class="classify_title new">账户信息(${record.count})</div></c:when>
-                                                    <c:when test="${detail.flag eq 2 && bean.is_new eq 0}"><div class="classify_title">账户信息(${record.count})</div></c:when>
-                                                    <c:otherwise><div class="classify_title">账户信息(${record.count})</div></c:otherwise>
-                                                </c:choose>
-                                            </c:when>
-                                        </c:choose>
+                                        {{#if (detail.record_data.length === 1) }}
+                                            {{#if (detail.flag === 2 && this.is_new === 1) }}
+                                                <div class="classify_title new">账户信息</div>
+                                            {{elseif (detail.flag === 2 && this.is_new === 0) }}
+                                                <div class="classify_title">账户信息</div>
+                                            {{else}}
+                                                <div class="classify_title">账户信息</div>
+                                            {{/if}}
+                                        {{elseif (detail.record_data.length > 1) }}
+                                            {{#if (detail.flag === 2 && this.is_new === 1) }}
+                                                <div class="classify_title new">账户信息{{xindex + 1}}</div>
+                                            {{elseif (detail.flag === 2 && this.is_new === 0) }}
+                                                <div class="classify_title">账户信息{{xindex + 1}}</div>
+                                            {{else}}
+                                                <div class="classify_title">账户信息</div>
+                                            {{/if}}
+                                        {{/if}}
                                         <div class="classify_content">
                                             <ul class="items_list">
                                                 <li class="item_row">
                                                     <div class="item_name">账户类型：</div>
                                                     <div class="item_value">
-                                                        <c:choose>
-                                                            <c:when test="${empty bean.account_type}">--</c:when>
-                                                            <c:otherwise>${bean.account_type_value}</c:otherwise>
-                                                        </c:choose>
+                                                        {{#if (!this.account_type || this.account_type === '' || this.account_type <= 0) }}
+                                                            --
+                                                        {{else}}
+                                                            {{this.account_type_value}}
+                                                        {{/if}}
                                                     </div>
                                                 </li>
                                                 <li class="item_row">
                                                     <div class="item_name">账户名：</div>
                                                     <div class="item_value">
-                                                        <c:choose>
-                                                            <c:when test="${empty bean.account_name}">--</c:when>
-                                                            <c:otherwise>${bean.account_name}</c:otherwise>
-                                                        </c:choose>
+                                                        {{#if (!this.account_name || this.account_name === '' || this.account_name <= 0) }}
+                                                            --
+                                                        {{else}}
+                                                            {{this.account_name}}
+                                                        {{/if}}
                                                     </div>
                                                 </li>
                                                 <li class="item_row">
                                                     <div class="item_name">开户行：</div>
                                                     <div class="item_value">
-                                                        <c:choose>
-                                                            <c:when test="${empty bean.open_bank}">--</c:when>
-                                                            <c:otherwise>${bean.open_bank}</c:otherwise>
-                                                        </c:choose>
+                                                        {{#if (!this.open_bank || this.open_bank === '' || this.open_bank <= 0) }}
+                                                            --
+                                                        {{else}}
+                                                            {{this.open_bank}}
+                                                        {{/if}}
                                                     </div>
                                                 </li>
                                                 <li class="item_row">
                                                     <div class="item_name">银行卡号：</div>
                                                     <div class="item_value">
-                                                        <c:choose>
-                                                            <c:when test="${empty bean.bank_no}">--</c:when>
-                                                            <c:otherwise>${bean.bank_no}</c:otherwise>
-                                                        </c:choose>
+                                                        {{#if (!this.bank_no || this.bank_no === '' || this.bank_no <= 0) }}
+                                                            --
+                                                        {{else}}
+                                                            {{this.bank_no}}
+                                                        {{/if}}
                                                     </div>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                </c:forEach>
+                                {{/each}}
 
                                 <!--备案信息材料图片-->
                                 <ul class="img_list">
-                                    <c:forEach items="${fileList}" var="bean">
+                                    {{#each (fileList) }}
                                         <li class="list_item">
-                                            <a href="${bean.url}" target="_blank" data-type="imgBox">
-                                                <img src="${bean.thumbnail_120_90}" alt=""/>
+                                            <a href="{{this.url}}" target="_blank" data-type="imgBox">
+                                                <img src="{{this.thumbnail_120_90}}" alt=""/>
                                             </a>
-                                            <div class="img_desc nor_wrap">${bean.file_name}</div>
+                                            <div class="img_desc nor_wrap">{{this.file_name}}</div>
                                         </li>
-                                    </c:forEach>
+                                    {{/each}}
                                 </ul>
-                            </c:if>
+                            {{/if}}
 
                         </div>
                     </div>
                     <!-- 备案信息部分 End -->
                     <!-- 审核操作按钮部分 -->
-                    <c:if test="${detail.flag eq 2}">
+                    {{#if (detail.flag === 2) }}
                         <div class="btn_box text_left pad_btm_50 clearfix">
-                            <per:button code="1395">
-                                <a href="javascript:;" class="btn orange_btn confirm audit_agree" data-url="/supplier/tocheck/agree">通过</a>
-                            </per:button>
-                            <per:button code="1396">
-                                <a href="javascript:;" class="btn bg_btn audit_disagree" data-url="/supplier/tocheck/disagree">不通过</a>
-                            </per:button>
+                            {{#if (verifyCode(1395)) }}
+                                <a href="javascript:;" class="btn orange_btn confirm audit_agree" data-url="{{markUri}}/merchants/audit/agree">通过</a>
+                            {{/if}}
+                            {{#if (verifyCode(1396)) }}
+                                <a href="javascript:;" class="btn bg_btn audit_disagree" data-url="{{markUri}}/merchants/audit/disagree">不通过</a>
+                            {{/if}}
                         </div>
-                    </c:if>
+                    {{/if}}
                     <!-- 操作记录部分 Begin -->
                     <div class="details_item operate_info">
                         <div class="detail_title">操作记录</div>
                         <div class="detail_box operate_logs">
                             <ul class="log_list">
-                                <c:forEach items="${operationList}" var="bean" varStatus="operation">
+                                {{#each (operationList) }}
                                      <li class="list_item ">
                                          <div class="log_item_info">
-                                             <div class="date">${bean.create_time}</div>
-                                             <div class="text">${bean.modify_desc}&nbsp;${bean.position_desc}-${bean.create_name}&nbsp;&nbsp;${bean.reason}&nbsp;${bean.remark}</div>
+                                             <div class="date">{{this.create_time}}</div>
+                                             <div class="text">{{this.modify_desc}}&nbsp;{{this.position_desc}}-{{this.create_name}}&nbsp;&nbsp;{{this.reason}}&nbsp;{{this.remark}}</div>
                                          </div>
                                          <!--是否有图片-->
-                                             <c:if test="${not empty bean.file_data}">
+                                            {{#if (this.file_data || this.file_data !== '' || this.file_data.length > 0) }}
 	                                            <div class="classify_img">
 	                                                <ul class="img_list">
-	                                                <c:forEach items="${bean.file_data }" var="materialList">
-	                                                    <li class="img_item">
-	                                                        <a href="${materialList.url }" target="_blank">
-	                                                            <img src="${materialList.thumbnail }" alt="">
-	                                                        </a>
-	                                                    </li>
-	                                                </c:forEach>    
+                                                        {{#each (this.filel_data) }}
+                                                            <li class="img_item">
+                                                                <a href="{{this.url }}" target="_blank">
+                                                                    <img src="{{this.thumbnail }}" alt="">
+                                                                </a>
+                                                            </li>
+                                                        {{/each}}
 	                                                </ul>
 	                                            </div>
-                                            </c:if>
+                                            {{/if}}
                                      </li>
-                                </c:forEach>
+                                {{/each}}
                             </ul>
                         </div>
                     </div>
@@ -435,8 +459,8 @@
             </div>
 
             <!-- 工商查询按钮 -->
-            <c:if test="${detail.flag eq 2 && detail.id_type == 1}">
-                <per:button code="1397">
+            {{#if (detail.flag === 2 && detail.id_type === 1) }}
+                {{#if (verifyCode(1397)) }}
                     <div class="business_info_content">
                         <a href="javascript:" class="business_info_sm_btn"></a>
                         <div class="setting_merchant">
@@ -481,8 +505,8 @@
                             </div>
                         </div>
                     </div>
-                </per:button>
-            </c:if>
+                {{/if}}
+            {{/if}}
         </div>
         <!---- Part of Main info End ---->
     </div>
@@ -494,8 +518,8 @@
 <script src="/static/js/merchants.js"></script>
 <script>
     (function ($) {
-        var credentialsType = '${detail.id_type}';  // 证件类型
-        var credentialsNum = '${detail.id_num}';    // 证件号码
+        var credentialsType = '{{detail.id_type}}';  // 证件类型
+        var credentialsNum = '{{detail.id_num}}';    // 证件号码
         var merchantId = $.trim($('#supplierId').val());    // 商户ID
         var merchantName = $.trim($('#supplierName').val());    // 商户NAME
         // 加载工商数据信息
@@ -623,7 +647,7 @@
             var btn = $('.edit_sm_btn');
             btn.off('click').on('click', function () {
                 locationTo({
-                    action : contextPath + '/supplier/toedit',
+                    action : contextPath + '/merchants/edit',
                     param : {
                         supplier_id : merchantId,
                         url : LOCALURL,
@@ -663,7 +687,7 @@
                 success : function (res) {
                     if (res.error_code == 0) {
                         $alert('删除商户成功', function () {
-                            window.location.href = contextPath + '/supplier/pass/list';
+                            window.location.href = contextPath + '/merchants/pass';
                         });
                     } else {
                         $alert(res.error_msg, function () {

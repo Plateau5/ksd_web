@@ -1,9 +1,4 @@
-<!-- 通知回款结果 -->
-<%@ taglib prefix="c"         uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="per" uri="com/mvc/web/common/tag/permissionTag"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<!-- 同意 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,14 +23,14 @@
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
             <div class="crumbs_nav">
-                <a href="{{markUri}}/supplier/manager" class="crumbs_item">商户管理</a>
-                <a href="{{markUri}}/supplier/audit/list" class="crumbs_item">待审批</a>
-                <a href="javascript:window.history.back();" class="crumbs_item">${name}</a>
+                <a href="{{markUri}}/merchants/manage/system" class="crumbs_item">商户管理</a>
+                <a href="{{markUri}}/merchants/pendingAudit" class="crumbs_item">待审批</a>
+                <a href="javascript:window.history.back();" class="crumbs_item">{{name}}</a>
                 <a href="javascript:;" class="crumbs_item">通过</a>
             </div>
             <div class="cashed_mark">
                 <form action="" method="post" id="returnResult">
-                    <input type="hidden" name="supplier_id" value="${supplier_id}">
+                    <input type="hidden" name="supplier_id" value="{{supplier_id}}">
                     <input type="hidden" name="is_agree" value="1">
                     <div class="form_row textarea_container">
                         <div class="column_l" style="width: 4%;">备注：</div>
@@ -54,10 +49,10 @@
                     </div>
                 </form>
                 <div class="btn_box clearfix text_left"   style="padding-left: 7%;">
-                    <per:button  code="1374">
+                    {{#if (verifyCode(1374)) }}
                         <a href="javascript:" class="btn orange_btn confirm submit_confirm">确认</a>
                         <a href="javascript:" class="btn bg_btn submit_cancel">取消</a>
-                    </per:button>
+                    {{/if}}
                 </div>
             </div>
 
@@ -88,7 +83,7 @@
                     var res = eval(req);
                     if (res.error_code == 0) {
                         $alert('提交成功', function () {
-                            window.location.href = contextPath + "/supplier/audit/list";
+                            window.location.href = contextPath + "/merchants/pendingAudit";
                         });
                     } else {
                         $alert(res.error_msg, function (){

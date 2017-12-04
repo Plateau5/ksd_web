@@ -38,7 +38,7 @@
                         <td>公海</td>
                     {{/if}}
                     <td title="{{this.follow_name}}">{{this.follow_name}}</td>
-                    {{#if (this.label_name=== '' || this.label_name.length <= 0) }}
+                    {{#if (!this.label_name || this.label_name === '' || this.label_name.length <= 0) }}
                         <td>--</td>
                     {{else}}
                         <td title="{{this.label_name}}">{{this.label_name}}</td>

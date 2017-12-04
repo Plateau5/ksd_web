@@ -43,7 +43,7 @@
                     <div class="form_row">
                         <div class="column_l"><em class="require_icon">*</em>角色名称：</div>
                         <div class="column_r">
-                            <input type="text" name="id" data-id="${roleId}" data-type="" id="rolePrivilege" placeholder="请输入角色名称，如:客服主管(15个字以内)" maxlength="15" value="${name}">
+                            <input type="text" name="id" data-id="${roleId}" data-type="" id="rolePrivilege" placeholder="请输入角色名称，如:客服主管(15个字以内)" maxlength="15" value="{{name}}">
                             <span class="error_msg mar_left_20"></span>
                         </div>
                     </div>

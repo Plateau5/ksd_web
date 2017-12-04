@@ -58,7 +58,7 @@
             <div class="inviteCon">
                 <ul>
                     <li class="inline colorB"><a class="TS" href="/employee/list">同事</a></li>
-                    <li class="inline before"><a href="javascript:;">${name}的档案</a></li>
+                    <li class="inline before"><a href="javascript:;">{{name}}的档案</a></li>
                 </ul>
             </div>
             <!--form start-->
