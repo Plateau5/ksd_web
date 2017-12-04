@@ -158,7 +158,7 @@
             {{/if}}
             {{#if (verifyCode(1368)) }}
                 <li class="nav_item {{#if(startWith(markUri + '/records'))}}active{{/if}}">
-                    <a href="{{markUri}}/records/manager" class="">备案管理</a>
+                    <a href="{{markUri}}/records/manage" class="">备案管理</a>
                 </li>
             {{/if}}
         </ul>

@@ -67,7 +67,7 @@ exports.VIEW_RECORDS_MANAGE = function(req, res, next) {
     common.getPageData({
         url : '/api/records/manager',
         title : '商户管理-备案管理',
-        page : './merchants/merchantsList'
+        page : './merchants/recordsList'
     }, req, res, next);
 };
 // 商户-商户管理-详情页 1373
