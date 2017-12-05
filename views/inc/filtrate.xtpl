@@ -19,7 +19,7 @@
             </select>
         </div>
         <!-- 请款客服已通过列表页筛选条件 Begin -->
-        {{#if(startWith('/customer/requestpayout/pass'))}}
+        {{#if(startWith(markUri + '/customer/requestpayout/pass'))}}
             <div class="inline_block">
                 <div class="conditions_name inline_block filtrate_requestpayout_type">类型筛选：</div>
                 <select name="already_request" class="filtrate_select req_type_select" id="request_type">
@@ -34,7 +34,7 @@
         {{/if}}
         <!-- 请款客服已通过列表页筛选条件 End -->
         <!-- 客服主管已通过列表页筛选条件 Begin -->
-        {{#if(startWith('/customer/loan/passed'))}}
+        {{#if(startWith(markUri + '/customer/loan/passed'))}}
             <div class="inline_block">
                 <div class="conditions_name inline_block filtrate_order_status">状态筛选：</div>
                 <select name="status" class="filtrate_select order_status_select" id="order_status">

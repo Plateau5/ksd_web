@@ -138,7 +138,7 @@
         {{/if}}
         {{#if (verifyCode(1170)) }}
             <a href="{{markUri}}/customer/financial/pendingAudit" class="category_item pending_audit
-                {{#if (startWith('/customer/financial/pendingAudit')) }}active{{/if}}
+                {{#if (startWith(markUri + '/customer/financial/pendingAudit')) }}active{{/if}}
             ">待审批 <span class="count_num">({{countvo.wait_check}})</span></a>
         {{/if}}
         {{#if (verifyCode(1209)) }}
