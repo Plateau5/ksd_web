@@ -34,7 +34,7 @@
         <div class="" style="margin-left:0;padding-left:180px;">
             <div class="listConHeader inviteCon">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="/organization/list" style="cursor: pointer;">金融机构</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/organization/list" style="cursor: pointer;">金融机构</a></li>
                     <li class="inline colorB before"><a class="TS go_forward" data-url="/organization/product/warehouseList" style="cursor: pointer;">产品管理</a></li>
                     <li class="inline before"><a href="javascript:;">编辑</a></li>
                 </ul>

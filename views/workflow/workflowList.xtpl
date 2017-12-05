@@ -33,7 +33,7 @@
                     <div class="no_workflow">
                         <div class="toast_text">目前还没有审批流程，请先创建审批流程</div>
                         <div class="new_btn_box">
-                            <a href="/workflow/toCreate?type=1"  class="btn blue_btn add_btn"><em></em>新建流程</a>
+                            <a href="{{markUri}}/workflow/toCreate?type=1"  class="btn blue_btn add_btn"><em></em>新建流程</a>
                         </div>
                     </div>
             <!--已创建流程列表-->
@@ -49,7 +49,7 @@
                         </select>
                     </div>
                         <div class="inline_block rf">
-                            <a href="/workflow/toCreate?type=2"  class="btn blue_btn add_btn"><em></em>新建流程</a>
+                            <a href="{{markUri}}/workflow/toCreate?type=2"  class="btn blue_btn add_btn"><em></em>新建流程</a>
                         </div>
                 </div>
             </div>

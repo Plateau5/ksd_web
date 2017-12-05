@@ -57,7 +57,7 @@
         <div class="listCon">
             <div class="inviteCon">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="/employee/list">同事</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/employee/list">同事</a></li>
                     <li class="inline before"><a href="javascript:;">{{name}}的档案</a></li>
                 </ul>
             </div>
@@ -174,7 +174,7 @@
                             <label class="col-xs-2 control-label inviteLabel"></label>
                             <div class="col-xs-10" style="margin-top:50px;margin-bottom:50px;margin-left:-12px;">
                                 <input type="button" id="jibenBtnY" value="保存更新"/>
-                                <a href="/employee/list">
+                                <a href="{{markUri}}/employee/list">
                                     <input type="button" id="jibenBtnN" value="取消"/>
                                 </a>
                             </div>
@@ -376,7 +376,7 @@
                                 <label class="col-xs-2 control-label inviteLabel"></label>
                                 <div class="col-xs-10" style="margin-top:50px;margin-bottom:50px;margin-left:-12px;">
                                     <input type="button" id="gerenBtnY" value="保存更新"/>
-                                    <a href="/employee/list">
+                                    <a href="{{markUri}}/employee/list">
                                         <input type="button" id="gerenBtnN" value="取消"/>
                                     </a>
                                 </div>
@@ -541,7 +541,7 @@
                             <label class="col-xs-2 control-label inviteLabel"></label>
                             <div class="col-xs-10" style="margin-top:50px;margin-bottom:50px;margin-left:-12px;">
                                 <input type="button" id="gangweiBtnY" value="保存更新"/>
-                                <a href="/employee/list">
+                                <a href="{{markUri}}/employee/list">
                                     <input type="button" id="gangweiBtnN" value="取消"/>
                                 </a>
                             </div>

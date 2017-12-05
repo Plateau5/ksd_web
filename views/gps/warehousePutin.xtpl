@@ -30,7 +30,7 @@
         <!---- Part of Main info Begin ---->
         <div id="main" class="main org_product">
             <div class="crumbs_nav">
-                <a href="/gps/warehouse/list" class="crumbs_item">GPS</a>
+                <a href="{{markUri}}/gps/warehouse/list" class="crumbs_item">GPS</a>
                 <a href="javascript:" class="crumbs_item goDetail">${warehouseVO.name}</a>
                 <a href="javascript:;" class="crumbs_item">入库</a>
             </div>

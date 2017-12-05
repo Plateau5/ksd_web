@@ -33,7 +33,7 @@
         <div class="listCon">
             <div class="listConHeader inviteCon">
                 <ul style="margin-bottom:0;">
-                    <li class="inline colorB"><a class="TS" href="/organization/list">机构管理</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/organization/list">机构管理</a></li>
                     <li class="inline before"><a href="javascript:;">编辑</a></li>
                 </ul>
             </div>
@@ -222,7 +222,7 @@
             <div class="form-group add_btn">
                 <div class="col-xs-10" style="margin-top:50px;margin-bottom:50px;margin-left:38.5555555%;">
                     <input type="button" id="add_btn_y" value="保存更新"/>
-                    <a href="/organization/getList">
+                    <a href="{{markUri}}/organization/getList">
                         <input type="button" id="add_btn_n" value="取消"/>
                     </a>
                 </div>

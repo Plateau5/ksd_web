@@ -33,7 +33,7 @@
         <div class="listCon">
             <div class="listConHeader inviteCon">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="/employee/list">同事</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/employee/list">同事</a></li>
                     <li class="inline before"><a href="javascript:;">邀请同事</a></li>
                 </ul>
             </div>
@@ -106,7 +106,7 @@
                 <label class="col-xs-2 control-label inviteLabel"></label>
                 <div class="col-xs-10" style="padding-left:2px;">
                     <input type="button" class="btn btn-default invB" style="margin-left:0;" id="invBtnY" value="邀请"/>
-                    <a href="/employee/list"><input type="button" class="btn btn-default invB" id="invBtnN" value="取消"/></a>
+                    <a href="{{markUri}}/employee/list"><input type="button" class="btn btn-default invB" id="invBtnN" value="取消"/></a>
                 </div>
 
             </div>

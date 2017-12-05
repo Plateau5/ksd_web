@@ -32,7 +32,7 @@
                 <input type="hidden" name="company_id" id="" value="" >
             </form>
             <div class="new_btn_box text_right">
-                <a href="/company/create"  class="btn blue_btn add_btn"><em></em>添加租户</a>
+                <a href="{{markUri}}/company/create"  class="btn blue_btn add_btn"><em></em>添加租户</a>
             </div>
             <div class="company_list">
                 <c:forEach items="${company_list }" var="bean">
@@ -51,7 +51,7 @@
                 <div class="no_list_data">
                     <div class="toast_text">目前还未创建租户，去创建租户</div>
                     <div class="new_btn_box">
-                        <a href="/company/create"  class="btn blue_btn add_btn"><em></em>添加租户</a>
+                        <a href="{{markUri}}/company/create"  class="btn blue_btn add_btn"><em></em>添加租户</a>
                     </div>
                 </div>
             </c:if>

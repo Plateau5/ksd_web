@@ -30,7 +30,7 @@
         <!---- Part of Main info Begin ---->
         <div id="main" class="main org_product">
             <div class="crumbs_nav">
-                <a href="/customerService/organization/list" class="crumbs_item">材料管理</a>
+                <a href="{{markUri}}/customerService/organization/list" class="crumbs_item">材料管理</a>
                 <a href="javascript:;" class="crumbs_item">${vo.parent_name }-${vo.name }</a>
             </div>
             <div class="material_store">

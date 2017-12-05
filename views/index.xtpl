@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <link rel="icon" href="{{markUri}}/static/img/favicon.ico" mce_href="/img/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="{{markUri}}/static/img/favicon.ico" mce_href="/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{markUri}}/static/img/favicon.ico" mce_href="{{markUri}}/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{markUri}}/static/img/favicon.ico" mce_href="{{markUri}}/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="{{markUri}}/static/css/login.css">
     <title>致汇金服-登录</title>
 </head>

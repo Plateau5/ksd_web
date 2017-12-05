@@ -29,7 +29,7 @@
 					<div class="no_workflow">
 						<div class="toast_text">目前还没有仓库，尝试建造一个吧</div>
 						<div class="new_btn_box">
-							<a href="/gps/warehouse/create" class="btn blue_btn add_btn"><em></em>新建仓库</a>
+							<a href="{{markUri}}/gps/warehouse/create" class="btn blue_btn add_btn"><em></em>新建仓库</a>
 						</div>
 					</div>
 				</per:button>
@@ -38,7 +38,7 @@
             <c:if test="${count > 0 }">
             <per:button code="1281">
 				<div class="new_btn_box">
-	            	<a href="/gps/warehouse/create"  id="createOrg"  class="btn blue_btn add_btn"><em></em>新建仓库</a>
+	            	<a href="{{markUri}}/gps/warehouse/create"  id="createOrg"  class="btn blue_btn add_btn"><em></em>新建仓库</a>
 	            </div>
 			</per:button>
             <!--没有创建任何GPS仓库 End-->

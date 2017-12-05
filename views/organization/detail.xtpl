@@ -37,7 +37,7 @@
         <div class="listCon">
             <div class="inviteCon">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="/organization/list">机构管理</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/organization/list">机构管理</a></li>
                     <li class="inline before"><a href="javascript:;">${vo.name}</a></li>
                 </ul>
             </div>

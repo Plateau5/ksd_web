@@ -26,7 +26,7 @@
             <!---- Part of Main info Begin ---->
             <div id="main" class="main">
                 <div class="crumbs_nav">
-                    <a href="/privilege/roles/list" class="crumbs_item">角色管理</a>
+                    <a href="{{markUri}}/privilege/roles/list" class="crumbs_item">角色管理</a>
                     <a href="javascript:;" class="crumbs_item">列表</a>
                 </div>
                     <!--没有创建任何角色-->
@@ -35,7 +35,7 @@
                         <div class="toast_text">目前还没有任何角色，请先创建角色</div>
                         <per:button code="1243">
                             <div class="new_btn_box">
-                                <a href="/privilege/roles/create" title="新建角色" class="btn blue_btn add_btn"><em></em>新建角色</a>
+                                <a href="{{markUri}}/privilege/roles/create" title="新建角色" class="btn blue_btn add_btn"><em></em>新建角色</a>
                             </div>
                         </per:button>
                     </div>
@@ -49,7 +49,7 @@
 	                    <div class="new_btn_box">
 	                        <div class="character_total">共<span class="total_num">${count}</span>个角色</div>
 	                        <per:button code="1243">
-	                            <a href="/privilege/roles/create" title="新建角色" class="btn blue_btn add_btn"><em></em>新建角色</a>
+	                            <a href="{{markUri}}/privilege/roles/create" title="新建角色" class="btn blue_btn add_btn"><em></em>新建角色</a>
 	                        </per:button>
 	                    </div>
 	                    <table class="table_list">

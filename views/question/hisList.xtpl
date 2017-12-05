@@ -31,7 +31,7 @@
         <div class=" listCon relative">
             <div class="listConHeader inviteCon" style="line-height: normal;margin-top:32px;">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="/question/getList">问题管理</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/question/getList">问题管理</a></li>
                     <li class="inline before"><a href="javascript:;">${vo.title}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">历史记录</a></li>
                 </ul>
