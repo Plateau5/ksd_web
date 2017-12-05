@@ -3,22 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/viewsController/customerController.js" afterPath="$PROJECT_DIR$/controller/viewsController/customerController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/viewsController/statisticsController.js" afterPath="$PROJECT_DIR$/controller/viewsController/statisticsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/merchants.css" afterPath="$PROJECT_DIR$/public/css/merchants.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/statistics.css" afterPath="$PROJECT_DIR$/public/css/statistics.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/approval/imgDetail.xtpl" afterPath="$PROJECT_DIR$/views/approval/imgDetail.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/compact/imgDetail.xtpl" afterPath="$PROJECT_DIR$/views/compact/imgDetail.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/imgDetail.xtpl" afterPath="$PROJECT_DIR$/views/customer/imgDetail.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/financial/imgDetail.xtpl" afterPath="$PROJECT_DIR$/views/financial/imgDetail.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/header.xtpl" afterPath="$PROJECT_DIR$/views/inc/header.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/finance.css" afterPath="$PROJECT_DIR$/public/css/finance.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/approval/submit.xtpl" afterPath="$PROJECT_DIR$/views/approval/submit.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/approval/transfer.xtpl" afterPath="$PROJECT_DIR$/views/approval/transfer.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/otherfund/agree.xtpl" afterPath="$PROJECT_DIR$/views/otherfund/agree.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/otherfund/disagree.xtpl" afterPath="$PROJECT_DIR$/views/otherfund/disagree.xtpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/otherfund/imgDetail.xtpl" afterPath="$PROJECT_DIR$/views/otherfund/imgDetail.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/pigeonhole/imgDetail.xtpl" afterPath="$PROJECT_DIR$/views/pigeonhole/imgDetail.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/requestpayout/agree.xtpl" afterPath="$PROJECT_DIR$/views/requestpayout/agree.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/requestpayout/disagree.xtpl" afterPath="$PROJECT_DIR$/views/requestpayout/disagree.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl" afterPath="$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/requestpayout/submit.xtpl" afterPath="$PROJECT_DIR$/views/requestpayout/submit.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/requestpayout/transfer.xtpl" afterPath="$PROJECT_DIR$/views/requestpayout/transfer.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/otherfund/transfer.xtpl" afterPath="$PROJECT_DIR$/views/otherfund/transfer.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="88" column="115" lean-forward="true" selection-start-line="88" selection-start-column="115" selection-end-line="88" selection-end-column="115" />
+            <state relative-caret-position="105">
+              <caret line="80" column="92" lean-forward="true" selection-start-line="80" selection-start-column="92" selection-end-line="80" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -58,18 +49,18 @@
       <file leaf-file-name="imgDetail.xtpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5943">
-              <caret line="283" column="22" lean-forward="false" selection-start-line="283" selection-start-column="22" selection-end-line="283" selection-end-column="22" />
+            <state relative-caret-position="287">
+              <caret line="252" column="13" lean-forward="false" selection-start-line="252" selection-start-column="13" selection-end-line="252" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="imgDetail.xtpl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="imgDetail.xtpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/otherfund/imgDetail.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4830">
-              <caret line="230" column="53" lean-forward="false" selection-start-line="230" selection-start-column="53" selection-end-line="230" selection-end-column="53" />
+            <state relative-caret-position="431">
+              <caret line="130" column="5" lean-forward="true" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -87,9 +78,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>to_order_detail</find>
-      <find>orderDetail</find>
-      <find>/api/finance/getAllotList</find>
       <find>contextPath</find>
       <find>API</find>
       <find>requestpayout_assigning</find>
@@ -117,6 +105,9 @@
       <find>/requestPayout/pendingPass/list</find>
       <find>/customer/requestpayout/pendingAudit</find>
       <find>/requestPayout/waitList</find>
+      <find>/operation/getWaitList</find>
+      <find>/customer/otherfund/pendingAudit</find>
+      <find>affirm_submit_thirdparty</find>
     </findStrings>
     <replaceStrings>
       <replace>{{vo.user_name}}</replace>
@@ -213,11 +204,11 @@
         <option value="$PROJECT_DIR$/views/inc/header.xtpl" />
         <option value="$PROJECT_DIR$/controller/viewsController/customerController.js" />
         <option value="$PROJECT_DIR$/controller/viewsController/statisticsController.js" />
-        <option value="$PROJECT_DIR$/views/otherfund/imgDetail.xtpl" />
         <option value="$PROJECT_DIR$/views/requestpayout/submit.xtpl" />
         <option value="$PROJECT_DIR$/views/compact/imgDetail.xtpl" />
         <option value="$PROJECT_DIR$/views/approval/imgDetail.xtpl" />
         <option value="$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl" />
+        <option value="$PROJECT_DIR$/views/otherfund/imgDetail.xtpl" />
       </list>
     </option>
   </component>
@@ -341,6 +332,12 @@
               <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="inc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="otherfund" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
@@ -515,7 +512,7 @@
       <workItem from="1512438585444" duration="9917000" />
       <workItem from="1512456701243" duration="979000" />
       <workItem from="1512457698932" duration="7658000" />
-      <workItem from="1512466965923" duration="395000" />
+      <workItem from="1512466965923" duration="1096000" />
     </task>
     <task id="LOCAL-00001" summary="增加权限等路由  2017年8月16日18:28:04">
       <created>1502879359304</created>
@@ -755,11 +752,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512460604667</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="请款管理完成  2017年12月5日17:49:29">
+      <created>1512467382864</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1512467382864</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="425402000" />
+    <option name="totallyTimeSpent" value="426103000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -784,7 +788,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19496167" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33515882" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33515882" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -826,7 +830,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="列表页根据权限加载跳转  2017年11月14日17:58:28" />
     <MESSAGE value="列表页根据权限加载跳转  2017年11月14日18:05:14" />
     <MESSAGE value="详情页  2017年11月15日19:03:56" />
     <MESSAGE value="归档详情页  2017年11月16日13:13:01" />
@@ -851,7 +854,8 @@
     <MESSAGE value="修改静态文件访问路径" />
     <MESSAGE value="修改面包屑等返回路径  2017年12月5日14:58:50" />
     <MESSAGE value="贷款管理完成 2017年12月5日15:56:27" />
-    <option name="LAST_COMMIT_MESSAGE" value="贷款管理完成 2017年12月5日15:56:27" />
+    <MESSAGE value="请款管理完成  2017年12月5日17:49:29" />
+    <option name="LAST_COMMIT_MESSAGE" value="请款管理完成  2017年12月5日17:49:29" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1062,6 +1066,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="36" column="33" lean-forward="true" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1140,6 +1145,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1154,6 +1160,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="129" column="39" lean-forward="true" selection-start-line="129" selection-start-column="39" selection-end-line="129" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1161,6 +1168,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
           <caret line="101" column="30" lean-forward="true" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1185,6 +1193,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="36" column="73" lean-forward="false" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="73" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1192,21 +1201,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
           <caret line="54" column="37" lean-forward="true" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5943">
-          <caret line="283" column="22" lean-forward="false" selection-start-line="283" selection-start-column="22" selection-end-line="283" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/otherfund/imgDetail.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4830">
-          <caret line="230" column="53" lean-forward="false" selection-start-line="230" selection-start-column="53" selection-end-line="230" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -1221,8 +1215,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="88" column="115" lean-forward="true" selection-start-line="88" selection-start-column="115" selection-end-line="88" selection-end-column="115" />
+        <state relative-caret-position="105">
+          <caret line="80" column="92" lean-forward="true" selection-start-line="80" selection-start-column="92" selection-end-line="80" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/requestpayout/imgDetail.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="252" column="13" lean-forward="false" selection-start-line="252" selection-start-column="13" selection-end-line="252" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/otherfund/imgDetail.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="130" column="5" lean-forward="true" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
           <folding />
         </state>
       </provider>

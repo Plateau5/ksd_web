@@ -66,7 +66,7 @@
                                 <div class="cursor requestpayout_detail_btn requestpayout_download download_file" id="" alt="2" lang="{{finance_id }}">全部下载</div>
                             {{/if}}
                         {{/if}}
-                        {{#if (url === '/customer/otherfund/pendingAudit' && vo.present_id === present_id  && vo.receipt_id !== 1) }}
+                        {{#if (url === markUri + '/customer/otherfund/pendingAudit' && vo.present_id === present_id  && vo.receipt_id !== 1) }}
                             {{#if (verifyCode(1340)) }}
                                 <a href="javascript:" class="go_forward" data-id="{{finance_id }}" data-advance_id="{{vo.advance_id }}" data-url="{{markUri}}/customer/otherfund/transfer">
                                     <div class="cursor requestpayout_detail_btn requestpayout_care" id="care_btn">转交他人</div>
@@ -130,132 +130,10 @@
         $('.imgDetail').css('margin-top','0');
     }
 
-    function complementDatumEvent () {
-        var btn = $(".complement_datum");
-        btn.off("click").on("click", function () {
-            var _this = $(this);
-            var  financeId = $.trim(_this.attr("lang"));
-            var advanceId = $.trim(_this.data('advance_id'));
-            var url = contextPath + "/api/requestPayout/sendNotice";
-            var data = {
-                finance_id : financeId,
-                advance_id : advanceId
-            };
-            $ajax("POST", url, data, function (res) {
-                var datas = eval(res);
-                if (datas.error_code == 0) {
-                    //nothing to do
-                    $alert('已成功通知');
-                } else {
-                    $alert(datas.message);
-                }
-            }, function () {
-                $alert(datas.message);
-            })
-        });
-    }
 
 
-    /*确认提交按钮的点击逻辑*/
-    function affirmSubmitThirdparty () {
-        var ele = $(".affirm_submit_thirdparty");
-        var url = contextPath + "/api/requestPayout/affirm/submit";
-        //绑定事件
-        ele.on("click", function (e) {
-            var e = e || window.event;
-            e.stopPropagation();    //阻断事件冒泡
-            e.preventDefault();     //阻断默认事件
-            var finance_id = $(this).attr("lang");
-            var reqType = $(this).attr("type");
-            if (reqType == 2) {
-                $alert("是否将该订单确认请款", function () {
-                    affirmSubmitEvent(finance_id, reqType);
-                });
-            } else {
-                locationTo({
-                    action : contextPath + "/requestPayout/affirm/submit",
-                    param : {
-                        finance_id : finance_id,
-                        type : reqType
-                    }
-                });
-            }
-        });
 
-        //确定请款的点击逻辑
-        var affirmSubmitEvent  = function (a, b) {
-            ele.off("click");
-            var datas = {
-                finance_id : a,
-                type : b
-            };
-            $.ajax({
-                type : "post",
-                url : url,
-                data : datas,
-                async : true,
-                success : function (req) {
-                    var res = eval(req);
-                    if (res.error_code == 0) {
-                        //更改显示按钮
-                        //t.hide().siblings(".requestpayout_passed").show();
-                        window.location.href = contextPath +"/requestPayout/pass/list";
-                    } else {
-                        $alert(res.error_msg);
-                        ele.on("click", affirmSubmitEvent);
-                    }
-                },
-                error : function () {
-                    $alert("网络异常，请重试");
-                    ele.on("click", affirmSubmitEvent);
-                }
-            });
-        }
-
-    }
-    /*请款通过按钮的点击逻辑*/
-    function requestpayoutPassed () {
-        var ele = $(".requestpayout_passed");
-        var url = contextPath + "/api/requestPayout/affirm/pass";
-        ele.on("click", function (e) {
-            var e = e || window.event;
-            e.stopPropagation();    //阻断事件冒泡
-            e.preventDefault();     //阻断默认事件
-            passedEvent();
-        });
-        var passedEvent = function () {
-            ele.off("click");
-            var data = {
-                finance_id : $.trim(ele.attr("lang")),
-            };
-            $ajax("post", url, data, function (req) {
-                var res = eval(req);
-                if (res.error_code == 0) {
-                    //操作成功后跳转到待通过列表页
-                    window.location.href = contextPath + "/requestPayout/pendingPass/list";
-                } else {
-                    //alert(res.error_msg);
-                    dialog("alert",{
-                        title : "提醒",
-                        content : res.error_msg,
-                        button : [],
-                        maskClose : false,
-                        //css : 'font-size: 16px',
-                        onConfirm : function () {
-                            window.location.href = contextPath + "/requestPayout/pendingPass/list";
-                        }
-                    })
-                }
-            },function () {
-                $alert("网络异常，请重试");
-                ele.on("click", passedEvent);
-            });
-        }
-    }
     $(function () {
-        complementDatumEvent();
-        affirmSubmitThirdparty();
-        requestpayoutPassed();
         pageJump(".go_forward");
     })
 </script>

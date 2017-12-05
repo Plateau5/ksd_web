@@ -83,7 +83,7 @@
                 success : function (req) {
                     var res = eval(req);
                     if (res.error_code == 0) {
-                        window.location.href = contextPath + "/customer/otherfund/pendingAudit";
+                        window.location.href = contextPath + markUri + "/customer/otherfund/pendingAudit";
                     } else {
                         $alert(res.error_msg, function () {
                             rebind(".return_confirm", "click", returnSubmit);
