@@ -29,7 +29,7 @@ exports.LOGIN_CONTROL =  function(req, res, next) {
             'account' : account,
             'password' : psd
         };
-        var url = contextPath + '/login';
+        var url = apiServerPath + '/login';
         request.post({url: url, form:option}, function(error, response, body) {
             /*res.send(response);
             res.end();*/
@@ -70,9 +70,9 @@ exports.LOGIN_PAGE =  function(req, res, next) {
     res.redirect('/customer/system');
 };
 exports.VIEW_HOME_DATA = function(req, res, next) {
-    var url = contextPath + '/home';
+    var url = apiServerPath + '/home';
     common.httpRequest({
-        url : contextPath + '/home'
+        url : apiServerPath + '/home'
     }, function (result) {
         var data = result;
         if (data.error_code === 0) {
@@ -85,7 +85,7 @@ exports.VIEW_HOME_DATA = function(req, res, next) {
 };
 
 exports.API_MESSAGE_GETNOTICE = function(req, res, next) {
-    var url = contextPath + '/api/message/getNotice?query_type=1';
+    var url = apiServerPath + '/api/message/getNotice?query_type=1';
     common.httpRequest({
         url : url
     }, function (result) {

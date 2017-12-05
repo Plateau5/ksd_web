@@ -3,6 +3,6 @@
 	var contextPath = '';
 </script>
 
-<script src="/static/js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="/static/js/base.js" type="text/javascript" charset="UTF-8"></script>
-<script src="/static/js/public.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="{{markUri}}/static/js/base.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/public.js" type="text/javascript" charset="UTF-8"></script>

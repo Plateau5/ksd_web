@@ -28,7 +28,7 @@ exports.API_FILES_DOWNLOAD = function(req, res, next) {
     /*var body = req.body;
     try {
         common.httpRequest({
-            url : contextPath + '/finance/file/download',
+            url : apiServerPath + '/finance/file/download',
             formData : body
         }, function (result) {
             var data = result;
@@ -161,7 +161,7 @@ exports.VIEW_CUSTOMER_LOAN_NOTIFYRESULT = function(req, res, next) {
     var body = req.body;
     try {
         this.httpRequest({
-            url : contextPath + '/api/finance/unpass',
+            url : apiServerPath + '/api/finance/unpass',
             formData : body
         }, function (result) {
             var data = result;

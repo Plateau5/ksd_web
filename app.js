@@ -13,8 +13,10 @@ var COMMONUTIL = require('./util/commonUtil');  // 主加密方法类文件
 
 var index = require('./routes/index');
 var common = require('./controller/common');
-global.contextPath = 'http://localhost:8080';
-global.markUri = '';
+global.apiServerPath = 'http://127.0.0.1';
+global.contextPath = '';
+global.domain = '';
+global.markUri = '/ksd';
 //global.contextPath = 'http://101.200.157.103:8898/api';
 //global.contextPath = 'http://192.168.200.12:8899/api';
 var app = express();
@@ -62,8 +64,8 @@ app.use(log4js.connectLogger(this.logger('debug'), { level: 'auto', format : ':m
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use('/static', lessMiddleware(path.join(__dirname, 'public')));
-app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use(markUri + '/static', lessMiddleware(path.join(__dirname, 'public')));
+app.use(markUri + '/static', express.static(path.join(__dirname, 'public')));
 app.use(common.startWith);
 app.use(common.getUserInfo);
 app.use(common.verifyCode);

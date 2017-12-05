@@ -176,7 +176,7 @@ exports.getCustomerList = function(url,title, req, res, next) {
         var detailUrl = '/customer/otherfund/detail';
     }
     this.httpRequest({
-        url : contextPath + url,
+        url : apiServerPath + url,
         formData : body
     }, function (result) {
         data = result;
@@ -203,7 +203,7 @@ exports.getCustomerDetail = function(url, req, res, next) {
     var data = {};
     var localUrl = req.originalUrl;
     this.httpRequest({
-        url : contextPath + url,
+        url : apiServerPath + url,
         formData : body
     }, function (result) {
         data = result;
@@ -249,7 +249,7 @@ exports.getPageData = function(options, req, res, next) {
     var localUrl = req.originalUrl;
     try {
         this.httpRequest({
-            url : contextPath + options.url,
+            url : apiServerPath + options.url,
             formData : body
         }, function (result) {
             data = result;
@@ -257,6 +257,8 @@ exports.getPageData = function(options, req, res, next) {
                 data.title = options.title;
                 data.originUrl = localUrl;
                 data.markUri = markUri;
+                data.apiServerPath = apiServerPath;
+                data.domain = domain;
                 res.render(options.page, data);
             } else {
                 console.log(data);
@@ -282,7 +284,7 @@ exports.publicForApi = function(url, req, res, next) {
     var body = req.body;
     try {
         this.httpRequest({
-            url : contextPath + url,
+            url : apiServerPath + url,
             formData : body
         }, function (result) {
             var data = result;

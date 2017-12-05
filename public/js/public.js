@@ -3,10 +3,7 @@
  */
 
 //'use strict';
-const VERSION = '2.1.0';
-var contextPath = '';
-var LOCALURL = window.location.pathname;
-var DOMAIN = '';
+
 
 /**
  * 扩展Date()方法的格式化
