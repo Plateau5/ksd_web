@@ -119,14 +119,6 @@ exports.VIEW_CUSTOMER_LOAN_ALLOT = function(req, res, next) {
         page : './customer/allotEmp'
     }, req, res, next);
 };
-// 客户管理-订单分配-api 1031
-exports.API_CUSTOMER_LOAN_ALLOT = function(req, res, next) {
-    common.publicForApi('/api/finance/allot', req, res, next);
-};
-// 客户管理-开始录入-api 1161
-exports.API_CUSTOMER_LOAN_STARTAPPLYLOAN = function(req, res, next) {
-    common.publicForApi('/api/finance/startApplyloan', req, res, next)
-};
 // 客户管理-资料不合格页面跳转 1037
 exports.VIEW_CUSTOMER_LOAN_UNQUALIFIED = function(req, res, next) {
     common.getPageData({
@@ -134,18 +126,6 @@ exports.VIEW_CUSTOMER_LOAN_UNQUALIFIED = function(req, res, next) {
         title : '客户-发送不合格通知',
         page : './customer/imgUnpass'
     }, req, res, next);
-};
-// 客户管理-获取问题分类下的问题列表-api
-exports.API_CUSTOMER_GETQUESTIONS = function(req, res, next) {
-    common.publicForApi('/api/getQuestionByClassifyId', req, res, next);
-};
-// 客户管理-资料不合格-api
-exports.API_CUSTOMER_LOAN_UNQUALIFIED = function(req, res, next) {
-    common.publicForApi('/api/finance/disqualification', req, res, next);
-};
-// 客户管理-确认申请按钮-api 1032
-exports.API_CUSTOMER_LOAN_CONFIRMAPPLYLOAN = function(req, res, next) {
-    common.publicForApi('/api/finance/applyloan', req, res, next);
 };
 // 客户管理-通知审核结果-页面 1236
 exports.VIEW_CUSTOMER_LOAN_NOTIFYRESULT = function(req, res, next) {
@@ -155,25 +135,6 @@ exports.VIEW_CUSTOMER_LOAN_NOTIFYRESULT = function(req, res, next) {
         page : './customer/result'
     }, req, res, next);
 };
-// 客户管理-通知审核结果-审核不通过-页面 1034
-/*exports.API_CUSTOMER_LOAN_AUDITUNPASS = function(req, res, next) {
-    // common.publicForApi('/api/finance/unpass', req, res, next);
-    var body = req.body;
-    try {
-        this.httpRequest({
-            url : apiServerPath + '/api/finance/unpass',
-            formData : body
-        }, function (result) {
-            var data = result;
-            res.send(data);
-        }, req, res, next);
-    } catch (err) {
-        /!*logger.error(err);*!/
-        console.log(err);
-        res.statusCode = 400;
-        return res.json({success: false, message: '服务器异常'});
-    }
-};*/
 
 
 

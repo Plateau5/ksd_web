@@ -1140,7 +1140,7 @@ function submitEvent (btn) {
                 if (res.error_code == 0) {
                     $alert('商户编辑成功', function () {
                         locationTo({
-                            action : contextPath + '/merchants/detail',
+                            action : contextPath + '/supplier/detail',
                             param : {
                                 supplier_id : merchantId,
                                 url : LOCALURL

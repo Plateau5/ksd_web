@@ -100,7 +100,7 @@ $(function(){
     
     //分配成功
     $("#success_allot").click(function(){
-    	window.location.href=contextPath +"/customer/loan/pendingAllot";
+    	window.location.href = contextPath + markUri + "/customer/loan/pendingAllot";
     });
 
 });

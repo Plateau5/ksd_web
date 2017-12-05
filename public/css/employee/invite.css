@@ -81,8 +81,16 @@ ul[class="inforT"]{
     margin-top:33px;
 }
 .invitePTable{
+    width: 80%;
     margin-top:20%;
-    margin-left:18%;
+    margin-left:11%;
+    table-layout: fixed;
+}
+.invitePTable tr, .invitePTable td{
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .invitePTable>tbody>tr{
     line-height: 34px;

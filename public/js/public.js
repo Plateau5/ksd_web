@@ -3,7 +3,10 @@
  */
 
 //'use strict';
-
+// const VERSION = '2.1.0';
+// var contextPath = '';
+// var LOCALURL = window.location;
+// var DOMAIN = '';
 
 /**
  * 扩展Date()方法的格式化
@@ -758,9 +761,9 @@ function checkboxMonitor (that) {
  */
 function dropDownIcon (selector) {
     var ele = $(selector),
-        downIcon = '<em class="down_icon"></em>';
+            downIcon = '<em class="down_icon"></em>';
     var curHeight = ele.height(),
-        maxHeight = parseInt(ele.css("max-height"));
+            maxHeight = parseInt(ele.css("max-height"));
     var childrenCount = ele.find(".form_group").length;
     var newHeight = ((childrenCount % 4) > 0) ? (Math.ceil(childrenCount / 4)) * 30 : Math.floor(childrenCount / 4) * 30;
     if (newHeight > maxHeight) {
@@ -884,37 +887,37 @@ function getMessagesInfo(selector) {
         $.post(contextPath+"/api/message/getNotice?query_type=1",function(datas){
             var data = eval(datas);
             if (data.error_code == 0) {
-                $("#header_image_url").attr("src",data.image_url);
-                $("#header_username").html(data.name);
-                $("#id_center").show();
+            	$("#header_image_url").attr("src",data.image_url);
+				$("#header_username").html(data.name);
+				$("#id_center").show();
                 //if (data.cookie != cookieValue) {
-                //alert("登录失效，请重新登录");
-                //window.location.href = contextPath + "/login/logout";
+                    //alert("登录失效，请重新登录");
+                    //window.location.href = contextPath + "/login/logout";
                 //} else {
-                if (data.other_count > 0) {
-                    newMessage = data.other_count;
-                    $(selector).addClass('active');
-                    $(".message_count").find("span").text(data.other_count).end().show();
-                }else if(data.other_count =='0'){
-                    $(selector).removeClass('active');
-                    $(".message_count ").hide().find("span").text("");
-                    $(".message_tip").hide().find(".count").text("");
-                }
-                if(data.count > '0'){
-                    /*newMessage = data.count;
-                    $(selector).addClass('active');
-                    $(".message_count").find("span").text(data.count).end().show();*/
-                    // $(".message_tip").show().find(".count").text(data.count);
-                    //五秒钟后隐藏页面提示框。
-                    var timer = setTimeout(function () {
-                        $(".message_tip").hide();
-                        clearTimeout(timer);
-                    }, 5000);
-                    //当前页面处于屏幕最前端视口时不弹出桌面提示
-                    if (!WINDOWFOCUS) {
-                        messageNotification("快收单", "您有"+ data.count +"条待处理事项", contextPath + "/home", contextPath + "/static/icon/kuaisd_m_logo.png");
+                    if (data.other_count > 0) {
+                        newMessage = data.other_count;
+                        $(selector).addClass('active');
+                        $(".message_count").find("span").text(data.other_count).end().show();
+                    }else if(data.other_count =='0'){
+                        $(selector).removeClass('active');
+                        $(".message_count ").hide().find("span").text("");
+                        $(".message_tip").hide().find(".count").text("");
                     }
-                }/*else if(data.count =='0'){
+                    if(data.count > '0'){
+                        /*newMessage = data.count;
+                        $(selector).addClass('active');
+                        $(".message_count").find("span").text(data.count).end().show();*/
+                        // $(".message_tip").show().find(".count").text(data.count);
+                        //五秒钟后隐藏页面提示框。
+                        var timer = setTimeout(function () {
+                            $(".message_tip").hide();
+                            clearTimeout(timer);
+                        }, 5000);
+                        //当前页面处于屏幕最前端视口时不弹出桌面提示
+                        if (!WINDOWFOCUS) {
+                            messageNotification("快收单", "您有"+ data.count +"条待处理事项", contextPath + "/home", contextPath + "/static/icon/kuaisd_m_logo.png");
+                        }
+                    }/*else if(data.count =='0'){
                         $(selector).removeClass('active');
                         $(".message_count ").hide().find("span").text("");
                         $(".message_tip").hide().find(".count").text("");
@@ -1087,7 +1090,7 @@ var Cookie = {
     get : function (name, callback) {
         if (document.cookie.length > 0) {
             var arr,
-                reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+                    reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
             if(arr = document.cookie.match(reg))
                 return arr[2];
             else
@@ -1227,9 +1230,9 @@ function firstLetterQuery (callback) {
                     checkedBox.find('.letter_item[data-value="#"]').remove();
                 }
                 var liElem = '<li class="letter_item" dat-value="'+ _thisLetter +'">' +
-                    '            <span class="letter_val">'+ _thisLetter +'</span>' +
-                    '            <em class="remove_btn"></em>' +
-                    '        </li>';
+                        '            <span class="letter_val">'+ _thisLetter +'</span>' +
+                        '            <em class="remove_btn"></em>' +
+                        '        </li>';
                 checkedBox.find('li.error_msg').before(liElem);
                 callback();
             }
@@ -1440,13 +1443,13 @@ function chooseImage (f) {
     fileRender.onload = function (e) {
         var result = e.target.result;
         var imgViewItem =    '<div class="img_item">'
-            +     '<img src="'+ result +'" alt="">'
-            +     '<span class="img_name nor_wrap">'+ fileName +'</span>'
-            +     '<span class="img_size">'+ filseSize.toFixed(2) +'M</span>'
-            +     '<div class="remove_mask">'
-            +         '<em class="remove_btn"></em>'
-            +     '</div>'
-            + '</div>'
+                +     '<img src="'+ result +'" alt="">'
+                +     '<span class="img_name nor_wrap">'+ fileName +'</span>'
+                +     '<span class="img_size">'+ filseSize.toFixed(2) +'M</span>'
+                +     '<div class="remove_mask">'
+                +         '<em class="remove_btn"></em>'
+                +     '</div>'
+                + '</div>'
         imgViewBox.append(imgViewItem);
     };
     fileRender.readAsDataURL(file.files[0]);
@@ -1869,14 +1872,14 @@ function formatCityData (data) {
     var __LocalDataCities = {list: {},relations: {},category: {provinces: [],}};
     for (var i = 0, len = list.length; i < len; i++) {
         var provinceId = list[i].id,
-            provinceName = list[i].name;
+                provinceName = list[i].name;
         var province = [provinceName, "", "", provinceId];
         __LocalDataCities.list[provinceId] = province;
         __LocalDataCities.category.provinces.push(provinceId);
         var citysCode = [];
         for (var k = 0, clist = list[i].city_list, cLen = clist.length; k < cLen ; k++ ){
             var cityId = clist[k].id,
-                cityName = clist[k].name;
+                    cityName = clist[k].name;
             var city = [cityName, "", "", provinceId, provinceName];
             citysCode.push(cityId);
             __LocalDataCities.list[cityId] = city;

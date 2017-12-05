@@ -47,7 +47,7 @@ $(function(){
             },
             success:function(data){
                 if(data.error_code =='0'){
-                    window.location.href = contextPath + '/customer/loan/alreadyAllot';
+                    window.location.href = contextPath + '/finance/getCheckInList';
                 }else{
                     $(this).attr("disabled", true);
                     alert(data.error_msg);

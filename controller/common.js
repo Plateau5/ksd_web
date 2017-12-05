@@ -160,20 +160,20 @@ exports.getCustomerList = function(url,title, req, res, next) {
     var data = {};
     var localUrl = req.originalUrl;
     // 回显详情页访问路由
-    if (localUrl.indexOf('/customer/loan') !== -1) {
-        var detailUrl = '/customer/loan/detail';
-    } else if (localUrl.indexOf('/customer/compact') !== -1) {
-        var detailUrl = '/customer/compact/detail';
-    } else if (localUrl.indexOf('/customer/requestpayout') !== -1) {
-        var detailUrl = '/customer/requestpayout/detail';
-    } else if (localUrl.indexOf('/customer/approval') !== -1) {
-        var detailUrl = '/customer/approval/detail';
-    } else if (localUrl.indexOf('/customer/financial') !== -1) {
-        var detailUrl = '/customer/financial/detail';
-    } else if (localUrl.indexOf('/customer/pigeonhole') !== -1) {
-        var detailUrl = '/customer/pigeonhole/detail';
-    } else if (localUrl.indexOf('/customer/otherfund') !== -1) {
-        var detailUrl = '/customer/otherfund/detail';
+    if (localUrl.indexOf( markUri + '/customer/loan') !== -1) {
+        var detailUrl = markUri + '/customer/loan/detail';
+    } else if (localUrl.indexOf( markUri + '/customer/compact') !== -1) {
+        var detailUrl =  markUri + '/customer/compact/detail';
+    } else if (localUrl.indexOf( markUri + '/customer/requestpayout') !== -1) {
+        var detailUrl =  markUri + '/customer/requestpayout/detail';
+    } else if (localUrl.indexOf( markUri + '/customer/approval') !== -1) {
+        var detailUrl =  markUri + '/customer/approval/detail';
+    } else if (localUrl.indexOf( markUri + '/customer/financial') !== -1) {
+        var detailUrl =  markUri + '/customer/financial/detail';
+    } else if (localUrl.indexOf( markUri + '/customer/pigeonhole') !== -1) {
+        var detailUrl =  markUri + '/customer/pigeonhole/detail';
+    } else if (localUrl.indexOf( markUri + '/customer/otherfund') !== -1) {
+        var detailUrl =  markUri + '/customer/otherfund/detail';
     }
     this.httpRequest({
         url : apiServerPath + url,
@@ -212,19 +212,19 @@ exports.getCustomerDetail = function(url, req, res, next) {
             data.title = '客户-订单详情';
             data.originUrl = localUrl;
             data.markUri = markUri;
-            if (localUrl.indexOf('/customer/loan') !== -1) {
+            if (localUrl.indexOf( markUri + '/customer/loan') !== -1) {
                 res.render('./customer/imgDetail', data);
-            } else if (localUrl.indexOf('/customer/compact') !== -1) {
+            } else if (localUrl.indexOf( markUri + '/customer/compact') !== -1) {
                 res.render('./compact/imgDetail', data);
-            } else if (localUrl.indexOf('/customer/requestpayout') !== -1) {
+            } else if (localUrl.indexOf( markUri + '/customer/requestpayout') !== -1) {
                 res.render('./requestpayout/imgDetail', data);
-            } else if (localUrl.indexOf('/customer/approval') !== -1) {
+            } else if (localUrl.indexOf( markUri + '/customer/approval') !== -1) {
                 res.render('./approval/imgDetail', data);
-            } else if (localUrl.indexOf('/customer/financial') !== -1) {
+            } else if (localUrl.indexOf( markUri + '/customer/financial') !== -1) {
                 res.render('./financial/imgDetail', data);
-            } else if (localUrl.indexOf('/customer/pigeonhole') !== -1) {
+            } else if (localUrl.indexOf( markUri + '/customer/pigeonhole') !== -1) {
                 res.render('./pigeonhole/imgDetail', data);
-            } else if (localUrl.indexOf('/customer/otherfund') !== -1) {
+            } else if (localUrl.indexOf( markUri + '/customer/otherfund') !== -1) {
                 res.render('./otherfund/imgDetail', data);
             }
         } else {

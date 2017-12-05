@@ -59,22 +59,10 @@ router.all(markUri + '/customer/loan/unpass', customerCtrl.VIEW_CUSTOMER_LOAN_UN
 router.post(markUri + '/customer/loan/detail', customerCtrl.VIEW_CUSTOMER_LOAN_DETAIL);
 // 客户管理-订单分配页面跳转 1022
 router.post(markUri + '/customer/loan/allot', customerCtrl.VIEW_CUSTOMER_LOAN_ALLOT);
-// 客户管理-订单分配-api 1031
-router.post('/api/customer/loan/allot', customerCtrl.API_CUSTOMER_LOAN_ALLOT);
-// 客户管理-开始录入-api 1161
-router.post('/api/customer/loan/startApplyloan', customerCtrl.API_CUSTOMER_LOAN_STARTAPPLYLOAN);
 // 客户管理-资料不合格页面跳转 1037
 router.post(markUri + '/customer/loan/unqualified', customerCtrl.VIEW_CUSTOMER_LOAN_UNQUALIFIED);
-// 客户管理-获取客服问题分类下的问题列表-api
-router.post('/api/customer/getQuestions', customerCtrl.API_CUSTOMER_GETQUESTIONS);
-// 客户管理-获取问题分类下的问题列表-api 1035
-router.post('/api/customer/loan/unqualified',multipartMiddleware, customerCtrl.API_CUSTOMER_LOAN_UNQUALIFIED);
-// 客户管理-确认申请按钮-api 1032
-router.post('/api/customer/loan/confirmApplyLoan', customerCtrl.API_CUSTOMER_LOAN_CONFIRMAPPLYLOAN);
 // 客户管理-通知审核结果-页面 1236
 router.post(markUri + '/customer/loan/notifyResult', customerCtrl.VIEW_CUSTOMER_LOAN_NOTIFYRESULT);
-// 客户管理-通知审核结果-审核不通过-页面 1034
-/*router.post('/api/customer/loan/auditUnpass',multipartMiddleware, customerCtrl.API_CUSTOMER_LOAN_AUDITUNPASS);*/
 
 
 // 客户-合同管理-访问路径 1260

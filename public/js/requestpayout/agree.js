@@ -155,7 +155,7 @@ $('#argee_sub').off("click").on("click", function(){
                         },
                         onCancel : function (d) {
                             d.close();
-                            window.location.href = contextPath + "/customer/financial/pendingAudit";
+                            window.location.href = contextPath + "/financial/getWaitList";
                         }
                     });
                 } else {

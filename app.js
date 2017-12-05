@@ -17,8 +17,6 @@ global.apiServerPath = 'http://127.0.0.1';
 global.contextPath = '';
 global.domain = '';
 global.markUri = '/ksd';
-//global.contextPath = 'http://101.200.157.103:8898/api';
-//global.contextPath = 'http://192.168.200.12:8899/api';
 var app = express();
 
 log4js.configure({

@@ -100,7 +100,7 @@ $(function(){
             var data = JSON.parse(response);
             //成功
             if (data.error_code == '0') {
-                window.location.href = contextPath + '/customer/loan/alreadyAllot';
+                window.location.href = contextPath + '/finance/getCheckInList';
                 //window.history.go(-1);
             } else {
                 alert(data.error_msg);
