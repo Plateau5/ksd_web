@@ -63,7 +63,7 @@
                 <div class="form-item">
                     <div class="create_btn"  style="margin-left: 0">
                         {{#if (verifyCode(1211)) }}
-                            <input type="button" class="create_sub" id="confirm_sub_t" value="确认" data-advance_id="{{vo.advance_id}}" data-url="/customer/requestpayout/pendingDispose" />
+                            <input type="button" class="create_sub" id="confirm_sub_t" value="确认" data-advance_id="{{vo.advance_id}}" data-url="{{markUri}}/customer/requestpayout/pendingDispose" />
                         {{/if}}
                         <a href="javascript:window.history.back();">
                             <input type="button" class="cancel_btn" value="取消">

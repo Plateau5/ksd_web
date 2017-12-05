@@ -17,7 +17,7 @@ $(function(){
             success:function(data){
                 if(data.error_code =='0'){
                     locationTo({
-                        action : contextPath + '/finance/getFile',
+                        action : contextPath + markUri + '/customer/loan/detail',
                         param : {
                             finance_id : finance_id,
                             active : 'active',
@@ -47,7 +47,7 @@ $(function(){
             },
             success:function(data){
                 if(data.error_code =='0'){
-                    window.location.href = contextPath + '/finance/getCheckInList';
+                    window.location.href = contextPath + markUri + '/customer/loan/alreadyAllot';
                 }else{
                     $(this).attr("disabled", true);
                     alert(data.error_msg);

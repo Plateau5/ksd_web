@@ -30,7 +30,7 @@
             <div class="listConHeader inviteCon" style="margin-bottom:20px;">
                 <ul class="crumbs_nav">
                     <li class="inline colorB first_nav"><a class="TS" href="{{markUri}}/customer/otherfund/system">其他款项</a></li>
-                    <li class="inline before second_nav"><a href="{{url}}">{{navigation}}</a></li>
+                    <li class="inline before second_nav"><a href="{{markUri}}{{url}}">{{navigation}}</a></li>
                     <li class="inline before"><a href="javascript:;">{{vo.user_name }}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">查看资料</a></li>
                 </ul>
@@ -115,7 +115,7 @@
         </select>
     </div>
     <div class="care_btn">
-        <input type="button" class="term_sub" id="care_sub" value="确定" data-url="/requestPayout/waitList">
+        <input type="button" class="term_sub" id="care_sub" value="确定" data-url="{{markUri}}/requestPayout/waitList">
         <input type="button" class="cancel_btn" value="取消">
     </div>
 </div>

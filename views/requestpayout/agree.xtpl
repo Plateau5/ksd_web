@@ -62,7 +62,7 @@
                 {{#if (verifyCode(1118)) }}
                     <div class="form-item">
                         <div class="create_btn" style="margin-left: 0">
-                            <input type="button" class="create_sub" id="argee_sub" value="确认" data-url="/requestPayout/waitList" />
+                            <input type="button" class="create_sub" id="argee_sub" value="确认" data-url="{{markUri}}/requestPayout/waitList" />
                             <a href="javascript:window.history.back();">
                                 <input type="button" class="cancel_btn" value="取消">
                             </a>

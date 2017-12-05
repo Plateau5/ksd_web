@@ -124,7 +124,7 @@
                         elem.loading.hide();
                         if (res.error_code == 0) {
                             $alert('合同发送成功', function () {
-                                window.location.href = contextPath + '/compact/pendingPass/list';
+                                window.location.href = contextPath + markUri + '/customer/compact/pendingPass';
                             });
                         } else {
                             console.log(res.error_msg);
@@ -136,7 +136,7 @@
                                     elem.confirm.click();
                                 },
                                 onCancel : function () {
-                                    window.location.href = contextPath + '/compact/pendingPass/list';
+                                    window.location.href = contextPath + markUri +  '/customer/compact/pendingPass';
                                 }
                             })
                         }

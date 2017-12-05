@@ -67,7 +67,7 @@
 							</a>
 						{{/if}}
 						{{#if (verifyCode(1264)) }}
-							<a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="{{markUri}}/customermpact/agree/co">
+							<a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="{{markUri}}/customer/compact/agree">
 								<div class="cursor requestpayout_detail_btn requestpayout_agree" lang="{{finance_id}}">同意</div>
 							</a>
 						{{/if}}

@@ -45,7 +45,7 @@
                 <ul>
                     <li class="inline colorB"><a class="TS" href="{{markUri}}/customer/loan/system">贷款管理</a></li>
                     <li class="inline before"><a class="TS"  href="{{markUri}}/customer/loan/entered" lang="{{finance_id}}">已录入</a></li>
-                    <li class="inline before"><a class="TS"  href="javascript:;" id="goDetail" data-id="{{finance_id}}" data-url="/customer/loan/detail" lang="{{finance_id}}">{{vo.user_name}}</a></li>
+                    <li class="inline before"><a class="TS"  href="javascript:;" id="goDetail" data-id="{{finance_id}}" data-url="{{markUri}}/customer/loan/detail" lang="{{finance_id}}">{{vo.user_name}}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">通知审核结果</a></li>
                 </ul>
             </div>
@@ -137,7 +137,7 @@
                     <div class="form-item">
                         <div class="create_btn">
                             <input type="button" class="create_sub" id="review_sub" value="确认"/>
-                            <a href="javascript:" class="go_detail" data-id="{{finance_id}}" data-url="/customer/loan/detail">
+                            <a href="javascript:" class="go_detail" data-id="{{finance_id}}" data-url="{{markUri}}/customer/loan/detail">
                                 <input type="button" class="cancel_btn" value="取消">
                             </a>
                         </div>
@@ -201,7 +201,7 @@
                         return;
                     }
                 }
-                url = contextPath+"/api/customer/loan/auditUnpass";
+                url = contextPath + "/api/finance/pass";
             }else{
                 var reason_arr = [];
                 var ids_arr = [];
@@ -229,7 +229,7 @@
                 var data = JSON.parse(response);
                 //成功
                 if (data.error_code == '0') {
-                    window.location.href = contextPath + '/customer/loan/entered'
+                    window.location.href = contextPath + markUri + '/customer/loan/entered'
                 } else {
                     alert(data.error_msg);
                 }

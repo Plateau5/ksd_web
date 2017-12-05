@@ -100,7 +100,7 @@ $(function(){
             var data = JSON.parse(response);
             //成功
             if (data.error_code == '0') {
-                window.location.href = contextPath + '/finance/getCheckInList';
+                window.location.href = contextPath + markUri + '/customer/loan/alreadyAllot';
                 //window.history.go(-1);
             } else {
                 alert(data.error_msg);
@@ -120,7 +120,7 @@ $(function(){
    /* //关闭提示页
     $("#sub_notice").click(function(){
         $("#delS").css("display","none");
-        window.location.href=contextPath + "/finance/getCheckInList";
+        window.location.href=contextPath + markUri + "/customer/loan/alreadyAllot";
     })*/
 
     //选择的提交逻辑

@@ -82,9 +82,9 @@
                             <td title="${bean.risk_type_value }">${bean.risk_type_value }</td>
                             <td>否是</td>
                             <td class="operate_btn">
-                                <a href="javascript:" data-url="/workflow/toDetail" data-flow_id="${bean.id}" title="查看" class="view go_forward" lang="${bean.id }"></a>
-                                    <a href="javascript:" data-url="/workflow/toEdit" data-flow_id="${bean.id}" title="编辑" class="edit go_forward" lang="${bean.id }"></a>
-                                <a href="javascript:;" data-url="/workflow/toDelete"  title="删除" class="delete go_forward" data-flow_id="${bean.id}"  lang="${bean.id }"></a>
+                                <a href="javascript:" data-url="{{markUri}}/workflow/toDetail" data-flow_id="${bean.id}" title="查看" class="view go_forward" lang="${bean.id }"></a>
+                                    <a href="javascript:" data-url="{{markUri}}/workflow/toEdit" data-flow_id="${bean.id}" title="编辑" class="edit go_forward" lang="${bean.id }"></a>
+                                <a href="javascript:;" data-url="{{markUri}}/workflow/toDelete"  title="删除" class="delete go_forward" data-flow_id="${bean.id}"  lang="${bean.id }"></a>
                             </td>
                         </tr>
                     <tr>
@@ -116,9 +116,9 @@
                             <td title="${bean.applyto_city_value }">${bean.applyto_city_value }</td>
                             <td title="${bean.charge_type_value}">${bean.charge_type_value}</td>
                             <td class="operate_btn">
-                                <a href="javascript:" data-url="/workflow/toDetail" data-flow_id="${bean.id}" title="查看" class="view go_forward" lang="${bean.id }"></a>
-                                    <a href="javascript:" data-url="/workflow/toEdit" data-flow_id="${bean.id}" title="编辑" class="edit go_forward" lang="${bean.id }"></a>
-                                    <a href="javascript:;" data-url="/workflow/toDelete"  title="删除" class="delete go_forward" data-flow_id="${bean.id}" lang="${bean.id }"></a>
+                                <a href="javascript:" data-url="{{markUri}}/workflow/toDetail" data-flow_id="${bean.id}" title="查看" class="view go_forward" lang="${bean.id }"></a>
+                                    <a href="javascript:" data-url="{{markUri}}/workflow/toEdit" data-flow_id="${bean.id}" title="编辑" class="edit go_forward" lang="${bean.id }"></a>
+                                    <a href="javascript:;" data-url="{{markUri}}/workflow/toDelete"  title="删除" class="delete go_forward" data-flow_id="${bean.id}" lang="${bean.id }"></a>
                             </td>
                         </tr>
                     <tr>
