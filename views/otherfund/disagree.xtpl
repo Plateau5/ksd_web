@@ -62,7 +62,7 @@
 </div>
 </body>
 {{include ('./../inc/jsSources')}}
-<script src="/static/dialog/dialog-layer.js"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {
 

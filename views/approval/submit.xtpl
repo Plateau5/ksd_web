@@ -89,7 +89,7 @@
 </div>
 </body>
 {{include ('./../inc/jsSources')}}
-<script src="/static/dialog/dialog-layer.js"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {
         //只允许输入数字或者输入两位小数

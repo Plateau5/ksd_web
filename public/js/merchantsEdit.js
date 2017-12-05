@@ -524,8 +524,10 @@ function viewImages () {
         e.stopPropagation();
         e.preventDefault();
         var _this = $(this);
-        var url  = $.trim(_this.data('url'));
-        window.open(url);
+        /*var url  = $.trim(_this.data('url'));
+        window.open(url);*/
+        var img = _this.parents('.img_md_operate_box').siblings('img');
+        img.click();
     })
 }
 
@@ -552,7 +554,18 @@ function deleteImages () {
             success : function (res) {
                 if (res.error_code == 0) {
                     $alert('图片删除成功', function () {
+                        // 获取父元素
+                        var parents = _this.parents('.img_md_box');
+                        // 销毁父元素的viewer实例
+                        parents[0].viewer.destroy();
                         _this.parents('.img_item').remove();
+                        // 删除图片后从新实例化
+                        /*var viewer = new Viewer(parents[0], {
+                            url: 'data-original',
+                            interval : 2000,
+                            loop : true
+                        });*/
+                        viewLargeImage(parents[0]);
                     });
                 } else {
                     $alert(res.error_msg);
@@ -612,8 +625,8 @@ function uploadImage () {
                 //elem.loading.hide();
                 if (res.error_code == 0) {
                     $alert('图片上传成功');
-                    var imgEle = '<a href="javascript:;" class="img_item head_photo" target="_blank" data-type="imgBox">\n' +
-                        '             <img src="'+ res.thumbnail +'" alt=""/>\n' +
+                    var imgEle = '<a href="javascript:;" class="img_item head_photo" data-type="imgBox">\n' +
+                        '             <img data-original="'+ res.image_url +'" src="'+ res.thumbnail +'" alt="'+ fileName +'"/>\n' +
                         '             <div class="img_md_operate_box">\n' +
                         '             <em class="img_md_operate_btn view" data-url="'+ res.image_url +'" style="margin-right: 0" title="查看"></em>\n' +
                         ((type != '99') ?('<em class="img_md_operate_btn delete" data-id="'+ res.file_id +'" title="删除"></em>') : '') +
@@ -622,8 +635,29 @@ function uploadImage () {
                     if (type == '99') {
                         btn.parents('.img_md_box').find('.head_photo').replaceWith(imgEle);
                         $('#image_url').val(res.image_url);
+                        var parents = btn.parents('.img_md_box');
+                        parents[0].viewer.destroy();
+                        viewLargeImage(parents[0]);
+                        /*var viewer = new Viewer(parents[0], {
+                            url: 'data-original',
+                            interval : 2000,
+                            loop : true
+                        });*/
                     } else {
                         btn.before(imgEle);
+                        /* 赋予新图片查看的实例属性 */
+                        var parents = btn.parents('.img_md_box');
+                        /*var count = parents.find('img').length;
+                        var newImgEle = parents.find('img').eq(count - 1)[0];
+                        parents[0].viewer.images.push(newImgEle);*/
+                        // 销毁父元素
+                        parents[0].viewer.destroy();
+                        viewLargeImage(parents[0]);
+                        /*var viewer = new Viewer(parents[0], {
+                            url: 'data-original',
+                            interval : 2000,
+                            loop : true
+                        });*/
                     }
                 } else {
                     $alert('图片上传失败，请重试');
@@ -1172,6 +1206,7 @@ $(function () {
     deleteFollowPeople();   // 注册拥有者删除事件
     deleteLinkOrRecord();   // 删除联系人|账户信息
     addLinkOrRecord();   // 添加联系人|账户信息
+    viewLargeImage('.img_md_box');
     viewImages();       // 查看大图
     deleteImages();     // 图片删除
     uploadImage();      // 图片上传注册

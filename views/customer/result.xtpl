@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <title>通知审核结果</title>
     {{include ("./../inc/metaData")}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="/static/css/question/edit.css">
-    <link rel="stylesheet" href="/static/css/requestpayout/disagree.css">
-    <link rel="stylesheet" href="/static/css/finance/review_result.css">
-    <link rel="stylesheet" href="/static/css/finance/imgUnpass.css">
-    <script src="/static/js/finance/img_unpass.js"></script>
-    <script src="/static/js/finance/get_file.js"></script>
-    <script src="/static/js/finance/result.js"></script>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/question/edit.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/requestpayout/disagree.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/finance/review_result.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/finance/imgUnpass.css">
+    <script src="{{markUri}}/static/js/finance/img_unpass.js"></script>
+    <script src="{{markUri}}/static/js/finance/get_file.js"></script>
+    <script src="{{markUri}}/static/js/finance/result.js"></script>
 </head>
 <style>
     body{

@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>查看档案</title>
     {{include('./../inc/metaData')}}
-    <script type="text/javascript" src="/static/js/employee/information.js"></script>
-    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="/static/css/employee/information.css"/>
-    <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
+    <script type="text/javascript" src="{{markUri}}/static/js/employee/information.js"></script>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/information.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
     <style>
         .formML{
             overflow: initial;
@@ -122,7 +122,7 @@
                                     <span style="position: absolute;left:7%;top:112px;color:#D8D8D8;">图片格式为JPG/JPGE/PNG,大小不超过2M</span>
                                     <div class="add inline">
                                         <span>正面</span>
-                                        <img class="tianjiaImg img1" src="/static/img/employee/imgAdd.png" alt="">
+                                        <img class="tianjiaImg img1" src="{{markUri}}/static/img/employee/imgAdd.png" alt="">
                                         <div class="imgBox">
 
                                             <input type="file" name="obverse" onchange="selectImage1(this);">
@@ -135,7 +135,7 @@
                                     </div>
                                     <div class="add inline cardImgML">
                                         <span>反面</span>
-                                        <img class="tianjiaImg img2" src="/static/img/employee/imgAdd.png" alt="">
+                                        <img class="tianjiaImg img2" src="{{markUri}}/static/img/employee/imgAdd.png" alt="">
                                         <div class="imgBox cursor">
 
                                             <input type="file" name="reverse" onchange="selectImage2(this);">
@@ -325,7 +325,7 @@
                                     <span style="position: absolute;left:7%;top:112px;COLOR:#D8D8D8;">图片格式为JPG/JPGE/PNG,大小不超过2M</span>
                                     <div class="form-control"style="background:#F5F5F5;height:120px;border:1px solid #F5F5F5;-webkit-appearance: none;">
                                         <div class="add inline">
-                                            <img class="tianjiaImg img3" src="/static/img/employee/imgAdd.png" alt="">
+                                            <img class="tianjiaImg img3" src="{{markUri}}/static/img/employee/imgAdd.png" alt="">
                                             <div class="img">
                                                 <img src="${vo.diploma_url }" alt="" id="img3">
                                             </div>
@@ -567,7 +567,7 @@
                     <div class="col-sm-12 invSText">
                         <div>操作成功</div>
 
-                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
+                        <img class="delSImg" src="{{markUri}}/static/img/employee/successIcon.png" alt=""/>
                     </div>
                 </div>
                 <div class="col-sm-3 invSBtn cursor" id="delSBtn">确定</div>
@@ -590,7 +590,7 @@
                     <div class="col-sm-12 invSText">
                         <div>确认提交信息</div>
 
-                        <img class="delQImg" src="/static/img/employee/failIcon.png" alt=""/>
+                        <img class="delQImg" src="{{markUri}}/static/img/employee/failIcon.png" alt=""/>
                     </div>
                 </div>
                 <div class="col-sm-12 btnMT">
@@ -623,7 +623,7 @@
     </c:forEach>
     </div>
 </div>
-<script src="/static/jedate/jquery.jedate.min.js"></script>
+<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
 <script type="text/javascript">
     (function ($) {
         const depList = ${data};

@@ -8,13 +8,13 @@
     <meta charset="UTF-8">
     <title>我的通知</title>
     {{include('./../inc/metaData')}}
-    <!--<link rel="stylesheet" href="/static/css/employee/listCon.css"/>-->
-    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="/static/css/finance/allot_emp_list.css"/>
-    <link rel="stylesheet" href="/static/css/message/message.css"/>
-    <script src="/static/js/employee/invite.js"></script>
-    <script src="/static/js/message/message.js"></script>
+    <!--<link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css"/>-->
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/finance/allot_emp_list.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/message/message.css"/>
+    <script src="{{markUri}}/static/js/employee/invite.js"></script>
+    <script src="{{markUri}}/static/js/message/message.js"></script>
 	<script>
 		if(window.name != "bencalie"){
 			location.reload();
@@ -74,7 +74,7 @@
 				                    <div class="messageImg">
 				                        <c:choose>
 				            				<c:when test="${empty bean.image_url}">
-						                        <img src="/static/img/employee/perIcon.png" alt="">
+						                        <img src="{{markUri}}/static/img/employee/perIcon.png" alt="">
 				            				</c:when>
 				            				<c:otherwise>
 						                        <img src="${bean.image_url}" alt="">

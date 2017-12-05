@@ -9,9 +9,9 @@
     <meta charset="UTF-8">
     <title>问题管理-历史记录</title>
     {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css">
-    <link rel="stylesheet" href="/static/css/question/his_list.css">
-    <script src="/static/js/question/his_list.js"></script>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/question/his_list.css">
+    <script src="{{markUri}}/static/js/question/his_list.js"></script>
 </head>
 <body>
 

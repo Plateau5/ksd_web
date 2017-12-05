@@ -11,8 +11,8 @@
 <head>
     <meta charset="UTF-8">
     {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
     <title>快收单</title>
 </head>
 <body>
@@ -118,8 +118,8 @@
 </div>
 </body>
 {{include('./../inc/jsSources')}}
-<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
-<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
 <script>
     (function ($) {
         //保存修改按钮的事件绑定

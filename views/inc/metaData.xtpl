@@ -4,22 +4,22 @@
 	var contextPath = '';
 </script>
 <!-- script -->
-<link rel="stylesheet" href="/static/css/common/base.css">
-<link rel="stylesheet" href="/static/css/common/bootstrap.min.css">
-<link rel="shortcut icon" type="image/x-icon" href="/static/icon/favicon.ico"/>
-<link rel="icon" type="image/x-icon" href="/static/icon/favicon.ico" />
+<link rel="stylesheet" href="{{markUri}}/static/css/common/base.css">
+<link rel="stylesheet" href="{{markUri}}/static/css/common/bootstrap.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="{{markUri}}/static/icon/favicon.ico"/>
+<link rel="icon" type="image/x-icon" href="{{markUri}}/static/icon/favicon.ico" />
 
 
-<script type="text/javascript" src="/static/js/common/jquery-1.11.3.js"></script>
-<script type="text/javascript" src="/static/js/common/jquery.cookie-1.3.js"></script>
-<script type="text/javascript" src="/static/js/common/header.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/common/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/common/jquery.cookie-1.3.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/common/header.js"></script>
 
-<script type="text/javascript" src="/static/js/push/push.js"></script>
-<script type="text/javascript" src="/static/js/common/financeBox.js"></script>
-<script type="text/javascript" src="/static/js/page/page.js"></script>
-<script type="text/javascript" src="/static/js/common/is_num.js"></script>
-<script type="text/javascript" src="/static/js/common/check.js"></script>
-<script type="text/javascript" src="/static/js/common/mouse_hover.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/push/push.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/common/financeBox.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/page/page.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/common/is_num.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/common/check.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/common/mouse_hover.js"></script>
 <script type="text/javascript">
 $(function(){
 	$("input[type='text']").blur(function(){

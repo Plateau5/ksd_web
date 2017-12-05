@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/zTree/css/zTreeStyleUserDefined.css">
-    <link rel="stylesheet" href="/static/css/contacts.css">
-    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/zTree/css/zTreeStyleUserDefined.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/contacts.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
     <title>人员信息-部门</title>
     <style>
 
@@ -76,9 +76,9 @@
     </div>
 </body>
 {{include('./../inc/jsSources')}}
-<script src="/static/zTree/js/jquery.ztree.all.js" type="text/javascript" charset="UTF-8"></script>
-<script src="/static/js/contacts.js" type="text/javascript" charset="UTF-8"></script>
-<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/zTree/js/jquery.ztree.all.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/contacts.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
 </html>
 <script>
     (function ($) {

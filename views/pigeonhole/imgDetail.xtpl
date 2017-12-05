@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>客户-客户详情</title>
     {{include ("./../inc/metaData")}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="/static/css/finance/detail.css"/>
-    <link rel="stylesheet" href="/static/css/requestpayout/detail.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/finance/detail.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/requestpayout/detail.css"/>
 </head>
 <body>
 
@@ -168,7 +168,7 @@
 		car_type : '{{vo.car_type}}'
 	});
 </script>
-<script src="/static/js/finance/img_detail.js"></script>
-<script src="/static/js/requestpayout/detail.js"></script>
+<script src="{{markUri}}/static/js/finance/img_detail.js"></script>
+<script src="{{markUri}}/static/js/requestpayout/detail.js"></script>
 </body>
 </html>

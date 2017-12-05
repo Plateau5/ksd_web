@@ -1662,7 +1662,7 @@ function fileUpload (opt) {
             var isNeedFormat = $.inArray(extname, options.fileFormat);
             if ( isNeedFormat == -1) {
                 //alert('请使用正确格式的文件');
-                f.parents(".file_upload").find(".error_msg").text("请使用正确格式的文件").show();
+                f.parents(".file_upload").find(".error_msg").text("(请使用正确格式的文件)").show();
                 if(f.outerHTML){
                     f.outerHTML = f.outerHTML;
                 } else{      //FF
@@ -1941,6 +1941,48 @@ function checkNum (ele) {
                 _this.val("");
             }
         }
+    });
+}
+
+/**
+ * 图片查看大图功能
+ * @author Arley Joe 2017年11月27日17:05:01
+ * @param selector {String} 图片列表的容器（选择器或者DOM元素）
+ */
+function viewLargeImage (selector) {
+    var selectorName = selector || '#viewerImageList';
+    var galley = $(selectorName);
+    galley.each(function (i, t) {
+        var viewer = new Viewer(t, {
+            url: 'data-original',
+            interval : 2000,
+            loop : true,
+            toolbar: {
+                zoomIn : true,
+                zoomOut : true,
+                oneToOne: true,
+                reset : true,
+                prev: function() {
+                    viewer.prev(true);
+                },
+                play: true,
+                next: function() {
+                    viewer.next(true);
+                },
+                rotateLeft : true,
+                rotateRight : true,
+                flipHorizontal : true,
+                flipVertical : true,
+                download: function() {
+                    const a = document.createElement('a');
+                    a.href = viewer.image.src;
+                    a.download = viewer.image.alt;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }
+            }
+        });
     });
 }
 

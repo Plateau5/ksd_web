@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>客户-请款材料</title>
     {{include ("./../inc/metaData")}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css">
-    <link rel="stylesheet" href="/static/css/question/edit.css">
-    <link rel="stylesheet" href="/static/css/requestpayout/material.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/question/edit.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/requestpayout/material.css">
 </head>
 <body>
 
@@ -63,8 +63,8 @@
 <!--container end-->
 
 </body>
-<script src="/static/js/requestpayout/sub_btn.js"></script>
-<script src="/static/js/requestpayout/material.js"></script>
+<script src="{{markUri}}/static/js/requestpayout/sub_btn.js"></script>
+<script src="{{markUri}}/static/js/requestpayout/material.js"></script>
 <script type="text/javascript">
     (function () {
         $(function(){

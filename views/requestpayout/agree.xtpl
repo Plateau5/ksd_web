@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <title>客户-同意</title>
     {{include ("./../inc/metaData")}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css">
-    <link rel="stylesheet" href="/static/css/question/edit.css">
-    <link rel="stylesheet" href="/static/css/requestpayout/agree.css">
-    <script src="/static/js/question/submit_form.js"></script>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/question/edit.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/requestpayout/agree.css">
+    <script src="{{markUri}}/static/js/question/submit_form.js"></script>
     <style>
         .file_item{
             margin-left: 0;
@@ -82,7 +82,7 @@
 <!--container end-->
 
 </body>
-<script src="/static/js/requestpayout/agree.js"></script>
+<script src="{{markUri}}/static/js/requestpayout/agree.js"></script>
 <script>
     $('.form-item').eq(0).css('marginTop','32px');
 </script>

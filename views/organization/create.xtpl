@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>{{title}}</title>
     {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="/static/css/employee/information.css"/>
-    <link rel="stylesheet" href="/static/css/organization/create.css">
-    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
-    <script src="/static/js/common/validate_form.js"></script>
-    <script src="/static/js/organization/create.js"></script>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/information.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/organization/create.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css"/>
+    <script src="{{markUri}}/static/js/common/validate_form.js"></script>
+    <script src="{{markUri}}/static/js/organization/create.js"></script>
     <style type="text/css">
         body{overflow-x: hidden;}
         .formML{margin-bottom:50px;margin-top:35px;padding-left:4%;}
@@ -203,7 +203,7 @@
                     <div class="col-sm-12 invSText">
                         <div>操作成功</div>
 
-                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
+                        <img class="delSImg" src="{{markUri}}/static/img/employee/successIcon.png" alt=""/>
                     </div>
                 </div>
                 <div class="col-sm-3 invSBtn cursor" id="delSBtn">确定</div>

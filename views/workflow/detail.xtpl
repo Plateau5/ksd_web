@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/css/manufacturing.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/manufacturing.css">
     <title>流程管理-审批流详情</title>
 </head>
 <body>
@@ -118,7 +118,7 @@
     </div>
 </body>
 {{include('./../inc/jsSources')}}
-<script src="/static/js/manufacturing.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/manufacturing.js" type="text/javascript" charset="UTF-8"></script>
 <script>
     (function ($) {
         $(function() {

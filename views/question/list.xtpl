@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     {{include ("./../inc/cssSources")}}
-    <link rel="stylesheet" href="/static/css/questions.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/questions.css">
     <title>{{title}}</title>
 </head>
 <body>

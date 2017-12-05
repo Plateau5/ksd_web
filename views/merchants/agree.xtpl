@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     {{include ("./../inc/cssSources")}}
-    <link rel="stylesheet" href="${contentPath}/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="${contentPath}/static/css/manufacturing.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/manufacturing.css">
     <title>商户管理-通过</title>
 </head>
 <body>
@@ -62,7 +62,7 @@
 </div>
 </body>
 {{include ('./../inc/jsSources')}}
-<script src="/static/dialog/dialog-layer.js"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {
         //绑定确定按钮的点击事件

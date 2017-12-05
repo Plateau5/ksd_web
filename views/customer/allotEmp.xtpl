@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <title>客户-贷款管理</title>
     {{include ("./../inc/metaData")}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="/static/css/finance/allot_emp_list.css"/>
-    <script src="/static/js/employee/invite.js"></script>
-    <script src="/static/js/finance/allot_emp.js"></script>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/finance/allot_emp_list.css"/>
+    <script src="{{markUri}}/static/js/employee/invite.js"></script>
+    <script src="{{markUri}}/static/js/finance/allot_emp.js"></script>
 </head>
 <body>
 
@@ -31,7 +31,7 @@
         <div class="" style="padding-bottom:50px;padding-left:180px;">
             <div class="listConHeader inviteCon">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="/customer/loan/pendingAllot">待分配</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/customer/loan/pendingAllot">待分配</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">分配任务</a></li>
                 </ul>
             </div>
@@ -43,7 +43,7 @@
                 		<div class="personBox cursor">
 	                        <div class="imgPerson">
                                 {{#if (!this.image_url) }}
-                                    <img src="/static/img/employee/perIcon.png" alt="">
+                                    <img src="{{markUri}}/static/img/employee/perIcon.png" alt="">
                                 {{else}}
                                     <img src="{{this.image_url}}" alt="">
                                 {{/if}}
@@ -118,7 +118,7 @@
                     <div class="col-sm-12 invSText">
                         <div>分配成功</div>
 
-                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
+                        <img class="delSImg" src="{{markUri}}/static/img/employee/successIcon.png" alt=""/>
                     </div>
                 </div>
                 <div class="col-sm-3 invSBtn cursor" id="success_allot">

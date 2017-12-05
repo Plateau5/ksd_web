@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <title>找回密码</title>
     {{include('./../inc/common')}}
-    <link rel="stylesheet" href="/static/css/login/login.css">
-    <link rel="stylesheet" href="/static/css/employee/reset_password.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/login/login.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/reset_password.css">
 
 </head>
 
@@ -18,7 +18,7 @@
 
     <div class="forgetNav">
         <ul class="inline ulLeft">
-            <li class="inline"><img src="/static/img/header/headerLogo.png" alt=""></li>
+            <li class="inline"><img src="{{markUri}}/static/img/header/headerLogo.png" alt=""></li>
             <!--<li class="inline">重置密码</li>-->
         </ul>
         <ul class="inline ulRight">
@@ -50,7 +50,7 @@
             <div class="getCode getCodeW cursor" id="retrievepassword">获取验证码</div>
             <div class="getCode getCodeW" id="count1"><span>120</span>s后重新发送</div>
             <div class="proProm1">
-                <img src="/static/img/employee/proProm.png" alt="">
+                <img src="{{markUri}}/static/img/employee/proProm.png" alt="">
                 <span>请输入正确的手机号</span>
             </div>
             <input type="button" value="下一步" class="forFSubBtn" id="next_step">
@@ -64,7 +64,7 @@
             <input type="password" placeholder="请与上面输入密码一致" class="forInput mimaInp" id="sub_pwd">
             <span style="color: #1DC6BC" id="error_sub_pwd"></span>
             <div class="proProm2">
-                <img src="/static/img/employee/proProm.png" alt="">
+                <img src="{{markUri}}/static/img/employee/proProm.png" alt="">
                 <span></span>
             </div>
             <input type="button" value="提交" disabled="disabled" class="forSSubBtn" id="reset_pwd">
@@ -73,7 +73,7 @@
 
         <!--third start-->
         <div class="formThird">
-            <img src="/static/img/employee/pwdY.png" alt="">
+            <img src="{{markUri}}/static/img/employee/pwdY.png" alt="">
             <span class="pwdT">新密码设置成功！</span>
             <span class="pwdP">请牢记您设置的新密码</span>
             <a href="javascript:;" id="back_login">返回登录</a>
@@ -83,7 +83,7 @@
 
 </div>
 <!--忘记密码页  结束-->
-<script src="/static/js/employee/reset_password.js"></script>
-<script src="/static/js/common/jquery.md5.js"></script>
+<script src="{{markUri}}/static/js/employee/reset_password.js"></script>
+<script src="{{markUri}}/static/js/common/jquery.md5.js"></script>
 </body>
 </html>

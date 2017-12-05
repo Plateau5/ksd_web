@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="/static/css/manufacturing.css">
-    <link rel="stylesheet" href="/static/css/privilege.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/manufacturing.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/privilege.css">
     <title>权限管理-角色列表</title>
     <style>
 
@@ -108,7 +108,7 @@
     </div>
 </body>
 {{include('./../inc/jsSources')}}
-<script src="/static/dialog/dialog-layer.js" type="text/javascript"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript"></script>
 </html>
 <script>
     (function ($) {

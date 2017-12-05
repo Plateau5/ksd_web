@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>机构详情</title>
     {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="/static/css/organization/detail.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/organization/detail.css"/>
 </head>
 <style>
     .org_create_info{
@@ -68,7 +68,7 @@
                     </div>
                     <!--<per:button code="1070">-->
                         <div class="inviteP cursor inline edit_org" id="editOrg" lang="${vo.id}">
-                            <img  style="margin-right:5px;margin-top:-2px;" src="/static/img/product/edit_white_icon.png" alt="">
+                            <img  style="margin-right:5px;margin-top:-2px;" src="{{markUri}}/static/img/product/edit_white_icon.png" alt="">
                             <span>编辑机构</span>
                         </div>
                     <!--</per:button>-->

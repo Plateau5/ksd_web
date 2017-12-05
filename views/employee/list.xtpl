@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>同事</title>
     {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="/static/css/employee/listCon.css">
-    <script src="/static/js/employee/list.js"></script>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css">
+    <script src="{{markUri}}/static/js/employee/list.js"></script>
     <style type="text/css">
     	.color{
     		color: #1DC6BC;
@@ -43,7 +43,7 @@
                 <span>全部同事</span>
                   <per:button code="1004">
 	                <div class="inviteP cursor inline" id="toInvite">
-	                    <img  style="margin-right:5px;margin-top:-2px;" src="/static/img/employee/inviteIcon.png" alt="">
+	                    <img  style="margin-right:5px;margin-top:-2px;" src="{{markUri}}/static/img/employee/inviteIcon.png" alt="">
 		                    <span>邀请同事</span>
 	                </div>
                   </per:button>
@@ -70,7 +70,7 @@
 	            		<td><div class="person_img">
 	            			<c:choose>
 	            				<c:when test="${empty bean.image_url}">
-			                        <img src="/static/img/employee/perIcon.png" alt="">
+			                        <img src="{{markUri}}/static/img/employee/perIcon.png" alt="">
 	            				</c:when>
 	            				<c:otherwise>
 			                        <img src="${bean.image_url}" alt="">
@@ -129,7 +129,7 @@
                         <div>操作成功</div>
                         <!--<span><span class="countMin">5</span>秒后自动跳转......</span>-->
 
-                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
+                        <img class="delSImg" src="{{markUri}}/static/img/employee/successIcon.png" alt=""/>
                     </div>
                     <!--<div class="col-sm-8 countMin">-->
                        <!---->
@@ -153,7 +153,7 @@
                     <div class="col-sm-12 invSText">
                         <div>删除信息确认<span>删除后此同事信息全部丢失并无法登录</span></div>
 
-                        <img class="delQIMG" src="/static/img/employee/failIcon.png" alt=""/>
+                        <img class="delQIMG" src="{{markUri}}/static/img/employee/failIcon.png" alt=""/>
                     </div>
                 </div>
                 <div class="col-sm-12 BTNMT">

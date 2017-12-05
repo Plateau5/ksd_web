@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <title>产品管理</title>
     {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="/static/css/employee/information.css"/>
-    <link rel="stylesheet" href="/static/css/product/create.css">
-    <script src="/static/js/common/validate_form.js"></script>
-    <script src="/static/js/product/create.js"></script>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/information.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/product/create.css">
+    <script src="{{markUri}}/static/js/common/validate_form.js"></script>
+    <script src="{{markUri}}/static/js/product/create.js"></script>
     <style type="text/css">
         body{overflow-x: hidden;}
         .formML{margin-bottom:50px;margin-top:35px;padding-left:4%;}
@@ -320,7 +320,7 @@
                             可抵押城市：</label>
                         <div class="col-xs-5" style="position: relative;">
                             <input type="text"  class="form-control cursor city" placeholder="请选择" readonly="readonly" style="background-color:#fff;">
-                            <img class="city_img" src="/static/img/product/province.png" alt="">
+                            <img class="city_img" src="{{markUri}}/static/img/product/province.png" alt="">
                             <div class="select_city_box">
                                 <div class="box_top">
                                     <div class="box_top_left province_btn cur_city">省份</div>
@@ -565,7 +565,7 @@
                     <div class="col-sm-12 invSText">
                         <div>操作成功</div>
 
-                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
+                        <img class="delSImg" src="{{markUri}}/static/img/employee/successIcon.png" alt=""/>
                     </div>
                 </div>
                 <div class="col-sm-3 invSBtn cursor" id="delSBtn">确定</div>

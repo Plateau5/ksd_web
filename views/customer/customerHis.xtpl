@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     {{include ("./../inc/cssSources")}}
-    <link rel="stylesheet" href="/static/css/orderDetails.css">
-    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/orderDetails.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
     <title>客户-历史订单记录</title>
 </head>
 <body>

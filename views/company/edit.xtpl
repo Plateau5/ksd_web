@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/css/customerService.css">
-    <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
-    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="/static/css/company.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/company.css">
     <title>租户管理-租户列表</title>
 </head>
 <body>
@@ -127,10 +127,10 @@
 </div>
 </body>
 {{include('./../inc/jsSources')}}
-<script src="/static/jedate/jquery.jedate.min.js"></script>
-<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
-<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
-<script src="/static/js/citySet.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
+<script src="{{markUri}}/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/citySet.js" type="text/javascript" charset="UTF-8"></script>
 <script>
     var list = ${list};
     var cityArr = [];   //  存储已经选择的城市数据

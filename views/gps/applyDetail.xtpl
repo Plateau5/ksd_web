@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/css/customerService.css">
-    <link rel="stylesheet" href="/static/css/manufacturing.css">
-    <link rel="stylesheet" href="/static/css/warehouse.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/manufacturing.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/warehouse.css">
     <title>GPS申请-待处理</title>
 </head>
 <body>
@@ -115,7 +115,7 @@
 </div>
 </body>
 {{include('./../inc/jsSources')}}
-<script src="/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
 <script>
     (function ($) {
         var finalResult = [];

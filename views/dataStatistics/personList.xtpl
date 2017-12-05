@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/css/statistics.css"/>
-	<link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/statistics.css"/>
+	<link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
     <title>数据统计-人效统计</title>
 </head>
 <body>
@@ -71,7 +71,7 @@
 										{{/if}}
 										<div class="inline_block user_detail">
 											{{#if (this.emp_logo === '') }}
-												<img src="/static/img/employee/perIcon.png" alt="">
+												<img src="{{markUri}}/static/img/employee/perIcon.png" alt="">
 											{{else}}
 												<img src="{{this.emp_logo}}" alt="">
 											{{/if}}
@@ -135,7 +135,7 @@
 </div>
 </body>
 {{include('./../inc/jsSources')}}
-<script src="/static/jedate/jquery.jedate.min.js"></script>
+<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
 <script>
     (function ($) {
         // TAB标签切换触发视图更新

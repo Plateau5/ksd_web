@@ -7,8 +7,8 @@
 <div id="header" class="header full_width">
 	<div class="header_content normal_width">
 		<a href="/home" class="logo">
-			<!--<img class="block img_responsive" src="/static/img/logo/${domain}_logo.png" alt="快收单logo">-->
-			<img class="block img_responsive" src="/static/img/logo/logo.png" alt="快收单logo">
+			<!--<img class="block img_responsive" src="{{markUri}}/static/img/logo/${domain}_logo.png" alt="快收单logo">-->
+			<img class="block img_responsive" src="{{markUri}}/static/img/logo/logo.png" alt="快收单logo">
 		</a>
 		<ul class="header_nav inline_block">
 			<li class="home nav_item <c:if test="${fn:startsWith(uri, '/home')||fn:startsWith(uri, '/login')}">active</c:if>">

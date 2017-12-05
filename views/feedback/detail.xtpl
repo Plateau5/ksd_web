@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>意见反馈</title>
     {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="/static/css/home.css"/>
-    <link rel="stylesheet" href="/static/css/questions.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/home.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/questions.css"/>
 </head>
 <body>
 <div id="wrapper" class="wrapper">
@@ -116,7 +116,7 @@
 </div>
 </body>
 {{include('./../inc/jsSources')}}
-<script src="/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
 <script>
     (function ($) {
         // 面包屑跳转

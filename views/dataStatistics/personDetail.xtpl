@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/css/statistics.css"/>
-    <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/statistics.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
     <title>数据统计-业务统计</title>
     <style>
         body{
@@ -46,10 +46,10 @@
                                 </div>
                             {{else}}
                                 <div class="bg_img_box">
-                                    <img src="/static/img/normal_photo_bg.png"  class="bg_img" alt="">
+                                    <img src="{{markUri}}/static/img/normal_photo_bg.png"  class="bg_img" alt="">
                                 </div>
                                 <div class="photo">
-                                    <img src="/static/img/normal_photo.png" alt="">
+                                    <img src="{{markUri}}/static/img/normal_photo.png" alt="">
                                 </div>
                             {{/if}}
                         </div>
@@ -189,9 +189,9 @@
 <input type="hidden" id="endDate" value="{{end_date}}">
 </body>
 {{include('./../inc/jsSources')}}
-<script src="/static/js/echarts.min.js"></script>
-<script src="/static/js/statistics.js"></script>
-<script src="/static/jedate/jquery.jedate.min.js"></script>
+<script src="{{markUri}}/static/js/echarts.min.js"></script>
+<script src="{{markUri}}/static/js/statistics.js"></script>
+<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
 <script>
     (function ($) {
         var  orderType = {{ orderType }};

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     {{include ("./../inc/cssSources")}}
     <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
     <title>客户-同意</title>
 </head>
 <body>
@@ -71,7 +71,7 @@
 <div class="loading" id="loading"></div>
 </body>
 {{include ('./../inc/jsSources')}}
-<script src="/static/dialog/dialog-layer.js"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {
         var elem = {

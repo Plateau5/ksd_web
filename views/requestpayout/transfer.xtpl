@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     {{include ("./../inc/cssSources")}}
-    <link rel="stylesheet" href="/static/css/transfer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/transfer.css">
     <title>客户-请款管理</title>
 </head>
 <body>
@@ -42,7 +42,7 @@
                             {{#each (emp_list) }}
                                 <li class="list_item employee_item" lang="{{this.role_id }}" style="display:none;">
                                     {{#if (this.image_url === '' || this.image_url.length <= 0) }}
-                                        <img src="/static/img/employee/perIcon.png" alt="">
+                                        <img src="{{markUri}}/static/img/employee/perIcon.png" alt="">
                                     {{else}}
                                         <img src="{{this.image_url}}" alt="">
                                     {{/if}}

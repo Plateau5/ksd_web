@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/css/manufacturing.css">
-    <link rel="stylesheet" href="/static/css/privilege.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/manufacturing.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/privilege.css">
     <title>权限管理-人员管理</title>
     <style>
 

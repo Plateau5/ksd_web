@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>邀请同事</title>
     {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="/static/css/employee/information.css"/>
-    <script src="/static/js/employee/invite.js"></script>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/information.css"/>
+    <script src="{{markUri}}/static/js/employee/invite.js"></script>
 </head>
 <style>
     body{overflow-x: hidden;}
@@ -149,7 +149,7 @@
                     <div class="col-sm-12 invSText">
                         <div>操作成功</div>
 
-                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
+                        <img class="delSImg" src="{{markUri}}/static/img/employee/successIcon.png" alt=""/>
                     </div>
                 </div>
                 <div class="col-sm-3 invSBtn cursor" id="inviteSBtn">确定</div>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     {{include ("./../inc/cssSources")}}
-    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="/static/css/customerService.css">
-    <link rel="stylesheet" href="/static/css/merchants.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/merchants.css">
     <title>备案管理</title>
 </head>
 <body>
@@ -95,7 +95,7 @@
 </div>
 </body>
 {{include ('./../inc/jsSources')}}
-<script src="/static/dialog/dialog-layer.js"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {
         var materials = {

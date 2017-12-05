@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     {{include ("./../inc/cssSources")}}
-    <link rel="stylesheet" href="/static/css/customerService.css">
-    <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
     <title>{{title}}</title>
 </head>
 <body>
@@ -50,7 +50,7 @@
 <div class="mask" style="display: none;"></div>
 </body>
 {{include ('./../inc/jsSources')}}
-<script src="/static/jedate/jquery.jedate.min.js"></script>
+<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
 </html>
 <script>
     (function ($) {

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/css/manufacturing.css">
-    <link rel="stylesheet" href="/static/css/privilege.css">
-    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/manufacturing.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/privilege.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
     <title>权限管理-创建角色</title>
     <style>
 
@@ -57,7 +57,7 @@
                     <div class="title bold">权限配置</div>
                     <div class="privilege_box">
                         <div class="no_datas">
-                            <img src="/static/img/loading_icon.gif" class="img_responsive" alt="loading：正在加载页面数据">
+                            <img src="{{markUri}}/static/img/loading_icon.gif" class="img_responsive" alt="loading：正在加载页面数据">
                         </div>
                         <!-- 以下位置为权限列表部分的内容 -->
 
@@ -101,7 +101,7 @@
     </c:otherwise>
 </c:choose>
 {{include('./../inc/jsSources')}}
-<script src="/static/dialog/dialog-layer.js"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js"></script>
 </html>
 <script>
     (function ($) {

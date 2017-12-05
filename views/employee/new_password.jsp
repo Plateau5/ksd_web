@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <title>初始化设置</title>
     {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/new_password.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/new_password.css"/>
 </head>
 <body>
 
@@ -23,7 +23,7 @@
             <input type="password" id="sub_pwd" placeholder="请输入6-16位确认密码" name="sub_pwd" placeholder="再次确认" class="password_new"/>
             <span style="color: #1DC6BC;" id="error_sub_pwd"></span>
             <div class="proProm2">
-                <img src="/static/img/employee/proProm.png" alt="">
+                <img src="{{markUri}}/static/img/employee/proProm.png" alt="">
                 <span>...</span>
             </div>
             <input type="button" id="reset_pwd" disabled="disabled" value="确定" class="password_btn"/>
@@ -31,5 +31,5 @@
     </div>
 </div>
 </body>
-<script type="text/javascript" src="/static/js/employee/new_password.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/employee/new_password.js"></script>
 </html>

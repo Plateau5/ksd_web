@@ -10,7 +10,7 @@ request.setAttribute("contextPath", contextPath);
 <script type="text/javascript">
 	var contextPath = '';
 </script>  
-<script type="text/javascript" src="/static/js/common/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/common/jquery-1.11.3.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
 <title>Insert title here</title>  
 <script type="text/javascript">

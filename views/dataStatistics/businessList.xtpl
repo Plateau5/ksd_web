@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="/static/css/statistics.css"/>
-    <link rel="stylesheet" href="/static/dialog/dialog-layer.css"/>
-    <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/statistics.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
     <title>数据统计-业务统计</title>
     <style>
         body{
@@ -110,10 +110,10 @@
 </div>
 </body>
 {{include('./../inc/jsSources')}}
-<script src="/static/js/echarts.min.js"></script>
-<script src="/static/js/statistics.js"></script>
-<script src="/static/jedate/jquery.jedate.min.js"></script>
-<script src="/static/dialog/dialog-layer.js"></script>
+<script src="{{markUri}}/static/js/echarts.min.js"></script>
+<script src="{{markUri}}/static/js/statistics.js"></script>
+<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {
         // Ajax获取数据的权限控制标识

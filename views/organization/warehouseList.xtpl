@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <title>产品管理</title>
     {{include('./../inc/metaData')}}
-    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="/static/css/employee/listCon.css">
-    <link rel="stylesheet" href="/static/css/product/shelves_list.css">
-    <script src="/static/js/product/shelves_list.js"></script>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/product/shelves_list.css">
+    <script src="{{markUri}}/static/js/product/shelves_list.js"></script>
     <style type="text/css">
         .color{
             color: rgb(253, 87, 34);
@@ -84,19 +84,19 @@
                     </div>
                     <per:button code="1086">
                     <div class="update_btn">
-                        <img  style="margin-right:5px;margin-top:-2px;" src="/static/img/product/icon_update.png" alt="">
+                        <img  style="margin-right:5px;margin-top:-2px;" src="{{markUri}}/static/img/product/icon_update.png" alt="">
                         <span>上架</span>
                     </div>
                     </per:button>
                     <per:button code="1088">
                     <div class="delete_btn">
-                        <img  style="margin-right:5px;margin-top:-2px;" src="/static/img/product/icon_delete.png" alt="">
+                        <img  style="margin-right:5px;margin-top:-2px;" src="{{markUri}}/static/img/product/icon_delete.png" alt="">
                         <span>删除</span>
                     </div>
                     </per:button>
                     <!--<per:button code="1075">
                     <div class="cursor publish_list_btn" id="publish_list_btn">
-                        <img  style="margin-right:5px;margin-top:-2px;" src="/static/img/product/icon_shelves.png" alt="">
+                        <img  style="margin-right:5px;margin-top:-2px;" src="{{markUri}}/static/img/product/icon_shelves.png" alt="">
                         <span>已上架的产品</span>
                     </div>
                     </per:button>-->
@@ -188,7 +188,7 @@
                     <div class="col-sm-12 invSText">
                         <div>操作成功</div>
 
-                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
+                        <img class="delSImg" src="{{markUri}}/static/img/employee/successIcon.png" alt=""/>
                     </div>
                 </div>
                 <div class="col-sm-3 invSBtn cursor" id="delSBtn">确定</div>
@@ -211,7 +211,7 @@
                     <div class="col-sm-12 invSText" style="margin-top:20px;">
                         <div style="line-height: 96px;"></div>
 
-                        <img class="delQIMG" src="/static/img/employee/failIcon.png" alt="" style="margin-top:0;"/>
+                        <img class="delQIMG" src="{{markUri}}/static/img/employee/failIcon.png" alt="" style="margin-top:0;"/>
 
                     </div>
                 </div>

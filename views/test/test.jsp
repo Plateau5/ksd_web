@@ -14,7 +14,7 @@ request.setAttribute("contextPath", contextPath);
 	var contextPath = '';
 </script>
     <title>机构管理</title>
-    <script type="text/javascript" src="/static/js/common/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="{{markUri}}/static/js/common/jquery-1.11.3.js"></script>
 </head>
 <body>
 cid:<input name="cid" id="cid" width="200px"><br>

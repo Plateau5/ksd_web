@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     {{include ("./../inc/cssSources")}}
-    <link rel="stylesheet" href="/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="/static/jedate/skin/jedate.css"/>
-    <link rel="stylesheet" href="/static/css/merchants.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/merchants.css">
     <title>商户管理-编辑</title>
 </head>
 <body>
@@ -556,11 +556,11 @@
 </body>
 {{include ('./../inc/jsSources')}}
 <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.0&key=3e145360a8017aacdab3696b6f64fa69" charset="utf-8"></script>
-<script type="text/javascript" src="/static/dialog/dialog-layer.js"></script>
-<script type="text/javascript" src="/static/js/jsonsql-0.1.js"></script>
-<script src="/static/jedate/jquery.jedate.min.js"></script>
-<script type="text/javascript" src="/static/js/merchants.js"></script>
-<script type="text/javascript" src="/static/js/merchantsEdit.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/dialog/dialog-layer.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/jsonsql-0.1.js"></script>
+<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/merchants.js"></script>
+<script type="text/javascript" src="{{markUri}}/static/js/merchantsEdit.js"></script>
 <script>
     var empList = ${empList};
     var merchantId = $.trim($('#supplierId').val());

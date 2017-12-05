@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <title>客户-贷款管理</title>
     {{include ("./../inc/metaData")}}
-    <link rel="stylesheet" href="/static/css/employee/listCon.css"/>
-    <link rel="stylesheet" href="/static/css/employee/invite.css"/>
-    <link rel="stylesheet" href="/static/css/question/edit.css">
-    <link rel="stylesheet" href="/static/css/finance/imgUnpass.css"/>
-    <link rel="stylesheet" href="/static/css/question/edit.css">
-    <link rel="stylesheet" href="/static/css/requestpayout/disagree.css">
-    <script src="/static/js/finance/img_unpass.js"></script>
-    <script src="/static/js/finance/get_file.js"></script>
-    <script src="/static/js/question/submit_form.js"></script>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/employee/invite.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/question/edit.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/finance/imgUnpass.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/css/question/edit.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/requestpayout/disagree.css">
+    <script src="{{markUri}}/static/js/finance/img_unpass.js"></script>
+    <script src="{{markUri}}/static/js/finance/get_file.js"></script>
+    <script src="{{markUri}}/static/js/question/submit_form.js"></script>
 </head>
 <style>
     .error_prom{margin-left:82px;}
@@ -125,7 +125,7 @@
                     <div class="col-sm-12 invSText">
                         <div>已通知贷前<span>{{create_name}}</span></div>
 
-                        <img class="delSImg" src="/static/img/employee/successIcon.png" alt=""/>
+                        <img class="delSImg" src="{{markUri}}/static/img/employee/successIcon.png" alt=""/>
                     </div>
                 </div>
                 <div class="col-sm-3 invSBtn cursor" id="sub_notice" >确定</div>
