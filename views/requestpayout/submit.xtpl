@@ -99,7 +99,7 @@
                     action : contextPath + "/requestPayout/getFile",
                     param : {
                         finance_id : financeId,
-                        url : "/requestPayout/pendingDispose/list",
+                        url : markUri + "/customer/requestpayout/pendingDispose",
                         active : 'wait'
                     }
                 });
@@ -133,7 +133,7 @@
                         if (res.error_code == 0) {
                             //更改显示按钮
                             //t.hide().siblings(".requestpayout_passed").show();
-                            window.location.href = contextPath +"/requestPayout/pendingDispose/list";
+                            window.location.href = contextPath + markUri + "/customer/requestpayout/pendingDispose";
                         } else {
                             $alert(res.error_msg);
                             ele.on("click", affirmSubmitEvent);

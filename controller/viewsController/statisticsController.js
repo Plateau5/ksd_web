@@ -11,8 +11,13 @@ var COMMONUTIL = require('./../../util/commonUtil');  // 主加密方法类文�
 
 // 数据统计主导航跳转
 exports.VIEW_STATISTICS_SYSTEM = function(req, res, next) {
-    // TODO 写权限跳转循环
-    res.redirect('/statistics/business/list');
+    if (common.checkPrivilege(1372, req)) {
+        res.redirect(markUri + '/statistics/business/list');
+    } else if (common.checkPrivilege(1328, req)) {
+        res.redirect(markUri + '/statistics/person/system');
+    } else {
+        res.redirect('/404');
+    }
 };
 
 // 数据统计-业务统计跳转
@@ -71,8 +76,15 @@ exports.API_STATISTICS_PRODUCT_DATA = function(req, res, next) {
 
 // 数据统计-人效统计首页跳转
 exports.VIEW_STATISTICS_PERSON_SYSTEM = function(req, res, next) {
-    // TODO 写权限跳转循环
-    res.redirect('/statistics/person/order');
+    if (common.checkPrivilege(1354, req)) {
+        res.redirect(markUri + '/statistics/person/order');
+    } else if (common.checkPrivilege(1355, req)) {
+        res.redirect(markUri + '/statistics/person/request');
+    } else if (common.checkPrivilege(1356, req)) {
+        res.redirect(markUri + '/statistics/person/pigeonhole');
+    } else {
+        res.redirect('/404');
+    }
 };
 // 数据统计-人效统计-进件跳转
 exports.VIEW_STATISTICS_PERSON_ORDER = function(req, res, next) {

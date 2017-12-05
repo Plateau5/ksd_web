@@ -30,7 +30,7 @@
             <div class="listConHeader inviteCon" style="margin-bottom:20px;">
                 <ul class="crumbs_nav">
                     <li class="inline colorB first_nav"><a class="TS" href="{{markUri}}/customer/requestPayout/system">请款管理</a></li>
-                    <li class="inline before second_nav"><a href="{{markUri}}{{url}}">{{navigation}}</a></li>
+                    <li class="inline before second_nav"><a href="{{url}}">{{navigation}}</a></li>
                     <li class="inline before"><a href="javascript:;">{{vo.user_name }}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">查看资料</a></li>
                 </ul>
@@ -64,14 +64,14 @@
                             <div class="cursor requestpayout_detail_btn requestpayout_download download_file" id="" alt="2" lang="{{finance_id}}">全部下载</div>
                         {{/if}}
                         {{#if (vo.receipt_id === 1) }}
-	                        {{#if (url === '/customer/requestpayout/pendingAudit' || ((vo.risk_type === 1 || vo.risk_type === 2) && vo.already_request === 0 && url === '/customer/requestpayout/pass')) }}
+	                        {{#if (url === markUri + '/customer/requestpayout/pendingAudit' || ((vo.risk_type === 1 || vo.risk_type === 2) && vo.already_request === 0 && url === '/customer/requestpayout/pass')) }}
 	                                {{#if (verifyCode(1187)) }}
 	                                    <a href="javascript:" class="btn_item complement_datum" lang="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
 	                                        <div class="cursor requestpayout_detail_btn requestpayout_send" lang="{{finance_id}}">补全资料</div>
 	                                    </a>
 	                                {{/if}}
 	                        {{/if}}
-	                        {{#if (url === '/customer/requestpayout/pendingAudit' && vo.advance_status === 10 && vo.present_id === present_id) }}
+	                        {{#if (url === markUri + '/customer/requestpayout/pendingAudit' && vo.advance_status === 10 && vo.present_id === present_id) }}
 	                            {{#if (verifyCode(1184)) }}
 	                                <a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="{{markUri}}/customer/requestpayout/transfer" data-advance_id="{{vo.advance_id}}">
 	                                    <div class="cursor requestpayout_detail_btn requestpayout_care" id="care_btn">转交他人</div>
@@ -88,7 +88,7 @@
 	                                </a>
 	                            {{/if}}
 	                        {{/if}}
-	                        {{#if (url === '/customer/requestpayout/pendingDispose') }}
+	                        {{#if (url === markUri +  '/customer/requestpayout/pendingDispose') }}
 	                            {{#if (verifyCode(1116)) }}
 	                                <a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="{{markUri}}/customer/requestpayout/disagree?type=1" data-advance_id="{{vo.advance_id}}">
 	                                    <div class="cursor requestpayout_detail_btn requestpayout_disagree">不同意</div>
@@ -101,7 +101,7 @@
 	                            {{/if}}
 	                        {{/if}}
 
-	                        {{#if (url === '/customer/requestpayout/pass' && vo.already_request === 0) }}
+	                        {{#if (url ===  markUri + '/customer/requestpayout/pass' && vo.already_request === 0) }}
 	                            {{#if (verifyCode(1220)) }}
 	                                <a href="javascript:;" class="btn_item affirm_submit_thirdparty" lang="{{finance_id}}"  type="2" data-advance_id="{{vo.advance_id}}">
 	                                    <div class="cursor requestpayout_detail_btn requestpayout_affirm_submit"  lang="{{finance_id}}"  type="2">确认请款</div>
@@ -109,7 +109,7 @@
 	                            {{/if}}
 	                        {{/if}}
 
-	                        {{#if (url === '/customer/requestpayout/pendingPass' && vo.risk_type === 3 && vo.is_OperationCommit === 0) }}
+	                        {{#if (url ===  markUri + '/customer/requestpayout/pendingPass' && vo.risk_type === 3 && vo.is_OperationCommit === 0) }}
 	                            {{#if (verifyCode(1212)) }}
 	                                <a href="javascript:;" class="btn_item requestpayout_passed" lang="{{finance_id}}" data-advance_id="{{vo.advance_id}}">
 	                                    <div class="cursor requestpayout_detail_btn requestpayout_passed"  lang="{{finance_id}}">请款通过</div>
@@ -148,7 +148,7 @@
         </select>
     </div>
     <div class="care_btn">
-        <input type="button" class="term_sub" id="care_sub" value="确定" data-url="{{markUri}}/requestPayout/waitList">
+        <input type="button" class="term_sub" id="care_sub" value="确定" data-url="{{markUri}}/customer/requestpayout/pendingAudit">
         <input type="button" class="cancel_btn" value="取消">
     </div>
 </div>
@@ -208,7 +208,7 @@
                 });
             } else {
                 locationTo({
-                    action : contextPath + "/customer/requestpayout/affirmSubmit",
+                    action : contextPath + markUri + "/customer/requestpayout/affirmSubmit",
                     param : {
                         finance_id : finance_id,
                         type : reqType
@@ -269,7 +269,7 @@
                 var res = eval(req);
                 if (res.error_code == 0) {
                     //操作成功后跳转到待通过列表页
-                    window.location.href = contextPath + "/requestPayout/pendingPass/list";
+                    window.location.href = contextPath +markUri + '/customer/requestpayout/pendingPass';
                 } else {
                     //alert(res.error_msg);
                     dialog("alert",{
@@ -279,7 +279,7 @@
                         maskClose : false,
                         //css : 'font-size: 16px',
                         onConfirm : function () {
-                            window.location.href = contextPath + "/requestPayout/pendingPass/list";
+                            window.location.href = contextPath + markUri + '/customer/requestpayout/pendingPass';
                         }
                     })
                 }

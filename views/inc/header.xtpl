@@ -1,12 +1,12 @@
 <!-- Template of header -->
 <div id="" class="header full_width">
     <div class="header_content normal_width">
-        <a href="{{markUri}}/home" class="logo">
+        <a href="{{contextPath}}/home" class="logo">
             <img class="block" src="{{markUri}}/static/img/logo.png" alt="致汇金服logo">
         </a>
         <ul class="header_nav inline_block">
             <li class="nav_item {{#if(startWith(markUri + '/home'))}}active{{/if}}">
-                <a href="{{markUri}}/home" class="">首页</a>
+                <a href="{{contextPath}}/home" class="">首页</a>
             </li>
             {{#if (verifyCode(1091)) }}
                 <li class="nav_item {{#if(startWith(markUri + '/customer'))}}active{{/if}}">
@@ -20,12 +20,12 @@
             {{/if}}
             {{#if (verifyCode(1067)) }}
                 <li class="nav_item {{#if(startWith(markUri + '/organization'))}}active{{/if}}">
-                    <a href="{{markUri}}/organization" class="">供应商</a>
+                    <a href="{{contextPath}}/organization/getList" class="">供应商</a>
                 </li>
             {{/if}}
             {{#if (verifyCode(1312)) }}
                 <li class="nav_item {{#if(startWith(markUri + '/workflow'))}}active{{/if}}">
-                    <a href="{{markUri}}/workflow" class="">业务</a>
+                    <a href="{{contextPath}}/warehouse/system" class="">业务</a>
                 </li>
             {{/if}}
             {{#if (verifyCode(1352)) }}
@@ -34,11 +34,11 @@
                 </li>
             {{/if}}
             <li class="nav_item {{#if(startWith(markUri + '/employee' + ' || ' + markUri + '/department'))}}active{{/if}}">
-                <a href="{{markUri}}/employee/system" class="">人员</a>
+                <a href="{{contextPath}}/employee/getList" class="">人员</a>
             </li>
             {{#if (verifyCode(1270)) }}
                 <li class="nav_item {{#if(startWith(markUri + '/company' + ' || ' + markUri + '/feedback'))}}active{{/if}}">
-                    <a href="{{markUri}}/systemManagement" class="">系统</a>
+                    <a href="{{contextPath}}/company/list" class="">系统</a>
                 </li>
             {{/if}}
         </ul>
@@ -49,11 +49,11 @@
                     <span id="header_username" class="header_username"></span>
                 </a>
                 <ul class="user_setting">
-                    <li class="setting_item  {{#if(startWith(markUri + '/userCenter'))}}active{{/if}}"><a href="{{markUri}}/userCenter/information">账号设置</a></li>
+                    <li class="setting_item  {{#if(startWith(markUri + '/userCenter'))}}active{{/if}}"><a href="{{contextPath}}/personal/file">账号设置</a></li>
                     {{#if (verifyCode(1251)) }}
-                        <li class="setting_item {{#if(startWith(markUri + '/privilege'))}}active{{/if}}"><a href="{{markUri}}/privilege/system">权限管理</a></li>
+                        <li class="setting_item {{#if(startWith(markUri + '/privilege'))}}active{{/if}}"><a href="{{contextPath}}/privilege/system">权限管理</a></li>
                     {{/if}}
-                    <li class="setting_item"><a href="{{markUri}}/logout">退出登录</a></li>
+                    <li class="setting_item"><a href="{{contextPath}}/login/logout">退出登录</a></li>
                 </ul>
             </li>
             <li class="message active">

@@ -59,6 +59,8 @@ exports.VIEW_CUSTOMER_SYSTEM = function(req, res, next) {
         res.redirect(markUri + '/customer/pigeonhole/system');
     } else if (common.checkPrivilege(1330, req)) {
         res.redirect(markUri + '/customer/otherfund/system');
+    } else {
+        res.redirect('/404');
     }
 };
 
@@ -75,6 +77,8 @@ exports.VIEW_CUSTOMER_LOAN_SYSTEM = function(req, res, next) {
         res.redirect(markUri + '/customer/loan/passed');
     } else if (common.checkPrivilege(1021, req)) {
         res.redirect(markUri + '/customer/loan/unpass');
+    } else {
+        res.redirect('/404');
     }
 };
 // 客户-待分配跳转
@@ -146,6 +150,8 @@ exports.VIEW_CUSTOMER_COMPACT_SYSTEM = function(req, res, next) {
         res.redirect(markUri + '/customer/compact/pass');
     } else if (common.checkPrivilege(1263, req)) {
         res.redirect(markUri + '/customer/compact/unpass');
+    } else {
+        res.redirect('/404');
     }
 };
 // 客户-合同管理-待出合同
@@ -194,6 +200,8 @@ exports.VIEW_CUSTOMER_RESQUESTPAYOUT_SYSTEM = function(req, res, next) {
         res.redirect(markUri + '/customer/requestpayout/pass');
     } else if (common.checkPrivilege(1205, req)) {
         res.redirect(markUri + '/customer/requestpayout/unpass');
+    } else {
+        res.redirect('/404');
     }
 };
 // 客户-请款管理-待请款
@@ -267,6 +275,8 @@ exports.VIEW_CUSTOMER_APPROVAL_SYSTEM = function(req, res, next) {
         res.redirect(markUri + '/customer/approval/unpass');
     } else if (common.checkPrivilege(1164, req)) {
         res.redirect(markUri + '/customer/approval/return');
+    } else {
+        res.redirect('/404');
     }
 };
 // 客户-审批管理-待审批
@@ -333,6 +343,8 @@ exports.VIEW_CUSTOMER_FINANCIAL_SYSTEM = function(req, res, next) {
         res.redirect(markUri + '/customer/financial/unpass');
     } else if (common.checkPrivilege(1172, req)) {
         res.redirect(markUri + '/customer/financial/return');
+    } else {
+        res.redirect('/404');
     }
 };
 // 客户-款项管理-待回款
@@ -401,6 +413,8 @@ exports.VIEW_CUSTOMER_PIGEONHOLE_SYSTEM = function(req, res, next) {
         res.redirect(markUri + '/customer/pigeonhole/pending');
     } else if (common.checkPrivilege(1178, req)) {
         res.redirect(markUri + '/customer/pigeonhole/archived');
+    } else {
+        res.redirect('/404');
     }
 };
 // 客户-归档管理-待处理
@@ -432,6 +446,8 @@ exports.VIEW_CUSTOMER_OTHERFUND_SYSTEM = function(req, res, next) {
         res.redirect(markUri + '/customer/otherfund/pass');
     } else if (common.checkPrivilege(1333, req)) {
         res.redirect(markUri + '/customer/otherfund/unpass');
+    } else {
+        res.redirect('/404');
     }
 };
 // 客户-其他管理-待审核

@@ -34,7 +34,7 @@
             <div class="listConHeader inviteCon" style="line-height: normal;padding-left:12px;margin-top:32px;">
                 <ul>
                     <li class="inline colorB"><a class="TS" href="{{markUri}}/customer/requestpayout/system">请款管理</a></li>
-                    <li class="inline before"><a href="{{markUri}}{{url}}">{{navigation}}</a></li>
+                    <li class="inline before"><a href="{{url}}">{{navigation}}</a></li>
                     <li class="inline before"><a href="javascript:window.history.back();">{{vo.user_name}}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">不同意</a></li>
                 </ul>
@@ -95,7 +95,7 @@
                 {{#if (verifyCode(1119)) }}
                     <div class="form-item" style="margin-left: 0;margin-top:40px;padding-left: 96px;">
                         <div class="create_btn" style="margin-left: 0;">
-                            <input type="button" class="create_sub" data-advance_id="{{vo.advance_id}}" id="disagree_sub" value="确认" data-url="{{markUri}}{{url}}"  style="margin:0;"/>
+                            <input type="button" class="create_sub" data-advance_id="{{vo.advance_id}}" id="disagree_sub" value="确认" data-url="{{url}}"  style="margin:0;"/>
                             <a href="javascript:window.history.back();">
                                 <input type="button" class="cancel_btn" value="取消">
                             </a>
