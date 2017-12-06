@@ -35,7 +35,7 @@
                 </a>
             </div>
             <div class="statistics_list">
-                <form action="/statistics/personal/business" method="post" id="form_search" role="form">
+                <form action="{{markUri}}/statistics/personal/business" method="post" id="form_search" role="form">
                     <input type="hidden" id="empId" name="emp_id" value="{{emp_id }}">
                     <input type="hidden" id="empName" name="emp_name" value="{{emp_name }}">
                     <input type="hidden" id="status" name="status" value="{{status }}">
@@ -165,7 +165,7 @@
                 var _this = $(this);
                 var id = $.trim(_this.data('id'));
                 locationTo({
-                    action : contextPath + '/statistics/personal',
+                    action : contextPath + markUri + '/statistics/personal',
                     param : {
                         emp_id : id
                     }

@@ -21,7 +21,7 @@
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
-			<form action="{{uri}}" method="post" id="form_search" role="form">
+			<form action="{{markUri}}{{uri}}" method="post" id="form_search" role="form">
 				<input type="hidden" value="{{status}}" name="status" id="orderType">
 				<div class="statistics_list">
 					<div class="filtrate">
@@ -146,17 +146,17 @@
                 if (_this.hasClass('incoming')) {
                     _this.addClass('active');
                     _this.siblings('.tab_item').removeClass('active');
-                    $('form[role="form"]').attr('action', contextPath + '/statistics/person/order');
+                    $('form[role="form"]').attr('action', contextPath + markUri + '/statistics/person/order');
                     $('#orderType').val('1');
                 }else if (_this.hasClass('requestpayout')) {
                     _this.addClass('active');
                     _this.siblings('.tab_item').removeClass('active');
-                    $('form[role="form"]').attr('action', contextPath + '/statistics/person/request');
+                    $('form[role="form"]').attr('action', contextPath + markUri +  '/statistics/person/request');
                     $('#orderType').val('2');
                 } else {
                     _this.addClass('active');
                     _this.siblings('.undisposed').removeClass('active');
-                    $('form[role="form"]').attr('action',contextPath + '/statistics/person/pigeonhole');
+                    $('form[role="form"]').attr('action',contextPath + markUri +  '/statistics/person/pigeonhole');
                     $('#orderType').val('3');
                 }
                 $('form[role="form"]').submit();
@@ -178,7 +178,7 @@
                 var _this = $(this);
                 var empId = $.trim(_this.data('id'));
                 locationTo({
-					action : contextPath + '/statistics/personal',
+					action : contextPath + markUri + '/statistics/personal',
 					param : {
 					    emp_id : empId
 					}

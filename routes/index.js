@@ -243,7 +243,6 @@ router.post(markUri + '/organization/product/toEdit', organizationCtrl.VIEW_ORGA
 router.post(markUri + '/organization/product/detail', organizationCtrl.VIEW_ORGANIZATION_PRODUCT_DETAIL);
 // 机构管理-产品请款材料编辑跳转
 router.post(markUri + '/organization/product/material', organizationCtrl.VIEW_ORGANIZATION_PRODUCT_MATERIAL);
-// TODO 增加操作按钮API接口路径。
 
 // 流程管理-审批流列表页跳转
 router.get(markUri + '/workflow', workflowCtrl.VIEW_WORKFLOW_LIST);
@@ -255,7 +254,6 @@ router.get(markUri + '/workflow/toCreate', workflowCtrl.VIEW_WORKFLOW_CREATE);
 router.post(markUri + '/workflow/toDetail', workflowCtrl.VIEW_WORKFLOW_DETAIL);
 // 流程管理-编辑审批流页跳转
 router.post(markUri + '/workflow/toEdit', workflowCtrl.VIEW_WORKFLOW_EDIT);
-// TODO 增加操作按钮API接口路径。
 
 // 问题管理-问题列表
 router.get(markUri + '/question/list', questionCtrl.VIEW_QUESTION_LIST);
@@ -338,7 +336,7 @@ router.post('/api/statistics/personal/request', statisticsCtrl.API_STATISTICS_PE
 // 数据统计-人效统计-个人归档统计视图数据获取
 router.post('/api/statistics/personal/pigeonhole', statisticsCtrl.API_STATISTICS_PERSONAL_PIGEONHOLE_DATA);
 // 数据统计-人效统计-个人业务量统计跳转
-router.post('/statistics/personal/business', statisticsCtrl.VIEW_STATISTICS_PERSONAL_BUSINESS);
+router.post(markUri + '/statistics/personal/business', statisticsCtrl.VIEW_STATISTICS_PERSONAL_BUSINESS);
 
 // 系统管理主导航跳转
 router.get(markUri + '/systemManagement', systemManagementCtrl.VIEW_SYSTEMMANAGEMENT);

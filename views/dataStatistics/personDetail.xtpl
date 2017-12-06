@@ -194,9 +194,9 @@
 <script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
 <script>
     (function ($) {
-        var  orderType = {{ orderType }};
-		var  requestType = {{ requestType }};
-		var  pigeonholeType = {{ pigeonholeType }};
+        var  orderType = "{{ orderType }}";
+		var  requestType = "{{ requestType }}";
+		var  pigeonholeType = "{{ pigeonholeType }}";
         var empId = $.trim($('#empId').val());
         // 全局DOM
         var elem = {
@@ -217,7 +217,7 @@
                 var _this = $(this);
                 var empId = $.trim(_this.data('id'));   // 员工id
                 var empName = $.trim(_this.data('name'));   // 员工id
-                var url = contextPath + '/statistics/personal/business';    // 跳转路径
+                var url = contextPath + markUri + '/statistics/personal/business';    // 跳转路径
                 var statusType = $.trim(_this.data('status'));
                 locationTo({
                     action : url,
@@ -499,13 +499,13 @@
             getMonthList();
             toPersonalDetail();
             // 根据权限加载图表
-            if (orderType === 1) {
+            if (orderType === "1") {
                 createIncomingChart();
             }
-            if (requestType === 1) {
+            if (requestType === "1") {
                 createRequestpayoutChart();
             }
-            if (pigeonholeType === 1) {
+            if (pigeonholeType === "1") {
                 createPigeonholeChart();
             }
             bindFiltrateStatistics();
