@@ -8,8 +8,8 @@
 		{{#each (file_list) }}
 			<div class="detailBox inline">
 				<div class="detailImgBox cursor">
-					<a href="{{this.thumbnail}}" target="_blank" data-type="imgBox">
-						<img src="{{this.thumbnail_120_90}}" alt=""/>
+					<a href="javascript:;" data-type="imgBox">
+						<img data-original="{{this.thumbnail}}" src="{{this.thumbnail_120_90}}" alt="{{this.file_name}}"/>
 					</a>
 				</div>
 				<div class="imgText">{{this.file_name}}</div>
@@ -64,3 +64,22 @@
 		{{/if}}
 	</div>
 </div>
+<script type="text/javascript">
+    (function (){
+        var enting = $("#entering");
+        if (enting.length != 0) {
+            var imgBoxs = $(".imgDetail [data-type='imgBox']");
+            imgBoxs.each(function () {
+                var t = $(this);
+                t.attr("href", "javascript:;");
+            });
+            imgBoxs.off('click').on('click', function () {
+                $alert('请先点击“开始录入”按钮，才能查看图片材料。');
+            });
+        } else {
+            $(function () {
+                viewLargeImage('.imgDetail');
+            });
+        }
+    })(window, undefined);
+</script>

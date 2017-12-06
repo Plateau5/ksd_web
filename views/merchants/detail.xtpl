@@ -398,11 +398,11 @@
                                 {{/each}}
 
                                 <!--备案信息材料图片-->
-                                <ul class="img_list">
+                                <ul class="img_list" id="viewerImageList">
                                     {{#each (fileList) }}
                                         <li class="list_item">
-                                            <a href="{{this.url}}" target="_blank" data-type="imgBox">
-                                                <img src="{{this.thumbnail_120_90}}" alt=""/>
+                                            <a href="javascript:;" data-type="imgBox">
+                                                <img data-original="{{this.url}}" src="{{this.thumbnail_120_90}}" alt="{{this.file_name}}"/>
                                             </a>
                                             <div class="img_desc nor_wrap">{{this.file_name}}</div>
                                         </li>
@@ -441,8 +441,8 @@
 	                                                <ul class="img_list">
                                                         {{#each (this.file_data) }}
                                                             <li class="img_item">
-                                                                <a href="{{this.url }}" target="_blank">
-                                                                    <img src="{{this.thumbnail }}" alt="">
+                                                                <a href="javascript:;">
+                                                                    <img data-original="{{this.url }}" src="{{this.thumbnail }}" alt="">
                                                                 </a>
                                                             </li>
                                                         {{/each}}
@@ -718,6 +718,8 @@
                 supplier_id : merchantId,
                 name : merchantName
             });
+            // 查看大图
+            viewLargeImage('.img_list');
         });
     })(jQuery,undefined);
 </script>

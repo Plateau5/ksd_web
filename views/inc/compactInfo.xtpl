@@ -50,8 +50,8 @@
 					{{#each (file_list4) }}
 						<div class="detailBox inline" style="margin-top:0;">
 							<div class="detailImgBox cursor">
-								<a href="{{this.thumbnail}}" target="_blank">
-									<img src="{{this.thumbnail_120_90}}" alt=""/>
+								<a href="javascript:;" data-type="imgBox">
+									<img data-original="{{this.thumbnail}}" src="{{this.thumbnail_120_90}}" alt="{{this.file_name}}"/>
 								</a>
 							</div>
 							<div class="imgText">{{this.file_name}}</div>

@@ -112,23 +112,11 @@
 <script src="{{markUri}}/static/js/finance/allot.js"></script>
 <script src="{{markUri}}/static/dialog/dialog-layer.js"></script>
 <script type="text/javascript" charset="utf-8">
-	(function () {
-		var enting = $("#entering");
-		if (enting.length != 0) {
-			var imgBoxs = $(".imgDetail [data-type='imgBox']");
-			imgBoxs.each(function () {
-				var t = $(this);
-				t.attr("href", "javascript:;");
-			});
-			imgBoxs.off('click').on('click', function () {
-			    $alert('请先点击“开始录入”按钮，才能查看图片材料。');
-            });
-		}
-
-		$(function () {
-			pageJump("#sendAuditResult");
-		});
-	})(jQuery, undefined);
+    (function () {
+        $(function () {
+            pageJump("#sendAuditResult");
+        });
+    })(jQuery, undefined);
 </script>
 </body>
 </html>

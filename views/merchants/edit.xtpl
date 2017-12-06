@@ -264,8 +264,8 @@
                             <div class="img_md_box file_upload">
                             	<input type="hidden" name="image_url" value="{{detail.image_url }}" id="image_url">
                                 {{#if (detail.image_url || detail.image_url.length >0) }}
-                                    <a href="javascript:;" class="img_item head_photo" target="_blank" data-type="imgBox">
-                                        <img src="{{detail.image_url}}" alt=""/>
+                                    <a href="javascript:;" class="img_item head_photo" data-type="imgBox">
+                                        <img data-original="{{detail.image_url}}" src="{{detail.image_url}}"  alt="商户封面图" target="商户封面图"/>
                                         <div class="img_md_operate_box">
                                             <em class="img_md_operate_btn view" data-url="{{detail.image_url}}" style="margin-right: 0" title="查看"></em>
                                             <!--<em class="img_md_operate_btn delete" data-id="99" title="删除"></em>-->
@@ -526,7 +526,7 @@
                                     {{#each (fileList) }}
                                         {{#if (this.file_type === ../id) }}
                                             <a href="javascript:;" class="img_item">
-                                                <img src="{{this.thumbnail_160_100}}" alt="">
+                                                <img data-original="{{this.url}}" alt="{{this.file_name}}" src="{{this.thumbnail_160_100}}">
                                                 <div class="img_md_operate_box">
                                                     <em class="img_md_operate_btn view" data-url="{{this.url}}" title="查看"></em>
                                                     <em class="img_md_operate_btn delete" data-id="{{this.file_id}}" title="删除"></em>

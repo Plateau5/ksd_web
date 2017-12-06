@@ -16,20 +16,20 @@
 		{{/if}}
 		<!--操作记录列表-->
 		{{#each (his_list) }}
-			<li class="list_item">
+			<li class="list_item log_item">
 				<div class="log_item_info">
 					<div class="date">{{this.modify_time }}</div>
 					<div class="text">{{this.modify_des}}/{{this.status_value}}&nbsp;&nbsp;{{this.position_desc}}：{{this.modify_name}} &nbsp;&nbsp;
 						{{#if (this.remark || this.reason) }}
-							{{this.reason}}&nbsp;&nbsp;{{this.remark }}
+							{{this.parent_value}} {{this.reason}}&nbsp;&nbsp;{{this.remark }}
 						{{/if}}
 					</div>
 					<!--是否有图片-->
 					{{#if (this.material_list.length > 0) }}
 						<div class="audit_img">
 							{{#each (this.material_list) }}
-								<a href="{{this.big_image_url }}" target="_blank" style="border: 1px solid #e4e4e4;">
-									<img src="{{this.small_image_url }}" alt="" class="img_responsive">
+								<a href="javascript:;" style="border: 1px solid #e4e4e4;">
+									<img data-original="{{this.big_image_url }}" src="{{this.small_image_url }}" alt="" class="img_responsive">
 								</a>
 							{{/each}}
 						</div>
@@ -47,4 +47,7 @@
 			currentPerson.innerHTML = currentTime;
 		}
 	})(window, undefined)
+    $(function () {
+        viewLargeImage('.log_item');
+    });
 </script>
