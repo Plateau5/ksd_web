@@ -127,23 +127,6 @@
 <div class="bgmask"></div>
 
 
-<!--转交他人-->
-<div class="resquestpayout_term_container" id="care_container">
-    <div class="term_title">转交他人</div>
-    <div class="care_txt">
-        确认将此订单转交给
-        <select name="emp_id" id="emp_id">
-            <c:forEach items="${emp_list }" var="bean">
-                <option value="${bean.id}">${bean.name}</option>
-            </c:forEach>
-        </select>
-    </div>
-    <div class="care_btn">
-        <input type="button" class="term_sub" id="care_sub" value="确定"  data-url="{{markUri}}/customer/financial/pendingAudit">
-        <input type="button" class="cancel_btn" value="取消">
-    </div>
-</div>
-
 
 
 <script>

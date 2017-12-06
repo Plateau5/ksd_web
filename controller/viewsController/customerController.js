@@ -404,6 +404,43 @@ exports.VIEW_CUSTOMER_FINANCIAL_TRANSFER = function(req, res, next) {
         page : './financial/transfer'
     }, req, res, next);
 };
+// 客户-款项管理-订单打印 1190
+exports.VIEW_CUSTOMER_FINANCIAL_PRINT = function(req, res, next) {
+    var searchParam = urlParse.parse(req.url).query;    // 获取查询参数
+    var body = req.body;
+    var data = {};
+    var localUrl = req.originalUrl;
+    try {
+         common.httpRequest({
+            url : apiServerPath + '/api/financial/print?' + searchParam,
+            formData : body
+        }, function (result) {
+            data = result;
+            if (data.vo.receipt_id !== 1) {
+                var page = './financial/otherPrint';
+            } else {
+                var page = './financial/print';
+            }
+            if (data.error_code === 0) {
+                data.title = '打印';
+                data.originUrl = localUrl;
+                data.markUri = markUri;
+                data.apiServerPath = apiServerPath;
+                data.domain = domain;
+                res.render(page, data);
+            } else {
+                console.log(data);
+                res.redirect('/404');
+            }
+        }, req, res, next);
+    } catch (err) {
+        /*logger.error(err);*/
+        console.log(err + '268');
+        res.statusCode = 500;
+        /*return res.json({success: false, message: '服务器异常'});*/
+        res.redirect('/404');
+    }
+};
 
 
 

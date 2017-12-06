@@ -149,6 +149,9 @@ router.post(markUri + '/customer/financial/agree', customerCtrl.VIEW_CUSTOMER_FI
 router.post(markUri + '/customer/financial/disagree', customerCtrl.VIEW_CUSTOMER_FINANCIAL_DISAGREE);
 // 客户-款项管理-待审批-转交页面 1186
 router.post(markUri + '/customer/financial/transfer', customerCtrl.VIEW_CUSTOMER_FINANCIAL_TRANSFER);
+// 客户-款项管理-订单打印 1190
+router.all(markUri + '/customer/financial/print', customerCtrl.VIEW_CUSTOMER_FINANCIAL_PRINT);
+
 
 
 // 客户-归档管理-访问路径 1228

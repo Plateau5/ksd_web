@@ -1,6 +1,6 @@
 <!-- 进件资料 -->
 <!--贷款人及车辆信息-->
-{{set (x = startWith(markUri + '/customer/financial'), y = verifyCode(1190)) }}
+{{set (x = startWith(markUri + '/customer/financial' + ' || ' + markUri + '/customer/otherfund'), y = verifyCode(1190)) }}
 <div class="cars_info_box">
     <div class="requestpayout_detail_title">车辆信息</div>
     <!--新车字段-->
@@ -228,7 +228,7 @@
             {{#if (y) }}    <!--页面头部设置-->
 	            <div class="requestpayout_detail_btn_box" style="background: none; border: none;">
                     <!--todo 增加dmsHost地址-->
-	                <a href="{{dmsHost}}/financial/print?orderNo={{orderNo}}" target="_blank">
+	                <a href="{{dmsHost}}{{markUri}}/customer/financial/print?orderNo={{orderNo}}" target="_blank">
 	                    <div class="cursor requestpayout_detail_btn print_btn" id="print_btn">打印</div>
 	                </a>
 	            </div>

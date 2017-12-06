@@ -1,14 +1,6 @@
-<%@ taglib prefix="c"         uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="per" uri="com/mvc/web/common/tag/permissionTag"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%
-	String contextPath = request.getContextPath();
-	request.setAttribute("contextPath", contextPath);
-%>
 <script type="text/javascript">
-	var contextPath = '';
+	var contextPath = '{{contextPath}}';
+	var markUri = '{{markUri}}';
 </script>
 
 <!DOCTYPE html>
@@ -26,32 +18,32 @@ pageEncoding="UTF-8"%>
 <div class="wrapper" id="wrapper">
 	<div class="detail_content">
 		<div class="title">
-			<span class="title_name">${vo.city_name}${vo.car_type_value}</span><span>请款审批</span>
+			<span class="title_name">{{vo.city_name}}{{vo.car_type_value}}</span><span>请款审批</span>
 		</div>
 		<div class="title_info">
-			<div class="company">${company_name}</div>
+			<div class="company">{{company_name}}</div>
 			<div class="apply_time">
 				<span>申请日期：</span>
-				<span class="time">${vo.create_time}</span>
+				<span class="time">{{vo.create_time}}</span>
 			</div>
 		</div>
 		<table class="content_box">
 			<tbody>
 			<tr>
 				<td>订单编号</td>
-				<td colspan="8">${vo.order_no}</td>
+				<td colspan="8">{{vo.order_no}}</td>
 			</tr>
 			<tr>
 				<td>申请人</td>
-				<td colspan="3">${vo.create_name}</td>
+				<td colspan="3">{{vo.create_name}}</td>
 				<td>上牌抵押城市</td>
-				<td colspan="4">${vo.pledge_city}</td>
+				<td colspan="4">{{vo.pledge_city}}</td>
 			</tr>
 			<tr>
 				<td>申请人部门</td>
-				<td colspan="3">${vo.dpartment_name}</td>
+				<td colspan="3">{{vo.dpartment_name}}</td>
 				<td>上牌方</td>
-				<td colspan="4">${vo.regist_type_value}</td>
+				<td colspan="4">{{vo.regist_type_value}}</td>
 				<!-- <c:if test="${vo.car_type eq 0 }">
 				</c:if>
 				<c:if test="${vo.car_type eq 1 }">
@@ -63,7 +55,7 @@ pageEncoding="UTF-8"%>
 				<td>客户姓名</td>
 				<td colspan="3">{{vo.user_name}}</td>
 				<td>抵押方</td>
-				<td colspan="4">${vo.pledge_type_value}</td>
+				<td colspan="4">{{vo.pledge_type_value}}</td>
 				<!-- <c:if test="${vo.car_type eq 0 }">
 				</c:if>
 				<c:if test="${vo.car_type eq 1 }">
@@ -73,18 +65,18 @@ pageEncoding="UTF-8"%>
 			</tr>
 			<tr>
 				<td>放款类型</td>
-				<td colspan="3">${vo.risk_type_value }</td>
+				<td colspan="3">{{vo.risk_type_value }}</td>
 				<td>车辆款型</td>
-				<td colspan="4">${vo.brand_name }${vo.series_name }</td>
+				<td colspan="4">{{vo.brand_name }}{{vo.series_name }}</td>
 			</tr>
 			<tr>
 				<td>车架号</td>
-				<td colspan="8">${vo.vin }</td>
+				<td colspan="8">{{vo.vin }}</td>
 			</tr>
 
 			<tr>
 				<td>金融产品</td>
-				<td colspan="8">${vo.product_name}</td>
+				<td colspan="8">{{vo.product_name}}</td>
 			</tr>
 			<!--付款明细1 begin-->
 			<tr>
@@ -99,15 +91,14 @@ pageEncoding="UTF-8"%>
 				<td>GPS返点</td>
 			</tr>
 			<tr>
-				<td>${vo.car_loan_charge}</td>
-				<td>${vo.service_charge }</td>
-				<td>${vo.gps_charge }</td>
-				<td>${vo.insurance }</td>
-				<td>${vo.purchase_tax }<!-- <c:if test="${vo.car_type eq 0 }">${vo.purchase_tax }</c:if><c:if test="${vo.car_type eq 1 }">${vo.service_charge_rebate } </c:if>--></td>
-				<!-- 重新补数据 -->
-				<td>${vo.financed_charge_rebate}</td>
-				<td>${vo.insurance_rebate}<!-- <c:if test="${vo.car_type eq 0 }">${vo.credit_charge }</c:if><c:if test="${vo.car_type eq 1 }">${vo.insurance_rebate }</c:if> --></td>
-				<td>${vo.gps_rebate}</td>
+				<td>{{vo.car_loan_charge}}</td>
+				<td>{{vo.service_charge }}</td>
+				<td>{{vo.gps_charge }}</td>
+				<td>{{vo.insurance }}</td>
+				<td>{{vo.purchase_tax }}<!-- <c:if test="${vo.car_type eq 0 }">${vo.purchase_tax }</c:if><c:if test="${vo.car_type eq 1 }">${vo.service_charge_rebate } </c:if>--></td>
+				<td>{{vo.financed_charge_rebate}}</td>
+				<td>{{vo.insurance_rebate}}<!-- <c:if test="${vo.car_type eq 0 }">${vo.credit_charge }</c:if><c:if test="${vo.car_type eq 1 }">${vo.insurance_rebate }</c:if> --></td>
+				<td>{{vo.gps_rebate}}</td>
 			</tr>
 			<!--付款明细1 end-->
 			<!--付款信息 begin-->
@@ -121,20 +112,26 @@ pageEncoding="UTF-8"%>
 				<td>商户是否备案</td>
 			</tr>
 			<tr>
-				<td>${vo.total_charge }</td>
-				<td>${vo.pay_name }</td>
-				<td>${vo.pay_open_bank }</td>
-				<td class="card_num"  colspan="2">${vo.pay_account }</td>
-				<td colspan="2">${vo.supplier_name }</td>
-				<td><c:if test="${vo.record_count>0 }">是</c:if><c:if test="${vo.record_count eq 0 }">否</c:if></td>
+				<td>{{vo.total_charge }}</td>
+				<td>{{vo.pay_name }}</td>
+				<td>{{vo.pay_open_bank }}</td>
+				<td class="card_num"  colspan="2">{{vo.pay_account }}</td>
+				<td colspan="2">{{vo.supplier_name }}</td>
+				<td>
+					{{#if (vo.record_count > 0) }}
+						是
+					{{elseif (vo.record_count === 0) }}
+						否
+					{{/if}}
+				</td>
 			</tr>
 			<tr>
-				<td colspan="8">总付款总额(元)：${vo.total_charge }(${total_charge_cn})</td>
+				<td colspan="8">总付款总额(元)：{{vo.total_charge }}({{total_charge_cn}})</td>
 			</tr>
 			<!--付款信息 end-->
 			<tr>
 				<td>备注说明</td>
-				<td colspan="8">${vo.request_payout_remark }</td>
+				<td colspan="8">{{vo.request_payout_remark }}</td>
 			</tr>
 			<!--审批流程 begin-->
 			<tr class="approval_box">
@@ -142,11 +139,11 @@ pageEncoding="UTF-8"%>
 				<td colspan="8" class="approval_flow">
 					<table class="flow_lists">
 						<tbody>
-						<c:forEach items="${list }" var="bean">
-							<tr>
-								<td colspan="8">${bean.modify_name } ${bean.status_value} <c:if test="${not empty bean.remark }">添加评论 (${bean.remark})</c:if> ${bean.modify_time}</td>
-							</tr>
-						</c:forEach>
+							{{#each (list) }}
+								<tr>
+									<td colspan="8">{{this.modify_name }} {{this.status_value}} {{#if (this.remark || this.remark !== '' || this.remark.length > 0) }}添加评论 ({{this.remark}}){{/if}} {{this.modify_time}}</td>
+								</tr>
+							{{/each}}
 						</tbody>
 					</table>
 				</td>
@@ -155,10 +152,10 @@ pageEncoding="UTF-8"%>
 			</tbody>
 		</table>
 		<div class="title_info">
-			<div class="company"><span>打印日期：</span><span>${date}</span></div>
+			<div class="company"><span>打印日期：</span><span>{{date}}</span></div>
 			<div class="apply_time">
 				<span>打印人：</span>
-				<span class="time">${user_name}</span>
+				<span class="time">{{user_name}}</span>
 			</div>
 		</div>
 	</div>
@@ -185,7 +182,7 @@ pageEncoding="UTF-8"%>
 		window.onload = function () {
 			window.print();
 			if (printType == 'current') {
-				var href = contextPath + "/customer/financial/pendingAudit";
+				var href = contextPath + markUri + "/customer/financial/pendingAudit";
 				setTimeout(function () {
 					window.location.href = href;
 				}, 0);
