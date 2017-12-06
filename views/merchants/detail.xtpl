@@ -25,7 +25,7 @@
         <div id="main" class="main">
             <div class="crumbs_nav">
                 <a href="{{markUri}}/merchants/manage/system" class="crumbs_item">商户管理</a>
-                <a href="{{markUri}}${url}" class="crumbs_item">{{navigation}}</a>
+                <a href="{{url}}" class="crumbs_item">{{navigation}}</a>
                 <a href="javascript:;" class="crumbs_item">查看资料</a>
             </div>
             <div class="merchants_details">
@@ -436,10 +436,10 @@
                                              <div class="text">{{this.modify_desc}}&nbsp;{{this.position_desc}}-{{this.create_name}}&nbsp;&nbsp;{{this.reason}}&nbsp;{{this.remark}}</div>
                                          </div>
                                          <!--是否有图片-->
-                                            {{#if (this.file_data || this.file_data !== '' || this.file_data.length > 0) }}
+                                            {{#if (this.file_data.length > 0) }}
 	                                            <div class="classify_img">
 	                                                <ul class="img_list">
-                                                        {{#each (this.filel_data) }}
+                                                        {{#each (this.file_data) }}
                                                             <li class="img_item">
                                                                 <a href="{{this.url }}" target="_blank">
                                                                     <img src="{{this.thumbnail }}" alt="">
@@ -647,7 +647,7 @@
             var btn = $('.edit_sm_btn');
             btn.off('click').on('click', function () {
                 locationTo({
-                    action : contextPath + '/merchants/edit',
+                    action : contextPath + markUri + '/merchants/edit',
                     param : {
                         supplier_id : merchantId,
                         url : LOCALURL,
@@ -687,7 +687,7 @@
                 success : function (res) {
                     if (res.error_code == 0) {
                         $alert('删除商户成功', function () {
-                            window.location.href = contextPath + '/merchants/pass';
+                            window.location.href = contextPath + markUri + '/merchants/pass';
                         });
                     } else {
                         $alert(res.error_msg, function () {

@@ -30,7 +30,7 @@ function goMerchantDetail () {
         if (!_this.hasClass('no_data')) {
             var mid = $.trim(_this.data('id'));
             locationTo({
-                action : contextPath + '/supplier/detail',
+                action : contextPath + markUri + '/merchants/detail',
                 param : {
                     supplier_id : mid,
                     url : LOCALURL

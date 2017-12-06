@@ -207,7 +207,7 @@
                         </div>
                     </div>
                     <div class="option_item" id="ownType">
-                        <input type="hidden" name="old_own_type" value="${detail.own_type}">
+                        <input type="hidden" name="old_own_type" value="{{detail.own_type}}">
                         <div class="column_name">
                             <span class="options_name">拥有类型：</span>
                         </div>
@@ -231,7 +231,7 @@
                 {{else}}
                     <div class="option_item" id="ownPerson">
                 {{/if}}
-                        <input type="hidden" id="ownPersonInput" name="follow_people" value="${detail.follow_people}">
+                        <input type="hidden" id="ownPersonInput" name="follow_people" value="{{detail.follow_people}}">
                         <div class="column_name">
                             <span class="options_name">拥&nbsp;有&nbsp;者&nbsp;：</span>
                         </div>
@@ -284,7 +284,7 @@
                 <input type="hidden" name="deleteLinkList" id="deleteLinkList" value="" />
             <input type="hidden" id="linkCount" value="{{detail.link_data.length}}">
             {{#each (detail.link_data) }}
-                <div class="form_content form_options merchants_create link_option his_link" id="linkPeople${link.count}">
+                <div class="form_content form_options merchants_create link_option his_link" id="linkPeople{{xindex + 1}}">
                         <!-- 联系人信息 Begin -->
                         {{#if (detail.link_data.length === 1) }}
                             <div class="options_title">联系人信息</div>
@@ -392,7 +392,7 @@
                             <a href="javascript:" class="add_sm_btn" data-type="1" data-id="{{this.id}}">添加联系人</a>
                         {{/if}}
                         {{#if (detail.link_data.length > 1) }}
-                            <a href="javascript:" class="delete_sm_btn" data-type="1" data-id="${bean.id}">删除联系人</a>
+                            <a href="javascript:" class="delete_sm_btn" data-type="1" data-id="{{this.id}}">删除联系人</a>
                         {{/if}}
                     </div>
                 </div>
@@ -562,13 +562,19 @@
 <script type="text/javascript" src="{{markUri}}/static/js/merchants.js"></script>
 <script type="text/javascript" src="{{markUri}}/static/js/merchantsEdit.js"></script>
 <script>
-    var empList = ${empList};
+    var empList = "{{empList}}";
+    empList = JSON.parse(empList.replace(/&quot;/ig, '"'));
     var merchantId = $.trim($('#supplierId').val());
     // storeType：店面类型
     var storeType = {
-        newType : ${supplierTypeNEW},
-        oldType : ${supplierTypeOLD},
-        allType : ${supplierType}
+        newType : '{{supplierTypeNEWString}}',
+        oldType : '{{supplierTypeOLDString}}',
+        allType : '{{supplierTypeString}}'
+    };
+    storeType = {
+        newType : JSON.parse(storeType.newType.replace(/&quot;/ig, '"')),
+        oldType : JSON.parse(storeType.oldType.replace(/&quot;/ig, '"')),
+        allType : JSON.parse(storeType.allType.replace(/&quot;/ig, '"'))
     };
     (function ($) {
 

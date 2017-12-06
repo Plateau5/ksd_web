@@ -22,7 +22,7 @@
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main merchants">
-            <form action="{{markUri}}{{originUrl}}" method="post" id="form_search" role="form">
+            <form action="{{originUrl}}" method="post" id="form_search" role="form">
             </form>
             {{include('./../inc/operationCategory')}}
             <div class="filtrate">

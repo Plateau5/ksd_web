@@ -203,7 +203,7 @@ router.post(markUri + '/merchants/detail', merchantsCtrl.VIEW_MERCHANTS_DETAIL);
 router.post(markUri + '/merchants/audit/agree', merchantsCtrl.VIEW_MERCHANTS_AUDIT_AGREE);
 // 商户-商户管理-待审核-不同意页面跳转 1396
 router.post(markUri + '/merchants/audit/disagree', merchantsCtrl.VIEW_MERCHANTS_AUDIT_DISAGREE);
-// 商户-商户管理-待审核-不同意页面跳转 1385
+// 商户-商户管理-待审核-编辑页面 1385
 router.post(markUri + '/merchants/edit', merchantsCtrl.VIEW_MERCHANTS_EDIT);
 // 商户-商户管理-备案管理 1368
 router.all(markUri + '/records/manage', merchantsCtrl.VIEW_RECORDS_MANAGE);

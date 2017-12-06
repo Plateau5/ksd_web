@@ -83,7 +83,7 @@
                     var res = eval(req);
                     if (res.error_code == 0) {
                         $alert('提交成功', function () {
-                            window.location.href = contextPath + "/merchants/pendingAudit";
+                            window.location.href = contextPath + markUri + "/merchants/pendingAudit";
                         });
                     } else {
                         $alert(res.error_msg, function (){

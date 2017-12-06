@@ -8,12 +8,13 @@
 <link rel="stylesheet" href="{{markUri}}/static/css/common/bootstrap.min.css">
 <link rel="shortcut icon" type="image/x-icon" href="{{markUri}}/static/icon/favicon.ico"/>
 <link rel="icon" type="image/x-icon" href="{{markUri}}/static/icon/favicon.ico" />
+<link rel="stylesheet" href="{{markUri}}/static/imageViewer/viewer.css">
 
 
 <script type="text/javascript" src="{{markUri}}/static/js/common/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="{{markUri}}/static/js/common/jquery.cookie-1.3.js"></script>
 <script type="text/javascript" src="{{markUri}}/static/js/common/header.js"></script>
-
+<script src="{{markUri}}/static/imageViewer/viewer.min.js" type="text/javascript" charset="UTF-8"></script>
 <script type="text/javascript" src="{{markUri}}/static/js/push/push.js"></script>
 <script type="text/javascript" src="{{markUri}}/static/js/common/financeBox.js"></script>
 <script type="text/javascript" src="{{markUri}}/static/js/page/page.js"></script>

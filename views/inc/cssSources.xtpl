@@ -4,3 +4,4 @@
 <link rel="icon" href="{{markUri}}/static/img/favicon.ico" mce_href="{{markUri}}/img/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="{{markUri}}/static/img/favicon.ico" mce_href="{{markUri}}/img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="{{markUri}}/static/css/public.css">
+<link rel="stylesheet" href="{{markUri}}/static/imageViewer/viewer.css">

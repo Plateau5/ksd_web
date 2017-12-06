@@ -94,12 +94,18 @@ exports.VIEW_MERCHANTS_AUDIT_DISAGREE = function(req, res, next) {
         page : './merchants/disagree'
     }, req, res, next);
 };
-// 商户-商户管理-待审核-不同意页面跳转 1385
+// 商户-商户管理-待审核-编辑页面 1385
 exports.VIEW_MERCHANTS_EDIT = function(req, res, next) {
     common.getPageData({
         url : '/api/supplier/toedit',
         title : '商户管理-编辑商户',
-        page : './merchants/edit'
+        page : './merchants/edit',
+        callback : function (data) {
+            data.empList = JSON.stringify(data.empList);
+            data.supplierTypeNEWString = JSON.stringify(data.supplierTypeNEW);
+            data.supplierTypeOLDString = JSON.stringify(data.supplierTypeOLD);
+            data.supplierTypeString = JSON.stringify(data.supplierType);
+        }
     }, req, res, next);
 };
 
