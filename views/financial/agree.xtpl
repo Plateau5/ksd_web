@@ -66,7 +66,7 @@
                     <div class="form-item">
                         <div class="create_btn"   style="margin-left: 0">
                             <input type="button" class="create_sub" id="argee_sub" value="确认" data-url="{{markUri}}/financial/print?print_type=current&orderNo={{orderNo}}"/>
-                            <a href="javascript:" class="go_detail" data-url="{{markUri}}/customer/financial/detail" data-id="{{finance_id}}">
+                            <a href="javascript:window.history.back();" class="" data-url="{{markUri}}/customer/financial/detail" data-id="{{finance_id}}">
                                 <input type="button" class="cancel_btn" value="取消">
                             </a>
                         </div>
@@ -93,7 +93,7 @@
 
     $(function () {
         pageJump("#goDetail, .go_detail",{
-            url : contextPath + "/customer/financial/pendingAudit",
+            url : contextPath + markUri + "/customer/financial/pendingAudit",
             active : "wait"
         });
     });

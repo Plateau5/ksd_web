@@ -177,7 +177,7 @@
                     success : function (req) {
                         var res = eval(req);
                         if (res.error_code == 0) {
-                            window.location.href = contextPath + "/financial/pendingDispose/list";
+                            window.location.href = contextPath + markUri + "/customer/financial/pendingReturn";
                         } else {
                             $alert(res.error_msg, function () {
                                 rebind(".return_confirm", "click", returnSubmit);

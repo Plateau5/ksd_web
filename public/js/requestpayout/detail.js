@@ -168,7 +168,7 @@ $(function(){
                 if (data.error_code == 0) {
                     dialog.close();
                     //window.location.href = document.referrer;
-                    window.location.href = contextPath + "/financial/pass/list";
+                    window.location.href = contextPath + markUri + "/customer/financial/pass";
                 }
             }, function () {
                 alert("网络繁忙，请稍后重试");
