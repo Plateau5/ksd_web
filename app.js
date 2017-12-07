@@ -3,8 +3,6 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var log4js = require('log4js'); // 日志模块
 var logger = require('./util/log4');
-var qs = require('querystring');
-/*var logs = require('morgan');*/
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var lessMiddleware = require('less-middleware');
@@ -12,13 +10,23 @@ var crypto = require('crypto'); // 加密模块
 var COMMONUTIL = require('./util/commonUtil');  // 主加密方法类文件
 var LOGERROR = require('./util/logger').LOGOUT;
 
+var app = express();
 var index = require('./routes/index');
 var common = require('./controller/common');
-global.apiServerPath = 'http://127.0.0.1';
+global.apiServerPath = '';
 global.contextPath = '';
 global.domain = '';
 global.markUri = '/ksd';
-var app = express();
+
+// 获取域名信息（host）
+if (apiServerPath === '' || apiServerPath === null || apiServerPath === undefined) {
+    app.use(function (req, res, next) {
+        var host = req.host;
+        // console.log(host);
+        apiServerPath = 'http://' + host;
+        next();
+    });
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,6 +45,8 @@ app.use(markUri + '/static', express.static(path.join(__dirname, 'public')));
 app.use(common.startWith);
 app.use(common.getUserInfo);
 app.use(common.verifyCode);
+
+
 // 启动登录拦截功能。
 /*app.use(function (req, res, next) {
     var url = req.originalUrl;//获取浏览器中当前访问的nodejs路由地址；
@@ -72,13 +82,6 @@ app.use(function(err, req, res, next) {
     // res.render(err);
   res.redirect('/404');
 });
-
-/*var proxy = require('express-http-proxy');
-app.use(/http:\/\/localhost:3000\/api/ig, proxy('http://localhost:8080/api', {
-    proxyReqPathResolver: function(req) {
-        return require('url').parse(req.url).path;
-    }
-}));*/
 
 
 module.exports = app;
