@@ -6,11 +6,11 @@ var log4js = require('log4js'); // 日志模块
 log4js.configure({
     appenders: {
         out: { type: 'console' },  // todo 此处为console
-        task: { type: 'dateFile', filename: 'logs/task',"pattern":"/yyyy-MM-dd.txt", alwaysIncludePattern:true, maxLogSize: 1024, backups: 7 },
-        result: { type: 'dateFile', filename: 'logs/result',"pattern":"/yyyy-MM-dd.txt", alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
-        error: { type: 'dateFile', filename: 'logs/error', "pattern":"/yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
-        default: { type: 'dateFile', filename: 'logs/default', "pattern":"/yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
-        rate: { type: 'dateFile', filename: 'logs/rate', "pattern":"/yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
+        task: { type: 'dateFile', filename: 'F:/logs/task',"pattern":"/yyyy-MM-dd.txt", alwaysIncludePattern:true, maxLogSize: 1024, backups: 7 },
+        result: { type: 'dateFile', filename: 'F:/logs/result',"pattern":"/yyyy-MM-dd.txt", alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
+        error: { type: 'dateFile', filename: 'F:/logs/error', "pattern":"/yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
+        default: { type: 'dateFile', filename: 'F:/logs/default', "pattern":"/yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
+        rate: { type: 'dateFile', filename: 'F:/logs/rate', "pattern":"/yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
         email : {
             type: 'smtp',
             recipients: 'qiaosl@jizhicar.com',

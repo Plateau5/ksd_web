@@ -2,39 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/util/logger.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/.eslintrc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/ISSUE_TEMPLATE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/http-proxy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/template-sender.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/ip/.jscsrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/ip/.jshintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/ip/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/ip/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/ip/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/ip/lib/ip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/ip/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/ip/test/api-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/socks/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/socks/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/socks/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/socks/examples/associate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/socks/examples/bind.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/socks/examples/connect.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/socks/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/socks/lib/socks-agent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/socks/lib/socks-client.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/socks/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/default/2017-11-10.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/default/2017-11-13.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/error/2017-11-10.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/error/2017-11-13.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/rate/2017-11-10.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/rate/2017-11-13.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/result/2017-11-10.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/result/2017-11-13.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/task/2017-11-10.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/task/2017-11-13.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/log4js/package.json" afterPath="$PROJECT_DIR$/node_modules/log4js/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/nodemailer/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/LICENSE" afterPath="$PROJECT_DIR$/node_modules/nodemailer/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/README.md" afterPath="$PROJECT_DIR$/node_modules/nodemailer/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/nodemailer.js" afterPath="$PROJECT_DIR$/node_modules/nodemailer/lib/nodemailer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/package.json" afterPath="$PROJECT_DIR$/node_modules/nodemailer/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/log4.js" afterPath="$PROJECT_DIR$/util/log4.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -52,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
-              <caret line="8" column="44" lean-forward="true" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+              <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -67,6 +46,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
               <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log4.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/util/log4.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -209,12 +198,12 @@
         <option value="$PROJECT_DIR$/views/merchants/edit.xtpl" />
         <option value="$PROJECT_DIR$/views/merchants/merchantsList.xtpl" />
         <option value="$PROJECT_DIR$/node_modules/log4js/docs/appenders.md" />
-        <option value="$PROJECT_DIR$/util/log4.js" />
         <option value="$PROJECT_DIR$/util/logger.js" />
         <option value="$PROJECT_DIR$/logs/error/2017-12-07.txt" />
         <option value="$PROJECT_DIR$/views/inc/merchantsList.xtpl" />
         <option value="$PROJECT_DIR$/logs/default/2017-12-07.txt" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/util/log4.js" />
       </list>
     </option>
   </component>
@@ -305,41 +294,6 @@
               <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
               <item name="viewsController" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-              <item name="error" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-              <item name="rate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-              <item name="result" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-              <item name="task" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
@@ -536,7 +490,7 @@
       <workItem from="1512457698932" duration="7658000" />
       <workItem from="1512466965923" duration="1496000" />
       <workItem from="1512524761819" duration="22532000" />
-      <workItem from="1512610107299" duration="15269000" />
+      <workItem from="1512610107299" duration="15797000" />
     </task>
     <task id="LOCAL-00001" summary="增加权限等路由  2017年8月16日18:28:04">
       <created>1502879359304</created>
@@ -825,11 +779,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512552169983</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="增加日志优化  2017年12月7日16:06:42">
+      <created>1512634012149</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1512634012149</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="464304000" />
+    <option name="totallyTimeSpent" value="464832000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -896,7 +857,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="合同管理三级页面  2017年11月30日14:26:38" />
     <MESSAGE value="请款客服三级页面 2017年11月30日16:51:53" />
     <MESSAGE value="审批管理三级页面  2017年11月30日17:43:16" />
     <MESSAGE value="审批管理三级页面  2017年11月30日18:02:49" />
@@ -921,7 +881,8 @@
     <MESSAGE value="商户按钮测试完成  2017年12月6日15:50:00" />
     <MESSAGE value="统计完成  2017年12月6日16:10:56" />
     <MESSAGE value="图片旋转  2017年12月6日17:22:42" />
-    <option name="LAST_COMMIT_MESSAGE" value="图片旋转  2017年12月6日17:22:42" />
+    <MESSAGE value="增加日志优化  2017年12月7日16:06:42" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加日志优化  2017年12月7日16:06:42" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1302,18 +1263,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/util/log4.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="33" column="39" lean-forward="true" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+        <state relative-caret-position="168">
+          <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/util/log4.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="44" lean-forward="true" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+        <state relative-caret-position="336">
+          <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
           <folding />
         </state>
       </provider>
