@@ -3,14 +3,14 @@
  */
 
 var log4js = require('log4js'); // 日志模块
+var logPath = '/home/work/apps/node/logs';
+// var logPath = 'F:/logs';
 log4js.configure({
     appenders: {
-        out: { type: 'console' },  // todo 此处为console
-        task: { type: 'dateFile', filename: 'F:/logs/task',"pattern":"/yyyy-MM-dd.txt", alwaysIncludePattern:true, maxLogSize: 1024, backups: 7 },
-        result: { type: 'dateFile', filename: 'F:/logs/result',"pattern":"/yyyy-MM-dd.txt", alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
-        error: { type: 'dateFile', filename: 'F:/logs/error', "pattern":"/yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
-        default: { type: 'dateFile', filename: 'F:/logs/default', "pattern":"/yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
-        rate: { type: 'dateFile', filename: 'F:/logs/rate', "pattern":"/yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
+        console: { type: 'console' },
+        default: { type: 'dateFile', filename: logPath + '/default', "pattern":"/KSD_WEB_yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 102400, backups: 7},
+        info: { type: 'dateFile', filename: logPath + '/info',"pattern":"/KSD_WEB_yyyy-MM-dd.txt", alwaysIncludePattern:true, maxLogSize: 102400, backups: 7 },
+        error: { type: 'dateFile', filename: logPath + '/error', "pattern":"/KSD_WEB_yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 10240, backups: 7},
         email : {
             type: 'smtp',
             recipients: 'qiaosl@jizhicar.com',
@@ -42,12 +42,10 @@ log4js.configure({
         }
     },
     categories: {
-        debug : {appenders: ['out'], level:'info'},
-        default: { appenders: ['out','default'], level: 'info' },
-        task: { appenders: ['task'], level: 'info'},
-        result: { appenders: ['result'], level: 'info' },
+        console : {appenders: ['console'], level:'info'},
+        default: { appenders: ['console','info'], level: 'info' },
+        info: { appenders: ['console','info'], level: 'info' },
         error: { appenders: ['error', 'email'], level: 'error' },
-        rate: { appenders: ['rate'], level: 'info' },
         email : { appenders: [ 'email' ], level: 'error' }
     },
     replaceConsole: true

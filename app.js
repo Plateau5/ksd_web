@@ -23,7 +23,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'xtpl');
-app.use(log4js.connectLogger(logger('default'), { level: 'auto', format : ':method :url HTTP/:http-version :status :res[content-length] :referrer :user-agent - :response-time ms' }));
+app.use(log4js.connectLogger(logger('info'), { level: 'auto', format : ':method :url HTTP/:http-version :status :res[content-length] :referrer :user-agent - :response-time ms' }));
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public/img', 'favicon.ico')));
 
