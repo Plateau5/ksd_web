@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var log4js = require('log4js'); // 日志模块
+var logger = require('./util/log4');
 var qs = require('querystring');
 /*var logger =*/
 var logs = require('morgan');
@@ -10,6 +11,7 @@ var bodyParser = require('body-parser');
 var lessMiddleware = require('less-middleware');
 var crypto = require('crypto'); // 加密模块
 var COMMONUTIL = require('./util/commonUtil');  // 主加密方法类文件
+var LOGERROR = require('./util/logger').LOGOUT;
 
 var index = require('./routes/index');
 var common = require('./controller/common');
@@ -19,46 +21,15 @@ global.domain = '';
 global.markUri = '/ksd';
 var app = express();
 
-log4js.configure({
-    appenders: {
-        out: { type: 'console' },
-        task: { type: 'dateFile', filename: 'logs/task',"pattern":"/yyyy-MM-dd.txt", alwaysIncludePattern:true, maxLogSize: 1024, backups: 7 },
-        result: { type: 'dateFile', filename: 'logs/result',"pattern":"/yyyy-MM-dd.txt", alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
-        error: { type: 'dateFile', filename: 'logs/error', "pattern":"/yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
-        default: { type: 'dateFile', filename: 'logs/default', "pattern":"/yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 1024, backups: 7},
-        rate: { type: 'dateFile', filename: 'logs/rate', "pattern":"/yyyy-MM-dd.txt",alwaysIncludePattern:true, maxLogSize: 1024, backups: 7}
-    },
-    categories: {
-        debug : {appenders: ['out'], level:'info'},
-        default: { appenders: ['out','default'], level: 'info' },
-        task: { appenders: ['task'], level: 'info'},
-        result: { appenders: ['result'], level: 'info' },
-        error: { appenders: ['error'], level: 'error' },
-        rate: { appenders: ['rate'], level: 'info' }
-    },
-    replaceConsole: true
-});
-//var logger = log4js.getLogger('debug');
-exports.logger = function(name){
-    var logger1 = log4js.getLogger(name);
-    logger1.level = 'INFO';
-    return logger1;
-};
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'xtpl');
-
+app.use(log4js.connectLogger(logger('default'), { level: 'auto', format : ':method :url HTTP/:http-version :status :res[content-length] :referrer :user-agent - :response-time ms' }));
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public/img', 'favicon.ico')));
-//combined:remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"
-// common : remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length]
-// dev : method :url :status :response-time ms - :res[content-length]
-// short : remote-addr :remote-user :method :url HTTP/:http-version :status :res[content-length] - :response-time ms
-// tiny : method :url :status :res[content-length] - :response-time ms
+
 //app.use(logs('common'));
-app.use(log4js.connectLogger(this.logger('debug'), { level: 'auto', format : ':method :url HTTP/:http-version :status :res[content-length] :referrer :user-agent - :response-time ms' }));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -98,7 +69,8 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  // res.render(err);
+  LOGERROR(err);
+    // res.render(err);
   res.redirect('/404');
 });
 
