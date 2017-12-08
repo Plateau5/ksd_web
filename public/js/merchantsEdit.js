@@ -209,6 +209,10 @@ function deleteFollowPeople () {
  */
 function deleteLinkOrRecord () {
     var addBtnParents = $('.merchants_edit');   // 创建商户的主容器
+    // 删除联系人数据保留
+    var deleteLinkList = [];
+    // 删除账户信息数据保留
+    var deleteRecordList = [];
     addBtnParents.on('click', '.delete_sm_btn', function (e) {
         var e = e || window.event;
         e.stopPropagation();
@@ -221,8 +225,6 @@ function deleteLinkOrRecord () {
         if (type == 1) {    // 联系人
             if (linkCount > 1) {
                 if (_this.parents('.link_option').hasClass('his_link')){
-                    // 删除联系人数据保留
-                    var deleteLinkList = [];
                     var t = _this.parents('.link_option');  // 联系人container
                     var link = {
                         id : $.trim(t.find('.link_name').data('id')),
@@ -254,8 +256,6 @@ function deleteLinkOrRecord () {
         } else if (type == 2) {    // 账户信息
             if (recordCount > 1) {
                 if (_this.parents('.record_option').hasClass('his_record')){
-                    // 删除账户信息数据保留
-                    var deleteRecordList = [];
                     var t = _this.parents('.record_option');    // 当前账户信息container
                     var record = {
                         id : $.trim(t.find('.account_name').data('id')),
@@ -1174,7 +1174,7 @@ function submitEvent (btn) {
                 if (res.error_code == 0) {
                     $alert('商户编辑成功', function () {
                         locationTo({
-                            action : contextPath + markUri + '/merchants/detail',
+                            action : contextPath + '/supplier/detail',
                             param : {
                                 supplier_id : merchantId,
                                 url : LOCALURL
