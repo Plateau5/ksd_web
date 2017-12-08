@@ -21,7 +21,7 @@ global.markUri = '/ksd';
 // 获取域名信息（host）
 if (apiServerPath === '' || apiServerPath === null || apiServerPath === undefined) {
     app.use(function (req, res, next) {
-        var host = req.host;
+        var host = req.hostname;
         // console.log(host);
         apiServerPath = 'http://' + host;
         next();

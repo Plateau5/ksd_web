@@ -59,7 +59,7 @@
                                     {{#each (detail.child_list) }}
                                         <li class="tag nowrap lf" data-id="{{this.label_id}}">
                                             <span>{{this.label_name}}</span>
-                                            {{#if (verifyCode(1380)) }}
+                                            {{#if (../verifyCode(1380)) }}
                                                 <em class="delete_btn"></em>
                                             {{/if}}
                                         </li>
@@ -259,36 +259,30 @@
                                                     {{/if}}
                                                 </div>
                                             </li>
-                                            <li class="item_row">
-                                                <div class="item_name">微信：</div>
-                                                <div class="item_value">
-                                                    {{#if (!this.wechat || this.wechat === '' || this.wechat.length <= 0) }}
-                                                        --
-                                                    {{else}}
+                                            {{#if (this.wechat) }}
+                                                <li class="item_row">
+                                                    <div class="item_name">微信：</div>
+                                                    <div class="item_value">
                                                         {{this.wechat}}
-                                                    {{/if}}
-                                                </div>
-                                            </li>
-                                            <li class="item_row">
-                                                <div class="item_name">生日：</div>
-                                                <div class="item_value">
-                                                    {{#if (!this.birthday || this.birthday === '' || this.birthday.length <= 0) }}
-                                                        --
-                                                    {{else}}
+                                                    </div>
+                                                </li>
+                                            {{/if}}
+                                            {{#if (this.birthday) }}
+                                                <li class="item_row">
+                                                    <div class="item_name">生日：</div>
+                                                    <div class="item_value">
                                                         {{this.birthday}}
-                                                    {{/if}}
-                                                </div>
-                                            </li>
-                                            <li class="item_row whole_line">
-                                                <div class="item_name">备注：</div>
-                                                <div class="item_value">
-                                                    {{#if (!this.remark || this.remark === '' || this.remark.length <= 0) }}
-                                                        --
-                                                    {{else}}
+                                                    </div>
+                                                </li>
+                                            {{/if}}
+                                            {{#if (this.remark) }}
+                                                <li class="item_row whole_line">
+                                                    <div class="item_name">备注：</div>
+                                                    <div class="item_value">
                                                         {{this.remark}}
-                                                    {{/if}}
-                                                </div>
-                                            </li>
+                                                    </div>
+                                                </li>
+                                            {{/if}}
                                         </ul>
                                     </div>
                                 </div>

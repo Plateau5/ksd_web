@@ -17,7 +17,7 @@ log4js.configure({
             sendInterval: 0,
             transport: 'SMTP',
             subject : '快收单异常-WEB',
-            /*sender : 'arleyjoe@163.com',
+            sender : 'ksd@kuaishoudan.com',
             SMTP: {
                 host: 'smtp.kuaishoudan.com',
                 secureConnection: true,
@@ -27,8 +27,8 @@ log4js.configure({
                     pass: 'kuaiSD2017'
                 },
                 debug: true
-            }*/
-            sender : 'arleyjoe@163.com',
+            }
+            /*sender : 'arleyjoe@163.com',
             SMTP: {
                 host: 'smtp.163.com',
                 secureConnection: true,
@@ -38,7 +38,7 @@ log4js.configure({
                     pass: 'ArleyJoe8023'
                 },
                 debug: true
-            }
+            }*/
         }
     },
     categories: {

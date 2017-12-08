@@ -128,7 +128,7 @@
 	    // 跳转历史订单。
 	    function toHistoryList() {
 	        var btn = $('.customer_name');
-	        var url = contextPath + '/customer/history';
+	        var url = contextPath + markUri + '/customer/history';
 	        btn.off('click').on('click', function () {
 	            var _this = $(this);
 	            var id = $.trim(_this.data('id'));
