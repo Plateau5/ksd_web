@@ -17,7 +17,7 @@
                     </div>
                     <div class="user_info">
                         <div class="user_photo" style="margin-top: 20px;">
-                            <div class="lender name_color${status.count}">{{this.user_name.substring(0,1)}}</div>
+                            <div class="lender name_color{{xindex + 1}}">{{this.user_name.substring(0,1)}}</div>
                         </div>
                         <div class="user_name nor_wrap">{{this.user_name}}</div>
                     </div>
