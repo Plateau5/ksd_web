@@ -45,7 +45,7 @@
         <ul class="login rf inline_block">
             <li class="characters">
                 <a href="javascript:">
-                    <img id="header_image_url" src="" class="character_photo" />
+                    <img id="header_image_url" src="{{markUri}}/img/header/perImg.png" class="character_photo" />
                     <span id="header_username" class="header_username"></span>
                 </a>
                 <ul class="user_setting">
