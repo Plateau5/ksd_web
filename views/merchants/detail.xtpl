@@ -303,7 +303,7 @@
                                             <div class="item_value">
                                                 {{#if (detail.id_type === 1) }}
                                                     营业执照
-                                                {{elseif (detail.id_type === 1) }}
+                                                {{elseif (detail.id_type === 2) }}
                                                     身份证
                                                 {{else}}
                                                     --
