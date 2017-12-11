@@ -23,17 +23,17 @@ var markUri = '/ksd';
 /* GET login page. */
 // 根路径
 // router.get('/', homeCtrl.LOGIN_PAGE);res.cookie('username', 'koby', {maxAge: 900000 });
-router.get('/', homeCtrl.LOGIN_PAGE);
+router.get(markUri + '/', homeCtrl.LOGIN_PAGE);
 // 登出路径
-router.get('/logout', homeCtrl.LOGIN_PAGE);
+router.get(markUri + '/logout', homeCtrl.LOGIN_PAGE);
 // 登录页跳转
-router.get('/login', homeCtrl.LOGIN_PAGE);
+router.get(markUri + '/login', homeCtrl.LOGIN_PAGE);
 // 登录提交
-router.post('/login', homeCtrl.LOGIN_CONTROL);
+router.post(markUri + '/login', homeCtrl.LOGIN_CONTROL);
 
 
 // 首页访问路由
-router.get('/home', homeCtrl.VIEW_HOME_DATA);
+router.get(markUri + '/home', homeCtrl.VIEW_HOME_DATA);
 
 router.post('/api/message/getNotice', homeCtrl.API_MESSAGE_GETNOTICE);
 

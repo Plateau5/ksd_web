@@ -48,18 +48,20 @@ app.use(common.verifyCode);
 
 
 // 启动登录拦截功能。
-/*app.use(function (req, res, next) {
+app.use(function (req, res, next) {
     var url = req.originalUrl;//获取浏览器中当前访问的nodejs路由地址；
     var logininfo = req.cookies.logininfo; //获取客户端存取的cookie,userCookies为cookie的名称；//有时拿不到cookie值，可能是因为拦截器位置放错，获取该cookie的方式是依赖于nodejs自带的cookie模块，//因此，获取cookie必须在1,2步之后才能使用，否则拿到的cookie就是undefined.
-    if((url !== '/login' && url !== '/' && url !== '/logout') && (logininfo === '' || logininfo === undefined || logininfo === null)){ //通过判断控制用户登录后不能访问登录页面；
-        // console.log((url !== '/login' && url !== '/' && url !== '/logout'));
-        // console.log((log_info !== ''));
-        res.redirect('/login');    //页面重定向
-        // res.clearCookie();
+    var comp_info = req.cookies.comp_info;
+    var inner_logininfo = req.cookies.inner_logininfo;
+    // console.log((url !== markUri + '/login' && url !== markUri + '/' && url !== markUri + '/logout'));
+    // console.log((logininfo === undefined));
+    if((url !== markUri + '/login' && url !== markUri + '/' && url !== markUri + '/logout') && (logininfo === undefined || comp_info === undefined || inner_logininfo === undefined)){ //通过判断控制用户登录后不能访问登录页面；
+        res.clearCookie();
+        res.redirect('/');    //页面重定向
     } else {
         next();
     }
-});*/
+});
 
 app.use('/', index);
 
