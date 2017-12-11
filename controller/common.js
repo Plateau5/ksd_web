@@ -135,10 +135,19 @@ exports.httpRequest = function (opt, callback, req, res, next) {
             try {
                 result = JSON.parse(body);
                 result.markUri = markUri;
-                callback(result);
+                if (result.error_code === 1001) {
+                    res.render('./home/warning', result);
+                } else {
+                    callback(result);
+                }
             } catch (e) {
                 result = body;
-                callback(result);
+                if (result.error_code === 1001) {
+                    res.render('./home/warning');
+                } else {
+                    callback(result);
+                }
+                // callback(result);
                 console.error(e.message);
             }
         } else {

@@ -1,0 +1,32 @@
+<!-- 错误信息提示页 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{{include ("./../inc/cssSources")}}
+	<title>快收单</title>
+	<style>
+		.warning_container{width: 100%;height: 400px;line-height: 400px;text-align: center;color: #808080;font-size: 14px;margin-left: -90px;}
+	</style>
+</head>
+<body>
+	<div id="wrapper" class="wrapper">
+		<!-------- Part of header Begin -------->
+		{{include ('../inc/header')}}
+		<!-------- Part of header End -------->
+
+		<!-------- Part of main Begin -------->
+		<div id="section" class="section normal_width">
+			<!---- Part of Main info Begin ---->
+			<div id="main" class="main">
+				<div class="warning_container">
+					<!--<div class="content">您的账号暂无权限查看{{warning_desc }}</div>-->
+					<div class="content">{{error_msg }}</div>
+				</div>
+			</div>
+			<!---- Part of Main info End ---->
+		</div>
+	</div>
+</body>
+{{include ('../inc/jsSources')}}
+</html>
