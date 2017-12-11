@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/header.xtpl" afterPath="$PROJECT_DIR$/views/inc/header.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/compactInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/compactInfo.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,14 +50,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.xtpl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.xtpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/inc/header.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="44" column="81" lean-forward="false" selection-start-line="44" selection-start-column="81" selection-end-line="44" selection-end-column="81" />
+            <state relative-caret-position="567">
+              <caret line="60" column="58" lean-forward="true" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
               <folding>
                 <element signature="n#style#0;n#ul#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="compactInfo.xtpl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/inc/compactInfo.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="63" column="51" lean-forward="true" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="51" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,7 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>/requestPayout/waitList</find>
       <find>/operation/getWaitList</find>
       <find>/customer/otherfund/pendingAudit</find>
       <find>affirm_submit_thirdparty</find>
@@ -146,6 +155,7 @@
       <find>:method</find>
       <find>header_img</find>
       <find>header_image_url</find>
+      <find>url === '</find>
     </findStrings>
     <replaceStrings>
       <replace>{{orderNo}}</replace>
@@ -232,7 +242,6 @@
         <option value="$PROJECT_DIR$/views/dataStatistics/personList.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/customer/imgDetail.xtpl" />
-        <option value="$PROJECT_DIR$/views/inc/compactInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/operateLogs.xtpl" />
         <option value="$PROJECT_DIR$/views/merchants/edit.xtpl" />
@@ -250,6 +259,7 @@
         <option value="$PROJECT_DIR$/views/inc/merchantsList.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/ordersList.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/header.xtpl" />
+        <option value="$PROJECT_DIR$/views/inc/compactInfo.xtpl" />
       </list>
     </option>
   </component>
@@ -533,14 +543,7 @@
       <workItem from="1512524761819" duration="22532000" />
       <workItem from="1512610107299" duration="22145000" />
       <workItem from="1512698016520" duration="8270000" />
-      <workItem from="1512955748743" duration="2721000" />
-    </task>
-    <task id="LOCAL-00002" summary="增加权限等路由  2017年8月17日10:08:58">
-      <created>1502935764313</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1502935764313</updated>
+      <workItem from="1512955748743" duration="3615000" />
     </task>
     <task id="LOCAL-00003" summary="增加登录控制  2017年8月18日18:34:02">
       <created>1503052456354</created>
@@ -878,11 +881,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512959345804</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="修复header用户信息闪动  2017年12月11日10:31:53">
+      <created>1512959519201</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1512959519201</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="482171000" />
+    <option name="totallyTimeSpent" value="483065000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -895,7 +905,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1911" y="-9" width="1938" height="1058" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18756586" sideWeight="0.48194662" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22891566" sideWeight="0.4873551" order="9" side_tool="false" content_ui="tabs" />
@@ -907,7 +916,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28368017" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2365827" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35596934" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -949,7 +958,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="商户管理编辑页、详情页  2017年12月4日14:50:46" />
     <MESSAGE value="商户完成  2017年12月4日15:34:42" />
     <MESSAGE value="统计部分渲染完毕  2017年12月4日17:52:35" />
     <MESSAGE value="增加统一标识符markUri  2017年12月5日10:47:05" />
@@ -974,7 +982,8 @@
     <MESSAGE value="修改log日志级别  2017年12月11日09:33:49" />
     <MESSAGE value="修改订单列表头像颜色  2017-12-11 10:00:10" />
     <MESSAGE value="修改用户图片加载 2017年12月11日10:29:00" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改用户图片加载 2017年12月11日10:29:00" />
+    <MESSAGE value="修复header用户信息闪动  2017年12月11日10:31:53" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复header用户信息闪动  2017年12月11日10:31:53" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -991,13 +1000,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/inc/compactInfo.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="54" column="36" lean-forward="true" selection-start-line="52" selection-start-column="32" selection-end-line="54" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1292,11 +1294,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/inc/header.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="44" column="81" lean-forward="false" selection-start-line="44" selection-start-column="81" selection-end-line="44" selection-end-column="81" />
+        <state relative-caret-position="567">
+          <caret line="60" column="58" lean-forward="true" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
           <folding>
             <element signature="n#style#0;n#ul#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/compactInfo.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="63" column="51" lean-forward="true" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
