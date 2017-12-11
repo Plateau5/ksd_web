@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/home/warning.xtpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/ff.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/common.js" afterPath="$PROJECT_DIR$/controller/common.js" />
     </list>
@@ -34,8 +34,18 @@
       <file leaf-file-name="common.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="140" column="37" lean-forward="true" selection-start-line="140" selection-start-column="37" selection-end-line="140" selection-end-column="37" />
+            <state relative-caret-position="242">
+              <caret line="144" column="37" lean-forward="true" selection-start-line="144" selection-start-column="37" selection-end-line="144" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ff.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/ff.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="165" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="165" />
               <folding />
             </state>
           </provider>
@@ -78,6 +88,7 @@
       <list>
         <option value="XTPL" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -166,7 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/administrative/create.xtpl" />
         <option value="$PROJECT_DIR$/public/js/finance/img_detail.js" />
         <option value="$PROJECT_DIR$/views/customer/result.xtpl" />
         <option value="$PROJECT_DIR$/controller/viewsController/statisticsController.js" />
@@ -216,6 +226,7 @@
         <option value="$PROJECT_DIR$/views/inc/header.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/compactInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/home/warning.xtpl" />
+        <option value="$PROJECT_DIR$/controller/ff.html" />
         <option value="$PROJECT_DIR$/controller/common.js" />
       </list>
     </option>
@@ -351,6 +362,7 @@
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="SearchEverywhereHistoryKey" value="request.js&#9;FILE&#9;file://F:/develop/ksd_web/node_modules/request/request.js" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -494,14 +506,7 @@
       <workItem from="1512524761819" duration="22532000" />
       <workItem from="1512610107299" duration="22145000" />
       <workItem from="1512698016520" duration="8270000" />
-      <workItem from="1512955748743" duration="5008000" />
-    </task>
-    <task id="LOCAL-00004" summary="增加加密模块  2017年8月21日18:54:54">
-      <created>1503312915058</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1503312915058</updated>
+      <workItem from="1512955748743" duration="5607000" />
     </task>
     <task id="LOCAL-00005" summary="分页功能添加完  2017年8月23日18:00:54">
       <created>1503482470135</created>
@@ -839,11 +844,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512960376506</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="增加warning页面  2017年12月11日11:09:28">
+      <created>1512961773394</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1512961773394</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="484458000" />
+    <option name="totallyTimeSpent" value="485057000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -868,7 +880,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28368017" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35596934" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27710843" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -910,7 +922,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="统计部分渲染完毕  2017年12月4日17:52:35" />
     <MESSAGE value="增加统一标识符markUri  2017年12月5日10:47:05" />
     <MESSAGE value="修改后台服务器路径  2017年12月5日14:15:21" />
     <MESSAGE value="修改  2017年12月5日14:32:50" />
@@ -935,14 +946,15 @@
     <MESSAGE value="修改用户图片加载 2017年12月11日10:29:00" />
     <MESSAGE value="修复header用户信息闪动  2017年12月11日10:31:53" />
     <MESSAGE value="修改合同按钮显示  2017年12月11日10:46:11" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改合同按钮显示  2017年12月11日10:46:11" />
+    <MESSAGE value="增加warning页面  2017年12月11日11:09:28" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加warning页面  2017年12月11日11:09:28" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controller/common.js</url>
-          <line>190</line>
+          <line>198</line>
           <properties />
           <option name="timeStamp" value="428" />
         </line-breakpoint>
@@ -960,13 +972,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/merchants/edit.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="255" column="4" lean-forward="false" selection-start-line="255" selection-start-column="4" selection-end-line="255" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rebel.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1265,10 +1270,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ff.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="165" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="165" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controller/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="140" column="37" lean-forward="true" selection-start-line="140" selection-start-column="37" selection-end-line="140" selection-end-column="37" />
+        <state relative-caret-position="242">
+          <caret line="144" column="37" lean-forward="true" selection-start-line="144" selection-start-column="37" selection-end-line="144" selection-end-column="37" />
           <folding />
         </state>
       </provider>

@@ -137,13 +137,21 @@ exports.httpRequest = function (opt, callback, req, res, next) {
                 result.markUri = markUri;
                 if (result.error_code === 1001) {
                     res.render('./home/warning', result);
+                } else if (result.error_code === 1000) {
+                    res.send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>请重新登录</title></head><body></body><script>alert(\'请登录系统\');window.location.href = \'/\';</script></html>');
+                } else if (result.error_code === 800) {
+                    res.send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>登录失效，请重新登录</title></head><body></body><script>alert(\'登录失效，请登录系统\');window.location.href = \'/\';</script></html>');
                 } else {
                     callback(result);
                 }
             } catch (e) {
                 result = body;
                 if (result.error_code === 1001) {
-                    res.render('./home/warning');
+                    res.render('./home/warning', result);
+                } else if (result.error_code === 1000) {
+                    res.send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>请重新登录</title></head><body></body><script>alert(\'请登录系统\');window.location.href = \'/\';</script></html>');
+                } else if (result.error_code === 800) {
+                    res.send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>登录失效，请重新登录</title></head><body></body><script>alert(\'登录失效，请登录系统\');window.location.href = \'/\';</script></html>');
                 } else {
                     callback(result);
                 }
