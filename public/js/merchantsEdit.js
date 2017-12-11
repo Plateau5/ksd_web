@@ -587,7 +587,7 @@ function uploadImage () {
     fileUpload({
         maxCount : 1,
         filesSize : 2,
-        imgFormat : ['png', 'jpg', 'jpeg', 'svg', 'gif', 'bmp', 'raw', 'cdr'],
+        fileFormat : ['png', 'jpg', 'jpeg', 'svg', 'gif', 'bmp', 'raw', 'cdr'],
         needThumbnails : false,
         callback : function (btn) {
             onChoose(btn);

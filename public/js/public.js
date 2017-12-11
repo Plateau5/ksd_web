@@ -1299,17 +1299,21 @@ function selectChange () {
 }
 
 function $alert (text, callback) {
-    dialog("alert", {
-        closeBtn : false,
-        "title" : "提  醒",
-        "button" : ["确定",""],
-        "content" : text,
-        maskClose : false,
-        onConfirm : function (d) {
-            d.close();
-            callback && callback();
-        }
-    });
+    if (dialog) {
+        dialog("alert", {
+            closeBtn : false,
+            "title" : "提  醒",
+            "button" : ["确定",""],
+            "content" : text,
+            maskClose : false,
+            onConfirm : function (d) {
+                d.close();
+                callback && callback();
+            }
+        });
+    } else {
+        console.error('Sytanx error! dialog is no defined.');
+    }
 }
 
 
@@ -1597,7 +1601,11 @@ function fileUpload (opt) {
                 if (options.maxCount) {
                     if (fileCount >= options.maxCount) {
                         btn.addClass("disabled");
-                        options.callback && options.callback(t);    // 回传点击的按钮
+                        if (success) {
+                            options.callback && options.callback(t);    // 回传点击的按钮
+                        } else {
+                            $alert('请使用正确格式的文件');
+                        };
                         fileCount--;
                     } else {
                         btn.removeClass("disabled");
