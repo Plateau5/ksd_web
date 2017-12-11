@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/ff.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/ff.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/common.js" afterPath="$PROJECT_DIR$/controller/common.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,16 +35,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
               <caret line="144" column="37" lean-forward="true" selection-start-line="144" selection-start-column="37" selection-end-line="144" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ff.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/ff.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="165" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="165" />
               <folding />
             </state>
           </provider>
@@ -506,14 +495,7 @@
       <workItem from="1512524761819" duration="22532000" />
       <workItem from="1512610107299" duration="22145000" />
       <workItem from="1512698016520" duration="8270000" />
-      <workItem from="1512955748743" duration="5607000" />
-    </task>
-    <task id="LOCAL-00005" summary="分页功能添加完  2017年8月23日18:00:54">
-      <created>1503482470135</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1503482470135</updated>
+      <workItem from="1512955748743" duration="5735000" />
     </task>
     <task id="LOCAL-00006" summary="1、修改登录控制&#10;2、增加权限判断方法 &#10;2017年8月24日15:52:24">
       <created>1503561158752</created>
@@ -851,11 +833,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512961773394</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="修改登录权限校验 2017年12月11日11:19:37">
+      <created>1512962383426</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1512962383426</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="485057000" />
+    <option name="totallyTimeSpent" value="485185000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -868,9 +857,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1911" y="-9" width="1938" height="1058" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18756586" sideWeight="0.48194662" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18756586" sideWeight="0.48194662" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22891566" sideWeight="0.4873551" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22782037" sideWeight="0.5126449" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36363637" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -922,7 +910,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加统一标识符markUri  2017年12月5日10:47:05" />
     <MESSAGE value="修改后台服务器路径  2017年12月5日14:15:21" />
     <MESSAGE value="修改  2017年12月5日14:32:50" />
     <MESSAGE value="修改静态文件访问路径" />
@@ -947,7 +934,8 @@
     <MESSAGE value="修复header用户信息闪动  2017年12月11日10:31:53" />
     <MESSAGE value="修改合同按钮显示  2017年12月11日10:46:11" />
     <MESSAGE value="增加warning页面  2017年12月11日11:09:28" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加warning页面  2017年12月11日11:09:28" />
+    <MESSAGE value="修改登录权限校验 2017年12月11日11:19:37" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改登录权限校验 2017年12月11日11:19:37" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
