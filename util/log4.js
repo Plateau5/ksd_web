@@ -44,7 +44,7 @@ log4js.configure({
     categories: {
         console : {appenders: ['console'], level:'info'},
         default: { appenders: ['console','info'], level: 'info' },
-        info: { appenders: ['console','info'], level: 'info' },
+        info: { appenders: ['console'], level: 'info' },
         error: { appenders: ['error', 'email'], level: 'error' },
         email : { appenders: [ 'email' ], level: 'error' }
     },
