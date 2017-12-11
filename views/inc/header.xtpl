@@ -42,7 +42,7 @@
                 </li>
             {{/if}}
         </ul>
-        <ul class="login rf inline_block">
+        <ul class="login rf inline_block"  id="id_center"  style="display: none;">
             <li class="characters">
                 <a href="javascript:">
                     <img id="header_image_url" src="{{markUri}}/img/header/perImg.png" class="character_photo" />
