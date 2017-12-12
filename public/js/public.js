@@ -1600,12 +1600,11 @@ function fileUpload (opt) {
                 fileCount++;
                 if (options.maxCount) {
                     if (fileCount >= options.maxCount) {
-                        btn.addClass("disabled");
+                        // btn.remove(disabled);
                         if (success) {
+                            btn.addClass("disabled");
                             options.callback && options.callback(t);    // 回传点击的按钮
-                        } else {
-                            $alert('请使用正确格式的文件');
-                        };
+                        }
                         fileCount--;
                     } else {
                         btn.removeClass("disabled");
@@ -1670,11 +1669,16 @@ function fileUpload (opt) {
             var isNeedFormat = $.inArray(extname, options.fileFormat);
             if ( isNeedFormat == -1) {
                 //alert('请使用正确格式的文件');
-                f.parents(".file_upload").find(".error_msg").text("(请使用正确格式的文件)").show();
+                var errorElem = f.parents(".file_upload").find(".error_msg");
+                if (errorElem.length > 0) {
+                    errorElem.text("(请使用正确格式的文件)").show();
+                } else {
+                    $alert('请使用正确格式的文件');
+                }
                 if(f.outerHTML){
-                    f.outerHTML = f.outerHTML;
+                    f[0].outerHTML = f[0].outerHTML;
                 } else{      //FF
-                    f.value="";
+                    f.val('');
                 }
                 return false;
             }

@@ -618,8 +618,12 @@ function uploadImage () {
             contentType: false,
             beforeSend : function () {
                 //elem.loading.show();
+                $('#loading').show();
                 btn.removeClass('disabled');
                 btn.parents('.img_md_box').find('.file_upload_btn').replaceWith('<input type="file" class="file_upload_btn" name="file"  value="上传图片" style="display: none" />');
+            },
+            complete : function () {
+                $('#loading').hide();
             },
             success : function (res) {
                 //elem.loading.hide();
