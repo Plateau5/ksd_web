@@ -1,5 +1,5 @@
 
-function sub_btn(url,data,btn,location_url) {
+function sub_btn(url,data,btn,location_url,callback) {
     $.ajax({
         type: "post",
         url: url,
@@ -11,7 +11,11 @@ function sub_btn(url,data,btn,location_url) {
         },
         success: function (data) {
             if (data.error_code == '0') {
-                window.location.href = location_url;
+                if (location_url !== '') {
+                    window.location.href = location_url;
+                } else {
+                    callback && callback();
+                }
             } else {
                 alert(data.error_msg);
             }

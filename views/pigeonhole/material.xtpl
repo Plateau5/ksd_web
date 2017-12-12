@@ -93,7 +93,7 @@
                 var _this = $(this);
                 var financeId = $.trim(_this.data("id"));
                 locationTo({
-                    action : contextPath + '/customer/pigeonhole/detail',
+                    action : contextPath + markUri + '/customer/pigeonhole/detail',
                     param : {
                         finance_id : financeId
                     }
