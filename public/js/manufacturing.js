@@ -132,7 +132,7 @@ function workflowCreateAndEdit (createType, url, flowType) {
                 return;
             }
         }
-        var ele = '<div class="principal_item" lang="'+ employeeLang +'"><em class="close_icon"></em><span class="character"><span>'+ priChecked +'</span></span><span class="principal_name">'+ employeeChecked +'</span><div class="down_arrow"></div></div>';
+        var ele = '<div class="principal_item" lang="'+ employeeLang +'"><em class="close_icon"></em><span class="character nowrap"><span title="'+ priChecked +'">'+ priChecked +'</span></span><span class="principal_name">'+ employeeChecked +'</span><div class="down_arrow"></div></div>';
         var t = $(".principal_opt .add_btn");
 
         var employeeId = emplogeeActive.find(".employee_name").attr("lang");

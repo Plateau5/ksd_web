@@ -256,18 +256,23 @@
         position: relative;
         >span{
             display: inline-block;
-        }
-        .character{
-            position: relative;
             width: 100px;
             height: 30px;
             line-height: 30px;
+            vertical-align: top;
+        }
+        .character{
+            position: relative;
             margin:0 8px 0 0;
+            padding: 0 5px;
             background: @active-color;
             text-align: center;
             color: #FFFFFF;
             cursor: pointer;
 
+        }
+        .principal_name{
+            vertical-align: top;
         }
         .detail_character{
             cursor: default;

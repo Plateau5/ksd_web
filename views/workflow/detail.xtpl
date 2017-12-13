@@ -99,8 +99,8 @@
                             <div class="column_val">
                             <c:forEach items="${_list }" var="bean">
                                 <div class="principal_item">
-                                <span class="character detail_character">
-                                    <span>${bean.position_desc }</span>
+                                <span class="character detail_character inline_block nowrap">
+                                    <span title="${bean.position_desc }">${bean.position_desc }</span>
                                 </span>
                                     <span class="principal_name">${bean.name }</span>
                                     <div class="down_arrow"></div>
