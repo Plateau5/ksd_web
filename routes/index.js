@@ -123,8 +123,10 @@ router.post(markUri + '/customer/approval/detail', customerCtrl.VIEW_CUSTOMER_AP
 router.post(markUri + '/customer/approval/agree', customerCtrl.VIEW_CUSTOMER_APPROVAL_AGREE);
 // 客户-审批管理-待审核-不同意页面 1168
 router.post(markUri + '/customer/approval/disagree', customerCtrl.VIEW_CUSTOMER_APPROVAL_DISAGREE);
-// 客户-审批管理-待审核-不同意页面 1185
+// 客户-审批管理-待审核-转交他人页面 1185
 router.post(markUri + '/customer/approval/transfer', customerCtrl.VIEW_CUSTOMER_APPROVAL_TRANSFER);
+// 客户-审批管理-待审核-确认提交 1213
+router.post(markUri + '/customer/approval/submit', customerCtrl.VIEW_CUSTOMER_APPROVAL_SUBMIT);
 
 
 // 客户-款项管理-访问路径 1227

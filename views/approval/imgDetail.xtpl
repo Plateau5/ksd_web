@@ -173,7 +173,7 @@
 		if (ele.length != 0) {
 			ele.off("click").on("click", function () {
 				locationTo({
-					action : contextPath + '/operation/affirm/submit',
+					action : contextPath + markUri + '/customer/approval/submit',
 					param : {
 						finance_id : finance_id
 					}

@@ -311,16 +311,24 @@ exports.VIEW_CUSTOMER_APPROVAL_AGREE = function(req, res, next) {
 exports.VIEW_CUSTOMER_APPROVAL_DISAGREE = function(req, res, next) {
     common.getPageData({
         url : '/api/operation/toDisagree',
-        title : '审批管理-同意',
+        title : '审批管理-不同意',
         page : './approval/disagree'
     }, req, res, next);
 };
-// 客户-审批管理-待审核-不同意页面 1185
+// 客户-审批管理-待审核-转交页面 1185
 exports.VIEW_CUSTOMER_APPROVAL_TRANSFER = function(req, res, next) {
     common.getPageData({
         url : '/api/operation/transfer',
-        title : '审批管理-同意',
+        title : '审批管理-转交',
         page : './approval/transfer'
+    }, req, res, next);
+};
+// 客户-审批管理-待审核-确认提交 1213
+exports.VIEW_CUSTOMER_APPROVAL_SUBMIT = function(req, res, next) {
+    common.getPageData({
+        url : '/api/operation/affirm/tosubmit',
+        title : '审批管理-确认提交',
+        page : './approval/submit'
     }, req, res, next);
 };
 
