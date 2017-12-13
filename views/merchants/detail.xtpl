@@ -31,7 +31,7 @@
             <div class="merchants_details">
                 <div class="merchant_info">
                     <div class="merchant_photo">
-                        {{#if (!detail.image_url) }}
+                        {{#if (detail.image_url) }}
                             <img src="{{detail.image_url}}" class="img_responsive" alt="商户封面图" target="商户封面图">
                         {{else}}
                             <img src="{{markUri}}/static/img/merchant_photo.png" class="img_responsive" alt="商户封面图" target="商户封面图">
