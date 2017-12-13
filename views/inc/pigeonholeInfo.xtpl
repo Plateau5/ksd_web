@@ -51,5 +51,27 @@
 				</div>
 			{{/if}}
 		{{/if}}
+		<div class="requestpayout_detail_btn_box" style="clear: both;">
+			<div class="cursor requestpayout_detail_btn requestpayout_download download_file" alt="5" lang="{{finance_id}}">全部下载</div>
+			{{#if (vo.status === 12) }}
+				{{#if (vo.is_pigeonhole === 0) }}
+					{{#if (verifyCode(1121)) }}
+						<div class="cursor requestpayout_detail_btn requestpayout_flied" id="flied_btn" lang="{{finance_id}}" data-advance_id="{{vo.advance_id}}">确认归档</div>
+					{{/if}}
+				{{/if}}
+				{{#if (vo.pigeonhole_material && vo.express_type === 0 && day > 0) }}
+					{{#if (verifyCode(1124)) }}
+						<div class="cursor requestpayout_detail_btn requestpayout_time" id="term_btn" lang="{{finance_id}}" data-advance_id="{{vo.advance_id}}">期限提醒</div>
+					{{/if}}
+				{{/if}}
+				{{#if (vo.pigeonhole_material.length <= 0) }}
+					{{#if (verifyCode(1117)) }}
+						<a href="javascript:" class="go_forward" data-id="{{finance_id}}" data-url="{{markUri}}/customer/pigeonhole/notifyMaterial" data-advance_id="{{vo.advance_id}}">
+							<div class="cursor requestpayout_detail_btn requestpayout_material" id="" lang="{{finance_id}}">通知所需材料</div>
+						</a>
+					{{/if}}
+				{{/if}}
+			{{/if}}
+		</div>
 	</div>
 {{/if}}
