@@ -7,7 +7,7 @@
 	<!-- 归档资料 -->
 	<div class="requestpayout_detail_container">
 		{{#if (file_list5.length > 0) }}
-			<div class="imgDetail">
+			<div class="imgDetail" style="padding-top: 30px;">
 				{{#each (file_list5) }}
 				<div class="detailBox inline" style="margin-top:0;">
 					<div class="detailImgBox cursor">
@@ -19,7 +19,7 @@
 				</div>
 				{{/each}}
 			</div>
-			{{/if}}
+		{{/if}}
 		<div class="filed-detail">
 			<div class="datum_desc">
 				{{#each (pigeonhole_material) }}
