@@ -57,7 +57,7 @@
                 </ul>
             </li>
             <li class="message active">
-                <a href="javascript:">
+                <a href="{{contextPath}}/message/getAllList">
                     <em class="message_icon inline_block">
                         <span class="message_count"><span style="display:inline-block;transform:scale(0.8);"></span></span>
                     </em>
