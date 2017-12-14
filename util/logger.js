@@ -2,12 +2,16 @@
  * Created by Arley on 2017/12/07.
  */
 
-var logger = require('./../util/log4');
+var logger = require('./log4Config');
 
-exports.LOGOUT = function (str) {
+exports.logError = function (msg) {
     var logError = logger('error');
-    logError.error(str);
-    console.error(str);
-    /*var logInfo = logger('out');
-    logInfo.info(str);*/
+    logError.error(msg);
+    console.error(msg);
+};
+
+exports.logInfo = function (msg) {
+    var logInfo = logger('info');
+    logInfo.info(msg);
+    console.log(msg);
 };

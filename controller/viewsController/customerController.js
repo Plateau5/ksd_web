@@ -9,7 +9,7 @@ var path=require("path");   // 路径解析中间件
 var common = require('./../common');    // 主控制器文件
 var qs = require('querystring');    // 查询字符串解析中间件
 var urlParse = require('url');  // url解析控制中间件
-var LOGERROR = require('./../../util/logger').LOGOUT;   // 错误日志打印
+var LOGERROR = require('./../../util/logger').logError;   // 错误日志打印
 var ERRORTYPES = require('./../../util/ErrorTypesConf'); // 自定义错误类型配置
 
 // var request = require('request');

@@ -9,7 +9,7 @@ var path=require("path");
 var common = require('./../common');
 var qs = require('querystring');
 var urlParse = require('url');
-var LOGERROR = require('./../../util/logger').LOGOUT;   // 错误日志打印
+var LOGERROR = require('./../../util/logger').logError;   // 错误日志打印
 var ERRORTYPES = require('./../../util/ErrorTypesConf'); // 自定义错误类型配置
 
 // 商户-商户管理-主导航跳转 1366

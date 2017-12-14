@@ -2,6 +2,8 @@
 var COMMONUTIL = require('./../util/commonUtil');  // 主加密方法类文件
 var extend = require('node.extend');
 var request = require('request');
+var LOGERROR = require('./../util/logger').logError;   // 错误日志打印
+var ERRORTYPES = require('./../util/ErrorTypesConf'); // 自定义错误类型配置
 /*var app = require('./../app');
 app.logger('common');*/
 /**
@@ -159,11 +161,10 @@ exports.httpRequest = function (opt, callback, req, res, next) {
                     callback(result);
                 }
                 // callback(result);
-                console.error(e.message);
+                LOGERROR(ERRORTYPES.HttpRequest + '：The result of server return is not need to parse.');
             }
         } else {
-            // res.redirect('/404');
-            console.error(error);
+            LOGERROR(ERRORTYPES.HttpRequest + '：' + error);
         }
         res.end();
     });

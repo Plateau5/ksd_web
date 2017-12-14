@@ -7,7 +7,7 @@ var router = require('./../../routes/index');
 var common = require('./../common');
 var request = require('request');
 var COMMONUTIL = require('./../../util/commonUtil');  // 主加密方法类文件
-var LOGERROR = require('./../../util/logger').LOGOUT;   // 错误日志打印
+var LOGERROR = require('./../../util/logger').logError;   // 错误日志打印
 var ERRORTYPES = require('./../../util/ErrorTypesConf'); // 自定义错误类型配置
 
 // 数据统计主导航跳转

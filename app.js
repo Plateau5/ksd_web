@@ -2,13 +2,13 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var log4js = require('log4js'); // 日志模块
-var logger = require('./util/log4');
+var logger = require('./util/log4Config');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var lessMiddleware = require('less-middleware');
 var crypto = require('crypto'); // 加密模块
 var COMMONUTIL = require('./util/commonUtil');  // 主加密方法类文件
-var LOGERROR = require('./util/logger').LOGOUT;
+var LOGERROR = require('./util/logger').logError;
 
 var app = express();
 var index = require('./routes/index');
@@ -31,7 +31,7 @@ if (apiServerPath === '' || apiServerPath === null || apiServerPath === undefine
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'xtpl');
-app.use(log4js.connectLogger(logger('info'), { level: 'auto', format : ':method :url HTTP/:http-version :status :res[content-length] :referrer :user-agent - :response-time ms' }));
+app.use(log4js.connectLogger(logger('default'), { level: 'auto', format : ':method :url HTTP/:http-version :status :res[content-length] :referrer :user-agent - :response-time ms' }));
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public/img', 'favicon.ico')));
 
