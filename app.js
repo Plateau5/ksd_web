@@ -19,14 +19,12 @@ global.domain = '';
 global.markUri = '/ksd';
 
 // 获取域名信息（host）
-if (apiServerPath === '' || apiServerPath === null || apiServerPath === undefined) {
-    app.use(function (req, res, next) {
-        var host = req.hostname;
-        // console.log(host);
-        apiServerPath = 'http://' + host;
-        next();
-    });
-}
+app.use(function (req, res, next) {
+    var host = req.hostname;
+    // console.log(host);
+    apiServerPath = 'http://' + host;
+    next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -58,7 +56,7 @@ app.use(function (req, res, next) {
     // console.log((logininfo === undefined));
     if((url !== markUri + '/login' && url !== markUri + '/' && url !== markUri + '/logout') && (logininfo === undefined || comp_info === undefined || inner_logininfo === undefined)){ //通过判断控制用户登录后不能访问登录页面；
         res.clearCookie();
-        res.redirect('/');    //页面重定向
+        res.redirect('/');    // 页面重定向
     } else {
         next();
     }
@@ -68,9 +66,10 @@ app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    var url = req.originalUrl;      // 获取浏览器中当前访问的nodejs路由地址；
+    var err = new Error('Request Url "' + url + '" is not defined.');
+    err.status = 404;
+    next(err);
 });
 
 // error handler

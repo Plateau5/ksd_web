@@ -146,7 +146,10 @@ exports.httpRequest = function (opt, callback, req, res, next) {
                     res.send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>请重新登录</title></head><body></body><script>alert(\'请登录系统\');window.location.href = \'/\';</script></html>');
                 } else if (result.error_code === 800) {
                     res.send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>登录失效，请重新登录</title></head><body></body><script>alert(\'登录失效，请登录系统\');window.location.href = \'/\';</script></html>');
+                } else if (result.error_code === 0) {
+                    callback(result);
                 } else {
+                    LOGERROR(ERRORTYPES.HttpRequest + '：Background server (Java) returned an error message. Data:' + JSON.stringify(result));
                     callback(result);
                 }
             } catch (e) {
@@ -157,7 +160,11 @@ exports.httpRequest = function (opt, callback, req, res, next) {
                     res.send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>请重新登录</title></head><body></body><script>alert(\'请登录系统\');window.location.href = \'/\';</script></html>');
                 } else if (result.error_code === 800) {
                     res.send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>登录失效，请重新登录</title></head><body></body><script>alert(\'登录失效，请登录系统\');window.location.href = \'/\';</script></html>');
+                } else if (result.error_code === 0)  {
+
+                    callback(result);
                 } else {
+                    LOGERROR(ERRORTYPES.HttpRequest + '：Background server (Java) returned an error message. Data:' + JSON.stringify(result));
                     callback(result);
                 }
                 // callback(result);
@@ -180,38 +187,47 @@ exports.getCustomerList = function(url,title, req, res, next) {
     var body = req.body;
     var data = {};
     var localUrl = req.originalUrl;
-    // 回显详情页访问路由
-    if (localUrl.indexOf( markUri + '/customer/loan') !== -1) {
-        var detailUrl = markUri + '/customer/loan/detail';
-    } else if (localUrl.indexOf( markUri + '/customer/compact') !== -1) {
-        var detailUrl =  markUri + '/customer/compact/detail';
-    } else if (localUrl.indexOf( markUri + '/customer/requestpayout') !== -1) {
-        var detailUrl =  markUri + '/customer/requestpayout/detail';
-    } else if (localUrl.indexOf( markUri + '/customer/approval') !== -1) {
-        var detailUrl =  markUri + '/customer/approval/detail';
-    } else if (localUrl.indexOf( markUri + '/customer/financial') !== -1) {
-        var detailUrl =  markUri + '/customer/financial/detail';
-    } else if (localUrl.indexOf( markUri + '/customer/pigeonhole') !== -1) {
-        var detailUrl =  markUri + '/customer/pigeonhole/detail';
-    } else if (localUrl.indexOf( markUri + '/customer/otherfund') !== -1) {
-        var detailUrl =  markUri + '/customer/otherfund/detail';
-    }
-    this.httpRequest({
-        url : apiServerPath + url,
-        formData : body
-    }, function (result) {
-        data = result;
-        if (data.error_code === 0) {
-            data.title = title;
-            data.originUrl = localUrl;  // 页面访问路径
-            data.detailUrl = detailUrl; // 详情页访问路径
-            data.markUri = markUri;
-            res.render('./customer/customerList', data);
+    try {
+        // 回显详情页访问路由
+        if (localUrl.indexOf( markUri + '/customer/loan') !== -1) {
+            var detailUrl = markUri + '/customer/loan/detail';
+        } else if (localUrl.indexOf( markUri + '/customer/compact') !== -1) {
+            var detailUrl =  markUri + '/customer/compact/detail';
+        } else if (localUrl.indexOf( markUri + '/customer/requestpayout') !== -1) {
+            var detailUrl =  markUri + '/customer/requestpayout/detail';
+        } else if (localUrl.indexOf( markUri + '/customer/approval') !== -1) {
+            var detailUrl =  markUri + '/customer/approval/detail';
+        } else if (localUrl.indexOf( markUri + '/customer/financial') !== -1) {
+            var detailUrl =  markUri + '/customer/financial/detail';
+        } else if (localUrl.indexOf( markUri + '/customer/pigeonhole') !== -1) {
+            var detailUrl =  markUri + '/customer/pigeonhole/detail';
+        } else if (localUrl.indexOf( markUri + '/customer/otherfund') !== -1) {
+            var detailUrl =  markUri + '/customer/otherfund/detail';
         } else {
-            //res.render(data.error_msg);
-            res.redirect('/404');
+            throw new Error(ERRORTYPES.Route + '："' + localUrl + '" is not defined.');
         }
-    }, req, res, next);
+        this.httpRequest({
+            url : apiServerPath + url,
+            formData : body
+        }, function (result) {
+            data = result;
+            if (data.error_code === 0) {
+                data.title = title;
+                data.originUrl = localUrl;  // 页面访问路径
+                data.detailUrl = detailUrl; // 详情页访问路径
+                data.markUri = markUri;
+                res.render('./customer/customerList', data);
+            } else {
+                //res.render(data.error_msg);
+                res.redirect('/404');
+            }
+        }, req, res, next);
+    } catch (e) {
+        LOGERROR(e.stack);
+        res.redirect('/404')
+    }/* finally {
+        // todo：To find a way solve how to stop request data form java server.
+    }*/
 };
 
 /**
@@ -249,7 +265,7 @@ exports.getCustomerDetail = function(url, req, res, next) {
                 res.render('./otherfund/imgDetail', data);
             }
         } else {
-            //res.render(data.error_msg);
+            // res.render(data.error_msg);
             console.log(data);
             res.redirect('/404');
         }
