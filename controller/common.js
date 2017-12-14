@@ -161,7 +161,6 @@ exports.httpRequest = function (opt, callback, req, res, next) {
                 } else if (result.error_code === 800) {
                     res.send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>登录失效，请重新登录</title></head><body></body><script>alert(\'登录失效，请登录系统\');window.location.href = \'/\';</script></html>');
                 } else if (result.error_code === 0)  {
-
                     callback(result);
                 } else {
                     LOGERROR(ERRORTYPES.HttpRequest + '：Background server (Java) returned an error message. Data:' + JSON.stringify(result));
@@ -246,27 +245,33 @@ exports.getCustomerDetail = function(url, req, res, next) {
         data = result;
         // res.send(data);
         if (data.error_code === 0) {
-            data.title = '客户-订单详情';
-            data.originUrl = localUrl;
-            data.markUri = markUri;
-            if (localUrl.indexOf( markUri + '/customer/loan') !== -1) {
-                res.render('./customer/imgDetail', data);
-            } else if (localUrl.indexOf( markUri + '/customer/compact') !== -1) {
-                res.render('./compact/imgDetail', data);
-            } else if (localUrl.indexOf( markUri + '/customer/requestpayout') !== -1) {
-                res.render('./requestpayout/imgDetail', data);
-            } else if (localUrl.indexOf( markUri + '/customer/approval') !== -1) {
-                res.render('./approval/imgDetail', data);
-            } else if (localUrl.indexOf( markUri + '/customer/financial') !== -1) {
-                res.render('./financial/imgDetail', data);
-            } else if (localUrl.indexOf( markUri + '/customer/pigeonhole') !== -1) {
-                res.render('./pigeonhole/imgDetail', data);
-            } else if (localUrl.indexOf( markUri + '/customer/otherfund') !== -1) {
-                res.render('./otherfund/imgDetail', data);
+            try {
+                data.title = '客户-订单详情';
+                data.originUrl = localUrl;
+                data.markUri = markUri;
+                if (localUrl.indexOf( markUri + '/customer/loan') !== -1) {
+                    res.render('./customer/imgDetail', data);
+                } else if (localUrl.indexOf( markUri + '/customer/compact') !== -1) {
+                    res.render('./compact/imgDetail', data);
+                } else if (localUrl.indexOf( markUri + '/customer/requestpayout') !== -1) {
+                    res.render('./requestpayout/imgDetail', data);
+                } else if (localUrl.indexOf( markUri + '/customer/approval') !== -1) {
+                    res.render('./approval/imgDetail', data);
+                } else if (localUrl.indexOf( markUri + '/customer/financial') !== -1) {
+                    res.render('./financial/imgDetail', data);
+                } else if (localUrl.indexOf( markUri + '/customer/pigeonhole') !== -1) {
+                    res.render('./pigeonhole/imgDetail', data);
+                } else if (localUrl.indexOf( markUri + '/customer/otherfund') !== -1) {
+                    res.render('./otherfund/imgDetail', data);
+                } else {
+                    throw new Error(ERRORTYPES.Route + ':' + localUrl + 'is not defined.');
+                }
+            } catch (e) {
+                LOGERROR(e.stack);
+                res.redirect('/404');
             }
+
         } else {
-            // res.render(data.error_msg);
-            console.log(data);
             res.redirect('/404');
         }
     }, req, res, next);
@@ -304,8 +309,6 @@ exports.getPageData = function(options, req, res, next) {
             }
         }, req, res, next);
     } catch (err) {
-        /*logger.error(err);*/
-        console.log(err + '268');
         res.statusCode = 500;
         /*return res.json({success: false, message: '服务器异常'});*/
         res.redirect('/404');
