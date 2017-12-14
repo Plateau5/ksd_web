@@ -97,6 +97,7 @@ exports.verifyCode = function (req, res, next) {
 
 exports.checkPrivilege = function (p, req) {
     var privilegeCookie = COMMONUTIL.decrypt(req.cookies.logininfo);
+    // console.log(privilegeCookie);
     var privilegeArr = privilegeCookie.split(',');
     p = Number(p);
     for (var i = 0, len = privilegeArr.length; i < len; i++) {
@@ -109,12 +110,14 @@ exports.checkPrivilege = function (p, req) {
 };
 
 /**
+ * 公用HTTP请求方法
  *
- * @param opt
- * @param callback
- * @param req
- * @param res
- * @param next
+ * Create by Arley Joe on 2017-8-24 15:26:55
+ * @param opt {Object} : 请求报头及请求参数配置项
+ * @param callback {Function} : 回调函数
+ * @param req {Object} : 请求信息对象
+ * @param res {Object} ：返回执行逻辑对象
+ * @param next {Object} ：下一步需要执行的入口
  */
 exports.httpRequest = function (opt, callback, req, res, next) {
     var cookies = this.getCookies(req, res, next);

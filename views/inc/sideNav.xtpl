@@ -43,7 +43,7 @@
         {{/if}}
         {{#if (verifyCode(1330)) }}
             <li class="nav_item {{#if (startWith(markUri + '/customer/otherfund')) }}active{{/if}}">
-                <a href="{{markUri}}/customer/otherfund/system" class="">其他管理</a>
+                <a href="{{markUri}}/customer/otherfund/system" class="">其他款项</a>
             </li>
         {{/if}}
     </ul>

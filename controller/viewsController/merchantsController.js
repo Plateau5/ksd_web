@@ -9,25 +9,41 @@ var path=require("path");
 var common = require('./../common');
 var qs = require('querystring');
 var urlParse = require('url');
+var LOGERROR = require('./../../util/logger').LOGOUT;   // 错误日志打印
+var ERRORTYPES = require('./../../util/ErrorTypesConf'); // 自定义错误类型配置
 
 // 商户-商户管理-主导航跳转 1366
 exports.VIEW_MERCHANTS_SYSTEM = function(req, res, next) {
-    if (common.checkPrivilege(1367, req)) {
-        res.redirect(markUri + '/merchants/manage/system');
-    } else if (common.checkPrivilege(1368, req)) {
-        res.redirect(markUri + '/records/manage');
+    try {
+        if (common.checkPrivilege(1367, req)) {
+            res.redirect(markUri + '/merchants/manage/system');
+        } else if (common.checkPrivilege(1368, req)) {
+            res.redirect(markUri + '/records/manage');
+        } else {
+            throw new Error(ERRORTYPES.CheckPrivilege + ': The code 1368 | 1367 is not defined.');
+        }
+    } catch (e) {
+        LOGERROR(e.stack);
+        res.redirect('/404');
     }
 };
 // 商户-商户管理-侧导航跳转 1367
 exports.VIEW_MERCHANTS_MANAGE_SYSTEM = function(req, res, next) {
-    if (common.checkPrivilege(1370, req)) {
-        res.redirect(markUri + '/merchants/pendingAudit');
-    } else if (common.checkPrivilege(1371, req)) {
-        res.redirect(markUri + '/merchants/pass');
-    } else if (common.checkPrivilege(1372, req)) {
-        res.redirect(markUri + '/merchants/unpass');
-    } else if (common.checkPrivilege(1369, req)) {
-        res.redirect(markUri + '/merchants/norecords');
+    try {
+        if (common.checkPrivilege(1370, req)) {
+            res.redirect(markUri + '/merchants/pendingAudit');
+        } else if (common.checkPrivilege(1371, req)) {
+            res.redirect(markUri + '/merchants/pass');
+        } else if (common.checkPrivilege(1372, req)) {
+            res.redirect(markUri + '/merchants/unpass');
+        } else if (common.checkPrivilege(1369, req)) {
+            res.redirect(markUri + '/merchants/norecords');
+        } else {
+            throw new Error(ERRORTYPES.CheckPrivilege + ': The code 1370 | 1371 | 1372 | 1369 is not defined.');
+        }
+    } catch (e) {
+        LOGERROR(e.stack);
+        res.redirect('/404');
     }
 };
 // 商户-商户管理-待审核 1370

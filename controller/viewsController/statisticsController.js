@@ -7,15 +7,21 @@ var router = require('./../../routes/index');
 var common = require('./../common');
 var request = require('request');
 var COMMONUTIL = require('./../../util/commonUtil');  // 主加密方法类文件
-
+var LOGERROR = require('./../../util/logger').LOGOUT;   // 错误日志打印
+var ERRORTYPES = require('./../../util/ErrorTypesConf'); // 自定义错误类型配置
 
 // 数据统计主导航跳转
 exports.VIEW_STATISTICS_SYSTEM = function(req, res, next) {
-    if (common.checkPrivilege(1372, req)) {
-        res.redirect(markUri + '/statistics/business/list');
-    } else if (common.checkPrivilege(1328, req)) {
-        res.redirect(markUri + '/statistics/person/system');
-    } else {
+    try {
+        if (common.checkPrivilege(1327, req)) {
+            res.redirect(markUri + '/statistics/business/list');
+        } else if (common.checkPrivilege(1328, req)) {
+            res.redirect(markUri + '/statistics/person/system');
+        } else {
+            throw new Error(ERRORTYPES.CheckPrivilege + ': The code 1327 | 1328 is not defined.');
+        }
+    } catch (e) {
+        LOGERROR(e.stack);
         res.redirect('/404');
     }
 };
@@ -76,13 +82,18 @@ exports.API_STATISTICS_PRODUCT_DATA = function(req, res, next) {
 
 // 数据统计-人效统计首页跳转
 exports.VIEW_STATISTICS_PERSON_SYSTEM = function(req, res, next) {
-    if (common.checkPrivilege(1354, req)) {
-        res.redirect(markUri + '/statistics/person/order');
-    } else if (common.checkPrivilege(1355, req)) {
-        res.redirect(markUri + '/statistics/person/request');
-    } else if (common.checkPrivilege(1356, req)) {
-        res.redirect(markUri + '/statistics/person/pigeonhole');
-    } else {
+    try {
+        if (common.checkPrivilege(1354, req)) {
+            res.redirect(markUri + '/statistics/person/order');
+        } else if (common.checkPrivilege(1355, req)) {
+            res.redirect(markUri + '/statistics/person/request');
+        } else if (common.checkPrivilege(1356, req)) {
+            res.redirect(markUri + '/statistics/person/pigeonhole');
+        } else {
+            throw new Error(ERRORTYPES.CheckPrivilege + ': The code 1354 | 1355 | 1356 is not defined.');
+        }
+    } catch (e) {
+        LOGERROR(e.stack);
         res.redirect('/404');
     }
 };

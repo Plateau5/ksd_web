@@ -311,7 +311,7 @@ router.post(markUri + '/employee/detail', contactCtrl.VIEW_EMPLOYEE_DETAIL);
 // 部门页跳转
 router.get(markUri + '/department', contactCtrl.VIEW_DEPARTMENT);
 
-// 数据统计主导航跳转
+// 数据统计主导航跳转 1327
 router.get(markUri + '/statistics/system', statisticsCtrl.VIEW_STATISTICS_SYSTEM);
 // 数据统计-业务统计跳转
 router.get(markUri + '/statistics/business/list', statisticsCtrl.VIEW_STATISTICS_BUSINESS_LIST);
