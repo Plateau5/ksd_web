@@ -44,7 +44,9 @@
 						<div class="requestpayout_detail_label">快递公司：</div>
 						<div class="requestpayout_detail_txt" style="width:auto;">{{vo.express_name}}</div>
 					</div>
-					<div style="float: left;margin-left: 35px;">
+				</div>
+				<div class="detail_remarks requestpayout_detail_remarks">
+					<div style="float: left;">
 						<div class="requestpayout_detail_label">快递单号：</div>
 						<div class="requestpayout_detail_txt" style="width:auto;">{{vo.express_num}}</div>
 					</div>
