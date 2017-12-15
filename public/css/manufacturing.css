@@ -274,22 +274,17 @@
 }
 .create_options .principal_item > span {
   display: inline-block;
-  width: 100px;
-  height: 30px;
-  line-height: 30px;
-  vertical-align: top;
 }
 .create_options .principal_item .character {
   position: relative;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
   margin: 0 8px 0 0;
-  padding: 0 5px;
   background: #1dc6bc;
   text-align: center;
   color: #FFFFFF;
   cursor: pointer;
-}
-.create_options .principal_item .principal_name {
-  vertical-align: top;
 }
 .create_options .principal_item .detail_character {
   cursor: default;
