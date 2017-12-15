@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="修复归档错误  2017年12月15日11:10:04">
+    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="修复归档快递单号位置  2017年12月15日11:21:38">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/statistics.css" afterPath="$PROJECT_DIR$/public/css/statistics.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dialog/dialog-layer.js" afterPath="$PROJECT_DIR$/public/dialog/dialog-layer.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,9 +25,25 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="88" column="21" lean-forward="false" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
+            <state relative-caret-position="525">
+              <caret line="25" column="11" lean-forward="true" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dialog-layer.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/dialog/dialog-layer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="227" column="0" lean-forward="true" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+              <folding>
+                <marker date="1513320633689" expanded="true" signature="2138:2218" ph="..." />
+                <marker date="1513320633689" expanded="true" signature="2713:2808" ph="..." />
+                <marker date="1513320633689" expanded="true" signature="3100:3216" ph="..." />
+                <marker date="1513320633689" expanded="true" signature="3614:3636" ph="..." />
+                <marker date="1513320633689" expanded="true" signature="3922:3936" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -43,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pigeonholeInfo.xtpl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pigeonholeInfo.xtpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+            <state relative-caret-position="681">
+              <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#1;n#!!top" expanded="true" />
@@ -59,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="questions.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/questions.less">
+      <file leaf-file-name="customerController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+            <state relative-caret-position="130">
+              <caret line="88" column="17" lean-forward="false" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -92,8 +110,8 @@
       <file leaf-file-name="statistics.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/statistics.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7898">
-              <caret line="379" column="0" lean-forward="true" selection-start-line="379" selection-start-column="0" selection-end-line="379" selection-end-column="0" />
+            <state relative-caret-position="-61">
+              <caret line="0" column="6783" lean-forward="true" selection-start-line="0" selection-start-column="6783" selection-end-line="0" selection-end-column="6783" />
               <folding />
             </state>
           </provider>
@@ -205,7 +223,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/inc/cssSources.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/metaData.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/js_source.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/jsSources.xtpl" />
@@ -254,8 +271,9 @@
         <option value="$PROJECT_DIR$/controller/common.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/inc/header.xtpl" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl" />
+        <option value="$PROJECT_DIR$/public/dialog/dialog-layer.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -358,6 +376,12 @@
               <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="dialog" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
@@ -549,13 +573,6 @@
       <workItem from="1513130029870" duration="13944000" />
       <workItem from="1513213869608" duration="16018000" />
       <workItem from="1513301607381" duration="164000" />
-    </task>
-    <task id="LOCAL-00026" summary="商户管理编辑页、详情页  2017年12月4日14:50:46">
-      <created>1512370259205</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1512370259205</updated>
     </task>
     <task id="LOCAL-00027" summary="商户完成  2017年12月4日15:34:42">
       <created>1512372889401</created>
@@ -893,11 +910,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513307415514</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="修复归档快递单号位置  2017年12月15日11:21:38">
+      <created>1513308103790</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1513308103790</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="532196000" />
+    <option name="totallyTimeSpent" value="533333000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -919,7 +943,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18756586" sideWeight="0.51805335" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8444688" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3274918" sideWeight="0.4915701" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22672509" sideWeight="0.4915701" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3154436" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -974,7 +998,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改用户图片加载 2017年12月11日10:29:00" />
     <MESSAGE value="修复header用户信息闪动  2017年12月11日10:31:53" />
     <MESSAGE value="修改合同按钮显示  2017年12月11日10:46:11" />
     <MESSAGE value="增加warning页面  2017年12月11日11:09:28" />
@@ -999,7 +1022,8 @@
     <MESSAGE value="优化页面轮询跳转 2017年12月14日15:53:48" />
     <MESSAGE value="修复通知无跳转链接  2017年12月14日18:12:00" />
     <MESSAGE value="修复归档错误  2017年12月15日11:10:04" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复归档错误  2017年12月15日11:10:04" />
+    <MESSAGE value="修复归档快递单号位置  2017年12月15日11:21:38" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复归档快递单号位置  2017年12月15日11:21:38" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1016,18 +1040,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controller/ff.html" />
     <entry file="file://$PROJECT_DIR$/views/compact/agree.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="611">
           <caret line="158" column="26" lean-forward="false" selection-start-line="158" selection-start-column="16" selection-end-line="158" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/dialog/dialog-layer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="400" column="4" lean-forward="false" selection-start-line="400" selection-start-column="4" selection-end-line="400" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1326,25 +1342,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="88" column="17" lean-forward="false" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-693">
           <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="88" column="21" lean-forward="false" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1359,24 +1360,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+        <state relative-caret-position="681">
+          <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#4;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#5;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="88" column="17" lean-forward="false" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="25" column="11" lean-forward="true" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/questions.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/dialog/dialog-layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="227" column="0" lean-forward="true" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+          <folding>
+            <marker date="1513320633689" expanded="true" signature="2138:2218" ph="..." />
+            <marker date="1513320633689" expanded="true" signature="2713:2808" ph="..." />
+            <marker date="1513320633689" expanded="true" signature="3100:3216" ph="..." />
+            <marker date="1513320633689" expanded="true" signature="3614:3636" ph="..." />
+            <marker date="1513320633689" expanded="true" signature="3922:3936" ph="..." />
           </folding>
         </state>
       </provider>

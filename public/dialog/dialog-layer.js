@@ -214,14 +214,16 @@ var DialogLayer = function(type, params, callback) {
 	this.setPosition = function() {
 		var container = this.target.find(".dialog-container"),
 				content = this.target.find(".content");
-		windowWidth = $(window).width(),
+				windowWidth = $(window).width(),
 				windowHeight = $(window).height(),
 				targetWidth = container.width(),
 				targetHeight = container.height(),
 				contentHeight = content.height();
 
-		if(parseFloat(targetWidth) < 600) {
+		if(parseFloat(targetWidth) <= 600) {
 			this.options.minWidth = 600;
+		} else {
+			targetWidth = 800;
 		}
 
 		if(parseFloat(contentHeight) < 60) {
