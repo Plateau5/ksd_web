@@ -72,6 +72,5 @@
     var DOMAIN = '{{domain}}';
     const VERSION = '{{version}}';
     var contextPath = '{{contextPath}}';
-    var LOCALURL = window.location.pathname;
     var markUri = "{{markUri}}";
 </script>
