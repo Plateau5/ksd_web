@@ -99,7 +99,7 @@
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">数据统计</div>
     <ul class="slide_nav_bar">
-        {{#if (verifyCode(1372)) }}
+        {{#if (verifyCode(1327)) }}
             <li class="nav_item {{#if(startWith(markUri + '/statistics/business'))}}active{{/if}}">
                 <a href="{{markUri}}/statistics/business/list" class="">业务统计</a>
             </li>
