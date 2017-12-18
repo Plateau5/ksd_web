@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +23,8 @@
       <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3213">
-              <caret line="153" column="17" lean-forward="false" selection-start-line="153" selection-start-column="17" selection-end-line="153" selection-end-column="17" />
+            <state relative-caret-position="105">
+              <caret line="136" column="58" lean-forward="true" selection-start-line="136" selection-start-column="58" selection-end-line="136" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -53,14 +53,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="requestpayoutInfo.xtpl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="requestpayoutInfo.xtpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="25" column="54" lean-forward="false" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+            <state relative-caret-position="-4956">
+              <caret line="20" column="71" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="71" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pigeonholeInfo.xtpl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="511">
+              <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#4;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customerBasicInfo.xtpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2058">
+              <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -194,7 +220,6 @@
         <option value="$PROJECT_DIR$/node_modules/log4js/docs/appenders.md" />
         <option value="$PROJECT_DIR$/logs/error/2017-12-07.txt" />
         <option value="$PROJECT_DIR$/logs/default/2017-12-07.txt" />
-        <option value="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" />
         <option value="$PROJECT_DIR$/util/log4.js" />
         <option value="$PROJECT_DIR$/views/inc/merchantsList.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/ordersList.xtpl" />
@@ -232,6 +257,7 @@
         <option value="$PROJECT_DIR$/controller/viewsController/systemManagementController.js" />
         <option value="$PROJECT_DIR$/views/inc/sideNav.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl" />
+        <option value="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" />
       </list>
     </option>
   </component>
@@ -519,14 +545,7 @@
       <workItem from="1513130029870" duration="13944000" />
       <workItem from="1513213869608" duration="16018000" />
       <workItem from="1513301607381" duration="164000" />
-      <workItem from="1513559577247" duration="429000" />
-    </task>
-    <task id="LOCAL-00031" summary="修改  2017年12月5日14:32:50">
-      <created>1512455598491</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1512455598491</updated>
+      <workItem from="1513559577247" duration="2492000" />
     </task>
     <task id="LOCAL-00032" summary="修改静态文件访问路径">
       <created>1512456651560</created>
@@ -864,11 +883,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513332040848</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="修改详情页无法复制  2017年12月18日09:20:29">
+      <created>1513560040710</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1513560040710</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="537761000" />
+    <option name="totallyTimeSpent" value="539824000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -935,7 +961,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="删除demo" />
     <MESSAGE value="修改商户备案信息判断错误  2017年12月11日15:09:41" />
     <MESSAGE value="增加登录状态控制  2017年12月11日16:37:40" />
     <MESSAGE value="修改图片格式上传错误后JS报错  2017年12月11日17:42:02" />
@@ -960,7 +985,8 @@
     <MESSAGE value="修改登录校验code拦截  2017年12月15日15:04:18" />
     <MESSAGE value="修改登录校验code拦截  2017年12月15日15:18:27" />
     <MESSAGE value="修改统计  2017年12月15日18:00:28" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改统计  2017年12月15日18:00:28" />
+    <MESSAGE value="修改详情页无法复制  2017年12月18日09:20:29" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改详情页无法复制  2017年12月18日09:20:29" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -972,18 +998,11 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="457" />
+      <option name="time" value="458" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/customer/allotEmp.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/requestpayout/sub_btn.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -1188,13 +1207,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -1241,6 +1253,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
           <caret line="32" column="43" lean-forward="true" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1293,14 +1306,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3213">
-          <caret line="153" column="17" lean-forward="false" selection-start-line="153" selection-start-column="17" selection-end-line="153" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6804">
@@ -1336,12 +1341,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controller/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="136" column="58" lean-forward="true" selection-start-line="136" selection-start-column="58" selection-end-line="136" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2058">
+          <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="25" column="54" lean-forward="false" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+        <state relative-caret-position="-4956">
+          <caret line="20" column="71" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="71" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/pigeonholeInfo.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#4;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
