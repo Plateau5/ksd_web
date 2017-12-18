@@ -19,7 +19,8 @@
             <span>您访问的页面失踪啦，请<a href="javascript:window.history.back();">点击这里</a>火速返回</span>
         </div>
     </div>
+    <input type="hidden" value="{{status}}">
 </div>
 </body>
-<script>console.log(404);</script>
+<script>var statusCode = '{{status}}';console.log(statusCode);</script>
 </html>
