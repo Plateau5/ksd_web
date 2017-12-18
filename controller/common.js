@@ -126,7 +126,7 @@ exports.httpRequest = function (opt, callback, req, res, next) {
     var option = {
         method : 'post',
         url : '',
-        timeout : 10000,
+        timeout : 600000,
         headers : {
             Cookie : cookies,
             ctype : 1

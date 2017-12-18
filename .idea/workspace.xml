@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/common.js" afterPath="$PROJECT_DIR$/controller/common.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,73 +23,18 @@
       <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="214" column="53" lean-forward="true" selection-start-line="214" selection-start-column="53" selection-end-line="214" selection-end-column="53" />
+            <state relative-caret-position="315">
+              <caret line="128" column="25" lean-forward="true" selection-start-line="128" selection-start-column="25" selection-end-line="128" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="requestpayoutInfo.xtpl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl">
+      <file leaf-file-name="request.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/node_modules/request/request.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="261" column="14" lean-forward="true" selection-start-line="261" selection-start-column="14" selection-end-line="261" selection-end-column="14" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#div#22;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ordersList.xtpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/inc/ordersList.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="32" column="33" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="32" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="customerList.xtpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/customer/customerList.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="otherfundOrderList.xtpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/inc/otherfundOrderList.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="994">
-              <caret line="56" column="43" lean-forward="true" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#li#0;n#ul#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="compactInfo.xtpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/inc/compactInfo.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="48" column="39" lean-forward="true" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="customerController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="547" column="16" lean-forward="true" selection-start-line="547" selection-start-column="16" selection-end-line="547" selection-end-column="16" />
+            <state relative-caret-position="211">
+              <caret line="805" column="40" lean-forward="true" selection-start-line="805" selection-start-column="40" selection-end-line="805" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -108,7 +53,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>smtp</find>
       <find>smtpAppender</find>
       <find>from</find>
       <find>let</find>
@@ -138,6 +82,7 @@
       <find>LOGOUT</find>
       <find>Not Found</find>
       <find>delete_btn</find>
+      <find>ESOCKETTIMEDOUT</find>
     </findStrings>
     <replaceStrings>
       <replace>/customer/financial/detail</replace>
@@ -238,10 +183,10 @@
         <option value="$PROJECT_DIR$/views/inc/otherfundOrderList.jsp" />
         <option value="$PROJECT_DIR$/views/approval/agree.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/otherfundOrderList.xtpl" />
-        <option value="$PROJECT_DIR$/controller/common.js" />
         <option value="$PROJECT_DIR$/views/customer/customerList.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/compactInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl" />
+        <option value="$PROJECT_DIR$/controller/common.js" />
       </list>
     </option>
   </component>
@@ -541,14 +486,7 @@
       <workItem from="1513130029870" duration="13944000" />
       <workItem from="1513213869608" duration="16018000" />
       <workItem from="1513301607381" duration="164000" />
-      <workItem from="1513559577247" duration="5318000" />
-    </task>
-    <task id="LOCAL-00034" summary="贷款管理完成 2017年12月5日15:56:27">
-      <created>1512460604666</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1512460604667</updated>
+      <workItem from="1513559577247" duration="8105000" />
     </task>
     <task id="LOCAL-00035" summary="请款管理完成  2017年12月5日17:49:29">
       <created>1512467382864</created>
@@ -886,11 +824,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513563971545</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="修复详情页款项为0时间的显示 2017年12月18日10:42:11">
+      <created>1513564937030</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1513564937030</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="542650000" />
+    <option name="totallyTimeSpent" value="545437000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -905,43 +850,24 @@
     <frame x="1911" y="-9" width="1938" height="1058" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23828648" sideWeight="0.48194662" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23814541" sideWeight="0.48194662" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18838993" sideWeight="0.4873551" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22782037" sideWeight="0.5126449" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36363637" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2584885" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18756586" sideWeight="0.51805335" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8444688" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28368017" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3236111" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26725084" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36363637" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18838993" sideWeight="0.4873551" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22782037" sideWeight="0.5126449" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2584885" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18756586" sideWeight="0.51805335" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8444688" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28368017" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23828648" sideWeight="0.48194662" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36363637" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3236111" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -976,7 +902,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改图片格式上传错误后JS报错  2017年12月11日17:42:02" />
     <MESSAGE value="修复文件上传   2017年12月12日10:28:18" />
     <MESSAGE value="增加地址title显示  2017年12月12日14:44:44" />
     <MESSAGE value="修改归档  2017年12月12日18:12:11" />
@@ -1001,7 +926,8 @@
     <MESSAGE value="修改详情页无法复制  2017年12月18日09:20:29" />
     <MESSAGE value="修改新车二手显示  2017年12月18日09:55:00" />
     <MESSAGE value="修复  2017年12月18日10:25:54" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复  2017年12月18日10:25:54" />
+    <MESSAGE value="修复详情页款项为0时间的显示 2017年12月18日10:42:11" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复详情页款项为0时间的显示 2017年12月18日10:42:11" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1013,18 +939,11 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="458" />
+      <option name="time" value="460" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/css/public.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="191" column="14" lean-forward="true" selection-start-line="191" selection-start-column="14" selection-end-line="191" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/manufacturing.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -1228,6 +1147,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1306,11 +1226,11 @@
         <state relative-caret-position="217">
           <caret line="63" column="76" lean-forward="true" selection-start-line="63" selection-start-column="76" selection-end-line="63" selection-end-column="76" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#4;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#4;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#5;n#div#1;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1360,7 +1280,7 @@
         <state relative-caret-position="994">
           <caret line="56" column="43" lean-forward="true" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#li#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#li#0;n#ul#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1389,22 +1309,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="43" column="60" lean-forward="false" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#22;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controller/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="214" column="53" lean-forward="true" selection-start-line="214" selection-start-column="53" selection-end-line="214" selection-end-column="53" />
+        <state relative-caret-position="315">
+          <caret line="128" column="25" lean-forward="true" selection-start-line="128" selection-start-column="25" selection-end-line="128" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl">
+    <entry file="file://$PROJECT_DIR$/node_modules/request/request.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="261" column="14" lean-forward="true" selection-start-line="261" selection-start-column="14" selection-end-line="261" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#22;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="211">
+          <caret line="805" column="40" lean-forward="true" selection-start-line="805" selection-start-column="40" selection-end-line="805" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
