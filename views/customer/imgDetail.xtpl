@@ -60,7 +60,7 @@
 				<!-- 合同资料 Begin -->
                 {{include ('./../inc/compactInfo')}}
 				<!-- 合同资料 End -->
-                {{#if (is_show === "") }}
+                {{#if (is_show === "1") }}
                 <!--requestpayout_detail start-->
                     {{#if (vo.status >= 10) }}
                         <div class="img_detail_title">
@@ -76,10 +76,10 @@
                             {{/if}}
                         </div>
                     {{/if}}
-                <!--requestpayout_detail end-->
-				<!-- 归档资料 start -->
-                {{include ('./../inc/pigeonholeInfo')}}
-				<!-- 归档资料 end -->
+                    <!--requestpayout_detail end-->
+                    <!-- 归档资料 start -->
+                    {{include ('./../inc/pigeonholeInfo')}}
+                    <!-- 归档资料 end -->
                 {{/if}}
 				<!--操作记录部分-->
 				<!-- 操作记录 Begin -->
