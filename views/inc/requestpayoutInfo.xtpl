@@ -23,7 +23,7 @@
      -->
 {{#each (req_list) }}
     <div class="apply_order">
-        <div class="order_title">
+        <div class="order_title"  style="clear: both;">
             <div class="requestpayout_detail_title
             {{#if (req_list.length === (xindex + 1)) }}new{{/if}}
             ">
