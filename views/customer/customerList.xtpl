@@ -28,7 +28,12 @@
                     <input type="hidden" name="active" value="active">
                     <input type="hidden" name="finance_id" value="" id="financeId">
                 </form>
-                {{include('./../inc/ordersList')}}
+                {{#if (originUrl.indexOf( markUri + '/customer/otherfund') !== -1) }}
+                    {{include('./../inc/otherfundOrderList')}}
+                {{else}}
+                    {{include('./../inc/ordersList')}}
+                {{/if}}
+
                 <!--分页部分 Begin-->
                 <div class="page_box">
                     {{include('./../inc/pagination')}}

@@ -37,10 +37,10 @@
 						<div class="requestpayout_detail_txt">{{vo.gps_install_time}}</div>
 					</div>
 				{{/if}}
-				{{#if (vo.gps_install_address) }}
+				{{#if (vo.gps_install_area || vo.gps_install_address) }}
 					<div class="detail_remarks requestpayout_detail_remarks">
 						<div class="requestpayout_detail_label">安装地点：</div>
-						<div class="requestpayout_detail_txt">{{vo.gps_install_address}}</div>
+						<div class="requestpayout_detail_txt">{{vo.gps_install_area}}{{vo.gps_install_address}}</div>
 					</div>
 				{{/if}}
 			{{/if}}

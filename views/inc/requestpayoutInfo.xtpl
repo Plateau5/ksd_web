@@ -186,7 +186,7 @@
             {{#if (this.supplier_name) }}
                 <div class="detail_remarks requestpayout_detail_remarks payment_info_item">
                     <div class="requestpayout_detail_label">商户名称：</div>
-                    <div class="requestpayout_detail_txt">{{this.supplier_name}}</div>
+                    <div class="requestpayout_detail_txt">{{this.supplier_name}}<span style="color: #ff0000;margin-left: 10px;">({{vo.flag_value}})</span></div>
                 </div>
             {{/if}}
             <!--商户图片-->

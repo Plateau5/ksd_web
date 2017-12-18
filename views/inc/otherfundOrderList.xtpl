@@ -1,0 +1,62 @@
+{{#if (count >0) }}
+	<ul class="finance_list">
+		{{#each (list) }}
+			<li class="list_item"  lang="{{this.finance_id}}">
+				<div class="create_date">进件时间：{{this.create_time }} / {{this.city_name}}</div>
+				<div class="list_item_detail">
+					<div class="shake_box">
+						{{#if (this.is_throw === 1) }}
+						<div class="shake shook_sign">甩单</div>
+						{{/if}}
+						{{#if (this.loan_type === 1) }}
+						<div class="shake personal_sign">个人</div>
+						{{elseif (this.loan_type === 2) }}
+						<div class="shake company_sign">企业</div>
+						{{/if}}
+					</div>
+					<div class="user_info">
+						<div class="user_photo" style="margin-top: 20px;">
+							<div class="lender name_color{{xindex + 1}}">{{this.user_name.substring(0,1)}}</div>
+						</div>
+						<div class="user_name nor_wrap">{{this.user_name}}</div>
+					</div>
+					<div class="finance_desc">
+						<dl class="effect_one">
+							<dt class="font12">申请贷款产品</dt>
+							<dd class="nor_wrap font14">{{this.product_name}}</dd>
+						</dl>
+						<dl  class="effect_two">
+							<dt class="font12">贷款类型</dt>
+							<dd class="font14 overflow" title="{{#if (this.car_type === 0)}}新车{{elseif (this.car_type === 1) }}二手车{{/if}}  / {{this.series_name}}">
+								{{#if (this.car_type === 0)}}新车{{elseif (this.car_type === 1) }}二手车{{/if}}  / {{this.series_name}}
+							</dd>
+						</dl>
+						<dl class="effect_two">
+							<dt class="font12">车系</dt>
+							<dd class="nor_wrap font14">{{this.series_name}}</dd>
+						</dl>
+						<dl class="effect_two">
+							<dt class="font12">付款总额</dt>
+							<dd class="font14">{{this.total_charge }} 元</dd>
+						</dl>
+						<dl class="effect_two">
+							<dt class="font12">收款名称</dt>
+							<dd class="font14">{{this.receipt_name }}</dd>
+						</dl>
+						<dl  class="effect_two">
+							<dt class="font12">{{this.position_desc}}</dt>
+							<dd class="nor_wrap font14">{{this.create_name}}</dd>
+						</dl>
+					</div>
+				</div>
+
+			</li>
+		{{/each}}
+	</ul>
+{{else}}
+	{{include('./../inc/empty_data.xtpl')}}
+{{/if}}
+<div class="order_mask"></div>
+
+
+
