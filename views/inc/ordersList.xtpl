@@ -49,8 +49,8 @@
                             <dd class="nor_wrap font14">{{this.create_name}}</dd>
                         </dl>
                         <div class="operate_btn clearfix">
-                            {{#if (show_time === 1) }}
-                                {{#if (this.status === 6) }}
+                            {{#if (show_time === "1") }}
+                                {{#if (this.status === 5 || this.status === 6) }}
                                     <span class="remark">审核时间：<span>{{this.audit_name}}/{{this.check_time }}</span></span>
                                 {{/if}}
                                 <span class="remark">录单时间：<span>{{this.ocm_name}}/{{this.audit_time }}</span></span>
