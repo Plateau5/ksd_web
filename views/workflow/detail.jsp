@@ -1,27 +1,36 @@
+<%@ page import="java.lang.reflect.Field"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="per" uri="com/mvc/web/common/tag/permissionTag"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="{{markUri}}/static/css/manufacturing.css">
+    <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
+    <link rel="stylesheet" href="${contextPath}/static/css/manufacturing.css">
     <title>流程管理-审批流详情</title>
 </head>
 <body>
     <div id="wrapper" class="wrapper">
         <!-------- Part of header Begin -------->
-        {{include('./../inc/header')}}
+        <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
         <!-------- Part of header End -------->
 
         <!-------- Part of main Begin -------->
         <div id="section" class="section normal_width">
             <!---- Part of slide nav Begin ---->
-            {{include('./../inc/sideNav')}}
+            <jsp:include page="/WEB-INF/inc/business_setting_side_nav.jsp"></jsp:include>
             <!---- Part of slide na End ---->
 
             <!---- Part of Main info Begin ---->
             <div id="main" class="main pad_btm_100">
                 <div class="crumbs_nav">
-                    <a href="{{markUri}}/workflow/list" class="crumbs_item">审批流程</a>
+                    <a href="${contextPath}/workflow/getList" class="crumbs_item">审批流程</a>
                     <a href="javascript:;" class="crumbs_item">${vo.name}</a>
                 </div>
                 <div class="create_options form_options workflow_detail">
@@ -99,7 +108,7 @@
                             <div class="column_val">
                             <c:forEach items="${_list }" var="bean">
                                 <div class="principal_item">
-                                <span class="character detail_character inline_block nowrap">
+                                <span class="character detail_character  inline_block nowrap">
                                     <span title="${bean.position_desc }">${bean.position_desc }</span>
                                 </span>
                                     <span class="principal_name">${bean.name }</span>
@@ -117,8 +126,8 @@
         </div>
     </div>
 </body>
-{{include('./../inc/jsSources')}}
-<script src="{{markUri}}/static/js/manufacturing.js" type="text/javascript" charset="UTF-8"></script>
+<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
+<script src="${contextPath}/static/js/manufacturing.js" type="text/javascript" charset="UTF-8"></script>
 <script>
     (function ($) {
         $(function() {

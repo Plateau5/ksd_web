@@ -1,0 +1,284 @@
+<%@ page import="java.lang.reflect.Field"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="per" uri="com/mvc/web/common/tag/permissionTag"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
+    <link rel="stylesheet" href="${contextPath}/static/css/manufacturing.css">
+	<link rel="stylesheet" href="${contextPath}/static/dialog/dialog-layer.css">
+    <title>流程管理-审批流程</title>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        <!-------- Part of header Begin -------->
+        <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+        <!-------- Part of header End -------->
+
+        <!-------- Part of main Begin -------->
+        <div id="section" class="section normal_width">
+            <!---- Part of slide nav Begin ---->
+            <jsp:include page="/WEB-INF/inc/business_setting_side_nav.jsp"></jsp:include>
+            <!---- Part of slide na End ---->
+
+            <!---- Part of Main info Begin ---->
+            <div id="main" class="main">
+				<div class="tab">
+					<ul class="tab_list inline_block">
+						<li class="tab_item type_normal <c:if test="${type eq 1}">active</c:if>">车款审批</li>
+						<li class="tab_item type_others <c:if test="${type eq 2}">active</c:if>" style="width: 100px;">其他款项审批</li>
+					</ul>
+				</div>
+				<form action="${contextPath}/workflow/getList" method="POST" id="form_search" role="form">
+					<input type="hidden" name="type" value="${type}" id="flow_type">
+				</form>
+                <%--<!--没有创建任何流程-->
+                <c:if test="${count eq 0 }">
+                	<per:button code="1131">
+		                <div class="no_workflow">
+		                    <div class="toast_text">目前还没有审批流程，请先创建审批流程</div>
+		                    <div class="new_btn_box">
+		                        <a href="${contextPath }/workflow/toCreate?type=${type}"  class="btn blue_btn add_btn"><em></em>新建流程</a>
+		                    </div>
+		                 </div>
+                	</per:button>
+                </c:if>--%>
+                <!--已创建流程列表-->
+                <%--<c:if test="${count > 0 }">--%>
+					<div class="filtrate workflow">
+						<div class="filtrate_item date_conditions">
+							<div class="inline_block">
+								<div class="conditions_name inline_block filtrate_city">城市筛选：</div>
+								<select name="city_id" class="filtrate_select city_select" id="city_id">
+									<option value="">全部</option>
+									<c:forEach items="${city_list }" var="bean">
+										<option value="${bean.id}" <c:if test="${bean.id eq condition.city_id}">selected</c:if>>${bean.name}</option>
+									</c:forEach>
+								</select>
+							</div>
+							<per:button code="1131">
+								<div class="inline_block rf">
+									<a href="${contextPath }/workflow/toCreate?type=${type}"  class="btn blue_btn add_btn"><em></em>新建流程</a>
+								</div>
+							</per:button>
+						</div>
+					</div>
+	                <div class="workflow_content">
+						<%-- 车价审批流列表 Begin --%>
+							<table class="workflow_list type_normal"
+								   style="display: <c:choose>
+								   <c:when test="${type eq 1}">table</c:when>
+								   <c:otherwise>none</c:otherwise>
+								   </c:choose>;"
+							>
+								<colgroup style="width: 100%;">
+									<col style="width: 20%;" />
+									<col style="width: 15%;" />
+									<col style="width: 20%;" />
+									<col style="width: 13%;" />
+									<col style="width: 14%;" />
+									<col style="width: 18%;" />
+								</colgroup>
+								<thead>
+								<tr>
+									<th>名称</th>
+									<th>适用业务</th>
+									<th>适用城市</th>
+									<th>风险类型</th>
+									<th>是否甩单</th>
+									<th>操作</th>
+								</tr>
+								</thead>
+								<tbody>
+								<c:if  test="${count > 0}">
+									<c:forEach items="${list }" var="bean">
+										<tr>
+											<td title="${bean.name }">${bean.name }</td>
+											<td>${bean.applyto_business_value }</td>
+											<td title="${bean.applyto_city_value }">${bean.applyto_city_value }</td>
+											<td title="${bean.risk_type_value }">${bean.risk_type_value }</td>
+											<td><c:if test="${bean.is_throw eq 0}">否</c:if><c:if test="${bean.is_throw eq 1}">是</c:if> </td>
+											<td class="operate_btn">
+												<a href="javascript:" data-url="${contextPath}/workflow/toDetail" data-flow_id="${bean.id}" title="查看" class="view go_forward" lang="${bean.id }"></a>
+												<per:button code="1132">
+													<a href="javascript:" data-url="${contextPath}/workflow/toEdit" data-flow_id="${bean.id}" title="编辑" class="edit go_forward" lang="${bean.id }"></a>
+												</per:button>
+												<a href="javascript:;" data-url="${contextPath}/workflow/toDelete"  title="删除" class="delete go_forward" data-flow_id="${bean.id}"  lang="${bean.id }"></a>
+											</td>
+										</tr>
+									</c:forEach>
+								</c:if>
+								<c:if  test="${count <= 0}">
+									<tr>
+										<td colspan="6"><jsp:include page="/WEB-INF/inc/empty_data.jsp"></jsp:include></td>
+									</tr>
+								</c:if>
+								</tbody>
+							</table>
+						<%-- 车价审批流列表 End --%>
+						<%-- 其他款项审批流列表 Begin --%>
+							<table class="workflow_list type_others"
+								   style="display: <c:choose>
+								   <c:when test="${type eq 2}">table</c:when>
+								   <c:otherwise>none</c:otherwise>
+								   </c:choose>;"
+							>
+								<colgroup style="width: 100%;">
+									<col style="width: 22%;" />
+									<col style="width: 18%;" />
+									<col style="width: 20%;" />
+									<col style="width: 23%;" />
+									<col style="width: 17%;" />
+								</colgroup>
+								<thead>
+								<tr>
+									<th>名称</th>
+									<th>适用业务</th>
+									<th>适用城市</th>
+									<th>费用类型</th>
+									<th>操作</th>
+								</tr>
+								</thead>
+								<tbody>
+								<c:if test="${count > 0}">
+									<c:forEach items="${list }" var="bean">
+										<tr>
+											<td title="${bean.name }">${bean.name }</td>
+											<td>${bean.applyto_business_value }</td>
+											<td title="${bean.applyto_city_value }">${bean.applyto_city_value }</td>
+											<td title="${bean.charge_type_value}">${bean.charge_type_value}</td>
+											<td class="operate_btn">
+												<a href="javascript:" data-url="${contextPath}/workflow/toDetail" data-flow_id="${bean.id}" title="查看" class="view go_forward" lang="${bean.id }"></a>
+												<per:button code="1132">
+													<a href="javascript:" data-url="${contextPath}/workflow/toEdit" data-flow_id="${bean.id}" title="编辑" class="edit go_forward" lang="${bean.id }"></a>
+												</per:button>
+												<per:button code="1136">
+													<a href="javascript:;" data-url="${contextPath}/workflow/toDelete"  title="删除" class="delete go_forward" data-flow_id="${bean.id}" lang="${bean.id }"></a>
+												</per:button>
+											</td>
+										</tr>
+									</c:forEach>
+								</c:if>
+								<c:if  test="${count <= 0}">
+									<tr>
+										<td colspan="5"><jsp:include page="/WEB-INF/inc/empty_data.jsp"></jsp:include></td>
+									</tr>
+								</c:if>
+								</tbody>
+							</table>
+						<%-- 其他款项审批流列表 End --%>
+	                    <!--分页部分 Begin-->
+	                    <div class="page_box">
+	                        <jsp:include page="/WEB-INF/inc/page_list.jsp"></jsp:include>
+	                    </div>
+	                    <!--分页部分 End-->
+	                </div>
+                <%--</c:if>--%>
+            </div>
+            <!---- Part of Main info End ---->
+        </div>
+        <!-------- Part of main End -------->
+        <!-------- Part of footer Begin -------->
+        <!--<div id="footer" class="footer"></div>-->
+        <!-------- Part of footer End -------->
+    </div>
+</body>
+<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
+<script src="${contextPath}/static/js/manufacturing.js" type="text/javascript" charset="UTF-8"></script>
+<script src="${contextPath}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+
+<script>
+    (function ($) {
+		// tab标签的切换
+        function switchTab () {
+            var btn = $('.tab_item');
+            btn.on('click', function () {
+                var _this = $(this);
+                if (_this.hasClass('type_normal')) {
+                    _this.addClass('active');
+                    _this.siblings('.type_others').removeClass('active');
+                    $('#flow_type').val('1');
+                    $('table.type_normal').css('display', 'table');
+                    $('table.type_others').css('display', 'none');
+                } else {
+                    _this.addClass('active');
+                    _this.siblings('.type_normal').removeClass('active');
+                    $('#flow_type').val('2');
+                    $('table.type_others').css('display', 'none');
+                    $('table.type_normal').css('display', 'table');
+                }
+                $('form[role="form"]').submit();
+            });
+        }
+		// 审批流的删除功能
+		function deleteWorkFlow () {
+            var btn = $('.delete');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                deleteEvent(_this);
+			});
+		}
+		// 注册筛选项的事件
+        selectChange();
+		// 删除的提交事件
+		function deleteEvent (t) {
+            t.off('click');
+            var type = $.trim($('#flow_type').val());
+            var id = $.trim(t.data('flow_id'));
+            var url = contextPath + '/api/workflow/delete';
+            var data = {
+                id : id
+			};
+            dialog('open',{
+                closeBtn : false,
+                title : '提醒',
+                content : '确认继续删除该审批流程？',
+                "button" : ["确认","取消"],
+                "maskClose" : false,
+				onConfirm : function (d) {
+                    onDeleteConfirm(d);
+				}
+			});
+            var onDeleteConfirm = function (d) {
+                $ajax('post', url, data, function (res) {
+                    if (res.error_code == 0) {
+                        d.close();
+                        $alert('删除成功', function () {
+                            /*locationTo({
+                                action : contextPath + '/workflow/getList',
+                                param : {
+                                    type : type
+                                }
+                            })*/
+                            window.location.reload();
+                        })
+                    } else {
+                        d.close();
+                        deleteWorkFlow();
+                        $alert(res.error_msg);
+                    }
+                }, function () {
+                    d.close();
+                    deleteWorkFlow();
+                    $alert('删除成功失败，请稍后重试');
+                })
+			}
+		}
+
+        $(function() {
+			pageJump(".go_forward");
+            switchTab();
+            deleteWorkFlow();
+        });
+    })(jQuery,undefined);
+</script>
+</html>
