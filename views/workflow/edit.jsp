@@ -14,28 +14,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <jsp:include page="/WEB-INF/inc/css_source.jsp"></jsp:include>
-    <link rel="stylesheet" href="${contextPath}/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/manufacturing.css">
+    {{include ("./../inc/cssSources")}}
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/manufacturing.css">
     <title>流程管理-编辑审批流</title>
 </head>
 <body>
     <div id="wrapper" class="wrapper">
         <!-------- Part of header Begin -------->
-        <jsp:include page="/WEB-INF/inc/head.jsp"></jsp:include>
+        {{include ('./../inc/header')}}
         <!-------- Part of header End -------->
 
         <!-------- Part of main Begin -------->
         <div id="section" class="section normal_width">
             <!---- Part of slide nav Begin ---->
-            <jsp:include page="/WEB-INF/inc/business_setting_side_nav.jsp"></jsp:include>
+            {{include ('./../inc/sideNav')}}
             <!---- Part of slide na End ---->
 
             <!---- Part of Main info Begin ---->
             <div id="main" class="main pad_btm_100">
             	<input id="workflow_id" type="hidden" name="id" value="${vo.id}">
                 <div class="crumbs_nav">
-                    <a href="${contextPath}/workflow/getList" class="crumbs_item">审批流程</a>
+                    <a href="{{markUri}}/workflow/getList" class="crumbs_item">审批流程</a>
                     <a href="javascript:;" class="crumbs_item">编辑</a>
                 </div>
                 <div class="create_options form_options">
@@ -171,7 +171,7 @@
 	                            <li class="list_item employee_item " lang="${bean.role_id }" style="display: none;" >
                                     <c:choose>
                                         <c:when test="${empty bean.image_url}">
-                                            <img src="${contextPath}/static/img/employee/perIcon.png" alt="">
+                                            <img src="{{markUri}}/static/img/employee/perIcon.png" alt="">
                                         </c:when>
                                         <c:otherwise>
                                             <img src="${bean.image_url}" alt="">
@@ -204,15 +204,15 @@
         <!-------- Part of footer End -------->
     </div>
 </body>
-<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
-<script src="${contextPath}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
-<script src="${contextPath}/static/js/manufacturing.js" type="text/javascript" charset="UTF-8"></script>
+{{include ('./../inc/jsSources')}}
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/manufacturing.js" type="text/javascript" charset="UTF-8"></script>
 
 <script>
     (function ($) {
         const URL = contextPath + "/api/workflow/update";
         const TYPE = 1;
-        const FLOWTYPE = ${type};
+        const FLOWTYPE = '{{type}}';
         $(function() {
             workflowCreateAndEdit(TYPE, URL, FLOWTYPE);
             resetCheckboxAndRadio('checkbox', ".form_group label", ".checked");

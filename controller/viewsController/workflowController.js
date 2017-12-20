@@ -1,9 +1,40 @@
 /**
  * Created by Arley on 2017/8/6.
  */
-// 流程管理-审批流列表页跳转
+var fs = require('fs');     // 文件流系统中间件
+var path=require("path");   // 路径解析中间件
+var common = require('./../common');    // 主控制器文件
+var qs = require('querystring');    // 查询字符串解析中间件
+var urlParse = require('url');  // url解析控制中间件
+var LOGERROR = require('./../../util/logger').logError;   // 错误日志打印
+var ERRORTYPES = require('./../../util/ErrorTypesConf'); // 自定义错误类型配置
+
+
+// 业务管理-主导航节点跳转
+exports.VIEW_BUSINESS_SYSTEM = function(req, res, next) {
+    try {
+        if (common.checkPrivilege(1130, req)) {
+            res.redirect(markUri + '/workflow/list');
+        } else if (common.checkPrivilege(1332, req)) {
+            res.redirect(markUri + '/customer/otherfund/pass');
+        } else if (common.checkPrivilege(1333, req)) {
+            res.redirect(markUri + '/customer/otherfund/unpass');
+        } else {
+            throw new Error(ERRORTYPES.CheckPrivilege + ': The code 1331 | 1332 | 1333 is not defined.');
+        }
+    } catch (e) {
+        LOGERROR(e.stack);
+        res.redirect('/404');
+    }
+};
+
+// 流程管理-审批流列表页跳转 1130
 exports.VIEW_WORKFLOW_LIST = function(req, res, next) {
-    res.render('./workflow/workflowList', { title: '流程管理-审批流列表'});
+    common.getPageData({
+        url : '/api/workflow/getList',
+        title : '流程管理-审批流列表',
+        page : './workflow/list'
+    }, req, res, next);
 };
 
 // 流程管理-创建审批流页跳转

@@ -246,12 +246,15 @@ router.post(markUri + '/organization/product/detail', organizationCtrl.VIEW_ORGA
 // 机构管理-产品请款材料编辑跳转
 router.post(markUri + '/organization/product/material', organizationCtrl.VIEW_ORGANIZATION_PRODUCT_MATERIAL);
 
+
+// 业务管理-主导航节点跳转
+router.get(markUri + '/business/system', workflowCtrl.VIEW_BUSINESS_SYSTEM);
 // 流程管理-审批流列表页跳转
-router.get(markUri + '/workflow', workflowCtrl.VIEW_WORKFLOW_LIST);
+// router.get(markUri + '/workflow/system', workflowCtrl.VIEW_WORKFLOW_SYSTEM);
 // 流程管理-审批流列表页跳转
-router.get(markUri + '/workflow/list', workflowCtrl.VIEW_WORKFLOW_LIST);
+router.all(markUri + '/workflow/list', workflowCtrl.VIEW_WORKFLOW_LIST);
 // 流程管理-创建审批流页跳转
-router.get(markUri + '/workflow/toCreate', workflowCtrl.VIEW_WORKFLOW_CREATE);
+router.post(markUri + '/workflow/toCreate', workflowCtrl.VIEW_WORKFLOW_CREATE);
 // 流程管理-查看审批流详情页跳转
 router.post(markUri + '/workflow/toDetail', workflowCtrl.VIEW_WORKFLOW_DETAIL);
 // 流程管理-编辑审批流页跳转
