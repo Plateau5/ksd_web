@@ -45,7 +45,7 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group">
-                                    {{#if (vo.applyto_business.indexOf('0')) }}
+                                    {{#if (vo.applyto_business.indexOf('0') !== -1) }}
                                         <input id="newCars" type="checkbox" checked="checked" class="apply_scope" name="applyto_business"  value="0" />
                                         <label for="newCars" class="checked">新车</label>
                                     {{else}}
@@ -55,7 +55,7 @@
 
                                 </div>
                                 <div class="form_group">
-                                    {{#if (vo.applyto_business.indexOf(1)) }}
+                                    {{#if (vo.applyto_business.indexOf(1) !== -1) }}
                                         <input id="usedCars" type="checkbox" checked="checked" class="apply_scope" name="applyto_business" value="1" />
                                         <label for="usedCars" class="checked">二手车</label>
                                     {{else}}
@@ -73,7 +73,7 @@
                             <div class="column_val">
                                 {{#each (city_list) }}
                                     <div class="form_group">
-                                        {{#if (vo.applyto_city.indexOf(this.id)) }}
+                                        {{#if (vo.applyto_city.indexOf(this.id) !== -1) }}
                                             <input type="checkbox"checked="checked" class="apply_city" name="applyto_city" value="{{this.id}}" />
                                             <label class="checked">{{this.name}}</label>
                                         {{else}}
@@ -93,7 +93,7 @@
                                 <div class="column_val">
                                     {{#each (risk_list) }}
                                         <div class="form_group">
-                                            {{#if (vo.risk_type.indexOf(this.index)) }}
+                                            {{#if (vo.risk_type.indexOf(this.index) !== -1) }}
                                                 <input type="checkbox" checked="checked" class="loan_type" name="risk_type" value="{{this.index}}" />
                                                 <label class="checked">{{this.name}}</label>
                                             {{else}}
@@ -130,7 +130,7 @@
                                 <div class="column_val">
                                     {{#each (charge_list) }}
                                         <div class="form_group">
-                                            {{#if (vo.charge_type.indexOf(this.id)) }}
+                                            {{#if (vo.charge_type.indexOf(this.id) !== -1) }}
                                                 <input id="chargeType{{this.id}}" type="checkbox" class="apply_city" checked="checked" name="charge_type" value="{{this.id}}" />
                                                 <label for="chargeType{{this.id}}" class="checked">{{this.name}}</label>
                                             {{else}}
