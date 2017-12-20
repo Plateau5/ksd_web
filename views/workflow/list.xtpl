@@ -28,7 +28,7 @@
 						<li class="tab_item type_others {{#if (type === 2) }}active{{/if}}" style="width: 100px;">其他款项审批</li>
 					</ul>
 				</div>
-				<form action="{{markUri}}/workflow/getList" method="POST" id="form_search" role="form">
+				<form action="{{markUri}}/workflow/list" method="POST" id="form_search" role="form">
 					<input type="hidden" name="type" value="{{type}}" id="flow_type">
 				</form>
                 <!--没有创建任何流程
@@ -68,12 +68,12 @@
 					</div>
 	                <div class="workflow_content">
 						<!-- 车价审批流列表 Begin -->
-							<table class="workflow_list type_normal"
-								   style="display: <c:choose>
-								   <c:when test="${type eq 1}">table</c:when>
-								   <c:otherwise>none</c:otherwise>
-								   </c:choose>;"
-							>
+
+						{{#if (type === 1) }}
+							<table class="workflow_list type_others" style="display:table">
+						{{else}}
+							<table class="workflow_list type_others" style="display:none">
+						{{/if}}
 								<colgroup style="width: 100%;">
 									<col style="width: 20%;" />
 									<col style="width: 15%;" />
@@ -93,39 +93,47 @@
 								</tr>
 								</thead>
 								<tbody>
-								<c:if  test="${count > 0}">
-									<c:forEach items="${list }" var="bean">
+								{{#if (count > 0) }}
+									{{#each (list)}}
 										<tr>
-											<td title="${bean.name }">${bean.name }</td>
-											<td>${bean.applyto_business_value }</td>
-											<td title="${bean.applyto_city_value }">${bean.applyto_city_value }</td>
-											<td title="${bean.risk_type_value }">${bean.risk_type_value }</td>
-											<td><c:if test="${bean.is_throw eq 0}">否</c:if><c:if test="${bean.is_throw eq 1}">是</c:if> </td>
+											<td title="{{this.name}}">{{this.name}}</td>
+											<td>{{this.applyto_business_value}}</td>
+											<td title="{{this.applyto_city_value }}">{{this.applyto_city_value }}</td>
+											<td title="{{this.risk_type_value }}">{{this.risk_type_value }}</td>
+											<td>
+												{{#if (this.is_throw === 0) }}
+													否
+												{{elseif (this.is_throw === 1) }}
+													是
+												{{/if}}
+											</td>
 											<td class="operate_btn">
-												<a href="javascript:" data-url="{{markUri}}/workflow/toDetail" data-flow_id="${bean.id}" title="查看" class="view go_forward" lang="${bean.id }"></a>
-												<per:button code="1132">
-													<a href="javascript:" data-url="{{markUri}}/workflow/toEdit" data-flow_id="${bean.id}" title="编辑" class="edit go_forward" lang="${bean.id }"></a>
-												</per:button>
-												<a href="javascript:;" data-url="{{markUri}}/workflow/toDelete"  title="删除" class="delete go_forward" data-flow_id="${bean.id}"  lang="${bean.id }"></a>
+												<a href="javascript:" data-url="{{markUri}}/workflow/toDetail" data-flow_id="{{this.id}}" title="查看" class="view go_forward" lang="{{this.id}}"></a>
+												{{#if (../verifyCode(1132)) }}
+													<a href="javascript:" data-url="{{markUri}}/workflow/toEdit" data-flow_id="{{this.id}}" title="编辑" class="edit go_forward" lang="{{this.id}}"></a>
+												{{/if}}
+												<a href="javascript:;" data-url="{{markUri}}/workflow/toDelete"  title="删除" class="delete go_forward" data-flow_id="{{this.id}}"  lang="{{this.id}}"></a>
 											</td>
 										</tr>
-									</c:forEach>
-								</c:if>
-								<c:if  test="${count <= 0}">
+									{{/each}}
+								{{/if}}
+								{{#if (count <= 0) }}
 									<tr>
-										<td colspan="6"><jsp:include page="/WEB-INF/inc/empty_data.jsp"></jsp:include></td>
+										<td colspan="6">
+											{{include ('./../inc/empty_data')}}
+										</td>
 									</tr>
-								</c:if>
+								{{/if}}
 								</tbody>
 							</table>
 						<!-- 车价审批流列表 End -->
 						<!-- 其他款项审批流列表 Begin -->
-							<table class="workflow_list type_others"
-								   style="display: <c:choose>
-								   <c:when test="${type eq 2}">table</c:when>
-								   <c:otherwise>none</c:otherwise>
-								   </c:choose>;"
-							>
+						{{#if (type === 2) }}
+							<table class="workflow_list type_others" style="display:table">
+						{{else}}
+							<table class="workflow_list type_others" style="display:none">
+						{{/if}}
+
 								<colgroup style="width: 100%;">
 									<col style="width: 22%;" />
 									<col style="width: 18%;" />
@@ -143,38 +151,38 @@
 								</tr>
 								</thead>
 								<tbody>
-								<c:if test="${count > 0}">
-									<c:forEach items="${list }" var="bean">
+								{{#if (count > 0) }}
+									{{#each (list) }}
 										<tr>
-											<td title="${bean.name }">${bean.name }</td>
-											<td>${bean.applyto_business_value }</td>
-											<td title="${bean.applyto_city_value }">${bean.applyto_city_value }</td>
-											<td title="${bean.charge_type_value}">${bean.charge_type_value}</td>
+											<td title="{{this.name }}">{{this.name }}</td>
+											<td>{{this.applyto_business_value }}</td>
+											<td title="{{this.applyto_city_value }}">{{this.applyto_city_value }}</td>
+											<td title="{{this.charge_type_value }}">{{this.charge_type_value }}</td>
 											<td class="operate_btn">
-												<a href="javascript:" data-url="{{markUri}}/workflow/toDetail" data-flow_id="${bean.id}" title="查看" class="view go_forward" lang="${bean.id }"></a>
-												<per:button code="1132">
-													<a href="javascript:" data-url="{{markUri}}/workflow/toEdit" data-flow_id="${bean.id}" title="编辑" class="edit go_forward" lang="${bean.id }"></a>
-												</per:button>
-												<per:button code="1136">
-													<a href="javascript:;" data-url="{{markUri}}/workflow/toDelete"  title="删除" class="delete go_forward" data-flow_id="${bean.id}" lang="${bean.id }"></a>
-												</per:button>
+												<a href="javascript:" data-url="{{markUri}}/workflow/toDetail" data-flow_id="{{this.id}}" title="查看" class="view go_forward" lang="{{this.id}}"></a>
+												{{#if (root.verifyCode(1132)) }}
+													<a href="javascript:" data-url="{{markUri}}/workflow/toEdit" data-flow_id="{{this.id}}" title="编辑" class="edit go_forward" lang="{{this.id}}"></a>
+												{{/if}}
+												{{#if (root.verifyCode(1136)) }}
+													<a href="javascript:;" data-url="{{markUri}}/workflow/toDelete"  title="删除" class="delete go_forward" data-flow_id="{{this.id}}" lang="{{this.id}}"></a>
+												{{/if}}
 											</td>
 										</tr>
-									</c:forEach>
-								</c:if>
-								<c:if  test="${count <= 0}">
+									{{/each}}
+								{{/if}}
+								{{#if (count <= 0) }}
 									<tr>
 										<td colspan="5">
 											{{include('./../inc/empty_data')}}
 										</td>
 									</tr>
-								</c:if>
+								{{/if}}
 								</tbody>
 							</table>
 						<!-- 其他款项审批流列表 End -->
 	                    <!--分页部分 Begin-->
 	                    <div class="page_box">
-	                        <jsp:include page="/WEB-INF/inc/page_list.jsp"></jsp:include>
+							{{include('./../inc/pagination')}}
 	                    </div>
 	                    <!--分页部分 End-->
 	                </div>
@@ -250,7 +258,7 @@
                         d.close();
                         $alert('删除成功', function () {
                             /*locationTo({
-                                action : contextPath + '/workflow/getList',
+                                action : contextPath + '/workflow/list',
                                 param : {
                                     type : type
                                 }

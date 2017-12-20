@@ -38,7 +38,7 @@
             <div class="inviteCon">
                 <ul>
                     <li class="inline colorB"><a class="TS" href="{{markUri}}/organization/list">机构管理</a></li>
-                    <li class="inline before"><a href="javascript:;">${vo.name}</a></li>
+                    <li class="inline before"><a href="javascript:;">{{vo.name}}</a></li>
                 </ul>
             </div>
             <!--form start-->
@@ -49,7 +49,7 @@
                             <img src="${vo.image_url}" alt="">
                         </div>
                         <div class="header_txt">
-                            <div class="header_txt_top">${vo.name}</div>
+                            <div class="header_txt_top">{{vo.name}}</div>
                             <div class="header_txt_bottom">
                             <!--<c:if test="${fn:contains(vo.applyto_business,'0')}">-->
                                 <div class="header_txt_bottom1">新车</div>
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                     <!--<per:button code="1070">-->
-                        <div class="inviteP cursor inline edit_org" id="editOrg" lang="${vo.id}">
+                        <div class="inviteP cursor inline edit_org" id="editOrg" lang="{{vo.id}}">
                             <img  style="margin-right:5px;margin-top:-2px;" src="{{markUri}}/static/img/product/edit_white_icon.png" alt="">
                             <span>编辑机构</span>
                         </div>

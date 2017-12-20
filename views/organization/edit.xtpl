@@ -40,12 +40,12 @@
             <!--form start-->
             <div class="inviteForm inviteConB formMT">
                 <form class="form-horizontal formML" id="organization_info_create">
-                    <input type="hidden" name="id" id="id" value="${vo.id}">
+                    <input type="hidden" name="id" id="id" value="{{vo.id}}">
                     <div class="form-group">
                         <label class="col-xs-2 control-label inviteLabel">
                             <span class="need">*</span>机构名称：</label>
                         <div class="col-xs-5">
-                            <input type="text" class="form-control" maxlength="20" id="name" name="name" value="${vo.name}" placeholder="请输入机构名称" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.placeholder=='') {this.placeholder='请输入机构名称';this.style.color='#A4A8AB';}"/>
+                            <input type="text" class="form-control" maxlength="20" id="name" name="name" value="{{vo.name}}" placeholder="请输入机构名称" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.placeholder=='') {this.placeholder='请输入机构名称';this.style.color='#A4A8AB';}"/>
                         </div>
                         <span class="formProm"></span>
                         <div class="trueImg"></div>

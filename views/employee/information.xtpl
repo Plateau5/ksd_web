@@ -78,7 +78,7 @@
                             <label class="col-xs-2 control-label inviteLabel">姓名：</label>
                             <div class="col-xs-5">
                                 <input type="text" class="form-control" 
-                                id="name" name="name" value="${vo.name}" 
+                                id="name" name="name" value="{{vo.name}}"
                                 placeholder="请输入姓名" placeholder="0" onfocus="this.placeholder='';this.style.color='#535E6A';" onblur="if(this.value=='') {this.placeholder='请输入姓名';this.style.color='#A4A8AB';}else{this.placeholder='';this.style.color='#535E6A';}"/>
                             </div>
                             <span class="formProm"></span>

@@ -15,10 +15,6 @@ exports.VIEW_BUSINESS_SYSTEM = function(req, res, next) {
     try {
         if (common.checkPrivilege(1130, req)) {
             res.redirect(markUri + '/workflow/list');
-        } else if (common.checkPrivilege(1332, req)) {
-            res.redirect(markUri + '/customer/otherfund/pass');
-        } else if (common.checkPrivilege(1333, req)) {
-            res.redirect(markUri + '/customer/otherfund/unpass');
         } else {
             throw new Error(ERRORTYPES.CheckPrivilege + ': The code 1331 | 1332 | 1333 is not defined.');
         }
@@ -37,15 +33,28 @@ exports.VIEW_WORKFLOW_LIST = function(req, res, next) {
     }, req, res, next);
 };
 
-// 流程管理-创建审批流页跳转
+// 流程管理-创建审批流页跳转 1131
 exports.VIEW_WORKFLOW_CREATE = function(req, res, next) {
-    res.render('./workflow/create', { title: '流程管理-新建建审批流'});
+    var searchParam = urlParse.parse(req.url).query;
+    common.getPageData({
+        url : '/api/workflow/toCreate?' + searchParam,
+        title : '流程管理-新建建审批流',
+        page : './workflow/create'
+    }, req, res, next);
 };
-// 流程管理-查看审批流详情页跳转
+// 流程管理-查看审批流详情页跳转 1133
 exports.VIEW_WORKFLOW_DETAIL = function(req, res, next) {
-    res.render('./workflow/detail', { title: '流程管理-查看详情'});
+    common.getPageData({
+        url : '/api/workflow/toDetail',
+        title : '流程管理-查看详情',
+        page : './workflow/detail'
+    }, req, res, next);
 };
 // 流程管理-编辑审批流页跳转
 exports.VIEW_WORKFLOW_EDIT = function(req, res, next) {
-    res.render('./workflow/edit', { title: '流程管理-编辑审批流'});
+    common.getPageData({
+        url : '/api/workflow/toEdit',
+        title : '流程管理-编辑审批流',
+        page : './workflow/edit'
+    }, req, res, next);
 };

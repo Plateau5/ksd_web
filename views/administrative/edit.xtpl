@@ -33,7 +33,7 @@
                 <div class="row_item more_value warehouses">
                     <div class="row_title"><em class="require_icon">*</em>物品名称：</div>
                     <div class="row_val">
-                        <input type="text" id="name" name="name" value="${vo.name}" placeholder="请输入物品名称，如：电脑" class="item_name" />
+                        <input type="text" id="name" name="name" value="{{vo.name}}" placeholder="请输入物品名称，如：电脑" class="item_name" />
                     </div>
                 </div>
                 <div class="row_item more_value tags">
