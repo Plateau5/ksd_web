@@ -57,19 +57,25 @@
         </li>
     </ul>
 </div>
-{{ elseif (startWith(markUri + '/workflow'))}}
+{{ elseif (startWith(markUri + '/workflow' + ' || ' + markUri + '/question'))}}
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">业务</div>
     <ul class="slide_nav_bar">
-        <li class="nav_item {{#if(startWith(markUri + '/workflow'))}}active{{/if}}">
-            <a href="{{markUri}}/workflow/list" class="">审批流程</a>
-        </li>
-        <li class="nav_item {{#if(startWith(markUri + '/question'))}}active{{/if}}">
-            <a href="{{markUri}}/question/list" class="">客户问题</a>
-        </li>
-        <li class="nav_item {{#if(startWith(markUri + '/question'))}}active{{/if}}">
-            <a href="{{markUri}}/question/list" class="">商户问题</a>
-        </li>
+        {{#if (verifyCode(1130)) }}
+            <li class="nav_item {{#if(startWith(markUri + '/workflow'))}}active{{/if}}">
+                <a href="{{markUri}}/workflow/list" class="">审批流程</a>
+            </li>
+        {{/if}}
+        {{#if (verifyCode(1092)) }}
+            <li class="nav_item {{#if(startWith(markUri + '/question/customer'))}}active{{/if}}">
+                <a href="{{markUri}}/question/customer/list" class="">客户问题</a>
+            </li>
+        {{/if}}
+        {{#if (verifyCode(1365)) }}
+            <li class="nav_item {{#if(startWith(markUri + '/question/merchants'))}}active{{/if}}">
+                <a href="{{markUri}}/question/merchants/list" class="">商户问题</a>
+            </li>
+        {{/if}}
         <li class="nav_item {{#if(startWith(markUri + '/administrative'))}}active{{/if}}">
             <a href="{{markUri}}/administrative/warehouse/list" class="">行政仓库</a>
         </li>

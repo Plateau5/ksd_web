@@ -1,28 +1,24 @@
 <!-- 历史记录 -->
-<%@ taglib prefix="c"         uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="per" uri="com/mvc/web/common/tag/permissionTag"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>问题管理-历史记录</title>
-    {{include('./../inc/metaData')}}
+    <title>商户问题-历史记录</title>
+    {{include ("./../inc/metaData")}}
     <link rel="stylesheet" href="{{markUri}}/static/css/employee/listCon.css">
     <link rel="stylesheet" href="{{markUri}}/static/css/question/his_list.css">
     <script src="{{markUri}}/static/js/question/his_list.js"></script>
 </head>
 <body>
 
-{{include('./../inc/header')}}
+{{include ('./../inc/header')}}
 
 <!--container start-->
 
 <div class="container minWidth">
     <div class="row section">
         <!--navLeft start-->
-        {{include('./../inc/questions_slide_nav')}}
+        {{include ('./../inc/sideNav')}}
 
         <!--navLeft end-->
 
@@ -31,13 +27,13 @@
         <div class=" listCon relative">
             <div class="listConHeader inviteCon" style="line-height: normal;margin-top:32px;">
                 <ul>
-                    <li class="inline colorB"><a class="TS" href="{{markUri}}/question/getList">问题管理</a></li>
-                    <li class="inline before"><a href="javascript:;">${vo.title}</a></li>
+                    <li class="inline colorB"><a class="TS" href="{{markUri}}/merquestion/list">商户问题</a></li>
+                    <li class="inline before"><a href="javascript:window.history.back();">{{vo.title}}</a></li>
                     <li class="inline before"><a href="javascript:;" style="cursor:default">历史记录</a></li>
                 </ul>
             </div>
             <div class="inviteForm inviteConB formMT">
-                <input type="hidden" id="question_id" value="${question_id}">
+                <input type="hidden" id="question_id" value="{{question_id}}">
 
                 <div class="his_list">
 
@@ -56,3 +52,5 @@
 <!--container end-->
 
 </body>
+<input type="hidden" value="{{question_type}}" id="questionType" />
+</html>

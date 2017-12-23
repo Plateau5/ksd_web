@@ -260,10 +260,15 @@ router.post(markUri + '/workflow/toDetail', workflowCtrl.VIEW_WORKFLOW_DETAIL);
 // 流程管理-编辑审批流页跳转 1132
 router.post(markUri + '/workflow/toEdit', workflowCtrl.VIEW_WORKFLOW_EDIT);
 
-// 问题管理-问题列表
-router.get(markUri + '/question/list', questionCtrl.VIEW_QUESTION_LIST);
-// 问题管理-问题历史记录
-router.post(markUri + '/question/historyRecord', questionCtrl.VIEW_QUESTION_HISRECORD);
+// 问题管理-客户问题列表 1092
+router.all(markUri + '/question/customer/list', questionCtrl.VIEW_QUESTION_CUSTOMER_LIST);
+// 问题管理-客户问题历史记录 1101
+router.post(markUri + '/question/customer/historyRecord', questionCtrl.VIEW_QUESTION_CUSTOMER_HISRECORD);
+// 问题管理-商户问题列表 1365
+router.all(markUri + '/question/merchants/list', questionCtrl.VIEW_QUESTION_MERCHANTS_LIST);
+// 问题管理-商户问题历史记录 1393
+router.post(markUri + '/question/merchants/historyRecord', questionCtrl.VIEW_QUESTION_MERCHANTS_HISRECORD);
+
 
 
 // 仓库管理

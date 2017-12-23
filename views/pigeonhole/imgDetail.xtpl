@@ -120,7 +120,7 @@
     <div class="term_title">期限提醒</div>
     <div class="term_time">
         已超过
-        <span type="text" id="day"  name="day"  maxlength="3" readonly="readonly">${day}</span>
+        <span type="text" id="day"  name="day"  maxlength="3" readonly="readonly">{{day}}</span>
         天未归档，请尽快归档。
     </div>
     <div class="term_btn">
