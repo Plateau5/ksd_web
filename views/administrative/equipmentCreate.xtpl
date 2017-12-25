@@ -26,12 +26,12 @@
         <div id="main" class="main org_product">
             <div class="crumbs_nav">
                 <a href="{{markUri}}/administrative/warehouse/list" class="crumbs_item">行政仓库</a>
-                <a href="javascript:" class="crumbs_item goDetail" data-id="${warehouse_id}">${warehouse_name}</a>
+                <a href="javascript:" class="crumbs_item goDetail" data-id="{{warehouse_id}}">{{warehouse_name}}</a>
                 <a href="javascript:;" class="crumbs_item">入库</a>
             </div>
             <div class="administrative_storage">
-                <input type="hidden" id="warehouse_id" name="warehouse_id" value="${warehouse_id}">
-                <input type="hidden" id="warehouse_name" name="warehouse_name" value="${warehouse_name}">
+                <input type="hidden" id="warehouse_id" name="warehouse_id" value="{{warehouse_id}}">
+                <input type="hidden" id="warehouse_name" name="warehouse_name" value="{{warehouse_name}}">
                 <div class="row_item more_value warehouses">
                     <div class="row_title"><em class="require_icon">*</em>物品编号：</div>
                     <div class="row_val">
@@ -50,10 +50,10 @@
                     <div class="row_title"><em class="require_icon">*</em>标签：</div>
                     <div class="row_val">
                         <select name="label_id" id="tags">
-                            <option value="">-- 请选择 --</option>
-                            <c:forEach items="${list }" var="bean">
-	                            <option value="${bean.id }">${bean.name}</option>
-                            </c:forEach>
+                            <option value="">全部</option>
+                            {{#each (list) }}
+                                <option value="{{this.id }}">{{this.name}}</option>
+                            {{/each}}
                         </select>
                         <span class="error_msg">（<span class="msg"></span>）</span>
                     </div>
@@ -82,9 +82,9 @@
                     </div>
                 </div>
                 <div class="btn_box text_left">
-                <per:button code="1308">
-                    <a href="javascript:" class="btn orange_btn confirm create_btn">确认</a>
-                </per:button>    
+                    {{#if (verifyCode(1308)) }}
+                        <a href="javascript:" class="btn orange_btn confirm create_btn">确认</a>
+                    {{/if}}
                     <a href="javascript:window.history.back();" class="btn bg_btn cancel">取消</a>
                 </div>
             </div>
@@ -103,7 +103,8 @@
 <script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
 <script src="{{markUri}}/static/js/warehouse.js" type="text/javascript" charset="UTF-8"></script>
 <script>
-    var emp_list = ${emp_list};
+    var emp_list = '{{emp_list}}';
+    emp_list = JSON.parse(emp_list.replace(/&quot;/ig, '"'));
     (function ($) {
         // 获取填写数据
         function getData () {
@@ -214,7 +215,7 @@
                         //var id = $.trim($('#warehouse_id').val());
                         $alert('物品新增成功', function () {
                             locationTo({
-                                action : contextPath + '/administrative/equipment/list',
+                                action : contextPath + markUri + '/administrative/equipment/list',
                                 param : {
                                     parent_id : data.warehouse_id
                                 }
@@ -240,7 +241,7 @@
                 var _this = $(this);
                 var id = $.trim(_this.data('id'));
                 locationTo({
-                    action : contextPath + '/administrative/equipment/list',
+                    action : contextPath + markUri + '/administrative/equipment/list',
                     param : {
                         parent_id : id
                     }

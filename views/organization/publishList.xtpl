@@ -38,7 +38,7 @@
                         <div class="inline_block">
                             <div class="conditions_name inline_block filtrate_business">适用业务：</div>
                             <select name="applyto_business" class="filtrate_select" id="filtrate_business">
-                                <option value="-1" <c:if test="${condition.applyto_business eq -1 ||  empty condition.applyto_business }">selected</c:if>>--请选择--</option>
+                                <option value="-1" <c:if test="${condition.applyto_business eq -1 ||  empty condition.applyto_business }">selected</c:if>>全部</option>
                                 <option value="0" <c:if test="${condition.applyto_business eq 0 }">selected</c:if> >新车</option>
                                 <option value="1" <c:if test="${condition.applyto_business eq 1 }">selected</c:if> >二手车</option>
                             </select>
@@ -46,7 +46,7 @@
                         <div class="inline_block">
                             <div class="conditions_name inline_block filtrate_city">适用城市：</div>
                             <select name="applyto_city" class="filtrate_select" id="filtrate_city">
-                                <option value="-1" <c:if test="${condition.applyto_city eq -1 ||  empty condition.applyto_city }">selected</c:if>>--请选择--</option>
+                                <option value="-1" <c:if test="${condition.applyto_city eq -1 ||  empty condition.applyto_city }">selected</c:if>>全部</option>
                                 <c:forEach items="${list_city }" var="bean">
                                     <option value="${bean.id }" <c:if test="${condition.applyto_city eq bean.id }">selected</c:if> >${bean.name}</option>
                                 </c:forEach>
@@ -274,7 +274,7 @@
             }
         }
         $(function() {
-            selectorChange();
+            selectChange();
             editProductsMaterial();
             viewProductDetail();
             unshelvesProduct();

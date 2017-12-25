@@ -8,7 +8,7 @@
 		{{#if (vo.user_name) }}
 			<div class="requestpayout_detail_title">客户信息</div>
 			<div class="detail_remarks requestpayout_detail_remarks">
-				<div class="requestpayout_detail_label">贷款人：</div>
+				<div class="requestpayout_detail_label">客户：</div>
 				<div class="requestpayout_detail_txt">
 					<!--
 					--- @{description} 订单总量>1时间，添加‘customer_name’类，渲染‘em’元素

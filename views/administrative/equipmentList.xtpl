@@ -28,21 +28,21 @@
                 <a href="{{markUri}}/administrative/warehouse/list" class="crumbs_item">行政仓库</a>
                 <a href="javascript:;" class="crumbs_item">{{vo.name}}</a>
             </div>
-            <form action="/administrative/equipment/list" method="post" id="form_search" role="form">
-                <input type="hidden" id="warehouse_id" name="parent_id" value="${warehouse_id}">
+            <form action="{{markUri}}/administrative/equipment/list" method="post" id="form_search" role="form">
+                <input type="hidden" id="warehouse_id" name="parent_id" value="{{warehouse_id}}">
             </form>
             <div class="gps_details administrative_details">
                 <div class="warehouse_info">
                     <div class="name"><em class="name_icon"></em><span>{{vo.name}}</span></div>
                     <div class="create_info nowrap">
-                        <span class="create_time">${vo.create_time}</span>
-                        <span class="founder nowrap">创建人：<samp title="${vo.create_name}">${vo.create_name}</samp></span>
+                        <span class="create_time">{{vo.create_time}}</span>
+                        <span class="founder nowrap">创建人：<samp title="{{vo.create_name}}">{{vo.create_name}}</samp></span>
                     </div>
                 </div>
                 <div class="sn_details a_details">
                     <div class="tab">
                         <div class="detail_title inline_block">库存详情</div>
-                        <a href="javascript:" class="detail_title_btn create_btn create_equipment" data-id="${warehouse_id}" data-name="{{vo.name}}"><em></em>新增入库</a>
+                        <a href="javascript:" class="detail_title_btn create_btn create_equipment" data-id="{{warehouse_id}}" data-name="{{vo.name}}"><em></em>新增入库</a>
                     </div>
                     <div class="filtrate">
                         <div class="filtrate_item date_conditions">
@@ -50,18 +50,30 @@
                             <div class="inline_block">
                                 <div class="conditions_name inline_block filtrate_tags" style="margin-left: 0;">标签：</div>
                                 <select name="label_id" class="filtrate_select" id="filtrate_tags">
-                                    <option value="">--请选择--</option>
-                                    <c:forEach items="${label_list }" var="bean">
-	                                    <option value="${bean.id }" <c:if test="${bean.id eq condition.label_id }">selected</c:if> >${bean.name}</option>
-                                    </c:forEach>
+                                    <option value="">全部</option>
+                                    {{#each (label_list) }}
+                                        {{#if (this.id === condition.label_id) }}
+                                            <option value="{{this.id }}" selected="selected">{{this.name}}</option>
+                                        {{else}}
+                                            <option value="{{this.id }}">{{this.name}}</option>
+                                        {{/if}}
+                                    {{/each}}
                                 </select>
                             </div>
                             <div class="inline_block">
                                 <div class="conditions_name inline_block filtrate_city">使用情况：</div>
                                 <select name="status" class="filtrate_select order_status_select" id="filtrate_city">
-                                    <option value="">--请选择--</option>
-                                    <option value="2" <c:if test="${2 eq condition.status }">selected</c:if>>已使用</option>
-                                    <option value="1" <c:if test="${1 eq condition.status }">selected</c:if>>未使用</option>
+                                    <option value="">全部</option>
+                                    {{#if (condition.status === 2) }}
+                                        <option value="2" selected="selected">已使用</option>
+                                    {{else}}
+                                        <option value="2">已使用</option>
+                                    {{/if}}
+                                    {{#if (condition.status === 1) }}
+                                        <option value="1" selected="selected">未使用</option>
+                                    {{else}}
+                                        <option value="1">未使用</option>
+                                    {{/if}}
                                 </select>
                             </div>
                         </div>
@@ -87,27 +99,29 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${list }" var="bean">
+                        {{#each (list) }}
 	                        <tr>
-	                            <td class="nowrap" title="${bean.code }">${bean.code }</td>
-	                            <td class="nowrap" title="${bean.model }">${bean.model }</td>
-	                            <td>${bean.label_name }</td>
+	                            <td class="nowrap" title="{{this.code }}">{{this.code }}</td>
+	                            <td class="nowrap" title="{{this.model }}">{{this.model }}</td>
+	                            <td>{{this.label_name }}</td>
 	                            <td>
-	                            <c:if test="${empty  bean.use_name}">- -</c:if>
-	                            <c:if test="${not empty  bean.use_name}">${bean.use_name }</c:if>
+                                    {{#if (this.use_name) }}
+                                        {{this.use_name}}
+                                    {{else}}
+                                        - -
+                                    {{/if}}
 	                            </td>
-	                            <td>${bean.create_time }</td>
+	                            <td>{{this.create_time }}</td>
 	                            <td>
-	                            	<per:button code="1303">
-		                                <em class="edit_d_btn" title="编辑" data-id="${bean.id }" data-name="{{vo.name}}"></em>
-	                            	</per:button>
-	                            	<per:button code="1310">
-	                                	<em class="delete_d_btn" data-use_id="${bean.use_id}" title="删除" data-id="${bean.id }"></em>
-	                            	</per:button>
+                                    {{#if (root.verifyCode(1303)) }}
+		                                <em class="edit_d_btn" title="编辑" data-id="{{this.id }}" data-name="{{vo.name}}"></em>
+	                            	{{/if}}
+                                    {{#if (root.verifyCode(1310)) }}
+	                                	<em class="delete_d_btn" data-use_id="{{this.use_id}}" title="删除" data-id="{{this.id }}"></em>
+	                            	{{/if}}
 	                            </td>
 	                        </tr>
-                        	
-                        </c:forEach>
+                        {{/each}}
                         </tbody>
                     </table>
                 </div>
@@ -138,7 +152,7 @@
                 var id = $.trim(_this.data('id'));
                 var name = $.trim(_this.data('name'));
                 locationTo({
-                    action : contextPath + '/administrative/equipment/create',
+                    action : contextPath + markUri + '/administrative/equipment/create',
                     param : {
                         warehouse_id : id,
                         warehouse_name : name
@@ -155,7 +169,7 @@
                 var wId = $.trim($('#warehouse_id').val());
                 var name = $.trim(_this.data('name'));
                 locationTo({
-                    action : contextPath + '/administrative/equipment/edit',
+                    action : contextPath + markUri +  '/administrative/equipment/edit',
                     param : {
                         equipment_id : id,
                         warehouse_id : wId,
@@ -206,7 +220,7 @@
         $(function() {
             goPutIn();
             goEdit();
-            selectorChange();
+            selectChange();
             delSubmitBind();
         });
     })(jQuery,undefined);

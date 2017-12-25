@@ -34,7 +34,7 @@
                     <div class="row_title"><em class="require_icon">*</em>快递公司：</div>
                     <div class="row_val">
                         <select name="" id="expressCompany">
-                            <option value="">-- 请选择 --</option>
+                            <option value="">全部</option>
                             <c:forEach items="${expressList }" var="bean">
 									<option value="${bean.id}">${bean.name}</option>
 							</c:forEach>

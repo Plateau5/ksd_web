@@ -29,7 +29,7 @@
                 <a href="javascript:;" class="crumbs_item">编辑仓库</a>
             </div>
             <div class="administrative_storage">
-            	<input type="hidden" id="wareHouseId" name="warehouse_id" value="${warehouse_id}">
+            	<input type="hidden" id="wareHouseId" name="warehouse_id" value="{{warehouse_id}}">
                 <div class="row_item more_value warehouses">
                     <div class="row_title"><em class="require_icon">*</em>物品名称：</div>
                     <div class="row_val">
@@ -40,17 +40,17 @@
                     <div class="row_title"><em class="require_icon">*</em>标签：</div>
                     <div class="row_val tags_box">
                         <ul class="tags_list">
-                            <c:forEach items="${list}" var="bean">
-								<li class="tag_item" data-id="${bean.id}" data-name="${bean.name}"><em class="delete_icon"></em><span class="tag_name">${bean.name}</span></li>
-							</c:forEach>
+                            {{#each (list) }}
+								<li class="tag_item" data-id="{{this.id}}" data-name="{{this.name}}"><em class="delete_icon"></em><span class="tag_name">{{this.name}}</span></li>
+							{{/each}}
                         </ul>
                         <em class="add_tag_btn"></em>
                     </div>
                 </div>
                 <div class="btn_box text_left">
-                <per:button code="1305">
-                    <a href="javascript:" class="btn orange_btn confirm submit_create">确认</a>
-                </per:button>
+                    {{#if (verifyCode(1305)) }}
+                        <a href="javascript:" class="btn orange_btn confirm submit_create">确认</a>
+                    {{/if}}
                     <a href="javascript:window.history.back();" class="btn bg_btn cancel">取消</a>
                 </div>
             </div>
@@ -164,7 +164,7 @@
                             deleteTagId.push(tagId);
                             deleteTagName.push(tagName);
                         } else if (res.error_code == 1002) {
-                            $alert('该标签已有GPS使用，不允许删除');
+                            $alert('该标签已有物品使用，不允许删除');
                         } else {
                             $alert('删除失败，请稍后重试');
                         }

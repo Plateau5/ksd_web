@@ -71,7 +71,7 @@
                         <!--<div class="inline_block sub_item">
                             <div class="conditions_name inline_block">时间：</div>
                             <select name="filtrate_audit_type" class="filtrate_select" id="personalOrderDateEnd">
-                                <option value="">--请选择--</option>
+                                <option value="">全部</option>
                                 <option value="">上午</option>
                                 <option value="">下午</option>
                             </select>

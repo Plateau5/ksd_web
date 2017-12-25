@@ -72,7 +72,7 @@ var DialogLayer = function(type, params, callback) {
 			width : 120,
 			height : 30,
 			options : "",
-			defaultOption : "--请选择--"
+			defaultOption : "全部"
 		},
 		"textarea" : 	{
 			show : false,

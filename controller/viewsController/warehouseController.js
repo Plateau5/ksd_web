@@ -2,11 +2,14 @@
  * Created by Arley on 2017/8/6.
  */
 
-// 仓库管理-主导航跳转路径
-exports.VIEW_WAREHOUSE_SYSTEM = function(req, res, next) {
-    // todo 首页根据权限循环路由，重定向。
-    res.redirect('/gps/warehouse/list')
-};
+var fs = require('fs');     // 文件流系统中间件
+var path=require("path");   // 路径解析中间件
+var common = require('./../common');    // 主控制器文件
+var qs = require('querystring');    // 查询字符串解析中间件
+var urlParse = require('url');  // url解析控制中间件
+var LOGERROR = require('./../../util/logger').logError;   // 错误日志打印
+var ERRORTYPES = require('./../../util/ErrorTypesConf'); // 自定义错误类型配置
+
 
 /**
  * GPS部分
@@ -57,27 +60,56 @@ exports.VIEW_GPS_APPLY_DISAGREE = function(req, res, next) {
 /**
  * 行政仓库部分
  */
-// 行政仓库列表页跳转
+// 行政仓库列表页跳转 1298
 exports.VIEW_ADMINISTRATIVE_LIST = function(req, res, next) {
-    res.render('./administrative/list', { title: '仓库管理-行政仓库列表'});
+    common.getPageData({
+        url : '/api/administrative/list',
+        title : '仓库管理-行政仓库列表',
+        page : './administrative/list'
+    }, req, res, next);
 };
-// 行政仓库-创建行政仓库跳转
+// 行政仓库-创建行政仓库跳转 1299
 exports.VIEW_ADMINISTRATIVE_CREATE = function(req, res, next) {
-    res.render('./administrative/create', { title: '仓库管理-新建行政仓库'});
+    var data = {};
+    data.title = '仓库管理-新建行政仓库';
+    data.originUrl = req.originalUrl;
+    data.markUri = markUri;
+    data.apiServerPath = apiServerPath;
+    data.domain = domain;
+    res.render('./administrative/create', data);
 };
-// 行政仓库-编辑仓库跳转
+// 行政仓库-编辑仓库跳转 1300
 exports.VIEW_ADMINISTRATIVE_EDIT = function(req, res, next) {
-    res.render('./administrative/edit', { title: '仓库管理-编辑行政仓库'});
+    common.getPageData({
+        url : '/api/administrative/to/edit',
+        title : '仓库管理-编辑行政仓库',
+        page : './administrative/edit'
+    }, req, res, next);
 };
-// 行政仓库-库存列表页跳转
+// 行政仓库-库存列表页跳转 1301
 exports.VIEW_ADMINISTRATIVE_EQUIPMENT_LIST = function(req, res, next) {
-    res.render('./administrative/equipmentList', { title: '仓库管理-行政物品列表'});
+    common.getPageData({
+        url : '/api/administrative/equipment/list',
+        title : '仓库管理-行政物品列表',
+        page : './administrative/equipmentList'
+    }, req, res, next);
 };
-// 行政仓库-新增入库页跳转
+// 行政仓库-新增入库页跳转 1302
 exports.VIEW_ADMINISTRATIVE_EQUIPMENT_CREATE = function(req, res, next) {
-    res.render('./administrative/equipmentCreate', { title: '仓库管理-新建物品'});
+    common.getPageData({
+        url : '/api/administrative/equipment/tocreate',
+        title : '仓库管理-新增入库',
+        page : './administrative/equipmentCreate',
+        callback : function (data) {
+            data.emp_list = JSON.stringify(data.emp_list);
+        }
+    }, req, res, next);
 };
-// 行政仓库-库存编辑页跳转
+// 行政仓库-库存编辑页跳转 1303
 exports.VIEW_ADMINISTRATIVE_EQUIPMENT_EDIT = function(req, res, next) {
-    res.render('./administrative/equipmentEdit', { title: '仓库管理-编辑物品'});
+    common.getPageData({
+        url : '/api/administrative/equipment/toedit',
+        title : '仓库管理-编辑物品',
+        page : './administrative/equipmentEdit'
+    }, req, res, next);
 };

@@ -271,8 +271,6 @@ router.post(markUri + '/question/merchants/historyRecord', questionCtrl.VIEW_QUE
 
 
 
-// 仓库管理
-router.get(markUri + '/warehouse/system', warehouseCtrl.VIEW_WAREHOUSE_SYSTEM);
 // GPS仓库列表页跳转
 router.get(markUri + '/gps/warehouse/list', warehouseCtrl.VIEW_GPS_LIST);
 // GPS仓库-创建GPS仓库跳转
@@ -294,17 +292,17 @@ router.post(markUri + '/gps/apply/express', warehouseCtrl.VIEW_GPS_APPLY_EXPRESS
 // GPS仓库-GPS仓库-申请单-不同意页跳转
 router.post(markUri + '/gps/apply/disagree', warehouseCtrl.VIEW_GPS_APPLY_DISAGREE);
 
-// 行政仓库列表页跳转
-router.get(markUri + '/administrative/warehouse/list', warehouseCtrl.VIEW_ADMINISTRATIVE_LIST);
-// 行政仓库-创建行政仓库跳转
-router.get(markUri + '/administrative/warehouse/create', warehouseCtrl.VIEW_ADMINISTRATIVE_CREATE);
-// 行政仓库-编辑仓库跳转
+// 行政仓库列表页跳转 1298
+router.all(markUri + '/administrative/warehouse/list', warehouseCtrl.VIEW_ADMINISTRATIVE_LIST);
+// 行政仓库-创建行政仓库跳转 1299
+router.all(markUri + '/administrative/warehouse/create', warehouseCtrl.VIEW_ADMINISTRATIVE_CREATE);
+// 行政仓库-编辑仓库跳转 1300
 router.post(markUri + '/administrative/warehouse/edit', warehouseCtrl.VIEW_ADMINISTRATIVE_EDIT);
-// 行政仓库-库存列表页跳转
+// 行政仓库-库存列表页跳转 1301
 router.post(markUri + '/administrative/equipment/list', warehouseCtrl.VIEW_ADMINISTRATIVE_EQUIPMENT_LIST);
-// 行政仓库-新增入库页跳转
+// 行政仓库-新增入库页跳转 1302
 router.post(markUri + '/administrative/equipment/create', warehouseCtrl.VIEW_ADMINISTRATIVE_EQUIPMENT_CREATE);
-// 行政仓库-库存编辑页跳转
+// 行政仓库-库存编辑页跳转 1303
 router.post(markUri + '/administrative/equipment/edit', warehouseCtrl.VIEW_ADMINISTRATIVE_EQUIPMENT_EDIT);
 
 

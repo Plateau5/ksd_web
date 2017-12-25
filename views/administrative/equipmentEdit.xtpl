@@ -26,48 +26,52 @@
         <div id="main" class="main org_product">
             <div class="crumbs_nav">
                 <a href="{{markUri}}/administrative/warehouse/list" class="crumbs_item">行政仓库</a>
-                <a href="javascript:" class="crumbs_item goDetail" data-id="${warehouse_id}">${warehouse_name}</a>
+                <a href="javascript:" class="crumbs_item goDetail" data-id="{{warehouse_id}}">{{warehouse_name}}</a>
                 <a href="javascript:;" class="crumbs_item">编辑库存</a>
             </div>
             <div class="administrative_storage">
                 <div class="row_item more_value warehouses">
-                    <input type="hidden" name="id" value="${vo.id }" id="equipment_id" />
-                    <input type="hidden" id="warehouse_name" name="warehouse_name" value="${warehouse_name}">
-                    <input type="hidden" id="warehouse_id" name="warehouse_id" value="${warehouse_id}">
+                    <input type="hidden" name="id" value="{{vo.id}}" id="equipment_id" />
+                    <input type="hidden" id="warehouse_name" name="warehouse_name" value="{{warehouse_name}}">
+                    <input type="hidden" id="warehouse_id" name="warehouse_id" value="{{warehouse_id}}">
                     <div class="row_title"><em class="require_icon">*</em>物品编号：</div>
                     <div class="row_val">
-                        <input type="text" id="equipmentNum" name="code"  value="${vo.code }" placeholder="请输入物品编号" class="item_name item_input" />
+                        <input type="text" id="equipmentNum" name="code"  value="{{vo.code}}" placeholder="请输入物品编号" class="item_name item_input" />
                     </div>
                 </div>
                 <div class="row_item">
                     <div class="row_title"><em class="require_icon">*</em>内部编号：</div>
                     <div class="row_val">
-                        <input type="text" id="model" name="model" value="${vo.model }" placeholder="请输入物品内部编号" class="item_name item_input" />
+                        <input type="text" id="model" name="model" value="{{vo.model }}" placeholder="请输入物品内部编号" class="item_name item_input" />
                     </div>
                 </div>
                 <div class="row_item">
                     <div class="row_title"><em class="require_icon">*</em>标签：</div>
                     <div class="row_val">
                        <select name="label_id" id="tags">
-                            <option value="0">-- 请选择 --</option>
-                            <c:forEach items="${list }" var="bean">
-                                <option value="${bean.id }" <c:if test="${bean.id eq vo.label_id}">selected="selected"</c:if>>${bean.name}</option>
-                            </c:forEach>
+                            <option value="0">全部</option>
+                            {{#each (list) }}
+                                {{#if (this.id === vo.label_id) }}
+                                    <option value="{{this.id }}" selected="selected">{{this.name}}</option>
+                                {{else}}
+                                    <option value="{{this.id }}">{{this.name}}</option>
+                                {{/if}}
+                            {{/each}}
                         </select>
                     </div>
                 </div>
                 <div class="row_item set_user_item">
                     <div class="row_title">使用者：</div>
                     <div class="row_val set_user">
-                        <input type="text" id="user" name="use_id" value="${vo.use_name }" data-id="${vo.use_id}" placeholder="输入使用者名称查询" class="item_name" />
+                        <input type="text" id="user" name="use_id" value="{{vo.use_name }}" data-id="{{vo.use_id}}" placeholder="输入使用者名称查询" class="item_name" />
                         <div class="set_box" style="display: none;">
                             <ul class="user_list">
-                                <c:forEach items="${emp_list }" var="bean">
-	                                <li class="user_item"  data-id="${bean.id }" data-name="${bean.name }">
-	                                    <div class="name inline_block" lang="${bean.id }">${bean.name }</div>
-	                                    <div class="user_mark inline_block nowrap">${bean.account }</div>
+                                {{#each (emp_list) }}
+	                                <li class="user_item"  data-id="{{this.id }}" data-name="{{this.name }}">
+	                                    <div class="name inline_block" lang="{{this.id }}">{{this.name }}</div>
+	                                    <div class="user_mark inline_block nowrap">{{this.account }}</div>
 	                                </li>
-                            	</c:forEach>
+                            	{{/each}}
                             </ul>
                         </div>
                     </div>
@@ -75,13 +79,13 @@
                 <div class="row_item">
                     <div class="row_title">备注：</div>
                     <div class="row_val">
-                        <textarea class="remark" id="remark" name="remark" maxlength="50" id="remark" placeholder="请输入内容(50个字以内)">${vo.remark }</textarea>
+                        <textarea class="remark" id="remark" name="remark" maxlength="50" id="remark" placeholder="请输入内容(50个字以内)">{{vo.remark }}</textarea>
                     </div>
                 </div>
                 <div class="btn_box text_left">
-                <per:button code="1309">
-                    <a href="javascript:" class="btn orange_btn confirm create_btn">确认</a>
-                </per:button>
+                    {{#if (verifyCode(1309)) }}
+                        <a href="javascript:" class="btn orange_btn confirm create_btn">确认</a>
+                    {{/if}}
                     <a href="javascript:window.history.back();" class="btn bg_btn cancel">取消</a>
                 </div>
             </div>
@@ -217,7 +221,7 @@
                         //var id = $.trim($('#warehouse_id').val());
                         $alert('物品编辑成功', function () {
                             locationTo({
-                                action : contextPath + '/administrative/equipment/list',
+                                action : contextPath + markUri + '/administrative/equipment/list',
                                 param : {
                                     parent_id : data.warehouse_id
                                 }
@@ -243,7 +247,7 @@
                 var _this = $(this);
                 var id = $.trim(_this.data('id'));
                 locationTo({
-                    action : contextPath + '/administrative/equipment/list',
+                    action : contextPath + markUri + '/administrative/equipment/list',
                     param : {
                         parent_id : id
                     }

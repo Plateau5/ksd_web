@@ -26,18 +26,18 @@
         <div id="main" class="main org_product">
             <div class="crumbs_nav">
                 <a href="{{markUri}}/gps/warehouse/list" class="crumbs_item">GPS</a>
-                <a href="javascript:;" class="crumbs_item">${warehouse_name}的仓库</a>
+                <a href="javascript:;" class="crumbs_item">{{warehouse_name}}的仓库</a>
             </div>
             <form action="/gps/warehouse/toDetail" method="post" id="form_search" role="form">
-                <input type="hidden" name="warehouse_id" value="${warehouse_id}">
-                <input type="hidden" name="warehouse_name" value="${warehouse_name}">
+                <input type="hidden" name="warehouse_id" value="{{warehouse_id}}">
+                <input type="hidden" name="warehouse_name" value="{{warehouse_name}}">
                 <input type="hidden" name="creator" value="${creator}">
                 <input type="hidden" name="create_time" value="${create_time}">
                 <input type="hidden" name="inWarehouse" id="inWarehouse" value="${condition.inWarehouse}">
             </form>
             <div class="gps_details">
                 <div class="warehouse_info">
-                    <div class="name"><em class="name_icon"></em><span>${warehouse_name}</span></div>
+                    <div class="name"><em class="name_icon"></em><span>{{warehouse_name}}</span></div>
                     <div class="create_info nowrap">
                         <span class="create_time">${create_time}</span>
                         <span class="founder nowrap">创建人：<samp title="${vo.create_name}">${creator}</samp></span>
@@ -50,7 +50,7 @@
                             <li class="tab_item already_out <c:if test="${condition.inWarehouse eq 1}">active</c:if>">已出库</li>
                         </ul>
                         <per:button code="1283">
-	                        <a href="javascript:" data-id="${warehouse_id}" class="detail_title_btn create_btn create_put_in">新增入库</a>
+	                        <a href="javascript:" data-id="{{warehouse_id}}" class="detail_title_btn create_btn create_put_in">新增入库</a>
                         </per:button>
                     </div>
                     <div class="filtrate">
@@ -58,7 +58,7 @@
                             <div class="inline_block">
                                 <div class="conditions_name inline_block gps_type">类型：</div>
                                 <select name="gps_type" class="filtrate_select" id="gps_type">
-                                    <option value="">--请选择--</option>
+                                    <option value="">全部</option>
                                     <option value="0" <c:if test="${condition.type eq 0}">selected</c:if>>无线</option>
                                     <option value="1" <c:if test="${condition.type eq 1}">selected</c:if>>有线</option>
                                 </select>
@@ -66,7 +66,7 @@
                             <div class="inline_block">
                                 <div class="conditions_name inline_block filtrate_tags">标签：</div>
                                 <select name="label_id" class="filtrate_select" id="filtrate_tags">
-                                    <option value="">--请选择--</option>
+                                    <option value="">全部</option>
                                     <c:forEach items="${label_list }" var="bean">
 										<option value="${bean.id}" <c:if test="${bean.id eq condition.label_id}">selected</c:if>>${bean.name}</option>
 									</c:forEach>
@@ -76,7 +76,7 @@
 	                            <div class="inline_block">
 	                                <div class="conditions_name inline_block filtrate_city">城市：</div>
 	                                <select name="city_id" class="filtrate_select" id="filtrate_city">
-	                                    <option value="">--请选择--</option>
+	                                    <option value="">全部</option>
 										<c:forEach items="${city_list }" var="bean">
 											<option value="${bean.id}" <c:if test="${bean.id eq condition.city_id}">selected</c:if>>${bean.name}</option>
 										</c:forEach>
@@ -294,7 +294,7 @@
 
         $(function () {
             goPutIn();
-            selectorChange();
+            selectChange();
             switchTab();
             deleteSN();
         })

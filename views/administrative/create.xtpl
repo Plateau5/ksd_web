@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
     <link rel="stylesheet" href="{{markUri}}/static/css/manufacturing.css">
     <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
-    <link rel="stylesheet" href="{{markUri}}/static/css/warehouse.css">p
+    <link rel="stylesheet" href="{{markUri}}/static/css/warehouse.css">
     <title>行政管理-新建仓库</title>
 </head>
 <body>
@@ -187,7 +187,7 @@
                 $ajax('post', url, data, function(res) {
                     if (res.error_code == 0) {
                         $alert('创建成功', function () {
-                            window.location.href = contextPath + '/administrative/warehouse/list';
+                            window.location.href = contextPath + markUri + '/administrative/warehouse/list';
                         });
                     } else {
                         $alert(res.error_msg);

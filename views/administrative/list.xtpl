@@ -24,59 +24,59 @@
         <!---- Part of Main info Begin ---->
         <div id="main" class="main org_product">
             <!--没有创建任何行政仓库 Begin-->
-            <c:if test="${count  eq 0 }">
-	            <per:button code="1299">
-	            <div class="no_workflow">
-	                <div class="toast_text">目前还没有仓库，尝试建造一个吧</div>
-	                <div class="new_btn_box">
-	                    <a href="{{markUri}}/administrative/warehouse/create"  class="btn blue_btn add_btn"><em></em>新建仓库</a>
-	                </div>
-	            </div>
-	            </per:button>
-            </c:if>
-            <c:if test="${count >0 }">
-	            <per:button code="1299">
+            {{#if (count  === 0) }}
+                {{#if (verifyCode(1299)) }}
+                    <div class="no_workflow">
+                        <div class="toast_text">目前还没有仓库，尝试建造一个吧</div>
+                        <div class="new_btn_box">
+                            <a href="{{markUri}}/administrative/warehouse/create"  class="btn blue_btn add_btn"><em></em>新建仓库</a>
+                        </div>
+                    </div>
+	            {{/if}}
+            {{/if}}
+            {{#if (count > 0) }}
+                {{#if (verifyCode(1299)) }}
 	                <div class="new_btn_box">
 	                    <a href="{{markUri}}/administrative/warehouse/create"  id="createOrg"  class="btn blue_btn add_btn"><em></em>新建仓库</a>
 	                </div>
-	            </per:button>
-            </c:if>
+	            {{/if}}
+            {{/if}}
             <!--没有创建任何行政仓库 End-->
             <!--已创建行政仓库-->
             <!--作为行政分页加载使用-->
-            <form action="/administrative/warehouse/list" method="post" id="form_search" role='form'>
+            <form action="{{markUri}}/administrative/warehouse/list" method="post" id="form_search" role='form'>
             </form>
             <!--作为行政产品列表显示跳转用-->
-            <form action="/administrative/equipment/list" method="post" id="form_search_product" role='form'>
+            <form action="{{markUri}}/administrative/equipment/list" method="post" id="form_search_product" role='form'>
                 <input type="hidden" name="parent_id" id="parent_id" value="" >
             </form>
-            <c:if test="${count >0 }">
+            {{#if (count > 0) }}
                 <div class="org_list">
-                    <c:forEach items="${list }" var="bean" varStatus="status">>
-                        <div class="org_item inline_block org_bg_c${status.count}">
+                    {{#each (list) }}
+                        <div class="org_item inline_block org_bg_c{{xIndex + 1}}">
                             <div class="org_info">
                                 <div class="company_logo inline_block">仓</div>
-                                <div class="org_name">${bean.name }</div>
+                                <div class="org_name">{{this.name }}</div>
                             </div>
                             <div class="org_business">
-                                <span class="business_type">库存量：${bean.warehouse_count}</span>
-                                <span class="products_count rf">标签：${bean.label_count}个</span>
+                                <span class="business_type">库存量：{{this.warehouse_count}}</span>
+                                <span class="products_count rf">标签：{{this.label_count}}个</span>
                             </div>
-                            <div class="org_mask" alt="${bean.name }" lang="${bean.id }">
+                            <div class="org_mask" alt="{{this.name }}" lang="{{this.id }}">
                                 <!--<per:button code="1301">-->
-                                    <a href="javascript:;" title="查看" alt="${bean.name }" lang="${bean.id }" class="view_store icon_btn inline_block"></a>
+                                    <a href="javascript:;" title="查看" alt="{{this.name}}" lang="{{this.id}}" class="view_store icon_btn inline_block"></a>
                                 <!--</per:button>-->
                                 <!--<per:button code="1300">-->
-                                    <a href="javascript:;" title="编辑" alt="${bean.name }" lang="${bean.id }" class="edit_store icon_btn inline_block"></a>
+                                    <a href="javascript:;" title="编辑" alt="{{this.name}}" lang="{{this.id}}" class="edit_store icon_btn inline_block"></a>
                                 <!--</per:button>-->
                                 <!--<per:button code="1307">-->
-                                    <a href="javascript:;" title="删除" alt="${bean.name }" lang="${bean.id }" class="delete_store icon_btn inline_block"></a>
+                                    <a href="javascript:;" title="删除" alt="{{this.name}}" lang="{{this.id}}" class="delete_store icon_btn inline_block"></a>
                                 <!--</per:button>-->
                             </div>
                         </div>
-                    </c:forEach>
+                    {{/each}}
                 </div>
-            </c:if>
+            {{/if}}
             <div class="page_box">
                 {{include('./../inc/pagination')}}
             </div>
@@ -100,7 +100,7 @@
             var btn = $("#createOrg");
             btn.off("click").on("click", function () {
                 locationTo({
-                    action : contextPath + "/administrative/warehouse/create",
+                    action : contextPath + markUri + "/administrative/warehouse/create",
                 });
             });
         }
@@ -127,7 +127,7 @@
             btn.off("click").on("click", function () {
                 var warehouse_id = $.trim($(this).parents('.org_mask').attr("lang"));
                 locationTo({
-                    action : contextPath + '/administrative/warehouse/edit',
+                    action : contextPath + markUri + '/administrative/warehouse/edit',
                     param : {
                     	warehouse_id : warehouse_id
                     }
@@ -157,7 +157,7 @@
             //确定删除
             function delConfirm (datas, d) {
                 var data = datas;
-                var url  = contextPath + "/api/administrative/delete";;
+                var url  = contextPath + "/api/administrative/delete";
                 $ajax('post',url, data, function (req) {
                     var res = eval(req);
                     if (res.error_code == 0) {
@@ -182,7 +182,7 @@
             btn.off("click").on("click", function () {
                 var parent_id = $.trim($(this).parents('.org_mask').attr("lang"));
                 locationTo({
-                    action : contextPath + '/administrative/equipment/list',
+                    action : contextPath +  markUri + '/administrative/equipment/list',
                     param : {
                     	parent_id : parent_id
                     }

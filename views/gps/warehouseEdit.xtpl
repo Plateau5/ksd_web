@@ -28,7 +28,7 @@
                 <a href="{{markUri}}/gps/warehouse/list" class="crumbs_item">GPS</a>
                 <a href="javascript:;" class="crumbs_item">编辑仓库</a>
             </div>
-            <input type="hidden" id="wareHouseId" value="${warehouse_id}">
+            <input type="hidden" id="wareHouseId" value="{{warehouse_id}}">
             <input type="hidden" id="organizationId" value="${warehouseVO.organization_id}">
             <div class="gps_create">
                 <div class="row_item more_value tags">

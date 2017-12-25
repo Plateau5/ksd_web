@@ -51,7 +51,7 @@
                     <div class="row_title"><em class="require_icon">*</em>类型：</div>
                     <div class="row_val">
                         <select name="" id="selectType">
-                            <option value="">-- 请选择 --</option>
+                            <option value="">全部</option>
                             <option value="1">有线</option>
                             <option value="0">无线</option>
                         </select>
@@ -61,7 +61,7 @@
                     <div class="row_title"><em class="require_icon">*</em>标签：</div>
                     <div class="row_val">
                         <select name="" id="selectTag">
-                            <option value="">-- 请选择 --</option>
+                            <option value="">全部</option>
                             <c:forEach items="${warehouseVO.labelVOs }" var="bean">
 								<option value="${bean.id}">${bean.name}</option>
 							</c:forEach>

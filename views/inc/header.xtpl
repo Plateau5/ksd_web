@@ -24,7 +24,7 @@
                 </li>
             {{/if}}
             {{#if (verifyCode(1312)) }}
-                <li class="nav_item {{#if(startWith(markUri + '/workflow' + ' || ' + markUri + '/question'))}}active{{/if}}">
+                <li class="nav_item {{#if(startWith(markUri + '/workflow' + ' || ' + markUri + '/question' + ' || ' + markUri + '/administrative' + ' || ' + markUri + '/gps'))}}active{{/if}}">
                     <a href="{{markUri}}/business/system" class="">业务</a>
                 </li>
             {{/if}}
