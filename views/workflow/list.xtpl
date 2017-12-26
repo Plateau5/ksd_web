@@ -181,9 +181,7 @@
 							</table>
 						<!-- 其他款项审批流列表 End -->
 	                    <!--分页部分 Begin-->
-
 							{{include('./../inc/pagination')}}
-
 	                    <!--分页部分 End-->
 	                </div>
                 <!--</c:if>-->

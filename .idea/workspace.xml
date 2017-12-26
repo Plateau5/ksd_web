@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
+    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="修复分页层级  2017年12月26日18:11:44">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/administrative/list.xtpl" afterPath="$PROJECT_DIR$/views/administrative/list.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/company/list.xtpl" afterPath="$PROJECT_DIR$/views/company/list.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/customerList.xtpl" afterPath="$PROJECT_DIR$/views/customer/customerList.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/dataStatistics/personBusiness.xtpl" afterPath="$PROJECT_DIR$/views/dataStatistics/personBusiness.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/dataStatistics/personList.xtpl" afterPath="$PROJECT_DIR$/views/dataStatistics/personList.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/feedback/list.xtpl" afterPath="$PROJECT_DIR$/views/feedback/list.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/gps/warehouseDetail.xtpl" afterPath="$PROJECT_DIR$/views/gps/warehouseDetail.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/merchants/merchantsList.xtpl" afterPath="$PROJECT_DIR$/views/merchants/merchantsList.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/organization/publishList.xtpl" afterPath="$PROJECT_DIR$/views/organization/publishList.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/privilege/personList.xtpl" afterPath="$PROJECT_DIR$/views/privilege/personList.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/privilege/rolesList.xtpl" afterPath="$PROJECT_DIR$/views/privilege/rolesList.xtpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/workflow/list.xtpl" afterPath="$PROJECT_DIR$/views/workflow/list.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -34,8 +23,8 @@
       <file leaf-file-name="list.xtpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/workflow/list.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1911">
-              <caret line="179" column="40" lean-forward="true" selection-start-line="179" selection-start-column="40" selection-end-line="179" selection-end-column="40" />
+            <state relative-caret-position="315">
+              <caret line="184" column="39" lean-forward="true" selection-start-line="184" selection-start-column="39" selection-end-line="184" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -527,13 +516,6 @@
       <workItem from="1514193582804" duration="1514000" />
       <workItem from="1514252799874" duration="17211000" />
     </task>
-    <task id="LOCAL-00044" summary="日志打印优化  2017年12月7日17:20:38">
-      <created>1512638444540</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1512638444540</updated>
-    </task>
     <task id="LOCAL-00045" summary="修改获取host方式  2017年12月7日17:59:20">
       <created>1512640765682</created>
       <option name="number" value="00045" />
@@ -870,11 +852,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514274646231</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="修复分页层级  2017年12月26日18:11:44">
+      <created>1514283111961</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1514283111961</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="630142000" />
+    <option name="totallyTimeSpent" value="630314000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -951,7 +940,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加页面跳转错误的日志打印  2017年12月14日12:02:53" />
     <MESSAGE value="修改客户历史记录高度  2017年12月14日14:27:39" />
     <MESSAGE value="优化日志打印  2017年12月14日14:56:45" />
     <MESSAGE value="优化请求日志  2017年12月14日15:42:05" />
@@ -976,7 +964,8 @@
     <MESSAGE value="行政仓库2017年12月25日11:05:04" />
     <MESSAGE value="GPS仓库分离  2017年12月26日15:15:49" />
     <MESSAGE value="城市管理  2017年12月26日15:50:37" />
-    <option name="LAST_COMMIT_MESSAGE" value="城市管理  2017年12月26日15:50:37" />
+    <MESSAGE value="修复分页层级  2017年12月26日18:11:44" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复分页层级  2017年12月26日18:11:44" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1340,8 +1329,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/workflow/list.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1911">
-          <caret line="179" column="40" lean-forward="true" selection-start-line="179" selection-start-column="40" selection-end-line="179" selection-end-column="40" />
+        <state relative-caret-position="315">
+          <caret line="184" column="39" lean-forward="true" selection-start-line="184" selection-start-column="39" selection-end-line="184" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
