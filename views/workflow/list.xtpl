@@ -209,14 +209,14 @@
                     _this.addClass('active');
                     _this.siblings('.type_others').removeClass('active');
                     $('#flow_type').val('1');
-                    $('table.type_normal').css('display', 'table');
-                    $('table.type_others').css('display', 'none');
+                    /*$('table.type_normal').css('display', 'table');
+                    $('table.type_others').css('display', 'none');*/
                 } else {
                     _this.addClass('active');
                     _this.siblings('.type_normal').removeClass('active');
                     $('#flow_type').val('2');
-                    $('table.type_others').css('display', 'none');
-                    $('table.type_normal').css('display', 'table');
+                    /*$('table.type_others').css('display', 'none');
+                    $('table.type_normal').css('display', 'table');*/
                 }
                 $('form[role="form"]').submit();
             });

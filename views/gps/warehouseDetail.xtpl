@@ -262,14 +262,14 @@
                     _this.addClass('active');
                     _this.siblings('.already_out').removeClass('active');
                     $('#inWarehouse').val('0');
-                    $('.not_out_list').css('display', 'table');
-                    $('.already_out_list').css('display', 'none');
+                    /*$('.not_out_list').css('display', 'table');
+                    $('.already_out_list').css('display', 'none');*/
                 } else {
                     _this.addClass('active');
                     _this.siblings('.not_out').removeClass('active');
                     $('#inWarehouse').val('1');
-                    $('.not_out_list').css('display', 'none');
-                    $('.already_out_list').css('display', 'table');
+                    /*$('.not_out_list').css('display', 'none');
+                    $('.already_out_list').css('display', 'table');*/
                 }
                 $('form[role="form"]').submit();
             });
