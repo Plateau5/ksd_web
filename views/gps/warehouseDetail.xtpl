@@ -28,30 +28,30 @@
                 <a href="{{markUri}}/gps/warehouse/list" class="crumbs_item">GPS</a>
                 <a href="javascript:;" class="crumbs_item">{{warehouse_name}}的仓库</a>
             </div>
-            <form action="/gps/warehouse/toDetail" method="post" id="form_search" role="form">
+            <form action="{{markUri}}/gps/warehouse/detail" method="post" id="form_search" role="form">
                 <input type="hidden" name="warehouse_id" value="{{warehouse_id}}">
                 <input type="hidden" name="warehouse_name" value="{{warehouse_name}}">
-                <input type="hidden" name="creator" value="${creator}">
-                <input type="hidden" name="create_time" value="${create_time}">
-                <input type="hidden" name="inWarehouse" id="inWarehouse" value="${condition.inWarehouse}">
+                <input type="hidden" name="creator" value="{{creator}}">
+                <input type="hidden" name="create_time" value="{{create_time}}">
+                <input type="hidden" name="inWarehouse" id="inWarehouse" value="{{condition.inWarehouse}}">
             </form>
             <div class="gps_details">
                 <div class="warehouse_info">
                     <div class="name"><em class="name_icon"></em><span>{{warehouse_name}}</span></div>
                     <div class="create_info nowrap">
-                        <span class="create_time">${create_time}</span>
-                        <span class="founder nowrap">创建人：<samp title="${vo.create_name}">${creator}</samp></span>
+                        <span class="create_time">{{create_time}}</span>
+                        <span class="founder nowrap">创建人：<samp title="${vo.create_name}">{{creator}}</samp></span>
                     </div>
                 </div>
                 <div class="sn_details">
                     <div class="tab">
                         <ul class="tab_list inline_block">
-                            <li class="tab_item not_out <c:if test="${condition.inWarehouse eq 0 || empty condition.inWarehouse}">active</c:if>">未出库</li>
-                            <li class="tab_item already_out <c:if test="${condition.inWarehouse eq 1}">active</c:if>">已出库</li>
+                            <li class="tab_item not_out {{#if (condition.inWarehouse === 0 || !condition.inWarehouse) }}active{{/if}}">未出库</li>
+                            <li class="tab_item already_out {{#if (condition.inWarehouse === 1) }}active{{/if}}">已出库</li>
                         </ul>
-                        <per:button code="1283">
+                        {{#if (verifyCode(1283)) }}
 	                        <a href="javascript:" data-id="{{warehouse_id}}" class="detail_title_btn create_btn create_put_in">新增入库</a>
-                        </per:button>
+                        {{/if}}
                     </div>
                     <div class="filtrate">
                         <div class="filtrate_item date_conditions">
@@ -59,37 +59,54 @@
                                 <div class="conditions_name inline_block gps_type">类型：</div>
                                 <select name="gps_type" class="filtrate_select" id="gps_type">
                                     <option value="">全部</option>
-                                    <option value="0" <c:if test="${condition.type eq 0}">selected</c:if>>无线</option>
-                                    <option value="1" <c:if test="${condition.type eq 1}">selected</c:if>>有线</option>
+                                    {{#if (condition.type === 0) }}
+                                        <option value="0" selected>无线</option>
+                                    {{else}}
+                                        <option value="0">无线</option>
+                                    {{/if}}
+                                    {{#if (condition.type === 1) }}
+                                        <option value="1" selected>有线</option>
+                                    {{else}}
+                                        <option value="1">有线</option>
+                                    {{/if}}
                                 </select>
                             </div>
                             <div class="inline_block">
                                 <div class="conditions_name inline_block filtrate_tags">标签：</div>
                                 <select name="label_id" class="filtrate_select" id="filtrate_tags">
                                     <option value="">全部</option>
-                                    <c:forEach items="${label_list }" var="bean">
-										<option value="${bean.id}" <c:if test="${bean.id eq condition.label_id}">selected</c:if>>${bean.name}</option>
-									</c:forEach>
+                                    {{#each (label_list) }}
+                                        {{#if (this.id === condition.label_id) }}
+                                            <option value="{{this.id}}" selected="selected">{{this.name}}</option>
+                                        {{else}}
+                                            <option value="{{this.id}}">{{this.name}}</option>
+                                        {{/if}}
+									{{/each}}
                                 </select>
                             </div>
-                            <c:if test="${city_count > 1}">
+                            {{#if (city_count > 1) }}
 	                            <div class="inline_block">
 	                                <div class="conditions_name inline_block filtrate_city">城市：</div>
 	                                <select name="city_id" class="filtrate_select" id="filtrate_city">
 	                                    <option value="">全部</option>
-										<c:forEach items="${city_list }" var="bean">
-											<option value="${bean.id}" <c:if test="${bean.id eq condition.city_id}">selected</c:if>>${bean.name}</option>
-										</c:forEach>
+                                        {{#each (city_list) }}
+                                            {{#if (this.id === condition.city_id) }}
+                                                <option value="{{this.id}}" selected="selected">{{this.name}}</option>
+                                            {{else}}
+                                                <option value="{{this.id}}">{{this.name}}</option>
+                                            {{/if}}
+										{{/each}}
 	                                </select>
 	                            </div>
-                            </c:if>
+                            {{/if}}
                         </div>
                     </div>
                     <!-- 未出库列表 -->
-                    <table class="sn_list not_out_list" style="display: <c:choose>
-											<c:when test="${condition.inWarehouse == 0}">table</c:when>
-											<c:otherwise>none</c:otherwise>
-										</c:choose>;">
+                    {{#if (condition.inWarehouse === 0) }}
+                    <table class="sn_list not_out_list" style="display:table;">
+                    {{else}}
+                    <table class="sn_list not_out_list" style="display:none;">
+                    {{/if}}
                         <colgroup style="width: 100%;">
                             <col style="width: 22%;" />
                             <col style="width: 22%;" />
@@ -107,30 +124,32 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${gps_list}" var="bean">
+                            {{#each (gps_list) }}
 								<tr>
-									<td>${bean.sn_code}</td>
+									<td>{{this.sn_code}}</td>
 									<td>
-										<c:choose>
-											<c:when test="${bean.type == 0}">无线</c:when>
-											<c:otherwise>有线</c:otherwise>
-										</c:choose>
+                                        {{#if (this.type === 0) }}
+										    无线
+                                        {{else}}
+                                            有线
+                                        {{/if}}
 									</td>
-									<td>${bean.label_name}</td>
-									<td>${bean.putin_time}</td>
+									<td>{{this.label_name}}</td>
+									<td>{{this.putin_time}}</td>
 									<td>
-                               			<em  data-id="${bean.id}" class="delete_sn_btn"></em>
+                               			<em  data-id="{{this.id}}" class="delete_sn_btn"></em>
                                     </td>
 								</tr>
-							</c:forEach>
+							{{/each}}
                         </tbody>
                     </table>
                     
                     <!-- 已出库列表 -->
-                    <table class="sn_list already_out_list" style="display: <c:choose>
-											<c:when test="${condition.inWarehouse == 1}">table</c:when>
-											<c:otherwise>none</c:otherwise>
-										</c:choose>;">
+                        {{#if (condition.inWarehouse === 1) }}
+                    <table class="sn_list not_out_list" style="display:table;">
+                        {{else}}
+                        <table class="sn_list not_out_list" style="display:none;">
+                        {{/if}}
                         <colgroup style="width: 100%;">
                             <col style="width: 18%;" />
                             <col style="width: 13%;" />
@@ -152,39 +171,47 @@
                         </tr>
                         </thead>
                         <tbody>
-							<c:forEach items="${gps_list}" var="bean">
+                            {{#each (gps_list) }}
 								<tr>
 									<td>
                                         <span class="inline">
-                                            <span>${bean.sn_code}</span>
-                                            <c:if test="${not empty bean.remark}">
+                                            <span>{{this.sn_code}}</span>
+                                            {{#if (this.remark) }}
 	                                            <em class="text_remark">
-	                                                <span class="desc">${bean.remark}</span>
+	                                                <span class="desc">{{this.remark}}</span>
 	                                            </em>
-                                            </c:if>
+                                            {{/if}}
                                         </span>
                                     </td>
-									<td><c:choose>
-											<c:when test="${bean.type == 0}">无线</c:when>
-											<c:otherwise>有线</c:otherwise>
-										</c:choose></td>
-									<td>${bean.use_name}</td>
-									<td>${bean.label_name}</td>
-									<td><c:if test="${empty bean.user_name}">- -</c:if>${bean.user_name}</td>
-									<td>${bean.delivery_time}</td>
 									<td>
-									<per:button code="1288">
-										<em class="delete_sn_btn" data-id="${bean.id}"></em>
-									</per:button>
+                                        {{#if (this.type === 0) }}
+                                            无线
+                                        {{else}}
+                                            有线
+                                        {{/if}}
+                                    </td>
+									<td>{{this.use_name}}</td>
+									<td>{{this.label_name}}</td>
+									<td>
+                                        {{#if (this.user_name) }}
+                                            {{this.user_name}}
+                                        {{else}}
+                                            - -
+                                        {{/if}}
+                                    </td>
+									<td>{{this.delivery_time}}</td>
+									<td>
+                                        {{#if (root.verifyCode(1288)) }}
+										<em class="delete_sn_btn" data-id="{{this.id}}"></em>
+									    {{/if}}
 									</td>
 								</tr>
-							</c:forEach>
+							{{/each}}
 						</tbody>
-						
                     </table>
-                    <c:if test="${count eq 0}">
+                    {{#if (count === 0) }}
 						{{include('./../inc/empty_data')}}
-					</c:if>
+					{{/if}}
                 </div>
                 <!--分页部分 Begin-->
                    <div class="page_box">
@@ -211,7 +238,7 @@
 <script>
     (function ($) {
         // todo 修改当前TAB页面类型。0 || 1.
-        var pageType = 1;//${condition.inWarehouse}
+        var pageType = 1;//{{condition.inWarehouse}}
         // 跳转新增入库页面
         function goPutIn () {
             var btn = $('.create_put_in');
@@ -219,7 +246,7 @@
                 var _this = $(this);
                 var id = $.trim(_this.data('id'));
                 locationTo({
-                    action : contextPath + '/gps/warehouse/putin',
+                    action : contextPath + markUri + '/gps/warehouse/putin',
                     param : {
                         warehouse_id : id
                     }

@@ -20,7 +20,7 @@ exports.VIEW_BUSINESS_SYSTEM = function(req, res, next) {
         }
     } catch (e) {
         LOGERROR(e.stack);
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 

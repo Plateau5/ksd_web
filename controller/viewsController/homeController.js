@@ -56,10 +56,10 @@ exports.LOGIN_CONTROL =  function(req, res, next) {
                         password: password
                     });
                 } else {
-                    res.redirect('/404');
+                    res.redirect(markUri + '/404');
                 }
             } else {
-                res.redirect('/404');
+                res.redirect(markUri + '/404');
             }
             //res.send(response);
         });

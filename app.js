@@ -82,7 +82,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   LOGERROR(err);
     // res.render(err);
-  res.redirect('/404');
+  res.redirect(markUri + '/404');
 });
 
 

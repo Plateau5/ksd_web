@@ -91,7 +91,7 @@
                             <div class="col-xs-5">
                                 <select class="form-control"  id="work_city" name="work_city">
                                     <c:forEach items="${city}" var="bean">
-                                        <option value="${bean.id }">${bean.name}</option>
+                                        <option value="{{this.id}}">${bean.name}</option>
                                     </c:forEach>
                                 </select>
                             </div>

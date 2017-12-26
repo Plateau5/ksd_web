@@ -25,79 +25,82 @@
         <div id="main" class="main">
             <div class="crumbs_nav">
                 <a href="{{markUri}}/home" class="crumbs_item">首页</a>
-                <a href="javascript:;" class="crumbs_item">${gpsApplyVo.applicant}的GPS预约申请</a>
+                <a href="javascript:;" class="crumbs_item">{{gpsApplyVo.applicant}}的GPS预约申请</a>
             </div>
             <div class="apply_detail">
                 <div class="basic_info">
                     <div class="row_item more_value warehouses">
                         <div class="row_title">申请人：</div>
-                        <div class="row_val">${gpsApplyVo.applicant}</div>
+                        <div class="row_val">{{gpsApplyVo.applicant}}</div>
                     </div>
                     <div class="row_item more_value warehouses">
                         <div class="row_title">申请数量：</div>
-                        <div class="row_val">${gps_apply_count}</div>
+                        <div class="row_val">{{gps_apply_count}}</div>
                     </div>
                     <div class="row_item more_value warehouses">
                         <div class="row_title">领取方式：</div>
                         <div class="row_val">
-                            <c:choose>
-                                <c:when test="${gpsApplyVo.receive_type == 1}">当面交付</c:when>
-                                <c:otherwise>快递邮寄（${gpsApplyVo.address}，手机号：${gpsApplyVo.phone}）</c:otherwise>
-                            </c:choose></div>
+                            {{#if (gpsApplyVo.receive_type === 1) }}
+                                当面交付
+                            {{else}}
+                                快递邮寄（{{gpsApplyVo.address}}，手机号：{{gpsApplyVo.phone}}）
+                            {{/if}}
+                        </div>
                     </div>
                     <div class="row_item more_value warehouses">
                         <div class="row_title">领取时间：</div>
-                        <div class="row_val">${gpsApplyVo.receive_time}</div>
+                        <div class="row_val">{{gpsApplyVo.receive_time}}</div>
                     </div>
                 </div>
                 <div class="details_info">
                     <div class="send_btn_box">
-                    <per:button code="1293">
+                        {{#if (verifyCode(1293)) }}
                         <a href="javascript:" class="detail_title_btn send_btn">确认发送</a>
-                    </per:button>
+                        {{/if}}
                     </div>
                     <div class="order_list">
-                        <c:forEach items="${gpsApplyVo.list}" var="bean">
+                        {{#each (gpsApplyVo.list) }}
                             <div class="apply_list"><!-- 低于预警值时添加：'warning'这个class -->
                                 <ul class="store_info">
                                     <li class="info_item nowrap">
                                         <div class="item_name">机构</div>
-                                        <div class="item_val">${bean.warehouse_name}-${bean.label_name}</div>
+                                        <div class="item_val">{{this.warehouse_name}}-{{this.label_name}}</div>
                                     </li>
                                     <li class="info_item nowrap">
                                         <div class="item_name">类型</div>
                                         <div class="item_val">
-                                            <c:choose>
-                                                <c:when test="${bean.type == 0}">无线</c:when>
-                                                <c:otherwise>有线</c:otherwise>
-                                            </c:choose>
+                                            {{#if (this.type === 0) }}
+                                                无线
+                                            {{else}}
+                                                有线
+                                            {{/if}}
                                         </div>
                                     </li>
                                     <li class="info_item nowrap">
                                         <div class="item_name">未激活</div>
-                                        <div class="item_val">${bean.hisInventory}</div>
+                                        <div class="item_val">{{this.hisInventory}}</div>
                                     </li>
                                     <li class="info_item nowrap">
                                         <div class="item_name">申请数量</div>
-                                        <div class="item_val">${bean.gps_count}</div>
+                                        <div class="item_val">{{this.gps_count}}</div>
                                     </li>
                                     <li class="info_item nowrap">
                                         <div class="item_name">可用库存</div>
-                                        <div class="item_val">${bean.inventory}</div><!-- 低于预警值时添加：'warning_text'这个class -->
+                                        <div class="item_val">{{this.inventory}}</div><!-- 低于预警值时添加：'warning_text'这个class -->
                                     </li>
                                 </ul>
-                                <c:if test="${fn:length(bean.gpsVOs) != 0}">
+                                {{#if (this.gpsVOs.length !==0) }}
                                     <div class="check_sn form_options">
-                                        <c:forEach items="${bean.gpsVOs}" var="bean">
+                                        {{#each (this.gpsVOs) }}
                                             <div class="form_group">
-                                                <input type="checkbox" id="code-${bean.id}" class="apply_scope" name="snCode"  value="${bean.id}" checked="checked" />
-                                                <label for="code-${bean.id}" class="nowrap checked">${bean.sn_code}</label>
+                                                    <input type="checkbox" id="code-{{this.id}}" class="apply_scope" name="snCode"  value="{{this.id}}" checked="checked" />
+                                                    <label for="code-{{this.id}}" class="nowrap checked">{{this.sn_code}}</label>
                                             </div>
-                                        </c:forEach>
+                                        {{/each}}
                                     </div>
-                                </c:if>
+                                {{/if}}
                             </div>
-                        </c:forEach>
+                        {{/each}}
                     </div>
                 </div>
             </div>
@@ -109,9 +112,9 @@
     <!-------- Part of footer Begin -------->
     <!--<div id="footer" class="footer"></div>-->
     <!-------- Part of footer End -------->
-    <input type="hidden" value="${gps_apply_id}" id="applyId">
-    <input type="hidden" value="${gpsApplyVo.receive_type}" id="receiveType">
-    <input type="hidden" value="${gpsApplyVo.applicant}" id="applicant">
+    <input type="hidden" value="{{gps_apply_id}}" id="applyId">
+    <input type="hidden" value="{{gpsApplyVo.receive_type}}" id="receiveType">
+    <input type="hidden" value="{{gpsApplyVo.applicant}}" id="applicant">
 </div>
 </body>
 {{include('./../inc/jsSources')}}
@@ -158,7 +161,7 @@
             var applicant = $.trim($('#applicant').val());
             btn.off('click').on('click', function () {
                 locationTo({
-                    action : contextPath + '/gps/apply/confirmSend',
+                    action : contextPath + markUri + '/gps/apply/confirmSend',
                     param : {
                         gps_apply_id : applyId,
                         receive_type : receiveType,

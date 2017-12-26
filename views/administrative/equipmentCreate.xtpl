@@ -65,8 +65,8 @@
                         <div class="set_box" style="display: none">
                             <ul class="user_list">
                             	<!--<c:forEach items="${emp_list }" var="bean">
-	                                <li class="user_item"  data-id="${bean.id }" data-name="${bean.name }">
-	                                    <div class="name inline_block nowrap">${bean.name }</div>
+	                                <li class="user_item"  data-id="{{this.id}}" data-name="{{this.name}}">
+	                                    <div class="name inline_block nowrap">{{this.name}}</div>
 	                                    <div class="user_mark inline_block nowrap">${bean.account }</div>
 	                                </li>
                             	</c:forEach>-->

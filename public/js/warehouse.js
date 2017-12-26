@@ -7,7 +7,7 @@
  * RECEIVETYPE {Number} 领取类型：1：当面交付 2：快递邮寄 3：不同意
  * <input type="hidden" value="${delData}" id="delSnStr">
  <input type="hidden" value="${data}" id="sendSn">
- <input type="hidden" value="${gps_apply_id}" id="applyOrder">
+ <input type="hidden" value="{{gps_apply_id}}" id="applyOrder">
  */
 function getAuditData () {
     var data = {};

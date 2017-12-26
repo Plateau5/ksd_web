@@ -415,7 +415,7 @@
 			                                	icon_uncheck
 			                                </c:otherwise>
 			                            </c:choose>
-	                                    " id="${bean.id }"></div>
+	                                    " id="{{this.id}}"></div>
 	                                    <span>${bean.name}</span>
 	                                </div>
                                 </c:forEach>
@@ -459,7 +459,7 @@
 					                                	icon_uncheck
 					                                </c:otherwise>
 					                            </c:choose>
-	                                             cursor select_province_img" id="${bean.id }"></div>
+	                                             cursor select_province_img" id="{{this.id}}"></div>
 	                                            <div class="container_txt">${bean.name}</div>
 	                                        </div>
                                     	</c:forEach>
@@ -472,7 +472,7 @@
                                                 	 <c:if test="${fn:contains(vo.outsettling_province,bean.id)}">
 	                                                	display
 	                                                </c:if>
-                                                " id="${bean.id }">
+                                                " id="{{this.id}}">
                                                     <div class="container_city_box_top">${bean.name}</div>
                                                     <div class="container_city_box_middle">
                                                         <c:forEach items="${bean.city_list}" var="bean_city">

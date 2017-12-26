@@ -1,0 +1,261 @@
+<!--城市管理-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="${contextPath}/static/css/warehouse.css">
+    <link rel="stylesheet" href="${contextPath}/static/css/citySelect.css">
+    <link rel="stylesheet" href="${contextPath}/static/dialog/dialog-layer.css">
+    <title>业务-城市管理</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide na End ---->
+
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main">
+            <form action="${contextPath}/citymanage/city" method="post" id="form_search" role='form'>
+            </form>
+            <c:if test="${count eq 0}">
+                <!--没有创建任何流程-->
+                <per:button code="1358">
+	                <div class="no_list_data">
+	                    <div class="toast_text">目前还没有增加任何城市，请先增加城市</div>
+	                    <div class="new_btn_box">
+	                        <a href="javascript:" title="新增城市" class="btn blue_btn add_btn"><em></em>新增城市</a>
+	                    </div>
+	                </div>
+                </per:button>
+            </c:if>
+            <c:if test="${count > 0}">
+                <!--已增加城市列表-->
+                <div class="">
+                <per:button code="1358">
+                    <div class="new_btn_box">
+                        <a href="javascript:" title="新增城市" class="btn blue_btn add_btn"><em></em>新增城市</a>
+                    </div>
+                </per:button>    
+                    <table class="table_list">
+                        <colgroup style="width: 100%;">
+                            <col style="width: 40%;" />
+                            <col style="width: 40%;" />
+                            <col style="width: 20%;" />
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>省份/城市</th>
+                            <th>创建时间</th>
+                            <th>启用/禁用</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+	                        <c:forEach items="${list }" var="bean">
+	                        	<tr>
+	                            	<td>${bean.province_name }-${bean.city_name }</td>
+	                            	<td>${bean.start_date }</td>
+	                            	<td class="operate_btn" data-status="${bean.status}">
+	                            	<per:button code="1359">
+	                            		<c:if test="${bean.status == 1 }">
+	                            			<div class="r_radio inline_block" type="on" data-id="${bean.city_id}">
+		                                    	<span>ON</span>
+                                                <span>OFF</span>
+		                                    	<div style="left: 28px"></div>
+		                                	</div>
+	                            		</c:if>
+	                                	<c:if test="${bean.status == 2 }">
+	                            			<div class="r_radio inline_block off" type="off"  data-id="${bean.city_id}">
+		                                    	<span>ON</span>
+                                                <span>OFF</span>
+		                                    	<div></div>
+		                                	</div>
+	                            		</c:if>
+	                            	</per:button>
+	                            	</td>
+	                        	</tr>
+                        	</c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+                <!--分页部分 Begin-->
+                <div class="page_box">
+                    <jsp:include page="/WEB-INF/inc/page_list.jsp"></jsp:include>
+                </div>
+                <!--分页部分 End-->
+            </c:if>
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+    <!-------- Part of main End -------->
+    <!-------- Part of footer Begin -------->
+    <!--<div id="footer" class="footer"></div>-->
+    <!-------- Part of footer End -------->
+</div>
+<input type="hidden" class="area-danxuan single-choice" id="citySelect" value="" data-clear="true" data-value="" />
+</body>
+<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
+<script src="${contextPath}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    var list = ${cityList}; // 城市数据
+    var __LocalDataCities = formatCityData(list);
+</script>
+<script src="${contextPath}/static/js/citySelect.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    (function ($) {
+        var cityInput = $('#citySelect');
+        // 调用城市选择插件
+        function addCity () {
+            var btn = $('.add_btn');
+
+            btn.off('click').on('click', function () {
+                cityInput.click();
+            });
+        }
+        // 提交增加城市逻辑
+        function addEvent () {
+            var cityIds, cityNames, provincesIds, provincesNames;
+            cityIds = $.trim(cityInput.data('value'));
+            cityNames = $.trim(cityInput.val());
+            provincesIds = $.trim(cityInput.data('pid'));
+            provincesNames = $.trim(cityInput.data('pname'));
+            if (cityIds == '') {
+                $alert('您还未选择任何城市，请先选择城市');
+                return;
+            }
+            var data = [
+                    {
+                        city_id : cityIds,
+                        city_name : cityNames,
+                        province_id : provincesIds,
+                        province_name : provincesNames
+                    }
+                ];
+            redefineAjax({
+                url : contextPath + '/api/citymanage/add',
+                data : {
+                	city_list :JSON.stringify(data)
+                },
+                contentType : 'json',
+                success : function (res) {
+                    if (res.error_code == 0) {
+                        $alert('城市新增成功', function () {
+                            window.location.reload();   //
+                        });
+                    } else {
+                        $alert(res.error_msg);
+                    }
+                },
+                error : function () {
+                    $alert('增加城市失败，请重试！');
+                }
+            })
+        }
+
+
+        // 启用城市逻辑
+        function cityEnabled (ele, opt) {
+            var id = $.trim(ele.data('id'));
+            var data = {
+                city_id : id,
+                status : 1
+            };
+            redefineAjax({
+                url : contextPath + '/api/citymanage/update',
+                data : data,
+                success : function (res) {
+                    if (res.error_code == 0) {
+                        $alert('该城市启用成功', function () {
+                            window.location.reload();
+                        });
+                    } else {
+                        $alert(res.error_msg, function () {
+                            opt.restore(ele);
+                        });
+                    }
+                },
+                error : function () {
+                    $alert('启用该城市失败，请重试！', function () {
+                        opt.restore(ele);
+                    });
+                }
+            })
+        }
+
+        // 禁用城市逻辑
+        function cityDisabled (ele, opt) {
+            var id = $.trim(ele.data('id'));
+            var data = {
+                city_id : id,
+                status : 2
+            };
+            redefineAjax({
+                url : contextPath + '/api/citymanage/update',
+                data : data,
+                success : function (res) {
+                    if (res.error_code == 0) {
+                        $alert('该城市禁用成功', function () {
+                            window.location.reload();
+                        });
+                    } else {
+                        $alert(res.error_msg, function () {
+                            opt.restore(ele);
+                        });
+                    }
+                },
+                error : function () {
+                    $alert('禁用该城市失败，请重试！', function () {
+                        opt.restore(ele);
+                    });
+                }
+            })
+        }
+
+
+
+        $(function() {
+            citySelect({}, function () {
+                addEvent();
+            });
+            addCity();  // 新增城市
+            radioSwitch({   // 城市启用禁用
+                on : function (_this, options) {
+                    dialog('open', {
+                        title : '提醒',
+                        content : '<div style="padding: 20px 0 20px;line-height:30px;font-size: 14px;"><span>启用城市后所有功能将恢复，</span><br><span>确认继续启用该城市？</span></div>',
+                        onConfirm : function (d) {
+                            d.close();
+                            cityEnabled(_this, options);
+                        },
+                        onCancel : function (d) {
+                            d.close();
+                            options.restore(_this);
+                        }
+                    });
+                },
+                off : function (_this, options) {
+                    dialog('open', {
+                        title : '提醒',
+                        content : '<div style="padding: 20px 0 20px;line-height:30px;font-size: 14px;"><span>禁用城市后进件功能将不可用，数据仍然保留，</span><br><span>确认继续禁用该城市？</span></div>',
+                        onConfirm : function (d) {
+                            d.close();
+                            cityDisabled(_this, options);
+                        },
+                        onCancel : function (d) {
+                            d.close();
+                            options.restore(_this);
+                        }
+                    });
+                }
+            });
+        });
+    })(jQuery,undefined);
+</script>
+</html>

@@ -255,7 +255,7 @@
                                     <select class="form-control" name="domicile_province" id="domicile_province">
                                         <option value="0">请选择</option>
                                         <c:forEach items="${province}" var="bean">
-                                            <option value="${bean.id}"<c:if test="${vo.domicile_province eq bean.id}">selected</c:if>>${bean.name }</option>
+                                            <option value="${bean.id}"<c:if test="${vo.domicile_province eq bean.id}">selected</c:if>>{{this.name}}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -263,7 +263,7 @@
                                     <select class="form-control" name="domicile_city" id="domicile_city" data="city1">
                                         <option value="0">请选择</option>
                                         <c:forEach items="${city}" var="bean">
-                                            <option value="${bean.id}"<c:if test="${vo.domicile_city eq bean.id}">selected</c:if>>${bean.name }</option>
+                                            <option value="${bean.id}"<c:if test="${vo.domicile_city eq bean.id}">selected</c:if>>{{this.name}}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -285,7 +285,7 @@
                                     <select class="form-control" name="live_place" id="live_place" data="city2">
                                         <option value="0">请选择</option>
                                         <c:forEach items="${live_city}" var="bean">
-                                            <option value="${bean.id}"<c:if test="${vo.live_place eq bean.id}">selected</c:if>>${bean.name }</option>
+                                            <option value="${bean.id}"<c:if test="${vo.live_place eq bean.id}">selected</c:if>>{{this.name}}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -475,7 +475,7 @@
                             	<input type="hidden" name="old_work_city" value="${vo.work_city}">
                                 <select class="form-control"  id="work_city" name="work_city">
                                     <c:forEach items="${work_city}" var="bean">
-                                        <option value="${bean.id }" <c:if test="${vo.work_city eq bean.id}">selected</c:if>>${bean.name}</option>
+                                        <option value="{{this.id}}" <c:if test="${vo.work_city eq bean.id}">selected</c:if>>${bean.name}</option>
                                     </c:forEach>
                                 </select>
                             </div>

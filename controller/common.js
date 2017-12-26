@@ -122,13 +122,13 @@ exports.checkPrivilege = function (p, req) {
  * @param next {Object} ：下一步需要执行的入口
  */
 exports.httpRequest = function (opt, callback, req, res, next) {
-    var cookies = this.getCookies(req, res, next);
+    // var cookies = this.getCookies(req, res, next);
     var option = {
         method : 'post',
         url : '',
         timeout : 600000,
         headers : {
-            Cookie : cookies,
+            Cookie : req.headers.cookie,
             ctype : 1
         }
     };
@@ -153,7 +153,7 @@ exports.httpRequest = function (opt, callback, req, res, next) {
                 } else if (result.error_code === 0) {
                     callback(result);
                 } else {
-                    LOGERROR(ERRORTYPES.HttpRequest + '：Background server (Java) returned an error message. Data:' + JSON.stringify(result));
+                    LOGERROR(ERRORTYPES.HttpRequest + '：[Node] Background server (Java) returned an error message. Data:' + JSON.stringify(result));
                     callback(result);
                 }
             } catch (e) {
@@ -227,12 +227,12 @@ exports.getCustomerList = function(url,title, req, res, next) {
                 res.render('./customer/customerList', data);
             } else {
                 //res.render(data.error_msg);
-                res.redirect('/404');
+                res.redirect(markUri + '/404');
             }
         }, req, res, next);
     } catch (e) {
         LOGERROR(e.stack);
-        res.redirect('/404')
+        res.redirect(markUri + '/404')
     }/* finally {
         // todo：To find a way solve how to stop request data form java server.
     }*/
@@ -277,11 +277,11 @@ exports.getCustomerDetail = function(url, req, res, next) {
                 }
             } catch (e) {
                 LOGERROR(e.stack);
-                res.redirect('/404');
+                res.redirect(markUri + '/404');
             }
 
         } else {
-            res.redirect('/404');
+            res.redirect(markUri + '/404');
         }
     }, req, res, next);
 };
@@ -314,13 +314,13 @@ exports.getPageData = function(options, req, res, next) {
                 res.render(options.page, data);
             } else {
                 console.log(data);
-                res.redirect('/404');
+                res.redirect(markUri + '/404');
             }
         }, req, res, next);
     } catch (err) {
         res.statusCode = 500;
         /*return res.json({success: false, message: '服务器异常'});*/
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 
 };

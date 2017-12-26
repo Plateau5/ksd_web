@@ -53,7 +53,7 @@
             {{#if (count > 0) }}
                 <div class="org_list">
                     {{#each (list) }}
-                        <div class="org_item inline_block org_bg_c{{xIndex + 1}}">
+                        <div class="org_item inline_block org_bg_c{{xindex + 1}}">
                             <div class="org_info">
                                 <div class="company_logo inline_block">仓</div>
                                 <div class="org_name">{{this.name }}</div>

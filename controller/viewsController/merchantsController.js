@@ -24,7 +24,7 @@ exports.VIEW_MERCHANTS_SYSTEM = function(req, res, next) {
         }
     } catch (e) {
         LOGERROR(e.stack);
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 // 商户-商户管理-侧导航跳转 1367
@@ -43,7 +43,7 @@ exports.VIEW_MERCHANTS_MANAGE_SYSTEM = function(req, res, next) {
         }
     } catch (e) {
         LOGERROR(e.stack);
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 // 商户-商户管理-待审核 1370

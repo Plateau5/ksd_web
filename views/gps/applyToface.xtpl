@@ -26,7 +26,7 @@
         <div id="main" class="main org_product">
             <div class="crumbs_nav">
                 <a href="{{markUri}}/home" class="crumbs_item">首页</a>
-                <a href="javascript:window.history.back();" class="crumbs_item">${applicant}的GPS预约申请</a>
+                <a href="javascript:window.history.back();" class="crumbs_item">{{applicant}}的GPS预约申请</a>
                 <a href="javascript:;" class="crumbs_item">当面领取</a>
             </div>
             
@@ -34,19 +34,19 @@
                 <div class="row_item">
                     <div class="row_title"><em class="require_icon">*</em>姓名：</div>
                     <div class="row_val">
-                        <input type="text" id="receiptor" value="${applicant}" placeholder="此处填写领取人姓名" class="person_name" />
+                        <input type="text" id="receiptor" value="{{applicant}}" placeholder="此处填写领取人姓名" class="person_name" />
                     </div>
                 </div>
-                <div class="row_item">
+                <div class="row_item"   style="height: 80px;">
                     <div class="row_title">备注：</div>
-                    <div class="row_val">
-                        <textarea class="remark" maxlength="30" id="remark" placeholder="请输入内容(30个字以内)"></textarea>
+                    <div class="row_val"   style="height: 80px;">
+                        <textarea style="width: 80%;" class="remark" maxlength="30" id="remark" placeholder="请输入内容(30个字以内)"></textarea>
                     </div>
                 </div>
                 <div class="btn_box text_left">
-                <per:button code="1292">
+                    {{#if (verifyCode(1292)) }}
                     <a href="javascript:" class="btn orange_btn confirm" id="submitBtn">确认</a>
-                </per:button>
+                    {{/if}}
                     <a href="javascript:window.history.back();" class="btn bg_btn cancel">取消</a>
                 </div>
             </div>
@@ -58,9 +58,9 @@
     <!-------- Part of footer Begin -------->
     <!--<div id="footer" class="footer"></div>-->
     <!-------- Part of footer End -------->
-    <input type="hidden" value="${delGps_ids}" id="delSnStr">
-    <input type="hidden" value="${gps_ids}" id="sendSn">
-    <input type="hidden" value="${gps_apply_id}" id="applyOrder">
+    <input type="hidden" value="{{delGps_ids}}" id="delSnStr">
+    <input type="hidden" value="{{gps_ids}}" id="sendSn">
+    <input type="hidden" value="{{gps_apply_id}}" id="applyOrder">
 </div>
 </body>
 {{include('./../inc/jsSources')}}

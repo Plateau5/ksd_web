@@ -1,9 +1,4 @@
 <!--GPS仓库编辑-->
-<%@ taglib prefix="c"         uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="per" uri="com/mvc/web/common/tag/permissionTag"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +26,7 @@
         <div id="main" class="main org_product">
             <div class="crumbs_nav">
                 <a href="{{markUri}}/gps/warehouse/list" class="crumbs_item">GPS</a>
-                <a href="javascript:" class="crumbs_item goDetail">${warehouseVO.name}</a>
+                <a href="javascript:" class="crumbs_item goDetail">{{warehouseVO.name}}</a>
                 <a href="javascript:;" class="crumbs_item">入库</a>
             </div>
 
@@ -39,12 +34,12 @@
                 <div class="row_item">
                     <div class="row_title"><em class="require_icon">*</em>城市：</div>
                     <div class="row_val" id="storeCity">
-                        <c:forEach items="${city_list}" var="bean">
+                        {{#each (city_list) }}
                             <div class="form_group">
-	                            <input id="" type="radio" class="apply_city" name="apply_city" value="${bean.id}" />
-	                            <label for="">${bean.name}</label>
+	                            <input id="" type="radio" class="apply_city" name="apply_city" value="{{this.id}}" />
+	                            <label for="">{{this.name}}</label>
                         	</div>
-                       </c:forEach>
+                        {{/each}}
                     </div>
                 </div>
                 <div class="row_item">
@@ -62,9 +57,9 @@
                     <div class="row_val">
                         <select name="" id="selectTag">
                             <option value="">全部</option>
-                            <c:forEach items="${warehouseVO.labelVOs }" var="bean">
-								<option value="${bean.id}">${bean.name}</option>
-							</c:forEach>
+                            {{#each (warehouseVO.labelVOs) }}
+								<option value="{{this.id}}">{{this.name}}</option>
+							{{/each}}
                         </select>
                     </div>
                 </div>
@@ -81,9 +76,9 @@
                     </div>
                 </div>
                 <div class="btn_box text_left">
-                <per:button code="1279">
+                    {{#if (verifyCode(1279)) }}
                     <a href="javascript:" class="btn orange_btn confirm submit_btn">确认</a>
-                </per:button>
+                    {{/if}}
                     <a href="javascript:window.history.back()" class="btn bg_btn cancel">取消</a>
                 </div>
             </div>
@@ -99,11 +94,11 @@
     <!--<div id="footer" class="footer"></div>-->
     <!-------- Part of footer End -------->
     <!-- 隐藏数据：创建人，创建时间 -->
-    <input type="hidden" value="${warehouseVO.creator}" id="creator">
-    <input type="hidden" value="${warehouseVO.create_time}" id="create_time" class="createTime">
-    <input type="hidden" value="${warehouseVO.id}" id="storeId">
-    <input type="hidden" value="${warehouseVO.name}" id="storeName">
-    <input type="hidden" value="${warehouseVO.organization_id}" id="orgId">
+    <input type="hidden" value="{{warehouseVO.creator}}" id="creator">
+    <input type="hidden" value="{{warehouseVO.create_time}}" id="create_time" class="createTime">
+    <input type="hidden" value="{{warehouseVO.id}}" id="storeId">
+    <input type="hidden" value="{{warehouseVO.name}}" id="storeName">
+    <input type="hidden" value="{{warehouseVO.organization_id}}" id="orgId">
 </div>
 </body>
 {{include('./../inc/jsSources')}}
@@ -277,7 +272,7 @@
                     if (res.error_code == 0) {
                         $alert('入库成功', function () {
                             locationTo({
-                                action : contextPath + '/gps/warehouse/toDetail',
+                                action : contextPath + markUri + '/gps/warehouse/detail',
                                 param : {
                                     warehouse_id : data.warehouse_id,
                                     warehouse_name : $.trim($('#storeName').val()),
@@ -304,7 +299,7 @@
             var btn = $('.goDetail');
             btn.on('click', function () {
                 locationTo({
-                    action : contextPath + '/gps/warehouse/toDetail',
+                    action : contextPath + markUri + '/gps/warehouse/detail',
                     param : {
                         warehouse_id : $.trim($('#storeId').val()),
                         warehouse_name : $.trim($('#storeName').val()),

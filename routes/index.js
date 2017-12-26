@@ -271,26 +271,23 @@ router.post(markUri + '/question/merchants/historyRecord', questionCtrl.VIEW_QUE
 
 
 
-// GPS仓库列表页跳转
-router.get(markUri + '/gps/warehouse/list', warehouseCtrl.VIEW_GPS_LIST);
-// GPS仓库-创建GPS仓库跳转
-router.get(markUri + '/gps/warehouse/create', warehouseCtrl.VIEW_GPS_CREATE);
-// GPS仓库-GPS仓库详情页跳转
+// GPS仓库列表页跳转 1280
+router.all(markUri + '/gps/warehouse/list', warehouseCtrl.VIEW_GPS_LIST);
+// GPS仓库-创建GPS仓库跳转 1281
+router.all(markUri + '/gps/warehouse/create', warehouseCtrl.VIEW_GPS_CREATE);
+// GPS仓库-GPS仓库详情页跳转 1311
 router.post(markUri + '/gps/warehouse/detail', warehouseCtrl.VIEW_GPS_DETAIL);
-// GPS仓库-编辑GPS仓库页跳转
+// GPS仓库-编辑GPS仓库页跳转 1282
 router.post(markUri + '/gps/warehouse/edit', warehouseCtrl.VIEW_GPS_EDIT);
-// GPS仓库-GPS仓库-新增入库页跳转
+// GPS仓库-GPS仓库-新增入库页跳转 1283
 router.post(markUri + '/gps/warehouse/putin', warehouseCtrl.VIEW_GPS_PUTIN);
-// GPS仓库-GPS仓库-申请单详情页页跳转 todo 修改下面页面接收方法为POST。
-router.get(markUri + '/gps/apply/detail', warehouseCtrl.VIEW_GPS_APPLY_DETAIL);
-// GPS仓库-GPS仓库-申请单确认发送点击跳转
-router.get(markUri + '/gps/apply/confirmSend', warehouseCtrl.VIEW_GPS_APPLY_CONFIRM);
-// GPS仓库-GPS仓库-申请单-当面交付页跳转
-router.get(markUri + '/gps/apply/toFace', warehouseCtrl.VIEW_GPS_APPLY_TOFACE);
-// GPS仓库-GPS仓库-申请单-快递邮寄页跳转
-router.post(markUri + '/gps/apply/express', warehouseCtrl.VIEW_GPS_APPLY_EXPRESS);
-// GPS仓库-GPS仓库-申请单-不同意页跳转
-router.post(markUri + '/gps/apply/disagree', warehouseCtrl.VIEW_GPS_APPLY_DISAGREE);
+// GPS仓库-GPS仓库-申请单详情页页跳转 1289
+router.post(markUri + '/gps/apply/detail', warehouseCtrl.VIEW_GPS_APPLY_DETAIL);
+// GPS仓库-GPS仓库-申请单确认发送点击跳转 1293
+router.post(markUri + '/gps/apply/confirmSend', warehouseCtrl.VIEW_GPS_APPLY_CONFIRM);
+
+
+
 
 // 行政仓库列表页跳转 1298
 router.all(markUri + '/administrative/warehouse/list', warehouseCtrl.VIEW_ADMINISTRATIVE_LIST);
@@ -401,8 +398,10 @@ router.get(markUri + '/userCenter/resetPassword', settingsCtrl.VIEW_userCenter_r
 // If router is undefined redirect to 404 page.
 /*const apiProxy = proxy('/api', { target: 'http://localhost:8080',changeOrigin: true });
 router.all(/^\/api/, apiProxy);*/
+router.all(markUri + '/404', function(req, res, next) {
+    res.render('./errorpage/404', {title: '404'});
+});
 router.get('*', function(req, res, next) {
-
     res.render('./errorpage/404', {title: '404'});
 });
 

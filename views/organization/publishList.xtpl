@@ -48,7 +48,7 @@
                             <select name="applyto_city" class="filtrate_select" id="filtrate_city">
                                 <option value="-1" <c:if test="${condition.applyto_city eq -1 ||  empty condition.applyto_city }">selected</c:if>>全部</option>
                                 <c:forEach items="${list_city }" var="bean">
-                                    <option value="${bean.id }" <c:if test="${condition.applyto_city eq bean.id }">selected</c:if> >${bean.name}</option>
+                                    <option value="{{this.id}}" <c:if test="${condition.applyto_city eq bean.id }">selected</c:if> >${bean.name}</option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -93,7 +93,7 @@
                         <tbody>
                         <c:forEach items="${list }" var="bean">
                             <tr>
-                                <td title="${bean.name }">${bean.name }</td>
+                                <td title="{{this.name}}">{{this.name}}</td>
                                 <td>
                                     <c:if test="${bean.downpayment_type eq 1 }">
                                         ${bean.downpayment_rate }%
@@ -107,13 +107,13 @@
                                 <td>${bean.pass_rate }%</td>
                                 <td class="operate_btn">
                                     <per:button code="1079">
-                                        <a href="javascript:;" lang="${bean.id }" data_num="0" title="查看" class="view view_detail"></a>
+                                        <a href="javascript:;" lang="{{this.id}}" data_num="0" title="查看" class="view view_detail"></a>
                                     </per:button>
                                     <per:button code="1087">
-                                        <a href="javascript:;" lang="${bean.id }" data_num="0" title="下架" class="unshelve unshelves"></a>
+                                        <a href="javascript:;" lang="{{this.id}}" data_num="0" title="下架" class="unshelve unshelves"></a>
                                     </per:button>
                                     <per:button code="1193">
-                                        <a href="javascript:;" lang="${bean.id }" data_num="0" title="请款材料" class="edit material product_edit_material"></a>
+                                        <a href="javascript:;" lang="{{this.id}}" data_num="0" title="请款材料" class="edit material product_edit_material"></a>
                                     </per:button>
                                 </td>
                             </tr>

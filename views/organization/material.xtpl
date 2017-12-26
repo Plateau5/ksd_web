@@ -37,8 +37,8 @@
                                     <!--<c:if test="${fn:contains(vo.resuest_material,bean.id)}"></c:if>
                                    checked="checked"-->
                                        <c:if test="${fn:contains(vo.resuest_material,bean.id)}">checked="checked"</c:if>
-                                       class="" name="${bean.name }" value="${bean.id }" />
-                                <label class="nor_wrap <c:if test="${fn:contains(vo.resuest_material,bean.id)}">checked</c:if>">${bean.name }</label>
+                                       class="" name="{{this.name}}" value="{{this.id}}" />
+                                <label class="nor_wrap <c:if test="${fn:contains(vo.resuest_material,bean.id)}">checked</c:if>">{{this.name}}</label>
                             </div>
                         </c:forEach>
                     </div>

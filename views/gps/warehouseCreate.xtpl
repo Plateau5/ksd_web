@@ -33,9 +33,9 @@
                     <div class="row_title"><em class="require_icon">*</em>仓库名称：</div>
                     <div class="row_val">
                         <ul class="warehouses_list">
-                            <c:forEach items="${organization_list}" var="bean">
-								<li class="warehouse_item nor_wrap" data-id="${bean.id}" data-name="${bean.name}">${bean.name}</li>
-							</c:forEach>
+                            {{#each (organization_list) }}
+								<li class="warehouse_item nor_wrap" data-id="{{this.id}}" data-name="{{this.name}}">{{this.name}}</li>
+							{{/each}}
                         </ul>
                     </div>
                 </div>
@@ -57,9 +57,9 @@
                     </div>
                 </div>
                 <div class="btn_box text_left">
-                <per:button code="1276">
+                    {{#if (verifyCode(1276)) }}
                     <a href="javascript:" class="btn orange_btn confirm submit_create">确认</a>
-                </per:button>
+                    {{/if}}
                     <a href="{{markUri}}/gps/warehouse/list" class="btn bg_btn cancel">取消</a>
                 </div>
             </div>
@@ -74,7 +74,7 @@
     <!-------- Part of footer Begin -------->
     <!--<div id="footer" class="footer"></div>-->
     <!-------- Part of footer End -------->
-    <input type="hidden" value="${work_city_id}" id="store_city">
+    <input type="hidden" value="{{work_city_id}}" id="store_city">
 </div>
 </body>
 {{include('./../inc/jsSources')}}
@@ -232,7 +232,7 @@
                 $ajax('post', url, data, function(res) {
                     if (res.error_code == 0) {
                         $alert('创建成功', function () {
-                            window.location.href = contextPath + '/gps/warehouse/list';
+                            window.location.href = contextPath + markUri + '/gps/warehouse/list';
                         });
                     } else {
                         $alert(res.error_msg);

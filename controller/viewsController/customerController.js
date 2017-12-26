@@ -67,7 +67,7 @@ exports.VIEW_CUSTOMER_SYSTEM = function(req, res, next) {
         }
     } catch (e) {
         LOGERROR(e.stack);
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 
@@ -90,7 +90,7 @@ exports.VIEW_CUSTOMER_LOAN_SYSTEM = function(req, res, next) {
         }
     } catch (e) {
         LOGERROR(e.stack);
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 // 客户-待分配跳转
@@ -168,7 +168,7 @@ exports.VIEW_CUSTOMER_COMPACT_SYSTEM = function(req, res, next) {
         }
     } catch (e) {
         LOGERROR(e.stack);
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 // 客户-合同管理-待出合同
@@ -223,7 +223,7 @@ exports.VIEW_CUSTOMER_RESQUESTPAYOUT_SYSTEM = function(req, res, next) {
         }
     } catch (e) {
         LOGERROR(e.stack);
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 // 客户-请款管理-待请款
@@ -303,7 +303,7 @@ exports.VIEW_CUSTOMER_APPROVAL_SYSTEM = function(req, res, next) {
         }
     } catch (e) {
         LOGERROR(e.stack);
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 // 客户-审批管理-待审批
@@ -384,7 +384,7 @@ exports.VIEW_CUSTOMER_FINANCIAL_SYSTEM = function(req, res, next) {
         }
     } catch (e) {
         LOGERROR(e.stack);
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 // 客户-款项管理-待回款
@@ -470,7 +470,7 @@ exports.VIEW_CUSTOMER_FINANCIAL_PRINT = function(req, res, next) {
                 res.render(page, data);
             } else {
                 console.log(data);
-                res.redirect('/404');
+                res.redirect(markUri + '/404');
             }
         }, req, res, next);
     } catch (err) {
@@ -478,7 +478,7 @@ exports.VIEW_CUSTOMER_FINANCIAL_PRINT = function(req, res, next) {
         console.log(err + '268');
         res.statusCode = 500;
         /*return res.json({success: false, message: '服务器异常'});*/
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 
@@ -491,7 +491,7 @@ exports.VIEW_CUSTOMER_PIGEONHOLE_SYSTEM = function(req, res, next) {
     } else if (common.checkPrivilege(1178, req)) {
         res.redirect(markUri + '/customer/pigeonhole/archived');
     } else {
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 // 客户-归档管理-待处理
@@ -529,7 +529,7 @@ exports.VIEW_CUSTOMER_OTHERFUND_SYSTEM = function(req, res, next) {
         }
     } catch (e) {
         LOGERROR(e.stack);
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 // 客户-其他管理-待审核

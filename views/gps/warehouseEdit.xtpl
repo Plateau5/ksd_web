@@ -29,15 +29,15 @@
                 <a href="javascript:;" class="crumbs_item">编辑仓库</a>
             </div>
             <input type="hidden" id="wareHouseId" value="{{warehouse_id}}">
-            <input type="hidden" id="organizationId" value="${warehouseVO.organization_id}">
+            <input type="hidden" id="organizationId" value="{{warehouseVO.organization_id}}">
             <div class="gps_create">
                 <div class="row_item more_value tags">
                     <div class="row_title"><em class="require_icon">*</em>标签：</div>
                     <div class="row_val tags_box">
                         <ul class="tags_list">
-                            <c:forEach items="${warehouseVO.labelVOs}" var="bean">
-								<li class="tag_item" data-id="${bean.id}" data-name="${bean.name}"><em class="delete_icon"></em><span class="tag_name">${bean.name}</span></li>
-							</c:forEach>
+                            {{#each (warehouseVO.labelVOs) }}
+								<li class="tag_item" data-id="{{this.id}}" data-name="{{this.name}}"><em class="delete_icon"></em><span class="tag_name">{{this.name}}</span></li>
+							{{/each}}
                         </ul>
                         <em class="add_tag_btn"></em>
                     </div>
@@ -45,13 +45,13 @@
                 <div class="row_item warn_inventory">
                     <div class="row_title">预警库存：</div>
                     <div class="row_val">
-                        <input type="number" class="warn_num" id="warn_inventory" value="${warehouseVO.warning}" placeholder="请输入数字 如：20" />
+                        <input type="number" class="warn_num" id="warn_inventory" value="{{warehouseVO.warning}}" placeholder="请输入数字 如：20" />
                     </div>
                 </div>
                 <div class="btn_box text_left">
-                <per:button code="1278">
+                    {{#if (verifyCode(1278)) }}
                     <a href="javascript:" class="btn orange_btn confirm submit_create">确认</a>
-                </per:button>
+                    {{/if}}
                     <a href="javascript:window.history.back();" class="btn bg_btn cancel">取消</a>
                 </div>
             </div>
@@ -240,7 +240,7 @@
                 $ajax('post', url, data, function(res) {
                     if (res.error_code == 0) {
                         $alert('编辑成功', function () {
-                            window.location.href = contextPath + '/gps/warehouse/list';
+                            window.location.href = contextPath + markUri + '/gps/warehouse/list';
                         });
                     } else {
                         $alert(res.error_msg);

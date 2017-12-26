@@ -22,7 +22,7 @@ exports.VIEW_STATISTICS_SYSTEM = function(req, res, next) {
         }
     } catch (e) {
         LOGERROR(e.stack);
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 
@@ -94,7 +94,7 @@ exports.VIEW_STATISTICS_PERSON_SYSTEM = function(req, res, next) {
         }
     } catch (e) {
         LOGERROR(e.stack);
-        res.redirect('/404');
+        res.redirect(markUri + '/404');
     }
 };
 // 数据统计-人效统计-进件跳转

@@ -14,46 +14,87 @@ var ERRORTYPES = require('./../../util/ErrorTypesConf'); // 自定义错误类�
 /**
  * GPS部分
  */
-// GPS仓库列表页跳转
+// GPS仓库列表页跳转 1280
 exports.VIEW_GPS_LIST = function(req, res, next) {
-    res.render('./gps/warehouseList', { title: '仓库管理-GPS仓库列表'});
+    common.getPageData({
+        url : '/api/gps/warehouse/toList',
+        title : '仓库管理-GPS仓库列表',
+        page : './gps/warehouseList'
+    }, req, res, next);
 };
-// GPS仓库-创建GPS仓库跳转
+// GPS仓库-创建GPS仓库跳转 1281
 exports.VIEW_GPS_CREATE = function(req, res, next) {
-    res.render('./gps/warehouseCreate', { title: '仓库管理-创建GPS仓库'});
+    common.getPageData({
+        url : '/api/gps/warehouse/toAdd',
+        title : '仓库管理-创建GPS仓库',
+        page : './gps/warehouseCreate'
+    }, req, res, next);
 };
-// GPS仓库-GPS仓库详情页跳转
+// GPS仓库-GPS仓库详情页跳转 1311
 exports.VIEW_GPS_DETAIL = function(req, res, next) {
-    res.render('./gps/warehouseDetail', { title: '仓库管理-GPS仓库详情'});
+    common.getPageData({
+        url : '/api/gps/warehouse/toDetail',
+        title : '仓库管理-GPS仓库详情',
+        page : './gps/warehouseDetail'
+    }, req, res, next);
 };
-// GPS仓库-编辑GPS仓库页跳转
+// GPS仓库-编辑GPS仓库页跳转 1282
 exports.VIEW_GPS_EDIT = function(req, res, next) {
-    res.render('./gps/warehouseEdit', { title: '仓库管理-编辑GPS仓库'});
+    common.getPageData({
+        url : '/api/gps/warehouse/toEdit',
+        title : '仓库管理-编辑GPS仓库',
+        page : './gps/warehouseEdit'
+    }, req, res, next);
 };
-// GPS仓库-GPS仓库-新增入库页跳转
+// GPS仓库-GPS仓库-新增入库页跳转 1283
 exports.VIEW_GPS_PUTIN = function(req, res, next) {
-    res.render('./gps/warehousePutin', { title: '仓库管理-GPS入库'});
+    common.getPageData({
+        url : '/api/gps/warehouse/toPutIn',
+        title : '仓库管理-GPS入库',
+        page : './gps/warehousePutin'
+    }, req, res, next);
 };
-// GPS仓库-GPS仓库-申请单详情页页跳转
+// GPS仓库-GPS仓库-申请单详情页页跳转 1289
 exports.VIEW_GPS_APPLY_DETAIL = function(req, res, next) {
-    res.render('./gps/applyDetail', { title: '仓库管理-GPS申请'});
+    common.getPageData({
+        url : '/api/gps/toApplyDetail',
+        title : '仓库管理-GPS申请详情',
+        page : './gps/applyDetail'
+    }, req, res, next);
 };
-// GPS仓库-GPS仓库-申请单详情页页跳转
+// GPS仓库-GPS仓库-申请单-确认按钮点击跳转
 exports.VIEW_GPS_APPLY_CONFIRM = function(req, res, next) {
-    // TODO 根据确认发送参数进行页面跳转，目前默认为当面交付。
-    res.redirect('/gps/apply/toFace');
-};
-// GPS仓库-GPS仓库-申请单-当面交付页跳转
-exports.VIEW_GPS_APPLY_TOFACE = function(req, res, next) {
-    res.render('./gps/applyToface', { title: '仓库管理-GPS当面交付'});
-};
-// GPS仓库-GPS仓库-申请单-快递邮寄页跳转
-exports.VIEW_GPS_APPLY_EXPRESS = function(req, res, next) {
-    res.render('./gps/applyExpress', { title: '仓库管理-GPS快递发送'});
-};
-// GPS仓库-GPS仓库-申请单-不同意页跳转
-exports.VIEW_GPS_APPLY_DISAGREE = function(req, res, next) {
-    res.render('./gps/applyDisagree', { title: '仓库管理-GPS不同意'});
+    var param = req.body;   // 页面提交数据
+    var data = {};
+    try {
+        data.originUrl = req.originalUrl;
+        data.markUri = markUri;
+        data.apiServerPath = apiServerPath;
+        data.domain = domain;
+        data.gps_apply_id = param.gps_apply_id;     // 锁定的gps
+        data.applicant = param.applicant;   // 申请人
+        data.gps_ids = param.gps_ids;       // 确认发送的gps
+        data.delGps_ids = param.delGps_ids;     // 删除发送的GPS
+        if (param.gps_ids === '') {
+            data.title = '仓库管理-不同意';
+            res.render('./gps/applyDisagree', data);
+        } else if (param.receive_type === "1") {  // 当面交付
+            data.title = '仓库管理-GPS当面交付';
+            res.render('./gps/applyToface', data);
+        } else if (param.receive_type === "2") {
+            common.getPageData({
+                url : '/api/gps/toApplyConfirm',
+                title : '仓库管理-快递邮寄',
+                page : './gps/applyExpress'
+            }, req, res, next);
+        } else {
+            throw new Error(ERRORTYPES.Param + '：The next page of to gps apply confirm is not defined. Request get params are error is possible.');
+        }
+    } catch (e) {
+        LOGERROR(e.stack);
+        res.redirect(markUri + '/404', {status : 400});
+    }
+
 };
 
 

@@ -24,66 +24,69 @@
         <!---- Part of Main info Begin ---->
         <div id="main" class="main org_product">
             <!--没有创建任何GPS仓库 Begin-->
-			<c:if test="${count eq 0}">
-				<per:button code="1281">
+			{{#if (count === 0) }}
+				{{#if (verifyCode(1281)) }}
 					<div class="no_workflow">
 						<div class="toast_text">目前还没有仓库，尝试建造一个吧</div>
 						<div class="new_btn_box">
 							<a href="{{markUri}}/gps/warehouse/create" class="btn blue_btn add_btn"><em></em>新建仓库</a>
 						</div>
 					</div>
-				</per:button>
-			</c:if>
+				{{/if}}
+			{{/if}}
 
-            <c:if test="${count > 0 }">
-            <per:button code="1281">
-				<div class="new_btn_box">
-	            	<a href="{{markUri}}/gps/warehouse/create"  id="createOrg"  class="btn blue_btn add_btn"><em></em>新建仓库</a>
-	            </div>
-			</per:button>
-            <!--没有创建任何GPS仓库 End-->
-            <!--已创建GPS仓库-->
-            <!--作为GPS分页加载使用-->
-            <form action="/gps/warehouse/list" method="post" id="form_search" role='form'>
-            </form>
-            <!--作为GPS产品列表显示跳转用-->
-            <form action="/gps/warehouse/edit" method="post" id="form_go_edit" role='form'>
-                <input type="hidden" name="warehouse_id" id="warehouse_id" value="" >
-            </form>
+            {{#if (count > 0) }}
+                {{#if (verifyCode(1281)) }}
+                    <div class="new_btn_box">
+                        <a href="{{markUri}}/gps/warehouse/create"  id="createOrg"  class="btn blue_btn add_btn"><em></em>新建仓库</a>
+                    </div>
+                {{/if}}
+                <!--没有创建任何GPS仓库 End-->
+                <!--已创建GPS仓库-->
+                <!--作为GPS分页加载使用-->
+                <form action="{{markUri}}/gps/warehouse/list" method="post" id="form_search" role='form'>
+                </form>
+                <!--作为GPS产品列表显示跳转用-->
+                <form action="{{markUri}}/gps/warehouse/edit" method="post" id="form_go_edit" role='form'>
+                    <input type="hidden" name="warehouse_id" id="warehouse_id" value="" >
+                </form>
                 <div class="org_list">
-                    <c:forEach items="${list }" var="bean" varStatus="status">>
-                        <div class="org_item inline_block org_bg_c${status.count}">
+                    {{#each (list) }}
+                        <div class="org_item inline_block org_bg_c{{xindex + 1}}">
                             <div class="org_info">
                                 <div class="org_logo inline_block">
-                                    <img class="img_responsive" src="${bean.image_url }" alt="">
+                                    <img class="img_responsive" src="{{this.image_url }}" alt="">
                                 </div>
-                                <div class="org_name">${bean.name }</div>
+                                <div class="org_name">{{this.name }}</div>
                             </div>
                             <div class="org_business">
-                                <span class="products_count">库存量：${bean.inventory}个</span>
+                                <span class="products_count">库存量：{{this.inventory}}个</span>
                                 <span class="business_type rf">预警库存：
-                                <c:if test="${empty  bean.warning}">- -</c:if>
-                                <c:if test="${not empty  bean.warning}">${bean.warning}</c:if>
+                                    {{#if (this.warning) }}
+                                        {{this.warning}}
+                                    {{else}}
+                                        - -
+                                    {{/if}}
                                 </span>
                             </div>
-                            <div class="org_mask" alt="${bean.name }" lang="${bean.id }">
-                                <!--<per:button code="1311">-->
-                                    <a href="javascript:;" title="查看" alt="${bean.name }" lang="${bean.id }" class="view_store icon_btn inline_block"></a>
-                                <!--</per:button>-->
-                                <!--<per:button code="1282">-->
-                                    <a href="javascript:;" title="编辑" alt="${bean.name }" lang="${bean.id }" class="edit_store icon_btn inline_block"></a>
-                                <!--</per:button>-->
-                                <!--<per:button code="1277">-->
-                                    <a href="javascript:;" title="删除" alt="${bean.name }" lang="${bean.id }" class="delete_store icon_btn inline_block"></a>
-                                <!--</per:button>-->
+                            <div class="org_mask" alt="{{this.name }}" lang="{{this.id }}">
+                                {{#if (root.verifyCode(1311)) }}
+                                    <a href="javascript:;" title="查看" alt="{{this.name }}" lang="{{this.id}}" class="view_store icon_btn inline_block"></a>
+                                {{/if}}
+                                {{#if (root.verifyCode(1282)) }}
+                                    <a href="javascript:;" title="编辑" alt="{{this.name}}" lang="{{this.id}}" class="edit_store icon_btn inline_block"></a>
+                                {{/if}}
+                                {{#if (root.verifyCode(1277)) }}
+                                    <a href="javascript:;" title="删除" alt="{{this.name}}" lang="{{this.id}}" class="delete_store icon_btn inline_block"></a>
+                                {{/if}}
                             </div>
                                 <!-- 隐藏数据：创建人，创建时间 -->
-                            <input type="hidden" value="${bean.creator}" class="creator">
-                            <input type="hidden" value="${bean.create_time}" class="createTime">
+                            <input type="hidden" value="{{this.creator}}" class="creator">
+                            <input type="hidden" value="{{this.create_time}}" class="createTime">
                         </div>
-                    </c:forEach>
+                    {{/each}}
                 </div>
-            </c:if>
+            {{/if}}
             <div class="page_box">
                 {{include('./../inc/pagination')}}
             </div>
@@ -192,7 +195,7 @@
                 var createTime = $.trim(p.find('.createTime').val());
                 var creator = $.trim(p.find('.creator').val());
                 locationTo({
-                    action : contextPath + '/gps/warehouse/detail',
+                    action : contextPath + markUri + '/gps/warehouse/detail',
                     param : {
                         warehouse_id : id,
                         warehouse_name : warehouseName,

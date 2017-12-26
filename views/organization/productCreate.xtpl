@@ -300,7 +300,7 @@
                             <div class="form-control checkBox">
                             	<c:forEach items="${list_material}" var="bean">
 	                                <div class="check" >
-	                                    <div class="check_img icon_uncheck" id="${bean.id }"></div>
+	                                    <div class="check_img icon_uncheck" id="{{this.id}}"></div>
 	                                    <span>${bean.name}</span>
 	                                </div>
                                 </c:forEach>
@@ -330,7 +330,7 @@
                                     <div class="box_middle_left_container display" id="outsettling_province" >
                                     	<c:forEach items="${list_province }" var="bean">
 	                                        <div class="container_txt_box">
-	                                            <div class="check_img icon_uncheck cursor select_province_img" id="${bean.id }"></div>
+	                                            <div class="check_img icon_uncheck cursor select_province_img" id="{{this.id}}"></div>
 	                                            <div class="container_txt">${bean.name}</div>
 	                                        </div>
                                     	</c:forEach>
@@ -339,7 +339,7 @@
                                         <div class="container_city_box">
 
                                         	<c:forEach items="${list_city}" var="bean">
-                                                <div class="city_box"  id="${bean.id }">
+                                                <div class="city_box"  id="{{this.id}}">
                                                     <div class="container_city_box_top">${bean.name}</div>
                                                     <div class="container_city_box_middle">
                                                         <c:forEach items="${bean.city_list}" var="bean_city">
