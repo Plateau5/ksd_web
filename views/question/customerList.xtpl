@@ -54,7 +54,7 @@
                             <span>{{this.parent_name}}</span>
                             <div class="btn_box" style="width: 600px;text-align: right;">
                                 {{#if (root.verifyCode(1095)) }}
-                                    <a href=root."javascript:" class="detail_title_btn create_btn" data-parent_id="{{this.parent_id}}">新建问题</a>
+                                    <a href="javascript:" class="detail_title_btn create_btn" data-parent_id="{{this.parent_id}}">新建问题</a>
                                 {{/if}}
                                 {{#if (root.verifyCode(1094)) }}
                                     <a href="javascript:" class="detail_title_btn edit_btn edit_classify_btn" data-name="{{this.parent_name}}" data-id="{{this.parent_id}}">重命名</a>
