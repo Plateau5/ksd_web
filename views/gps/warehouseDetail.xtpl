@@ -214,9 +214,9 @@
 					{{/if}}
                 </div>
                 <!--分页部分 Begin-->
-                   <div class="page_box">
+
                         {{include('./../inc/pagination')}}
-                    </div>
+
                 <!--分页部分 End-->
             </div>
 

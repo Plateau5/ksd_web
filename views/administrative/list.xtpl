@@ -77,9 +77,9 @@
                     {{/each}}
                 </div>
             {{/if}}
-            <div class="page_box">
+
                 {{include('./../inc/pagination')}}
-            </div>
+
         </div>
         <!---- Part of Main info End ---->
     </div>

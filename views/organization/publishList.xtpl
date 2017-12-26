@@ -125,9 +125,9 @@
             <c:if test="${count eq 0 }">
                 {{include('./../inc/empty_data')}}
             </c:if>
-            <div class="page_box">
+
                 {{include('./../inc/pagination')}}
-            </div>
+
         </div>
         <!---- Part of Main info End ---->
     </div>

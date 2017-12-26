@@ -123,9 +123,9 @@
 						{{/if}}
 
 					</div>
-					<div class="page_box">
+
 						{{include('./../inc/pagination')}}
-					</div>
+
 				</div>
 			</form>
 

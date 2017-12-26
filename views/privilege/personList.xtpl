@@ -85,9 +85,9 @@
 					</c:if>
                     <!--分页部分 Begin-->
 					<c:if test="${count > 0}">
-	                    <div class="page_box">
+
 	                        {{include('./../inc/pagination')}}
-	                    </div>
+
                     </c:if>
                     <!--分页部分 End-->
                     
