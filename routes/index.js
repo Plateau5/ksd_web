@@ -249,6 +249,8 @@ router.post(markUri + '/organization/product/material', organizationCtrl.VIEW_OR
 
 // 业务管理-主导航节点跳转
 router.get(markUri + '/business/system', workflowCtrl.VIEW_BUSINESS_SYSTEM);
+// 业务管理-城市管理 1357
+router.all(markUri + '/business/city/manage', workflowCtrl.VIEW_BUSINESS_CITY_MANAGE);
 // 流程管理-审批流列表页跳转 1130
 // router.get(markUri + '/workflow/system', workflowCtrl.VIEW_WORKFLOW_SYSTEM);
 // 流程管理-审批流列表页跳转 1130
@@ -383,21 +385,7 @@ router.get(markUri + '/userCenter/resetPassword', settingsCtrl.VIEW_userCenter_r
 
 
 
-
-
-
-
-/*router.get('/statistics', function (req, res, next) {
-    request(contextPath + '/home', function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            //var data = JSON.parse(response.body);
-            res.send(response);
-        }
-    });
-});*/
 // If router is undefined redirect to 404 page.
-/*const apiProxy = proxy('/api', { target: 'http://localhost:8080',changeOrigin: true });
-router.all(/^\/api/, apiProxy);*/
 router.all(markUri + '/404', function(req, res, next) {
     res.render('./errorpage/404', {title: '404'});
 });

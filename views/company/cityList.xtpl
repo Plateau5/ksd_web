@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     {{include('./../inc/cssSources')}}
-    <link rel="stylesheet" href="${contextPath}/static/css/warehouse.css">
-    <link rel="stylesheet" href="${contextPath}/static/css/citySelect.css">
-    <link rel="stylesheet" href="${contextPath}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/warehouse.css">
+    <link rel="stylesheet" href="{{markUri}}/static/css/citySelect.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
     <title>业务-城市管理</title>
 </head>
 <body>
@@ -23,27 +23,27 @@
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">
-            <form action="${contextPath}/citymanage/city" method="post" id="form_search" role='form'>
+            <form action="{{markUri}}/business/city/manage" method="post" id="form_search" role='form'>
             </form>
-            <c:if test="${count eq 0}">
+            {{#if (count === 0) }}
                 <!--没有创建任何流程-->
-                <per:button code="1358">
+                {{#if (verifyCode(1358)) }}
 	                <div class="no_list_data">
 	                    <div class="toast_text">目前还没有增加任何城市，请先增加城市</div>
 	                    <div class="new_btn_box">
 	                        <a href="javascript:" title="新增城市" class="btn blue_btn add_btn"><em></em>新增城市</a>
 	                    </div>
 	                </div>
-                </per:button>
-            </c:if>
-            <c:if test="${count > 0}">
+                {{/if}}
+            {{/if}}
+            {{#if (count > 0) }}
                 <!--已增加城市列表-->
                 <div class="">
-                <per:button code="1358">
+                    {{#if (verifyCode(1358)) }}
                     <div class="new_btn_box">
                         <a href="javascript:" title="新增城市" class="btn blue_btn add_btn"><em></em>新增城市</a>
                     </div>
-                </per:button>    
+                    {{/if}}
                     <table class="table_list">
                         <colgroup style="width: 100%;">
                             <col style="width: 40%;" />
@@ -58,39 +58,37 @@
                         </tr>
                         </thead>
                         <tbody>
-	                        <c:forEach items="${list }" var="bean">
+                            {{#each (list) }}
 	                        	<tr>
-	                            	<td>${bean.province_name }-${bean.city_name }</td>
-	                            	<td>${bean.start_date }</td>
-	                            	<td class="operate_btn" data-status="${bean.status}">
-	                            	<per:button code="1359">
-	                            		<c:if test="${bean.status == 1 }">
-	                            			<div class="r_radio inline_block" type="on" data-id="${bean.city_id}">
+	                            	<td>{{this.province_name }}-{{this.city_name }}</td>
+	                            	<td>{{this.start_date }}</td>
+	                            	<td class="operate_btn" data-status="{{this.status}}">
+                                    {{#if (root.verifyCode(1359)) }}
+	                            		{{#if (this.status === 1) }}
+	                            			<div class="r_radio inline_block" type="on" data-id="{{this.city_id}}">
 		                                    	<span>ON</span>
                                                 <span>OFF</span>
 		                                    	<div style="left: 28px"></div>
 		                                	</div>
-	                            		</c:if>
-	                                	<c:if test="${bean.status == 2 }">
-	                            			<div class="r_radio inline_block off" type="off"  data-id="${bean.city_id}">
+	                            		{{/if}}
+	                                	{{#if (this.status === 2) }}
+	                            			<div class="r_radio inline_block off" type="off"  data-id="{{this.city_id}}">
 		                                    	<span>ON</span>
                                                 <span>OFF</span>
 		                                    	<div></div>
 		                                	</div>
-	                            		</c:if>
-	                            	</per:button>
+	                            		{{/if}}
+	                            	{{/if}}
 	                            	</td>
 	                        	</tr>
-                        	</c:forEach>
+                        	{{/each}}
                         </tbody>
                     </table>
                 </div>
                 <!--分页部分 Begin-->
-                <div class="page_box">
-                    <jsp:include page="/WEB-INF/inc/page_list.jsp"></jsp:include>
-                </div>
+                {{include('./../inc/pagination')}}
                 <!--分页部分 End-->
-            </c:if>
+            {{/if}}
         </div>
         <!---- Part of Main info End ---->
     </div>
@@ -101,13 +99,14 @@
 </div>
 <input type="hidden" class="area-danxuan single-choice" id="citySelect" value="" data-clear="true" data-value="" />
 </body>
-<jsp:include page="/WEB-INF/inc/js_source.jsp"></jsp:include>
-<script src="${contextPath}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+{{include('./../inc/jsSources')}}
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
 <script>
-    var list = ${cityList}; // 城市数据
+    var list = '{{cityList}}'; // 城市数据
+    list = JSON.parse(list.replace(/&quot;/ig, '"'));
     var __LocalDataCities = formatCityData(list);
 </script>
-<script src="${contextPath}/static/js/citySelect.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/citySelect.js" type="text/javascript" charset="UTF-8"></script>
 <script>
     (function ($) {
         var cityInput = $('#citySelect');

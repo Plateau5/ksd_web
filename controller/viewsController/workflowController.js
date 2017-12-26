@@ -13,15 +13,37 @@ var ERRORTYPES = require('./../../util/ErrorTypesConf'); // 自定义错误类�
 // 业务管理-主导航节点跳转
 exports.VIEW_BUSINESS_SYSTEM = function(req, res, next) {
     try {
-        if (common.checkPrivilege(1130, req)) {
+        if (common.checkPrivilege(1130, req)) {     //审批流
             res.redirect(markUri + '/workflow/list');
+        } else if (common.checkPrivilege(1092, req)) {
+            res.redirect(markUri + '/question/customer/list');  // 客户问题列表
+        } else if (common.checkPrivilege(1365, req)) {
+            res.redirect(markUri + '/question/merchants/list');  // 商户问题列表
+        } else if (common.checkPrivilege(1298, req)) {
+            res.redirect(markUri + '/administrative/warehouse/list');  // 行政仓库
+        } else if (common.checkPrivilege(1280, req)) {
+            res.redirect(markUri + '/gps/warehouse/list');  // GPS仓库
+        } else if (common.checkPrivilege(1357, req)) {
+            res.redirect(markUri + '/business/city/manage');  // 城市管理
         } else {
-            throw new Error(ERRORTYPES.CheckPrivilege + ': The code 1331 | 1332 | 1333 is not defined.');
+            throw new Error(ERRORTYPES.CheckPrivilege + ': The code 1130 | 1092 | 1365 | 1298 | 1280 | 1357  is not defined.');
         }
     } catch (e) {
         LOGERROR(e.stack);
         res.redirect(markUri + '/404');
     }
+};
+
+// 业务管理-城市管理 1357
+exports.VIEW_BUSINESS_CITY_MANAGE = function(req, res, next) {
+    common.getPageData({
+        url : '/api/citymanage/city',
+        title : '城市管理',
+        page : './company/cityList',
+        callback : function (data) {
+            data.cityList = JSON.stringify(data.cityList);
+        }
+    }, req, res, next);
 };
 
 // 流程管理-审批流列表页跳转 1130
