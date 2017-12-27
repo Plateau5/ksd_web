@@ -32,7 +32,7 @@
         {{include ('./../inc/sideNav')}}
         <!--navLeft end-->
 
-		<form action="/customer/loan/detail" id="getFile" method="post">
+		<form action="{{markUri}}/customer/loan/detail" id="getFile" method="post">
 			<input id="finance_id_file" value="" name="finance_id" type="hidden">
 			<input id="active" value="" name="active" type="hidden">
 			<input id="url" value="" name="url" type="hidden">
