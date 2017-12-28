@@ -16,7 +16,7 @@
         <div id="section" class="section normal_width">
             <!---- Part of slide nav Begin ---->
             {{include ('./../inc/sideNav')}}
-            <!---- Part of slide na End ---->
+            <!---- Part of slide nav End ---->
 
             <!---- Part of Main info Begin ---->
             <div id="main" class="main pad_btm_100">

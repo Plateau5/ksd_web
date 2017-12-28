@@ -3,7 +3,7 @@
 <head>
     {{include ("./../inc/cssSources")}}
     <link rel="stylesheet" href="{{markUri}}/static/css/home.css">
-    <title>致汇金服-首页</title>
+    <title>快收单-首页</title>
 </head>
 <body>
 <div id="wrapper" class="wrapper">
@@ -15,7 +15,7 @@
     <div id="section" class="section normal_width">
         <!---- Part of slide nav Begin ---->
         {{include ('../inc/sideNav')}}
-        <!---- Part of slide na End ---->
+        <!---- Part of slide nav End ---->
 
         <!---- Part of Main info Begin ---->
         <div id="main" class="main">

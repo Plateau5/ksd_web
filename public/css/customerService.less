@@ -483,6 +483,146 @@
         background-position: 0 -42px;
     }
 
+
+}
+.docking_container .form_options{
+    margin-top: 10px;
+    padding-left: 0;
+    background: #FFFFFF;
+    &:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .tips_info{
+        margin-left: 0;
+        padding-top: 4px;
+        display: none;
+    }
+    .option_item{
+        width: 50%;
+        float: left;
+        height: 60px;
+        line-height: unset;
+    }
+    .options_title{
+        clear: both;
+        margin-bottom: 15px;
+    }
+    .column_name{
+        width: 25%;
+        padding-top: 7px;
+        text-align: left;
+    }
+    .column_val{
+        width: 65%;
+        input[type='text'],input[type='number']{
+            width: 193px;
+            padding-right: 20px;
+        }
+        input[disabled]{
+            padding-left: 0;
+            background: #FFFFFF;
+            border: 0;
+        }
+        select{
+            width: 230px;
+        }
+        .value_text{
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+        }
+        .unit{
+            margin-left: -20px;
+            vertical-align: middle;
+        }
+        .v_middle{
+            padding-top: 7px;
+        }
+
+    }
+    .repayment_plan{
+        color: @active-color;
+    }
+    .whole_line{
+        width: 100%;
+        height: auto;
+        .column_name{
+            width: 15%;
+        }
+        .column_val{
+            width: 85%;
+        }
+    }
+    .repayment_plan_btn{
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin-top: 8px;
+        vertical-align: middle;
+        background: url('../img/repayment_icon.png');
+        cursor: pointer;
+    }
+}
+.repayment_plan_table{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,.8);
+    .content{
+        z-index: 10;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 564px;
+        height: 430px;
+        background: #ffffff;
+    }
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        border: none;
+        tr,td,th{
+            border: none;
+            text-align: center;
+            vertical-align: middle;
+        }
+        tr{
+            height: 30px;
+        }
+        th{
+            color: #FFFFFF;
+            background: @active-color;
+            font-weight: normal;
+        }
+        tbody tr:nth-child(odd){
+            background: @th-bg-color;
+        }
+    };
+    .confirm_btn_box{
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        .confirm_btn{
+            display: inline-block;
+            width: 66px;
+            height: 22px;
+            line-height: 22px;
+            color: #FFFFFF;
+            background: @active-color;
+            -webkit-border-radius: @normal-radius;
+            -moz-border-radius: @normal-radius;
+            border-radius: @normal-radius;
+        }
+    }
 }
 /***********  先锋对接部分 End **************/
 /*********** 合同管理同意页面 Begin ********/

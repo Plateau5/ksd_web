@@ -1,0 +1,115 @@
+<!-- 录入—征信信息 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{include ("./../inc/cssSources")}}
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
+    <title>{{title}}</title>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        {{include ('./../inc/header')}}
+        <!-------- Part of header End -------->
+
+        <!-------- Part of main Begin -------->
+        <div id="section" class="section normal_width">
+            <!---- Part of slide nav Begin ---->
+            {{include ('./../inc/sideNav')}}
+            <!---- Part of slide nav End ---->
+
+            <!---- Part of Main info Begin ---->
+            <div id="main" class="main docking_container">
+                <div class="crumbs_nav">
+                    <a href="javascript:;" class="crumbs_item">贷款管理</a>
+                    <a href="javascript:;" class="crumbs_item">已分配</a>
+                    <a href="javascript:;" class="crumbs_item">查看详情</a>
+                    <a href="javascript:;" class="crumbs_item">录入资料</a>
+                    <a href="javascript:;" class="crumbs_item">征信信息</a>
+                </div>
+                <div class="form_content form_options">
+                    <form action="" class="basic_info_edit">
+                        <!-- 承租人文件信息 Begin -->
+                        <div class="options_title">承租人文件信息</div>
+                        <div class="option_item whole_line" id="">
+                            <div class="column_name">
+                                <span class="options_name"><span class="require_icon">*</span>个人申请表：</span>
+                            </div>
+                            <div class="column_val">
+                                <div class="img_md_box">
+                                    <a href="javascript:;" class="add_img_md_btn"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option_item whole_line" id="">
+                            <div class="column_name">
+                                <span class="options_name"><span class="require_icon">*</span>身份证 ：</span>
+                            </div>
+                            <div class="column_val">
+                                <div class="img_md_box">
+                                    <a href="javascript:;" class="add_img_md_btn"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 承租人文件信息  end -->
+                        <!-- 担保人文件信息 Begin -->
+                        <div class="options_title">担保人文件信息</div>
+                        <div class="option_item whole_line" id="">
+                            <div class="column_name">
+                                <span class="options_name"><span class="require_icon">*</span>个人申请表：</span>
+                            </div>
+                            <div class="column_val">
+                                <div class="img_md_box">
+                                    <a href="javascript:;" class="add_img_md_btn"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option_item whole_line" id="">
+                            <div class="column_name">
+                                <span class="options_name"><span class="require_icon">*</span>身份证 ：</span>
+                            </div>
+                            <div class="column_val">
+                                <div class="img_md_box">
+                                    <a href="javascript:;" class="add_img_md_btn"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 担保人文件信息  end -->
+
+
+
+
+                    </form>
+                </div>
+                <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
+                    <a href="javascript:" class="btn orange_btn confirm edit_confirm">保存并继续</a>
+                    <a href="" class="btn bg_btn edit_cancel">取消</a>
+                </div>
+
+
+            </div>
+            <!---- Part of Main info End ---->
+        </div>
+        <!-------- Part of main End -------->
+
+        <!-------- Part of footer Begin -------->
+        <!--<div id="footer" class="footer"></div>-->
+        <!-------- Part of footer End -------->
+    </div>
+</body>
+{{include ('./../inc/jsSources')}}
+<script src="../static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+</html>
+<script>
+    (function ($) {
+
+
+
+
+
+
+        $(function() {
+            resetCheckboxAndRadio('checkbox', ".form_group label", ".checked");
+        });
+    })(jQuery,undefined);
+</script>

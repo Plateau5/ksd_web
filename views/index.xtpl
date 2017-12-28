@@ -7,7 +7,7 @@
     <link rel="icon" href="{{markUri}}/static/img/favicon.ico" mce_href="{{markUri}}/img/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="{{markUri}}/static/img/favicon.ico" mce_href="{{markUri}}/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="{{markUri}}/static/css/login.css">
-    <title>致汇金服-登录</title>
+    <title>快收单-登录</title>
 </head>
 <body>
     <div id="wrapper" class="wrapper">

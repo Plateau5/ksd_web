@@ -2,7 +2,7 @@
 <div id="" class="header full_width">
     <div class="header_content normal_width">
         <a href="{{contextPath}}/home" class="logo">
-            <img class="block" src="{{markUri}}/static/img/logo.png" alt="致汇金服logo">
+            <img class="block" src="{{markUri}}/static/img/logo.png" alt="快收单logo">
         </a>
         <ul class="header_nav inline_block">
             <li class="nav_item {{#if(startWith(markUri + '/home'))}}active{{/if}}">

@@ -1,0 +1,550 @@
+<!-- 录入—车辆及贷款信息(个人) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{include ("./../inc/cssSources")}}
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
+    <title>{{title}}</title>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        {{include ('./../inc/header')}}
+        <!-------- Part of header End -------->
+
+        <!-------- Part of main Begin -------->
+        <div id="section" class="section normal_width">
+            {{include ('./../inc/sideNav')}}
+            <!---- Part of slide nav End ---->
+
+            <!---- Part of Main info Begin ---->
+            <div id="main" class="main docking_container">
+                <div class="crumbs_nav">
+                    <a href="javascript:;" class="crumbs_item">贷款管理</a>
+                    <a href="javascript:;" class="crumbs_item">已分配</a>
+                    <a href="javascript:;" class="crumbs_item">查看详情</a>
+                    <a href="javascript:;" class="crumbs_item">录入资料</a>
+                    <a href="javascript:;" class="crumbs_item">融资业务信息</a>
+                </div>
+                <div class="form_content form_options">
+                    <form action="" class="basic_info_edit">
+                        <!-- 车辆基本信息 Begin -->
+                        <div class="options_title">车辆信息</div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">品牌：</span>
+                            </div>
+                            <div class="column_val">
+                                <select name="brandId" id="">
+                                    <option value="">请选择</option>
+                                    <option value="">宝马</option>
+                                    <option value="">宝马</option>
+                                    <option value="">宝马</option>
+                                    <option value="">宝马</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">车系：</span>
+                            </div>
+                            <div class="column_val">
+                                <select name="serialId" id="">
+                                    <option value="">请选择</option>
+                                    <option value="">X5</option>
+                                    <option value="">X6</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">车型：</span>
+                            </div>
+                            <div class="column_val">
+                                <select name="modelId" id="">
+                                    <option value="">请选择</option>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">年份：</span>
+                            </div>
+                            <div class="column_val">
+                                <select name="year" id="">
+                                    <option value="">请选择</option>
+                                    <option value="">2009</option>
+                                    <option value="">2009</option>
+                                    <option value="">2009</option>
+                                    <option value="">2009</option>
+                                    <option value="">2009</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">颜色：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" class="required" data-tips="颜色不能为空" name="carColor" value="" placeholder="请输入颜色，比如：黑色" />
+                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">品牌指导价：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="hidden" name="price" value="29930.33" />
+                                <span class="value_text"><span class="value">29930.33</span><span>元</span></span>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">是否进口：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" name="" value="否" class="" placeholder="" disabled />
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">购置税：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" class="required" data-tips="购置税不能为空" name="buyTax" value="" placeholder="0" />
+                                <samp class="unit">元</samp>
+                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">车辆实际价格：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" class="required" data-tips="车辆实际价格不能为空" name="pawnValue" value="" placeholder="0" />
+                                <samp class="unit">元</samp>
+                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">其他费用：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" class="required" data-tips="其他费用不能为空" name="otherFee" value="" placeholder="0" />
+                                <samp class="unit">元</samp>
+                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">保险：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" class="required" data-tips="保险不能为空" name="assure" value="" placeholder="0" />
+                                <samp class="unit">元</samp>
+                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                            </div>
+                        </div>
+                        <!-- 车辆基本信息 End -->
+                        <!-- 经销商信息 Begin -->
+                        <div class="options_title">经销商信息</div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">经销商：</span>
+                            </div>
+                            <div class="column_val">
+                                <select name="dealerId" id="">
+                                    <option value="">请选择</option>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                    <option value="">5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">销售姓名：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" class="required" data-tips="销售姓名不能为空" name="salesName" value="" placeholder="请输入销售姓名，比如：张三" />
+                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">手机号码：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" class="required" data-tips="手机号码不能为空" name="contactWay" value="" maxlength="11" placeholder="请输入手机号，如:13800000000" />
+                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                            </div>
+                        </div>
+                        <!-- 经销商信息 End -->
+                        <!-- 融资业务信息 Begin -->
+                        <div class="options_title">融资业务信息</div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">项目金额：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="hidden" name="" value="29930.33" />
+                                <span class="value_text"><span class="value">29930.33</span><span>元</span></span>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">租赁方式：</span>
+                            </div>
+                            <div class="column_val">
+                                <div class="form_group mar6 v_middle">
+                                    <input id="rentModel1" type="radio" class="rentModel" name="rentModel" value="1" />
+                                    <label for="rentModel1">回租</label>
+                                </div>
+                                <div class="form_group v_middle">
+                                    <input id="rentModel2" type="radio" class="rentModel" name="rentModel" value="2" />
+                                    <label for="rentModel2">直租</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">汽车之家：</span>
+                            </div>
+                            <div class="column_val">
+                                <div class="form_group mar6 v_middle">
+                                    <input id="isCarHome1" type="radio" class="isCarHome" name="isCarHome" value="1" />
+                                    <label for="rentModel1">是</label>
+                                </div>
+                                <div class="form_group v_middle">
+                                    <input id="isCarHome2" type="radio" class="isCarHome" name="isCarHome" value="2" />
+                                    <label for="rentModel2">否</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">产品名称：</span>
+                            </div>
+                            <div class="column_val">
+                                <select name="productName" id="">
+                                    <option value="">请选择</option>
+                                    <option value="">极致进件</option>
+                                    <option value="">极致进件</option>
+                                    <option value="">极致进件</option>
+                                    <option value="">极致进件</option>
+                                    <option value="">极致进件</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">是否打包：</span>
+                            </div>
+                            <div class="column_val">
+                                <div class="form_group mar6 v_middle">
+                                    <input id="isWrap1" type="radio" class="isWrap" name="isWrap" value="1" />
+                                    <label for="rentModel1">是</label>
+                                </div>
+                                <div class="form_group v_middle">
+                                    <input id="isWrap2" type="radio" class="isWrap" name="isWrap" value="2" />
+                                    <label for="rentModel2">否</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">是否安装GPS：</span>
+                            </div>
+                            <div class="column_val">
+                                <div class="form_group mar6 v_middle">
+                                    <input id="isInstallGPS1" type="radio" class="isInstallGPS" name="isInstallGPS" value="1" />
+                                    <label for="rentModel1">是</label>
+                                </div>
+                                <div class="form_group v_middle">
+                                    <input id="isInstallGPS2" type="radio" class="isInstallGPS" name="isInstallGPS" value="2" />
+                                    <label for="rentModel2">否</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">首付比例：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" name="firstPayScale" value="30%" class="" placeholder="" disabled />
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">首付金额：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="hidden" name="firstPayScale" value="1956.78" />
+                                <span class="value_text"><span class="value">1956.78</span><span>元</span></span>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">保证金：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" class="required" data-tips="保证金不能为空" name="cautionMoney" value="" placeholder="0" />
+                                <samp class="unit">元</samp>
+                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">服务费：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" class="required" data-tips="服务费不能为空" name="serviceCharge" value="" placeholder="0" />
+                                <samp class="unit">元</samp>
+                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">融资金额：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" class="required" data-tips="融资金额不能为空" name="" value="" placeholder="0" />
+                                <samp class="unit">元</samp>
+                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">租赁期限：</span>
+                            </div>
+                            <div class="column_val">
+                                <select name="rentDue" id="">
+                                    <option value="">请选择</option>
+                                    <option value="">12</option>
+                                    <option value="">113</option>
+                                    <option value="">13</option>
+                                    <option value="">14</option>
+                                    <option value="">15</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">成本金额：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="hidden" name="" value="29930.33" />
+                                <span class="value_text"><span class="value">29930.33</span><span>元</span></span>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">附加融资额：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" class="required" data-tips="附加融资额不能为空" name="attachFinance" value="" placeholder="0" />
+                                <samp class="unit">元</samp>
+                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">净融资金额：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="hidden" name="" value="29930.33" />
+                                <span class="value_text"><span class="value">--</span><span>元</span></span>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">还款周期：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" name="" value="按月" class="" placeholder="" disabled />
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">每期租金：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="hidden" name="" value="" />
+                                <span class="value_text"><span class="value">--</span><span>元</span></span>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name repayment_plan">查看还款计划表：</span>
+                            </div>
+                            <div class="column_val">
+                                <em class="repayment_plan_btn"></em>
+                            </div>
+                        </div>
+                        <!-- 融资业务信息 End -->
+
+                    </form>
+                </div>
+                <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
+                    <a href="javascript:" class="btn orange_btn confirm edit_confirm">保存并继续</a>
+                    <a href="" class="btn bg_btn edit_cancel">取消</a>
+                </div>
+
+
+                <!-- 还款计划表弹出层 -->
+                <div class="repayment_plan_table">
+                    <div class="content">
+                        <table>
+                            <colgroup style="width: 100%;">
+                                <col style="width:  20%;">
+                                <col style="width:  20%;">
+                                <col style="width:  20%;">
+                                <col style="width:  20%;">
+                                <col>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>租金日</th>
+                                <th>租金期次</th>
+                                <th>租金金额</th>
+                                <th>利息金额</th>
+                                <th>本金金额</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2017-01-15</td>
+                                <td>1</td>
+                                <td>3543.11</td>
+                                <td>380.67</td>
+                                <td>3162.44</td>
+                            </tr>
+                            <tr>
+                                <td>2017-02-15</td>
+                                <td>2</td>
+                                <td>3543.11</td>
+                                <td>380.67</td>
+                                <td>3162.44</td>
+                            </tr>
+                            <tr>
+                                <td>2017-03-15</td>
+                                <td>3</td>
+                                <td>3543.11</td>
+                                <td>380.67</td>
+                                <td>3162.44</td>
+                            </tr>
+                            <tr>
+                                <td>2017-04-15</td>
+                                <td>4</td>
+                                <td>3543.11</td>
+                                <td>380.67</td>
+                                <td>3162.44</td>
+                            </tr>
+                            <tr>
+                                <td>2017-05-15</td>
+                                <td>1</td>
+                                <td>3543.11</td>
+                                <td>380.67</td>
+                                <td>3162.44</td>
+                            </tr>
+                            <tr>
+                                <td>2017-06-15</td>
+                                <td>2</td>
+                                <td>3543.11</td>
+                                <td>380.67</td>
+                                <td>3162.44</td>
+                            </tr>
+                            <tr>
+                                <td>2017-07-15</td>
+                                <td>3</td>
+                                <td>3543.11</td>
+                                <td>380.67</td>
+                                <td>3162.44</td>
+                            </tr>
+                            <tr>
+                                <td>2017-08-15</td>
+                                <td>4</td>
+                                <td>3543.11</td>
+                                <td>380.67</td>
+                                <td>3162.44</td>
+                            </tr>
+                            <tr>
+                                <td>2017-09-15</td>
+                                <td>1</td>
+                                <td>3543.11</td>
+                                <td>380.67</td>
+                                <td>3162.44</td>
+                            </tr>
+                            <tr>
+                                <td>2017-10-15</td>
+                                <td>2</td>
+                                <td>3543.11</td>
+                                <td>380.67</td>
+                                <td>3162.44</td>
+                            </tr>
+                            <tr>
+                                <td>2017-11-15</td>
+                                <td>3</td>
+                                <td>3543.11</td>
+                                <td>380.67</td>
+                                <td>3162.44</td>
+                            </tr>
+                            <tr>
+                                <td>2017-12-15</td>
+                                <td>4</td>
+                                <td>3543.11</td>
+                                <td>380.67</td>
+                                <td>3162.44</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="confirm_btn_box">
+                            <a href="javascript:;" class="confirm_btn">确认</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!---- Part of Main info End ---->
+        </div>
+        <!-------- Part of main End -------->
+
+        <!-------- Part of footer Begin -------->
+        <!--<div id="footer" class="footer"></div>-->
+        <!-------- Part of footer End -------->
+    </div>
+</body>
+{{include ('./../inc/jsSources')}}
+<script src="../static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+</html>
+<script>
+    (function ($) {
+        // 还款计划层的显示隐藏
+        function showRepaymentPlan () {
+            var btn = $('.confirm_btn, .repayment_plan_btn');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                var p = $('.repayment_plan_table');
+                if (p.is(':hidden')) {
+                    p.show();
+                } else {
+                    p.hide();
+                }
+            });
+        }
+
+
+
+
+
+        $(function() {
+            showRepaymentPlan();
+        });
+    })(jQuery,undefined);
+</script>

@@ -32,7 +32,7 @@
     <div class="section row">
 		<!---- Part of slide nav Begin ---->
 		{{include ('./../inc/sideNav')}}
-		<!---- Part of slide na End ---->
+		<!---- Part of slide nav End ---->
 	    <form action="/finance/file/download" id="finance_download" method="post">
 	        <input id="finance_download_finance_id" value="{{finance_id}}" name="finance_id" type="hidden">
 	        <input id="user_name" value="{{vo.user_name}}" name="user_name" type="hidden">
