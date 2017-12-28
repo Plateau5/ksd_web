@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/img_upload_160_120.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/repayment_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/view_docking_detail.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/view_docking_detail_h.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/common.js" afterPath="$PROJECT_DIR$/controller/common.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,7 +30,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="entryInfo.xtpl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="entryInfo.xtpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/inc/entryInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="84">
@@ -49,6 +46,19 @@
             <state relative-caret-position="21">
               <caret line="29" column="13" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="29" selection-end-column="13" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controller/common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="179" column="16" lean-forward="true" selection-start-line="179" selection-start-column="16" selection-end-line="179" selection-end-column="16" />
+              <folding>
+                <marker date="1514447766618" expanded="true" signature="3602:3608" ph="{...}" />
+                <marker date="1514447766618" expanded="true" signature="12930:12944" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -197,9 +207,9 @@
         <option value="$PROJECT_DIR$/views/question/customerList.xtpl" />
         <option value="$PROJECT_DIR$/views/workflow/list.xtpl" />
         <option value="$PROJECT_DIR$/views/gps/warehouseDetail.xtpl" />
-        <option value="$PROJECT_DIR$/controller/common.js" />
         <option value="$PROJECT_DIR$/public/js/finance/img_detail.js" />
         <option value="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
+        <option value="$PROJECT_DIR$/controller/common.js" />
       </list>
     </option>
   </component>
@@ -524,14 +534,7 @@
       <workItem from="1514166193475" duration="12054000" />
       <workItem from="1514193582804" duration="1514000" />
       <workItem from="1514252799874" duration="17211000" />
-      <workItem from="1514446570235" duration="1151000" />
-    </task>
-    <task id="LOCAL-00047" summary="修改商户编辑：删除联系人及账户信息错误   2017年12月8日18:06:27">
-      <created>1512727597836</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1512727597836</updated>
+      <workItem from="1514446570235" duration="1196000" />
     </task>
     <task id="LOCAL-00048" summary="修改log日志级别  2017年12月11日09:33:49">
       <created>1512956036101</created>
@@ -869,11 +872,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514347205665</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="增加图片  2017年12月28日15:55:39">
+      <created>1514447744833</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1514447744834</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="634537000" />
+    <option name="totallyTimeSpent" value="634582000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -950,7 +960,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="优化请求日志  2017年12月14日15:42:05" />
     <MESSAGE value="优化页面轮询跳转 2017年12月14日15:53:48" />
     <MESSAGE value="修复通知无跳转链接  2017年12月14日18:12:00" />
     <MESSAGE value="修复归档错误  2017年12月15日11:10:04" />
@@ -975,7 +984,8 @@
     <MESSAGE value="修复分页层级  2017年12月26日18:11:44" />
     <MESSAGE value="修复分页层级  2017年12月26日18:14:42" />
     <MESSAGE value="修复分配取消  2017年12月27日11:59:58" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复分配取消  2017年12月27日11:59:58" />
+    <MESSAGE value="增加图片  2017年12月28日15:55:39" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加图片  2017年12月28日15:55:39" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1257,17 +1267,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2919">
-          <caret line="139" column="17" lean-forward="false" selection-start-line="139" selection-start-column="17" selection-end-line="139" selection-end-column="17" />
-          <folding>
-            <marker date="1514347175960" expanded="true" signature="3602:3608" ph="{...}" />
-            <marker date="1514347175960" expanded="true" signature="13010:13024" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/customerService.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
@@ -1329,6 +1328,17 @@
         <state relative-caret-position="84">
           <caret line="36" column="71" lean-forward="true" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="179" column="16" lean-forward="true" selection-start-line="179" selection-start-column="16" selection-end-line="179" selection-end-column="16" />
+          <folding>
+            <marker date="1514447766618" expanded="true" signature="3602:3608" ph="{...}" />
+            <marker date="1514447766618" expanded="true" signature="12930:12944" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

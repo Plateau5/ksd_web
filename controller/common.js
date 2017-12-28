@@ -178,8 +178,8 @@ exports.httpRequest = function (opt, callback, req, res, next) {
                 LOGERROR(ERRORTYPES.HttpRequest + '：The result of server return is not need to parse.');
             }
         } else {
-            LOGERROR(ERRORTYPES.HttpRequest + '：' + error + ' statusCode：' + response.statusCode);
-            res.render('./errorpage/404', {title: '404', status : response.statusCode.toString()});
+            LOGERROR(ERRORTYPES.HttpRequest + '：' + error);
+            res.render('./errorpage/404', {title: '404'});
         }
         res.end();
     });
