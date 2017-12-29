@@ -265,7 +265,7 @@
                                 <span class="options_name">备注：</span>
                             </div>
                             <div class="column_val" style="width: 87.5%;">
-                                <textarea name="comment" id="" style="width: 82%;"></textarea>
+                                <textarea name="comment" id="" style="width: 82%;" placeholder="请输入备注内容"></textarea>
                             </div>
                         </div>
                         <!--工作单位信息  start-->
