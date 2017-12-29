@@ -27,7 +27,7 @@ function validateBlurEmpty () {
 }
 
 //只允许输入数字或者输入两位小数
-function checkNum (ele) {
+function checkNum (ele, max) {
     ele.on("keyup input", function () {
         var reg = /^\d{0,7}(\.\d{0,2})?$/g;
         var _this = $(this);
@@ -43,11 +43,11 @@ function checkNum (ele) {
                 _this.siblings('.tips_info').hide().find('.tips_text').text("");
             } else {
                 _this.val("");
-                _this.siblings('.tips_info').show().find('.tips_text').text("只允许输入数字或两位小数");
+                _this.siblings('.tips_info').show().find('.tips_text').text("只允许输入数字,最多两位小数");
             }
         }
-        if (val > 9999999.99) {
-            _this.siblings('.tips_info').show().find('.tips_text').text("最大可输入数值为9999999.99.");
+        if (val > max) {
+            _this.siblings('.tips_info').show().find('.tips_text').text("最大可输入数值为"+ max +".");
         } else {
             _this.siblings('.tips_info').hide().find('.tips_text').text("");
         }
