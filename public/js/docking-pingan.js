@@ -40,16 +40,16 @@ function checkNum (ele) {
             if (!isNaN(val) && val != 0) {
                 val = (/\d+(\.\d{1,2})?/g.exec(val))[0];
                 _this.val(val);
-                $(".is_return_msg").hide().text("");
+                _this.siblings('.tips_info').hide().find('.tips_text').text("");
             } else {
                 _this.val("");
-                $(".is_return_msg").show().text("只允许输入数字或两位小数");
+                _this.siblings('.tips_info').show().find('.tips_text').text("只允许输入数字或两位小数");
             }
         }
         if (val > 9999999.99) {
-            $(".is_return_msg").show().text("最大可输入数值为9999999.99.");
+            _this.siblings('.tips_info').show().find('.tips_text').text("最大可输入数值为9999999.99.");
         } else {
-            $(".is_return_msg").hide().text("");
+            _this.siblings('.tips_info').hide().find('.tips_text').text("");
         }
     });
 }
