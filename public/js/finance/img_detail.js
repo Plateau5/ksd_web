@@ -3,7 +3,7 @@ $(function(){
 
     //开始录入
     $('#entering').on('click', function(){
-        var finance_id = $('#finance_id').val();
+        /*var finance_id = $('#finance_id').val();
         var locationUrl = LOCALURL;
         $.ajax({
             type:"post",
@@ -28,12 +28,13 @@ $(function(){
                     alert(data.error_msg);
                 }
             }
-        });
+        });*/
+        window.location.href = contextPath + markUri + '/docking/pingan/home';
     });
 
     //确认申请
     $('#requestpayout_apply').on('click', function(){
-        /*$(this).attr("disabled", true);
+        $(this).attr("disabled", true);
         var finance_id = $(this).attr('lang');
         $.ajax({
             type:"post",
@@ -53,8 +54,7 @@ $(function(){
                     alert(data.error_msg);
                 }
             }
-        });*/
-        window.location.href = contextPath + markUri + '';
+        });
     });
 
     /*$(".imgMask").click(function(){

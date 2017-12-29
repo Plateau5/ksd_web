@@ -16,6 +16,7 @@ var systemManagementCtrl = require('../controller/viewsController/systemManageme
 var settingsCtrl = require('../controller/viewsController/settingsController');
 var privilegeCtrl = require('../controller/viewsController/privilegeController');
 var merchantsCtrl = require('../controller/viewsController/merchantsController');
+var dockingCtrl = require('../controller/viewsController/dockingController');
 
 
 var markUri = '/ksd';
@@ -381,7 +382,22 @@ router.get(markUri + '/userCenter/information', settingsCtrl.VIEW_userCenter);
 // 个人中心-重设密码跳转
 router.get(markUri + '/userCenter/resetPassword', settingsCtrl.VIEW_userCenter_resetPassword);
 
-
+/**
+ * 平安对接部分路由
+ * Created by Arley Joe 2017-12-28 16:27:11
+ */
+// 平安对接-跳转录入首页 1429
+router.all(markUri + '/docking/pingan/home', dockingCtrl.VIEW_DOCKING_PINGAN_HOME);
+// 平安对接-车辆信息页
+router.post(markUri + '/docking/pingan/car', dockingCtrl.VIEW_DOCKING_PINGAN_CAR);
+// 平安对接-承租人信息页
+router.post(markUri + '/docking/pingan/lender', dockingCtrl.VIEW_DOCKING_PINGAN_LENDER);
+// 平安对接-担保人信息页
+router.post(markUri + '/docking/pingan/guarantor', dockingCtrl.VIEW_DOCKING_PINGAN_GUARGANTOR);
+// 平安对接-文件信息页
+router.post(markUri + '/docking/pingan/files', dockingCtrl.VIEW_DOCKING_PINGAN_FILES);
+// 平安对接-征信查询信息页
+router.post(markUri + '/docking/pingan/credit', dockingCtrl.VIEW_DOCKING_PINGAN_CREDIT);
 
 
 

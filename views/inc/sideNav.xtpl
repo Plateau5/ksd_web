@@ -7,12 +7,12 @@
         </li>
     </ul>
 </div>
-{{ elseif (startWith(markUri + '/customer'))}}
+{{ elseif (startWith(markUri + '/customer' + ' || ' + markUri + '/docking'))}}
 <div class="contacts slide_nav">
     <div class="slide_nav_title bold">客户管理</div>
     <ul class="slide_nav_bar">
         {{#if (verifyCode(1016)) }}
-            <li class="nav_item {{#if (startWith(markUri + '/customer/loan')) }}active{{/if}}">
+            <li class="nav_item {{#if (startWith(markUri + '/customer/loan' + ' || ' + markUri + '/docking')) }}active{{/if}}">
                 <a href="{{markUri}}/customer/loan/system" class="">贷款管理</a>
             </li>
         {{/if}}

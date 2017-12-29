@@ -9,7 +9,7 @@
                 <a href="{{contextPath}}/home" class="">首页</a>
             </li>
             {{#if (verifyCode(1091)) }}
-                <li class="nav_item {{#if(startWith(markUri + '/customer'))}}active{{/if}}">
+                <li class="nav_item {{#if(startWith(markUri + '/customer' + ' || ' + markUri + '/docking'))}}active{{/if}}">
                     <a href="{{markUri}}/customer/system" class="">客户</a>
                 </li>
             {{/if}}
