@@ -279,6 +279,11 @@ function redefineAjax (option) {
                 options.beforeSend();
             }
         },
+        complete : function (XMLHttpRequest) {       //请求完成的事件逻辑
+            if (!!options.complete) {
+                options.complete();
+            }
+        },
         success : function (res) {      //请求成功
             try {
                 if (res) {
@@ -1732,6 +1737,23 @@ function loading() {
             return false;
         });
     }
+}
+
+/**
+ * 加载日期插件
+ * @author Arley Joe 2017-11-4 17:33:34
+ * @param target {elem} 触发元素
+ */
+function initDateAll (target) {
+    $(target).jeDate({
+        isinitVal : false,
+        festival : false,
+        ishmsVal : false,
+        format : "YYYY-MM-DD",
+        zIndex : 3000,
+        isClear : true
+    });
+    $(target).addClass('datainp wicon');
 }
 
 /**

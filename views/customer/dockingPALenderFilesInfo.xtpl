@@ -4,7 +4,7 @@
 <head>
     {{include ("./../inc/cssSources")}}
     <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
-    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
     <title>{{title}}</title>
 </head>
 <body>
@@ -36,8 +36,9 @@
                                 <span class="options_name"><span class="require_icon">*</span>个人申请表：</span>
                             </div>
                             <div class="column_val">
-                                <div class="img_md_box">
-                                    <a href="javascript:;" class="add_img_md_btn"></a>
+                                <div class="img_md_box file_upload">
+                                    <a href="javascript:;" class="file_upload_layer add_img_md_btn"></a>
+                                    <input type="file" class="file_upload_btn"   value="上传图片" style="display: none" />
                                 </div>
                             </div>
                         </div>
@@ -98,7 +99,8 @@
     </div>
 </body>
 {{include ('./../inc/jsSources')}}
-<script src="{{markUri}}/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
 </html>
 <script>
     (function ($) {
@@ -109,7 +111,10 @@
 
 
         $(function() {
-            resetCheckboxAndRadio('checkbox', ".form_group label", ".checked");
+            viewLargeImage('.img_md_box');
+            viewImages();       // 查看大图
+            deleteImages();     // 图片删除
+            uploadImage();      // 图片上传注册
         });
     })(jQuery,undefined);
 </script>

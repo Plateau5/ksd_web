@@ -5,6 +5,7 @@
     {{include ("./../inc/cssSources")}}
     <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
     <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
     <title>{{title}}</title>
 </head>
 <body>
@@ -28,7 +29,7 @@
                     <a href="javascript:;" class="crumbs_item">担保人信息</a>
                 </div>
                 <div class="form_content form_options">
-                    <form action="" class="basic_info_edit">
+                    <form action="" class="basic_info_edit"  role="saveForm">
                         <!-- 基本信息 Begin -->
                         <div class="options_title">基本信息</div>
                         <div class="option_item">
@@ -56,7 +57,7 @@
                                 <span class="options_name">姓名：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="姓名不能为空" name="name" value="" placeholder="请输入姓名，比如：张三" />
+                                <input type="text" class="required" disabled data-tips="姓名不能为空" name="name" value="" placeholder="请输入姓名，比如：张三" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -65,7 +66,7 @@
                                 <span class="options_name">手机号码：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="手机号码不能为空" name="cellphone" value="" placeholder="请输入手机号，比如：13800000000" />
+                                <input type="text" class="required" disabled data-tips="手机号码不能为空" name="cellphone" value="" placeholder="请输入手机号，比如：13800000000" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -74,7 +75,7 @@
                                 <span class="options_name">证件类型：</span>
                             </div>
                             <div class="column_val">
-                                <select name="IDtype" id="">
+                                <select name="IDtype" id="" disabled>
                                     <option value="">请选择</option>
                                     <option value="">居民身份证</option>
                                     <option value="">临时身份证</option>
@@ -87,7 +88,7 @@
                                 <span class="options_name">证件号码：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="证件号码不能为空" name="IDnum" value="" placeholder="请输入证件号码" />
+                                <input type="text" class="required" disabled data-tips="证件号码不能为空" name="IDnum" value="" placeholder="请输入证件号码" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -111,7 +112,7 @@
                                 <span class="options_name">出生日期：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" readonly="readonly" data-tips="出生日期不能为空" name="birthday" value="" placeholder="请选择日期" />
+                                <input type="text" class="required birthday" readonly="readonly" data-tips="出生日期不能为空" name="birthday" value="" placeholder="请选择日期" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -264,7 +265,7 @@
                     </form>
                 </div>
                 <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
-                    <a href="javascript:" class="btn orange_btn confirm edit_confirm">保存并继续</a>
+                    <a href="javascript:" id="saveAndGoNext" class="btn orange_btn confirm edit_confirm" data-url="" data-next="{{markUri}}/docking/pingan/files">保存并继续</a>
                     <a href="" class="btn bg_btn edit_cancel">取消</a>
                 </div>
 
@@ -280,7 +281,9 @@
     </div>
 </body>
 {{include ('./../inc/jsSources')}}
-<script src="{{markUri}}/static/js/customerService.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
 </html>
 <script>
     (function ($) {
@@ -291,7 +294,9 @@
 
 
         $(function() {
-            resetCheckboxAndRadio('checkbox', ".form_group label", ".checked");
+            initDateAll('.birthday');      // 加载日期插件
+            isHaveWork();       // 工作模块的显示隐藏
+            bindSubmitEvent();      // 提交
         });
     })(jQuery,undefined);
 </script>

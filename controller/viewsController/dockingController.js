@@ -36,6 +36,17 @@ exports.VIEW_DOCKING_PINGAN_CAR = function(req, res, next) {
     data.apiServerPath = apiServerPath;
     data.domain = domain;
     res.render('./customer/dockingPACarInfo', data);
+
+    /*function calcRepaymentPlanTable () {
+        var repaymentPlan = {
+            monthlyPayment : [],    // 月供金额
+            principal : [],     // 本金金额
+            interest : [],      // 利息
+        };
+        for (var i = 0; i < 12; i ++) {
+            Math.pow(x, y);
+        }
+    }*/
 };
 // 平安对接-承租人信息页
 exports.VIEW_DOCKING_PINGAN_LENDER = function(req, res, next) {

@@ -2533,3 +2533,38 @@ textarea{
     }
 }
 /***** 无底色按钮-sm类 End ******/
+/***** toast提示 Start ******/
+.toast-container{
+    z-index: 100;
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: rgba(255,255,255, 0);
+    .toast-content{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+        padding: 5px 20px;
+        text-align: center;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        background: rgba(0,0,0,.8);
+        color: #fff;
+        font-size: 14px;
+    }
+    .toast-content.error{
+        background: rgba(255,0,0,.6);
+    }
+}
+/***** toast提示 End ******/
