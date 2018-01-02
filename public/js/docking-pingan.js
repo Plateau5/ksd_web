@@ -6,6 +6,7 @@
  * Toast轻提示扩展
  * @author Arley Joe 2017-12-29 14:56:57
  * @param str {String} : 提示文本
+ * @param callback {Function} : 回调函数
  * @param type {Number} : 提示类型：0-success; 1-error; 2-warning
  */
 var $toast = function(str, callback, type){
@@ -161,7 +162,7 @@ function verifyEmpty () {
             _this.css({
                 'border-color' : 'rgb(251, 39, 65)'
             });
-            return false;
+            // return false;
         }
     });
 
@@ -174,7 +175,7 @@ function verifyEmpty () {
             _this.css({
                 'border-color' : 'rgb(251, 39, 65)'
             });
-            return false;
+            // return false;
         }
     });
 
@@ -349,10 +350,13 @@ function viewImages () {
 function bindSubmitEvent () {
     var btn = $('#saveAndGoNext');
     btn.off('click').on('click', function () {
-        var t = $(this);
+        /*var t = $(this);
         var nextStep = $.trim(t.data('next'));
         var url = $.trim(t.data('url'));
-        saveAndGoNext(t, nextStep, url);
+        saveAndGoNext(t, nextStep, url);*/
+        $toast('保存成功', function () {
+
+        });
     });
 }
 
