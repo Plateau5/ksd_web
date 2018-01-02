@@ -450,7 +450,7 @@
                 var _this = $(this);
                 var id = $.trim(_this.data('id'));
                 locationTo({
-                    action : contextPath + '/merquestion/getHisList',
+                    action : contextPath + markUri + '/question/merchants/historyRecord',
                     param : {
                         question_id : id,
                         question_type : '1'
