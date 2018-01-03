@@ -26,6 +26,22 @@ var $toast = function(str, callback, type){
     }, 2000);
 }
 
+/**
+ * 跳转订单详情页
+ * @author Arley Joe 2018-1-3 14:18:44
+ */
+function goOrderDetail () {
+    var url = $('.go_order_detail').data('detailurl');
+    var financeId = $.trim($('#financeId').val());
+    $('.go_order_detail').on('click', function () {
+        locationTo({
+            action : url,
+            param : {
+                finance_id : financeId
+            }
+        });
+    });
+}
 
 /**
  * 输入框焦点离开非空校验
@@ -350,13 +366,10 @@ function viewImages () {
 function bindSubmitEvent () {
     var btn = $('#saveAndGoNext');
     btn.off('click').on('click', function () {
-        /*var t = $(this);
+        var t = $(this);
         var nextStep = $.trim(t.data('next'));
         var url = $.trim(t.data('url'));
-        saveAndGoNext(t, nextStep, url);*/
-        $toast('保存成功', function () {
-
-        });
+        saveAndGoNext(t, nextStep, url);
     });
 }
 
@@ -398,3 +411,8 @@ function saveAndGoNext (btn, nextPath, url) {
         $alert('该页面还有资料未填写完整，请先补充完整再保存');
     }
 }
+
+
+$(function () {
+    goOrderDetail();
+});

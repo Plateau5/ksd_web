@@ -25,9 +25,9 @@
             <!---- Part of Main info Begin ---->
             <div id="main" class="main docking_container">
                 <div class="crumbs_nav">
-                    <a href="javascript:;" class="crumbs_item">贷款管理</a>
-                    <a href="javascript:;" class="crumbs_item">已分配</a>
-                    <a href="javascript:;" class="crumbs_item">查看详情</a>
+                    <a href="{{markUri}}/customer/loan/system" class="crumbs_item">贷款管理</a>
+                    <a href="{{markUri}}/customer/loan/alreadyAllot" class="crumbs_item">已分配</a>
+                    <a href="javascript:;" class="crumbs_item go_order_detail" data-detailUrl="{{url}}">查看详情</a>
                     <a href="javascript:;" class="crumbs_item">录入资料</a>
                 </div>
                 <div class="form_content content_box xf_edit_content">
@@ -38,7 +38,7 @@
                                     <span class="asterisk">*</span>
                                     <span>车辆信息</span>
                                 </div>
-                                <em class="edit_status_icon {{#if (!carInfo) }}xf_edit_home_icon{{/if}}"></em>
+                                <em class="edit_status_icon {{#if (carInfo > 0) }}xf_edit_home_icon{{/if}}"></em>
                             </a>
                         </li>
                         <li class="info_item" data-module="lender" data-route="{{markUri}}/docking/pingan/lender">
@@ -47,17 +47,17 @@
                                     <span class="asterisk">*</span>
                                     <span>承租人信息</span>
                                 </div>
-                                <em class="edit_status_icon  {{#if (!renterInfo) }}xf_edit_home_icon{{/if}} "></em>
+                                <em class="edit_status_icon  {{#if (renterInfo > 0) }}xf_edit_home_icon{{/if}} "></em>
                             </a>
                         </li>
-                        {{#if (!isSponsor) }}
+                        {{#if (isSponsor === 0 || isSponsor === 1) }}
                         <li class="info_item" data-module="guarantor" data-route="{{markUri}}/docking/pingan/guarantor">
                             <a href="javascript:;">
                                 <div class="text text_center">
                                     <span class="asterisk">*</span>
                                     <span>担保人信息</span>
                                 </div>
-                                <em class="edit_status_icon {{#if (!sponsorInfo) }}xf_edit_home_icon{{/if}} "></em>
+                                <em class="edit_status_icon {{#if (sponsorInfo > 0) }}xf_edit_home_icon{{/if}} "></em>
                             </a>
                         </li>
                         {{/if}}
@@ -66,7 +66,7 @@
                                 <div class="text text_center">
                                     <span>文件信息</span>
                                 </div>
-                                <em class="edit_status_icon  {{#if (!fileInfo) }}xf_edit_home_icon{{/if}}"></em>
+                                <em class="edit_status_icon  {{#if (fileInfo > 0) }}xf_edit_home_icon{{/if}}"></em>
                             </a>
                         </li>
                         <li class="info_item last_item" data-module="credit" data-route="{{markUri}}/docking/pingan/credit">
@@ -74,7 +74,7 @@
                                 <div class="text text_center">
                                     <span>征信查询信息</span>
                                 </div>
-                                <em class="edit_status_icon  {{#if (!creditInfo) }}xf_edit_home_icon{{/if}} "></em>
+                                <em class="edit_status_icon  {{#if (creditInfo > 0) }}xf_edit_home_icon{{/if}} "></em>
                             </a>
                         </li>
                     </ul>
@@ -97,14 +97,20 @@
         <!--<div id="footer" class="footer"></div>-->
         <!-------- Part of footer End -------->
     </div>
-
+    <input type="hidden" name="preCode" value="{{preCode}}" id="preCode">
+    <input type="hidden" name="loanID" value="{{loanID}}" id="loanID">
+    <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
     <div class="loading" id="loading"></div>
 </body>
 {{include ('./../inc/jsSources')}}
 <script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
 </html>
 <script>
     (function ($) {
+        var financeId = $.trim($('#financeId').val());
+        var preCode = $.trim($('#preCode').val());
+        var loanID = $.trim($('#loanID').val());
         // 点击tab跳转下一页的逻辑
         function toNextModule () {
             var btn = $('.edit_infos .info_item');
@@ -157,14 +163,26 @@
                     if (isPrevAlreardy) {   // 如果兄弟元素都已完成编辑，则该模块直接进入编辑模式
                         var pageUrl = $.trim(_this.data('route'));
                         locationTo({
-                            action : pageUrl
+                            action : pageUrl,
+                            param : {
+                                query_type : 0,
+                                finance_id : financeId,
+                                preCode : preCode,
+                                loanID : loanID
+                            }
                         });
                     }
                 // 如果有已完成标识则直接进入编辑模式。
                 } else {
                     var pageUrl = $.trim(_this.data('route'));
                     locationTo({
-                        action : pageUrl
+                        action : pageUrl,
+                        param : {
+                            query_type : 1,
+                            finance_id : financeId,
+                            preCode : preCode,
+                            loanID : loanID
+                        }
                     });
                 }
             });
@@ -195,23 +213,31 @@
             });
             if (isSuccess) {
                 redefineAjax({
-                    url : contextPath + '',
+                    url : contextPath + '/api/pingan/submit',
                     data : {
-                        finance_id : finance_id
+                        finance_id : financeId,
+                        preCode : preCode,
+                        loanID : loanID
                     },
                     success : function (res) {
                         if (res.error_code == 0) {
-
+                            locationTo({
+                                action : contextPath + markUri + '/customer/loan/alreadyAllot'
+                            });
                         } else {
-                            $alert(res.error_msg);
+                            $alert(res.error_msg, function () {
+                                bindSubmit();
+                            });
                         }
                     },
                     error : function () {
-                        $alert('提交失败，请重新尝试。');
+                        $alert('提交失败，请重新尝试。', function () {
+                            bindSubmit();
+                        });
                     }
                 })
             }
-            // todo 增加开始录入时间接口调用
+
         }
 
         $(function() {

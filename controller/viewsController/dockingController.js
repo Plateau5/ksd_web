@@ -14,39 +14,25 @@ var ERRORTYPES = require('./../../util/ErrorTypesConf'); // 自定义错误类�
 
 // 平安对接-跳转录入首页 1429
 exports.VIEW_DOCKING_PINGAN_HOME = function(req, res, next) {
-    /*common.getPageData({
+    var finance_id = req.body.finance_id;
+    var url = req.body.url;
+    common.getPageData({
         url : '/api/docking/table',
-        title : '待录入',
-        page : './customer/dockingPAHome'
-    }, req, res, next);*/
-    var data = {};
-    data.title = '客户-录入资料';
-    data.originUrl = req.originalUrl;
-    data.markUri = markUri;
-    data.apiServerPath = apiServerPath;
-    data.domain = domain;
-    res.render('./customer/dockingPAHome', data);
+        title : '客户-录入资料',
+        page : './customer/dockingPAHome',
+        callback : function (data) {
+            data.finance_id = finance_id;
+            data.url = url;
+        }
+    }, req, res, next);
 };
 // 平安对接-车辆信息页
 exports.VIEW_DOCKING_PINGAN_CAR = function(req, res, next) {
-    var data = {};
-    data.title = '客户-车辆信息';
-    data.originUrl = req.originalUrl;
-    data.markUri = markUri;
-    data.apiServerPath = apiServerPath;
-    data.domain = domain;
-    res.render('./customer/dockingPACarInfo', data);
-
-    /*function calcRepaymentPlanTable () {
-        var repaymentPlan = {
-            monthlyPayment : [],    // 月供金额
-            principal : [],     // 本金金额
-            interest : [],      // 利息
-        };
-        for (var i = 0; i < 12; i ++) {
-            Math.pow(x, y);
-        }
-    }*/
+    common.getPageData({
+        url : '/api/pingan/carInfo/detail',
+        title : '客户-车辆信息',
+        page : './customer/dockingPACarInfo'
+    }, req, res, next);
 };
 // 平安对接-承租人信息页
 exports.VIEW_DOCKING_PINGAN_LENDER = function(req, res, next) {

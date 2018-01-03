@@ -21,14 +21,15 @@
             <!---- Part of Main info Begin ---->
             <div id="main" class="main docking_container">
                 <div class="crumbs_nav">
-                    <a href="javascript:;" class="crumbs_item">贷款管理</a>
-                    <a href="javascript:;" class="crumbs_item">已分配</a>
-                    <a href="javascript:;" class="crumbs_item">查看详情</a>
-                    <a href="javascript:;" class="crumbs_item">录入资料</a>
-                    <a href="javascript:;" class="crumbs_item">融资业务信息</a>
+                    <a href="{{markUri}}/customer/loan/system" class="crumbs_item">贷款管理</a>
+                    <a href="{{markUri}}/customer/loan/alreadyAllot" class="crumbs_item">已分配</a>
+                    <a href="javascript:;" class="crumbs_item go_order_detail" data-detailUrl="{{url}}">查看详情</a>
+                    <a href="{{markUri}}/docking/pingan/home" class="crumbs_item">录入资料</a>
+                    <a href="javascript:;" class="crumbs_item">车辆信息</a>
                 </div>
                 <div class="form_content form_options">
                     <form action="" class="basic_info_edit" role="saveForm">
+                        <input type="hidden" name="loanID" value="0">
                         <!-- 车辆基本信息 Begin -->
                         <div class="options_title">车辆信息</div>
                         <div class="option_item">
@@ -38,10 +39,7 @@
                             <div class="column_val">
                                 <select name="brandId" id="brand">
                                     <option value="">请选择</option>
-                                    <option value="">宝马</option>
-                                    <option value="">宝马</option>
-                                    <option value="">宝马</option>
-                                    <option value="">宝马</option>
+
                                 </select>
                             </div>
                         </div>
@@ -52,8 +50,7 @@
                             <div class="column_val">
                                 <select name="serialId" id="carSeries">
                                     <option value="">请选择</option>
-                                    <option value="">X5</option>
-                                    <option value="">X6</option>
+
                                 </select>
                             </div>
                         </div>
@@ -62,13 +59,9 @@
                                 <span class="options_name">年份：</span>
                             </div>
                             <div class="column_val">
-                                <select name="year" id="carYear">
+                                <select name="carYear" id="carYear">
                                     <option value="">请选择</option>
-                                    <option value="">2009</option>
-                                    <option value="">2009</option>
-                                    <option value="">2009</option>
-                                    <option value="">2009</option>
-                                    <option value="">2009</option>
+
                                 </select>
                             </div>
                         </div>
@@ -79,8 +72,7 @@
                             <div class="column_val">
                                 <select name="modelId" id="carModel">
                                     <option value="">请选择</option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
+
                                 </select>
                             </div>
                         </div>
@@ -89,7 +81,7 @@
                                 <span class="options_name">颜色：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="颜色不能为空" maxlength="5" name="carColor" value="" placeholder="请输入颜色，比如：黑色" />
+                                <input type="text" class="required" data-tips="颜色不能为空" maxlength="5" name="carColor" value="{{carColor}}" placeholder="请输入颜色，比如：黑色" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -115,7 +107,7 @@
                                 <span class="options_name">购置税：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="购置税不能为空" id="buyTax" name="buyTax" value="0" placeholder="0" maxlength="10"  />
+                                <input type="text" class="required" data-tips="购置税不能为空" id="buyTax" name="buyTax" value="{{buyTax}}" placeholder="请输入购置税" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -125,7 +117,7 @@
                                 <span class="options_name">车辆实际价格：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="车辆实际价格不能为空" id="pawnValue" name="pawnValue" value="0" placeholder="0" maxlength="10"  />
+                                <input type="text" class="required" data-tips="车辆实际价格不能为空" id="pawnValue" name="pawnValue" value="{{pawnValue}}" placeholder="请输入车辆实际价格" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -135,7 +127,7 @@
                                 <span class="options_name">其他费用：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="其他费用不能为空" id="otherFee" name="otherFee" value="0" placeholder="0" maxlength="10"  />
+                                <input type="text" class="required" data-tips="其他费用不能为空" id="otherFee" name="otherFee" value="{{otherFee}}" placeholder="请输入其他费用" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -145,7 +137,7 @@
                                 <span class="options_name">保险：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="保险不能为空" id="assure" name="assure" value="0" placeholder="0" maxlength="10"  />
+                                <input type="text" class="required" data-tips="保险不能为空" id="assure" name="assure" value="{{assure}}" placeholder="请输入保险" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -173,7 +165,7 @@
                                 <span class="options_name">销售姓名：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="销售姓名不能为空" name="salesName" value="" placeholder="请输入销售姓名，比如：张三" maxlength="20" />
+                                <input type="text" class="required" data-tips="销售姓名不能为空" name="salesName" value="{{salesName}}" placeholder="请输入销售姓名，比如：张三" maxlength="20" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -182,7 +174,7 @@
                                 <span class="options_name">手机号码：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="手机号码不能为空" name="contactWay" value="" maxlength="11" placeholder="请输入手机号，如:13800000000" />
+                                <input type="text" class="required" data-tips="手机号码不能为空" name="contactWay" value="{{contactWay}}" maxlength="11" placeholder="请输入手机号，如:13800000000" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -194,8 +186,8 @@
                                 <span class="options_name">项目金额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" id="projectAccount" name="" value="0" />
-                                <span class="value_text"><span class="value">0</span><span>元</span></span>
+                                <input type="hidden" id="projectAccount" name="" value="{{projectAccount}}" />
+                                <span class="value_text"><span class="value">{{projectAccount}}</span><span>元</span></span>
                             </div>
                         </div>
                         <div class="option_item">
@@ -204,12 +196,22 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group mar6 v_middle">
+                                    {{#if (rentModel === 1) }}
                                     <input id="rentModel1" type="radio" class="rentModel" checked="checked" name="rentModel" value="1" />
                                     <label for="rentModel1">回租</label>
+                                    {{else}}
+                                    <input id="rentModel1" type="radio" class="rentModel" name="rentModel" value="1" />
+                                    <label for="rentModel1">回租</label>
+                                    {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
+                                    {{#if (rentModel === 2) }}
+                                    <input id="rentModel2" type="radio" class="rentModel" checked="checked" name="rentModel" value="2" />
+                                    <label for="rentModel2">直租</label>
+                                    {{else}}
                                     <input id="rentModel2" type="radio" class="rentModel" name="rentModel" value="2" />
                                     <label for="rentModel2">直租</label>
+                                    {{/if}}
                                 </div>
                             </div>
                         </div>
@@ -219,12 +221,22 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group mar6 v_middle">
+                                    {{#if (isCarHome === 1) }}
                                     <input id="isCarHome1" type="radio" class="isCarHome" checked="checked" name="isCarHome" value="1" />
                                     <label for="rentModel1">是</label>
+                                    {{else}}
+                                    <input id="isCarHome1" type="radio" class="isCarHome" name="isCarHome" value="1" />
+                                    <label for="rentModel1">是</label>
+                                    {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
+                                    {{#if (isCarHome === 2) }}
+                                    <input id="isCarHome2" type="radio" class="isCarHome" checked="checked" name="isCarHome" value="2" />
+                                    <label for="rentModel2">否</label>
+                                    {{else}}
                                     <input id="isCarHome2" type="radio" class="isCarHome" name="isCarHome" value="2" />
                                     <label for="rentModel2">否</label>
+                                    {{/if}}
                                 </div>
                             </div>
                         </div>
@@ -249,12 +261,22 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group mar6 v_middle">
+                                    {{#if (isWrap === 1) }}
                                     <input id="isWrap1" type="radio" class="isWrap" checked="checked" name="isWrap" value="1" />
                                     <label for="isWrap1">是</label>
+                                    {{else}}
+                                    <input id="isWrap1" type="radio" class="isWrap" name="isWrap" value="1" />
+                                    <label for="isWrap1">是</label>
+                                    {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
+                                    {{#if (isWrap === 2) }}
+                                    <input id="isWrap2" type="radio" class="isWrap" checked="checked" name="isWrap" value="2" />
+                                    <label for="isWrap2">否</label>
+                                    {{else}}
                                     <input id="isWrap2" type="radio" class="isWrap" name="isWrap" value="2" />
                                     <label for="isWrap2">否</label>
+                                    {{/if}}
                                 </div>
                             </div>
                         </div>
@@ -264,12 +286,22 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group mar6 v_middle" style="margin-right: 43px;">
+                                    {{#if (isInstallGPS === 1) }}
                                     <input id="isInstallGPS1" type="radio" class="isInstallGPS" checked="checked" disabled name="isInstallGPS" value="1" />
                                     <label for="isInstallGPS1">是</label>
+                                    {{else}}
+                                    <input id="isInstallGPS1" type="radio" class="isInstallGPS" disabled name="isInstallGPS" value="1" />
+                                    <label for="isInstallGPS1">是</label>
+                                    {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
+                                    {{#if (isInstallGPS === 2) }}
                                     <input id="isInstallGPS2" type="radio" class="isInstallGPS" name="isInstallGPS" disabled value="2" />
                                     <label for="isInstallGPS2">否</label>
+                                    {{else}}
+                                    <input id="isInstallGPS2" type="radio" class="isInstallGPS" name="isInstallGPS" disabled value="2" />
+                                    <label for="isInstallGPS2">否</label>
+                                    {{/if}}
                                 </div>
                             </div>
                         </div>
@@ -278,7 +310,7 @@
                                 <span class="options_name">首付比例：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" name="firstPayScale" value="30%" class="" placeholder="" disabled />
+                                <input type="text" id="firstPayScale" name="firstPayScale" value="{{firstPayScale}}" class="" placeholder="" readonly="readonly" />
                             </div>
                         </div>
                         <div class="option_item">
@@ -286,8 +318,8 @@
                                 <span class="options_name">首付金额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" id="firstPayScale" name="firstPayScale" value="0" />
-                                <span class="value_text"><span class="value">0</span><span>元</span></span>
+                                <input type="text" class="required" id="firstPayAccount" data-tips="首付金额不能为空"  value="0" placeholder="请输入首付金额" />
+                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
                         <div class="option_item">
@@ -295,7 +327,7 @@
                                 <span class="options_name">保证金：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="保证金不能为空" id="cautionMoney" name="cautionMoney" value="0" placeholder="0"   />
+                                <input type="text" class="required" data-tips="保证金不能为空" id="cautionMoney" name="cautionMoney" value="{{cautionMoney}}" placeholder="0"   />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -305,7 +337,7 @@
                                 <span class="options_name">服务费：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="服务费不能为空" id="serviceCharge" name="serviceCharge" value="0" placeholder="0"   />
+                                <input type="text" class="required" data-tips="服务费不能为空" id="serviceCharge" name="serviceCharge" value="{{serviceCharge}}" placeholder="0"   />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -315,9 +347,8 @@
                                 <span class="options_name">融资金额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" readonly data-tips="融资金额不能为空" id="finance" name="" value="0" placeholder="0"   />
-                                <span class="unit">元</span>
-                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                                <input type="hidden" id="finance"  value="0" />
+                                <span class="value_text"><span class="value">0</span><span>元</span></span>
                             </div>
                         </div>
                         <div class="option_item">
@@ -335,7 +366,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="option_item">
+                        <!--<div class="option_item">
                             <div class="column_name">
                                 <span class="options_name">成本金额：</span>
                             </div>
@@ -343,13 +374,13 @@
                                 <input type="hidden" name="" value="0" />
                                 <span class="value_text"><span class="value">0</span><span>元</span></span>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="option_item">
                             <div class="column_name">
                                 <span class="options_name">附加融资额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="附加融资额不能为空" id="attachFinance" name="attachFinance" value="0" placeholder="0"   />
+                                <input type="text" class="required" data-tips="附加融资额不能为空" id="attachFinance" name="attachFinance" value="{{attachFinance}}" placeholder="0"   />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -359,7 +390,7 @@
                                 <span class="options_name">净融资金额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" id="netFinancingAmount" name="" value="0" />
+                                <input type="hidden" id="netFinancingAmount" name="" value="{{netFinancingAmount}}" />
                                 <span class="value_text"><span class="value">0</span><span>元</span></span>
                             </div>
                         </div>
@@ -394,7 +425,7 @@
                 </div>
                 <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
                     <a href="javascript:" id="saveAndGoNext" class="btn orange_btn confirm edit_confirm" data-url="/api/pingan/carInfo/commit" data-next="{{markUri}}/docking/pingan/car">保存并继续</a>
-                    <a href="" class="btn bg_btn edit_cancel">取消</a>
+                    <a href="javascript:window.history.back();" class="btn bg_btn edit_cancel">取消</a>
                 </div>
 
 
@@ -520,7 +551,7 @@
         <!--<div id="footer" class="footer"></div>-->
         <!-------- Part of footer End -------->
     </div>
-    <div class="loading" id="loading"></div>
+    <div class="loading" id="loading" style="display: none;"></div>
 </body>
 {{include ('./../inc/jsSources')}}
 <script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
@@ -588,7 +619,42 @@
                 var _this = $(this);
                 var newValue = $.trim(_this.val());
                 if (newValue != oldValue) {
-                    calcFinanceAccount();
+                    calcFinanceAccount(true);
+                }
+            });
+
+            // 首付金额输入监听
+            var firstPayAccountE = $('#firstPayAccount');
+            var firstPayScaleE = $('#firstPayScale');
+            firstPayAccountE.on('focus', function () {
+                var _this = $(this);
+                oldValue = $.trim(_this.val());
+                // 清楚默认的0值
+                if (oldValue == 0) {
+                    _this.val('');
+                }
+            });
+            firstPayAccountE.on('input', function () {
+                var _this = $(this);
+                var newValue = $.trim(_this.val());
+                var pawnValue = Number($('#pawnValue').val());
+                if (newValue != oldValue) {
+                    if (pawnValue == 0) {
+                        _this.siblings('.tips_info').show().find('.tips_text').text('请先输入车辆实际价格后再输入首付金额。');
+                        _this.val('');
+                        return false;
+                    } else {
+                        var firstPayScale = newValue / pawnValue;
+                        if (firstPayScale < 0.2) {
+                            _this.siblings('.tips_info').show().find('.tips_text').text('首付比例不能低于20%。');
+                            return false;
+                        } else {
+                            firstPayScale = (firstPayScale * 100) + '%';
+                            firstPayScaleE.val(firstPayScale);
+                            calcFinanceAccount(true);
+                            _this.siblings('.tips_info').hide()
+                        }
+                    }
                 }
             });
         }
@@ -599,43 +665,50 @@
             var buyTaxE = $('#buyTax');        // 购置税元素
             var assureE = $('#assure');        // 保险元素
             var otherFeeE = $('#otherFee');        // 其他费用元素
-            var firstPayScaleE = $('#firstPayScale');        // 首付金额元素
+            var firstPayAccountE = $('#firstPayAccount');        // 首付金额元素
             var attachFinanceE = $('#attachFinance');        // 附加融资额元素
             var projectAccountE = $('#projectAccount');     // 项目金额元素
             var netFinancingAmountE = $('#netFinancingAmount');     // 净融资金额元素
             var financeE = $('#finance');       // 融资金额元素
             var cautionMoneyE = $('#cautionMoney');     // 保证金元素
             var serviceChargeE = $('#serviceCharge');       // 服务费元素
+            var firstPayScaleE = $('#firstPayScale');  // 首付比例
 
             var pawnValue = Number(pawnValueE.val());    // 车辆实际价格
             var buyTax = Number(buyTaxE.val());        // 购置税
             var assure = Number(assureE.val());        // 保险
             var otherFee = Number(otherFeeE.val());        // 其他费用
-            var firstPayScale = Number(firstPayScaleE.val());        // 首付金额
+            var firstPayAccount = Number(firstPayAccountE.val());        // 首付金额
             var attachFinance = Number(attachFinanceE.val());        // 附加融资额
             var projectAccount = Number(projectAccountE.val());     // 项目金额
             var netFinancingAmount = Number(netFinancingAmountE.val());     // 净融资金额
             var financeAccount = Number(financeE.val());        // 融资金额
             var cautionMoney = Number(cautionMoneyE.val());        // 保证金
             var serviceCharge = Number(serviceChargeE.val());        // 服务费
+            var firstPayScale = Number(firstPayScaleE.val().replace(/%/ig, '')) / 100;     // 首付比例
 
-            // 融资金额 (是否打包)
-            if (type === true) {
-                // 打包情况：融资金额=车辆实际价格+购置税+保险+其他费用-首付款+附加融资额
-                financeAccount = pawnValue + buyTax + assure + otherFee - firstPayScale + attachFinance;
+            // 项目金额 (是否打包)
+            if (type === true) {    // 打包
+                // 项目金额 = 车辆实际价格 + 购置税 + 保险 + 其他费用
+                projectAccount = pawnValue + buyTax + assure + otherFee;
             } else if (type === false) {
-                // 不打包情况：融资金额=车辆实际价格-首付款+附加融资额
-                financeAccount = pawnValue - firstPayScale + attachFinance;
+                // 项目金额 = 车辆实际价格
+                projectAccount = pawnValue;
             }
+            // 首付金额 = 车辆实际价格 * 首付比例
+            firstPayAccount = projectAccount * firstPayScale;
+            // 融资金额 = 项目金额 - 首付金额 + 附加融资额
+            financeAccount = projectAccount - firstPayAccount + attachFinance;
+            // 净融资额 = 首付金额 - 保证金 - 服务费
+            netFinancingAmount = firstPayAccount - cautionMoney - serviceCharge;
+            /*// 首付比例 = 首付金额 / 车辆实际价格
+            firstPayScale = firstPayAccount / pawnValue;*/
 
-            // 项目资额 = 融资金额+首付金额-附加融资额
-            projectAccount = financeAccount + firstPayScale - attachFinance;
-            // 净融资额 = 融资金额-保证金-服务费
-            netFinancingAmount = financeAccount - cautionMoney - serviceCharge;
 
-            financeE.val(financeAccount);
+            financeE.val(financeAccount).siblings('.value_text').find('.value').text(financeAccount);
             projectAccountE.val(projectAccount).siblings('.value_text').find('.value').text(projectAccount);
             netFinancingAmountE.val(netFinancingAmount).siblings('.value_text').find('.value').text(netFinancingAmount);
+            firstPayAccountE.val(firstPayAccount);
         }
 
         // 注册提价事件
@@ -649,7 +722,7 @@
             showRepaymentPlan();    // 显示还款计划表
             isBale();       // 是否打包切换
             accountChange();    // 车辆价格等金额发生变化监听
-            intOrFloat($('#cautionMoney, #otherFee, #pawnValue, #buyTax, #assure, #cautionMoney, #serviceCharge , #attachFinance'), 9999999.99);
+            intOrFloat($('#cautionMoney, #otherFee, #pawnValue, #buyTax, #assure, #cautionMoney, #serviceCharge , #attachFinance'), 9999999.99);    // 只允许输入数字
             bindSubmitEvent();      // 提交
         });
     })(jQuery,undefined);

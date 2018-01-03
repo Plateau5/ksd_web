@@ -22,10 +22,10 @@
             <!---- Part of Main info Begin ---->
             <div id="main" class="main docking_container">
                 <div class="crumbs_nav">
-                    <a href="javascript:;" class="crumbs_item">贷款管理</a>
-                    <a href="javascript:;" class="crumbs_item">已分配</a>
-                    <a href="javascript:;" class="crumbs_item">查看详情</a>
-                    <a href="javascript:;" class="crumbs_item">录入资料</a>
+                    <a href="{{markUri}}/customer/loan/system" class="crumbs_item">贷款管理</a>
+                    <a href="{{markUri}}/customer/loan/alreadyAllot" class="crumbs_item">已分配</a>
+                    <a href="javascript:;" class="crumbs_item go_order_detail" data-detailUrl="{{url}}">查看详情</a>
+                    <a href="{{markUri}}/docking/pingan/home" class="crumbs_item">录入资料</a>
                     <a href="javascript:;" class="crumbs_item">担保人信息</a>
                 </div>
                 <div class="form_content form_options">
@@ -37,8 +37,12 @@
                                 <span class="options_name">与承租人关系：</span>
                             </div>
                             <div class="column_val">
-                                <select name="relax" id="">
+                                <select name="relax" id="relax">
                                     <option value="">请选择</option>
+                                    <option value="1">亲属</option>
+                                    <option value="2">朋友</option>
+                                    <option value="3">同事</option>
+                                    <option value="4">其他</option>
                                 </select>
                             </div>
                         </div>
@@ -47,8 +51,15 @@
                                 <span class="options_name">教育：</span>
                             </div>
                             <div class="column_val">
-                                <select name="education" id="">
+                                <select name="education" id="education">
                                     <option value="">请选择</option>
+                                    <option value="1">本科以上</option>
+                                    <option value="2">本科</option>
+                                    <option value="3">专科</option>
+                                    <option value="4">高中</option>
+                                    <option value="5">中专</option>
+                                    <option value="6">技校</option>
+                                    <option value="7">高中以下</option>
                                 </select>
                             </div>
                         </div>
@@ -75,11 +86,21 @@
                                 <span class="options_name">证件类型：</span>
                             </div>
                             <div class="column_val">
-                                <select name="IDtype" id="" disabled>
+                                <input type="hidden" name="IDtype" value="1">
+                                <select name="IDtype" id="IDtype" disabled>
                                     <option value="">请选择</option>
-                                    <option value="">居民身份证</option>
-                                    <option value="">临时身份证</option>
-                                    <option value="">护照</option>
+                                    <option value="1" selected="selected">居民身份证</option>
+                                    <option value="2">临时身份证</option>
+                                    <option value="3">护照</option>
+                                    <option value="4">户口簿</option>
+                                    <option value="5">军人身份证</option>
+                                    <option value="6">武装警察身份证</option>
+                                    <option value="7">港澳居民身份证</option>
+                                    <option value="8">台湾同胞往来内地通行证</option>
+                                    <option value="9">外交人员身份证</option>
+                                    <option value="10">外国人居留许可证</option>
+                                    <option value="11">边民出入境通行证</option>
+                                    <option value="12">其他</option>
                                 </select>
                             </div>
                         </div>
@@ -97,12 +118,13 @@
                                 <span class="options_name">性别：</span>
                             </div>
                             <div class="column_val">
+                                <input type="hidden">
                                 <div class="form_group mar6 v_middle">
-                                    <input id="gender1" type="radio" class="gender" name="sex" value="1" checked="checked" />
+                                    <input id="gender1" type="radio" disabled class="gender" name="sex" value="1" checked="checked" />
                                     <label for="gender1">男</label>
                                 </div>
                                 <div class="form_group v_middle">
-                                    <input id="gender2" type="radio" class="gender" name="sex" value="2" />
+                                    <input id="gender2" type="radio" disabled class="gender" name="sex" value="2" />
                                     <label for="gender2">女</label>
                                 </div>
                             </div>
@@ -112,7 +134,7 @@
                                 <span class="options_name">出生日期：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required birthday" readonly="readonly" data-tips="出生日期不能为空" name="birthday" value="" placeholder="请选择日期" />
+                                <input type="text" class="required birthday" readonly="readonly" data-tips="出生日期不能为空" name="birthday" value="" placeholder="请选择日期" style="cursor: default;" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -121,10 +143,10 @@
                                 <span class="options_name">身份证地址：</span>
                             </div>
                             <div class="column_val">
-                                <select name="homeProvince" id="" style="width: 108px;margin-right: 10px;">
+                                <select name="homeProvince" id="homeProvince" style="width: 108px;margin-right: 10px;">
 
                                 </select>
-                                <select name="homeCity" id="" style="width: 108px;">
+                                <select name="homeCity" id="homeCity" style="width: 108px;">
 
                                 </select>
                             </div>
@@ -136,6 +158,13 @@
                             <div class="column_val">
                                 <select name="estateType" id="">
                                     <option value="">请选择</option>
+                                    <option value="1">自有无贷</option>
+                                    <option value="2">融资业务买房</option>
+                                    <option value="3">借住直系亲属</option>
+                                    <option value="4">租房</option>
+                                    <option value="5">单位房产</option>
+                                    <option value="6">公房租赁</option>
+                                    <option value="7">自建房</option>
                                 </select>
                             </div>
                         </div>
@@ -206,6 +235,14 @@
                             <div class="column_val">
                                 <select name="empType" id="">
                                     <option value="">请选择</option>
+                                    <option value="1">有限责任公司</option>
+                                    <option value="2">股份有限公司</option>
+                                    <option value="3">国有企业</option>
+                                    <option value="4">个人独资企业</option>
+                                    <option value="5">个体工商户</option>
+                                    <option value="6">外商投资企业</option>
+                                    <option value="7">私营企业</option>
+                                    <option value="8">其他</option>
                                 </select>
                             </div>
                         </div>
@@ -214,9 +251,8 @@
                                 <span class="options_name">本单位工作年限：</span>
                             </div>
                             <div class="column_val">
-                                <select name="workYear" id="">
-                                    <option value="">请选择</option>
-                                </select>
+                                <input type="text" class="required" maxlength="2" data-tips="本单位工作年限不能为空" name="empName" value="" placeholder="请输入本单位工作年限" />
+                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
                         <div class="option_item">
@@ -246,7 +282,7 @@
                                 <span class="options_name">职业：</span>
                             </div>
                             <div class="column_val">
-                                <select name="empOccupation" id="">
+                                <select name="empOccupation" id="empOccupation">
                                     <option value="">请选择</option>
                                 </select>
                             </div>
@@ -266,7 +302,7 @@
                 </div>
                 <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
                     <a href="javascript:" id="saveAndGoNext" class="btn orange_btn confirm edit_confirm" data-url="" data-next="{{markUri}}/docking/pingan/files">保存并继续</a>
-                    <a href="" class="btn bg_btn edit_cancel">取消</a>
+                    <a href="javascript:window.history.back();" class="btn bg_btn edit_cancel">取消</a>
                 </div>
 
 

@@ -3,9 +3,9 @@ $(function(){
 
     //开始录入
     $('#entering').on('click', function(){
-        /*var finance_id = $('#finance_id').val();
+        var finance_id = $('#finance_id').val();
         var locationUrl = LOCALURL;
-        $.ajax({
+        /*$.ajax({
             type:"post",
             url :contextPath + '/api/finance/startApplyloan',
             dataType:"json",
@@ -29,7 +29,14 @@ $(function(){
                 }
             }
         });*/
-        window.location.href = contextPath + markUri + '/docking/pingan/home';
+        locationTo({
+            action : contextPath + markUri + '/docking/pingan/home',
+            param : {
+                finance_id : finance_id,
+                active : 'active',
+                url : locationUrl
+            }
+        })
     });
 
     //确认申请
