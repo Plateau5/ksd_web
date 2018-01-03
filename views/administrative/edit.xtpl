@@ -227,7 +227,7 @@
                 $ajax('post', url, data, function(res) {
                     if (res.error_code == 0) {
                         $alert('编辑成功', function () {
-                            window.location.href = contextPath + '/administrative/warehouse/list';
+                            window.location.href = contextPath + markUri + '/administrative/warehouse/list';
                         });
                     } else {
                         $alert(res.error_msg);

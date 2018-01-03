@@ -66,12 +66,7 @@
                         <input type="text" id="user" name="use_id" value="{{vo.use_name }}" data-id="{{vo.use_id}}" placeholder="输入使用者名称查询" class="item_name" />
                         <div class="set_box" style="display: none;">
                             <ul class="user_list">
-                                {{#each (emp_list) }}
-	                                <li class="user_item"  data-id="{{this.id }}" data-name="{{this.name }}">
-	                                    <div class="name inline_block" lang="{{this.id }}">{{this.name }}</div>
-	                                    <div class="user_mark inline_block nowrap">{{this.account }}</div>
-	                                </li>
-                            	{{/each}}
+
                             </ul>
                         </div>
                     </div>
@@ -104,8 +99,8 @@
 <script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
 <script src="{{markUri}}/static/js/warehouse.js" type="text/javascript" charset="UTF-8"></script>
 <script>
-    // TODO 反填员工数据
-    var emp_list = {};//${emp_list}
+    var emp_list = '{{emp_list}}';
+    emp_list = JSON.parse(emp_list.replace(/&quot;/ig, '"'));
     (function ($) {
         // 获取填写数据
         function getData () {

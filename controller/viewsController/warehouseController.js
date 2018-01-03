@@ -151,6 +151,9 @@ exports.VIEW_ADMINISTRATIVE_EQUIPMENT_EDIT = function(req, res, next) {
     common.getPageData({
         url : '/api/administrative/equipment/toedit',
         title : '仓库管理-编辑物品',
-        page : './administrative/equipmentEdit'
+        page : './administrative/equipmentEdit',
+        callback : function (data) {
+            data.emp_list = JSON.stringify(data.emp_list);
+        }
     }, req, res, next);
 };
