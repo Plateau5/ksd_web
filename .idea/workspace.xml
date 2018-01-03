@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< Updated upstream
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/viewsController/dockingController.js" afterPath="$PROJECT_DIR$/controller/viewsController/dockingController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/customerService.css" afterPath="$PROJECT_DIR$/public/css/customerService.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/public.css" afterPath="$PROJECT_DIR$/public/css/public.css" />
@@ -14,6 +15,14 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/dockingPAHome.xtpl" afterPath="$PROJECT_DIR$/views/customer/dockingPAHome.xtpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/dockingPALenderFilesInfo.xtpl" afterPath="$PROJECT_DIR$/views/customer/dockingPALenderFilesInfo.xtpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/dockingPALenderInfo.xtpl" afterPath="$PROJECT_DIR$/views/customer/dockingPALenderInfo.xtpl" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/viewsController/warehouseController.js" afterPath="$PROJECT_DIR$/controller/viewsController/warehouseController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/administrative/edit.xtpl" afterPath="$PROJECT_DIR$/views/administrative/edit.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/administrative/equipmentEdit.xtpl" afterPath="$PROJECT_DIR$/views/administrative/equipmentEdit.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/question/customerHisList.xtpl" afterPath="$PROJECT_DIR$/views/question/customerHisList.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/question/merchantsHis.xtpl" afterPath="$PROJECT_DIR$/views/question/merchantsHis.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/workflow/list.xtpl" afterPath="$PROJECT_DIR$/views/workflow/list.xtpl" />
+>>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,26 +39,49 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< Updated upstream
       <file leaf-file-name="dockingController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/viewsController/dockingController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
               <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
               <folding />
+=======
+      <file leaf-file-name="edit.xtpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/administrative/edit.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3876">
+              <caret line="232" column="46" lean-forward="true" selection-start-line="232" selection-start-column="46" selection-end-line="232" selection-end-column="46" />
+              <folding>
+                <marker date="1514966287184" expanded="true" signature="3992:4127" ph="..." />
+              </folding>
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/common.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="226">
               <caret line="303" column="27" lean-forward="true" selection-start-line="303" selection-start-column="27" selection-end-line="303" selection-end-column="27" />
               <folding />
+=======
+      <file leaf-file-name="equipmentEdit.xtpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/administrative/equipmentEdit.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file leaf-file-name="docking-pingan.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/docking-pingan.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -59,10 +91,29 @@
                 <marker date="1514964083447" expanded="true" signature="7908:7921" ph="..." />
                 <marker date="1514964083447" expanded="true" signature="8622:8637" ph="..." />
               </folding>
+=======
+      <file leaf-file-name="warehouseController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controller/viewsController/warehouseController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="141" column="28" lean-forward="true" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="list.xtpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/workflow/list.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="253" column="30" lean-forward="true" selection-start-line="253" selection-start-column="30" selection-end-line="253" selection-end-column="30" />
+              <folding />
+>>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< Updated upstream
       <file leaf-file-name="dockingPACarInfo.xtpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
@@ -71,10 +122,33 @@
               <folding>
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="customerHisList.xtpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/question/customerHisList.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="27" column="94" lean-forward="true" selection-start-line="27" selection-start-column="94" selection-end-line="27" selection-end-column="94" />
+              <folding />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
+=======
+      <file leaf-file-name="merchantsHis.xtpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/question/merchantsHis.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="27" column="94" lean-forward="true" selection-start-line="27" selection-start-column="94" selection-end-line="27" selection-end-column="94" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+>>>>>>> Stashed changes
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -88,6 +162,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< Updated upstream
       <find>../static</find>
       <find>../static/dialog</find>
       <find>&gt; 0</find>
@@ -120,6 +195,46 @@
       <find>firstPayScale</find>
     </findStrings>
     <replaceStrings>
+=======
+      <find>${warehouse_name}</find>
+      <find>${vo.id }</find>
+      <find>${vo.code }</find>
+      <find>xIndex</find>
+      <find>xindex</find>
+      <find>${bean.name }</find>
+      <find>${bean.id }</find>
+      <find>${creator}</find>
+      <find>${create_time}</find>
+      <find>${condition.inWarehouse}</find>
+      <find>${warehouseVO.organization_id}</find>
+      <find>${warehouseVO.name}</find>
+      <find>${warehouseVO.creator}</find>
+      <find>${warehouseVO.create_time}</find>
+      <find>${warehouseVO.id}</find>
+      <find>${delGps_ids}</find>
+      <find>${gps_ids}</find>
+      <find>${gps_apply_id}</find>
+      <find>/404</find>
+      <find>res.redirect('/404');</find>
+      <find>1289</find>
+      <find>res.redirect('/404'</find>
+      <find>res.redirect(markUri + '/404'</find>
+      <find>${contextPath}</find>
+      <find>VIEW_BUSINESS_SYSTEM</find>
+      <find>&lt;div class=&quot;page_box&quot;&gt;</find>
+      <find>xf_</find>
+      <find>entering</find>
+      <find>/administrative/warehouse/list</find>
+      <find>deleteEvent</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>{{vo.name}}</replace>
+      <replace>{{include (&quot;./../inc/cssSources&quot;)}}</replace>
+      <replace>{{include ('./../inc/header')}}</replace>
+      <replace>{{include ('./../inc/sideNav')}}</replace>
+      <replace>{{include (&quot;./../inc/metaData&quot;)}}</replace>
+      <replace>{{include ('./../inc/jsSources')}}</replace>
+>>>>>>> Stashed changes
       <replace>{{vo.title}}</replace>
       <replace>this</replace>
       <replace>{{warehouse_id}}</replace>
@@ -143,12 +258,15 @@
       <replace>{{gps_apply_id}}</replace>
       <replace>res.redirect(markUri + '/404'</replace>
       <replace>{{markUri}}</replace>
+<<<<<<< Updated upstream
       <replace>快收单</replace>
       <replace>{{include ('./../inc/header')}}</replace>
       <replace>{{include ('./../inc/sideNav')}}</replace>
       <replace>&lt;!---- Part of slide nav End ----&gt;</replace>
       <replace>span</replace>
       <replace>0</replace>
+=======
+>>>>>>> Stashed changes
       <replace>firstPayScaleE</replace>
     </replaceStrings>
     <dirStrings>
@@ -171,11 +289,31 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/administrative/edit.xtpl" />
+=======
+        <option value="$PROJECT_DIR$/views/inc/requestpayoutInfo.xtpl" />
+        <option value="$PROJECT_DIR$/views/customer/imgDetail.xtpl" />
+        <option value="$PROJECT_DIR$/views/errorpage/404.xtpl" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/views/workflow/create.jsp" />
+        <option value="$PROJECT_DIR$/util/logger.js" />
+        <option value="$PROJECT_DIR$/views/workflow/create.xtpl" />
+        <option value="$PROJECT_DIR$/views/workflow/detail.xtpl" />
+        <option value="$PROJECT_DIR$/views/organization/detail.xtpl" />
+        <option value="$PROJECT_DIR$/views/organization/material.xtpl" />
+        <option value="$PROJECT_DIR$/util/xtemplate.js" />
+        <option value="$PROJECT_DIR$/views/workflow/edit.xtpl" />
+        <option value="$PROJECT_DIR$/controller/viewsController/questionController.js" />
+        <option value="$PROJECT_DIR$/views/pigeonhole/imgDetail.xtpl" />
+        <option value="$PROJECT_DIR$/views/question/merchantsHis.jsp" />
+        <option value="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" />
+        <option value="$PROJECT_DIR$/views/administrative/create.xtpl" />
+        <option value="$PROJECT_DIR$/public/js/public.js" />
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/public/dialog/dialog-layer.js" />
         <option value="$PROJECT_DIR$/views/administrative/equipmentList.xtpl" />
-        <option value="$PROJECT_DIR$/views/administrative/equipmentEdit.xtpl" />
         <option value="$PROJECT_DIR$/views/administrative/list.xtpl" />
         <option value="$PROJECT_DIR$/views/administrative/equipmentCreate.xtpl" />
         <option value="$PROJECT_DIR$/views/gps/warehouseCreate.xtpl" />
@@ -186,7 +324,6 @@
         <option value="$PROJECT_DIR$/public/js/warehouse.js" />
         <option value="$PROJECT_DIR$/views/gps/applyDisagree.xtpl" />
         <option value="$PROJECT_DIR$/views/gps/applyToface.xtpl" />
-        <option value="$PROJECT_DIR$/controller/viewsController/warehouseController.js" />
         <option value="$PROJECT_DIR$/views/gps/applyExpress.xtpl" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/gps/warehouseList.xtpl" />
@@ -194,7 +331,6 @@
         <option value="$PROJECT_DIR$/controller/viewsController/workflowController.js" />
         <option value="$PROJECT_DIR$/controller/viewsController/customerController.js" />
         <option value="$PROJECT_DIR$/views/question/customerList.xtpl" />
-        <option value="$PROJECT_DIR$/views/workflow/list.xtpl" />
         <option value="$PROJECT_DIR$/views/gps/warehouseDetail.xtpl" />
         <option value="$PROJECT_DIR$/controller/common.js" />
         <option value="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
@@ -213,6 +349,7 @@
         <option value="$PROJECT_DIR$/public/css/customerService.less" />
         <option value="$PROJECT_DIR$/public/css/public.less" />
         <option value="$PROJECT_DIR$/views/question/merchantsList.xtpl" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/public/js/finance/img_detail.js" />
         <option value="$PROJECT_DIR$/views/customer/dockingPAHome.xtpl" />
         <option value="$PROJECT_DIR$/views/customer/dockingPALenderInfo.xtpl" />
@@ -222,6 +359,14 @@
         <option value="$PROJECT_DIR$/controller/viewsController/dockingController.js" />
         <option value="$PROJECT_DIR$/public/js/docking-pingan.js" />
         <option value="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
+=======
+        <option value="$PROJECT_DIR$/views/administrative/edit.xtpl" />
+        <option value="$PROJECT_DIR$/views/workflow/list.xtpl" />
+        <option value="$PROJECT_DIR$/views/question/customerHisList.xtpl" />
+        <option value="$PROJECT_DIR$/views/question/merchantsHis.xtpl" />
+        <option value="$PROJECT_DIR$/controller/viewsController/warehouseController.js" />
+        <option value="$PROJECT_DIR$/views/administrative/equipmentEdit.xtpl" />
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -341,7 +486,23 @@
               <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+<<<<<<< Updated upstream
               <item name="customer" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="administrative" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="question" type="462c0819:PsiDirectoryNode" />
+>>>>>>> Stashed changes
+            </path>
+            <path>
+              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="workflow" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -886,7 +1047,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="703112000" />
+=======
+    <option name="totallyTimeSpent" value="637354000" />
+>>>>>>> Stashed changes
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -904,6 +1069,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23814541" sideWeight="0.47560975" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18838993" sideWeight="0.4873551" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22702104" sideWeight="0.5126449" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36363637" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16429354" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24424973" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23814541" sideWeight="0.5243902" order="2" side_tool="true" content_ui="tabs" />
@@ -915,9 +1081,22 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+<<<<<<< Updated upstream
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36363637" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16429354" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23814541" sideWeight="0.5243902" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8444688" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28368017" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23814541" sideWeight="0.47560975" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22782037" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> Stashed changes
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1007,11 +1186,16 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
+<<<<<<< Updated upstream
       <option name="time" value="531" />
+=======
+      <option name="time" value="529" />
+>>>>>>> Stashed changes
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/views/administrative/equipmentCreate.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
@@ -1023,6 +1207,9 @@
     <entry file="file://$PROJECT_DIR$/views/question/hisList.xtpl" />
     <entry file="file://$PROJECT_DIR$/views/question/customerHisList.xtpl" />
     <entry file="file://$PROJECT_DIR$/views/dataStatistics/personList.xtpl">
+=======
+    <entry file="file://$PROJECT_DIR$/public/dialog/dialog-layer.js">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-693">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1044,6 +1231,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/views/customer/allotEmp.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="685">
@@ -1052,6 +1240,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/customerDetail.xtpl">
+=======
+    <entry file="file://$PROJECT_DIR$/views/merchants/edit.xtpl">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5418">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1112,6 +1303,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/controller/viewsController/privilegeController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1120,6 +1312,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
+=======
+    <entry file="file://$PROJECT_DIR$/views/gps/applyToface.xtpl">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="78" column="66" lean-forward="true" selection-start-line="78" selection-start-column="66" selection-end-line="78" selection-end-column="66" />
@@ -1182,6 +1377,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/public/js/merchants.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1190,12 +1386,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/public.js">
+=======
+    <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="1582" column="32" lean-forward="false" selection-start-line="1582" selection-start-column="21" selection-end-line="1582" selection-end-column="32" />
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/public/js/merchantsEdit.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -1209,6 +1409,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/merchants/edit.xtpl">
+=======
+    <entry file="file://$PROJECT_DIR$/views/question/customerList.xtpl" />
+    <entry file="file://$PROJECT_DIR$/views/question/hisList.xtpl" />
+    <entry file="file://$PROJECT_DIR$/views/dataStatistics/personList.xtpl">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="263" column="62" lean-forward="false" selection-start-line="263" selection-start-column="51" selection-end-line="263" selection-end-column="62" />
@@ -1222,6 +1427,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/public/css/customerService.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
@@ -1230,6 +1436,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/public.less">
+=======
+    <entry file="file://$PROJECT_DIR$/views/gps/warehouseDetail.xtpl">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
           <caret line="2562" column="24" lean-forward="true" selection-start-line="2562" selection-start-column="24" selection-end-line="2562" selection-end-column="24" />
@@ -1292,25 +1501,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPALenderInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="217">
           <caret line="505" column="62" lean-forward="true" selection-start-line="505" selection-start-column="29" selection-end-line="505" selection-end-column="62" />
           <folding />
+=======
+        <state relative-caret-position="-609">
+          <caret line="15" column="67" lean-forward="false" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="67" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPAGuarantorInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="255">
           <caret line="304" column="62" lean-forward="false" selection-start-line="304" selection-start-column="62" selection-end-line="304" selection-end-column="62" />
           <folding />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPALenderFilesInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="265">
           <caret line="86" column="62" lean-forward="false" selection-start-line="86" selection-start-column="62" selection-end-line="86" selection-end-column="62" />
           <folding />
+=======
+        <state relative-caret-position="314">
+          <caret line="31" column="58" lean-forward="false" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="58" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1340,12 +1564,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/docking-pingan.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="359">
           <caret line="84" column="30" lean-forward="true" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="30" />
           <folding>
             <marker date="1514964083447" expanded="true" signature="7908:7921" ph="..." />
             <marker date="1514964083447" expanded="true" signature="8622:8637" ph="..." />
           </folding>
+=======
+        <state relative-caret-position="294">
+          <caret line="452" column="63" lean-forward="false" selection-start-line="452" selection-start-column="55" selection-end-line="452" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/viewsController/workflowController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="22" column="36" lean-forward="false" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/workflow/list.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="253" column="30" lean-forward="true" selection-start-line="253" selection-start-column="30" selection-end-line="253" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/question/customerHisList.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="27" column="94" lean-forward="true" selection-start-line="27" selection-start-column="94" selection-end-line="27" selection-end-column="94" />
+          <folding />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1359,11 +1612,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="210">
           <caret line="75" column="41" lean-forward="true" selection-start-line="75" selection-start-column="41" selection-end-line="75" selection-end-column="41" />
+=======
+        <state relative-caret-position="251">
+          <caret line="27" column="94" lean-forward="true" selection-start-line="27" selection-start-column="94" selection-end-line="27" selection-end-column="94" />
+>>>>>>> Stashed changes
           <folding>
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/warehouse.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="813">
+          <caret line="145" column="46" lean-forward="true" selection-start-line="145" selection-start-column="46" selection-end-line="145" selection-end-column="46" />
+          <folding>
+            <marker date="1514347176035" expanded="true" signature="3674:3693" ph="..." />
+            <marker date="1514347176035" expanded="true" signature="4222:4487" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/administrative/edit.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3876">
+          <caret line="232" column="46" lean-forward="true" selection-start-line="232" selection-start-column="46" selection-end-line="232" selection-end-column="46" />
+          <folding>
+            <marker date="1514966287184" expanded="true" signature="3992:4127" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/administrative/equipmentCreate.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="104" column="8" lean-forward="true" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/administrative/equipmentEdit.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/viewsController/warehouseController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="141" column="28" lean-forward="true" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -248,6 +248,10 @@
                 "maskClose" : false,
 				onConfirm : function (d) {
                     onDeleteConfirm(d);
+				},
+				onCancel : function (d) {
+                    deleteWorkFlow(d);
+                    d.close();
 				}
 			});
             var onDeleteConfirm = function (d) {
