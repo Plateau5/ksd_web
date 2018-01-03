@@ -52,6 +52,9 @@ Array.prototype.remove = function(val) {
         this.splice(index, 1);
     }
 };
+String.prototype.number = function () {
+    return Number(this);
+};
 // ----------------------------------------------------------------------
 // <summary>
 // 限制只能输入数字

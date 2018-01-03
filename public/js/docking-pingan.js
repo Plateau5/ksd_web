@@ -412,6 +412,73 @@ function saveAndGoNext (btn, nextPath, url) {
     }
 }
 
+/**
+ * 还款计划表计算
+ * @author Arley Joe 2018-1-3 18:16:57
+ * @desc :   还款计划表公式：
+ *           每期租金（计划表中为：租金金额）=〔融资金额×月利率×(1＋月利率)^租赁期限〕÷〔(1＋月利率)^租赁期限-1〕
+ *           利息金额 = 融资金额 × 月利率 × 〔(1+月利率)^租赁期限-(1+月利率)^(租金期次-1)〕÷〔(1+月利率)^租赁期限-1〕
+ *           本金金额=融资金额×月利率×(1+月利率)^(租金期次-1)÷〔(1+月利率)^租金期次-1〕
+ *           其中：328产品月利率=(11.21%÷12)；329产品月利率=(11.42%÷12)
+ */
+
+function calcRepaymentPlan () {
+    var product = $('#productName');    // 产品元素
+    var finance = $('#finance');    // 融资金额
+    var rentDueE = $('#rentDue');    // 租赁期限
+
+    /*var financeAmount = finance.val().number();        // 融资金额
+    var interestRate = product.find('option:selected').data('interestRate').number();    // 年利率*/
+    var financeAmount = 10000;        // 融资金额
+    var interestRate = 14;    // 年利率
+    // var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
+    var rentDue = 12;
+    var data = {
+        reachRent : null,       // 每期租金
+        interestRateAmount : [],        // 利息金额
+        principalAmount : []        // 本金金额
+    };
+    data.eachRent = (Math.pow(financeAmount * (interestRate / 12) * (1 + (interestRate / 12)), rentDue)  / (Math.pow((1 + (interestRate / 12)), rentDue) - 1)).toFixed(2).number();
+    for (var i = 1; i <= rentDue; i++) {
+        // 每期利息金额
+        var a = (financeAmount * (interestRate / 12) * (Math.pow((1 + (interestRate / 12)), rentDue) - Math.pow((1 + (interestRate / 12)), (i - 1))) / (Math.pow((1 + (interestRate / 12)), rentDue) - 1)).toFixed(2).number();
+        // 本金金额
+        var b = (financeAmount * (interestRate / 12) * Math.pow((1 + (interestRate / 12)), (i - 1)) / (Math.pow((1 + (interestRate / 12)), i) - 1)).toFixed(2).number();
+        data.interestRateAmount.push(a);
+        data.principalAmount.push(b);
+    }
+    return data;
+}
+
+/**
+ * 创建还款计划表
+ * @author Arley Joe 2018-1-3 19:45:41
+ * @return {Object}
+ */
+function createRepaymentPlanTable () {
+    var product = $('#productName');    // 产品元素
+    var finance = $('#finance');    // 融资金额
+    var rentDueE = $('#rentDue');    // 租赁期限
+
+    /*var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限*/
+    var rentDue = 12;
+
+    var data = calcRepaymentPlan();
+    var ele = '';
+    for (var i = 1; i <= rentDue; i++) {
+        // todo 修改租金账单日期
+        ele += '<tr>\n' +
+            '                                <td>2017-12-15</td>\n' +
+            '                                <td>'+ i +'</td>\n' +
+            '                                <td>'+ data.eachRent +'</td>\n' +
+            '                                <td>'+ data.interestRateAmount[i-1] +'</td>\n' +
+            '                                <td>'+ data.principalAmount[i-1] +'</td>\n' +
+            '                            </tr>';
+    }
+    var table = $('#repaymentPlanTable');
+    table.find('tbody').html(ele);
+}
+
 
 $(function () {
     goOrderDetail();

@@ -152,11 +152,13 @@
                             <div class="column_val">
                                 <select name="dealerId" id="">
                                     <option value="">请选择</option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
+                                    {{#each (dealerData) }}
+                                        {{#if (this.dealerId === dealerId) }}
+                                            <option value="{{this.id}}" selected>{{this.dealerName}}</option>
+                                        {{else}}
+                                            <option value="{{this.id}}">{{this.dealerName}}</option>
+                                        {{/if}}
+                                    {{/each}}
                                 </select>
                             </div>
                         </div>
@@ -221,7 +223,7 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group mar6 v_middle">
-                                    {{#if (isCarHome === 1) }}
+                                    {{#if (isCarHome === 1 || (!isCarHome && isCarHome !== 0) ) }}
                                     <input id="isCarHome1" type="radio" class="isCarHome" checked="checked" name="isCarHome" value="1" />
                                     <label for="rentModel1">是</label>
                                     {{else}}
@@ -230,7 +232,7 @@
                                     {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
-                                    {{#if (isCarHome === 2) }}
+                                    {{#if (isCarHome === 2 || (!isCarHome && isCarHome !== 0) ) }}
                                     <input id="isCarHome2" type="radio" class="isCarHome" checked="checked" name="isCarHome" value="2" />
                                     <label for="rentModel2">否</label>
                                     {{else}}
@@ -247,11 +249,13 @@
                             <div class="column_val">
                                 <select name="productName" id="productName">
                                     <option value="">请选择</option>
-                                    <option value="">极致进件</option>
-                                    <option value="">极致进件</option>
-                                    <option value="">极致进件</option>
-                                    <option value="">极致进件</option>
-                                    <option value="">极致进件</option>
+                                    {{#each (productData) }}
+                                        {{#if (this.PRODUCTID === productName) }}
+                                            <option value="{{this.PRODUCTID}}" selected>{{this.NAME}}</option>
+                                        {{else}}
+                                            <option value="{{this.PRODUCTID}}">{{this.NAME}}</option>
+                                        {{/if}}
+                                    {{/each}}
                                 </select>
                             </div>
                         </div>
@@ -356,13 +360,15 @@
                                 <span class="options_name">租赁期限：</span>
                             </div>
                             <div class="column_val">
-                                <select name="rentDue" id="">
+                                <select name="rentDue" id="rentDue">
                                     <option value="">请选择</option>
-                                    <option value="">12</option>
-                                    <option value="">113</option>
-                                    <option value="">13</option>
-                                    <option value="">14</option>
-                                    <option value="">15</option>
+                                    {{#each (rentDue) }}
+                                        {{#if (this === rentDue) }}
+                                        <option value="{{this}}" selected>{{this}}</option>
+                                        {{else}}
+                                        <option value="{{this}}">{{this}}</option>
+                                        {{/if}}
+                                    {{/each}}
                                 </select>
                             </div>
                         </div>
@@ -413,11 +419,11 @@
                         </div>
                         <div class="option_item">
                             <div class="column_name">
-                                <span class="options_name repayment_plan">查看还款计划表：</span>
+                                <span class="options_name repayment_plan"><em class="repayment_plan_btn"></em>查看还款计划表</span>
                             </div>
-                            <div class="column_val">
+                            <!--<div class="column_val">
                                 <em class="repayment_plan_btn"></em>
-                            </div>
+                            </div>-->
                         </div>
                         <!-- 融资业务信息 End -->
 
@@ -432,7 +438,7 @@
                 <!-- 还款计划表弹出层 -->
                 <div class="repayment_plan_table">
                     <div class="content">
-                        <table>
+                        <table id="repaymentPlanTable">
                             <colgroup style="width: 100%;">
                                 <col style="width:  20%;">
                                 <col style="width:  20%;">
@@ -450,90 +456,14 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>2017-01-15</td>
-                                <td>1</td>
-                                <td>3543.11</td>
-                                <td>380.67</td>
-                                <td>3162.44</td>
-                            </tr>
-                            <tr>
-                                <td>2017-02-15</td>
-                                <td>2</td>
-                                <td>3543.11</td>
-                                <td>380.67</td>
-                                <td>3162.44</td>
-                            </tr>
-                            <tr>
-                                <td>2017-03-15</td>
-                                <td>3</td>
-                                <td>3543.11</td>
-                                <td>380.67</td>
-                                <td>3162.44</td>
-                            </tr>
-                            <tr>
-                                <td>2017-04-15</td>
-                                <td>4</td>
-                                <td>3543.11</td>
-                                <td>380.67</td>
-                                <td>3162.44</td>
-                            </tr>
-                            <tr>
-                                <td>2017-05-15</td>
-                                <td>1</td>
-                                <td>3543.11</td>
-                                <td>380.67</td>
-                                <td>3162.44</td>
-                            </tr>
-                            <tr>
-                                <td>2017-06-15</td>
-                                <td>2</td>
-                                <td>3543.11</td>
-                                <td>380.67</td>
-                                <td>3162.44</td>
-                            </tr>
-                            <tr>
-                                <td>2017-07-15</td>
-                                <td>3</td>
-                                <td>3543.11</td>
-                                <td>380.67</td>
-                                <td>3162.44</td>
-                            </tr>
-                            <tr>
-                                <td>2017-08-15</td>
-                                <td>4</td>
-                                <td>3543.11</td>
-                                <td>380.67</td>
-                                <td>3162.44</td>
-                            </tr>
-                            <tr>
-                                <td>2017-09-15</td>
-                                <td>1</td>
-                                <td>3543.11</td>
-                                <td>380.67</td>
-                                <td>3162.44</td>
-                            </tr>
-                            <tr>
-                                <td>2017-10-15</td>
-                                <td>2</td>
-                                <td>3543.11</td>
-                                <td>380.67</td>
-                                <td>3162.44</td>
-                            </tr>
-                            <tr>
-                                <td>2017-11-15</td>
-                                <td>3</td>
-                                <td>3543.11</td>
-                                <td>380.67</td>
-                                <td>3162.44</td>
-                            </tr>
-                            <tr>
-                                <td>2017-12-15</td>
-                                <td>4</td>
-                                <td>3543.11</td>
-                                <td>380.67</td>
-                                <td>3162.44</td>
-                            </tr>
+                                <tr>
+                                    <td>2017-01-15</td>
+                                    <td>1</td>
+                                    <td>3543.11</td>
+                                    <td>380.67</td>
+                                    <td>3162.44</td>
+                                </tr>
+
                             </tbody>
                         </table>
                         <div class="confirm_btn_box">
@@ -561,11 +491,12 @@
     (function ($) {
         // 还款计划层的显示隐藏
         function showRepaymentPlan () {
-            var btn = $('.confirm_btn, .repayment_plan_btn');
+            var btn = $('.confirm_btn, .repayment_plan');
             btn.off('click').on('click', function () {
                 var _this = $(this);
                 var p = $('.repayment_plan_table');
                 if (p.is(':hidden')) {
+                    createRepaymentPlanTable();     // 计算还款计划表
                     p.show();
                 } else {
                     p.hide();
@@ -712,7 +643,6 @@
         }
 
         // 注册提价事件
-
 
 
         $(function() {
