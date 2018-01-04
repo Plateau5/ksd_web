@@ -120,7 +120,13 @@
                 if (index == 0) {   // 如果是第一个节点则直接跳转进入该模块编辑模式
                     var pageUrl = $.trim(_this.data('route'));
                     return locationTo({
-                        action : pageUrl
+                        action : pageUrl,
+                        param : {
+                            query_type : 0,
+                            finance_id : financeId,
+                            preCode : preCode,
+                            loanID : loanID
+                        }
                     });
                 }
                 var icon = _this.find('.xf_edit_home_icon'); // 是否是编辑完成的icon

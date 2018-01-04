@@ -438,12 +438,13 @@ function calcRepaymentPlan () {
         interestRateAmount : [],        // 利息金额
         principalAmount : []        // 本金金额
     };
-    data.eachRent = (Math.pow(financeAmount * (interestRate / 12) * (1 + (interestRate / 12)), rentDue)  / (Math.pow((1 + (interestRate / 12)), rentDue) - 1)).toFixed(2).number();
+    var monthRent = Number((interestRate / 12).toFixed(8));
+    data.eachRent = (Math.pow(financeAmount * monthRent * (1 + monthRent), rentDue)  / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
     for (var i = 1; i <= rentDue; i++) {
         // 每期利息金额
-        var a = (financeAmount * (interestRate / 12) * (Math.pow((1 + (interestRate / 12)), rentDue) - Math.pow((1 + (interestRate / 12)), (i - 1))) / (Math.pow((1 + (interestRate / 12)), rentDue) - 1)).toFixed(2).number();
+        var a = (financeAmount * monthRent * (Math.pow((1 + monthRent), rentDue) - Math.pow((1 + monthRent), (i - 1))) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
         // 本金金额
-        var b = (financeAmount * (interestRate / 12) * Math.pow((1 + (interestRate / 12)), (i - 1)) / (Math.pow((1 + (interestRate / 12)), i) - 1)).toFixed(2).number();
+        var b = (financeAmount * monthRent * Math.pow((1 + monthRent), (i - 1)) / (Math.pow((1 + monthRent), i) - 1)).toFixed(2).number();
         data.interestRateAmount.push(a);
         data.principalAmount.push(b);
     }

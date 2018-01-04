@@ -23,6 +23,7 @@ exports.VIEW_DOCKING_PINGAN_HOME = function(req, res, next) {
         callback : function (data) {
             data.finance_id = finance_id;
             data.url = url;
+            data.carInfo = 1;
         }
     }, req, res, next);
 };
