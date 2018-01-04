@@ -48,15 +48,15 @@
                                     <div class="column_val">
                                         <div class="img_md_box file_upload">
                                             {{#each (data_file) }}
-                                            {{#if (this.material_type === ../../type && this.file_type === ../file_type) }}
-                                            <a href="javascript:;" class="img_item" data-id="{{file_id}}" data-file_type="{{file_type}}" data-file_name="{{file_name}}" data-material_type="{{material_type}}" data-material_name="{{material_name}}">
-                                                <img data-original="{{this.url}}" alt="{{this.file_name}}" src="{{this.thumbnail_160_100}}">
-                                                <div class="img_md_operate_box">
-                                                    <em class="img_md_operate_btn view" data-url="{{this.url}}" title="查看"></em>
-                                                    <em class="img_md_operate_btn delete" data-id="{{this.file_id}}" title="删除"></em>
-                                                </div>
-                                            </a>
-                                            {{/if}}
+                                                {{#if (this.material_type === ../../type && this.file_type === ../file_type) }}
+                                                <a href="javascript:;" class="img_item" data-id="{{file_id}}" data-file_type="{{file_type}}" data-file_name="{{file_name}}" data-material_type="{{material_type}}" data-material_name="{{material_name}}">
+                                                    <img data-original="{{this.url}}" alt="{{this.file_name}}" src="{{this.thumbnail_160_100}}">
+                                                    <div class="img_md_operate_box">
+                                                        <em class="img_md_operate_btn view" data-url="{{this.url}}" title="查看"></em>
+                                                        <em class="img_md_operate_btn delete" data-id="{{this.file_id}}" title="删除"></em>
+                                                    </div>
+                                                </a>
+                                                {{/if}}
                                             {{/each}}
                                             <a href="javascript:;" class="file_upload_layer add_img_md_btn"></a>
                                             <input type="file" class="file_upload_btn"   value="上传图片" style="display: none" />
