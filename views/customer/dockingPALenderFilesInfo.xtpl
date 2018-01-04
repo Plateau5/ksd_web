@@ -29,20 +29,44 @@
                 </div>
                 <div class="form_content form_options">
                     <form action="" class="basic_info_edit">
+                        <input type="hidden" name="finance_id" value="{{finance_id}}">
                         <!-- 承租人文件信息 Begin -->
-                        <div class="options_title">承租人文件信息</div>
-                        <div class="option_item whole_line" id="">
-                            <div class="column_name">
-                                <span class="options_name"><span class="require_icon">*</span>个人申请表：</span>
-                            </div>
-                            <div class="column_val">
-                                <div class="img_md_box file_upload">
-                                    <a href="javascript:;" class="file_upload_layer add_img_md_btn"></a>
-                                    <input type="file" class="file_upload_btn"   value="上传图片" style="display: none" />
+                        {{#each (dataFiles) }}
+                            {{#if (this.type || this.type === 0) }}
+                                <div class="options_title" data-type="{{this.type}}">{{this.name}}</div>
+                                {{#each (this.children) }}
+                                <div class="option_item whole_line file_option_item" id="">
+                                    <div class="column_name">
+                                        <span class="options_name">
+                                            {{#if (this.require === '1') }}
+                                            <span class="require_icon">*</span>{{this.file_name}}：
+                                            {{else}}
+                                                {{this.file_name}}
+                                            {{/if}}
+                                        </span>
+                                    </div>
+                                    <div class="column_val">
+                                        <div class="img_md_box file_upload">
+                                            {{#each (data_file) }}
+                                            {{#if (this.material_type === ../../type && this.file_type === ../file_type) }}
+                                            <a href="javascript:;" class="img_item" data-id="{{file_id}}" data-file_type="{{file_type}}" data-file_name="{{file_name}}" data-material_type="{{material_type}}" data-material_name="{{material_name}}">
+                                                <img data-original="{{this.url}}" alt="{{this.file_name}}" src="{{this.thumbnail_160_100}}">
+                                                <div class="img_md_operate_box">
+                                                    <em class="img_md_operate_btn view" data-url="{{this.url}}" title="查看"></em>
+                                                    <em class="img_md_operate_btn delete" data-id="{{this.file_id}}" title="删除"></em>
+                                                </div>
+                                            </a>
+                                            {{/if}}
+                                            {{/each}}
+                                            <a href="javascript:;" class="file_upload_layer add_img_md_btn"></a>
+                                            <input type="file" class="file_upload_btn"   value="上传图片" style="display: none" />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="option_item whole_line" id="">
+                                {{/each}}
+                            {{/if}}
+                        {{/each}}
+                        <!--<div class="option_item whole_line" id="">
                             <div class="column_name">
                                 <span class="options_name"><span class="require_icon">*</span>身份证 ：</span>
                             </div>
@@ -51,10 +75,10 @@
                                     <a href="javascript:;" class="add_img_md_btn"></a>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- 承租人文件信息  end -->
                         <!-- 担保人文件信息 Begin -->
-                        <div class="options_title">担保人文件信息</div>
+                        <!--<div class="options_title">担保人文件信息</div>
                         <div class="option_item whole_line" id="">
                             <div class="column_name">
                                 <span class="options_name"><span class="require_icon">*</span>个人申请表：</span>
@@ -74,7 +98,7 @@
                                     <a href="javascript:;" class="add_img_md_btn"></a>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- 担保人文件信息  end -->
 
 
@@ -83,7 +107,7 @@
                     </form>
                 </div>
                 <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
-                    <a href="javascript:" class="btn orange_btn confirm edit_confirm">保存并继续</a>
+                    <a href="javascript:" class="btn orange_btn confirm edit_confirm"  data-url="{{contextPath}}/api/docking/document/save" data-next="{{markUri}}/docking/pingan/credit">保存并继续</a>
                     <a href="javascript:window.history.back();" class="btn bg_btn edit_cancel">取消</a>
                 </div>
 
@@ -113,7 +137,6 @@
         $(function() {
             viewLargeImage('.img_md_box');
             viewImages();       // 查看大图
-            deleteImages();     // 图片删除
             uploadImage();      // 图片上传注册
         });
     })(jQuery,undefined);

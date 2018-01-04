@@ -30,45 +30,15 @@
                 </div>
                 <div class="form_content form_options">
                     <form action="" class="basic_info_edit"  role="saveForm">
+                        <input type="hidden" name="finance_id" value="{{finance_id}}">
                         <!-- 基本信息 Begin -->
                         <div class="options_title">基本信息</div>
-                        <div class="option_item">
-                            <div class="column_name">
-                                <span class="options_name">与承租人关系：</span>
-                            </div>
-                            <div class="column_val">
-                                <select name="relax" id="relax">
-                                    <option value="">请选择</option>
-                                    <option value="1">亲属</option>
-                                    <option value="2">朋友</option>
-                                    <option value="3">同事</option>
-                                    <option value="4">其他</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="option_item">
-                            <div class="column_name">
-                                <span class="options_name">教育：</span>
-                            </div>
-                            <div class="column_val">
-                                <select name="education" id="education">
-                                    <option value="">请选择</option>
-                                    <option value="1">本科以上</option>
-                                    <option value="2">本科</option>
-                                    <option value="3">专科</option>
-                                    <option value="4">高中</option>
-                                    <option value="5">中专</option>
-                                    <option value="6">技校</option>
-                                    <option value="7">高中以下</option>
-                                </select>
-                            </div>
-                        </div>
                         <div class="option_item">
                             <div class="column_name">
                                 <span class="options_name">姓名：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" disabled data-tips="姓名不能为空" name="name" value="" placeholder="请输入姓名，比如：张三" />
+                                <input type="text" class="required" readonly data-tips="姓名不能为空" name="name" value="{{name}}" placeholder="请输入姓名，比如：张三" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -77,7 +47,7 @@
                                 <span class="options_name">手机号码：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" disabled data-tips="手机号码不能为空" name="cellphone" value="" placeholder="请输入手机号，比如：13800000000" />
+                                <input type="text" class="required" readonly data-tips="手机号码不能为空" name="cellphone" value="{{cellphone}}" placeholder="请输入手机号，比如：13800000000" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -109,7 +79,7 @@
                                 <span class="options_name">证件号码：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" disabled data-tips="证件号码不能为空" name="IDnum" value="" placeholder="请输入证件号码" />
+                                <input type="text" class="required" readonly data-tips="证件号码不能为空" name="IDnum" value="{{IDnum}}" placeholder="请输入证件号码" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -136,6 +106,37 @@
                             <div class="column_val">
                                 <input type="text" class="required birthday" readonly="readonly" data-tips="出生日期不能为空" name="birthday" value="" placeholder="请选择日期" style="cursor: default;" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">与承租人关系：</span>
+                            </div>
+                            <div class="column_val">
+                                <select name="relax" id="relax">
+                                    <option value="">请选择</option>
+                                    <option value="1">亲属</option>
+                                    <option value="2">朋友</option>
+                                    <option value="3">同事</option>
+                                    <option value="4">其他</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">教育：</span>
+                            </div>
+                            <div class="column_val">
+                                <select name="education" id="education">
+                                    <option value="">请选择</option>
+                                    <option value="1">本科以上</option>
+                                    <option value="2">本科</option>
+                                    <option value="3">专科</option>
+                                    <option value="4">高中</option>
+                                    <option value="5">中专</option>
+                                    <option value="6">技校</option>
+                                    <option value="7">高中以下</option>
+                                </select>
                             </div>
                         </div>
                         <div class="option_item">
@@ -301,7 +302,7 @@
                     </form>
                 </div>
                 <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
-                    <a href="javascript:" id="saveAndGoNext" class="btn orange_btn confirm edit_confirm" data-url="" data-next="{{markUri}}/docking/pingan/files">保存并继续</a>
+                    <a href="javascript:" id="saveAndGoNext" class="btn orange_btn confirm edit_confirm" data-url="{{contextPath}}/api/pingan/sponsorInfos/commit" data-next="{{markUri}}/docking/pingan/files">保存并继续</a>
                     <a href="javascript:window.history.back();" class="btn bg_btn edit_cancel">取消</a>
                 </div>
 

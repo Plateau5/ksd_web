@@ -595,18 +595,9 @@ function uploadImage () {
     });
     // 上传逻辑
     var onChoose = function (btn) {
-        var type = $.trim(btn.data('type'));
         var data = (btn.parents('.file_upload').find('.file_upload_btn')[0]).files[0];
-        var fileExtension = data.name.substring(data.name.lastIndexOf('.'));    // 上传的文件的后缀名
-        var fileCount = btn.parents('.img_md_box').find('.img_item').length;    // 该备案字段下现有图片总数
-        var filingName = $.trim(btn.parents('.option_item').find('.options_name').text()).replace(/[*:：]/ig, '');   // 字段名称
-        var fileName = filingName + '_' + (fileCount + 1) + fileExtension;
-        var merchantId = $.trim($('#supplierId').val());
         var form = new FormData();
         form.append("file", data);
-        form.append("file_type", type);
-        form.append("supplier_id", merchantId);
-        form.append("file_name", fileName);     // 用于后台重命名图片物理名字
         var url = contextPath + '/api/supplier/file/upload';
         $.ajax({
             type : "post",

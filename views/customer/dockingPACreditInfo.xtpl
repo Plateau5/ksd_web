@@ -28,7 +28,8 @@
                     <a href="javascript:;" class="crumbs_item">征信信息</a>
                 </div>
                 <div class="form_content form_options">
-                    <form action="" class="basic_info_edit">
+                    <form action="" class="basic_info_edit" role="fileForm">
+                        <input type="hidden" name="finance_id" value="{{finance_id}}">
                         <!-- 基本信息 Begin -->
                         <div class="options_title">承租人征信查询</div>
                         <div class="option_item whole_line" id="">
@@ -37,7 +38,7 @@
                             </div>
                             <div class="column_val">
                                 <div class="img_md_box file_upload">
-                                    <a href="javascript:;" class="file_upload_layer add_img_md_btn"></a>
+                                    <a href="javascript:;" class="file_upload_layer add_img_md_btn" ></a>
                                     <input type="file" class="file_upload_btn"   value="上传图片" style="display: none" />
                                 </div>
                             </div>
@@ -81,10 +82,11 @@
 
 
 
+
                     </form>
                 </div>
                 <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
-                    <a href="javascript:" class="btn orange_btn confirm edit_confirm">保存并继续</a>
+                    <a href="javascript:" class="btn orange_btn confirm file_confirm" id="fileConfirm"  data-url="{{contextPath}}/api/docking/credit/save" data-next="{{markUri}}/docking/pingan/home">保存并继续</a>
                     <a href="javascript:window.history.back();" class="btn bg_btn edit_cancel">取消</a>
                 </div>
 
@@ -114,7 +116,6 @@
         $(function() {
             viewLargeImage('.img_md_box');
             viewImages();       // 查看大图
-            deleteImages();     // 图片删除
             uploadImage();      // 图片上传注册
         });
     })(jQuery,undefined);

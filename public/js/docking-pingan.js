@@ -206,8 +206,8 @@ function verifyEmpty () {
 function uploadImage () {
     fileUpload({
         maxCount : 10,
-        filesSize : 2,
-        fileFormat : ['png', 'jpg', 'jpeg', 'svg', 'gif', 'bmp', 'raw', 'cdr'],
+        filesSize : 5,
+        fileFormat : ['png', 'jpg', 'jpeg'],
         needThumbnails : false,
         callback : function (btn) {
             onChoose(btn);
@@ -217,6 +217,7 @@ function uploadImage () {
     var onChoose = function (btn) {
         var type = $.trim(btn.data('type'));
         var data = (btn.parents('.file_upload').find('.file_upload_btn')[0]).files[0];
+        console.log(btn.parents('.file_upload').find('.file_upload_btn').val());
         var fileExtension = data.name.substring(data.name.lastIndexOf('.'));    // 上传的文件的后缀名
         var fileCount = btn.parents('.img_md_box').find('.img_item').length;    // 该备案字段下现有图片总数
         var filingName = $.trim(btn.parents('.option_item').find('.options_name').text()).replace(/[*:：]/ig, '');   // 字段名称
@@ -227,7 +228,7 @@ function uploadImage () {
         form.append("file_type", type);
         form.append("finance_id", financeId);
         form.append("file_name", fileName);     // 用于后台重命名图片物理名字
-        var url = contextPath + '';
+        var url = contextPath + '/api/docking/file/upload';
         $.ajax({
             type : "post",
             url : url,
@@ -294,52 +295,7 @@ function uploadImage () {
     }
 }
 
-/**
- * 删除图片
- * @author Arley Joe 2017-11-2 11:38:04
- */
-function deleteImages () {
-    var imagesParents = $('.docking_container');
-    imagesParents.on('click', '.img_md_operate_box .delete', function (e) {
-        var e = e || window.event;
-        e.stopPropagation();
-        e.preventDefault();
-        var _this = $(this);
-        var id  = $.trim(_this.data('id'));
-        /*var ids = [];
-        ids.push(id);
-        ids = JSON.stringify(ids);*/
-        redefineAjax({
-            data : {
-                file_ids : id
-            },
-            url : contextPath + '',
-            success : function (res) {
-                if (res.error_code == 0) {
-                    $alert('图片删除成功', function () {
-                        // 获取父元素
-                        var parents = _this.parents('.img_md_box');
-                        // 销毁父元素的viewer实例
-                        parents[0].viewer.destroy();
-                        _this.parents('.img_item').remove();
-                        // 删除图片后从新实例化
-                        /*var viewer = new Viewer(parents[0], {
-                            url: 'data-original',
-                            interval : 2000,
-                            loop : true
-                        });*/
-                        viewLargeImage(parents[0]);
-                    });
-                } else {
-                    $alert(res.error_msg);
-                }
-            },
-            error : function () {
-                $alert('图片删除异常，请稍后重试');
-            }
-        })
-    })
-}
+
 
 /**
  * 查看图片跳转
@@ -362,7 +318,7 @@ function viewImages () {
 
 
 
-// 注册提交并继续事件
+// 表单页注册提交并继续事件
 function bindSubmitEvent () {
     var btn = $('#saveAndGoNext');
     btn.off('click').on('click', function () {
@@ -375,14 +331,18 @@ function bindSubmitEvent () {
 
 // 提交逻辑
 function saveAndGoNext (btn, nextPath, url) {
-    var form = $('form[role="saveForm"]');
-    var data = new FormData(form[0]);
+    var form = $('form[role="saveForm"]')[0];
+    var data = new FormData(form);
     var verifyPass = verifyEmpty();
-    if (verifyPass) {
+    if (!verifyPass) {
         btn.off('click');
-        redefineAjax({
+        $.ajax({
+            type: 'POST',
             url : url,
             data : data,
+            contentType: false,
+            processData: false,
+            timeout : 10000,
             beforeSend : function () {
                 $('#loading').show();
             },
@@ -405,8 +365,7 @@ function saveAndGoNext (btn, nextPath, url) {
                 $alert('提交保存失败，请稍后重试。');
                 bindSubmitEvent();
             }
-
-        })
+        });
     } else {
         $alert('该页面还有资料未填写完整，请先补充完整再保存');
     }
@@ -480,6 +439,88 @@ function createRepaymentPlanTable () {
     table.find('tbody').html(ele);
 }
 
+// 图片页面
+function bindSubmitEvent () {
+    var btn = $('#fileConfirm');
+    btn.off('click').on('click', function () {
+        var t = $(this);
+        var nextStep = $.trim(t.data('next'));
+        var url = $.trim(t.data('url'));
+        fileSaveAndGoNext(t, nextStep, url);
+    });
+}
+
+// 校验图片是否上传完（必传）
+function verifyImgPass () {
+    var isPass = true;
+    var elem = $('require_icon');       // 必需标识
+    elem.each(function () {
+        var _this = $(this);
+        var imgs = elem.parents('.file_option_item').find('.img_item');
+        if (imgs.length <= 0) {
+            isPass = false;
+            return false;
+        }
+    });
+    return isPass;
+}
+
+// 提交逻辑
+function fileSaveAndGoNext (btn, nextPath, url) {
+    var data = getData();
+    var isValidate = verifyImgPass();
+    if (isValidate) {
+        btn.off('click');
+        $.ajax({
+            type: 'POST',
+            url : url,
+            data : data,
+            contentType: false,
+            processData: false,
+            timeout : 10000,
+            beforeSend : function () {
+                $('#loading').show();
+            },
+            complete : function () {
+                $('#loading').hide();
+            },
+            success : function (res) {
+                if (res.error_code == 0) {
+                    $toast('保存成功', function () {
+                        locationTo({
+                            action : nextPath
+                        })
+                    });
+                } else {
+                    $alert(res.error_msg);
+                    bindSubmitEvent();
+                }
+            },
+            error : function () {
+                $alert('提交保存失败，请稍后重试。');
+                bindSubmitEvent();
+            }
+        });
+    } else {
+        $alert('该页面还有必传材料未上传，请先上传完再保存');
+    }
+
+    var getData = function () {
+        var data = [];
+        var imgs = $('form[role="saveForm"] .img_md_box .img_item');
+        imgs.each(function () {
+            var o = {};     // 当前图片数据对象
+            var _this = $(this);
+            o.id = $.trim(_this.data('id'));  // 图片主键
+            o.file_type = $.trim(_this.data('file_type'));  // 图片类型主键
+            o.file_name = $.trim(_this.data('file_name'));  // 图片类型名称
+            o.material_type = $.trim(_this.data('material_type'));  // 图片系列主键
+            o.material_name = $.trim(_this.data('material_name'));  // 图片系列名称
+            data.push(o);
+        });
+        return data;
+    }
+}
 
 $(function () {
     goOrderDetail();

@@ -30,6 +30,7 @@
                 </div>
                 <div class="form_content form_options">
                     <form action="" class="basic_info_edit" role="saveForm">
+                        <input type="hidden" name="finance_id" value="{{finance_id}}">
                         <!-- 基本信息 Begin -->
                         <div class="basic_info_lender">
                             <div class="options_title">基本信息</div>
@@ -38,7 +39,7 @@
                                     <span class="options_name">姓名：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" readonly="readonly" disabled data-tips="姓名不能为空" name="name" value="" placeholder="请输入姓名，比如：张三" />
+                                    <input type="text" class="required" readonly="readonly" data-tips="姓名不能为空" name="name" value="{{name}}" placeholder="请输入姓名，比如：张三" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -47,7 +48,7 @@
                                     <span class="options_name">手机号码：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="手机号码不能为空" disabled name="cellphone" value="" placeholder="请输入手机号，比如：13800000000" />
+                                    <input type="text" class="required" data-tips="手机号码不能为空" readonly name="cellphone" value="{{cellphone}}" placeholder="请输入手机号，比如：13800000000" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -79,7 +80,7 @@
                                     <span class="options_name">证件号码：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="证件号码不能为空" disabled name="IDnum" value="" placeholder="请输入证件号码" />
+                                    <input type="text" class="required" data-tips="证件号码不能为空" readonly name="IDnum" value="{{IDnum}}" placeholder="请输入证件号码" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -88,12 +89,13 @@
                                     <span class="options_name">性别：</span>
                                 </div>
                                 <div class="column_val">
+                                    <input type="hidden" name="sex" value="1">
                                     <div class="form_group mar6 v_middle">
-                                        <input type="radio"  id="gender1"  class="gender" name="sex" value="1" checked="checked" />
+                                        <input type="radio"  id="gender1" disabled class="gender" name="sex" value="1" checked="checked" />
                                         <label for="gender1">男</label>
                                     </div>
                                     <div class="form_group v_middle">
-                                        <input type="radio"  id="gender2"  class="gender" name="sex" value="2" />
+                                        <input type="radio"  id="gender2" disabled  class="gender" name="sex" value="2" />
                                         <label for="gender2">女</label>
                                     </div>
                                 </div>
@@ -103,7 +105,7 @@
                                     <span class="options_name">出生日期：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required birthday" readonly="readonly" data-tips="出生日期不能为空" name="birthday" value="" placeholder="请选择日期"  style="cursor: default;" />
+                                    <input type="text" class="required birthday" readonly="readonly" data-tips="出生日期不能为空" name="birthday" value="{{birthday}}" placeholder="请选择日期"  style="cursor: default;" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -394,7 +396,7 @@
                                     <span class="options_name">配偶姓名：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="配偶姓名不能为空" name="spouseName" value="" placeholder="请输入姓名，如：张三" />
+                                    <input type="text" class="required" data-tips="配偶姓名不能为空" readonly name="spouseName" value="{{spouseName}}" placeholder="请输入姓名，如：张三" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -403,7 +405,7 @@
                                     <span class="options_name">配偶手机号：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="配偶手机号不能为空" name="spouseCellphone" value="" placeholder="请输入手机号，如：13800000000" />
+                                    <input type="text" class="required" data-tips="配偶手机号不能为空" readonly name="spouseCellphone" value="{{spouseCellphone}}" placeholder="请输入手机号，如：13800000000" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -435,7 +437,7 @@
                                     <span class="options_name">证件号码：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="证件号码不能为空" name="spouseCellphone" value="" placeholder="请输入证件号码" />
+                                    <input type="text" class="required" data-tips="证件号码不能为空" name="spouseID" readonly value="{{spouseID}}" placeholder="请输入证件号码" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -502,7 +504,7 @@
                     </form>
                 </div>
                 <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
-                    <a href="javascript:" id="saveAndGoNext" class="btn orange_btn confirm edit_confirm" data-url="{{markUri}}/docking/pingan/guarantor" data-next="">保存并继续</a>
+                    <a href="javascript:" id="saveAndGoNext" class="btn orange_btn confirm edit_confirm" data-url="{{contextPath}}/api/pingan/renterInfo/commit" data-next="{{markUri}}/docking/pingan/guarantor">保存并继续</a>
                     <a href="javascript:window.history.back();" class="btn bg_btn edit_cancel">取消</a>
                 </div>
 
