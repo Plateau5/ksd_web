@@ -29,7 +29,8 @@
                 </div>
                 <div class="form_content form_options">
                     <form action="" class="basic_info_edit" role="saveForm">
-                        <input type="hidden" name="finance_id" value="{{finance_id}}">
+                        <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
+                        <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
                         <input type="hidden" name="loanID" value="0">
                         <!-- 车辆基本信息 Begin -->
                         <div class="options_title">车辆信息</div>
@@ -62,7 +63,18 @@
                             <div class="column_val">
                                 <select name="carYear" id="carYear">
                                     <option value="">请选择</option>
-
+                                    <option value="2009">2009</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
                                 </select>
                             </div>
                         </div>
@@ -643,7 +655,6 @@
             firstPayAccountE.val(firstPayAccount);
         }
 
-        // 注册提价事件
 
 
         $(function() {

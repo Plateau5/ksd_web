@@ -15,20 +15,22 @@ var ERRORTYPES = require('./../../util/ErrorTypesConf'); // 自定义错误类�
 
 // 平安对接-跳转录入首页 1429
 exports.VIEW_DOCKING_PINGAN_HOME = function(req, res, next) {
-    var finance_id = req.body.finance_id;
+    var financeId = req.body.finance_id;
+    var queryType = req.body.query_type;
     var url = req.body.url;
     common.getPageData({
         url : '/api/docking/table',
         title : '客户-录入资料',
         page : './customer/dockingPAHome',
         callback : function (data) {
-            data.finance_id = finance_id;
+            data.finance_id = financeId;
+            data.query_type = queryType;
             data.url = url;
-            data.carInfo = 1;
+            /*data.carInfo = 1;
             data.renterInfo = 1;
             data.sponsorInfo = 1;
             data.fileInfo = 1;
-            data.creditInfo = 1;
+            data.creditInfo = 1;*/
         }
     }, req, res, next);
 };
@@ -39,7 +41,9 @@ exports.VIEW_DOCKING_PINGAN_CAR = function(req, res, next) {
         title : '客户-车辆信息',
         page : './customer/dockingPACarInfo',
         callback : function (data) {
+            var queryType = req.body.query_type;
             var finance_id = req.body.finance_id;
+            data.query_type = queryType;
             var url = req.body.url;
             data.finance_id = finance_id;
             data.url = url;
@@ -55,6 +59,8 @@ exports.VIEW_DOCKING_PINGAN_LENDER = function(req, res, next) {
         callback : function (data) {
             var finance_id = req.body.finance_id;
             var url = req.body.url;
+            var queryType = req.body.query_type;
+            data.query_type = queryType;
             data.finance_id = finance_id;
             data.url = url;
         }
@@ -69,6 +75,8 @@ exports.VIEW_DOCKING_PINGAN_GUARGANTOR = function(req, res, next) {
         callback : function (data) {
             var finance_id = req.body.finance_id;
             var url = req.body.url;
+            var queryType = req.body.query_type;
+            data.query_type = queryType;
             data.finance_id = finance_id;
             data.url = url;
         }
@@ -83,6 +91,8 @@ exports.VIEW_DOCKING_PINGAN_FILES = function(req, res, next) {
         callback : function (data) {
             var finance_id = req.body.finance_id;
             var url = req.body.url;
+            var queryType = req.body.query_type;
+            data.query_type = queryType;
             data.finance_id = finance_id;
             data.url = url;
             var dataFiles = organizeData(data.data_material);
@@ -99,6 +109,8 @@ exports.VIEW_DOCKING_PINGAN_CREDIT = function(req, res, next) {
         callback : function (data) {
             var finance_id = req.body.finance_id;
             var url = req.body.url;
+            var queryType = req.body.query_type;
+            data.query_type = queryType;
             data.finance_id = finance_id;
             data.url = url;
             /*var dataFiles = organizeData(data.data_material);
@@ -126,7 +138,7 @@ var organizeData = function (d) {
         }
     }
     return dataFiles;
-}
+};
 
 
 

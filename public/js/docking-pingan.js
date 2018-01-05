@@ -165,6 +165,49 @@ function isHaveWork () {
     });
 }
 
+/**
+ * 婚姻状况与配偶信息联动
+ * @author Arley Joe 2018-1-5 16:08:36
+ * @return {boolean}
+ */
+function isMarriage () {
+    var marriageInfo = $('#lenderMarriage');    // 婚姻状况选择器
+    var spouseInfo = $('.spouse_info');     // 配偶信息部分
+    marriageInfo.on('change', function () {
+        var _this = $(this);
+        var v = $.trim(_this.find('option:selected').val());
+        if (v == 2) {
+            spouseInfo.show();
+        } else {
+            spouseInfo.hide();
+        }
+    });
+}
+
+/**
+ *
+ * @return {boolean}
+ */
+function verifyGender () {
+    var IDNum = $.trim($('input[name="IDnum"]').val());      // 身份证号
+    var gender = $('.gender');      // 性别选择容器
+    if (IDNum) {
+        // 获取身份证第17位或是15位。
+        if (IDNum.length == 18) {
+            var seventeenthNum = IDNum.slice(15,17).number();
+        } else if (IDNum.length == 15) {
+            var seventeenthNum = IDNum.slice(13).number();
+        }
+        if (seventeenthNum % 2 === 1) {
+            gender.find('input[type="radio"].male').prop('checked', true);
+            gender.find('input[type="radio"].female').prop('checked', false);
+        } else {
+            gender.find('input[type="radio"].male').prop('checked', false);
+            gender.find('input[type="radio"].female').prop('checked', true);
+        }
+    }
+}
+
 // 校验必填项是否填写完整
 function verifyEmpty () {
     var isAleary = true;
@@ -331,10 +374,18 @@ function bindSubmitEvent () {
 
 // 提交逻辑
 function saveAndGoNext (btn, nextPath, url) {
+    var financeId = $.trim($('#financeId').val());
     var form = $('form[role="saveForm"]')[0];
     var data = new FormData(form);
     var verifyPass = verifyEmpty();
-    if (!verifyPass) {
+    locationTo({
+        action : nextPath,
+        param : {
+            finance_id : financeId,
+            query_type : 1
+        }
+    })
+    /*if (verifyPass) {
         btn.off('click');
         $.ajax({
             type: 'POST',
@@ -353,7 +404,11 @@ function saveAndGoNext (btn, nextPath, url) {
                 if (res.error_code == 0) {
                     $toast('保存成功', function () {
                         locationTo({
-                            action : nextPath
+                            action : nextPath,
+                            param : {
+                                finance_id : financeId,
+                                query_type : 1
+                            }
                         })
                     });
                 } else {
@@ -368,7 +423,7 @@ function saveAndGoNext (btn, nextPath, url) {
         });
     } else {
         $alert('该页面还有资料未填写完整，请先补充完整再保存');
-    }
+    }*/
 }
 
 /**
@@ -377,7 +432,8 @@ function saveAndGoNext (btn, nextPath, url) {
  * @desc :   还款计划表公式：
  *           每期租金（计划表中为：租金金额）=〔融资金额×月利率×(1＋月利率)^租赁期限〕÷〔(1＋月利率)^租赁期限-1〕
  *           利息金额 = 融资金额 × 月利率 × 〔(1+月利率)^租赁期限-(1+月利率)^(租金期次-1)〕÷〔(1+月利率)^租赁期限-1〕
- *           本金金额=融资金额×月利率×(1+月利率)^(租金期次-1)÷〔(1+月利率)^租金期次-1〕
+ *           本金金额 = 融资金额×月利率×(1+月利率)^(租金期次-1)÷〔(1+月利率)^租金期次-1〕
+ *
  *           其中：328产品月利率=(11.21%÷12)；329产品月利率=(11.42%÷12)
  */
 
@@ -389,7 +445,35 @@ function calcRepaymentPlan () {
     /*var financeAmount = finance.val().number();        // 融资金额
     var interestRate = product.find('option:selected').data('interestRate').number();    // 年利率*/
     var financeAmount = 10000;        // 融资金额
-    var interestRate = 14;    // 年利率
+    var interestRate = 0.1142;    // 年利率
+    // var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
+    var rentDue = 12;
+    var data = {
+        reachRent : null,       // 每期租金
+        interestRateAmount : [],        // 利息金额
+        principalAmount : []        // 本金金额
+    };
+    var monthRent = Number((interestRate / 12));
+    data.eachRent = (financeAmount * monthRent * Math.pow((1 + monthRent), rentDue)  / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
+    for (var i = 1; i <= rentDue; i++) {
+        // 每期利息金额
+        var a = (financeAmount * monthRent * (Math.pow((1 + monthRent), rentDue) - Math.pow((1 + monthRent), (i - 1))) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
+        // 本金金额
+        var b = (financeAmount * monthRent * Math.pow((1 + monthRent), (i - 1)) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
+        data.interestRateAmount.push(a);
+        data.principalAmount.push(b);
+    }
+    return data;
+}
+/*function calcRepaymentPlan () {
+    var product = $('#productName');    // 产品元素
+    var finance = $('#finance');    // 融资金额
+    var rentDueE = $('#rentDue');    // 租赁期限
+
+    /!*var financeAmount = finance.val().number();        // 融资金额
+    var interestRate = product.find('option:selected').data('interestRate').number();    // 年利率*!/
+    var financeAmount = new BigDecimal('10000');        // 融资金额
+    var interestRate = new BigDecimal('14');    // 年利率
     // var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
     var rentDue = 12;
     var data = {
@@ -408,7 +492,7 @@ function calcRepaymentPlan () {
         data.principalAmount.push(b);
     }
     return data;
-}
+}*/
 
 /**
  * 创建还款计划表
@@ -439,8 +523,12 @@ function createRepaymentPlanTable () {
     table.find('tbody').html(ele);
 }
 
-// 图片页面
-function bindSubmitEvent () {
+
+/**
+ * 注册图片页面提交事件
+ * @author Arley Joe 2018-1-5 10:51:23
+ */
+function bindImageSubmitEvent () {
     var btn = $('#fileConfirm');
     btn.off('click').on('click', function () {
         var t = $(this);
@@ -450,7 +538,10 @@ function bindSubmitEvent () {
     });
 }
 
-// 校验图片是否上传完（必传）
+/**
+ * 校验图片是否上传完（必传）
+ * @author Arley Joe 2018-1-5 10:51:23
+ */
 function verifyImgPass () {
     var isPass = true;
     var elem = $('require_icon');       // 必需标识
@@ -465,10 +556,14 @@ function verifyImgPass () {
     return isPass;
 }
 
-// 提交逻辑
+/**
+ * 文件上传页面提交逻辑
+ * @author Arley Joe 2018-1-5 10:51:23
+ */
 function fileSaveAndGoNext (btn, nextPath, url) {
     var data = getData();
     var isValidate = verifyImgPass();
+    var financeId = $.trim($('#financeId').val());
     if (isValidate) {
         btn.off('click');
         $.ajax({
@@ -488,7 +583,11 @@ function fileSaveAndGoNext (btn, nextPath, url) {
                 if (res.error_code == 0) {
                     $toast('保存成功', function () {
                         locationTo({
-                            action : nextPath
+                            action : nextPath,
+                            param : {
+                                finance_id : financeId,
+                                query_type : 1
+                            }
                         })
                     });
                 } else {
@@ -521,6 +620,8 @@ function fileSaveAndGoNext (btn, nextPath, url) {
         return data;
     }
 }
+
+
 
 $(function () {
     goOrderDetail();

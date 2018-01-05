@@ -29,7 +29,8 @@
                 </div>
                 <div class="form_content form_options">
                     <form action="" class="basic_info_edit">
-                        <input type="hidden" name="finance_id" value="{{finance_id}}">
+                        <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
+                        <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
                         <!-- 承租人文件信息 Begin -->
                         {{#each (dataFiles) }}
                             {{#if (this.type || this.type === 0) }}
@@ -138,6 +139,7 @@
             viewLargeImage('.img_md_box');
             viewImages();       // 查看大图
             uploadImage();      // 图片上传注册
+            bindImageSubmitEvent();     // 注册提交
         });
     })(jQuery,undefined);
 </script>
