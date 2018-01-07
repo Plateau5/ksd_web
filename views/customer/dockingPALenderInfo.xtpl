@@ -527,8 +527,26 @@
 </html>
 <script>
     (function ($) {
+        // 根据是否有担保人更改保存并继续的跳转路径
+        function isHaveGuarantor () {
+            var guarantor = $('.isSponsor');
+            var confirm = $('#saveAndGoNext');
+            var nextPath = '';
+            guarantor.on('change', function () {
+                var _this = $(this);
+                var v = $.trim(_this.val());
+                if (v == 1) {
+                    nextPath = markUri + '/docking/pingan/guarantor';
+                } else if (v == 2) {
+                    nextPath = markUri + '/docking/pingan/files';
+                }
+                confirm.data('next', nextPath);
+            });
+        }
 
-
+        // 获取城市数据
+        var cityData = getAddressData();
+        console.log(cityData);
 
 
 
@@ -539,6 +557,7 @@
             bindSubmitEvent();      // 提交
             isMarriage();       // 显示隐藏配偶信息
             verifyGender();     // 设置性别
+            isHaveGuarantor();      // 担保人监听
         });
     })(jQuery,undefined);
 </script>

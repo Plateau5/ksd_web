@@ -432,7 +432,7 @@ function saveAndGoNext (btn, nextPath, url) {
  * @desc :   还款计划表公式：
  *           每期租金（计划表中为：租金金额）=〔融资金额×月利率×(1＋月利率)^租赁期限〕÷〔(1＋月利率)^租赁期限-1〕
  *           利息金额 = 融资金额 × 月利率 × 〔(1+月利率)^租赁期限-(1+月利率)^(租金期次-1)〕÷〔(1+月利率)^租赁期限-1〕
- *           本金金额 = 融资金额×月利率×(1+月利率)^(租金期次-1)÷〔(1+月利率)^租金期次-1〕
+ *           本金金额 = 融资金额×月利率×(1+月利率)^(租金期次-1)÷〔(1+月利率)^租赁期限-1〕
  *
  *           其中：328产品月利率=(11.21%÷12)；329产品月利率=(11.42%÷12)
  */
@@ -460,39 +460,14 @@ function calcRepaymentPlan () {
         var a = (financeAmount * monthRent * (Math.pow((1 + monthRent), rentDue) - Math.pow((1 + monthRent), (i - 1))) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
         // 本金金额
         var b = (financeAmount * monthRent * Math.pow((1 + monthRent), (i - 1)) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
+        a = formatNum(a);
+        b = formatNum(b);
         data.interestRateAmount.push(a);
         data.principalAmount.push(b);
     }
     return data;
 }
-/*function calcRepaymentPlan () {
-    var product = $('#productName');    // 产品元素
-    var finance = $('#finance');    // 融资金额
-    var rentDueE = $('#rentDue');    // 租赁期限
 
-    /!*var financeAmount = finance.val().number();        // 融资金额
-    var interestRate = product.find('option:selected').data('interestRate').number();    // 年利率*!/
-    var financeAmount = new BigDecimal('10000');        // 融资金额
-    var interestRate = new BigDecimal('14');    // 年利率
-    // var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
-    var rentDue = 12;
-    var data = {
-        reachRent : null,       // 每期租金
-        interestRateAmount : [],        // 利息金额
-        principalAmount : []        // 本金金额
-    };
-    var monthRent = Number((interestRate / 12).toFixed(8));
-    data.eachRent = (Math.pow(financeAmount * monthRent * (1 + monthRent), rentDue)  / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
-    for (var i = 1; i <= rentDue; i++) {
-        // 每期利息金额
-        var a = (financeAmount * monthRent * (Math.pow((1 + monthRent), rentDue) - Math.pow((1 + monthRent), (i - 1))) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
-        // 本金金额
-        var b = (financeAmount * monthRent * Math.pow((1 + monthRent), (i - 1)) / (Math.pow((1 + monthRent), i) - 1)).toFixed(2).number();
-        data.interestRateAmount.push(a);
-        data.principalAmount.push(b);
-    }
-    return data;
-}*/
 
 /**
  * 创建还款计划表
@@ -622,6 +597,30 @@ function fileSaveAndGoNext (btn, nextPath, url) {
 }
 
 
+/**
+ * 获取城市数据
+ * @author Arley Joe 2018-1-7 10:34:53
+ * @return {*}
+ */
+function getAddressData () {
+    var data = null;
+    redefineAjax({
+        url : contextPath + '/api/pingan/listprovincecity',
+        async : false,
+        success : function (res) {
+            if (res.error_code == 0) {
+                data = res;
+            } else {
+                throw new Error(res.error_msg);
+            }
+        },
+        error : function (e) {
+            // $toast('页面加载城市数据失败。');
+            throw new Error('Get address data error.');
+        }
+    });
+    return data;
+}
 
 $(function () {
     goOrderDetail();

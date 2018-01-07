@@ -272,7 +272,7 @@ function redefineAjax (option) {
         url : options.url || '',        //请求地址
         data : options.data || {},      //请求的参数
         dataType : options.dataType || 'json',     //返回值类型
-        async : options.async || true,      //TRUE: 异步；FALSE：同步，默认值
+        async : (options.async === false) ? false : true,      //TRUE: 异步；FALSE：同步，默认值
         processData : options.processData || true,      //序列化参数为String类型，默认：true。
         //contentType : options.contentType || true,      //内容编码，文件上传时设为FALSE
         timeout : options.timeout || 2000,         //时间
@@ -2010,6 +2010,29 @@ function viewLargeImage (selector) {
         });
     });
 }
+
+/**
+ * 保留两位小数自动补0
+ * @author Arley Joe 2018-1-7 10:14:16
+ * @param value {Number|String} 需要进行保留两位小数的值
+ * @return {*}
+ */
+function formatNum (value){
+    value = Math.round(parseFloat(value)*100)/100;
+    var xsd=value.toString().split(".");
+    if(xsd.length==1){
+        value=value.toString()+".00";
+        return value;
+    }
+    if(xsd.length>1){
+        if(xsd[1].length<2){
+            value=value.toString()+"0";
+        }
+        return value;
+    }
+}
+
+
 
 $(function () {
     customerListMask(); // 禁用订单多次点击跳转
