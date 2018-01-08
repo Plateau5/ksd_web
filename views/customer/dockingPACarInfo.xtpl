@@ -39,9 +39,11 @@
                                 <span class="options_name">品牌：</span>
                             </div>
                             <div class="column_val">
-                                <select name="brandId" id="brand">
+                                <select name="brandId" id="brand" class="brand" data-query_type="1">
                                     <option value="">请选择</option>
-
+                                    {{#if (carBrand) }}
+                                        <option value="{{carBrand}}" selected>{{carBrandName}}</option>
+                                    {{/if}}
                                 </select>
                             </div>
                         </div>
@@ -50,9 +52,11 @@
                                 <span class="options_name">车系：</span>
                             </div>
                             <div class="column_val">
-                                <select name="serialId" id="carSeries">
+                                <select name="serialId" id="carSeries" class="brand" data-query_type="2">
                                     <option value="">请选择</option>
-
+                                    {{#if (carSeries) }}
+                                    <option value="{{carSeries}}" selected>{{carSeriesName}}</option>
+                                    {{/if}}
                                 </select>
                             </div>
                         </div>
@@ -61,7 +65,7 @@
                                 <span class="options_name">年份：</span>
                             </div>
                             <div class="column_val">
-                                <select name="carYear" id="carYear">
+                                <select name="carYear" id="carYear" class="brand car_year" data-query_type="2">
                                     <option value="">请选择</option>
                                     <option value="2009">2009</option>
                                     <option value="2010">2010</option>
@@ -83,9 +87,11 @@
                                 <span class="options_name">车型：</span>
                             </div>
                             <div class="column_val">
-                                <select name="modelId" id="carModel">
+                                <select name="modelId" id="carModel" class="brand car_model" data-query_type="3">
                                     <option value="">请选择</option>
-
+                                    {{#if (carModel) }}
+                                    <option value="{{carModel}}" selected>{{carModelName}}</option>
+                                    {{/if}}
                                 </select>
                             </div>
                         </div>
@@ -103,7 +109,7 @@
                                 <span class="options_name">品牌指导价：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" name="price" value="0" />
+                                <input type="hidden" name="price" id="price" value="0" />
                                 <span class="value_text"><span class="value">0</span><span>元</span></span>
                             </div>
                         </div>
@@ -588,12 +594,12 @@
                         _this.val('');
                         return false;
                     } else {
-                        var firstPayScale = newValue / pawnValue;
-                        if (firstPayScale < 0.2) {
+                        var firstPayScale = (newValue * 100 / pawnValue).toFixed(2);
+                        if (firstPayScale < 20) {
                             _this.siblings('.tips_info').show().find('.tips_text').text('首付比例不能低于20%。');
                             return false;
                         } else {
-                            firstPayScale = (firstPayScale * 100) + '%';
+                            firstPayScale = (firstPayScale) + '%';
                             firstPayScaleE.val(firstPayScale);
                             calcFinanceAccount(true);
                             _this.siblings('.tips_info').hide()
@@ -629,7 +635,7 @@
             var financeAccount = Number(financeE.val());        // 融资金额
             var cautionMoney = Number(cautionMoneyE.val());        // 保证金
             var serviceCharge = Number(serviceChargeE.val());        // 服务费
-            var firstPayScale = Number(firstPayScaleE.val().replace(/%/ig, '')) / 100;     // 首付比例
+            var firstPayScale = Number(firstPayScaleE.val().replace(/%/ig, '')) * 100;     // 首付比例
 
             // 项目金额 (是否打包)
             if (type === true) {    // 打包
@@ -640,7 +646,7 @@
                 projectAccount = pawnValue;
             }
             // 首付金额 = 车辆实际价格 * 首付比例
-            firstPayAccount = projectAccount * firstPayScale;
+            firstPayAccount = projectAccount * firstPayScale / 10000;
             // 融资金额 = 项目金额 - 首付金额 + 附加融资额
             financeAccount = projectAccount - firstPayAccount + attachFinance;
             // 净融资额 = 首付金额 - 保证金 - 服务费
@@ -655,6 +661,15 @@
             firstPayAccountE.val(firstPayAccount);
         }
 
+        // 获取品牌并展示
+        function showBrand () {
+            var param = {
+                query_type : 1
+            };
+            var brandData = getBrand(param);
+            var optStr = createBrandOption(brandData, null, param.query_type);
+            $('#brand').html(optStr);
+        }
 
 
         $(function() {
@@ -665,7 +680,9 @@
             isBale();       // 是否打包切换
             accountChange();    // 车辆价格等金额发生变化监听
             intOrFloat($('#cautionMoney, #otherFee, #pawnValue, #buyTax, #assure, #cautionMoney, #serviceCharge , #attachFinance'), 9999999.99);    // 只允许输入数字
+            showBrand();        // 页面初始化加载品牌自数据
             bindSubmitEvent();      // 提交
+            brandChoose();      // 品牌车系联动
         });
     })(jQuery,undefined);
 </script>

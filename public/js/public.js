@@ -55,6 +55,9 @@ Array.prototype.remove = function(val) {
 String.prototype.number = function () {
     return Number(this);
 };
+String.prototype.trim = function () {
+    return $.trim(this);
+};
 // ----------------------------------------------------------------------
 // <summary>
 // 限制只能输入数字

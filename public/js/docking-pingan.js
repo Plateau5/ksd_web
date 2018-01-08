@@ -106,48 +106,76 @@ function intOrFloat (ele, max) {
  * @author Arley Joe 2017-12-30 12:43:01
  *
  */
-function brandChoose (data) {
-    var brandEle = $('#brand');     // 品牌
-    var carSeriesEle = $('#carSeries');    // 车系
-    var carModelEle = $('#carModel');    // 车型
-    var carYearEle = $('#carYear');    // 车辆年款
-    var carSeriseArr = [];      // 车系数据
-    brandEle.on('change', function () {
+function brandChoose () {
+    var brand = $('select.brand');
+    var priceELe = $('#price');
+    brand.on('change', function () {
+        var param = {};
         var _this = $(this);
-        // 清空车系、车型、年款
-        carModelEle.html('<option value="">请选择</option>');
-        carSeriesEle.html('<option value="">请选择</option>');
-        // 获取选中品牌的ID并根据此ID筛选该品牌下的车系、车型、年款
-        var checkedBrand = _this.find('option:selected').val();     // 选中的品牌的ID
-        carSeriseArr = jsonsql.query('select * from json where (work_city==' + checkedBrand + ')', data);  // 通过jsonsql查询车系数据
-        if (carSeriseArr.length > 0) {
-            var seriseStr = '<option value="">请选择</option>';
-            for (var i = 0, len = carSeriseArr.length; i < len; i++) {
-                seriseStr += '<option value=""></option>';
-            }
-            carSeriesEle.append(seriseStr);
+        var queryType = Number(_this.data('query_type')) + 1;
+        var year = $('#carYear').find('option:selected').val().trim();
+        /*if (queryType == 3 && year == '' && _this.hasClass('car_model')) {
+            $alert('请先选择年份后再选择车型。');
+            return false;
+        }*/
+        if (_this.hasClass('car_year')) {
+            var v = $('#carSeries').find('option:selected').val().trim();     // 当前元素的选中值
         } else {
-            $toast('该品牌下无相关车系，请选择其他品牌。');
+            var v = _this.find('option:selected').val().trim();     // 当前元素的选中值
+        }
+        var parent_id = v;
+        param.query_type = queryType;
+        year && (param.year = year);
+        parent_id && (param.parent_id = parent_id);
+
+        if (_this.hasClass('car_model')) {
+            var price = _this.find('option:selected').data('price');
+            (price == '' || price == undefined || price == null) && (price = 0);
+            priceELe.val(price).siblings('.value_text').find('.value').text(price);
+        } else {
+            var brandData = getBrand(param);
+            var optStr = createBrandOption(brandData, v, queryType);
+            $('select.brand[data-query_type="'+ (queryType) +'"]').not('.car_year').html(optStr);
+            priceELe.val(0).siblings('.value_text').find('.value').text(0);
+        }
+
+    });
+}
+function getBrand(data) {
+    var brandList = null;
+    redefineAjax({
+        url : contextPath + '/api/pingan/getBrand',
+        data : data,
+        async : false,
+        success : function (res) {
+            if (res.error_code == 0) {
+                brandList = res.data;
+            } else {
+
+            }
+        },
+        error : function () {
+            return false;
         }
     });
-    // 根据年款筛选车型。
-    carYearEle.on('change', function () {
-        var _this = $(this);
-        // 车型
-        carModelEle.html('<option value="">请选择</option>');
-        // 获取选中车系的ID并根据此ID筛选该品牌下的车系、车型、年款
-        var checkedBrand = _this.find('option:selected').val();     // 选中的品牌的ID
-        var carModelArr = jsonsql.query('select * from json where (work_city==' + cityId + ')', carSeriseArr);  // 通过jsonsql查询车系数据
-        if (carModelArr.length > 0) {
-            var carModelStr = '<option value="">请选择</option>';
-            for (var i = 0, len = carModelArr.length; i < len; i++) {
-                carModelStr += '<option value=""></option>';
-            }
-            carModelEle.append(carModelStr);
-        } else {
-            $toast('该年款下无相关车型，请选择其他年款或其他车系。');
+    return brandList;
+}
+
+
+// 创建选择项
+function createBrandOption (data, val, type) {
+    var eleStr = '<option value="">请选择</option>';
+    for (var i = 0, len = data.length; i < len; i++) {
+        if (type == 1) {
+            eleStr += '<option value="'+ data[i].brandId +'">'+ data[i].brandName +'</option>';
+        } else if (type == 2) {
+            eleStr += '<option value="'+ data[i].serialId +'">'+ data[i].serialName +'</option>';
+        } else if (type == 3) {
+            eleStr += '<option value="'+ data[i].modelId +'" data-price="'+ (data[i].price * 10000) +'">'+ data[i].modelName +'</option>';
         }
-    })
+
+    }
+    return eleStr;
 }
 
 // 是否有工作
