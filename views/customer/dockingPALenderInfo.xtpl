@@ -523,13 +523,13 @@
 {{include ('./../inc/jsSources')}}
 <script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
 <script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
-<script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
 <script src="{{markUri}}/static/js/jsonsql-0.1.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
 </html>
 <script>
+    // 获取城市数据
+    var cityData = getAddressData();
     (function ($) {
-        // 获取城市数据
-        var cityData = getAddressData();
 
         // 根据是否有担保人更改保存并继续的跳转路径
         function isHaveGuarantor () {
