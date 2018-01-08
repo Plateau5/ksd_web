@@ -113,8 +113,8 @@ exports.VIEW_DOCKING_PINGAN_CREDIT = function(req, res, next) {
             data.query_type = queryType;
             data.finance_id = finance_id;
             data.url = url;
-            /*var dataFiles = organizeData(data.data_material);
-            data.dataFiles = dataFiles;*/
+            var dataFiles = organizeData(data.data_file);
+            data.dataFiles = dataFiles;
         }
     }, req, res, next);
 };
@@ -129,8 +129,8 @@ var organizeData = function (d) {
             if (materialSeries.indexOf(d[i].material_type) === -1) {
                 materialSeries.push(d[i].material_type);
                 o.type = d[i].material_type;
-                o.name = d[i].material_name;
                 o.children = [];
+                o.children.push(d[i]);
                 dataFiles[d[i].material_type] = o;
             } else {
                 dataFiles[d[i].material_type].children.push(d[i]);
