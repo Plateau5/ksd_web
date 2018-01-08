@@ -685,7 +685,29 @@ function createCityList () {
 
 }
 
+/**
+ * 跳转平安进件首页
+ * @author Arley Joe 2018-1-8 13:50:47
+ * @param selector {String} : 元素选择器
+ * @return {*}
+ */
+
+function goDockingHome (selector) {
+    var financeId = $.trim($('#financeId').val());
+    var homeUrl = $(selector).data('href');
+    $(selector).on('click', function () {
+        locationTo({
+            action : homeUrl,
+            param : {
+                finance_id : financeId
+            }
+        })
+    });
+
+}
+
 
 $(function () {
-    goOrderDetail();
+    goOrderDetail();        // 跳转订单详情页
+    goDockingHome('.go_docking_home');        // 跳转对接首页
 });
