@@ -288,17 +288,8 @@ function uploadImage () {
     var onChoose = function (btn) {
         var type = $.trim(btn.data('type'));
         var data = (btn.parents('.file_upload').find('.file_upload_btn')[0]).files[0];
-        console.log(btn.parents('.file_upload').find('.file_upload_btn').val());
-        var fileExtension = data.name.substring(data.name.lastIndexOf('.'));    // 上传的文件的后缀名
-        var fileCount = btn.parents('.img_md_box').find('.img_item').length;    // 该备案字段下现有图片总数
-        var filingName = $.trim(btn.parents('.option_item').find('.options_name').text()).replace(/[*:：]/ig, '');   // 字段名称
-        var fileName = filingName + '_' + (fileCount + 1) + fileExtension;
-        var financeId = $.trim($('#financeId').val());
         var form = new FormData();
         form.append("file", data);
-        form.append("file_type", type);
-        form.append("finance_id", financeId);
-        form.append("file_name", fileName);     // 用于后台重命名图片物理名字
         var url = contextPath + '/api/docking/file/upload';
         $.ajax({
             type : "post",
@@ -322,14 +313,14 @@ function uploadImage () {
                 if (res.error_code == 0) {
                     $alert('图片上传成功');
                     var imgEle = '<a href="javascript:;" class="img_item head_photo" data-type="imgBox">' +
-                        '             <img data-original="'+ res.image_url +'" src="'+ res.thumbnail +'" alt="'+ fileName +'"/>\n' +
+                        '             <img data-original="'+ res.url +'" src="'+ res.thumbnail_url +'"/>\n' +
                         '             <div class="img_md_operate_box">\n' +
-                        '             <em class="img_md_operate_btn view" data-url="'+ res.image_url +'" style="margin-right: 0" title="查看"></em>\n'+
+                        '             <em class="img_md_operate_btn view" data-url="'+ res.url +'" style="margin-right: 0" title="查看"></em>\n'+
                         '             <em class="img_md_operate_btn delete" data-id="'+ res.file_id +'" title="删除"></em>' +
                         '             </div>\n' +
                         '             </a>';
-                    if (type == '99') {
-                        btn.parents('.img_md_box').find('.head_photo').replaceWith(imgEle);
+                    if (type == '2') {
+                        btn.parents('.img_md_box').find('.img_item').replaceWith(imgEle);
                         $('#image_url').val(res.image_url);
                         var parents = btn.parents('.img_md_box');
                         parents[0].viewer.destroy();
