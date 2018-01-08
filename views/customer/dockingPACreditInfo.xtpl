@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{#if (isSponsor === 0 || isSponsor === 1) }}
+                        {{#if (isSponsor === 1) }}
                             <div class="options_title">担保人征信查询</div>
                             <div class="option_item whole_line" id="">
                                 <div class="column_name">
