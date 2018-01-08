@@ -146,11 +146,11 @@
                                     <span class="options_name">身份证地址：</span>
                                 </div>
                                 <div class="column_val">
-                                    <select name="homeProvince" id="homeProvince" style="width: 108px;margin-right: 10px;">
-
+                                    <select name="homeProvince" id="homeProvince" class="province" data-type="home" style="width: 108px;margin-right: 10px;">
+                                        <option value="">请选择</option>
                                     </select>
-                                    <select name="homeCity" id="homeCity" style="width: 108px;">
-
+                                    <select name="homeCity" id="homeCity" class="city" style="width: 108px;">
+                                        <option value="">请选择</option>
                                     </select>
                                 </div>
                             </div>
@@ -196,11 +196,11 @@
                                     <span class="options_name">现居住地地址：</span>
                                 </div>
                                 <div class="column_val">
-                                    <select name="estateProvince" id="" style="width: 108px;margin-right: 10px;">
-
+                                    <select name="estateProvince" id="estateProvince" class="province" data-type="estate" style="width: 108px;margin-right: 10px;">
+                                        <option value="">请选择</option>
                                     </select>
-                                    <select name="estateCity" id="" style="width: 108px;">
-
+                                    <select name="estateCity" id="estateCity" class="city" style="width: 108px;">
+                                        <option value="">请选择</option>
                                     </select>
                                 </div>
                             </div>
@@ -359,11 +359,11 @@
                                     <span class="options_name">单位地址：</span>
                                 </div>
                                 <div class="column_val">
-                                    <select name="empProvince" id="" style="width: 108px;margin-right: 10px;">
-
+                                    <select name="empProvince" id="empProvince" class="province" data-type="emp" style="width: 108px;margin-right: 10px;">
+                                        <option value="">请选择</option>
                                     </select>
-                                    <select name="empCity" id="" style="width: 108px;">
-
+                                    <select name="empCity" id="empCity" class="city" style="width: 108px;">
+                                        <option value="">请选择</option>
                                     </select>
                                 </div>
                             </div>
@@ -372,7 +372,7 @@
                                     <span class="options_name">职业：</span>
                                 </div>
                                 <div class="column_val">
-                                    <select name="empOccupation" id="">
+                                    <select name="empOccupation" id="empOccupation">
                                         <option value="">请选择</option>
                                     </select>
                                 </div>
@@ -524,9 +524,13 @@
 <script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
 <script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
 <script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/jsonsql-0.1.js" type="text/javascript" charset="UTF-8"></script>
 </html>
 <script>
     (function ($) {
+        // 获取城市数据
+        var cityData = getAddressData();
+
         // 根据是否有担保人更改保存并继续的跳转路径
         function isHaveGuarantor () {
             var guarantor = $('.isSponsor');
@@ -544,13 +548,6 @@
             });
         }
 
-        // 获取城市数据
-        var cityData = getAddressData();
-        console.log(cityData);
-
-
-
-
         $(function() {
             initDateAll('.birthday');      // 加载日期插件
             isHaveWork();       // 工作模块的显示隐藏
@@ -558,6 +555,9 @@
             isMarriage();       // 显示隐藏配偶信息
             verifyGender();     // 设置性别
             isHaveGuarantor();      // 担保人监听
+            getOccupation(cityData.data_occupation);      // 展示职业
+            getProvince(cityData.data_province);        // 展示省份数据
+            createCityList();       // 根据选中省份获取对应城市
         });
     })(jQuery,undefined);
 </script>

@@ -622,6 +622,70 @@ function getAddressData () {
     return data;
 }
 
+/**
+ * 获取职业数据并创建
+ * @author Arley Joe 2018年1月8日10:38:46
+ */
+function getOccupation (data) {
+    var empOccupation = $('#empOccupation');
+    var eleStr = '<option value="">请选择</option>';
+    for (var i = 0, len = data.length; i < len; i++) {
+        eleStr += '<option value="'+ data[i].id +'">'+ data[i].value +'</option>'
+    }
+    empOccupation.html(eleStr);
+}
+/**
+ * 获取省份数据并创建
+ * @author Arley Joe 2018年1月8日10:38:46
+ */
+function getProvince (data) {
+    var province = $('select.province');
+    var optStr = '<option value="">请选择</option>';
+    for (var i = 0, len = data.length; i < len; i++) {
+        optStr += '<option value="'+ data[i].p_id +'">'+ data[i].p_name +'</option>'
+    }
+    province.each(function () {
+        var _this = $(this);
+        _this.html(optStr);
+    });
+}
+
+/**
+ * 根据省份ID查询城市空数据
+ * @author Arley Joe 2018-1-8 11:09:07
+ * @param pid {Number} : 省份ID
+ * @param data  {Json} : 城市数据
+ * @return {string} ：城市数据元素
+ */
+function getCity (pid, data) {
+    var cityList = jsonsql.query('select * from json where (p_id==' + pid + ')', data);  // 通过jsonsql查询城市数据
+    var optStr = '<option value="">请选择</option>';
+    for (var i = 0, len = cityList.length; i < len; i++) {
+        optStr += '<option value="'+ cityList[i].c_id +'">'+ cityList[i].c_name +'</option>'
+    }
+    return optStr;
+}
+
+/**
+ * 根据省份ID获取对应城市列表
+ * @author Arley Joe 2018-1-8 13:32:44
+ */
+function createCityList () {
+    var province = $('select.province');
+    var citys = '';
+    var provinceType = '';
+    province.on('change', function () {
+        var _this = $(this);
+        var option = _this.find('option:selected');
+        var v = $.trim(option.val()).number();
+        provinceType = _this.data('type');
+        citys = getCity(v, cityData.data_city);
+        $('#'+ provinceType + 'City').html(citys);
+    });
+
+}
+
+
 $(function () {
     goOrderDetail();
 });
