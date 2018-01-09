@@ -123,20 +123,20 @@
                         </div>-->
                         <div class="option_item">
                             <div class="column_name">
-                                <span class="options_name">购置税：</span>
+                                <span class="options_name">车辆实际价格：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="购置税不能为空" id="buyTax" name="buyTax" value="{{buyTax}}" placeholder="请输入购置税" maxlength="10"  />
+                                <input type="text" class="required" data-tips="车辆实际价格不能为空" id="pawnValue" name="pawnValue" value="{{pawnValue}}" placeholder="请输入车辆实际价格" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
                         <div class="option_item">
                             <div class="column_name">
-                                <span class="options_name">车辆实际价格：</span>
+                                <span class="options_name">购置税：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="车辆实际价格不能为空" id="pawnValue" name="pawnValue" value="{{pawnValue}}" placeholder="请输入车辆实际价格" maxlength="10"  />
+                                <input type="text" class="required" data-tips="购置税不能为空" id="buyTax" name="buyTax" value="{{buyTax}}" placeholder="请输入购置税" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
