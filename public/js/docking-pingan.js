@@ -141,6 +141,13 @@ function brandChoose () {
 
     });
 }
+
+/**
+ * 获取品牌信息
+ * @author Arley Joe 2018-1-9 14:17:40
+ * @param data {Json} : 请求参数
+ * @return {*}
+ */
 function getBrand(data) {
     var brandList = null;
     redefineAjax({
@@ -149,9 +156,9 @@ function getBrand(data) {
         async : false,
         success : function (res) {
             if (res.error_code == 0) {
-                brandList = res.data;
+                brandList = JSON.parse(res.data);
             } else {
-
+                return false;
             }
         },
         error : function () {
@@ -162,7 +169,14 @@ function getBrand(data) {
 }
 
 
-// 创建选择项
+/**
+ * 创建品牌车型选项
+ * @author Arley Joe 2018-1-9 14:22:26
+ * @param data  {Array} : 源数据
+ * @param val   {String} : 选中项的值
+ * @param type  {String} : 渲染类型     1：品牌；2：车系；3：车型
+ * @return {string} ： 渲染数据
+ */
 function createBrandOption (data, val, type) {
     var eleStr = '<option value="">请选择</option>';
     for (var i = 0, len = data.length; i < len; i++) {
@@ -213,7 +227,8 @@ function isMarriage () {
 }
 
 /**
- *
+ * 性别自动查询
+ * @author Arley Joe 2018-1-9 14:23:36
  * @return {boolean}
  */
 function verifyGender () {

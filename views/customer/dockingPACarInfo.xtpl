@@ -172,7 +172,7 @@
                                 <select name="dealerId" id="">
                                     <option value="">请选择</option>
                                     {{#each (dealerData) }}
-                                        {{#if (this.dealerId === dealerId) }}
+                                        {{#if (this.dealerId === root.dealerId) }}
                                             <option value="{{this.id}}" selected>{{this.dealerName}}</option>
                                         {{else}}
                                             <option value="{{this.id}}">{{this.dealerName}}</option>
@@ -217,7 +217,7 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group mar6 v_middle">
-                                    {{#if (rentModel === 1) }}
+                                    {{#if (rentModel === 1 || (!rentModel && rentModel !== 0)) }}
                                     <input id="rentModel1" type="radio" class="rentModel" checked="checked" name="rentModel" value="1" />
                                     <label for="rentModel1">回租</label>
                                     {{else}}
@@ -251,7 +251,7 @@
                                     {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
-                                    {{#if (isCarHome === 2 || (!isCarHome && isCarHome !== 0) ) }}
+                                    {{#if (isCarHome === 2) }}
                                     <input id="isCarHome2" type="radio" class="isCarHome" checked="checked" name="isCarHome" value="2" />
                                     <label for="rentModel2">否</label>
                                     {{else}}
@@ -284,7 +284,7 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group mar6 v_middle">
-                                    {{#if (isWrap === 1) }}
+                                    {{#if (isWrap === 1 || (!isWrap && isWrap !== 0)) }}
                                     <input id="isWrap1" type="radio" class="isWrap" checked="checked" name="isWrap" value="1" />
                                     <label for="isWrap1">是</label>
                                     {{else}}
@@ -309,7 +309,7 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group mar6 v_middle" style="margin-right: 43px;">
-                                    {{#if (isInstallGPS === 1) }}
+                                    {{#if (isInstallGPS === 1 || (!isInstallGPS && isInstallGPS !== 0)) }}
                                     <input id="isInstallGPS1" type="radio" class="isInstallGPS" checked="checked" disabled name="isInstallGPS" value="1" />
                                     <label for="isInstallGPS1">是</label>
                                     {{else}}
