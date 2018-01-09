@@ -348,3 +348,23 @@ exports.publicForApi = function(url, req, res, next) {
     }
 
 };
+
+
+/**
+ * 根据参数对JSON数组进行重新排序并返回新数据
+ * @param key {String} : 排序参照
+ * @param value {Object} : 条件
+ * @param data  {Array} : 源数据数组
+ * @return {Array} : 返回值
+ */
+exports.sortJsonArray = function  (key, value, data) {
+    var arr = [];
+    for (var i = 0, len = data.length; i < len; i++) {
+        if (data[i][key] = value) {
+            arr.unshift(data[i]);
+        } else {
+            arr.push(data[i]);
+        }
+    }
+    return arr;
+};

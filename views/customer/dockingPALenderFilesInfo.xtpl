@@ -42,7 +42,7 @@
                                             {{#if (this.require === '1') }}
                                             <span class="require_icon">*</span>{{this.file_name}}：
                                             {{else}}
-                                                {{this.file_name}}
+                                                {{this.file_name}}：
                                             {{/if}}
                                         </span>
                                     </div>

@@ -138,10 +138,19 @@ var organizeData = function (d) {
                     o.name = d[i].material_name;
                 }
                 o.children = [];
-                o.children.push(d[i]);
+                if (d[i].require === '1') {
+                    o.children.unshift(d[i]);
+                } else {
+                    o.children.push(d[i]);
+                }
                 dataFiles[d[i].material_type] = o;
             } else {
-                dataFiles[d[i].material_type].children.push(d[i]);
+                if (d[i].require === '1') {
+                    dataFiles[d[i].material_type].children.unshift(d[i]);
+                } else {
+                    dataFiles[d[i].material_type].children.push(d[i]);
+                }
+                // dataFiles[d[i].material_type].children.push(d[i]);
             }
         }
     }
@@ -164,6 +173,8 @@ function formatCarInfoAmount (d) {
     (!d.serviceCharge && d.serviceCharge != 0) && (d.serviceCharge = 0);        // 服务费
     (!d.attachFinance && d.attachFinance != 0) && (d.attachFinance = 0);        // 附加融资额
 }
+
+
 
 
 
