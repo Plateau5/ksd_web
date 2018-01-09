@@ -113,14 +113,14 @@
                                 <span class="value_text"><span class="value">0</span><span>元</span></span>
                             </div>
                         </div>
-                        <div class="option_item">
+                        <!--<div class="option_item">
                             <div class="column_name">
                                 <span class="options_name">是否进口：</span>
                             </div>
                             <div class="column_val">
                                 <input type="text" name="" value="否" class="" placeholder="" disabled />
                             </div>
-                        </div>
+                        </div>-->
                         <div class="option_item">
                             <div class="column_name">
                                 <span class="options_name">购置税：</span>
@@ -195,7 +195,7 @@
                                 <span class="options_name">手机号码：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="手机号码不能为空" name="contactWay" value="{{contactWay}}" maxlength="11" placeholder="请输入手机号，如:13800000000" />
+                                <input type="text" class="required phone" data-tips="手机号码不能为空" name="contactWay" value="{{contactWay}}" maxlength="11" placeholder="请输入手机号，如:13800000000" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>

@@ -923,7 +923,7 @@ function validateIdNum (t) {
  */
 function validatePhoneNum () {
     var elem = $('.link_option');
-    var phonePattern = /^1[3|4|5|8|7]\d{9}$/;    // 手机号校验正则
+    var phonePattern = /^1[3|4|5|8|7|9|6]\d{9}$/;    // 手机号校验正则
     elem.on('blur', '.link_phone', function () {
         var _this = $(this);
         var phoneNum = $.trim(_this.val());
@@ -982,7 +982,7 @@ function validateBlurEmpty () {
     });
 }
 /**
- * 输入框非空校验逻辑
+ * 输入框非空校验逻辑及规则校验
  * @author Arley Joe 2017年11月3日14:33:06
  * @desc 所有必传项的input必须含有requireTrue类（class）
  */
