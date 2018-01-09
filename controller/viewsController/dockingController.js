@@ -134,8 +134,8 @@ var organizeData = function (d) {
             if (materialSeries.indexOf(d[i].material_type) === -1) {
                 materialSeries.push(d[i].material_type);
                 o.type = d[i].material_type;
-                if (data[i].material_name) {
-                    o.type = data[i].material_name;
+                if (d[i].material_name) {
+                    o.name = d[i].material_name;
                 }
                 o.children = [];
                 o.children.push(d[i]);
