@@ -553,7 +553,7 @@ function bindImageSubmitEvent () {
  */
 function verifyImgPass () {
     var isPass = true;
-    var elem = $('require_icon');       // 必需标识
+    var elem = $('.require_icon');       // 必需标识
     elem.each(function () {
         var _this = $(this);
         var imgs = elem.parents('.file_option_item').find('.img_item');
@@ -613,7 +613,7 @@ function fileSaveAndGoNext (btn, nextPath, url) {
         $alert('该页面还有必传材料未上传，请先上传完再保存');
     }
 
-    var getData = function () {
+    function getData () {
         var data = [];
         var imgs = $('form[role="saveForm"] .img_md_box .img_item');
         imgs.each(function () {

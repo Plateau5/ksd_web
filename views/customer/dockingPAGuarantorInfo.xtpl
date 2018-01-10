@@ -48,7 +48,7 @@
                                 <span class="options_name">手机号码：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" readonly data-tips="手机号码不能为空" name="cellphone" value="{{cellphone}}" placeholder="请输入手机号，比如：13800000000" />
+                                <input type="text" class="required phone" maxlength="11" readonly data-tips="手机号码不能为空" name="cellphone" value="{{cellphone}}" placeholder="请输入手机号，比如：13800000000" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -262,7 +262,7 @@
                                 <span class="options_name">单位电话：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="单位电话不能为空" name="empName" value="" placeholder="请输入单位电话" />
+                                <input type="text" class="required" maxlength="20" data-tips="单位电话不能为空" name="empName" value="" placeholder="请输入单位电话" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -340,6 +340,8 @@
             getOccupation(cityData.data_occupation);      // 展示职业
             getProvince(cityData.data_province);        // 展示省份数据
             createCityList();       // 根据选中省份获取对应城市
+            verifyPhone('.phone');      // 手机号码校验
+            validateBlurEmpty();    // 输入框非空校验
         });
     })(jQuery,undefined);
 </script>

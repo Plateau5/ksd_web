@@ -131,6 +131,24 @@ $.fn.onlyNumAlpha = function () {
 };
 
 /**
+ * **************************************
+ * GLOBAL PATTERN FOR REGEXP
+ * *************** START ****************
+ */
+const PHONEPATTERN = /^1[3|4|5|8|7|9|6]\d{9}$/;
+const IDPATTERN = /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}[0-9]$)/;
+
+/**
+ * **************** END ****************
+ * GLOBAL PATTERN FOR REGEXP
+ * **************************************
+ */
+
+
+
+
+
+/**
  * 判断当前窗口是否为USER屏幕最前端视口
  * @author Arley   01|12|2016
  *
@@ -2035,7 +2053,32 @@ function formatNum (value){
     }
 }
 
+/**
+ * 手机号校验
+ * @param selector
+ */
+function verifyPhone (selector) {
+    var body = $('body');
+    body.on('blur', selector, function (e) {
+        var e = e || window.event;
+        e.preventDefault();
+        e.stopPropagation();
 
+        var _this = $(this);
+        var phoneNum = $.trim(_this.val());
+        var tips = _this.siblings('.tips_info');
+        if (phoneNum == '') {
+            tips.find('.tips_text').text('手机号不能为空').end().show();
+            _this.attr('verify', 0);
+        } else if (!PHONEPATTERN.test(phoneNum)) {
+            tips.find('.tips_text').text('请输入正确的手机号').end().show();
+            _this.attr('verify', 0);
+        } else {
+            tips.find('.tips_text').text('').end().hide();
+            _this.attr('verify', 1);
+        }
+    });
+}
 
 $(function () {
     customerListMask(); // 禁用订单多次点击跳转

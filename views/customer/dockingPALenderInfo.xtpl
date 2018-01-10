@@ -350,7 +350,7 @@
                                     <span class="options_name">单位电话：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="单位电话不能为空" name="empName" value="" placeholder="请输入单位电话" />
+                                    <input type="text" class="required phone" maxlength="11" data-tips="单位电话不能为空" name="empName" value="" placeholder="请输入单位电话" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -406,7 +406,7 @@
                                     <span class="options_name">配偶手机号：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="配偶手机号不能为空" readonly name="spouseCellphone" value="{{spouseCellphone}}" placeholder="请输入手机号，如：13800000000" />
+                                    <input type="text" class="required phone" maxlength="11" data-tips="配偶手机号不能为空" readonly name="spouseCellphone" value="{{spouseCellphone}}" placeholder="请输入手机号，如：13800000000" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -461,7 +461,7 @@
                                     <span class="options_name">直系亲属手机号：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="直系亲属手机号不能为空" name="parentCellphone" value="" placeholder="请输入手机号，如：13800000000" />
+                                    <input type="text" class="required phone" maxlength="11" data-tips="直系亲属手机号不能为空" name="parentCellphone" value="" placeholder="请输入手机号，如：13800000000" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -477,6 +477,10 @@
                                 <div class="column_val">
                                     <select name="emgconRelation" id="">
                                         <option value="">请选择</option>
+                                        <option value="1">亲属</option>
+                                        <option value="2">朋友</option>
+                                        <option value="3">同事</option>
+                                        <option value="4">其他</option>
                                     </select>
                                 </div>
                             </div>
@@ -494,7 +498,7 @@
                                     <span class="options_name">手机号：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="紧急联系人手机号不能为空" name="emgconCellphone" value="" placeholder="请输入手机号，如：13800000000" />
+                                    <input type="text" class="required phone" maxlength="11" data-tips="紧急联系人手机号不能为空" name="emgconCellphone" value="" placeholder="请输入手机号，如：13800000000" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -558,6 +562,8 @@
             getOccupation(cityData.data_occupation);      // 展示职业
             getProvince(cityData.data_province);        // 展示省份数据
             createCityList();       // 根据选中省份获取对应城市
+            verifyPhone('.phone');      // 手机号码校验
+            validateBlurEmpty();    // 输入框非空校验
         });
     })(jQuery,undefined);
 </script>
