@@ -51,6 +51,10 @@ function goOrderDetail () {
 function validateBlurEmpty () {
     $('.docking_container').on('blur', '.required', function () {
         var t = $(this);
+        var readonly = t.attr('readonly');
+        if (readonly == 'readonly') {
+            return false;
+        }
         var v = $.trim(t.val());
         if (v == '') {
             var tipText = t.data('tips');
@@ -215,13 +219,18 @@ function isHaveWork () {
 function isMarriage () {
     var marriageInfo = $('#lenderMarriage');    // 婚姻状况选择器
     var spouseInfo = $('.spouse_info');     // 配偶信息部分
+    var parentInfo = $('.parent_info');     // 直系亲属部分
     marriageInfo.on('change', function () {
         var _this = $(this);
         var v = $.trim(_this.find('option:selected').val());
         if (v == 2) {
             spouseInfo.show();
+            parentInfo.hide();
+            // clearInput(parentInfo, 2);
         } else {
             spouseInfo.hide();
+            parentInfo.show();
+            // clearInput(spouseInfo, 1)
         }
     });
 }
@@ -392,6 +401,36 @@ function viewImages () {
     })
 }
 
+/**
+ * 清除配偶或是直系亲属信息
+ * @author Arley Joe 2018-1-10 13:53:31、
+ *
+ * @desc : 配偶信息：仅婚姻状况为‘已婚’状态下的时间填写，‘单身、丧偶、离异’均需填写直系亲属信息
+ *         亲属信息：参照配偶信息说明。
+ */
+function clearSpouseOrParentInfo () {
+    var spouseInfo = $('.spouse_info');     // 配偶部分
+    var parentInfo = $('.parent_info');     // 直系亲属部分
+    if (spouseInfo.length > 0 || parentInfo.length > 0) {
+        var elem = null;
+        if (spouseInfo.is(':hidden')) {
+            elem = spouseInfo;
+        } else if (parentInfo.is('is:hidden')) {
+            elem = parentInfo;
+        } else {
+            return new Error('Bad change: Marriage status send a error. see the "isMarriage" function at docking-pingan.js.');
+        }
+        var input = elem.find('input');
+        var select = elem.find('select');
+        input.each(function () {
+            $(this).val('').attr('disabled', 'disabled');
+        });
+        select.each(function () {
+            $(this).val('').attr('disabled', 'disabled');
+        });
+    }
+
+}
 
 
 
@@ -409,18 +448,19 @@ function bindSubmitEvent () {
 // 提交逻辑
 function saveAndGoNext (btn, nextPath, url) {
     var financeId = $.trim($('#financeId').val());
-    var form = $('form[role="saveForm"]')[0];
-    var data = new FormData(form);
     var verifyPass = verifyEmpty();
-    locationTo({
+    /*locationTo({
         action : nextPath,
         param : {
             finance_id : financeId,
             query_type : 1
         }
-    })
-    /*if (verifyPass) {
+    });*/
+    if (verifyPass) {
         btn.off('click');
+        clearSpouseOrParentInfo();      // 清除配偶或是直系亲属信息
+        var form = $('form[role="saveForm"]')[0];
+        var data = new FormData(form);
         $.ajax({
             type: 'POST',
             url : url,
@@ -457,7 +497,7 @@ function saveAndGoNext (btn, nextPath, url) {
         });
     } else {
         $alert('该页面还有资料未填写完整，请先补充完整再保存');
-    }*/
+    }
 }
 
 /**

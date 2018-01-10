@@ -2080,6 +2080,36 @@ function verifyPhone (selector) {
     });
 }
 
+/**
+ * 校验证件号码 —— 身份证
+ * @param selector {String} : 证件号码输入元素选择器（input）
+ */
+function verifyLicense (selector) {
+    var body = $('body');
+    body.on('blur', selector, function (e) {
+        var event = e || window.event;
+        event.stopPropagation();
+        event.preventDefault();
+
+        var t = $(this);
+        var v = $.trim(t.val());   // 证件号码
+        if (v == '') {
+            t.siblings('.tips_info').find('.tips_text').text('证件号码不能为空').end().show();
+            t.attr('verify', 0);
+        } else {
+            if (!IDPATTERN.test(v)) {
+                t.siblings('.tips_info').find('.tips_text').text('请输入有效证件号码').end().show();
+                t.attr('verify', 0);
+            } else {
+                t.siblings('.tips_info').find('.tips_text').text('').end().hide();
+                t.attr('verify', 1);
+            }
+        }
+    });
+}
+
+
+
 $(function () {
     customerListMask(); // 禁用订单多次点击跳转
     windowInFocus();    // 判断当前标签页的活动状态

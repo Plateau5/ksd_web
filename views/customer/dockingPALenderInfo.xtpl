@@ -397,7 +397,11 @@
                                     <span class="options_name">配偶姓名：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="配偶姓名不能为空" readonly name="spouseName" value="{{spouseName}}" placeholder="请输入姓名，如：张三" />
+                                    {{#if (isPre === 1) }}
+                                        <input type="text" class="required" readonly data-tips="配偶姓名不能为空" name="spouseName" value="{{spouseName}}" placeholder="请输入姓名，如：张三" />
+                                    {{else}}
+                                        <input type="text" class="required" data-tips="配偶姓名不能为空" name="spouseName" value="{{spouseName}}" placeholder="请输入姓名，如：张三" />
+                                    {{/if}}
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -406,7 +410,11 @@
                                     <span class="options_name">配偶手机号：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required phone" maxlength="11" data-tips="配偶手机号不能为空" readonly name="spouseCellphone" value="{{spouseCellphone}}" placeholder="请输入手机号，如：13800000000" />
+                                    {{#if (isPre === 1) }}
+                                        <input type="text" class="required phone" maxlength="11" data-tips="配偶手机号不能为空" readonly name="spouseCellphone" value="{{spouseCellphone}}" placeholder="请输入手机号，如：13800000000" />
+                                    {{else}}
+                                        <input type="text" class="required phone" maxlength="11" data-tips="配偶手机号不能为空" name="spouseCellphone" value="{{spouseCellphone}}" placeholder="请输入手机号，如：13800000000" />
+                                    {{/if}}
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -438,7 +446,11 @@
                                     <span class="options_name">证件号码：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="证件号码不能为空" name="spouseID" readonly value="{{spouseID}}" placeholder="请输入证件号码" />
+                                    {{#if (isPre === 1) }}
+                                    <input type="text" class="required ID_num" data-tips="证件号码不能为空" name="spouseID" readonly value="{{spouseID}}" placeholder="请输入证件号码" />
+                                    {{else}}
+                                    <input type="text" class="required ID_num" data-tips="证件号码不能为空" name="spouseID" value="{{spouseID}}" placeholder="请输入证件号码" />
+                                    {{/if}}
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -532,7 +544,7 @@
 </html>
 <script>
     // 获取城市数据
-    var cityData = getAddressData();
+   /* var cityData = getAddressData();*/
     (function ($) {
 
         // 根据是否有担保人更改保存并继续的跳转路径
@@ -559,11 +571,12 @@
             isMarriage();       // 显示隐藏配偶信息
             verifyGender();     // 设置性别
             isHaveGuarantor();      // 担保人监听
-            getOccupation(cityData.data_occupation);      // 展示职业
+            /*getOccupation(cityData.data_occupation);      // 展示职业
             getProvince(cityData.data_province);        // 展示省份数据
-            createCityList();       // 根据选中省份获取对应城市
+            createCityList();       // 根据选中省份获取对应城市*/
             verifyPhone('.phone');      // 手机号码校验
             validateBlurEmpty();    // 输入框非空校验
+            verifyLicense('.ID_num');       // 证件号码校验
         });
     })(jQuery,undefined);
 </script>
