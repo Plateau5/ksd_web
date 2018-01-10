@@ -39,7 +39,8 @@
                                 <span class="options_name">品牌：</span>
                             </div>
                             <div class="column_val">
-                                <select name="brandId" id="brand" class="brand" data-query_type="1">
+                                <input type="hidden" class="brand_val" name="carBrandName" value="{{carBrandName}}">
+                                <select name="carBrand" id="brand" class="brand" data-query_type="1">
                                     <option value="">请选择</option>
                                     {{#if (carBrand) }}
                                         <option value="{{carBrand}}" selected>{{carBrandName}}</option>
@@ -52,7 +53,8 @@
                                 <span class="options_name">车系：</span>
                             </div>
                             <div class="column_val">
-                                <select name="serialId" id="carSeries" class="brand" data-query_type="2">
+                                <input type="hidden" class="brand_val" name="carSeriesName" value="{{carSeriesName}}">
+                                <select name="carSeries" id="carSeries" class="brand carSeries"  data-query_type="2">
                                     <option value="">请选择</option>
                                     {{#if (carSeries) }}
                                     <option value="{{carSeries}}" selected>{{carSeriesName}}</option>
@@ -87,7 +89,8 @@
                                 <span class="options_name">车型：</span>
                             </div>
                             <div class="column_val">
-                                <select name="modelId" id="carModel" class="brand car_model" data-query_type="3">
+                                <input type="hidden" class="brand_val" name="carModelName" value="{{carModelName}}">
+                                <select name="carModel" id="carModel" class="brand car_model" data-query_type="3">
                                     <option value="">请选择</option>
                                     {{#if (carModel) }}
                                     <option value="{{carModel}}" selected>{{carModelName}}</option>
@@ -126,7 +129,7 @@
                                 <span class="options_name">车辆实际价格：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="车辆实际价格不能为空" id="pawnValue" name="pawnValue" value="{{pawnValue}}" placeholder="请输入车辆实际价格" maxlength="10"  />
+                                <input type="text" class="required pawnValue" data-tips="车辆实际价格不能为空" id="pawnValue" name="pawnValue" value="{{pawnValue}}" placeholder="请输入车辆实际价格" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -173,9 +176,9 @@
                                     <option value="">请选择</option>
                                     {{#each (dealerData) }}
                                         {{#if (this.dealerId === root.dealerId) }}
-                                            <option value="{{this.id}}" selected>{{this.dealerName}}</option>
+                                            <option value="{{this.dealerId}}" selected>{{this.dealerName}}</option>
                                         {{else}}
-                                            <option value="{{this.id}}">{{this.dealerName}}</option>
+                                            <option value="{{this.dealerId}}">{{this.dealerName}}</option>
                                         {{/if}}
                                     {{/each}}
                                 </select>
@@ -557,6 +560,8 @@
         function accountChange () {
             var elem = $('#otherFee, #pawnValue, #buyTax, #assure, #cautionMoney, #serviceCharge , #attachFinance');
             var oldValue = '';
+            var firstPayAccountE = $('#firstPayAccount');
+            var firstPayScaleE = $('#firstPayScale');
             elem.on('focus', function () {
                 var _this = $(this);
                 oldValue = $.trim(_this.val());
@@ -570,12 +575,16 @@
                 var newValue = $.trim(_this.val());
                 if (newValue != oldValue) {
                     calcFinanceAccount(true);
+                    // 修改首付金额
+                    if (_this.hasClass('pawnValue')) {
+                        var firstPayScale = Number(firstPayScaleE.val().replace(/%/ig, '')) * 100;     // 首付比例
+                        var firstPayAmount =  (newValue * firstPayScale) / 10000;
+                        firstPayAccountE.val(firstPayAmount);
+                    }
                 }
             });
 
             // 首付金额输入监听
-            var firstPayAccountE = $('#firstPayAccount');
-            var firstPayScaleE = $('#firstPayScale');
             firstPayAccountE.on('focus', function () {
                 var _this = $(this);
                 oldValue = $.trim(_this.val());
@@ -645,8 +654,8 @@
                 // 项目金额 = 车辆实际价格
                 projectAccount = pawnValue;
             }
-            // 首付金额 = 车辆实际价格 * 首付比例
-            firstPayAccount = projectAccount * firstPayScale / 10000;
+            /*// 首付金额 = 车辆实际价格 * 首付比例
+            firstPayAccount = pawnValue * firstPayScale / 10000;*/
             // 融资金额 = 项目金额 - 首付金额 + 附加融资额
             financeAccount = projectAccount - firstPayAccount + attachFinance;
             // 净融资额 = 首付金额 - 保证金 - 服务费
@@ -667,7 +676,7 @@
                 query_type : 1
             };
             var brandData = getBrand(param);
-            var optStr = createBrandOption(brandData, null, param.query_type);
+            var optStr = createBrandOption(brandData, param.query_type);
             $('#brand').html(optStr);
         }
 

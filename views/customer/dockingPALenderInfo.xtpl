@@ -40,7 +40,7 @@
                                     <span class="options_name">姓名：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" readonly="readonly" data-tips="姓名不能为空" name="name" value="{{name}}" placeholder="请输入姓名，比如：张三" />
+                                    <input type="text" class="required" readonly="readonly" data-tips="姓名不能为空" name="name" value="{{renterInfo.name}}" placeholder="请输入姓名，比如：张三" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                                     <span class="options_name">手机号码：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="手机号码不能为空" readonly name="cellphone" value="{{cellphone}}" placeholder="请输入手机号，比如：13800000000" />
+                                    <input type="text" class="required" data-tips="手机号码不能为空" readonly name="cellphone" value="{{renterInfo.cellphone}}" placeholder="请输入手机号，比如：13800000000" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                     <span class="options_name">证件号码：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required IDnum" data-tips="证件号码不能为空" readonly name="IDnum" value="{{IDnum}}" placeholder="请输入证件号码" />
+                                    <input type="text" class="required IDnum" data-tips="证件号码不能为空" readonly name="IDnum" value="{{renterInfo.IDnum}}" placeholder="请输入证件号码" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                                     <span class="options_name">性别：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="hidden" name="sex" value="1">
+                                    <input type="hidden" name="sex" value="1" class="gender">
                                     <div class="form_group mar6 v_middle">
                                         <input type="radio"  id="gender1" disabled class="gender male" name="sex" value="1" checked="checked" />
                                         <label for="gender1">男</label>
@@ -106,7 +106,7 @@
                                     <span class="options_name">出生日期：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required birthday" readonly="readonly" data-tips="出生日期不能为空" name="birthday" value="{{birthday}}" placeholder="请选择日期"  style="cursor: default;" />
+                                    <input type="text" class="required birthday" readonly="readonly" data-tips="出生日期不能为空" name="birthday" value="{{renterInfo.birthday}}" placeholder="请选择日期"  style="cursor: default;" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -146,6 +146,8 @@
                                     <span class="options_name">身份证地址：</span>
                                 </div>
                                 <div class="column_val">
+                                    <input type="hidden" id="homeProvinceInput" value="{{renterInfo.homeProvince}}">
+                                    <input type="hidden" id="homeCityInput" value="{{renterInfo.homeCity}}">
                                     <select name="homeProvince" id="homeProvince" class="province" data-type="home" style="width: 108px;margin-right: 10px;">
                                         <option value="">请选择</option>
                                     </select>
@@ -177,7 +179,7 @@
                                     <span class="options_name"></span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="详细地址不能为空" name="homeAddress" value="" placeholder="请输入详细地址" />
+                                    <input type="text" class="required" data-tips="详细地址不能为空" name="homeAddress" value="{{renterInfo.homeAddress}}" placeholder="请输入详细地址" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -186,7 +188,7 @@
                                     <span class="options_name">每月家庭收入：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="每月家庭收入不能为空" name="familyInCome" value="" placeholder="0" />
+                                    <input type="text" class="required" data-tips="每月家庭收入不能为空" name="familyInCome" value="{{renterInfo.familyInCome}}" placeholder="0" />
                                     <span class="unit">元</span>
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
@@ -196,6 +198,8 @@
                                     <span class="options_name">现居住地地址：</span>
                                 </div>
                                 <div class="column_val">
+                                    <input type="hidden" id="estateProvinceInput" value="{{renterInfo.estateProvince}}">
+                                    <input type="hidden" id="estateCityInput" value="{{renterInfo.estateCity}}">
                                     <select name="estateProvince" id="estateProvince" class="province" data-type="estate" style="width: 108px;margin-right: 10px;">
                                         <option value="">请选择</option>
                                     </select>
@@ -209,7 +213,7 @@
                                     <span class="options_name">月平均支出：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="月平均支出不能为空" name="familyExpend" value="" placeholder="0" />
+                                    <input type="text" class="required" data-tips="月平均支出不能为空" name="familyExpend" value="{{renterInfo.familyExpend}}" placeholder="0" />
                                     <span class="unit">元</span>
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
@@ -219,7 +223,7 @@
                                     <span class="options_name"></span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="详细地址不能为空" name="estateAddress" value="" placeholder="请输入详细地址" />
+                                    <input type="text" class="required" data-tips="详细地址不能为空" name="estateAddress" value="{{renterInfo.estateAddress}}" placeholder="请输入详细地址" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -277,7 +281,7 @@
                                     <span class="options_name">银行卡号：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="银行卡号不能为空" name="bankCard" value="" placeholder="请输入银行卡号" />
+                                    <input type="text" class="required" data-tips="银行卡号不能为空" name="bankCard" value="{{renterInfo.bankCard}}" placeholder="请输入银行卡号" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -301,7 +305,7 @@
                                     <span class="options_name">备注：</span>
                                 </div>
                                 <div class="column_val" style="width: 87.5%;">
-                                    <textarea name="comment" id="" style="width: 82%;" placeholder="请输入备注内容"></textarea>
+                                    <textarea name="comment" id="" style="width: 82%;" placeholder="请输入备注内容">{{renterInfo.comment}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -314,7 +318,7 @@
                                     <span class="options_name">单位名称：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="单位名称不能为空" name="empName" value="" placeholder="请输入单位名称" />
+                                    <input type="text" class="required" data-tips="单位名称不能为空" name="empName" value="{{renterInfo.empName}}" placeholder="请输入单位名称" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -341,7 +345,7 @@
                                     <span class="options_name">本单位工作年限：</span>
                                 </div>
                                 <div class="column_val">
-                                        <input type="text" class="required" maxlength="2" data-tips="本单位工作年限不能为空" name="empName" value="" placeholder="请输入本单位工作年限" />
+                                        <input type="text" class="required" maxlength="2" data-tips="本单位工作年限不能为空" name="workYear" value="{{renterInfo.workYear}}" placeholder="请输入本单位工作年限" />
                                         <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -350,7 +354,7 @@
                                     <span class="options_name">单位电话：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required phone" maxlength="11" data-tips="单位电话不能为空" name="empName" value="" placeholder="请输入单位电话" />
+                                    <input type="text" class="required phone" maxlength="11" data-tips="单位电话不能为空" name="empPhone" value="{{renterInfo.empPhone}}" placeholder="请输入单位电话" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -359,6 +363,8 @@
                                     <span class="options_name">单位地址：</span>
                                 </div>
                                 <div class="column_val">
+                                    <input type="hidden" id="empProvinceInput" value="{{renterInfo.empProvince}}">
+                                    <input type="hidden" id="empCityInput" value="{{renterInfo.empCity}}">
                                     <select name="empProvince" id="empProvince" class="province" data-type="emp" style="width: 108px;margin-right: 10px;">
                                         <option value="">请选择</option>
                                     </select>
@@ -383,7 +389,7 @@
                                     <span class="options_name"></span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="详细地址不能为空" name="empAddress" value="" placeholder="请输入详细地址" />
+                                    <input type="text" class="required" data-tips="详细地址不能为空" name="empAddress" value="{{renterInfo.empAddress}}" placeholder="请输入详细地址" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -398,9 +404,9 @@
                                 </div>
                                 <div class="column_val">
                                     {{#if (isPre === 1) }}
-                                        <input type="text" class="required" readonly data-tips="配偶姓名不能为空" name="spouseName" value="{{spouseName}}" placeholder="请输入姓名，如：张三" />
+                                        <input type="text" class="required" readonly data-tips="配偶姓名不能为空" name="spouseName" value="{{renterInfo.spouseName}}" placeholder="请输入姓名，如：张三" />
                                     {{else}}
-                                        <input type="text" class="required" data-tips="配偶姓名不能为空" name="spouseName" value="{{spouseName}}" placeholder="请输入姓名，如：张三" />
+                                        <input type="text" class="required" data-tips="配偶姓名不能为空" name="spouseName" value="{{renterInfo.spouseName}}" placeholder="请输入姓名，如：张三" />
                                     {{/if}}
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
@@ -411,9 +417,9 @@
                                 </div>
                                 <div class="column_val">
                                     {{#if (isPre === 1) }}
-                                        <input type="text" class="required phone" maxlength="11" data-tips="配偶手机号不能为空" readonly name="spouseCellphone" value="{{spouseCellphone}}" placeholder="请输入手机号，如：13800000000" />
+                                        <input type="text" class="required phone" maxlength="11" data-tips="配偶手机号不能为空" readonly name="spouseCellphone" value="{{renterInfo.spouseCellphone}}" placeholder="请输入手机号，如：13800000000" />
                                     {{else}}
-                                        <input type="text" class="required phone" maxlength="11" data-tips="配偶手机号不能为空" name="spouseCellphone" value="{{spouseCellphone}}" placeholder="请输入手机号，如：13800000000" />
+                                        <input type="text" class="required phone" maxlength="11" data-tips="配偶手机号不能为空" name="spouseCellphone" value="{{renterInfo.spouseCellphone}}" placeholder="请输入手机号，如：13800000000" />
                                     {{/if}}
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
@@ -447,9 +453,9 @@
                                 </div>
                                 <div class="column_val">
                                     {{#if (isPre === 1) }}
-                                    <input type="text" class="required ID_num" data-tips="证件号码不能为空" name="spouseID" readonly value="{{spouseID}}" placeholder="请输入证件号码" />
+                                    <input type="text" class="required ID_num" data-tips="证件号码不能为空" name="spouseID" readonly value="{{renterInfo.spouseID}}" placeholder="请输入证件号码" />
                                     {{else}}
-                                    <input type="text" class="required ID_num" data-tips="证件号码不能为空" name="spouseID" value="{{spouseID}}" placeholder="请输入证件号码" />
+                                    <input type="text" class="required ID_num" data-tips="证件号码不能为空" name="spouseID" value="{{renterInfo.spouseID}}" placeholder="请输入证件号码" />
                                     {{/if}}
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
@@ -464,7 +470,7 @@
                                     <span class="options_name">直系亲属姓名：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="直系亲属姓名不能为空" name="parentName" value="" placeholder="请输入姓名，如：张三" />
+                                    <input type="text" class="required" data-tips="直系亲属姓名不能为空" name="parentName" value="{{renterInfo.parentName}}" placeholder="请输入姓名，如：张三" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -473,7 +479,7 @@
                                     <span class="options_name">直系亲属手机号：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required phone" maxlength="11" data-tips="直系亲属手机号不能为空" name="parentCellphone" value="" placeholder="请输入手机号，如：13800000000" />
+                                    <input type="text" class="required phone" maxlength="11" data-tips="直系亲属手机号不能为空" name="parentCellphone" value="{{renterInfo.parentCellphone}}" placeholder="请输入手机号，如：13800000000" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -501,7 +507,7 @@
                                     <span class="options_name">姓名：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="紧急联系人姓名不能为空" name="emgconName" value="" placeholder="请输入姓名，如：张三" />
+                                    <input type="text" class="required" data-tips="紧急联系人姓名不能为空" name="emgconName" value="{{renterInfo.emgconName}}" placeholder="请输入姓名，如：张三" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -510,7 +516,7 @@
                                     <span class="options_name">手机号：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required phone" maxlength="11" data-tips="紧急联系人手机号不能为空" name="emgconCellphone" value="" placeholder="请输入手机号，如：13800000000" />
+                                    <input type="text" class="required phone" maxlength="11" data-tips="紧急联系人手机号不能为空" name="emgconCellphone" value="{{renterInfo.emgconCellphone}}" placeholder="请输入手机号，如：13800000000" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -535,6 +541,7 @@
         <!--<div id="footer" class="footer"></div>-->
         <!-------- Part of footer End -------->
     </div>
+    <div class="loading" id="loading" style="display: none;"></div>
 </body>
 {{include ('./../inc/jsSources')}}
 <script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
@@ -544,7 +551,7 @@
 </html>
 <script>
     // 获取城市数据
-   /* var cityData = getAddressData();*/
+    var cityData = getAddressData();
     (function ($) {
 
         // 根据是否有担保人更改保存并继续的跳转路径
@@ -571,9 +578,9 @@
             isMarriage();       // 显示隐藏配偶信息
             verifyGender();     // 设置性别
             isHaveGuarantor();      // 担保人监听
-            /*getOccupation(cityData.data_occupation);      // 展示职业
+            getOccupation(cityData.data_occupation);      // 展示职业
             getProvince(cityData.data_province);        // 展示省份数据
-            createCityList();       // 根据选中省份获取对应城市*/
+            createCityList();       // 根据选中省份获取对应城市
             verifyPhone('.phone');      // 手机号码校验
             validateBlurEmpty();    // 输入框非空校验
             verifyLicense('.ID_num');       // 证件号码校验

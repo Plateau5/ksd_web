@@ -58,6 +58,7 @@ exports.VIEW_DOCKING_PINGAN_LENDER = function(req, res, next) {
         title : '客户-承租人信息',
         page : './customer/dockingPALenderInfo',
         callback : function (data) {
+            data.renterInfo = JSON.parse(data.renterInfo);
             var finance_id = req.body.finance_id;
             var url = req.body.url;
             var queryType = req.body.query_type;

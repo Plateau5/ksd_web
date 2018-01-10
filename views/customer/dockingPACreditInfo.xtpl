@@ -147,6 +147,7 @@
         <!--<div id="footer" class="footer"></div>-->
         <!-------- Part of footer End -------->
     </div>
+    <div class="loading" id="loading" style="display: none;"></div>
 </body>
 {{include ('./../inc/jsSources')}}
 <script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>

@@ -39,7 +39,11 @@
                                 <span class="options_name">姓名：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" readonly data-tips="姓名不能为空" name="name" value="{{name}}" placeholder="请输入姓名，比如：张三" />
+                                {{#if (isPre === 1) }}
+                                <input type="text" class="required" readonly data-tips="姓名不能为空" name="name" value="{{sponsorInfo.name}}" placeholder="请输入姓名，比如：张三" />
+                                {{else}}
+                                <input type="text" class="required" data-tips="姓名不能为空" name="name" value="{{sponsorInfo.name}}" placeholder="请输入姓名，比如：张三" />
+                                {{/if}}
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -48,7 +52,11 @@
                                 <span class="options_name">手机号码：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required phone" maxlength="11" readonly data-tips="手机号码不能为空" name="cellphone" value="{{cellphone}}" placeholder="请输入手机号，比如：13800000000" />
+                                {{#if (isPre === 1) }}
+                                <input type="text" class="required phone" maxlength="11" readonly data-tips="手机号码不能为空" name="cellphone" value="{{sponsorInfo.cellphone}}" placeholder="请输入手机号，比如：13800000000" />
+                                {{else}}
+                                <input type="text" class="required phone" maxlength="11" data-tips="手机号码不能为空" name="cellphone" value="{{sponsorInfo.cellphone}}" placeholder="请输入手机号，比如：13800000000" />
+                                {{/if}}
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -80,7 +88,11 @@
                                 <span class="options_name">证件号码：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" readonly data-tips="证件号码不能为空" name="IDnum" value="{{IDnum}}" placeholder="请输入证件号码" />
+                                {{#if (isPre === 1) }}
+                                <input type="text" class="required" readonly data-tips="证件号码不能为空" name="IDnum" value="{{sponsorInfo.IDnum}}" placeholder="请输入证件号码" />
+                                {{else}}
+                                <input type="text" class="required" data-tips="证件号码不能为空" name="IDnum" value="{{sponsorInfo.IDnum}}" placeholder="请输入证件号码" />
+                                {{/if}}
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -89,7 +101,7 @@
                                 <span class="options_name">性别：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden">
+                                <input type="hidden" name="sex" value="1" class="gender_h">
                                 <div class="form_group mar6 v_middle">
                                     <input id="gender1" type="radio" disabled class="gender" name="sex" value="1" checked="checked" />
                                     <label for="gender1">男</label>
@@ -105,7 +117,7 @@
                                 <span class="options_name">出生日期：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required birthday" readonly="readonly" data-tips="出生日期不能为空" name="birthday" value="" placeholder="请选择日期" style="cursor: default;" />
+                                <input type="text" class="required birthday" readonly="readonly" data-tips="出生日期不能为空" name="birthday" value="{{sponsorInfo.birthday}}" placeholder="请选择日期" style="cursor: default;" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -253,7 +265,7 @@
                                 <span class="options_name">本单位工作年限：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" maxlength="2" data-tips="本单位工作年限不能为空" name="empName" value="" placeholder="请输入本单位工作年限" />
+                                <input type="text" class="required" maxlength="2" data-tips="本单位工作年限不能为空" name="workYear" value="" placeholder="请输入本单位工作年限" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -262,7 +274,7 @@
                                 <span class="options_name">单位电话：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" maxlength="20" data-tips="单位电话不能为空" name="empName" value="" placeholder="请输入单位电话" />
+                                <input type="text" class="required" maxlength="20" data-tips="单位电话不能为空" name="empPhone" value="" placeholder="请输入单位电话" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -317,6 +329,7 @@
         <!--<div id="footer" class="footer"></div>-->
         <!-------- Part of footer End -------->
     </div>
+    <div class="loading" id="loading" style="display: none;"></div>
 </body>
 {{include ('./../inc/jsSources')}}
 <script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>

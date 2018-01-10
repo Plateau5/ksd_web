@@ -116,6 +116,12 @@ function brandChoose () {
     brand.on('change', function () {
         var param = {};
         var _this = $(this);
+        // 获取选中项的Name
+        var selectedOpt = _this.find('option:selected');
+        var nameInput = _this.siblings('.brand_val');
+        var selectedName = selectedOpt.text();
+        nameInput.val(selectedName);
+
         var queryType = Number(_this.data('query_type')) + 1;
         var year = $('#carYear').find('option:selected').val().trim();
         /*if (queryType == 3 && year == '' && _this.hasClass('car_model')) {
@@ -131,15 +137,17 @@ function brandChoose () {
         param.query_type = queryType;
         year && (param.year = year);
         parent_id && (param.parent_id = parent_id);
-
-        if (_this.hasClass('car_model')) {
+        if (_this.hasClass('carSeries')) {
+            return false;
+        }else if (_this.hasClass('car_model')) {
             var price = _this.find('option:selected').data('price');
             (price == '' || price == undefined || price == null) && (price = 0);
             priceELe.val(price).siblings('.value_text').find('.value').text(price);
         } else {
             var brandData = getBrand(param);
-            var optStr = createBrandOption(brandData, v, queryType);
-            $('select.brand[data-query_type="'+ (queryType) +'"]').not('.car_year').html(optStr);
+            var nextBrand = $('select.brand[data-query_type="'+ (queryType) +'"]').not('.car_year');
+            var optStr = createBrandOption(brandData, queryType);
+            nextBrand.html(optStr);
             priceELe.val(0).siblings('.value_text').find('.value').text(0);
         }
 
@@ -177,11 +185,10 @@ function getBrand(data) {
  * 创建品牌车型选项
  * @author Arley Joe 2018-1-9 14:22:26
  * @param data  {Array} : 源数据
- * @param val   {String} : 选中项的值
  * @param type  {String} : 渲染类型     1：品牌；2：车系；3：车型
  * @return {string} ： 渲染数据
  */
-function createBrandOption (data, val, type) {
+function createBrandOption (data, type) {
     var eleStr = '<option value="">请选择</option>';
     for (var i = 0, len = data.length; i < len; i++) {
         if (type == 1) {
@@ -243,6 +250,7 @@ function isMarriage () {
 function verifyGender () {
     var IDNum = $.trim($('input[name="IDnum"]').val());      // 身份证号
     var gender = $('.gender');      // 性别选择容器
+    var genderH = $('.gender_h');
     if (IDNum) {
         // 获取身份证第17位或是15位。
         if (IDNum.length == 18) {
@@ -253,9 +261,11 @@ function verifyGender () {
         if (seventeenthNum % 2 === 1) {
             gender.find('input[type="radio"].male').prop('checked', true);
             gender.find('input[type="radio"].female').prop('checked', false);
+            genderH.val(1);
         } else {
             gender.find('input[type="radio"].male').prop('checked', false);
             gender.find('input[type="radio"].female').prop('checked', true);
+            genderH.val(2);
         }
     }
 }
@@ -265,15 +275,38 @@ function verifyEmpty () {
     var isAleary = true;
     var inputs = $('input.required');
     var select = $('form[role="saveForm"] select');
+    var parent = $('.parent_info');
+    var spouse = $('.spouse_info');
     inputs.each(function () {
         var _this = $(this);
+        var _parent = _this.parents('.parent_info');
+        var _spouse = _this.parents('.spouse_info');
         var v = $.trim(_this.val());
-        if (!v) {
-            isAleary = false;
-            _this.css({
-                'border-color' : 'rgb(251, 39, 65)'
-            });
-            // return false;
+        // 既不是配偶也不是直系亲属
+        if (_parent.length <= 0 && _spouse.length <= 0) {
+            if (!v) {
+                isAleary = false;
+                _this.css({
+                    'border-color' : 'rgb(251, 39, 65)'
+                });
+                // return false;
+            }
+        } else if (_spouse.length > 0 && !spouse.is(':hidden')) {  // 是配偶不是直系亲属
+            if (!v) {
+                isAleary = false;
+                _this.css({
+                    'border-color' : 'rgb(251, 39, 65)'
+                });
+                // return false;
+            }
+        } else if (_parent.length > 0 && !parent.is(':hidden')) {   // 是直系亲属不是配偶
+            if (!v) {
+                isAleary = false;
+                _this.css({
+                    'border-color' : 'rgb(251, 39, 65)'
+                });
+                // return false;
+            }
         }
     });
 
@@ -281,12 +314,16 @@ function verifyEmpty () {
         var _this = $(this);
         var selected = _this.find('option:selected');
         var v = $.trim(selected.val());
-        if (!v & v != '0') {
-            isAleary = false;
-            _this.css({
-                'border-color' : 'rgb(251, 39, 65)'
-            });
-            // return false;
+        var _parent = _this.parents('.parent_info');
+        var _spouse = _this.parents('.spouse_info');
+        if ((_parent.length <= 0 && _spouse.length <= 0) || (_spouse.length > 0 && !spouse.is(':hidden')) || (_parent.length > 0 && !parent.is(':hidden')) ) {
+            if (!v & v != '0') {
+                isAleary = false;
+                _this.css({
+                    'border-color' : 'rgb(251, 39, 65)'
+                });
+                // return false;
+            }
         }
     });
 
@@ -448,6 +485,7 @@ function bindSubmitEvent () {
 // 提交逻辑
 function saveAndGoNext (btn, nextPath, url) {
     var financeId = $.trim($('#financeId').val());
+    var queryType = $.trim($('#queryType').val());
     var verifyPass = verifyEmpty();
     /*locationTo({
         action : nextPath,
@@ -481,7 +519,7 @@ function saveAndGoNext (btn, nextPath, url) {
                             action : nextPath,
                             param : {
                                 finance_id : financeId,
-                                query_type : 1
+                                query_type : queryType
                             }
                         })
                     });
@@ -610,7 +648,8 @@ function verifyImgPass () {
  * @author Arley Joe 2018-1-5 10:51:23
  */
 function fileSaveAndGoNext (btn, nextPath, url) {
-    var data = getData();
+    var fileData = getData();
+    fileData = JSON.stringify(fileData);
     var isValidate = verifyImgPass();
     var financeId = $.trim($('#financeId').val());
     if (isValidate) {
@@ -618,9 +657,10 @@ function fileSaveAndGoNext (btn, nextPath, url) {
         $.ajax({
             type: 'POST',
             url : url,
-            data : data,
-            contentType: false,
-            processData: false,
+            data : {
+                finance_id : financeId,
+                data : fileData
+            },
             timeout : 10000,
             beforeSend : function () {
                 $('#loading').show();
@@ -655,11 +695,11 @@ function fileSaveAndGoNext (btn, nextPath, url) {
 
     function getData () {
         var data = [];
-        var imgs = $('form[role="saveForm"] .img_md_box .img_item');
+        var imgs = $('form[role="fileSaveForm"] .img_md_box .img_item');
         imgs.each(function () {
             var o = {};     // 当前图片数据对象
             var _this = $(this);
-            o.id = $.trim(_this.data('id'));  // 图片主键
+            o.file_id = $.trim(_this.data('id'));  // 图片主键
             o.file_type = $.trim(_this.data('file_type'));  // 图片类型主键
             o.file_name = $.trim(_this.data('file_name'));  // 图片类型名称
             o.material_type = $.trim(_this.data('material_type'));  // 图片系列主键

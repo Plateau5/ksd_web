@@ -28,7 +28,7 @@
                     <a href="javascript:;" class="crumbs_item">征信信息</a>
                 </div>
                 <div class="form_content form_options">
-                    <form action="" class="basic_info_edit">
+                    <form action="" class="basic_info_edit" role="fileSaveForm">
                         <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
                         <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
                         <!-- 承租人文件信息 Begin -->
@@ -51,9 +51,9 @@
                                             {{#each (data_file) }}
                                                 {{#if (this.material_type === ../../type && this.file_type === ../file_type) }}
                                                 <a href="javascript:;" class="img_item" data-id="{{file_id}}" data-file_type="{{file_type}}" data-file_name="{{file_name}}" data-material_type="{{material_type}}" data-material_name="{{material_name}}">
-                                                    <img data-original="{{this.url}}" alt="{{this.file_name}}" src="{{this.thumbnail_160_100}}">
+                                                    <img data-original="{{this.thumbnail}}" alt="{{this.file_name}}" src="{{this.thumbnail_120_90}}">
                                                     <div class="img_md_operate_box">
-                                                        <em class="img_md_operate_btn view" data-url="{{this.url}}" title="查看"></em>
+                                                        <em class="img_md_operate_btn view" data-url="{{this.thumbnail}}" title="查看"></em>
                                                         <em class="img_md_operate_btn delete" data-id="{{this.file_id}}" title="删除"></em>
                                                     </div>
                                                 </a>
@@ -122,6 +122,7 @@
         <!--<div id="footer" class="footer"></div>-->
         <!-------- Part of footer End -------->
     </div>
+    <div class="loading" id="loading" style="display: none;"></div>
 </body>
 {{include ('./../inc/jsSources')}}
 <script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
