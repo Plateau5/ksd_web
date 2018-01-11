@@ -103,8 +103,10 @@ exports.VIEW_DOCKING_PINGAN_FILES = function(req, res, next) {
             data.query_type = queryType;
             data.finance_id = finance_id;
             data.url = url;
-            var dataFiles = organizeData(data.data_material);
-            data.dataFiles = dataFiles;
+            var formatRes = organizeData(data.data_material);
+            data.dataFiles = formatRes.dataFiles;
+            data.groupNum = formatRes.groupNum;
+            data.groupId = formatRes.groupId;
         }
     }, req, res, next);
 };
@@ -133,7 +135,11 @@ exports.VIEW_DOCKING_PINGAN_CREDIT = function(req, res, next) {
  * @return {Array}  ：返回值
  */
 var organizeData = function (d) {
+    var res = {};
     var dataFiles = [];
+    var groupId = [];
+    var groupName = [];
+    var groupNum = [];
     var materialSeries = [];
     for (var i = 0, len = d.length; i < len; i++) {
         var o = {};
@@ -160,8 +166,18 @@ var organizeData = function (d) {
                 // dataFiles[d[i].material_type].children.push(d[i]);
             }
         }
+        if (d[i].group_id && groupId.indexOf(d[i].group_id) === -1) {
+            groupId.push(d[i].group_id);
+        }
+        if (d[i].group_num && groupNum.indexOf(d[i].group_num) === -1) {
+            groupNum.push(d[i].group_num);
+        }
+
     }
-    return dataFiles;
+    res.dataFiles = dataFiles;
+    res.groupId = groupId.join(',');
+    res.groupNum = groupNum.join(',');
+    return res;
 };
 
 
