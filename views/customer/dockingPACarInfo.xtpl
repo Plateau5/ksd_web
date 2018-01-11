@@ -31,7 +31,7 @@
                     <form action="" class="basic_info_edit" role="saveForm">
                         <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
                         <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
-                        <input type="hidden" name="loanID" value="0">
+                        <input type="hidden" name="id" value="{{carInfo.id}}">
                         <!-- 车辆基本信息 Begin -->
                         <div class="options_title">车辆信息</div>
                         <div class="option_item">
@@ -39,11 +39,11 @@
                                 <span class="options_name">品牌：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" class="brand_val" name="carBrandName" value="{{carBrandName}}">
+                                <input type="hidden" class="brand_val" name="carBrandName" value="{{carInfo.carBrandName}}">
                                 <select name="carBrand" id="brand" class="brand" data-query_type="1">
                                     <option value="">请选择</option>
-                                    {{#if (carBrand) }}
-                                        <option value="{{carBrand}}" selected>{{carBrandName}}</option>
+                                    {{#if (carInfo.carBrand) }}
+                                        <option value="{{carInfo.carBrand}}" selected>{{carInfo.carBrandName}}</option>
                                     {{/if}}
                                 </select>
                             </div>
@@ -53,11 +53,11 @@
                                 <span class="options_name">车系：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" class="brand_val" name="carSeriesName" value="{{carSeriesName}}">
+                                <input type="hidden" class="brand_val" name="carSeriesName" value="{{carInfo.carSeriesName}}">
                                 <select name="carSeries" id="carSeries" class="brand carSeries"  data-query_type="2">
                                     <option value="">请选择</option>
-                                    {{#if (carSeries) }}
-                                    <option value="{{carSeries}}" selected>{{carSeriesName}}</option>
+                                    {{#if (carInfo.carSeries) }}
+                                    <option value="{{carSeries}}" selected>{{carInfo.carSeriesName}}</option>
                                     {{/if}}
                                 </select>
                             </div>
@@ -69,18 +69,66 @@
                             <div class="column_val">
                                 <select name="carYear" id="carYear" class="brand car_year" data-query_type="2">
                                     <option value="">请选择</option>
-                                    <option value="2009">2009</option>
+                                    {{#if (carInfo.carYear === '2009') }}
+                                        <option value="2009" selected>2009</option>
+                                    {{else}}
+                                        <option value="2009">2009</option>
+                                    {{/if}}
+                                    {{#if (carInfo.carYear === '2010') }}
+                                    <option value="2010" selected>2010</option>
+                                    {{else}}
                                     <option value="2010">2010</option>
+                                    {{/if}}
+                                    {{#if (carInfo.carYear === '2011') }}
+                                    <option value="2011" selected>2011</option>
+                                    {{else}}
                                     <option value="2011">2011</option>
+                                    {{/if}}
+                                    {{#if (carInfo.carYear === '2012') }}
+                                    <option value="2012" selected>2012</option>
+                                    {{else}}
                                     <option value="2012">2012</option>
+                                    {{/if}}
+                                    {{#if (carInfo.carYear === '2013') }}
+                                    <option value="2013" selected>2013</option>
+                                    {{else}}
                                     <option value="2013">2013</option>
+                                    {{/if}}
+                                    {{#if (carInfo.carYear === '2014') }}
+                                    <option value="2014" selected>2014</option>
+                                    {{else}}
                                     <option value="2014">2014</option>
+                                    {{/if}}
+                                    {{#if (carInfo.carYear === '2015') }}
+                                    <option value="2015" selected>2015</option>
+                                    {{else}}
                                     <option value="2015">2015</option>
+                                    {{/if}}
+                                    {{#if (carInfo.carYear === '2016') }}
+                                    <option value="2016" selected>2016</option>
+                                    {{else}}
                                     <option value="2016">2016</option>
+                                    {{/if}}
+                                    {{#if (carInfo.carYear === '2017') }}
+                                    <option value="2017" selected>2017</option>
+                                    {{else}}
                                     <option value="2017">2017</option>
+                                    {{/if}}
+                                    {{#if (carInfo.carYear === '2018') }}
+                                    <option value="2018" selected>2018</option>
+                                    {{else}}
                                     <option value="2018">2018</option>
+                                    {{/if}}
+                                    {{#if (carInfo.carYear === '2019') }}
+                                    <option value="2019" selected>2019</option>
+                                    {{else}}
                                     <option value="2019">2019</option>
+                                    {{/if}}
+                                    {{#if (carInfo.carYear === '2020') }}
+                                    <option value="2020" selected>2020</option>
+                                    {{else}}
                                     <option value="2020">2020</option>
+                                    {{/if}}
                                 </select>
                             </div>
                         </div>
@@ -89,11 +137,11 @@
                                 <span class="options_name">车型：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" class="brand_val" name="carModelName" value="{{carModelName}}">
+                                <input type="hidden" class="brand_val" name="carModelName" value="{{carInfo.carModelName}}">
                                 <select name="carModel" id="carModel" class="brand car_model" data-query_type="3">
                                     <option value="">请选择</option>
-                                    {{#if (carModel) }}
-                                    <option value="{{carModel}}" selected>{{carModelName}}</option>
+                                    {{#if (carInfo.carModel) }}
+                                    <option value="{{carInfo.carModel}}" selected>{{carInfo.carModelName}}</option>
                                     {{/if}}
                                 </select>
                             </div>
@@ -103,7 +151,7 @@
                                 <span class="options_name">颜色：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="颜色不能为空" maxlength="5" name="carColor" value="{{carColor}}" placeholder="请输入颜色，比如：黑色" />
+                                <input type="text" class="required" data-tips="颜色不能为空" maxlength="5" name="carColor" value="{{carInfo.carColor}}" placeholder="请输入颜色，比如：黑色" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -112,8 +160,8 @@
                                 <span class="options_name">品牌指导价：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" name="price" id="price" value="0" />
-                                <span class="value_text"><span class="value">0</span><span>元</span></span>
+                                <input type="hidden" name="price" id="price" value="{{carInfo.price}}" />
+                                <span class="value_text"><span class="value">{{carInfo.price}}</span><span>元</span></span>
                             </div>
                         </div>
                         <!--<div class="option_item">
@@ -129,7 +177,7 @@
                                 <span class="options_name">车辆实际价格：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required pawnValue" data-tips="车辆实际价格不能为空" id="pawnValue" name="pawnValue" value="{{pawnValue}}" placeholder="请输入车辆实际价格" maxlength="10"  />
+                                <input type="text" class="required pawnValue" data-tips="车辆实际价格不能为空" id="pawnValue" name="pawnValue" value="{{carInfo.pawnValue}}" placeholder="请输入车辆实际价格" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -139,7 +187,7 @@
                                 <span class="options_name">购置税：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="购置税不能为空" id="buyTax" name="buyTax" value="{{buyTax}}" placeholder="请输入购置税" maxlength="10"  />
+                                <input type="text" class="required" data-tips="购置税不能为空" id="buyTax" name="buyTax" value="{{carInfo.buyTax}}" placeholder="请输入购置税" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -149,7 +197,7 @@
                                 <span class="options_name">其他费用：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="其他费用不能为空" id="otherFee" name="otherFee" value="{{otherFee}}" placeholder="请输入其他费用" maxlength="10"  />
+                                <input type="text" class="required" data-tips="其他费用不能为空" id="otherFee" name="otherFee" value="{{carInfo.otherFee}}" placeholder="请输入其他费用" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -159,7 +207,7 @@
                                 <span class="options_name">保险：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="保险不能为空" id="assure" name="assure" value="{{assure}}" placeholder="请输入保险" maxlength="10"  />
+                                <input type="text" class="required" data-tips="保险不能为空" id="assure" name="assure" value="{{carInfo.assure}}" placeholder="请输入保险" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -175,7 +223,7 @@
                                 <select name="dealerId" id="">
                                     <option value="">请选择</option>
                                     {{#each (dealerData) }}
-                                        {{#if (this.dealerId === root.dealerId) }}
+                                        {{#if (this.dealerId === root.carInfo.dealerId) }}
                                             <option value="{{this.dealerId}}" selected>{{this.dealerName}}</option>
                                         {{else}}
                                             <option value="{{this.dealerId}}">{{this.dealerName}}</option>
@@ -189,7 +237,7 @@
                                 <span class="options_name">销售姓名：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="销售姓名不能为空" name="salesName" value="{{salesName}}" placeholder="请输入销售姓名，比如：张三" maxlength="20" />
+                                <input type="text" class="required" data-tips="销售姓名不能为空" name="salesName" value="{{carInfo.salesName}}" placeholder="请输入销售姓名，比如：张三" maxlength="20" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -198,7 +246,7 @@
                                 <span class="options_name">手机号码：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required phone" data-tips="手机号码不能为空" name="contactWay" value="{{contactWay}}" maxlength="11" placeholder="请输入手机号，如:13800000000" />
+                                <input type="text" class="required phone" data-tips="手机号码不能为空" name="contactWay" value="{{carInfo.contactWay}}" maxlength="11" placeholder="请输入手机号，如:13800000000" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -210,8 +258,8 @@
                                 <span class="options_name">项目金额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" id="projectAccount" name="" value="{{projectAccount}}" />
-                                <span class="value_text"><span class="value">{{projectAccount}}</span><span>元</span></span>
+                                <input type="hidden" id="projectAccount" name="" value="{{carInfo.projectAccount}}" />
+                                <span class="value_text"><span class="value">{{carInfo.projectAccount}}</span><span>元</span></span>
                             </div>
                         </div>
                         <div class="option_item">
@@ -220,7 +268,7 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group mar6 v_middle">
-                                    {{#if (rentModel === 1 || (!rentModel && rentModel !== 0)) }}
+                                    {{#if (carInfo.rentModel === '1' || (!carInfo.rentModel && carInfo.rentModel !== '0')) }}
                                     <input id="rentModel1" type="radio" class="rentModel" checked="checked" name="rentModel" value="1" />
                                     <label for="rentModel1">回租</label>
                                     {{else}}
@@ -229,7 +277,7 @@
                                     {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
-                                    {{#if (rentModel === 2) }}
+                                    {{#if (carInfo.rentModel === '2') }}
                                     <input id="rentModel2" type="radio" class="rentModel" checked="checked" name="rentModel" value="2" />
                                     <label for="rentModel2">直租</label>
                                     {{else}}
@@ -245,7 +293,7 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group mar6 v_middle">
-                                    {{#if (isCarHome === 1 || (!isCarHome && isCarHome !== 0) ) }}
+                                    {{#if (carInfo.isCarHome === '1' || (!carInfo.isCarHome && carInfo.isCarHome !== '0') ) }}
                                     <input id="isCarHome1" type="radio" class="isCarHome" checked="checked" name="isCarHome" value="1" />
                                     <label for="rentModel1">是</label>
                                     {{else}}
@@ -254,7 +302,7 @@
                                     {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
-                                    {{#if (isCarHome === 2) }}
+                                    {{#if (carInfo.isCarHome === '2') }}
                                     <input id="isCarHome2" type="radio" class="isCarHome" checked="checked" name="isCarHome" value="2" />
                                     <label for="rentModel2">否</label>
                                     {{else}}
@@ -272,7 +320,7 @@
                                 <select name="productName" id="productName">
                                     <option value="">请选择</option>
                                     {{#each (productData) }}
-                                        {{#if (this.PRODUCTID === productName) }}
+                                        {{#if (this.PRODUCTID === carInfo.productName) }}
                                             <option value="{{this.PRODUCTID}}" selected>{{this.NAME}}</option>
                                         {{else}}
                                             <option value="{{this.PRODUCTID}}">{{this.NAME}}</option>
@@ -287,7 +335,7 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group mar6 v_middle">
-                                    {{#if (isWrap === 1 || (!isWrap && isWrap !== 0)) }}
+                                    {{#if (carInfo.isWrap === '1' || (!carInfo.isWrap && carInfo.isWrap !== '0')) }}
                                     <input id="isWrap1" type="radio" class="isWrap" checked="checked" name="isWrap" value="1" />
                                     <label for="isWrap1">是</label>
                                     {{else}}
@@ -296,7 +344,7 @@
                                     {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
-                                    {{#if (isWrap === 2) }}
+                                    {{#if (carInfo.isWrap === '2') }}
                                     <input id="isWrap2" type="radio" class="isWrap" checked="checked" name="isWrap" value="2" />
                                     <label for="isWrap2">否</label>
                                     {{else}}
@@ -312,7 +360,8 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group mar6 v_middle" style="margin-right: 43px;">
-                                    {{#if (isInstallGPS === 1 || (!isInstallGPS && isInstallGPS !== 0)) }}
+                                    {{#if (carInfo.isInstallGPS === '1' || (!carInfo.isInstallGPS && carInfo.isInstallGPS !== '0')) }}
+                                    <input type="hidden" name="isInstallGPS" value="1">
                                     <input id="isInstallGPS1" type="radio" class="isInstallGPS" checked="checked" disabled name="isInstallGPS" value="1" />
                                     <label for="isInstallGPS1">是</label>
                                     {{else}}
@@ -321,7 +370,8 @@
                                     {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
-                                    {{#if (isInstallGPS === 2) }}
+                                    <input type="hidden" name="isInstallGPS" value="1">
+                                    {{#if (carInfo.isInstallGPS === '2') }}
                                     <input id="isInstallGPS2" type="radio" class="isInstallGPS" name="isInstallGPS" disabled value="2" />
                                     <label for="isInstallGPS2">否</label>
                                     {{else}}
@@ -336,7 +386,7 @@
                                 <span class="options_name">首付比例：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" id="firstPayScale" name="firstPayScale" value="{{firstPayScale}}" class="" placeholder="" readonly="readonly" />
+                                <input type="text" id="firstPayScale" name="firstPayScale" value="{{carInfo.firstPayScale}}" class="" placeholder="" readonly="readonly" />
                             </div>
                         </div>
                         <div class="option_item">
@@ -344,7 +394,7 @@
                                 <span class="options_name">首付金额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" id="firstPayAccount" data-tips="首付金额不能为空"  value="0" placeholder="请输入首付金额" />
+                                <input type="text" class="required" id="firstPayAccount" data-tips="首付金额不能为空"  value="{{carInfo.firstPayAccount}}" placeholder="请输入首付金额" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -353,7 +403,7 @@
                                 <span class="options_name">保证金：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="保证金不能为空" id="cautionMoney" name="cautionMoney" value="{{cautionMoney}}" placeholder="0"   />
+                                <input type="text" class="required" data-tips="保证金不能为空" id="cautionMoney" name="cautionMoney" value="{{carInfo.cautionMoney}}" placeholder="0"   />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -363,7 +413,7 @@
                                 <span class="options_name">服务费：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="服务费不能为空" id="serviceCharge" name="serviceCharge" value="{{serviceCharge}}" placeholder="0"   />
+                                <input type="text" class="required" data-tips="服务费不能为空" id="serviceCharge" name="serviceCharge" value="{{carInfo.serviceCharge}}" placeholder="0"   />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -385,7 +435,7 @@
                                 <select name="rentDue" id="rentDue">
                                     <option value="">请选择</option>
                                     {{#each (rentDue) }}
-                                        {{#if (this === rentDue) }}
+                                        {{#if (this === carInfo.rentDue) }}
                                         <option value="{{this}}" selected>{{this}}</option>
                                         {{else}}
                                         <option value="{{this}}">{{this}}</option>
@@ -408,7 +458,7 @@
                                 <span class="options_name">附加融资额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required attachFinance" data-tips="附加融资额不能为空" id="attachFinance" name="attachFinance" value="{{attachFinance}}" placeholder="0"   />
+                                <input type="text" class="required attachFinance" data-tips="附加融资额不能为空" id="attachFinance" name="attachFinance" value="{{carInfo.attachFinance}}" placeholder="0"   />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -418,7 +468,7 @@
                                 <span class="options_name">净融资金额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" id="netFinancingAmount" name="" value="{{netFinancingAmount}}" />
+                                <input type="hidden" id="netFinancingAmount" name="" value="{{carInfo.netFinancingAmount}}" />
                                 <span class="value_text"><span class="value">0</span><span>元</span></span>
                             </div>
                         </div>

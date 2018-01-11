@@ -41,6 +41,9 @@ exports.VIEW_DOCKING_PINGAN_CAR = function(req, res, next) {
         title : '客户-车辆信息',
         page : './customer/dockingPACarInfo',
         callback : function (data) {
+            if (data.carInfo) {
+                data.carInfo = JSON.parse(data.carInfo);
+            }
             formatCarInfoAmount(data);
             var queryType = req.body.query_type;
             var finance_id = req.body.finance_id;
@@ -165,14 +168,26 @@ var organizeData = function (d) {
  * @param d
  */
 function formatCarInfoAmount (d) {
-    (!d.buyTax && d.buyTax != 0) && (d.buyTax = 0);     // 购置税
-    (!d.pawnValue && d.pawnValue != 0) && (d.pawnValue = 0);    // 车辆实际价格
-    (!d.otherFee && d.otherFee != 0) && (d.otherFee = 0);       // 其他费用
-    (!d.assure && d.assure != 0) && (d.assure = 0);     // 保险
-    (!d.firstPayScale && d.firstPayScale != 0) && (d.firstPayScale = '20%');    // 首付比例
-    (!d.cautionMoney && d.cautionMoney != 0) && (d.cautionMoney = 0);       // 保证金
-    (!d.serviceCharge && d.serviceCharge != 0) && (d.serviceCharge = 0);        // 服务费
-    (!d.attachFinance && d.attachFinance != 0) && (d.attachFinance = 0);        // 附加融资额
+    if (d.carInfo) {
+        (!d.carInfo.buyTax && d.carInfo.buyTax != 0) && (d.carInfo.buyTax = 0);     // 购置税
+        (!d.carInfo.pawnValue && d.carInfo.pawnValue != 0) && (d.carInfo.pawnValue = 0);    // 车辆实际价格
+        (!d.carInfo.otherFee && d.carInfo.otherFee != 0) && (d.carInfo.otherFee = 0);       // 其他费用
+        (!d.carInfo.assure && d.carInfo.assure != 0) && (d.carInfo.assure = 0);     // 保险
+        (!d.carInfo.firstPayScale && d.carInfo.firstPayScale != 0) && (d.carInfo.firstPayScale = '20%');    // 首付比例
+        (!d.carInfo.cautionMoney && d.carInfo.cautionMoney != 0) && (d.carInfo.cautionMoney = 0);       // 保证金
+        (!d.carInfo.serviceCharge && d.carInfo.serviceCharge != 0) && (d.carInfo.serviceCharge = 0);        // 服务费
+        (!d.carInfo.attachFinance && d.carInfo.attachFinance != 0) && (d.carInfo.attachFinance = 0);        // 附加融资额
+    } else {
+        d.carInfo = {};
+        d.carInfo.buyTax = 0;
+        d.carInfo.pawnValue = 0;
+        d.carInfo.otherFee = 0;
+        d.carInfo.assure = 0;
+        d.carInfo.firstPayScale = '20%';
+        d.carInfo.cautionMoney = 0;
+        d.carInfo.serviceCharge = 0;
+        d.carInfo.attachFinance = 0;
+    }
 }
 
 

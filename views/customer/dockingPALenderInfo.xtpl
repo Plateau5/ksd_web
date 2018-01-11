@@ -32,6 +32,7 @@
                     <form action="" class="basic_info_edit" role="saveForm">
                         <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
                         <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
+                        <input type="hidden" name="id" value="{{renterInfo.id}}">
                         <!-- 基本信息 Begin -->
                         <div class="basic_info_lender">
                             <div class="options_title">基本信息</div>
