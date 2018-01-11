@@ -92,13 +92,24 @@
                                 </div>
                                 <div class="column_val">
                                     <input type="hidden" name="sex" value="1" class="gender">
+
                                     <div class="form_group mar6 v_middle">
+                                        {{#if (renterInfo.IDnum.substring(16,17) % 2 === 1) }}
                                         <input type="radio"  id="gender1" disabled class="gender male" name="sex" value="1" checked="checked" />
                                         <label for="gender1">男</label>
+                                        {{else}}
+                                        <input type="radio"  id="gender1" disabled class="gender male" name="sex" value="1" />
+                                        <label for="gender1">男</label>
+                                        {{/if}}
                                     </div>
                                     <div class="form_group v_middle">
+                                        {{#if (renterInfo.IDnum.substring(16,17) % 2 === 0) }}
+                                        <input type="radio"  id="gender2" disabled  class="gender female" name="sex" value="2"  checked="checked" />
+                                        <label for="gender2">女</label>
+                                        {{else}}
                                         <input type="radio"  id="gender2" disabled  class="gender female" name="sex" value="2" />
                                         <label for="gender2">女</label>
+                                        {{/if}}
                                     </div>
                                 </div>
                             </div>
@@ -118,10 +129,26 @@
                                 <div class="column_val">
                                     <select name="marriage" id="lenderMarriage">
                                         <option value="">请选择</option>
+                                        {{#if (renterInfo.marriage === '1') }}
+                                        <option value="1" selected>单身</option>
+                                        {{else}}
                                         <option value="1">单身</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.marriage === '2') }}
+                                        <option value="2" selected>已婚</option>
+                                        {{else}}
                                         <option value="2">已婚</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.marriage === '3') }}
+                                        <option value="3" selected>离异</option>
+                                        {{else}}
                                         <option value="3">离异</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.marriage === '4') }}
+                                        <option value="4" selected>丧偶</option>
+                                        {{else}}
                                         <option value="4">丧偶</option>
+                                        {{/if}}
                                     </select>
                                 </div>
                             </div>
@@ -132,13 +159,41 @@
                                 <div class="column_val">
                                     <select name="education" id="education">
                                         <option value="">请选择</option>
+                                        {{#if (renterInfo.education === '1') }}
+                                        <option value="1" selected>本科以上</option>
+                                        {{else}}
                                         <option value="1">本科以上</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.education === '2') }}
+                                        <option value="2" selected>本科</option>
+                                        {{else}}
                                         <option value="2">本科</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.education === '3') }}
+                                        <option value="3" selected>专科</option>
+                                        {{else}}
                                         <option value="3">专科</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.education === '4') }}
+                                        <option value="4" selected>高中</option>
+                                        {{else}}
                                         <option value="4">高中</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.education === '5') }}
+                                        <option value="5" selected>中专</option>
+                                        {{else}}
                                         <option value="5">中专</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.education === '6') }}
+                                        <option value="6" selected>技校</option>
+                                        {{else}}
                                         <option value="6">技校</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.education === '7') }}
+                                        <option value="7" selected>高中以下</option>
+                                        {{else}}
                                         <option value="7">高中以下</option>
+                                        {{/if}}
                                     </select>
                                 </div>
                             </div>
@@ -164,13 +219,41 @@
                                 <div class="column_val">
                                     <select name="estateType" id="estateType">
                                         <option value="">请选择</option>
+                                        {{#if (renterInfo.estateType === '1') }}
+                                        <option value="1" selected>自有无贷</option>
+                                        {{else}}
                                         <option value="1">自有无贷</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.estateType === '2') }}
+                                        <option value="2" selected>融资业务买房</option>
+                                        {{else}}
                                         <option value="2">融资业务买房</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.estateType === '3') }}
+                                        <option value="3" selected>借住直系亲属</option>
+                                        {{else}}
                                         <option value="3">借住直系亲属</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.estateType === '4') }}
+                                        <option value="4" selected>租房</option>
+                                        {{else}}
                                         <option value="4">租房</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.estateType === '5') }}
+                                        <option value="5" selected>单位房产</option>
+                                        {{else}}
                                         <option value="5">单位房产</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.estateType === '6') }}
+                                        <option value="6" selected>公房租赁</option>
+                                        {{else}}
                                         <option value="6">公房租赁</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.estateType === '7') }}
+                                        <option value="7" selected>自建房</option>
+                                        {{else}}
                                         <option value="7">自建房</option>
+                                        {{/if}}
                                     </select>
                                 </div>
                             </div>
@@ -234,12 +317,22 @@
                                 </div>
                                 <div class="column_val">
                                     <div class="form_group mar6 v_middle"  style="margin-right: 43px;">
+                                        {{#if (renterInfo.isFirstBuy === '1' || !renterInfo.isFirstBuy) }}
                                         <input id="isFirstBuy1" type="radio" class="isFirstBuy" name="isFirstBuy" value="1"  checked="checked" />
                                         <label for="isFirstBuy1" class="checked">是</label>
+                                        {{else}}
+                                        <input id="isFirstBuy1" type="radio" class="isFirstBuy" name="isFirstBuy" value="1" />
+                                        <label for="isFirstBuy1" class="checked">是</label>
+                                        {{/if}}
                                     </div>
                                     <div class="form_group v_middle">
+                                        {{#if (renterInfo.isFirstBuy === '2') }}
+                                        <input id="isFirstBuy2" type="radio" class="isFirstBuy" name="isFirstBuy" value="2" checked="checked"  />
+                                        <label for="isFirstBuy1">否</label>
+                                        {{else}}
                                         <input id="isFirstBuy2" type="radio" class="isFirstBuy" name="isFirstBuy" value="2" />
                                         <label for="isFirstBuy1">否</label>
+                                        {{/if}}
                                     </div>
                                 </div>
                             </div>
@@ -249,12 +342,22 @@
                                 </div>
                                 <div class="column_val">
                                     <div class="form_group mar6 v_middle">
+                                        {{#if (renterInfo.buyPurpose === '1' || !renterInfo.buyPurpose) }}
                                         <input id="buyPurpose1" type="radio" class="buyPurpose" name="buyPurpose" value="1" checked="checked"  />
                                         <label for="buyPurpose1" class="checked">自用</label>
+                                        {{else}}
+                                        <input id="buyPurpose1" type="radio" class="buyPurpose" name="buyPurpose" value="1"  />
+                                        <label for="buyPurpose1" class="">自用</label>
+                                        {{/if}}
                                     </div>
                                     <div class="form_group v_middle">
+                                        {{#if (renterInfo.buyPurpose === '2') }}
+                                        <input id="buyPurpose2" type="radio" class="buyPurpose" name="buyPurpose" value="2"  checked="checked"  />
+                                        <label for="buyPurpose2">经营</label>
+                                        {{else}}
                                         <input id="buyPurpose2" type="radio" class="buyPurpose" name="buyPurpose" value="2"  />
                                         <label for="buyPurpose2">经营</label>
+                                        {{/if}}
                                     </div>
                                 </div>
                             </div>
@@ -264,12 +367,22 @@
                                 </div>
                                 <div class="column_val">
                                     <div class="form_group mar6 v_middle"  style="margin-right: 43px;">
+                                        {{#if (renterInfo.hascarloan === '1'  || !renterInfo.hascarloan) }}
                                         <input id="hascarloan1" type="radio" class="hascarloan" name="hascarloan" value="1"  checked="checked" />
                                         <label for="hascarloan1" class="checked">是</label>
+                                        {{else}}
+                                        <input id="hascarloan1" type="radio" class="hascarloan" name="hascarloan" value="1"  />
+                                        <label for="hascarloan1" class="checked">是</label>
+                                        {{/if}}
                                     </div>
                                     <div class="form_group v_middle">
+                                        {{#if (renterInfo.hascarloan === '2') }}
+                                        <input id="hascarloan2" type="radio" class="hascarloan" name="hascarloan" value="2"   checked="checked" />
+                                        <label for="hascarloan2" class="checked">否</label>
+                                        {{else}}
                                         <input id="hascarloan2" type="radio" class="hascarloan" name="hascarloan" value="2" />
                                         <label for="hascarloan2">否</label>
+                                        {{/if}}
                                     </div>
                                 </div>
                             </div>
@@ -278,7 +391,7 @@
                                     <span class="options_name">现有车系：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="现有车系不能为空" id="oencarbrand" name="oencarbrand" value="" placeholder="请输入现有车系名称" />
+                                    <input type="text" class="required" data-tips="现有车系不能为空" id="oencarbrand" name="oencarbrand" value="{{renterInfo.oencarbrand}}" placeholder="请输入现有车系名称" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -289,15 +402,51 @@
                                 <div class="column_val">
                                     <select name="driveType" id="driveType">
                                         <option value="">请选择</option>
+                                        {{#if (renterInfo.driveType === 'A1') }}
+                                        <option value="A1" selected>A1:大型客车</option>
+                                        {{else}}
                                         <option value="A1">A1:大型客车</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.driveType === 'A2') }}
+                                        <option value="A2" selected>A2:牵引车</option>
+                                        {{else}}
                                         <option value="A2">A2:牵引车</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.driveType === 'A3') }}
+                                        <option value="A3" selected>A3:城市公共汽车</option>
+                                        {{else}}
                                         <option value="A3">A3:城市公共汽车</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.driveType === 'B1') }}
+                                        <option value="B1" selected>B1:中型客车</option>
+                                        {{else}}
                                         <option value="B1">B1:中型客车</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.driveType === 'B2') }}
+                                        <option value="B2" selected>B2:大型货车</option>
+                                        {{else}}
                                         <option value="B2">B2:大型货车</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.driveType === 'C1') }}
+                                        <option value="C1" selected>C1:小型汽车</option>
+                                        {{else}}
                                         <option value="C1">C1:小型汽车</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.driveType === 'C2') }}
+                                        <option value="C2" selected>C2:小型⾃动档汽车</option>
+                                        {{else}}
                                         <option value="C2">C2:小型⾃动档汽车</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.driveType === 'C3') }}
+                                        <option value="C3" selected>C3:低速载货汽车</option>
+                                        {{else}}
                                         <option value="C3">C3:低速载货汽车</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.driveType === 'C4') }}
+                                        <option value="C4" selected>C4:三轮汽车</option>
+                                        {{else}}
                                         <option value="C4">C4:三轮汽车</option>
+                                        {{/if}}
                                     </select>
                                 </div>
                             </div>
@@ -307,12 +456,22 @@
                                 </div>
                                 <div class="column_val">
                                     <div class="form_group mar6 v_middle"  style="margin-right: 43px;">
+                                        {{#if (renterInfo.work === '1' || !renterInfo.work) }}
                                         <input id="work1" type="radio" class="work" name="work" value="1"  checked="checked" />
                                         <label for="work1" class="checked">有</label>
+                                        {{else}}
+                                        <input id="work1" type="radio" class="work" name="work" value="1" />
+                                        <label for="work1" class="checked">有</label>
+                                        {{/if}}
                                     </div>
                                     <div class="form_group v_middle">
+                                        {{#if (renterInfo.work === '2') }}
+                                        <input id="work2" type="radio" class="work" name="work" value="2" checked="checked" />
+                                        <label for="work2">无</label>
+                                        {{else}}
                                         <input id="work2" type="radio" class="work" name="work" value="2" />
                                         <label for="work2">无</label>
+                                        {{/if}}
                                     </div>
                                 </div>
                             </div>
@@ -331,12 +490,22 @@
                                 </div>
                                 <div class="column_val">
                                     <div class="form_group mar6 v_middle" style="margin-right: 43px;">
+                                        {{#if (renterInfo.isSponsor === '1' || !renterInfo.isSponsor) }}
                                         <input id="isSponsor1" type="radio" class="isSponsor" name="isSponsor" value="1"  checked="checked" />
                                         <label for="isSponsor1" class="checked">有</label>
+                                        {{else}}
+                                        <input id="isSponsor1" type="radio" class="isSponsor" name="isSponsor" value="1"  />
+                                        <label for="isSponsor1" class="checked">有</label>
+                                        {{/if}}
                                     </div>
                                     <div class="form_group v_middle">
+                                        {{#if (renterInfo.isSponsor === '2') }}
+                                        <input id="isSponsor2" type="radio" class="isSponsor" name="isSponsor" value="2" checked="checked" />
+                                        <label for="isSponsor2">无</label>
+                                        {{else}}
                                         <input id="isSponsor2" type="radio" class="isSponsor" name="isSponsor" value="2" />
                                         <label for="isSponsor2">无</label>
+                                        {{/if}}
                                     </div>
                                 </div>
                             </div>
@@ -369,14 +538,46 @@
                                 <div class="column_val">
                                     <select name="empType" id="empType">
                                         <option value="">请选择</option>
+                                        {{#if (renterInfo.empType === '1') }}
+                                        <option value="1" selected>有限责任公司</option>
+                                        {{else}}
                                         <option value="1">有限责任公司</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.empType === '2') }}
+                                        <option value="2" selected>股份有限公司</option>
+                                        {{else}}
                                         <option value="2">股份有限公司</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.empType === '3') }}
+                                        <option value="3" selected>国有企业</option>
+                                        {{else}}
                                         <option value="3">国有企业</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.empType === '4') }}
+                                        <option value="4" selected>个人独资企业</option>
+                                        {{else}}
                                         <option value="4">个人独资企业</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.empType === '5') }}
+                                        <option value="5" selected>个体工商户</option>
+                                        {{else}}
                                         <option value="5">个体工商户</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.empType === '6') }}
+                                        <option value="6" selected>外商投资企业</option>
+                                        {{else}}
                                         <option value="6">外商投资企业</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.empType === '7') }}
+                                        <option value="7" selected>私营企业</option>
+                                        {{else}}
                                         <option value="7">私营企业</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.empType === '8') }}
+                                        <option value="8" selected>其他</option>
+                                        {{else}}
                                         <option value="8">其他</option>
+                                        {{/if}}
                                     </select>
                                 </div>
                             </div>
@@ -420,6 +621,9 @@
                                 <div class="column_val">
                                     <select name="empOccupation" id="empOccupation">
                                         <option value="">请选择</option>
+                                        {{#if (renterInfo.empOccupation) }}
+                                        <option value="{{renterInfo.empOccupation}}">{{renterInfo.empOccupation}}</option>
+                                        {{/if}}
                                     </select>
                                 </div>
                             </div>
@@ -436,7 +640,11 @@
                         </div>
                         <!--工作单位信息  end-->
                         <!--配偶信息 Start-->
-                        <div class="spouse_info">
+                        {{#if (renterInfo.marriage === '2' || !renterInfo.marriage) }}
+                        <div class="spouse_info" style="display: block;">
+                        {{else}}
+                        <div class="spouse_info" style="display: none;">
+                        {{/if}}
                             <div class="options_title clearfix">配偶信息</div>
                             <div class="option_item">
                                 <div class="column_name">
@@ -472,18 +680,66 @@
                                     <input type="hidden" name="spouseIDtype" value="1">
                                     <select name="" id="spouseIDtype" disabled>
                                         <option value="">请选择</option>
-                                        <option value="1" selected="selected">居民身份证</option>
+                                        {{#if (renterInfo.spouseIDtype === '1') }}
+                                        <option value="1" selected>居民身份证</option>
+                                        {{else}}
+                                        <option value="1">居民身份证</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.spouseIDtype === '2') }}
+                                        <option value="2" selected>临时身份证</option>
+                                        {{else}}
                                         <option value="2">临时身份证</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.spouseIDtype === '3') }}
+                                        <option value="3" selected>护照</option>
+                                        {{else}}
                                         <option value="3">护照</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.spouseIDtype === '4') }}
+                                        <option value="4" selected>户口簿</option>
+                                        {{else}}
                                         <option value="4">户口簿</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.spouseIDtype === '5') }}
+                                        <option value="5" selected>军人身份证</option>
+                                        {{else}}
                                         <option value="5">军人身份证</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.spouseIDtype === '6') }}
+                                        <option value="6" selected>武装警察身份证</option>
+                                        {{else}}
                                         <option value="6">武装警察身份证</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.spouseIDtype === '7') }}
+                                        <option value="7" selected>港澳居民身份证</option>
+                                        {{else}}
                                         <option value="7">港澳居民身份证</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.spouseIDtype === '8') }}
+                                        <option value="8" selected>台湾同胞往来内地通行证</option>
+                                        {{else}}
                                         <option value="8">台湾同胞往来内地通行证</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.spouseIDtype === '9') }}
+                                        <option value="9" selected>外交人员身份证</option>
+                                        {{else}}
                                         <option value="9">外交人员身份证</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.spouseIDtype === '10') }}
+                                        <option value="10" selected>外国人居留许可证</option>
+                                        {{else}}
                                         <option value="10">外国人居留许可证</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.spouseIDtype === '11') }}
+                                        <option value="11" selected>边民出入境通行证</option>
+                                        {{else}}
                                         <option value="11">边民出入境通行证</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.spouseIDtype === '12') }}
+                                        <option value="12" selected>其他</option>
+                                        {{else}}
                                         <option value="12">其他</option>
+                                        {{/if}}
                                     </select>
                                 </div>
                             </div>
@@ -503,7 +759,11 @@
                         </div>
                         <!--配偶信息 End-->
                         <!--直系亲属信息 start-->
-                        <div class="parent_info">
+                        {{#if (renterInfo.marriage !== '2' && !renterInfo.marriage) }}
+                        <div class="parent_info" style="display: block;">
+                        {{else}}
+                        <div class="parent_info" style="display: none;">
+                        {{/if}}
                             <div class="options_title clearfix">直系亲属信息</div>
                             <div class="option_item">
                                 <div class="column_name">
@@ -535,10 +795,26 @@
                                 <div class="column_val">
                                     <select name="emgconRelation" id="">
                                         <option value="">请选择</option>
+                                        {{#if (renterInfo.emgconRelation === '1') }}
+                                        <option value="1" selected>亲属</option>
+                                        {{else}}
                                         <option value="1">亲属</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.emgconRelation === '2') }}
+                                        <option value="2" selected>朋友</option>
+                                        {{else}}
                                         <option value="2">朋友</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.emgconRelation === '3') }}
+                                        <option value="3" selected>同事</option>
+                                        {{else}}
                                         <option value="3">同事</option>
+                                        {{/if}}
+                                        {{#if (renterInfo.emgconRelation === '4') }}
+                                        <option value="4" selected>其他</option>
+                                        {{else}}
                                         <option value="4">其他</option>
+                                        {{/if}}
                                     </select>
                                 </div>
                             </div>
