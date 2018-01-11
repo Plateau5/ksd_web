@@ -91,7 +91,7 @@
                                 {{#if (isPre === 1) }}
                                 <input type="text" class="required" readonly data-tips="证件号码不能为空" name="IDnum" value="{{sponsorInfo.IDnum}}" placeholder="请输入证件号码" />
                                 {{else}}
-                                <input type="text" class="required" data-tips="证件号码不能为空" name="IDnum" value="{{sponsorInfo.IDnum}}" placeholder="请输入证件号码" />
+                                <input type="text" class="required ID_num" data-tips="证件号码不能为空" name="IDnum" value="{{sponsorInfo.IDnum}}" placeholder="请输入证件号码" />
                                 {{/if}}
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>

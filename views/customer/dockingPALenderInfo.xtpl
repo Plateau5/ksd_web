@@ -393,7 +393,7 @@
                                     <span class="options_name">单位电话：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required phone" maxlength="11" data-tips="单位电话不能为空" name="empPhone" value="{{renterInfo.empPhone}}" placeholder="请输入单位电话" />
+                                    <input type="text" class="required" maxlength="20" data-tips="单位电话不能为空" name="empPhone" value="{{renterInfo.empPhone}}" placeholder="请输入单位电话" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>

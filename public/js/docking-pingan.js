@@ -216,7 +216,7 @@ function createBrandOption (data, type) {
         } else if (type == 2) {
             eleStr += '<option value="'+ data[i].serialId +'">'+ data[i].serialName +'</option>';
         } else if (type == 3) {
-            eleStr += '<option value="'+ data[i].modelId +'" data-price="'+ (data[i].price * 10000) +'">'+ data[i].modelName +'</option>';
+            eleStr += '<option value="'+ data[i].modelId +'" data-price="'+ Math.round(data[i].price * 10000) +'">'+ data[i].modelName +'</option>';
         }
 
     }
