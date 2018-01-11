@@ -188,7 +188,7 @@
                                     <span class="options_name">每月家庭收入：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="每月家庭收入不能为空" name="familyInCome" value="{{renterInfo.familyInCome}}" placeholder="0" />
+                                    <input type="text" class="required" id="familyInCome" data-tips="每月家庭收入不能为空" name="familyInCome" value="{{renterInfo.familyInCome}}"  placeholder="请输入每月家庭收入" />
                                     <span class="unit">元</span>
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
@@ -213,7 +213,7 @@
                                     <span class="options_name">月平均支出：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="月平均支出不能为空" name="familyExpend" value="{{renterInfo.familyExpend}}" placeholder="0" />
+                                    <input type="text" class="required" id="familyExpend" data-tips="月平均支出不能为空" name="familyExpend" value="{{renterInfo.familyExpend}}" placeholder="请输入月平均支出" />
                                     <span class="unit">元</span>
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
@@ -320,7 +320,7 @@
                                     <span class="options_name">银行卡号：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="银行卡号不能为空" name="bankCard" value="{{renterInfo.bankCard}}" placeholder="请输入银行卡号" />
+                                    <input type="text" class="required" maxlength="30" data-tips="银行卡号不能为空" name="bankCard" value="{{renterInfo.bankCard}}" placeholder="请输入银行卡号" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -384,7 +384,7 @@
                                     <span class="options_name">本单位工作年限：</span>
                                 </div>
                                 <div class="column_val">
-                                        <input type="text" class="required" maxlength="2" data-tips="本单位工作年限不能为空" name="workYear" value="{{renterInfo.workYear}}" placeholder="请输入本单位工作年限" />
+                                        <input type="text" class="required" maxlength="2" data-tips="本单位工作年限不能为空" name="workYear" value="{{renterInfo.workYear}}" placeholder="请输入本单位工作年限" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
                                         <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -393,7 +393,7 @@
                                     <span class="options_name">单位电话：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" maxlength="20" data-tips="单位电话不能为空" name="empPhone" value="{{renterInfo.empPhone}}" placeholder="请输入单位电话" />
+                                    <input type="text" class="required" maxlength="20" data-tips="单位电话不能为空" name="empPhone" value="{{renterInfo.empPhone}}" placeholder="请输入单位电话" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -649,6 +649,7 @@
         }
 
         $(function() {
+            intOrFloat($('#familyInCome, #familyExpend'), 9999999.99);
             initDateAll('.birthday');      // 加载日期插件
             isHaveWork();       // 工作模块的显示隐藏
             bindSubmitEvent();      // 提交
