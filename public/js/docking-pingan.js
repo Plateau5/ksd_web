@@ -337,8 +337,8 @@ function verifyEmpty () {
  */
 function uploadImage () {
     fileUpload({
-        maxCount : 10,
-        filesSize : 5,
+        maxCount : 1,
+        filesSize : 10,
         fileFormat : ['png', 'jpg', 'jpeg'],
         needThumbnails : false,
         callback : function (btn) {
@@ -373,11 +373,11 @@ function uploadImage () {
                 //elem.loading.hide();
                 if (res.error_code == 0) {
                     $alert('图片上传成功');
-                    var imgEle = '<a href="javascript:;" class="img_item head_photo" data-type="imgBox">' +
+                    var imgEle = '<a href="javascript:;" class="img_item" data-type="imgBox" data-id="'+ res.file_id +'">' +
                         '             <img data-original="'+ res.url +'" src="'+ res.thumbnail_url +'"/>\n' +
                         '             <div class="img_md_operate_box">\n' +
                         '             <em class="img_md_operate_btn view" data-url="'+ res.url +'" style="margin-right: 0" title="查看"></em>\n'+
-                        '             <em class="img_md_operate_btn delete" data-id="'+ res.file_id +'" title="删除"></em>' +
+                        ((type != '2') ?('<em class="img_md_operate_btn delete" data-id="'+ res.file_id +'" title="删除"></em>') : '') +
                         '             </div>\n' +
                         '             </a>';
                     if (type == '2') {
@@ -399,7 +399,10 @@ function uploadImage () {
                         var newImgEle = parents.find('img').eq(count - 1)[0];
                         parents[0].viewer.images.push(newImgEle);*/
                         // 销毁父元素
-                        parents[0].viewer.destroy();
+                        var img = parents.find('.img_item');
+                        if (img.length > 1) {
+                            parents[0].viewer.destroy();
+                        }
                         viewLargeImage(parents[0]);
                         /*var viewer = new Viewer(parents[0], {
                             url: 'data-original',
@@ -699,11 +702,12 @@ function fileSaveAndGoNext (btn, nextPath, url) {
         imgs.each(function () {
             var o = {};     // 当前图片数据对象
             var _this = $(this);
+            var parentBox = _this.parent('.img_md_box');        // 父级容器
             o.file_id = $.trim(_this.data('id'));  // 图片主键
-            o.file_type = $.trim(_this.data('file_type'));  // 图片类型主键
-            o.file_name = $.trim(_this.data('file_name'));  // 图片类型名称
-            o.material_type = $.trim(_this.data('material_type'));  // 图片系列主键
-            o.material_name = $.trim(_this.data('material_name'));  // 图片系列名称
+            o.file_type = $.trim(parentBox.data('file_type'));  // 图片类型主键
+            o.file_name = $.trim(parentBox.data('file_name'));  // 图片类型名称
+            o.material_type = $.trim(parentBox.data('material_type'));  // 图片系列主键
+            o.material_name = $.trim(parentBox.data('material_name'));  // 图片系列名称
             data.push(o);
         });
         return data;

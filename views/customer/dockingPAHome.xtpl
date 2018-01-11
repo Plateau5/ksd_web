@@ -119,7 +119,7 @@
             btn.off('click').on('click', function () {
                 var _this = $(this);
                 var index = _this.index();  // 当前模块的下标
-                /*if (index == 0) {   // 如果是第一个节点则直接跳转进入该模块编辑模式
+                if (index == 0) {   // 如果是第一个节点则直接跳转进入该模块编辑模式
                     var pageUrl = $.trim(_this.data('route'));
                     return locationTo({
                         action : pageUrl,
@@ -163,11 +163,11 @@
                             break;
                         }
                     }
-                    /!*var preSibilings = _this.prevAll('.info_item');
+                    /*var preSibilings = _this.prevAll('.info_item');
                     preSibilings.each(function () {
                         var t = $(this);
 
-                    });*!/
+                    });*/
                     if (isPrevAlreardy) {   // 如果兄弟元素都已完成编辑，则该模块直接进入编辑模式
                         var pageUrl = $.trim(_this.data('route'));
                         locationTo({
@@ -192,17 +192,7 @@
                             loanID : loanID
                         }
                     });
-                }*/
-                var pageUrl = $.trim(_this.data('route'));
-                locationTo({
-                    action : pageUrl,
-                    param : {
-                        query_type : 0,
-                        finance_id : financeId,
-                        preCode : preCode,
-                        loanID : loanID
-                    }
-                });
+                }
             });
 
         }

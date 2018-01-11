@@ -47,7 +47,7 @@
                                         </span>
                                     </div>
                                     <div class="column_val">
-                                        <div class="img_md_box file_upload">
+                                        <div class="img_md_box file_upload" data-material_type="{{../type}}" data-material_name="{{../name}}" data-file_type="{{this.file_type}}" data-file_name="{{this.file_name}}">
                                             {{#each (data_file) }}
                                                 {{#if (this.material_type === ../../type && this.file_type === ../file_type) }}
                                                 <a href="javascript:;" class="img_item" data-id="{{file_id}}" data-file_type="{{file_type}}" data-file_name="{{file_name}}" data-material_type="{{material_type}}" data-material_name="{{material_name}}">
