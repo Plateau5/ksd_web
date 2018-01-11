@@ -66,10 +66,30 @@ function validateBlurEmpty () {
         var t = $(this);
         var v = $.trim(t.val());
         if (v != '') {
-            t.siblings('.tips_info').hide();
+            t.css({
+                'border-color' : '#e4e4e4'
+            }).siblings('.tips_info').hide();
         }
     });
 }
+
+/**
+ * 下拉选择框值发生变化监听
+ * @author Arley Joe 2018年1月11日13:25:28
+ */
+function selectListener () {
+    $('.docking_container').on('input', 'select', function () {
+        var t = $(this);
+        var v = $.trim(t.find('option:selected').val());
+        if (v != '') {
+            t.css({
+                'border-color' : '#e4e4e4'
+            });
+        }
+    });
+}
+
+
 
 /**
  * 输入框只允许输入数字或者两位小数方法
@@ -90,7 +110,7 @@ function intOrFloat (ele, max) {
             if (!isNaN(val) && val != 0) {
                 val = (/\d+(\.\d{1,2})?/g.exec(val))[0];
                 _this.val(val);
-                _this.siblings('.tips_info').hide().find('.tips_text').text("");
+                _this.siblings('.tips_info').hide();
             } else {
                 _this.val(0);
                 _this.siblings('.tips_info').show().find('.tips_text').text("只允许输入数字,最多两位小数");
@@ -100,7 +120,7 @@ function intOrFloat (ele, max) {
         if (val > max) {
             _this.siblings('.tips_info').show().find('.tips_text').text("最大可输入数值为"+ max +".");
         } else {
-            _this.siblings('.tips_info').hide().find('.tips_text').text("");
+            _this.siblings('.tips_info').hide();
         }
     });
 }
@@ -601,11 +621,15 @@ function createRepaymentPlanTable () {
     var product = $('#productName');    // 产品元素
     var finance = $('#finance');    // 融资金额
     var rentDueE = $('#rentDue');    // 租赁期限
+    var eachRentE = $('#eachRent');     // 每期租金
 
     /*var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限*/
     var rentDue = 12;
 
     var data = calcRepaymentPlan();
+    // 设置每期租金
+    eachRentE.val(data.eachRent).siblings('.value_text').find('.value').text(data.eachRent);
+
     var ele = '';
     for (var i = 1; i <= rentDue; i++) {
         // todo 修改租金账单日期
@@ -754,7 +778,7 @@ function getAddressData () {
             if (res.error_code == 0) {
                 data = res;
             } else {
-                throw new Error(res.error_msg);
+                // throw new Error(res.error_msg);
             }
         },
         error : function (e) {
@@ -853,4 +877,5 @@ function goDockingHome (selector) {
 $(function () {
     goOrderDetail();        // 跳转订单详情页
     goDockingHome('.go_docking_home');        // 跳转对接首页
+    selectListener();
 });

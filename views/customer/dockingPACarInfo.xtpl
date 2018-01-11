@@ -408,7 +408,7 @@
                                 <span class="options_name">附加融资额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="附加融资额不能为空" id="attachFinance" name="attachFinance" value="{{attachFinance}}" placeholder="0"   />
+                                <input type="text" class="required attachFinance" data-tips="附加融资额不能为空" id="attachFinance" name="attachFinance" value="{{attachFinance}}" placeholder="0"   />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -435,7 +435,7 @@
                                 <span class="options_name">每期租金：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" name="" value="" />
+                                <input type="hidden" name="" value="" id="eachRent" />
                                 <span class="value_text"><span class="value">0</span><span>元</span></span>
                             </div>
                         </div>
@@ -562,6 +562,7 @@
             var oldValue = '';
             var firstPayAccountE = $('#firstPayAccount');
             var firstPayScaleE = $('#firstPayScale');
+            var attachFInanceE = $('#attachFinance');       // 附加融资额
             elem.on('focus', function () {
                 var _this = $(this);
                 oldValue = $.trim(_this.val());
@@ -572,9 +573,21 @@
             });
             elem.on('input', function () {
                 var _this = $(this);
-                var newValue = $.trim(_this.val());
+                var newValue = Number($.trim(_this.val()));
                 if (newValue != oldValue) {
-                    calcFinanceAccount(true);
+                    if (_this.hasClass('attachFinance')) {
+                        var netFinancingAmount = $('#netFinancingAmount').val().number();  // 净融资金额
+                        var countAmount = newValue + netFinancingAmount;
+                        var pawnValue = Number($('#pawnValue').val());      //  车辆实际价格
+                        if (countAmount > pawnValue) {
+                            _this.siblings('.tips_info').show().find('.tips_text').text('净融资金额+附加融资额不能大于车辆实际价格。');
+                            return false;
+                        } else {
+                            calcFinanceAccount(true);
+                        }
+                    } else {
+                        calcFinanceAccount(true);
+                    }
                     // 修改首付金额
                     if (_this.hasClass('pawnValue')) {
                         var firstPayScale = Number(firstPayScaleE.val().replace(/%/ig, '')) * 100;     // 首付比例
@@ -603,6 +616,10 @@
                         _this.val('');
                         return false;
                     } else {
+                        if (newValue > oldValue) {
+                            _this.siblings('.tips_info').show().find('.tips_text').text('首付金额不能大于车辆实际价格。');
+                            return false;
+                        }
                         var firstPayScale = (newValue * 100 / pawnValue).toFixed(2);
                         if (firstPayScale < 20) {
                             _this.siblings('.tips_info').show().find('.tips_text').text('首付比例不能低于20%。');

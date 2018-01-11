@@ -227,6 +227,21 @@
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
+                            <div class="option_item is_first_buy_item">
+                                <div class="column_name">
+                                    <span class="options_name">是否为首次购车：</span>
+                                </div>
+                                <div class="column_val">
+                                    <div class="form_group mar6 v_middle"  style="margin-right: 43px;">
+                                        <input id="isFirstBuy1" type="radio" class="isFirstBuy" name="isFirstBuy" value="1"  checked="checked" />
+                                        <label for="isFirstBuy1" class="checked">是</label>
+                                    </div>
+                                    <div class="form_group v_middle">
+                                        <input id="isFirstBuy2" type="radio" class="isFirstBuy" name="isFirstBuy" value="2" />
+                                        <label for="isFirstBuy1">否</label>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="option_item">
                                 <div class="column_name">
                                     <span class="options_name">购车目的：</span>
@@ -240,6 +255,30 @@
                                         <input id="buyPurpose2" type="radio" class="buyPurpose" name="buyPurpose" value="2"  />
                                         <label for="buyPurpose2">经营</label>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="option_item hascarloan_item">
+                                <div class="column_name">
+                                    <span class="options_name">是否有车贷：</span>
+                                </div>
+                                <div class="column_val">
+                                    <div class="form_group mar6 v_middle"  style="margin-right: 43px;">
+                                        <input id="hascarloan1" type="radio" class="hascarloan" name="hascarloan" value="1"  checked="checked" />
+                                        <label for="hascarloan1" class="checked">是</label>
+                                    </div>
+                                    <div class="form_group v_middle">
+                                        <input id="hascarloan2" type="radio" class="hascarloan" name="hascarloan" value="2" />
+                                        <label for="hascarloan2">否</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="option_item oencarbrand_item">
+                                <div class="column_name">
+                                    <span class="options_name">现有车系：</span>
+                                </div>
+                                <div class="column_val">
+                                    <input type="text" class="required" data-tips="现有车系不能为空" id="oencarbrand" name="oencarbrand" value="" placeholder="请输入现有车系名称" />
+                                    <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
                             <div class="option_item">
@@ -571,6 +610,44 @@
             });
         }
 
+        // 根据是否有车贷展示现有车系
+        function isHasCarLoan () {
+            var firstBuy = $('input[name="isFirstBuy"]');      // 是否为首次购车单选按钮
+            var firstBuyC = $('.is_first_buy_item');     // 是否首次购车父级元素
+            var hascarloan = $('input[name="hascarloan"]');     // 是否有车贷单选按钮
+            var hascarloanC = $('.hascarloan_item');        // 是否有车贷父级元素
+            var oencarbrand = $('#oencarbrand');        // 现有车系输入框
+            var oencarbrandC = $('.oencarbrand_item');       // 现有车系父级框
+            hascarloan.on('click', function () {
+                var _this = $(this);
+                var val = _this.val().trim();
+                if (val == 1) {
+                    oencarbrand.removeClass('required').addClass('required');
+                    oencarbrandC.show();
+                } else {
+                    oencarbrand.removeClass('required');
+                    oencarbrandC.hide();
+                }
+            });
+
+            firstBuy.on('click', function () {
+                var _this = $(this);
+                var val = _this.val().trim();
+                if (val == 1) {
+                    hascarloanC.hide();
+                    hascarloan.attr('disabled', 'disabled');
+                    oencarbrand.removeClass('required');
+                    oencarbrandC.hide();
+                } else {
+                    hascarloanC.show();
+                    hascarloan.removeAttr('disabled');
+                    oencarbrand.removeClass('required').addClass('required');
+                    oencarbrandC.show();
+                }
+            });
+
+        }
+
         $(function() {
             initDateAll('.birthday');      // 加载日期插件
             isHaveWork();       // 工作模块的显示隐藏
@@ -584,6 +661,7 @@
             verifyPhone('.phone');      // 手机号码校验
             validateBlurEmpty();    // 输入框非空校验
             verifyLicense('.ID_num');       // 证件号码校验
+            isHasCarLoan();     // 是否有车贷更改
         });
     })(jQuery,undefined);
 </script>
