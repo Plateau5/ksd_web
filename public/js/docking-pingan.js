@@ -31,11 +31,11 @@ var $toast = function(str, callback, type){
  * @author Arley Joe 2018-1-3 14:18:44
  */
 function goOrderDetail () {
-    var url = $('.go_order_detail').data('detailurl');
+    // var url = $('.go_order_detail').data('detailurl');
     var financeId = $.trim($('#financeId').val());
     $('.go_order_detail').on('click', function () {
         locationTo({
-            action : url,
+            action : markUri + '/customer/loan/detail',
             param : {
                 finance_id : financeId
             }
