@@ -759,7 +759,7 @@
                         </div>
                         <!--配偶信息 End-->
                         <!--直系亲属信息 start-->
-                        {{#if (renterInfo.marriage !== '2' && !renterInfo.marriage) }}
+                        {{#if (renterInfo.marriage !== '2' || !renterInfo.marriage) }}
                         <div class="parent_info" style="display: block;">
                         {{else}}
                         <div class="parent_info" style="display: none;">

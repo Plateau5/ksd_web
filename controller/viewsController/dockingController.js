@@ -78,6 +78,9 @@ exports.VIEW_DOCKING_PINGAN_GUARGANTOR = function(req, res, next) {
         title : '客户-担保人信息',
         page : './customer/dockingPAGuarantorInfo',
         callback : function (data) {
+            if (data.sponsorInfo) {
+                data.sponsorInfo = JSON.parse(data.sponsorInfo);
+            }
             var finance_id = req.body.finance_id;
             var url = req.body.url;
             var queryType = req.body.query_type;

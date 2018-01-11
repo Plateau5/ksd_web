@@ -104,12 +104,22 @@
                             <div class="column_val">
                                 <input type="hidden" name="sex" value="1" class="gender_h">
                                 <div class="form_group mar6 v_middle">
-                                    <input id="gender1" type="radio" disabled class="gender" name="sex" value="1" checked="checked" />
+                                    {{#if (sponsorInfo.IDnum && sponsorInfo.IDnum.substring(16,17) % 2 === 1) }}
+                                    <input type="radio"  id="gender1" disabled class="gender male" name="sex" value="1" checked="checked" />
                                     <label for="gender1">男</label>
+                                    {{else}}
+                                    <input type="radio"  id="gender1" disabled class="gender male" name="sex" value="1"  checked="checked"  />
+                                    <label for="gender1">男</label>
+                                    {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
-                                    <input id="gender2" type="radio" disabled class="gender" name="sex" value="2" />
+                                    {{#if (sponsorInfo.IDnum && sponsorInfo.IDnum.substring(16,17) % 2 === 0) }}
+                                    <input type="radio"  id="gender2" disabled  class="gender female" name="sex" value="2"  checked="checked" />
                                     <label for="gender2">女</label>
+                                    {{else}}
+                                    <input type="radio"  id="gender2" disabled  class="gender female" name="sex" value="2" />
+                                    <label for="gender2">女</label>
+                                    {{/if}}
                                 </div>
                             </div>
                         </div>
@@ -129,10 +139,26 @@
                             <div class="column_val">
                                 <select name="relax" id="relax">
                                     <option value="">请选择</option>
+                                    {{#if (sponsorInfo.relax === '1') }}
+                                    <option value="1" selected>亲属</option>
+                                    {{else}}
                                     <option value="1">亲属</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.relax === '2') }}
+                                    <option value="2" selected>朋友</option>
+                                    {{else}}
                                     <option value="2">朋友</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.relax === '3') }}
+                                    <option value="3" selected>同事</option>
+                                    {{else}}
                                     <option value="3">同事</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.relax === '4') }}
+                                    <option value="4" selected>其他</option>
+                                    {{else}}
                                     <option value="4">其他</option>
+                                    {{/if}}
                                 </select>
                             </div>
                         </div>
@@ -141,15 +167,43 @@
                                 <span class="options_name">教育：</span>
                             </div>
                             <div class="column_val">
-                                <select name="education" id="education">
+                                <select name="education" id="sponsorInfo.education">
                                     <option value="">请选择</option>
+                                    {{#if (sponsorInfo.education === '1') }}
+                                    <option value="1" selected>本科以上</option>
+                                    {{else}}
                                     <option value="1">本科以上</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.education === '2') }}
+                                    <option value="2" selected>本科</option>
+                                    {{else}}
                                     <option value="2">本科</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.education === '3') }}
+                                    <option value="3" selected>专科</option>
+                                    {{else}}
                                     <option value="3">专科</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.education === '4') }}
+                                    <option value="4" selected>高中</option>
+                                    {{else}}
                                     <option value="4">高中</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.education === '5') }}
+                                    <option value="5" selected>中专</option>
+                                    {{else}}
                                     <option value="5">中专</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.education === '6') }}
+                                    <option value="6" selected>技校</option>
+                                    {{else}}
                                     <option value="6">技校</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.education === '7') }}
+                                    <option value="7" selected>高中以下</option>
+                                    {{else}}
                                     <option value="7">高中以下</option>
+                                    {{/if}}
                                 </select>
                             </div>
                         </div>
@@ -158,6 +212,8 @@
                                 <span class="options_name">身份证地址：</span>
                             </div>
                             <div class="column_val">
+                                <input type="hidden" value="{{sponsorInfo.homeProvince}}" id="homeProvinceKey">
+                                <input type="hidden" value="{{sponsorInfo.homeCity}}" id="homeCityKey">
                                 <select name="homeProvince" id="homeProvince" class="province" data-type="home" style="width: 108px;margin-right: 10px;">
                                     <option value="">请选择</option>
                                 </select>
@@ -173,13 +229,41 @@
                             <div class="column_val">
                                 <select name="estateType" id="">
                                     <option value="">请选择</option>
+                                    {{#if (sponsorInfo.estateType === '1') }}
+                                    <option value="1" selected>自有无贷</option>
+                                    {{else}}
                                     <option value="1">自有无贷</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.estateType === '2') }}
+                                    <option value="2" selected>融资业务买房</option>
+                                    {{else}}
                                     <option value="2">融资业务买房</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.estateType === '3') }}
+                                    <option value="3" selected>借住直系亲属</option>
+                                    {{else}}
                                     <option value="3">借住直系亲属</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.estateType === '4') }}
+                                    <option value="4" selected>租房</option>
+                                    {{else}}
                                     <option value="4">租房</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.estateType === '5') }}
+                                    <option value="5" selected>单位房产</option>
+                                    {{else}}
                                     <option value="5">单位房产</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.estateType === '6') }}
+                                    <option value="6" selected>公房租赁</option>
+                                    {{else}}
                                     <option value="6">公房租赁</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.estateType === '7') }}
+                                    <option value="7" selected>自建房</option>
+                                    {{else}}
                                     <option value="7">自建房</option>
+                                    {{/if}}
                                 </select>
                             </div>
                         </div>
@@ -189,7 +273,7 @@
                                 <span class="options_name"></span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="详细地址不能为空" name="homeAddress" value="" placeholder="请输入详细地址" />
+                                <input type="text" class="required" data-tips="详细地址不能为空" name="homeAddress" value="{{sponsorInfo.homeAddress}}" placeholder="请输入详细地址" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -198,7 +282,7 @@
                                 <span class="options_name">邮政编码：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" maxlength="6" data-tips="邮政编码不能为空" name="homezip" value="" placeholder="请输入邮政编码" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+                                <input type="text" class="required" maxlength="6" data-tips="邮政编码不能为空" name="homezip" value="{{sponsorInfo.homezip}}" placeholder="请输入邮政编码" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -208,12 +292,22 @@
                             </div>
                             <div class="column_val">
                                 <div class="form_group mar6 v_middle"  style="margin-right: 43px;">
+                                    {{#if (sponsorInfo.work === '1' || !sponsorInfo.work) }}
                                     <input id="work1" type="radio" class="work" name="work" value="1"  checked="checked" />
                                     <label for="work1" class="checked">有</label>
+                                    {{else}}
+                                    <input id="work1" type="radio" class="work" name="work" value="1" />
+                                    <label for="work1" class="checked">有</label>
+                                    {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
+                                    {{#if (sponsorInfo.work === '2') }}
+                                    <input id="work2" type="radio" class="work" name="work" value="2" checked="checked" />
+                                    <label for="work2">无</label>
+                                    {{else}}
                                     <input id="work2" type="radio" class="work" name="work" value="2" />
                                     <label for="work2">无</label>
+                                    {{/if}}
                                 </div>
                             </div>
                         </div>
@@ -222,6 +316,8 @@
                                 <span class="options_name">现居住地地址：</span>
                             </div>
                             <div class="column_val">
+                                <input type="hidden" value="{{sponsorInfo.estateProvince}}" class="provinceKey">
+                                <input type="hidden" value="{{sponsorInfo.estateCity}}" class="cityKey">
                                 <select name="estateProvince" id="estateProvince" class="province" data-type="estate" style="width: 108px;margin-right: 10px;">
 
                                 </select>
@@ -236,7 +332,7 @@
                                 <span class="options_name"></span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="详细地址不能为空" name="estateAddress" value="" placeholder="请输入详细地址" />
+                                <input type="text" class="required" data-tips="详细地址不能为空" name="estateAddress" value="{{sponsorInfo.estateAddress}}" placeholder="请输入详细地址" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -248,7 +344,7 @@
                                 <span class="options_name">单位名称：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="单位名称不能为空" name="empName" value="" placeholder="请输入单位名称" />
+                                <input type="text" class="required" data-tips="单位名称不能为空" name="empName" value="{{sponsorInfo.empName}}" placeholder="请输入单位名称" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -259,14 +355,46 @@
                             <div class="column_val">
                                 <select name="empType" id="">
                                     <option value="">请选择</option>
+                                    {{#if (sponsorInfo.empType === '1') }}
+                                    <option value="1" selected>有限责任公司</option>
+                                    {{else}}
                                     <option value="1">有限责任公司</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.empType === '2') }}
+                                    <option value="2" selected>股份有限公司</option>
+                                    {{else}}
                                     <option value="2">股份有限公司</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.empType === '3') }}
+                                    <option value="3" selected>国有企业</option>
+                                    {{else}}
                                     <option value="3">国有企业</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.empType === '4') }}
+                                    <option value="4" selected>个人独资企业</option>
+                                    {{else}}
                                     <option value="4">个人独资企业</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.empType === '5') }}
+                                    <option value="5" selected>个体工商户</option>
+                                    {{else}}
                                     <option value="5">个体工商户</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.empType === '6') }}
+                                    <option value="6" selected>外商投资企业</option>
+                                    {{else}}
                                     <option value="6">外商投资企业</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.empType === '7') }}
+                                    <option value="7" selected>私营企业</option>
+                                    {{else}}
                                     <option value="7">私营企业</option>
+                                    {{/if}}
+                                    {{#if (sponsorInfo.empType === '8') }}
+                                    <option value="8" selected>其他</option>
+                                    {{else}}
                                     <option value="8">其他</option>
+                                    {{/if}}
                                 </select>
                             </div>
                         </div>
@@ -275,7 +403,7 @@
                                 <span class="options_name">本单位工作年限：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" maxlength="2" data-tips="本单位工作年限不能为空" name="workYear" value="" placeholder="请输入本单位工作年限" />
+                                <input type="text" class="required" maxlength="2" data-tips="本单位工作年限不能为空" name="workYear" value="{{sponsorInfo.workYear}}" placeholder="请输入本单位工作年限" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -284,7 +412,7 @@
                                 <span class="options_name">单位电话：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" maxlength="20" data-tips="单位电话不能为空" name="empPhone" value="" placeholder="请输入单位电话" />
+                                <input type="text" class="required" maxlength="20" data-tips="单位电话不能为空" name="empPhone" value="{{sponsorInfo.empPhone}}" placeholder="请输入单位电话" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -293,6 +421,8 @@
                                 <span class="options_name">单位地址：</span>
                             </div>
                             <div class="column_val">
+                                <input type="hidden" value="{{sponsorInfo.empProvince}}" class="provinceKey">
+                                <input type="hidden" value="{{sponsorInfo.empCity}}" class="cityKey">
                                 <select name="empProvince" id="empProvince" class="province" data-type="emp" style="width: 108px;margin-right: 10px;">
                                     <option value="">请选择</option>
                                 </select>
@@ -306,6 +436,7 @@
                                 <span class="options_name">职业：</span>
                             </div>
                             <div class="column_val">
+                                <input type="hidden" value="{{sponsorInfo.empOccupation}}" id="empOccupationKey">
                                 <select name="empOccupation" id="empOccupation">
                                     <option value="">请选择</option>
                                 </select>
@@ -317,7 +448,7 @@
                                 <span class="options_name"></span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="详细地址不能为空" name="empAddress" value="" placeholder="请输入详细地址" />
+                                <input type="text" class="required" data-tips="详细地址不能为空" name="empAddress" value="{{sponsorInfo.empAddress}}" placeholder="请输入详细地址" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
