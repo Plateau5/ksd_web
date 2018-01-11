@@ -381,10 +381,18 @@ function uploadImage () {
                         '             </div>\n' +
                         '             </a>';
                     if (type == '2') {
-                        btn.parents('.img_md_box').find('.img_item').replaceWith(imgEle);
-                        $('#image_url').val(res.image_url);
                         var parents = btn.parents('.img_md_box');
-                        parents[0].viewer.destroy();
+                        var img = parents.find('.img_item');
+                        if (img.length <= 0) {
+                            btn.before(imgEle);
+                        } else {
+                            btn.parents('.img_md_box').find('.img_item').replaceWith(imgEle);
+                        }
+                        $('#image_url').val(res.image_url);
+                        if (img.length > 1) {
+                            parents[0].viewer.destroy();
+                        }
+                        // parents[0].viewer.destroy();
                         viewLargeImage(parents[0]);
                         /*var viewer = new Viewer(parents[0], {
                             url: 'data-original',
@@ -637,7 +645,7 @@ function verifyImgPass () {
     var elem = $('.require_icon');       // 必需标识
     elem.each(function () {
         var _this = $(this);
-        var imgs = elem.parents('.file_option_item').find('.img_item');
+        var imgs = _this.parents('.file_option_item').find('.img_item');
         if (imgs.length <= 0) {
             isPass = false;
             return false;
@@ -651,7 +659,8 @@ function verifyImgPass () {
  * @author Arley Joe 2018-1-5 10:51:23
  */
 function fileSaveAndGoNext (btn, nextPath, url) {
-    var fileData = getData();
+    var type = $.trim(btn.data('type')).number();
+    var fileData = getData(type);
     fileData = JSON.stringify(fileData);
     var isValidate = verifyImgPass();
     var financeId = $.trim($('#financeId').val());
@@ -696,20 +705,36 @@ function fileSaveAndGoNext (btn, nextPath, url) {
         $alert('该页面还有必传材料未上传，请先上传完再保存');
     }
 
-    function getData () {
+    function getData (type) {
         var data = [];
-        var imgs = $('form[role="fileSaveForm"] .img_md_box .img_item');
-        imgs.each(function () {
-            var o = {};     // 当前图片数据对象
-            var _this = $(this);
-            var parentBox = _this.parent('.img_md_box');        // 父级容器
-            o.file_id = $.trim(_this.data('id'));  // 图片主键
-            o.file_type = $.trim(parentBox.data('file_type'));  // 图片类型主键
-            o.file_name = $.trim(parentBox.data('file_name'));  // 图片类型名称
-            o.material_type = $.trim(parentBox.data('material_type'));  // 图片系列主键
-            o.material_name = $.trim(parentBox.data('material_name'));  // 图片系列名称
-            data.push(o);
-        });
+        var form = $('form[role="fileSaveForm"]');
+        var imgs = form.find('.img_md_box .img_item');      // 文件上传部分的图片集合
+        var materials = form.find('.credit_info');      // 征信查询分类
+        if (type === 1) {
+            imgs.each(function () {
+                var o = {};     // 当前图片数据对象
+                var _this = $(this);
+                var parentBox = _this.parent('.img_md_box');        // 父级容器
+                o.file_id = $.trim(_this.data('id'));  // 图片主键
+                o.file_type = $.trim(parentBox.data('file_type'));  // 图片类型主键
+                o.file_name = $.trim(parentBox.data('file_name'));  // 图片类型名称
+                o.material_type = $.trim(parentBox.data('material_type'));  // 图片系列主键
+                o.material_name = $.trim(parentBox.data('material_name'));  // 图片系列名称
+                data.push(o);
+            });
+        } else if (type === 2) {
+            materials.each(function () {
+                var _this = $(this);
+                var o = {};
+                var creditImg = _this.find('.img_item.credit_img');        // 征信图片
+                var groupPhotoImg = _this.find('.img_item.group_img');     // 合照图片
+                o.material_type = $.trim(_this.data('material_type'));  // 图片系列主键
+                o.authFileUid = $.trim(creditImg.data('id'));  // 征信图片主键
+                o.groupPhotoUid = $.trim(groupPhotoImg.data('id'));  // 合照图片主键
+                data.push(o);
+            });
+        }
+
         return data;
     }
 }

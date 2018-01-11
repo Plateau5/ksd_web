@@ -636,7 +636,10 @@ function uploadImage () {
                         btn.parents('.img_md_box').find('.head_photo').replaceWith(imgEle);
                         $('#image_url').val(res.image_url);
                         var parents = btn.parents('.img_md_box');
-                        parents[0].viewer.destroy();
+                        var img = parents.find('.img_item');
+                        if (img.length > 1) {
+                            parents[0].viewer.destroy();
+                        }
                         viewLargeImage(parents[0]);
                         /*var viewer = new Viewer(parents[0], {
                             url: 'data-original',
@@ -651,7 +654,10 @@ function uploadImage () {
                         var newImgEle = parents.find('img').eq(count - 1)[0];
                         parents[0].viewer.images.push(newImgEle);*/
                         // 销毁父元素
-                        parents[0].viewer.destroy();
+                        var img = parents.find('.img_item');
+                        if (img.length > 1) {
+                            parents[0].viewer.destroy();
+                        }
                         viewLargeImage(parents[0]);
                         /*var viewer = new Viewer(parents[0], {
                             url: 'data-original',
@@ -846,7 +852,8 @@ function resetLicenseNum () {
 function verifyLicenseNumber () {
     var ele = $('#licenseNum');     // 证件号码
     // 身份证校验规则（注：含15位和19位，闰年不能禁止29+天数）
-    var IDReg = /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}[0-9]$)/;
+    // var IDReg = /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}[0-9]$)/;
+    var IDReg = IDPATTERN;s
     ele.on('focus', function (){
         var t = $(this);
         var isChecked = t.data('isChecked');    // 唯一性是否已经校验过。1：校验过，2：未校验
