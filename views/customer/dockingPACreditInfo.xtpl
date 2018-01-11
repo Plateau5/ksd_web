@@ -34,29 +34,29 @@
                         <!-- 基本信息 Begin -->
                         <div class="credit_info lender_info" data-material_type="1" data-material_name="承租人征信查询" >
                             <div class="options_title">承租人征信查询</div>
-                            <div class="option_item whole_line file_option_item" id="" >
+                            <div class="option_item whole_line file_option_item credit_img" id="" >
                                 <div class="column_name">
                                     <span class="options_name"><span class="require_icon">*</span>征信授权书：</span>
                                 </div>
                                 <div class="column_val">
                                     <div class="img_md_box file_upload" data-material_type="1" data-material_name="承租人征信查询" data-file_type="1" data-file_name="征信授权书">
                                         {{#each (data_file) }}
-                                        {{#if (this.material_type === 1) }}
-                                        <a href="javascript:;" class="img_item credit_img" data-id="{{this.authFileUid}}">
-                                            <img data-original="{{this.authFileUid_url}}"  src="{{this.authFileUid_120_90}}">
-                                            <div class="img_md_operate_box">
-                                                <em class="img_md_operate_btn view" data-url="{{this.authFileUid_url}}" title="查看"></em>
-                                                <em class="img_md_operate_btn delete" data-id="{{this.file_id}}" title="删除"></em>
-                                            </div>
-                                        </a>
-                                        {{/if}}
+                                            {{#if (this.material_type === 1) }}
+                                            <a href="javascript:;" class="img_item" data-id="{{this.authFileUid}}">
+                                                <img data-original="{{this.authFileUid_url}}"  src="{{this.authFileUid_120_90}}">
+                                                <div class="img_md_operate_box">
+                                                    <em class="img_md_operate_btn view" data-url="{{this.authFileUid_url}}" title="查看"></em>
+                                                    <em class="img_md_operate_btn delete" data-id="{{this.file_id}}" title="删除"></em>
+                                                </div>
+                                            </a>
+                                            {{/if}}
                                         {{/each}}
                                         <a href="javascript:;" class="file_upload_layer add_img_md_btn" data-type="2"></a>
                                         <input type="file" class="file_upload_btn"   value="上传图片" style="display: none" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="option_item whole_line file_option_item">
+                            <div class="option_item whole_line file_option_item group_img">
                                 <div class="column_name">
                                     <span class="options_name"><span class="require_icon">*</span>合照：</span>
                                 </div>
@@ -64,7 +64,7 @@
                                     <div class="img_md_box file_upload"  data-material_type="1" data-material_name="承租人征信查询" data-file_type="2" data-file_name="征信授权书">
                                         {{#each (data_file) }}
                                         {{#if (this.material_type === 1) }}
-                                        <a href="javascript:;" class="img_item group_img" data-id="{{this.groupPhotoUid}}">
+                                        <a href="javascript:;" class="img_item " data-id="{{this.groupPhotoUid}}">
                                             <img data-original="{{this.groupPhotoUid_url}}"  src="{{this.groupPhotoUid_120_90}}">
                                             <div class="img_md_operate_box">
                                                 <em class="img_md_operate_btn view" data-url="{{this.groupPhotoUid_url}}" title="查看"></em>
@@ -82,7 +82,7 @@
                         {{#if (isSponsor === '1') }}
                             <div class="credit_info guarantor_info" data-material_type="2" data-material_name="担保人征信查询">
                                 <div class="options_title">担保人征信查询</div>
-                                <div class="option_item whole_line file_option_item">
+                                <div class="option_item whole_line file_option_item credit_img">
                                     <div class="column_name">
                                         <span class="options_name"><span class="require_icon">*</span>征信授权书：</span>
                                     </div>
@@ -90,7 +90,7 @@
                                         <div class="img_md_box file_upload"  data-material_type="2" data-material_name="担保人征信查询" data-file_type="1" data-file_name="征信授权书">
                                             {{#each (data_file) }}
                                                 {{#if (this.material_type === 2) }}
-                                                    <a href="javascript:;" class="img_item credit_img" data-id="{{this.authFileUid}}">
+                                                    <a href="javascript:;" class="img_item " data-id="{{this.authFileUid}}">
                                                         <img data-original="{{this.authFileUid_url}}"  src="{{this.authFileUid_120_90}}">
                                                         <div class="img_md_operate_box">
                                                             <em class="img_md_operate_btn view" data-url="{{this.authFileUid_url}}" title="查看"></em>
@@ -104,7 +104,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="option_item whole_line file_option_item" id="">
+                                <div class="option_item whole_line file_option_item group_img" id="">
                                     <div class="column_name">
                                         <span class="options_name"><span class="require_icon">*</span>合照：</span>
                                     </div>
@@ -112,7 +112,7 @@
                                         <div class="img_md_box file_upload"  data-material_type="2" data-material_name="担保人征信查询" data-file_type="2" data-file_name="征信授权书">
                                             {{#each (data_file) }}
                                                 {{#if (this.material_type === 2) }}
-                                                    <a href="javascript:;" class="img_item group_img" data-id="{{this.groupPhotoUid}}">
+                                                    <a href="javascript:;" class="img_item " data-id="{{this.groupPhotoUid}}">
                                                         <img data-original="{{this.groupPhotoUid_url}}"  src="{{this.groupPhotoUid_120_90}}">
                                                         <div class="img_md_operate_box">
                                                             <em class="img_md_operate_btn view" data-url="{{this.groupPhotoUid_url}}" title="查看"></em>

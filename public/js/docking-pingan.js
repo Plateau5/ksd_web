@@ -417,7 +417,7 @@ function uploadImage () {
                             btn.parents('.img_md_box').find('.img_item').replaceWith(imgEle);
                         }
                         $('#image_url').val(res.image_url);
-                        if (img.length > 1) {
+                        if (img.length >= 1) {
                             parents[0].viewer.destroy();
                         }
                         // parents[0].viewer.destroy();
@@ -751,8 +751,8 @@ function fileSaveAndGoNext (btn, nextPath, url) {
             materials.each(function () {
                 var _this = $(this);
                 var o = {};
-                var creditImg = _this.find('.img_item.credit_img');        // 征信图片
-                var groupPhotoImg = _this.find('.img_item.group_img');     // 合照图片
+                var creditImg = _this.find('.credit_img .img_item');        // 征信图片
+                var groupPhotoImg = _this.find('.group_img .img_item');     // 合照图片
                 o.material_type = $.trim(_this.data('material_type'));  // 图片系列主键
                 o.authFileUid = $.trim(creditImg.data('id'));  // 征信图片主键
                 o.groupPhotoUid = $.trim(groupPhotoImg.data('id'));  // 合照图片主键

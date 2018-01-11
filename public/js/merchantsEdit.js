@@ -637,7 +637,7 @@ function uploadImage () {
                         $('#image_url').val(res.image_url);
                         var parents = btn.parents('.img_md_box');
                         var img = parents.find('.img_item');
-                        if (img.length > 1) {
+                        if (img.length >= 1) {
                             parents[0].viewer.destroy();
                         }
                         viewLargeImage(parents[0]);
