@@ -303,15 +303,23 @@ function verifyEmpty () {
         var _spouse = _this.parents('.spouse_info');
         var v = $.trim(_this.val());
         // 既不是配偶也不是直系亲属
-        if (_parent.length <= 0 && _spouse.length <= 0) {
+        if ((_parent.length <= 0 && _spouse.length <= 0) || (_spouse.length > 0 && !spouse.is(':hidden')) || (_parent.length > 0 && !parent.is(':hidden')) ) {
             if (!v) {
                 isAleary = false;
                 _this.css({
                     'border-color' : 'rgb(251, 39, 65)'
                 });
                 // return false;
+            } else {
+                var roulePass = _this.attr('verify');
+                if (roulePass == 0) {
+                    isAleary = false;
+                    _this.css({
+                        'border-color' : 'rgb(251, 39, 65)'
+                    });
+                }
             }
-        } else if (_spouse.length > 0 && !spouse.is(':hidden')) {  // 是配偶不是直系亲属
+        }/* else if (_spouse.length > 0 && !spouse.is(':hidden')) {  // 是配偶不是直系亲属
             if (!v) {
                 isAleary = false;
                 _this.css({
@@ -327,7 +335,7 @@ function verifyEmpty () {
                 });
                 // return false;
             }
-        }
+        }*/
     });
 
     select.each(function () {
@@ -518,13 +526,6 @@ function saveAndGoNext (btn, nextPath, url) {
     var financeId = $.trim($('#financeId').val());
     var queryType = $.trim($('#queryType').val());
     var verifyPass = verifyEmpty();
-    /*locationTo({
-        action : nextPath,
-        param : {
-            finance_id : financeId,
-            query_type : 1
-        }
-    });*/
     if (verifyPass) {
         btn.off('click');
         clearSpouseOrParentInfo();      // 清除配偶或是直系亲属信息
@@ -565,7 +566,7 @@ function saveAndGoNext (btn, nextPath, url) {
             }
         });
     } else {
-        $alert('该页面还有资料未填写完整，请先补充完整再保存');
+        $alert('该页面还有资料未填写完整或错误，请先更正后再保存');
     }
 }
 

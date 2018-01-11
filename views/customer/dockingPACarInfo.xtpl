@@ -707,6 +707,7 @@
             accountChange();    // 车辆价格等金额发生变化监听
             intOrFloat($('#cautionMoney, #otherFee, #pawnValue, #buyTax, #assure, #cautionMoney, #serviceCharge , #attachFinance'), 9999999.99);    // 只允许输入数字
             showBrand();        // 页面初始化加载品牌自数据
+            verifyPhone('.phone');      // 手机号码校验
             bindSubmitEvent();      // 提交
             brandChoose();      // 品牌车系联动
         });

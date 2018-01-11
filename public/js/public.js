@@ -2064,9 +2064,9 @@ function formatNum (value){
 function verifyPhone (selector) {
     var body = $('body');
     body.on('blur', selector, function (e) {
-        var e = e || window.event;
-        e.preventDefault();
-        e.stopPropagation();
+        var event = e || window.event;
+        event.preventDefault();
+        event.stopPropagation();
 
         var _this = $(this);
         var phoneNum = $.trim(_this.val());
