@@ -162,12 +162,6 @@
     var groupId = '{{groupId}}';
     var groupNum = '{{groupNum}}';
     (function ($) {
-
-
-
-
-
-
         $(function() {
             viewLargeImage('.img_md_box');
             viewImages();       // 查看大图

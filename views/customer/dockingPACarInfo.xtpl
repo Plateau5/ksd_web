@@ -292,23 +292,14 @@
                                 <span class="options_name">汽车之家：</span>
                             </div>
                             <div class="column_val">
+                                <input type="hidden" name="isCarHome" value="2">
                                 <div class="form_group mar6 v_middle">
-                                    {{#if (carInfo.isCarHome === '1' || (!carInfo.isCarHome && carInfo.isCarHome !== '0') ) }}
-                                    <input id="isCarHome1" type="radio" class="isCarHome" checked="checked" name="isCarHome" value="1" />
+                                    <input id="isCarHome1" type="radio" class="isCarHome" disabled name="isCarHome" value="1" />
                                     <label for="rentModel1">是</label>
-                                    {{else}}
-                                    <input id="isCarHome1" type="radio" class="isCarHome" name="isCarHome" value="1" />
-                                    <label for="rentModel1">是</label>
-                                    {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
-                                    {{#if (carInfo.isCarHome === '2') }}
-                                    <input id="isCarHome2" type="radio" class="isCarHome" checked="checked" name="isCarHome" value="2" />
+                                    <input id="isCarHome2" type="radio" class="isCarHome" disabled  checked="checked" name="isCarHome" value="2" />
                                     <label for="rentModel2">否</label>
-                                    {{else}}
-                                    <input id="isCarHome2" type="radio" class="isCarHome" name="isCarHome" value="2" />
-                                    <label for="rentModel2">否</label>
-                                    {{/if}}
                                 </div>
                             </div>
                         </div>
