@@ -361,6 +361,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{#if (renterInfo.isFirstBuy === '2' || !renterInfo.isFirstBuy) }}
                             <div class="option_item hascarloan_item">
                                 <div class="column_name">
                                     <span class="options_name">是否有车贷：</span>
@@ -369,24 +370,43 @@
                                     <div class="form_group mar6 v_middle"  style="margin-right: 43px;">
                                         {{#if (renterInfo.hascarloan === '1'  || !renterInfo.hascarloan) }}
                                         <input id="hascarloan1" type="radio" class="hascarloan" name="hascarloan" value="1"  checked="checked" />
-                                        <label for="hascarloan1" class="checked">是</label>
                                         {{else}}
                                         <input id="hascarloan1" type="radio" class="hascarloan" name="hascarloan" value="1"  />
-                                        <label for="hascarloan1" class="checked">是</label>
                                         {{/if}}
+                                        <label for="hascarloan1" class="checked">是</label>
                                     </div>
                                     <div class="form_group v_middle">
                                         {{#if (renterInfo.hascarloan === '2') }}
                                         <input id="hascarloan2" type="radio" class="hascarloan" name="hascarloan" value="2"   checked="checked" />
-                                        <label for="hascarloan2" class="checked">否</label>
                                         {{else}}
                                         <input id="hascarloan2" type="radio" class="hascarloan" name="hascarloan" value="2" />
-                                        <label for="hascarloan2">否</label>
                                         {{/if}}
+                                        <label for="hascarloan2">否</label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="option_item oencarbrand_item">
+                            {{else}}
+                            <div class="option_item hascarloan_item" style="display: none;">
+                                <div class="column_name">
+                                    <span class="options_name">是否有车贷：</span>
+                                </div>
+                                <div class="column_val">
+                                    <div class="form_group mar6 v_middle"  style="margin-right: 43px;">
+                                        <input id="hascarloan1" type="radio" class="hascarloan" disabled name="hascarloan" value="1" checked="checked"  />
+                                        <label for="hascarloan1" class="checked">是</label>
+                                    </div>
+                                    <div class="form_group v_middle">
+                                        <input id="hascarloan2" type="radio" class="hascarloan" disabled name="hascarloan" value="2" />
+                                        <label for="hascarloan2">否</label>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/if}}
+                            {{#if (renterInfo.isFirstBuy === '2' || !renterInfo.isFirstBuy) }}
+                            <div class="option_item oencarbrand_item" style="display: block;">
+                            {{else}}
+                            <div class="option_item oencarbrand_item" style="display: none;">
+                            {{/if}}
                                 <div class="column_name">
                                     <span class="options_name">现有车系：</span>
                                 </div>
@@ -395,6 +415,7 @@
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
+
                             <div class="option_item">
                                 <div class="column_name">
                                     <span class="options_name">准驾车型：</span>
@@ -519,8 +540,12 @@
                             </div>
                         </div>
                         <!--基本信息 End-->
+                        {{#if (renterInfo.work === '1' || !renterInfo.work) }}
                         <!--工作单位信息  start-->
-                        <div class="work_info">
+                        <div class="work_info" style="display: block;">
+                        {{else}}
+                        <div class="work_info" style="display: none;">
+                        {{/if}}
                             <div class="options_title clearfix" style="padding-top: 20px;">工作单位</div>
                             <div class="option_item">
                                 <div class="column_name">

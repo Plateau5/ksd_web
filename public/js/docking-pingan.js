@@ -245,7 +245,7 @@ function isHaveWork () {
  */
 function clearWorkInfo () {
     var workInfo = $('.work_info');
-    if (workInfo.length <= 0) {
+    if (workInfo.length > 0) {
         var workInput = workInfo.find('input');
         var workSelect = workInfo.find('select');
         workInput.each(function () {
@@ -318,13 +318,18 @@ function verifyEmpty () {
     var select = $('form[role="saveForm"] select');
     var parent = $('.parent_info');
     var spouse = $('.spouse_info');
+    var workInfo = $('.work_info');
     inputs.each(function () {
         var _this = $(this);
         var _parent = _this.parents('.parent_info');
         var _spouse = _this.parents('.spouse_info');
+        var _workInfo = _this.parents('.work_info');
         var v = $.trim(_this.val());
-        // 既不是配偶也不是直系亲属
-        if ((_parent.length <= 0 && _spouse.length <= 0) || (_spouse.length > 0 && !spouse.is(':hidden')) || (_parent.length > 0 && !parent.is(':hidden')) ) {
+        // 不是配偶/不是直系亲属/不是工作单位
+        if ((_parent.length <= 0 && _spouse.length <= 0 && _workInfo <= 0)
+            || (_spouse.length > 0 && !spouse.is(':hidden'))
+            || (_parent.length > 0 && !parent.is(':hidden'))
+            || (_workInfo.length > 0 && !workInfo.is(':hidden')) ) {
             if (!v) {
                 isAleary = false;
                 _this.css({
@@ -365,7 +370,12 @@ function verifyEmpty () {
         var v = $.trim(selected.val());
         var _parent = _this.parents('.parent_info');
         var _spouse = _this.parents('.spouse_info');
-        if ((_parent.length <= 0 && _spouse.length <= 0) || (_spouse.length > 0 && !spouse.is(':hidden')) || (_parent.length > 0 && !parent.is(':hidden')) ) {
+        var _workInfo = _this.parents('.work_info');
+        if ((_parent.length <= 0 && _spouse.length <= 0 && _workInfo <= 0)
+            || (_spouse.length > 0 && !spouse.is(':hidden'))
+            || (_parent.length > 0 && !parent.is(':hidden'))
+            || (_workInfo.length > 0 && !workInfo.is(':hidden'))
+            ) {
             if (!v & v != '0') {
                 isAleary = false;
                 _this.css({
@@ -514,9 +524,9 @@ function clearSpouseOrParentInfo () {
             elem = spouseInfo;
         } else if (parentInfo.is('is:hidden')) {
             elem = parentInfo;
-        } else {
-            return new Error('Bad change: Marriage status send a error. see the "isMarriage" function at docking-pingan.js.');
-        }
+        }/* else {
+            throw new Error('Bad change: Marriage status send a error. see the "isMarriage" function at docking-pingan.js.');
+        }*/
         var input = elem.find('input');
         var select = elem.find('select');
         input.each(function () {
@@ -546,11 +556,11 @@ function bindSubmitEvent () {
 function saveAndGoNext (btn, nextPath, url) {
     var financeId = $.trim($('#financeId').val());
     var queryType = $.trim($('#queryType').val());
-    clearWorkInfo();    // 清除工作信息部分
     var verifyPass = verifyEmpty();
     if (verifyPass) {
-        /*btn.off('click');
+        btn.off('click');
         clearSpouseOrParentInfo();      // 清除配偶或是直系亲属信息
+        clearWorkInfo();    // 清除工作信息部分
         var form = $('form[role="saveForm"]')[0];
         var data = new FormData(form);
         $.ajax({
@@ -586,7 +596,7 @@ function saveAndGoNext (btn, nextPath, url) {
                 $alert('提交保存失败，请稍后重试。');
                 bindSubmitEvent();
             }
-        });*/
+        });
     } else {
         $alert('该页面还有资料未填写完整或错误，请先更正后再保存');
     }
