@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/dockingPAHome.xtpl" afterPath="$PROJECT_DIR$/views/customer/dockingPAHome.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" afterPath="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,14 +33,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dockingPACarInfo.xtpl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dockingPACarInfo.xtpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3545">
-              <caret line="162" column="99" lean-forward="false" selection-start-line="162" selection-start-column="94" selection-end-line="162" selection-end-column="99" />
-              <folding>
-                <element signature="n#style#0;n#col#2;n#colgroup#0;n#table#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="306">
+              <caret line="373" column="87" lean-forward="true" selection-start-line="373" selection-start-column="87" selection-end-line="373" selection-end-column="87" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -48,14 +46,14 @@
       <file leaf-file-name="dockingController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/viewsController/dockingController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="25" column="40" lean-forward="true" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+            <state relative-caret-position="275">
+              <caret line="11" column="67" lean-forward="true" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dockingPAHome.xtpl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dockingPAHome.xtpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/customer/dockingPAHome.xtpl">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
@@ -218,10 +216,10 @@
         <option value="$PROJECT_DIR$/views/customer/dockingPACreditInfo.xtpl" />
         <option value="$PROJECT_DIR$/public/js/merchantsEdit.js" />
         <option value="$PROJECT_DIR$/views/customer/dockingPALenderFilesInfo.xtpl" />
-        <option value="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
         <option value="$PROJECT_DIR$/public/js/docking-pingan.js" />
         <option value="$PROJECT_DIR$/views/customer/dockingPAHome.xtpl" />
         <option value="$PROJECT_DIR$/controller/viewsController/dockingController.js" />
+        <option value="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
       </list>
     </option>
   </component>
@@ -523,14 +521,7 @@
       <workItem from="1515567610675" duration="14531000" />
       <workItem from="1515634054217" duration="32711000" />
       <workItem from="1515676507342" duration="8272000" />
-      <workItem from="1515721257988" duration="2879000" />
-    </task>
-    <task id="LOCAL-00088" summary="修改审批流编辑indexof判断  2017年12月20日15:54:05">
-      <created>1513756450772</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1513756450772</updated>
+      <workItem from="1515721257988" duration="3157000" />
     </task>
     <task id="LOCAL-00089" summary="问题管理  2017年12月23日15:50:03">
       <created>1514015420102</created>
@@ -868,11 +859,18 @@
       <option name="project" value="LOCAL" />
       <updated>1515723976487</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="修改preCode 判断  2018年1月12日10:29:27">
+      <created>1515724173109</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1515724173109</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="784722000" />
+    <option name="totallyTimeSpent" value="785000000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -949,7 +947,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="征信担保人显示修复  2018-1-8 18:18:51" />
     <MESSAGE value="1. 修改手机号教研方式&#10;2. 删除是否进口字段  2018年1月9日11:01:44" />
     <MESSAGE value="修改车辆信息数据渲染  2018-1-9 14:32:46" />
     <MESSAGE value="修改车辆信息数据渲染 2018-1-9 15:16:51" />
@@ -974,7 +971,8 @@
     <MESSAGE value="去除首付比例的%  2018年1月12日09:57:40" />
     <MESSAGE value="添加precode,征信 2018年1月12日10:05:36" />
     <MESSAGE value="修改preCode 判断  2018年1月12日10:26:10" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改preCode 判断  2018年1月12日10:26:10" />
+    <MESSAGE value="修改preCode 判断  2018年1月12日10:29:27" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改preCode 判断  2018年1月12日10:29:27" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1312,28 +1310,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
+    <entry file="file://$PROJECT_DIR$/views/customer/dockingPAHome.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3545">
-          <caret line="162" column="99" lean-forward="false" selection-start-line="162" selection-start-column="94" selection-end-line="162" selection-end-column="99" />
-          <folding>
-            <element signature="n#style#0;n#col#2;n#colgroup#0;n#table#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="300">
+          <caret line="72" column="62" lean-forward="true" selection-start-line="72" selection-start-column="62" selection-end-line="72" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/viewsController/dockingController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="25" column="40" lean-forward="true" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+        <state relative-caret-position="275">
+          <caret line="11" column="67" lean-forward="true" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/customer/dockingPAHome.xtpl">
+    <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="72" column="62" lean-forward="true" selection-start-line="72" selection-start-column="62" selection-end-line="72" selection-end-column="62" />
+        <state relative-caret-position="306">
+          <caret line="373" column="87" lean-forward="true" selection-start-line="373" selection-start-column="87" selection-end-line="373" selection-end-column="87" />
           <folding />
         </state>
       </provider>

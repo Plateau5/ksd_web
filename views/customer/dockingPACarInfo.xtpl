@@ -370,9 +370,9 @@
                                     {{/if}}
                                 </div>
                                 <div class="form_group v_middle">
-                                    <input type="hidden" name="isInstallGPS" value="1">
                                     {{#if (carInfo.isInstallGPS === '2') }}
-                                    <input id="isInstallGPS2" type="radio" class="isInstallGPS" name="isInstallGPS" disabled value="2" />
+                                    <input type="hidden" name="isInstallGPS" value="2">
+                                    <input id="isInstallGPS2" type="radio" class="isInstallGPS" name="isInstallGPS" disabled value="2" checked="checked"  />
                                     <label for="isInstallGPS2">否</label>
                                     {{else}}
                                     <input id="isInstallGPS2" type="radio" class="isInstallGPS" name="isInstallGPS" disabled value="2" />
