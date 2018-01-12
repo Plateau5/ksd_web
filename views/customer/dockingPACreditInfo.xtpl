@@ -159,6 +159,8 @@
 <script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
 </html>
 <script>
+    var groupId = '{{groupId}}';
+    var groupNum = '{{groupNum}}';
     (function ($) {
 
 
