@@ -192,7 +192,7 @@ function formatCarInfoAmount (d) {
         (!d.carInfo.pawnValue && d.carInfo.pawnValue != 0) && (d.carInfo.pawnValue = 0);    // 车辆实际价格
         (!d.carInfo.otherFee && d.carInfo.otherFee != 0) && (d.carInfo.otherFee = 0);       // 其他费用
         (!d.carInfo.assure && d.carInfo.assure != 0) && (d.carInfo.assure = 0);     // 保险
-        (!d.carInfo.firstPayScale && d.carInfo.firstPayScale != 0) && (d.carInfo.firstPayScale = '20%');    // 首付比例
+        (!d.carInfo.firstPayScale && d.carInfo.firstPayScale != 0) && (d.carInfo.firstPayScale = 20);    // 首付比例
         (!d.carInfo.cautionMoney && d.carInfo.cautionMoney != 0) && (d.carInfo.cautionMoney = 0);       // 保证金
         (!d.carInfo.serviceCharge && d.carInfo.serviceCharge != 0) && (d.carInfo.serviceCharge = 0);        // 服务费
         (!d.carInfo.attachFinance && d.carInfo.attachFinance != 0) && (d.carInfo.attachFinance = 0);        // 附加融资额
@@ -202,7 +202,7 @@ function formatCarInfoAmount (d) {
         d.carInfo.pawnValue = 0;
         d.carInfo.otherFee = 0;
         d.carInfo.assure = 0;
-        d.carInfo.firstPayScale = '20%';
+        d.carInfo.firstPayScale = 20;
         d.carInfo.cautionMoney = 0;
         d.carInfo.serviceCharge = 0;
         d.carInfo.attachFinance = 0;

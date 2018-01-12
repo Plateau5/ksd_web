@@ -387,6 +387,7 @@
                             </div>
                             <div class="column_val">
                                 <input type="text" id="firstPayScale" name="firstPayScale" value="{{carInfo.firstPayScale}}" class="" placeholder="" readonly="readonly" />
+                                <span class="unit">%</span>
                             </div>
                         </div>
                         <div class="option_item">
@@ -640,7 +641,7 @@
                     }
                     // 修改首付金额
                     if (_this.hasClass('pawnValue')) {
-                        var firstPayScale = Number(firstPayScaleE.val().replace(/%/ig, '')) * 100;     // 首付比例
+                        var firstPayScale = Number(firstPayScaleE.val()) * 100;     // 首付比例
                         var firstPayAmount =  (newValue * firstPayScale) / 10000;
                         firstPayAccountE.val(firstPayAmount);
                     }
@@ -675,7 +676,7 @@
                             _this.siblings('.tips_info').show().find('.tips_text').text('首付比例不能低于20%。');
                             return false;
                         } else {
-                            firstPayScale = (firstPayScale) + '%';
+                            firstPayScale = firstPayScale;
                             firstPayScaleE.val(firstPayScale);
                             calcFinanceAccount(true);
                             _this.siblings('.tips_info').hide()
@@ -711,7 +712,7 @@
             var financeAccount = Number(financeE.val());        // 融资金额
             var cautionMoney = Number(cautionMoneyE.val());        // 保证金
             var serviceCharge = Number(serviceChargeE.val());        // 服务费
-            var firstPayScale = Number(firstPayScaleE.val().replace(/%/ig, '')) * 100;     // 首付比例
+            var firstPayScale = Number(firstPayScaleE.val()) * 100;     // 首付比例
 
             // 项目金额 (是否打包)
             if (type === true) {    // 打包
