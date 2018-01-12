@@ -952,7 +952,7 @@
 
         $(function() {
             intOrFloat($('#familyInCome, #familyExpend'), 9999999.99);
-            initDateAll('.birthday');      // 加载日期插件
+            initDateAll('.birthday', 'YYYYMMDD');      // 加载日期插件
             isHaveWork();       // 工作模块的显示隐藏
             bindSubmitEvent();      // 提交
             isMarriage();       // 显示隐藏配偶信息

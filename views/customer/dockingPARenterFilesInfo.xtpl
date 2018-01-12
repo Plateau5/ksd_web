@@ -34,13 +34,18 @@
                         <!-- 承租人文件信息 Begin -->
                         {{#each (dataFiles) }}
                             {{#if (this.type || this.type === 0) }}
-                                <div class="options_title" data-type="{{this.type}}">{{this.name}}</div>
+                                <div class="options_title" data-type="{{this.type}}">
+                                    {{this.name}}
+                                    <span style="color:#808891; font-size: 12px;">(<span class="require_icon">*</span>项为必填项，<span style="color: #F5A623;">*</span>项为组内至少选填一项)</span>
+                                </div>
                                 {{#each (this.children) }}
                                 <div class="option_item whole_line file_option_item" data-name="{{this.file_name}}" group_id="{{this.group_id}}" group_num="{{this.group_num}}">
                                     <div class="column_name">
                                         <span class="options_name">
                                             {{#if (this.require === '1') }}
                                             <span class="require_icon">*</span>{{this.file_name}}：
+                                            {{elseif (this.group_id || this.group_id === '0' || this.group_id === 0)}}
+                                            <span style="color: #F5A623;">*</span>选填{{this.group_id}}-{{this.file_name}}：
                                             {{else}}
                                                 {{this.file_name}}：
                                             {{/if}}

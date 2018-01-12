@@ -90,7 +90,7 @@
                             </div>
                             <div class="column_val">
                                 {{#if (isPre === 1) }}
-                                <input type="text" class="required" readonly data-tips="证件号码不能为空" name="IDnum" value="{{sponsorInfo.IDnum}}" placeholder="请输入证件号码" />
+                                <input type="text" class="required ID_num" readonly data-tips="证件号码不能为空" name="IDnum" value="{{sponsorInfo.IDnum}}" placeholder="请输入证件号码" />
                                 {{else}}
                                 <input type="text" class="required ID_num" data-tips="证件号码不能为空" name="IDnum" value="{{sponsorInfo.IDnum}}" placeholder="请输入证件号码" />
                                 {{/if}}
@@ -338,121 +338,127 @@
                         </div>
                         <!--基本信息 End-->
                         <!--工作单位信息  start-->
-                        <div class="options_title clearfix" style="padding-top: 20px;">工作单位</div>
-                        <div class="option_item">
-                            <div class="column_name">
-                                <span class="options_name">单位名称：</span>
+                        {{#if (sponsorInfo.work === '1' || !sponsorInfo.work) }}
+                        <div class="work_info" style="display: block">
+                        {{else}}
+                        <div class="work_info" style="display: none">
+                        {{/if}}
+                            <div class="options_title clearfix" style="padding-top: 20px;">工作单位</div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">单位名称：</span>
+                                </div>
+                                <div class="column_val">
+                                    <input type="text" class="required" data-tips="单位名称不能为空" name="empName" value="{{sponsorInfo.empName}}" placeholder="请输入单位名称" />
+                                    <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                                </div>
                             </div>
-                            <div class="column_val">
-                                <input type="text" class="required" data-tips="单位名称不能为空" name="empName" value="{{sponsorInfo.empName}}" placeholder="请输入单位名称" />
-                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">企业性质：</span>
+                                </div>
+                                <div class="column_val">
+                                    <select name="empType" id="">
+                                        <option value="">请选择</option>
+                                        {{#if (sponsorInfo.empType === '1') }}
+                                        <option value="1" selected>有限责任公司</option>
+                                        {{else}}
+                                        <option value="1">有限责任公司</option>
+                                        {{/if}}
+                                        {{#if (sponsorInfo.empType === '2') }}
+                                        <option value="2" selected>股份有限公司</option>
+                                        {{else}}
+                                        <option value="2">股份有限公司</option>
+                                        {{/if}}
+                                        {{#if (sponsorInfo.empType === '3') }}
+                                        <option value="3" selected>国有企业</option>
+                                        {{else}}
+                                        <option value="3">国有企业</option>
+                                        {{/if}}
+                                        {{#if (sponsorInfo.empType === '4') }}
+                                        <option value="4" selected>个人独资企业</option>
+                                        {{else}}
+                                        <option value="4">个人独资企业</option>
+                                        {{/if}}
+                                        {{#if (sponsorInfo.empType === '5') }}
+                                        <option value="5" selected>个体工商户</option>
+                                        {{else}}
+                                        <option value="5">个体工商户</option>
+                                        {{/if}}
+                                        {{#if (sponsorInfo.empType === '6') }}
+                                        <option value="6" selected>外商投资企业</option>
+                                        {{else}}
+                                        <option value="6">外商投资企业</option>
+                                        {{/if}}
+                                        {{#if (sponsorInfo.empType === '7') }}
+                                        <option value="7" selected>私营企业</option>
+                                        {{else}}
+                                        <option value="7">私营企业</option>
+                                        {{/if}}
+                                        {{#if (sponsorInfo.empType === '8') }}
+                                        <option value="8" selected>其他</option>
+                                        {{else}}
+                                        <option value="8">其他</option>
+                                        {{/if}}
+                                    </select>
+                                </div>
                             </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">本单位工作年限：</span>
+                                </div>
+                                <div class="column_val">
+                                    <input type="text" class="required" maxlength="2" data-tips="本单位工作年限不能为空" name="workYear" value="{{sponsorInfo.workYear}}" placeholder="请输入本单位工作年限" />
+                                    <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">单位电话：</span>
+                                </div>
+                                <div class="column_val">
+                                    <input type="text" class="required" maxlength="20" data-tips="单位电话不能为空" name="empPhone" value="{{sponsorInfo.empPhone}}" placeholder="请输入单位电话" />
+                                    <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">单位地址：</span>
+                                </div>
+                                <div class="column_val">
+                                    <input type="hidden" value="{{sponsorInfo.empProvince}}" class="provinceKey">
+                                    <input type="hidden" value="{{sponsorInfo.empCity}}" class="cityKey">
+                                    <select name="empProvince" id="empProvince" class="province" data-type="emp" style="width: 108px;margin-right: 10px;">
+                                        <option value="">请选择</option>
+                                    </select>
+                                    <select name="empCity" id="empCity" class="city" style="width: 108px;">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">职业：</span>
+                                </div>
+                                <div class="column_val">
+                                    <input type="hidden" value="{{sponsorInfo.empOccupation}}" id="empOccupationKey">
+                                    <select name="empOccupation" id="empOccupation">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--单位地址详细地址-->
+                            <div class="option_item clearfix">
+                                <div class="column_name">
+                                    <span class="options_name"></span>
+                                </div>
+                                <div class="column_val">
+                                    <input type="text" class="required" data-tips="详细地址不能为空" name="empAddress" value="{{sponsorInfo.empAddress}}" placeholder="请输入详细地址" />
+                                    <div class="tips_info">(*<span class="tips_text"></span>)</div>
+                                </div>
+                            </div>
+                            <!--工作单位信息  end-->
                         </div>
-                        <div class="option_item">
-                            <div class="column_name">
-                                <span class="options_name">企业性质：</span>
-                            </div>
-                            <div class="column_val">
-                                <select name="empType" id="">
-                                    <option value="">请选择</option>
-                                    {{#if (sponsorInfo.empType === '1') }}
-                                    <option value="1" selected>有限责任公司</option>
-                                    {{else}}
-                                    <option value="1">有限责任公司</option>
-                                    {{/if}}
-                                    {{#if (sponsorInfo.empType === '2') }}
-                                    <option value="2" selected>股份有限公司</option>
-                                    {{else}}
-                                    <option value="2">股份有限公司</option>
-                                    {{/if}}
-                                    {{#if (sponsorInfo.empType === '3') }}
-                                    <option value="3" selected>国有企业</option>
-                                    {{else}}
-                                    <option value="3">国有企业</option>
-                                    {{/if}}
-                                    {{#if (sponsorInfo.empType === '4') }}
-                                    <option value="4" selected>个人独资企业</option>
-                                    {{else}}
-                                    <option value="4">个人独资企业</option>
-                                    {{/if}}
-                                    {{#if (sponsorInfo.empType === '5') }}
-                                    <option value="5" selected>个体工商户</option>
-                                    {{else}}
-                                    <option value="5">个体工商户</option>
-                                    {{/if}}
-                                    {{#if (sponsorInfo.empType === '6') }}
-                                    <option value="6" selected>外商投资企业</option>
-                                    {{else}}
-                                    <option value="6">外商投资企业</option>
-                                    {{/if}}
-                                    {{#if (sponsorInfo.empType === '7') }}
-                                    <option value="7" selected>私营企业</option>
-                                    {{else}}
-                                    <option value="7">私营企业</option>
-                                    {{/if}}
-                                    {{#if (sponsorInfo.empType === '8') }}
-                                    <option value="8" selected>其他</option>
-                                    {{else}}
-                                    <option value="8">其他</option>
-                                    {{/if}}
-                                </select>
-                            </div>
-                        </div>
-                        <div class="option_item">
-                            <div class="column_name">
-                                <span class="options_name">本单位工作年限：</span>
-                            </div>
-                            <div class="column_val">
-                                <input type="text" class="required" maxlength="2" data-tips="本单位工作年限不能为空" name="workYear" value="{{sponsorInfo.workYear}}" placeholder="请输入本单位工作年限" />
-                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
-                            </div>
-                        </div>
-                        <div class="option_item">
-                            <div class="column_name">
-                                <span class="options_name">单位电话：</span>
-                            </div>
-                            <div class="column_val">
-                                <input type="text" class="required" maxlength="20" data-tips="单位电话不能为空" name="empPhone" value="{{sponsorInfo.empPhone}}" placeholder="请输入单位电话" />
-                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
-                            </div>
-                        </div>
-                        <div class="option_item">
-                            <div class="column_name">
-                                <span class="options_name">单位地址：</span>
-                            </div>
-                            <div class="column_val">
-                                <input type="hidden" value="{{sponsorInfo.empProvince}}" class="provinceKey">
-                                <input type="hidden" value="{{sponsorInfo.empCity}}" class="cityKey">
-                                <select name="empProvince" id="empProvince" class="province" data-type="emp" style="width: 108px;margin-right: 10px;">
-                                    <option value="">请选择</option>
-                                </select>
-                                <select name="empCity" id="empCity" class="city" style="width: 108px;">
-                                    <option value="">请选择</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="option_item">
-                            <div class="column_name">
-                                <span class="options_name">职业：</span>
-                            </div>
-                            <div class="column_val">
-                                <input type="hidden" value="{{sponsorInfo.empOccupation}}" id="empOccupationKey">
-                                <select name="empOccupation" id="empOccupation">
-                                    <option value="">请选择</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!--单位地址详细地址-->
-                        <div class="option_item clearfix">
-                            <div class="column_name">
-                                <span class="options_name"></span>
-                            </div>
-                            <div class="column_val">
-                                <input type="text" class="required" data-tips="详细地址不能为空" name="empAddress" value="{{sponsorInfo.empAddress}}" placeholder="请输入详细地址" />
-                                <div class="tips_info">(*<span class="tips_text"></span>)</div>
-                            </div>
-                        </div>
-                        <!--工作单位信息  end-->
                     </form>
                 </div>
                 <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
@@ -488,7 +494,8 @@
 
 
         $(function() {
-            initDateAll('.birthday');      // 加载日期插件
+            initDateAll('.birthday', 'YYYYMMDD');      // 加载日期插件
+            isHaveWork();       // 工作模块的显示隐藏
             isHaveWork();       // 工作模块的显示隐藏
             bindSubmitEvent();      // 提交
             getOccupation(cityData.data_occupation);      // 展示职业
@@ -496,6 +503,7 @@
             createCityList();       // 根据选中省份获取对应城市
             verifyPhone('.phone');      // 手机号码校验
             validateBlurEmpty();    // 输入框非空校验
+            verifyLicense('.ID_num');       // 证件号码校验
         });
     })(jQuery,undefined);
 </script>

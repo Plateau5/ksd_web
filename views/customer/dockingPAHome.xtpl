@@ -230,6 +230,7 @@
                         preCode : preCode,
                         loanID : loanID
                     },
+                    timeout : 20000,
                     success : function (res) {
                         if (res.error_code == 0) {
                             locationTo({

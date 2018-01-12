@@ -326,7 +326,7 @@ function verifyEmpty () {
         var _workInfo = _this.parents('.work_info');
         var v = $.trim(_this.val());
         // 不是配偶/不是直系亲属/不是工作单位
-        if ((_parent.length <= 0 && _spouse.length <= 0 && _workInfo <= 0)
+        if ((_parent.length <= 0 && _spouse.length <= 0 && _workInfo.length <= 0)
             || (_spouse.length > 0 && !spouse.is(':hidden'))
             || (_parent.length > 0 && !parent.is(':hidden'))
             || (_workInfo.length > 0 && !workInfo.is(':hidden')) ) {

@@ -1768,12 +1768,12 @@ function loading() {
  * @author Arley Joe 2017-11-4 17:33:34
  * @param target {elem} 触发元素
  */
-function initDateAll (target) {
+function initDateAll (target, pattern) {
     $(target).jeDate({
         isinitVal : false,
         festival : false,
         ishmsVal : false,
-        format : "YYYY-MM-DD",
+        format : pattern || "YYYY-MM-DD",
         zIndex : 3000,
         isClear : true
     });
