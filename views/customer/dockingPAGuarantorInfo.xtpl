@@ -32,7 +32,7 @@
                     <form action="" class="basic_info_edit"  role="saveForm">
                         <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
                         <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
-                        <input type="hidden" name="id" value="{{sponsorInfo.id}}">
+                        <input type="hidden" name="id" value="{{sponsorInfo.id}}" id="PAOrderId">
                         <!-- 基本信息 Begin -->
                         <div class="options_title">基本信息</div>
                         <div class="option_item">
@@ -212,8 +212,8 @@
                                 <span class="options_name">身份证地址：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" value="{{sponsorInfo.homeProvince}}" id="homeProvinceKey">
-                                <input type="hidden" value="{{sponsorInfo.homeCity}}" id="homeCityKey">
+                                <input type="hidden" value="{{sponsorInfo.homeProvince}}" class="provinceKey">
+                                <input type="hidden" value="{{sponsorInfo.homeCity}}" class="cityKey">
                                 <select name="homeProvince" id="homeProvince" class="province" data-type="home" style="width: 108px;margin-right: 10px;">
                                     <option value="">请选择</option>
                                 </select>
@@ -488,9 +488,10 @@
     // 获取城市数据
     var cityData = getAddressData();
     (function ($) {
+        var PAOrderId = $($('#PAOrderId').val());       // 进件单主键ID
+        var isEdit = PAOrderId ? true : false;      // 判断是否为编辑状态
 
-
-
+        //chooseSelectedCity();
 
 
         $(function() {
@@ -501,6 +502,7 @@
             getOccupation(cityData.data_occupation);      // 展示职业
             getProvince(cityData.data_province);        // 展示省份数据
             createCityList();       // 根据选中省份获取对应城市
+            chooseSelectedCity();       // 根据选中省市做回显
             verifyPhone('.phone');      // 手机号码校验
             validateBlurEmpty();    // 输入框非空校验
             verifyLicense('.ID_num');       // 证件号码校验

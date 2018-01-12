@@ -889,6 +889,33 @@ function getCity (pid, data) {
     return optStr;
 }
 
+
+/**
+ * 省市数据回显选中逻辑
+ * @author Arley Joe 2018-1-12 16:33:32
+ * @desc : 根据选中值操作对应的省市选择项进行选中值回显。
+ */
+function chooseSelectedCity () {
+    var selectedProvince = $('.provinceKey');
+    selectedProvince.each(function () {
+        var _this = $(this);
+        var v = _this.val().trim();
+        if (v) {
+            v = v.number();
+            var pSelect = _this.siblings('.province');      // 对应的省份
+            pSelect.val(v);
+            // 创建城市数据并对选中项进行选中
+            var provinceType = pSelect.data('type');
+            var dataCity = cityData.data_city;
+            var citys = getCity(v, dataCity);
+            $('#'+ provinceType + 'City').html(citys);
+            var selectedCityValue = _this.siblings('.cityKey').val().trim();     // 对应的城市选中主键
+            var cSelect = _this.siblings('.city');      // 对应的城市
+            cSelect.val(selectedCityValue);
+        }
+    });
+}
+
 /**
  * 根据省份ID获取对应城市列表
  * @author Arley Joe 2018-1-8 13:32:44

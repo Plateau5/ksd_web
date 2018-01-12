@@ -202,8 +202,8 @@
                                     <span class="options_name">身份证地址：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="hidden" id="homeProvinceInput" value="{{renterInfo.homeProvince}}">
-                                    <input type="hidden" id="homeCityInput" value="{{renterInfo.homeCity}}">
+                                    <input type="hidden" class="provinceKey" value="{{renterInfo.homeProvince}}">
+                                    <input type="hidden" class="cityKey" value="{{renterInfo.homeCity}}">
                                     <select name="homeProvince" id="homeProvince" class="province" data-type="home" style="width: 108px;margin-right: 10px;">
                                         <option value="">请选择</option>
                                     </select>
@@ -282,8 +282,8 @@
                                     <span class="options_name">现居住地地址：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="hidden" id="estateProvinceInput" value="{{renterInfo.estateProvince}}">
-                                    <input type="hidden" id="estateCityInput" value="{{renterInfo.estateCity}}">
+                                    <input type="hidden" class="provinceKey" value="{{renterInfo.estateProvince}}">
+                                    <input type="hidden" class="cityKey" value="{{renterInfo.estateCity}}">
                                     <select name="estateProvince" id="estateProvince" class="province" data-type="estate" style="width: 108px;margin-right: 10px;">
                                         <option value="">请选择</option>
                                     </select>
@@ -629,8 +629,8 @@
                                     <span class="options_name">单位地址：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="hidden" id="empProvinceInput" value="{{renterInfo.empProvince}}">
-                                    <input type="hidden" id="empCityInput" value="{{renterInfo.empCity}}">
+                                    <input type="hidden" class="provinceKey" value="{{renterInfo.empProvince}}">
+                                    <input type="hidden" class="cityKey" value="{{renterInfo.empCity}}">
                                     <select name="empProvince" id="empProvince" class="province" data-type="emp" style="width: 108px;margin-right: 10px;">
                                         <option value="">请选择</option>
                                     </select>
@@ -961,6 +961,7 @@
             getOccupation(cityData.data_occupation);      // 展示职业
             getProvince(cityData.data_province);        // 展示省份数据
             createCityList();       // 根据选中省份获取对应城市
+            chooseSelectedCity();       // 根据选中省市做回显
             verifyPhone('.phone');      // 手机号码校验
             validateBlurEmpty();    // 输入框非空校验
             verifyLicense('.ID_num');       // 证件号码校验
