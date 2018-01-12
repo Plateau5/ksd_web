@@ -34,7 +34,7 @@
                         <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
                         <input type="hidden" name="id" value="{{renterInfo.id}}">
                         <!-- 基本信息 Begin -->
-                        <div class="basic_info_lender">
+                        <div class="basic_info_renter">
                             <div class="options_title">基本信息</div>
                             <div class="option_item">
                                 <div class="column_name">
@@ -127,7 +127,7 @@
                                     <span class="options_name">婚姻状况：</span>
                                 </div>
                                 <div class="column_val">
-                                    <select name="marriage" id="lenderMarriage">
+                                    <select name="marriage" id="renterMarriage">
                                         <option value="">请选择</option>
                                         {{#if (renterInfo.marriage === '1') }}
                                         <option value="1" selected>单身</option>

@@ -59,7 +59,7 @@ exports.VIEW_DOCKING_PINGAN_LENDER = function(req, res, next) {
     common.getPageData({
         url : '/api/pingan/renterInfo/detail',
         title : '客户-承租人信息',
-        page : './customer/dockingPALenderInfo',
+        page : './customer/dockingPARenterInfo',
         callback : function (data) {
             data.renterInfo = JSON.parse(data.renterInfo);
             var finance_id = req.body.finance_id;
@@ -95,7 +95,7 @@ exports.VIEW_DOCKING_PINGAN_FILES = function(req, res, next) {
     common.getPageData({
         url : '/api/docking/document/list',
         title : '客户-文件信息',
-        page : './customer/dockingPALenderFilesInfo',
+        page : './customer/dockingPARenterFilesInfo',
         callback : function (data) {
             var finance_id = req.body.finance_id;
             var url = req.body.url;

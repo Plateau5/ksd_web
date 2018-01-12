@@ -391,7 +391,7 @@ router.all(markUri + '/docking/pingan/home', dockingCtrl.VIEW_DOCKING_PINGAN_HOM
 // 平安对接-车辆信息页
 router.post(markUri + '/docking/pingan/car', dockingCtrl.VIEW_DOCKING_PINGAN_CAR);
 // 平安对接-承租人信息页
-router.post(markUri + '/docking/pingan/lender', dockingCtrl.VIEW_DOCKING_PINGAN_LENDER);
+router.post(markUri + '/docking/pingan/renter', dockingCtrl.VIEW_DOCKING_PINGAN_LENDER);
 // 平安对接-担保人信息页
 router.post(markUri + '/docking/pingan/guarantor', dockingCtrl.VIEW_DOCKING_PINGAN_GUARGANTOR);
 // 平安对接-文件信息页

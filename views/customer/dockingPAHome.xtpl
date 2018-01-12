@@ -41,7 +41,7 @@
                                 <em class="edit_status_icon {{#if (carInfo > 0) }}xf_edit_home_icon{{/if}}"></em>
                             </a>
                         </li>
-                        <li class="info_item" data-module="lender" data-route="{{markUri}}/docking/pingan/lender">
+                        <li class="info_item" data-module="renter" data-route="{{markUri}}/docking/pingan/renter">
                             <a href="javascript:;">
                                 <div class="text text_center">
                                     <span class="asterisk">*</span>
@@ -147,7 +147,7 @@
                                 case 'car' :
                                     moduleName = '车辆信息';
                                     break;
-                                case 'lender' :
+                                case 'renter' :
                                     moduleName = '承租人信息';
                                     break;
                                 case 'guarantor' :

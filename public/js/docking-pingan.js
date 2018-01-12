@@ -238,9 +238,26 @@ function isHaveWork () {
     });
 }
 
-/*function clearWorkInfo () {
+/**
+ * 清除已填写的工作信息
+ * @author Arley Joe 2018-1-12 13:25:03
+ * @desc : 当是否有工作项选择了否的时间，在提交时间清除已经填写的工作内容信息，并禁用所有的输入项及下拉选择以容差。
+ */
+function clearWorkInfo () {
     var workInfo = $('.work_info');
-}*/
+    if (workInfo.length <= 0) {
+        var workInput = workInfo.find('input');
+        var workSelect = workInfo.find('select');
+        workInput.each(function () {
+            var _this = $(this);
+            _this.val('').attr('verify', 1).attr('disabled', 'disabled');
+        });
+        workSelect.each(function () {
+            var _this = $(this);
+            _this.val('').attr('disabled', 'disabled');
+        });
+    }
+}
 
 /**
  * 婚姻状况与配偶信息联动
@@ -248,7 +265,7 @@ function isHaveWork () {
  * @return {boolean}
  */
 function isMarriage () {
-    var marriageInfo = $('#lenderMarriage');    // 婚姻状况选择器
+    var marriageInfo = $('#renterMarriage');    // 婚姻状况选择器
     var spouseInfo = $('.spouse_info');     // 配偶信息部分
     var parentInfo = $('.parent_info');     // 直系亲属部分
     marriageInfo.on('change', function () {
@@ -529,9 +546,10 @@ function bindSubmitEvent () {
 function saveAndGoNext (btn, nextPath, url) {
     var financeId = $.trim($('#financeId').val());
     var queryType = $.trim($('#queryType').val());
+    clearWorkInfo();    // 清除工作信息部分
     var verifyPass = verifyEmpty();
     if (verifyPass) {
-        btn.off('click');
+        /*btn.off('click');
         clearSpouseOrParentInfo();      // 清除配偶或是直系亲属信息
         var form = $('form[role="saveForm"]')[0];
         var data = new FormData(form);
@@ -568,7 +586,7 @@ function saveAndGoNext (btn, nextPath, url) {
                 $alert('提交保存失败，请稍后重试。');
                 bindSubmitEvent();
             }
-        });
+        });*/
     } else {
         $alert('该页面还有资料未填写完整或错误，请先更正后再保存');
     }
