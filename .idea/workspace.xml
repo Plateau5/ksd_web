@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" afterPath="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/docking-pingan.js" afterPath="$PROJECT_DIR$/public/js/docking-pingan.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,24 +20,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="docking-pingan.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="docking-pingan.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/docking-pingan.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="234" column="28" lean-forward="true" selection-start-line="234" selection-start-column="28" selection-end-line="234" selection-end-column="28" />
+            <state relative-caret-position="320">
+              <caret line="705" column="0" lean-forward="false" selection-start-line="705" selection-start-column="0" selection-end-line="705" selection-end-column="0" />
               <folding>
-                <marker date="1515723955563" expanded="true" signature="12360:12373" ph="..." />
-                <marker date="1515723955563" expanded="true" signature="13062:13077" ph="..." />
+                <marker date="1515725605596" expanded="true" signature="12360:12373" ph="..." />
+                <marker date="1515725605596" expanded="true" signature="13062:13077" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dockingPACarInfo.xtpl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dockingPACarInfo.xtpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="373" column="87" lean-forward="true" selection-start-line="373" selection-start-column="87" selection-end-line="373" selection-end-column="87" />
+            <state relative-caret-position="781">
+              <caret line="368" column="72" lean-forward="true" selection-start-line="368" selection-start-column="72" selection-end-line="368" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -86,7 +86,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>textare</find>
       <find>verifyP</find>
       <find>pawnValue</find>
       <find>sex</find>
@@ -116,6 +115,7 @@
       <find>loanI</find>
       <find>work</find>
       <find>%</find>
+      <find>isi</find>
     </findStrings>
     <replaceStrings>
       <replace>{{vo.name}}</replace>
@@ -216,10 +216,10 @@
         <option value="$PROJECT_DIR$/views/customer/dockingPACreditInfo.xtpl" />
         <option value="$PROJECT_DIR$/public/js/merchantsEdit.js" />
         <option value="$PROJECT_DIR$/views/customer/dockingPALenderFilesInfo.xtpl" />
-        <option value="$PROJECT_DIR$/public/js/docking-pingan.js" />
         <option value="$PROJECT_DIR$/views/customer/dockingPAHome.xtpl" />
         <option value="$PROJECT_DIR$/controller/viewsController/dockingController.js" />
         <option value="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
+        <option value="$PROJECT_DIR$/public/js/docking-pingan.js" />
       </list>
     </option>
   </component>
@@ -521,14 +521,7 @@
       <workItem from="1515567610675" duration="14531000" />
       <workItem from="1515634054217" duration="32711000" />
       <workItem from="1515676507342" duration="8272000" />
-      <workItem from="1515721257988" duration="3157000" />
-    </task>
-    <task id="LOCAL-00089" summary="问题管理  2017年12月23日15:50:03">
-      <created>1514015420102</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1514015420102</updated>
+      <workItem from="1515721257988" duration="4312000" />
     </task>
     <task id="LOCAL-00090" summary="行政仓库2017年12月25日11:05:04">
       <created>1514171119711</created>
@@ -866,11 +859,18 @@
       <option name="project" value="LOCAL" />
       <updated>1515724173109</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="修改gPS 2018年1月12日10:34:26">
+      <created>1515724473505</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1515724473505</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="785000000" />
+    <option name="totallyTimeSpent" value="786155000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -887,7 +887,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20042194" sideWeight="0.47560975" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18838993" sideWeight="0.4873551" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2260579" sideWeight="0.5126449" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48218262" sideWeight="0.51476794" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36363637" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39532295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8444688" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -895,7 +895,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38195992" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25389755" sideWeight="0.4873551" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25389755" sideWeight="0.48523206" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -947,7 +947,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1. 修改手机号教研方式&#10;2. 删除是否进口字段  2018年1月9日11:01:44" />
     <MESSAGE value="修改车辆信息数据渲染  2018-1-9 14:32:46" />
     <MESSAGE value="修改车辆信息数据渲染 2018-1-9 15:16:51" />
     <MESSAGE value="修改file文件数据格式化  2018年1月9日17:17:00" />
@@ -972,7 +971,8 @@
     <MESSAGE value="添加precode,征信 2018年1月12日10:05:36" />
     <MESSAGE value="修改preCode 判断  2018年1月12日10:26:10" />
     <MESSAGE value="修改preCode 判断  2018年1月12日10:29:27" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改preCode 判断  2018年1月12日10:29:27" />
+    <MESSAGE value="修改gPS 2018年1月12日10:34:26" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改gPS 2018年1月12日10:34:26" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1299,17 +1299,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/docking-pingan.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="234" column="28" lean-forward="true" selection-start-line="234" selection-start-column="28" selection-end-line="234" selection-end-column="28" />
-          <folding>
-            <marker date="1515723955563" expanded="true" signature="12360:12373" ph="..." />
-            <marker date="1515723955563" expanded="true" signature="13062:13077" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPAHome.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1328,9 +1317,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="373" column="87" lean-forward="true" selection-start-line="373" selection-start-column="87" selection-end-line="373" selection-end-column="87" />
+        <state relative-caret-position="781">
+          <caret line="368" column="72" lean-forward="true" selection-start-line="368" selection-start-column="72" selection-end-line="368" selection-end-column="72" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/docking-pingan.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="705" column="0" lean-forward="false" selection-start-line="705" selection-start-column="0" selection-end-line="705" selection-end-column="0" />
+          <folding>
+            <marker date="1515725605596" expanded="true" signature="12360:12373" ph="..." />
+            <marker date="1515725605596" expanded="true" signature="13062:13077" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

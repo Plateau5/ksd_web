@@ -681,27 +681,28 @@ function verifyImgPass () {
         }
     });
 
-    var groupIdArr = groupId.split(',');
-    for(var i = 0, len = groupIdArr.length; i < len; i++){
-        var groupNameArr = [];
-        var groupElems = $('.file_option_item[group_id="'+ groupIdArr[i] +'"]');
-        var imgFiles = 0 /*$('.file_option_item[data-group_id="'+ groupIdArr[i] +'"] .img_item')*/;
-        groupElems.each(function () {
-            var _this = $(this);
-            var title = _this.data('name');
-            var imgs = _this.find('.img_item').length;
-            imgFiles += imgs;
-            if (groupNameArr.indexOf(title) === -1) {
-                groupNameArr.push(title);
+    if (groupId) {
+        var groupIdArr = groupId.split(',');
+        for(var i = 0, len = groupIdArr.length; i < len; i++){
+            var groupNameArr = [];
+            var groupElems = $('.file_option_item[group_id="'+ groupIdArr[i] +'"]');
+            var imgFiles = 0 /*$('.file_option_item[data-group_id="'+ groupIdArr[i] +'"] .img_item')*/;
+            groupElems.each(function () {
+                var _this = $(this);
+                var title = _this.data('name');
+                var imgs = _this.find('.img_item').length;
+                imgFiles += imgs;
+                if (groupNameArr.indexOf(title) === -1) {
+                    groupNameArr.push(title);
+                }
+            });
+            if (imgFiles === 0) {
+                $alert('【' + groupNameArr.join('、') + '】这'+ groupNameArr.length +'项必须填写一项。');
+                isPass = false;
+                break;
             }
-        });
-        if (imgFiles === 0) {
-            $alert('【' + groupNameArr.join('、') + '】这'+ groupNameArr.length +'项必须填写一项。');
-            isPass = false;
-            break;
         }
     }
-
     return isPass;
 }
 
