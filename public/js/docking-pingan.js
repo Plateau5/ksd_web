@@ -132,7 +132,8 @@ function intOrFloat (ele, max) {
  */
 function brandChoose () {
     var brand = $('select.brand');
-    var priceELe = $('#price');
+    var priceELe = $('#price');     // 品牌指导价
+    var pawnValue = $('#pawnValue');    // 车辆实际价格
     brand.on('change', function () {
         var param = {};
         var _this = $(this);
@@ -163,6 +164,7 @@ function brandChoose () {
             var price = _this.find('option:selected').data('price');
             (price == '' || price == undefined || price == null) && (price = 0);
             priceELe.val(price).siblings('.value_text').find('.value').text(price);
+            pawnValue.val(price);
         } else {
             var brandData = getBrand(param);
             var nextBrand = $('select.brand[data-query_type="'+ (queryType) +'"]').not('.car_year');
