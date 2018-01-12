@@ -70,7 +70,7 @@
                                 <em class="edit_status_icon  {{#if (fileInfo > 0) }}xf_edit_home_icon{{/if}}"></em>
                             </a>
                         </li>
-                        {{#if (!preCode && preCode === '0') }}
+                        {{#if (!preCode || preCode === '0') }}
                         <li class="info_item last_item" data-module="credit" data-route="{{markUri}}/docking/pingan/credit">
                             <a href="javascript:;">
                                 <div class="text text_center">
