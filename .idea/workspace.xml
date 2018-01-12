@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/viewsController/dockingController.js" afterPath="$PROJECT_DIR$/controller/viewsController/dockingController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" afterPath="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,8 +35,8 @@
       <file leaf-file-name="dockingPACarInfo.xtpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3456">
-              <caret line="513" column="55" lean-forward="true" selection-start-line="513" selection-start-column="55" selection-end-line="513" selection-end-column="55" />
+            <state relative-caret-position="606">
+              <caret line="162" column="99" lean-forward="false" selection-start-line="162" selection-start-column="94" selection-end-line="162" selection-end-column="99" />
               <folding>
                 <element signature="n#style#0;n#col#2;n#colgroup#0;n#table#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -59,8 +57,8 @@
       <file leaf-file-name="dockingController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/viewsController/dockingController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="49" column="40" lean-forward="true" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+            <state relative-caret-position="225">
+              <caret line="45" column="13" lean-forward="true" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -514,14 +512,7 @@
       <workItem from="1515567610675" duration="14531000" />
       <workItem from="1515634054217" duration="32711000" />
       <workItem from="1515676507342" duration="8272000" />
-      <workItem from="1515721257988" duration="970000" />
-    </task>
-    <task id="LOCAL-00084" summary="修改请求连接时长  2017年12月18日11:44:36">
-      <created>1513568680930</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1513568680930</updated>
+      <workItem from="1515721257988" duration="1291000" />
     </task>
     <task id="LOCAL-00085" summary="修改客服详情页请款不显示  2017年12月18日14:18:49">
       <created>1513577937229</created>
@@ -859,11 +850,18 @@
       <option name="project" value="LOCAL" />
       <updated>1515685601871</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="去除首付比例的%  2018年1月12日09:57:40">
+      <created>1515722269085</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1515722269085</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="782813000" />
+    <option name="totallyTimeSpent" value="783134000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -940,7 +938,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="征信查询页面  2018年1月8日17:41:35" />
     <MESSAGE value="征信图片上传  2018年1月8日18:02:20" />
     <MESSAGE value="征信担保人显示修复  2018年1月8日18:18:05" />
     <MESSAGE value="征信担保人显示修复  2018-1-8 18:18:51" />
@@ -965,7 +962,8 @@
     <MESSAGE value="担保人数据回显 2018年1月11日22:18:10" />
     <MESSAGE value="征信数据回显  2018年1月11日22:32:06" />
     <MESSAGE value="增加文件上传group校验  2018年1月11日23:46:28" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加文件上传group校验  2018年1月11日23:46:28" />
+    <MESSAGE value="去除首付比例的%  2018年1月12日09:57:40" />
+    <option name="LAST_COMMIT_MESSAGE" value="去除首付比例的%  2018年1月12日09:57:40" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -984,7 +982,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="602" />
+      <option name="time" value="603" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1297,16 +1295,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3456">
-          <caret line="513" column="55" lean-forward="true" selection-start-line="513" selection-start-column="55" selection-end-line="513" selection-end-column="55" />
-          <folding>
-            <element signature="n#style#0;n#col#2;n#colgroup#0;n#table#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/docking-pingan.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -1318,10 +1306,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="162" column="99" lean-forward="false" selection-start-line="162" selection-start-column="94" selection-end-line="162" selection-end-column="99" />
+          <folding>
+            <element signature="n#style#0;n#col#2;n#colgroup#0;n#table#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controller/viewsController/dockingController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="49" column="40" lean-forward="true" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+        <state relative-caret-position="225">
+          <caret line="45" column="13" lean-forward="true" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
           <folding />
         </state>
       </provider>
