@@ -238,6 +238,10 @@ function isHaveWork () {
     });
 }
 
+/*function clearWorkInfo () {
+    var workInfo = $('.work_info');
+}*/
+
 /**
  * 婚姻状况与配偶信息联动
  * @author Arley Joe 2018-1-5 16:08:36
