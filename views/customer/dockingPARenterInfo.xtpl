@@ -411,7 +411,11 @@
                                     <span class="options_name">现有车系：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="现有车系不能为空" id="oencarbrand" name="oencarbrand" value="{{renterInfo.oencarbrand}}" placeholder="请输入现有车系名称" />
+                                    {{#if (renterInfo.isFirstBuy === '1' || !renterInfo.isFirstBuy) }}
+                                    <input type="text" class="" data-tips="现有车系不能为空" id="oencarbrand" name="oencarbrand" value="{{renterInfo.oencarbrand}}" placeholder="请输入现有车系名称" />
+                                    {{else}}
+                                    <input type="text" class="required" data-tips="现有车系不能为空" disabled id="oencarbrand" name="oencarbrand" value="{{renterInfo.oencarbrand}}" placeholder="请输入现有车系名称" />
+                                    {{/if}}
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -644,7 +648,8 @@
                                     <span class="options_name">职业：</span>
                                 </div>
                                 <div class="column_val">
-                                    <select name="empOccupation" id="empOccupation">
+                                    <input type="hidden" value="{{renterInfo.empOccupation}}" class="occupationKey" />
+                                    <select name="empOccupation" class="occupation">
                                         <option value="">请选择</option>
                                         {{#if (renterInfo.empOccupation) }}
                                         <option value="{{renterInfo.empOccupation}}">{{renterInfo.empOccupation}}</option>
@@ -958,10 +963,14 @@
             isMarriage();       // 显示隐藏配偶信息
             verifyGender();     // 设置性别
             isHaveGuarantor();      // 担保人监听
+
             getOccupation(cityData.data_occupation);      // 展示职业
+            chooseSelectOccoupation();      // 展示选中职业
+
             getProvince(cityData.data_province);        // 展示省份数据
             createCityList();       // 根据选中省份获取对应城市
             chooseSelectedCity();       // 根据选中省市做回显
+
             verifyPhone('.phone');      // 手机号码校验
             validateBlurEmpty();    // 输入框非空校验
             verifyLicense('.ID_num');       // 证件号码校验

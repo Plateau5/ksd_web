@@ -245,7 +245,7 @@ function isHaveWork () {
  */
 function clearWorkInfo () {
     var workInfo = $('.work_info');
-    if (workInfo.length > 0) {
+    if (workInfo.length > 0 && workInfo.is(':hidden')) {
         var workInput = workInfo.find('input');
         var workSelect = workInfo.find('select');
         workInput.each(function () {
@@ -314,8 +314,8 @@ function verifyGender () {
 // 校验必填项是否填写完整
 function verifyEmpty () {
     var isAleary = true;
-    var inputs = $('input.required');
-    var select = $('form[role="saveForm"] select');
+    var inputs = $('form[role="saveForm"] input.required').not('input[disabled="disabled"]');
+    var select = $('form[role="saveForm"] select').not('selected[disabled="disabled"]');
     var parent = $('.parent_info');
     var spouse = $('.spouse_info');
     var workInfo = $('.work_info');
@@ -556,11 +556,12 @@ function bindSubmitEvent () {
 function saveAndGoNext (btn, nextPath, url) {
     var financeId = $.trim($('#financeId').val());
     var queryType = $.trim($('#queryType').val());
+    var workInfo = $('.work_info');     // 工作模块
     var verifyPass = verifyEmpty();
     if (verifyPass) {
         btn.off('click');
-        clearSpouseOrParentInfo();      // 清除配偶或是直系亲属信息
         clearWorkInfo();    // 清除工作信息部分
+        clearSpouseOrParentInfo();      // 清除配偶或是直系亲属信息
         var form = $('form[role="saveForm"]')[0];
         var data = new FormData(form);
         $.ajax({
@@ -850,13 +851,30 @@ function getAddressData () {
  * @author Arley Joe 2018年1月8日10:38:46
  */
 function getOccupation (data) {
-    var empOccupation = $('#empOccupation');
+    var empOccupation = $('select.occupation');
     var eleStr = '<option value="">请选择</option>';
     for (var i = 0, len = data.length; i < len; i++) {
         eleStr += '<option value="'+ data[i].id +'">'+ data[i].value +'</option>'
     }
-    empOccupation.html(eleStr);
+    empOccupation.each(function () {
+        var _this = $(this);
+        _this.html(eleStr);
+    });
 }
+
+function chooseSelectOccoupation () {
+    var occupationKey = $('input.occupationKey');     // 职业选中项
+    occupationKey.each(function () {
+        var _this = $(this);
+        var v = _this.val().trim();
+        if (v) {
+            var sOccupation = _this.siblings('select.occupation');
+            sOccupation.val(v);
+        }
+    });
+}
+
+
 /**
  * 获取省份数据并创建
  * @author Arley Joe 2018年1月8日10:38:46

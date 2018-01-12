@@ -441,8 +441,8 @@
                                     <span class="options_name">职业：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="hidden" value="{{sponsorInfo.empOccupation}}" id="empOccupationKey">
-                                    <select name="empOccupation" id="empOccupation">
+                                    <input type="hidden" value="{{sponsorInfo.empOccupation}}" class="occupationKey">
+                                    <select name="empOccupation" class="occupation">
                                         <option value="">请选择</option>
                                     </select>
                                 </div>
@@ -499,10 +499,14 @@
             isHaveWork();       // 工作模块的显示隐藏
             isHaveWork();       // 工作模块的显示隐藏
             bindSubmitEvent();      // 提交
+
             getOccupation(cityData.data_occupation);      // 展示职业
+            chooseSelectOccoupation();      // 展示选中职业
+
             getProvince(cityData.data_province);        // 展示省份数据
             createCityList();       // 根据选中省份获取对应城市
             chooseSelectedCity();       // 根据选中省市做回显
+
             verifyPhone('.phone');      // 手机号码校验
             validateBlurEmpty();    // 输入框非空校验
             verifyLicense('.ID_num');       // 证件号码校验
