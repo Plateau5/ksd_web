@@ -315,9 +315,9 @@
                                     <option value="">请选择</option>
                                     {{#each (productData) }}
                                         {{#if (this.PRODUCTID === carInfo.productName) }}
-                                            <option value="{{this.PRODUCTID}}" selected>{{this.NAME}}</option>
+                                            <option value="{{this.PRODUCTID}}" data-price="{{this.INTERESTRATE}}" selected>{{this.NAME}}</option>
                                         {{else}}
-                                            <option value="{{this.PRODUCTID}}">{{this.NAME}}</option>
+                                            <option value="{{this.PRODUCTID}}" data-price="{{this.INTERESTRATE}}">{{this.NAME}}</option>
                                         {{/if}}
                                     {{/each}}
                                 </select>

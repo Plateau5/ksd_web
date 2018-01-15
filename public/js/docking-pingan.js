@@ -702,7 +702,7 @@ function bindImageSubmitEvent () {
  */
 function verifyImgPass () {
     var isPass = true;
-    var elem = $('.require_icon');       // 必需标识
+    var elem = $('.require_icon').not('.exp_require');       // 必需标识
     elem.each(function () {
         var _this = $(this);
         var imgs = _this.parents('.file_option_item').find('.img_item');
