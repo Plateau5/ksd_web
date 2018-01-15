@@ -558,6 +558,7 @@ function bindSubmitEvent () {
 function saveAndGoNext (btn, nextPath, url) {
     var financeId = $.trim($('#financeId').val());
     var queryType = $.trim($('#queryType').val());
+    var preCode = $.trim($('#preCode').val());
     var workInfo = $('.work_info');     // 工作模块
     var verifyPass = verifyEmpty();
     if (verifyPass) {
@@ -586,7 +587,8 @@ function saveAndGoNext (btn, nextPath, url) {
                             action : nextPath,
                             param : {
                                 finance_id : financeId,
-                                query_type : queryType
+                                query_type : queryType,
+                                preCode : preCode
                             }
                         })
                     });
