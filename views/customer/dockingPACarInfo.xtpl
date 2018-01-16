@@ -224,7 +224,7 @@
                             </div>
                             <div class="column_val">
                                 <select name="dealerId" id="">
-                                    <option value="">请选择</option>
+                                    <!--<option value="">请选择</option>-->
                                     {{#each (dealerData) }}
                                         {{#if (this.dealerId === root.carInfo.dealerId) }}
                                             <option value="{{this.dealerId}}" selected>{{this.dealerName}}</option>
