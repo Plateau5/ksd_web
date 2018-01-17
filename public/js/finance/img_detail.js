@@ -3,40 +3,46 @@ $(function(){
 
     //开始录入
     $('#entering').on('click', function(){
+        var _this = $(this);
+        var is_docking = _this.data('is_docking');
+        var sign_ids = _this.data('sign_ids');
         var finance_id = $('#finance_id').val();
         var locationUrl = LOCALURL;
-        /*$.ajax({
-            type:"post",
-            url :contextPath + '/api/finance/startApplyloan',
-            dataType:"json",
-            data:{finance_id: finance_id},
-            async:false,
-            error:function(xhr,status,err){
-                alert("系统异常");
-            },
-            success:function(data){
-                if(data.error_code =='0'){
-                    locationTo({
-                        action : contextPath + markUri + '/customer/loan/detail',
-                        param : {
-                            finance_id : finance_id,
-                            active : 'active',
-                            url : locationUrl
-                        }
-                    })
-                }else{
-                    alert(data.error_msg);
+        if (is_docking == 0 || (sign_ids && sign_ids.indexOf('10') == -1)) {
+            $.ajax({
+                type:"post",
+                url :contextPath + '/api/finance/startApplyloan',
+                dataType:"json",
+                data:{finance_id: finance_id},
+                async:false,
+                error:function(xhr,status,err){
+                    alert("系统异常");
+                },
+                success:function(data){
+                    if(data.error_code =='0'){
+                        locationTo({
+                            action : contextPath + markUri + '/customer/loan/detail',
+                            param : {
+                                finance_id : finance_id,
+                                active : 'active',
+                                url : locationUrl
+                            }
+                        })
+                    }else{
+                        alert(data.error_msg);
+                    }
                 }
-            }
-        });*/
-        locationTo({
-            action : contextPath + markUri + '/docking/pingan/home',
-            param : {
-                finance_id : finance_id,
-                active : 'active',
-                url : locationUrl
-            }
-        })
+            });
+        } else {
+            locationTo({
+                action : contextPath + markUri + '/docking/pingan/home',
+                param : {
+                    finance_id : finance_id,
+                    active : 'active',
+                    url : locationUrl
+                }
+            })
+        }
     });
 
     //确认申请

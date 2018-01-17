@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/finance/img_detail.js" afterPath="$PROJECT_DIR$/public/js/finance/img_detail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/entryInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,11 +21,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="customerBasicInfo.xtpl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl">
+      <file leaf-file-name="entryInfo.xtpl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/inc/entryInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="34" column="78" lean-forward="false" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
+            <state relative-caret-position="317">
+              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customerController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="603" column="39" lean-forward="true" selection-start-line="603" selection-start-column="39" selection-end-line="603" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="256" column="17" lean-forward="true" selection-start-line="256" selection-start-column="17" selection-end-line="256" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="img_detail.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/finance/img_detail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -43,8 +74,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>work</find>
-      <find>clearW</find>
       <find>身份证地址</find>
       <find>现有车系</find>
       <find>职业</find>
@@ -73,6 +102,8 @@
       <find>证件号码</find>
       <find>性别</find>
       <find>gender_h</find>
+      <find>开始录入</find>
+      <find>docking/pingan/home</find>
     </findStrings>
     <replaceStrings>
       <replace>{{include ('./../inc/sideNav')}}</replace>
@@ -108,6 +139,7 @@
     </replaceStrings>
     <dirStrings>
       <dir>F:\develop\ksd_web</dir>
+      <dir>F:\develop\ksd_web\views\inc</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -158,8 +190,6 @@
         <option value="$PROJECT_DIR$/views/question/customerList.xtpl" />
         <option value="$PROJECT_DIR$/views/workflow/list.xtpl" />
         <option value="$PROJECT_DIR$/views/gps/warehouseDetail.xtpl" />
-        <option value="$PROJECT_DIR$/public/js/finance/img_detail.js" />
-        <option value="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/question/merchantsList.xtpl" />
         <option value="$PROJECT_DIR$/views/administrative/edit.xtpl" />
         <option value="$PROJECT_DIR$/controller/common.js" />
@@ -177,6 +207,8 @@
         <option value="$PROJECT_DIR$/public/js/docking-pingan.js" />
         <option value="$PROJECT_DIR$/views/customer/dockingPAGuarantorInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl" />
+        <option value="$PROJECT_DIR$/public/js/finance/img_detail.js" />
+        <option value="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
       </list>
     </option>
   </component>
@@ -279,19 +311,7 @@
             <path>
               <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="inc" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -495,14 +515,7 @@
       <workItem from="1515981557914" duration="6890000" />
       <workItem from="1516067270129" duration="1395000" />
       <workItem from="1516070971175" duration="14763000" />
-      <workItem from="1516153895328" duration="20164000" />
-    </task>
-    <task id="LOCAL-00110" summary="征信担保人显示修复  2018-1-8 18:18:51">
-      <created>1515406737246</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1515406737246</updated>
+      <workItem from="1516153895328" duration="23612000" />
     </task>
     <task id="LOCAL-00111" summary="1. 修改手机号教研方式&#10;2. 删除是否进口字段  2018年1月9日11:01:44">
       <created>1515466916706</created>
@@ -840,11 +853,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516183477909</updated>
     </task>
-    <option name="localTasksCounter" value="159" />
+    <task id="LOCAL-00159" summary="修复贷款人丢失  2018年1月17日18:11:27">
+      <created>1516183921777</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1516183921777</updated>
+    </task>
+    <option name="localTasksCounter" value="160" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="852427000" />
+    <option name="totallyTimeSpent" value="855875000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -863,13 +883,13 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18838993" sideWeight="0.4873551" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48218262" sideWeight="0.51476794" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36363637" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.792873" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.79189485" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23814541" sideWeight="0.5243902" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8444688" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38195992" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015806" sideWeight="0.50549453" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29572836" sideWeight="0.48523206" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2946331" sideWeight="0.48523206" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -921,7 +941,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加文件上传group校验  2018年1月11日23:46:28" />
     <MESSAGE value="去除首付比例的%  2018年1月12日09:57:40" />
     <MESSAGE value="添加precode,征信 2018年1月12日10:05:36" />
     <MESSAGE value="修改preCode 判断  2018年1月12日10:26:10" />
@@ -946,7 +965,8 @@
     <MESSAGE value="担保人判断是否为预审 2018年1月17日16:39:22" />
     <MESSAGE value="证件号码校验出性别  2018年1月17日17:24:16" />
     <MESSAGE value="证件号码校验出性别  2018年1月17日18:04:28" />
-    <option name="LAST_COMMIT_MESSAGE" value="证件号码校验出性别  2018年1月17日18:04:28" />
+    <MESSAGE value="修复贷款人丢失  2018年1月17日18:11:27" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复贷款人丢失  2018年1月17日18:11:27" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -965,7 +985,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="608" />
+      <option name="time" value="610" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1010,13 +1030,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
           <caret line="106" column="61" lean-forward="true" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="78" column="66" lean-forward="true" selection-start-line="78" selection-start-column="66" selection-end-line="78" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -1087,13 +1100,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/finance/img_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="29" column="13" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/inc/empty_data.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1119,13 +1125,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
           <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/entryInfo.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="42" column="39" lean-forward="true" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1176,13 +1175,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="127" column="4" lean-forward="false" selection-start-line="127" selection-start-column="4" selection-end-line="127" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="159" column="15" lean-forward="false" selection-start-line="159" selection-start-column="15" selection-end-line="159" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -1285,9 +1277,9 @@
         <state relative-caret-position="418">
           <caret line="37" column="49" lean-forward="true" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#span#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#1;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#1;n#span#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1321,8 +1313,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/inc/customerBasicInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="34" column="78" lean-forward="false" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
+        <state relative-caret-position="665">
+          <caret line="35" column="18" lean-forward="true" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="256" column="17" lean-forward="true" selection-start-line="256" selection-start-column="17" selection-end-line="256" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/viewsController/customerController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="603" column="39" lean-forward="true" selection-start-line="603" selection-start-column="39" selection-end-line="603" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/finance/img_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/entryInfo.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>
