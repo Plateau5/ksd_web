@@ -162,6 +162,56 @@
                             </div>
                         </div>
                     </div>
+                    <div class="option_item" id="isSign">
+                        <div class="column_name">
+                            <span class="options_name long_text"><span class="require_icon">*</span>是否与机构签约：</span>
+                        </div>
+                        <div class="column_val">
+                            <div class="form_group mar6 v_middle"  style="margin-right: 43px;">
+                                {{#if (detail.is_sign === 1) }}
+                                <input id="isSign1" type="radio" class="isSign" name="is_sign" value="1"  checked="checked" />
+                                <label for="isSign1" class="checked">是</label>
+                                {{else}}
+                                <input id="isSign1" type="radio" class="isSign" name="is_sign" value="1" />
+                                <label for="isSign1" class="checked">是</label>
+                                {{/if}}
+                            </div>
+                            <div class="form_group v_middle">
+                                {{#if (detail.is_sign === -1 || detail.is_sign === 0) }}
+                                <input id="isSign2" type="radio" class="isSign" name="is_sign" value="0" checked="checked"  />
+                                <label for="isSign2">否</label>
+                                {{else}}
+                                <input id="isSign2" type="radio" class="isSign" name="is_sign" value="0" />
+                                <label for="isSign2">否</label>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    {{#if (detail.is_sign === 1) }}
+                    <div class="option_item sign_org" style="display: block;">
+                    {{else}}
+                    <div class="option_item sign_org" style="display: none;">
+                    {{/if}}
+                        <div class="column_name">
+                            <em class="require_icon">*</em>
+                            <span class="options_name">签约机构{{detail.sign_ids}}：</span>
+                        </div>
+                        <div class="column_val">
+                            {{#each (signList) }}
+                            {{#if (detail.sign_ids.indexOf(this.id) !== -1) }}
+                            <div class="form_group">
+                                <input type="checkbox" checked="checked" class="sign_ids" name="sign_ids" value="{{this.id }}" />
+                                <label class="checked">{{this.value }}</label>
+                            </div>
+                            {{else}}
+                            <div class="form_group">
+                                <input type="checkbox" class="sign_org" name="sign_ids" value="{{this.id }}" />
+                                <label>{{this.value }}</label>
+                            </div>
+                            {{/if}}
+                            {{/each}}
+                        </div>
+                    </div>
                     <div class="option_item">
                         <div class="column_name">
                             <span class="options_name">公司人数：</span>
@@ -578,8 +628,25 @@
     };
     (function ($) {
 
+        // 展示签约机构项
+        function showSignOrg () {
+            var isSign = $('input.isSign[type="radio"]');    // 是否签约
+            var signOrg = $('.option_item.sign_org');       // 签约机构
+            isSign.on('click', function () {
+                var _this = $(this);
+                var val = _this.val().trim().number();
+                if (val == 1) {
+                    signOrg.show();
+                } else {
+                    signOrg.hide();
+                }
+            });
+        }
+
         $(function() {
+            showSignOrg();      // 是否展示签约机构选项
             goMerchantDetail();     // 面包屑跳转详情页
+            resetCheckboxAndRadio('checkbox', ".form_group label", ".checked");
         });
     })(jQuery,undefined);
 </script>

@@ -1044,6 +1044,18 @@ function validateEmpty () {
             $alert('拥有类型为私海时间，拥有者必须至少有一个');
         }
     }*/
+
+    // 校验签约机构列表是否为空
+    var isSign = $('input.isSign[type="radio"]:checked').val();    // 是否签约
+    var signOrg = $('.option_item.sign_org');       // 签约机构
+    if (isSign == 1) {
+        var checkedOrg = signOrg.find('input.sign_org[type="checkbox"]:checked');
+        if (checkedOrg.length <= 0) {
+            isVerify = false;
+            $alert('签约机构必须选择一个。');
+        }
+    }
+
     return isVerify;
 }
 
@@ -1181,7 +1193,7 @@ function submitEvent (btn) {
                 if (res.error_code == 0) {
                     $alert('商户编辑成功', function () {
                         locationTo({
-                            action : contextPath + '/supplier/detail',
+                            action : contextPath + markUri + '/merchants/detail',
                             param : {
                                 supplier_id : merchantId,
                                 url : LOCALURL
