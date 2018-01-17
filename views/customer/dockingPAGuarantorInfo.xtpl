@@ -292,6 +292,21 @@
                         </div>
                         <div class="option_item">
                             <div class="column_name">
+                                <span class="options_name">现居住地地址：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="hidden" value="{{sponsorInfo.estateProvince}}" class="provinceKey">
+                                <input type="hidden" value="{{sponsorInfo.estateCity}}" class="cityKey">
+                                <select name="estateProvince" id="estateProvince" class="province" data-type="estate" style="width: 108px;margin-right: 10px;">
+
+                                </select>
+                                <select name="estateCity" id="estateCity" class="city" style="width: 108px;">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
                                 <span class="options_name">有无工作：</span>
                             </div>
                             <div class="column_val">
@@ -313,21 +328,6 @@
                                     <label for="work2">无</label>
                                     {{/if}}
                                 </div>
-                            </div>
-                        </div>
-                        <div class="option_item">
-                            <div class="column_name">
-                                <span class="options_name">现居住地地址：</span>
-                            </div>
-                            <div class="column_val">
-                                <input type="hidden" value="{{sponsorInfo.estateProvince}}" class="provinceKey">
-                                <input type="hidden" value="{{sponsorInfo.estateCity}}" class="cityKey">
-                                <select name="estateProvince" id="estateProvince" class="province" data-type="estate" style="width: 108px;margin-right: 10px;">
-
-                                </select>
-                                <select name="estateCity" id="estateCity" class="city" style="width: 108px;">
-
-                                </select>
                             </div>
                         </div>
                         <!--现居住地地址详细地址-->
