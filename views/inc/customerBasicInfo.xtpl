@@ -17,16 +17,22 @@
 				</div>
 			</div>
 		{{/if}}
-		{{#if (vo.gender === 0 || vo.gender === 1) }}
+		{{#if (vo.business_name && vo.loan_type === 2) }}
 			<div class="detail_remarks requestpayout_detail_remarks">
-				<div class="requestpayout_detail_label">性别：</div>
-				<div class="requestpayout_detail_txt">
-					{{#if (vo.gender === 0) }}
-						女
-					{{elseif (vo.gender !== '0') }}
-						男
-					{{/if}}
-				</div>
+				<div class="requestpayout_detail_label">贷款人：</div>
+				<div class="requestpayout_detail_txt">{{vo.business_name }}</div>
+			</div>
+		{{/if}}
+		{{#if (vo.user_name && vo.loan_type === 1) }}
+			<div class="detail_remarks requestpayout_detail_remarks">
+				<div class="requestpayout_detail_label">贷款人：</div>
+				<div class="requestpayout_detail_txt">{{vo.user_name }}</div>
+			</div>
+		{{/if}}
+		{{#if (vo.business_license) }}
+			<div class="detail_remarks requestpayout_detail_remarks">
+				<div class="requestpayout_detail_label">营业执照号：</div>
+				<div class="requestpayout_detail_txt">{{vo.business_license }}</div>
 			</div>
 		{{/if}}
 		{{#if (vo.id_type && vo.id_type > 0) }}
@@ -54,6 +60,18 @@
 				<div class="requestpayout_detail_label">证件号码：</div>
 				<div class="requestpayout_detail_txt">{{vo.id_num}}</div>
 			</div>
+		{{/if}}
+		{{#if (vo.gender === 0 || vo.gender === 1) }}
+		<div class="detail_remarks requestpayout_detail_remarks">
+			<div class="requestpayout_detail_label">性别：</div>
+			<div class="requestpayout_detail_txt">
+				{{#if (vo.gender === 0) }}
+				女
+				{{elseif (vo.gender !== '0') }}
+				男
+				{{/if}}
+			</div>
+		</div>
 		{{/if}}
 		{{#if (vo.address) }}
 			<div class="detail_remarks requestpayout_detail_remarks">
