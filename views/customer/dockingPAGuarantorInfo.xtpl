@@ -97,12 +97,16 @@
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
-                        <div class="option_item">
+                        <div class="option_item gender">
                             <div class="column_name">
                                 <span class="options_name">性别：</span>
                             </div>
                             <div class="column_val">
+                                {{#if (sponsorInfo.IDnum.substring(16,17) % 2 === 1) }}
                                 <input type="hidden" name="sex" value="1" class="gender_h">
+                                {{else}}
+                                <input type="hidden" name="sex" value="2" class="gender_h">
+                                {{/if}}
                                 <div class="form_group mar6 v_middle">
                                     {{#if (sponsorInfo.IDnum && sponsorInfo.IDnum.substring(16,17) % 2 === 1) }}
                                     <input type="radio"  id="gender1" disabled class="gender male" name="sex" value="1" checked="checked" />

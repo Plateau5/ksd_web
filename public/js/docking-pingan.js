@@ -312,8 +312,8 @@ function isMarriage () {
  */
 function verifyGender () {
     var IDNum = $.trim($('input[name="IDnum"]').val());      // 身份证号
-    var gender = $('.gender');      // 性别选择容器
-    var genderH = $('.gender_h');
+    var gender = $('.option_item.gender');      // 性别选择容器
+    var genderH = $('.gender_h');       // 性别隐藏数据容器
     if (IDNum) {
         // 获取身份证第17位或是15位。
         if (IDNum.length == 18) {

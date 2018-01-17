@@ -91,8 +91,11 @@
                                     <span class="options_name">性别：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="hidden" name="sex" value="1" class="gender">
-
+                                    {{#if (renterInfo.IDnum.substring(16,17) % 2 === 1) }}
+                                    <input type="hidden" name="sex" value="1" class="gender_h">
+                                    {{else}}
+                                    <input type="hidden" name="sex" value="2" class="gender_h">
+                                    {{/if}}
                                     <div class="form_group mar6 v_middle">
                                         {{#if (renterInfo.IDnum.substring(16,17) % 2 === 1) }}
                                         <input type="radio"  id="gender1" disabled class="gender male" name="sex" value="1" checked="checked" />
