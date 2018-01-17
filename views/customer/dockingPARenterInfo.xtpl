@@ -514,24 +514,43 @@
                                     <span class="options_name">是否有担保人：</span>
                                 </div>
                                 <div class="column_val">
+                                    {{#if (preCode && preCode !== '0') }}
+                                    <div class="form_group mar6 v_middle" style="margin-right: 43px;">
+                                        {{#if (renterInfo.isSponsor === '1' || !renterInfo.isSponsor) }}
+                                        <input type="hidden" value="1" name="isSponsor">
+                                        <input id="isSponsor1" type="radio" class="isSponsor" disabled name="isSponsor" value="1"  checked="checked" />
+                                        {{else}}
+                                        <input id="isSponsor1" type="radio" class="isSponsor" disabled name="isSponsor" value="1"  />
+                                        {{/if}}
+                                        <label for="isSponsor1" class="checked">有</label>
+                                    </div>
+                                    <div class="form_group v_middle">
+                                        {{#if (renterInfo.isSponsor === '2') }}
+                                        <input type="hidden" value="2" name="isSponsor">
+                                        <input id="isSponsor2" type="radio" class="isSponsor" disabled name="isSponsor" value="2" checked="checked" />
+                                        {{else}}
+                                        <input id="isSponsor2" type="radio" class="isSponsor" disabled name="isSponsor" value="2" />
+                                        {{/if}}
+                                        <label for="isSponsor2">无</label>
+                                    </div>
+                                    {{else}}
                                     <div class="form_group mar6 v_middle" style="margin-right: 43px;">
                                         {{#if (renterInfo.isSponsor === '1' || !renterInfo.isSponsor) }}
                                         <input id="isSponsor1" type="radio" class="isSponsor" name="isSponsor" value="1"  checked="checked" />
-                                        <label for="isSponsor1" class="checked">有</label>
                                         {{else}}
                                         <input id="isSponsor1" type="radio" class="isSponsor" name="isSponsor" value="1"  />
-                                        <label for="isSponsor1" class="checked">有</label>
                                         {{/if}}
+                                        <label for="isSponsor1" class="checked">有</label>
                                     </div>
                                     <div class="form_group v_middle">
                                         {{#if (renterInfo.isSponsor === '2') }}
                                         <input id="isSponsor2" type="radio" class="isSponsor" name="isSponsor" value="2" checked="checked" />
-                                        <label for="isSponsor2">无</label>
                                         {{else}}
                                         <input id="isSponsor2" type="radio" class="isSponsor" name="isSponsor" value="2" />
-                                        <label for="isSponsor2">无</label>
                                         {{/if}}
+                                        <label for="isSponsor2">无</label>
                                     </div>
+                                    {{/if}}
                                 </div>
                             </div>
                             <div class="option_item" style="width: 100%;height: auto;">

@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="金额联动  2018年1月17日14:46:17">
+    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/customerService.css" afterPath="$PROJECT_DIR$/public/css/customerService.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/customerService.less" afterPath="$PROJECT_DIR$/public/css/customerService.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/docking-pingan.js" afterPath="$PROJECT_DIR$/public/js/docking-pingan.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" afterPath="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/dockingPARenterInfo.xtpl" afterPath="$PROJECT_DIR$/views/customer/dockingPARenterInfo.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,8 +23,8 @@
       <file leaf-file-name="docking-pingan.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/docking-pingan.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="686" column="0" lean-forward="false" selection-start-line="686" selection-start-column="0" selection-end-line="686" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="674" column="13" lean-forward="true" selection-start-line="674" selection-start-column="13" selection-end-line="674" selection-end-column="13" />
               <folding>
                 <marker date="1516176504442" expanded="true" signature="13755:13768" ph="..." />
                 <marker date="1516176504442" expanded="true" signature="14457:14472" ph="..." />
@@ -36,41 +33,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="customerService.less" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/css/customerService.less">
+      <file leaf-file-name="dockingPAGuarantorInfo.xtpl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/customer/dockingPAGuarantorInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="653" column="9" lean-forward="true" selection-start-line="653" selection-start-column="9" selection-end-line="653" selection-end-column="9" />
+            <state relative-caret-position="129">
+              <caret line="34" column="97" lean-forward="true" selection-start-line="34" selection-start-column="97" selection-end-line="34" selection-end-column="97" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="manufacturing.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/manufacturing.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="804">
-              <caret line="451" column="5" lean-forward="true" selection-start-line="430" selection-start-column="4" selection-end-line="451" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dockingPACarInfo.xtpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="551" column="56" lean-forward="false" selection-start-line="551" selection-start-column="56" selection-end-line="551" selection-end-column="56" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#21;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#colgroup#0;n#table#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#col#0;n#colgroup#0;n#table#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#col#1;n#colgroup#0;n#table#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#col#2;n#colgroup#0;n#table#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#col#3;n#colgroup#0;n#table#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -235,13 +203,13 @@
         <option value="$PROJECT_DIR$/views/customer/dockingPALenderInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/customer/dockingPAHome.xtpl" />
         <option value="$PROJECT_DIR$/public/js/public.js" />
-        <option value="$PROJECT_DIR$/views/customer/dockingPARenterInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/customer/dockingPARenterFilesInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/customer/dockingPAGuarantorInfo.xtpl" />
         <option value="$PROJECT_DIR$/controller/viewsController/dockingController.js" />
         <option value="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
         <option value="$PROJECT_DIR$/public/js/docking-pingan.js" />
         <option value="$PROJECT_DIR$/public/css/customerService.less" />
+        <option value="$PROJECT_DIR$/views/customer/dockingPARenterInfo.xtpl" />
       </list>
     </option>
   </component>
@@ -560,14 +528,7 @@
       <workItem from="1515981557914" duration="6890000" />
       <workItem from="1516067270129" duration="1395000" />
       <workItem from="1516070971175" duration="14763000" />
-      <workItem from="1516153895328" duration="15023000" />
-    </task>
-    <task id="LOCAL-00106" summary="品牌数据 2018-1-8 16:52:05">
-      <created>1515401533707</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1515401533707</updated>
+      <workItem from="1516153895328" duration="15746000" />
     </task>
     <task id="LOCAL-00107" summary="征信查询页面  2018年1月8日17:41:35">
       <created>1515404501310</created>
@@ -905,11 +866,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516171587192</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="还款计划表  2018年1月17日16:27:13">
+      <created>1516177644083</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1516177644083</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="847286000" />
+    <option name="totallyTimeSpent" value="848009000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -986,7 +954,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="车辆信息数据反写  2018年1月11日18:23:34" />
     <MESSAGE value="承租人数据回显  2018年1月11日19:27:17" />
     <MESSAGE value="担保人数据回显 2018年1月11日22:18:10" />
     <MESSAGE value="征信数据回显  2018年1月11日22:32:06" />
@@ -1011,7 +978,8 @@
     <MESSAGE value="修改preCode 2018年1月15日16:26:43" />
     <MESSAGE value="修改经销商  2018年1月16日11:01:27" />
     <MESSAGE value="金额联动  2018年1月17日14:46:17" />
-    <option name="LAST_COMMIT_MESSAGE" value="金额联动  2018年1月17日14:46:17" />
+    <MESSAGE value="还款计划表  2018年1月17日16:27:13" />
+    <option name="LAST_COMMIT_MESSAGE" value="还款计划表  2018年1月17日16:27:13" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1301,21 +1269,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/customer/dockingPARenterInfo.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="518" column="61" lean-forward="false" selection-start-line="518" selection-start-column="51" selection-end-line="518" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/customer/dockingPAGuarantorInfo.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="464" column="59" lean-forward="false" selection-start-line="464" selection-start-column="46" selection-end-line="464" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPAHome.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
@@ -1332,10 +1285,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/manufacturing.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="804">
+          <caret line="451" column="5" lean-forward="true" selection-start-line="430" selection-start-column="4" selection-end-line="451" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/customerService.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="657" column="26" lean-forward="true" selection-start-line="657" selection-start-column="26" selection-end-line="657" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="551" column="56" lean-forward="false" selection-start-line="551" selection-start-column="56" selection-end-line="551" selection-end-column="56" />
+        <state relative-caret-position="-2004">
+          <caret line="33" column="78" lean-forward="true" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="78" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#21;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1349,10 +1318,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/customer/dockingPARenterInfo.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="513" column="77" lean-forward="true" selection-start-line="513" selection-start-column="77" selection-end-line="513" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/docking-pingan.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="686" column="0" lean-forward="false" selection-start-line="686" selection-start-column="0" selection-end-line="686" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="674" column="13" lean-forward="true" selection-start-line="674" selection-start-column="13" selection-end-line="674" selection-end-column="13" />
           <folding>
             <marker date="1516176504442" expanded="true" signature="13755:13768" ph="..." />
             <marker date="1516176504442" expanded="true" signature="14457:14472" ph="..." />
@@ -1360,18 +1337,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/manufacturing.less">
+    <entry file="file://$PROJECT_DIR$/views/customer/dockingPAGuarantorInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="804">
-          <caret line="451" column="5" lean-forward="true" selection-start-line="430" selection-start-column="4" selection-end-line="451" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/customerService.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="653" column="9" lean-forward="true" selection-start-line="653" selection-start-column="9" selection-end-line="653" selection-end-column="9" />
+        <state relative-caret-position="129">
+          <caret line="34" column="97" lean-forward="true" selection-start-line="34" selection-start-column="97" selection-end-line="34" selection-end-column="97" />
           <folding />
         </state>
       </provider>
