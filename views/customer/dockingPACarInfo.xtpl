@@ -315,7 +315,7 @@
                                 <select name="productName" id="productName">
                                     <option value="">请选择</option>
                                     {{#each (productData) }}
-                                        {{#if (this.PRODUCTID === carInfo.productName) }}
+                                        {{#if (this.ID === carInfo.productId) }}
                                             <option data-product_id="{{this.ID}}" value="{{this.PRODUCTID}}" data-price="{{this.INTERESTRATE}}" selected>{{this.NAME}}</option>
                                         {{else}}
                                             <option data-product_id="{{this.ID}}" value="{{this.PRODUCTID}}" data-price="{{this.INTERESTRATE}}">{{this.NAME}}</option>
@@ -549,6 +549,7 @@
         <!--<div id="footer" class="footer"></div>-->
         <!-------- Part of footer End -------->
     </div>
+    <input type="hidden" value="{{time}}" id="rentTime">
     <div class="loading" id="loading" style="display: none;"></div>
 </body>
 {{include ('./../inc/jsSources')}}
@@ -661,10 +662,40 @@
                 var _this = $(this);
                 var p = $('.repayment_plan_table');
                 if (p.is(':hidden')) {
-                    createRepaymentPlanTable();     // 计算还款计划表
-                    p.show();
+                    var product = $('#productName');    // 产品元素
+                    var finance = $('#finance');    // 融资金额
+                    var rentDueE = $('#rentDue');    // 租赁期限
+
+
+                    var financeAmount = finance.val().number();        // 融资金额
+                    var interestRate = product.find('option:selected').data('price');    // 年利率
+                    var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
+                    if (financeAmount !== '' && interestRate !== '' && rentDue !== '') {
+                        createRepaymentPlanTable(financeAmount, interestRate, rentDue);     // 计算还款计划表
+                        p.show();
+                    } else {
+                        $alert('租赁期限、产品名称未选择或是融资金额不合法，请调整后查看。');
+                    }
                 } else {
                     p.hide();
+                }
+            });
+        }
+
+        // 产品、租赁期限变动时间自动计算还款计划表
+        function autoCalcRepaymentTbale () {
+            var select = $('#productName, #rentDue');       // 产品、租赁期限
+            select.on('change', function () {
+                var product = $('#productName');    // 产品元素
+                var finance = $('#finance');    // 融资金额
+                var rentDueE = $('#rentDue');    // 租赁期限
+
+
+                var financeAmount = finance.val().number();        // 融资金额
+                var interestRate = product.find('option:selected').data('price');    // 年利率
+                var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
+                if (financeAmount !== '' && interestRate !== '' && rentDue !== '') {
+                    createRepaymentPlanTable(financeAmount, interestRate, rentDue);     // 计算还款计划表
                 }
             });
         }
@@ -854,20 +885,32 @@
                 // 项目金额 = 车辆实际价格
                 projectAmount = pawnValue;
             }
-            /*// 首付金额 = 车辆实际价格 * 首付比例
-            firstPayAmount = pawnValue * firstPayScale / 10000;*/
+            // 首付金额 = 车辆实际价格 * 首付比例
+            // firstPayAmount = pawnValue * firstPayScale / 10000;
             // 融资金额 = 项目金额 - 首付金额 + 附加融资额
             financeAmount = projectAmount - firstPayAmount + attachFinance;
             // 净融资额 = 首付金额 - 保证金 - 服务费
             netFinancingAmount = firstPayAmount - cautionMoney - serviceCharge;
-            /*// 首付比例 = 首付金额 / 车辆实际价格
-            firstPayScale = firstPayAmount / pawnValue;*/
+            // 首付比例 = 首付金额 / 车辆实际价格
+            // firstPayScale = firstPayAmount / pawnValue;
 
 
             financeE.val(financeAmount).siblings('.value_text').find('.value').text(financeAmount);
             projectAmountE.val(projectAmount).siblings('.value_text').find('.value').text(projectAmount);
             netFinancingAmountE.val(netFinancingAmount).siblings('.value_text').find('.value').text(netFinancingAmount);
             firstPayAmountE.val(firstPayAmount);
+
+            /**
+             * 自动计算还款计划表哦（此处有计算原因为：融资金额有变动）
+             */
+            var product = $('#productName');    // 产品元素
+            var rentDueE = $('#rentDue');    // 租赁期限
+
+            var interestRate = product.find('option:selected').data('price');    // 年利率
+            var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
+            if (financeAmount !== '' && interestRate !== '' && rentDue !== '') {
+                createRepaymentPlanTable(financeAmount, interestRate, rentDue);     // 计算还款计划表
+            }
         }
 
         // 获取品牌并展示
@@ -934,7 +977,10 @@
             carInfoEmptiedPrice();     // 车辆品牌等信息更改清空价格
             productEmptiedPrice();     // 产品更改后清空融资信息
             validateBlurEmpty();    // 输入框非空校验
+
             showRepaymentPlan();    // 显示还款计划表
+            autoCalcRepaymentTbale();       // 自动计算还款计划表
+
             isBale();       // 是否打包切换
             accountChange();    // 车辆价格等金额发生变化监听
             intOrFloat($('#cautionMoney, #otherFee, #pawnValue, #buyTax, #assure, #cautionMoney, #serviceCharge , #attachFinance'), 9999999.99);    // 只允许输入数字

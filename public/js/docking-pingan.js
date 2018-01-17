@@ -623,17 +623,19 @@ function saveAndGoNext (btn, nextPath, url) {
  *           其中：328产品月利率=(11.21%÷12)；329产品月利率=(11.42%÷12)
  */
 
-function calcRepaymentPlan () {
-    var product = $('#productName');    // 产品元素
+function calcRepaymentPlan (financeAmount, interestRate, rentDue) {
+    /*var product = $('#productName');    // 产品元素
     var finance = $('#finance');    // 融资金额
     var rentDueE = $('#rentDue');    // 租赁期限
 
-    /*var financeAmount = finance.val().number();        // 融资金额
-    var interestRate = product.find('option:selected').data('interestRate').number();    // 年利率*/
-    var financeAmount = 10000;        // 融资金额
-    var interestRate = 0.1142;    // 年利率
-    // var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
-    var rentDue = 12;
+    var financeAmount = finance.val().number();        // 融资金额
+    var interestRate = product.find('option:selected').data('interestRate').number();    // 年利率
+    // var financeAmount = 10000;        // 融资金额
+    // var interestRate = 0.1142;    // 年利率
+    var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
+    // var rentDue = 12;*/
+
+    interestRate = interestRate / 100;
     var data = {
         interestRateAmount : [],        // 利息金额
         principalAmount : []        // 本金金额
@@ -659,29 +661,41 @@ function calcRepaymentPlan () {
  * @author Arley Joe 2018-1-3 19:45:41
  * @return {Object}
  */
-function createRepaymentPlanTable () {
+function createRepaymentPlanTable (financeAmount, interestRate, rentDue) {
     var product = $('#productName');    // 产品元素
     var finance = $('#finance');    // 融资金额
     var rentDueE = $('#rentDue');    // 租赁期限
     var eachRentE = $('#eachRent');     // 每期租金
+    var rentTime = $('#rentTime').val().trim();     //  还款开始时间
 
     /*var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限*/
-    var rentDue = 12;
+    // var rentDue = 12;
 
-    var data = calcRepaymentPlan();
+    var data = calcRepaymentPlan(financeAmount, interestRate, rentDue);
     // 设置每期租金
     eachRentE.val(data.eachRent).siblings('.value_text').find('.value').text(data.eachRent);
 
     var ele = '';
+    var timeArr = rentTime.split('-');
+    timeArr[0] = timeArr[0].number();
+    timeArr[1] = timeArr[1].number();
+    var month = timeArr[1],
+        year = timeArr[0];
     for (var i = 1; i <= rentDue; i++) {
-        // todo 修改租金账单日期
+        // 循环时间
+        month += 1;     // 首个还款日为下个月的15号
+        if (month == 12) {
+            year += 1;
+            month = 1;
+        }
         ele += '<tr>\n' +
-            '                                <td>2017-12-15</td>\n' +
+            '                                <td>'+ year + '-' + ((month < 10) ? ('0' + month) : month) +'-15</td>\n' +
             '                                <td>'+ i +'</td>\n' +
             '                                <td>'+ data.eachRent +'</td>\n' +
             '                                <td>'+ data.interestRateAmount[i-1] +'</td>\n' +
             '                                <td>'+ data.principalAmount[i-1] +'</td>\n' +
             '                            </tr>';
+
     }
     var table = $('#repaymentPlanTable');
     table.find('tbody').html(ele);
