@@ -82,7 +82,7 @@
                                     <span class="options_name">证件号码：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required IDnum" data-tips="证件号码不能为空" readonly name="IDnum" value="{{renterInfo.IDnum}}" placeholder="请输入证件号码" />
+                                    <input type="text" class="required IDnum ID_num" readonly data-tips="证件号码不能为空" name="IDnum" value="{{renterInfo.IDnum}}" placeholder="请输入证件号码" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -915,6 +915,7 @@
 <script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
 </html>
 <script>
+    const ISCARINFO = false;
     // 获取城市数据
     var cityData = getAddressData();
     (function ($) {
@@ -980,7 +981,6 @@
             isHaveWork();       // 工作模块的显示隐藏
             bindSubmitEvent();      // 提交
             isMarriage();       // 显示隐藏配偶信息
-            verifyGender();     // 设置性别
             isHaveGuarantor();      // 担保人监听
 
             getOccupation(cityData.data_occupation);      // 展示职业
@@ -992,7 +992,9 @@
 
             verifyPhone('.phone');      // 手机号码校验
             validateBlurEmpty();    // 输入框非空校验
-            verifyLicense('.ID_num');       // 证件号码校验
+            verifyLicense('.ID_num', function () {
+                verifyGender();
+            });       // 证件号码校验
             isHasCarLoan();     // 是否有车贷更改
         });
     })(jQuery,undefined);

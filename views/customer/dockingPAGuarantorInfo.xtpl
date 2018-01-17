@@ -485,6 +485,7 @@
 <script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
 </html>
 <script>
+    const ISCARINFO = false;
     // 获取城市数据
     var cityData = getAddressData();
     (function ($) {
@@ -497,7 +498,6 @@
         $(function() {
             initDateAll('.birthday', 'YYYYMMDD');      // 加载日期插件
             isHaveWork();       // 工作模块的显示隐藏
-            isHaveWork();       // 工作模块的显示隐藏
             bindSubmitEvent();      // 提交
 
             getOccupation(cityData.data_occupation);      // 展示职业
@@ -509,7 +509,9 @@
 
             verifyPhone('.phone');      // 手机号码校验
             validateBlurEmpty();    // 输入框非空校验
-            verifyLicense('.ID_num');       // 证件号码校验
+            verifyLicense('.ID_num', function () {
+                verifyGender();     // 设置性别
+            });       // 证件号码校验
         });
     })(jQuery,undefined);
 </script>

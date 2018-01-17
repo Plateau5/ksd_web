@@ -317,9 +317,9 @@ function verifyGender () {
     if (IDNum) {
         // 获取身份证第17位或是15位。
         if (IDNum.length == 18) {
-            var seventeenthNum = IDNum.slice(15,17).number();
+            var seventeenthNum = IDNum.slice(16,17).number();
         } else if (IDNum.length == 15) {
-            var seventeenthNum = IDNum.slice(13).number();
+            var seventeenthNum = IDNum.slice(13,14).number();
         }
         if (seventeenthNum % 2 === 1) {
             gender.find('input[type="radio"].male').prop('checked', true);
@@ -565,7 +565,11 @@ function saveAndGoNext (btn, nextPath, url) {
     var queryType = $.trim($('#queryType').val());
     var preCode = $.trim($('#preCode').val());
     var verifyPass = verifyEmpty();     // 是否填写完整
-    var verifyAmountPass = verifyAmount();      // 融资金额是否合法
+    if (!ISCARINFO || ISCARINFO === undefined) {
+        var verifyAmountPass = true;
+    } else {
+        var verifyAmountPass = verifyAmount();      // 融资金额是否合法
+    }
     if (verifyPass && verifyAmountPass) {
         btn.off('click');
         clearWorkInfo();    // 清除工作信息部分

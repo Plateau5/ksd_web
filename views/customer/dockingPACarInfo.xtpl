@@ -557,6 +557,7 @@
 <script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
 </html>
 <script>
+    const ISCARINFO = true;
     /**
      * 验证融资金额及首付比例是否合法。
      * @desc :  【注：打包时最小首付比例 A = 20%，未打包时最小首付比例 A = 10%】

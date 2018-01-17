@@ -2088,7 +2088,7 @@ function verifyPhone (selector) {
  * 校验证件号码 —— 身份证
  * @param selector {String} : 证件号码输入元素选择器（input）
  */
-function verifyLicense (selector) {
+function verifyLicense (selector, callback) {
     var body = $('body');
     body.on('blur', selector, function (e) {
         var event = e || window.event;
@@ -2107,6 +2107,7 @@ function verifyLicense (selector) {
             } else {
                 t.siblings('.tips_info').find('.tips_text').text('').end().hide();
                 t.attr('verify', 1);
+                callback && callback();
             }
         }
     });
