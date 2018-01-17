@@ -261,8 +261,8 @@
                                 <span class="options_name">项目金额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" id="projectAccount" name="" value="{{carInfo.projectAccount}}" />
-                                <span class="value_text"><span class="value">{{carInfo.projectAccount}}</span><span>元</span></span>
+                                <input type="hidden" id="projectAmount" name="projectAmount" value="{{carInfo.projectAmount}}" />
+                                <span class="value_text"><span class="value">{{carInfo.projectAmount}}</span><span>元</span></span>
                             </div>
                         </div>
                         <div class="option_item">
@@ -311,13 +311,14 @@
                                 <span class="options_name">产品名称：</span>
                             </div>
                             <div class="column_val">
+                                <input type="hidden" name="productId" value="{{carInfo.productId}}" id="selectedProductId" />
                                 <select name="productName" id="productName">
                                     <option value="">请选择</option>
                                     {{#each (productData) }}
                                         {{#if (this.PRODUCTID === carInfo.productName) }}
-                                            <option value="{{this.PRODUCTID}}" data-price="{{this.INTERESTRATE}}" selected>{{this.NAME}}</option>
+                                            <option data-product_id="{{this.ID}}" value="{{this.PRODUCTID}}" data-price="{{this.INTERESTRATE}}" selected>{{this.NAME}}</option>
                                         {{else}}
-                                            <option value="{{this.PRODUCTID}}" data-price="{{this.INTERESTRATE}}">{{this.NAME}}</option>
+                                            <option data-product_id="{{this.ID}}" value="{{this.PRODUCTID}}" data-price="{{this.INTERESTRATE}}">{{this.NAME}}</option>
                                         {{/if}}
                                     {{/each}}
                                 </select>
@@ -389,7 +390,7 @@
                                 <span class="options_name">首付金额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" name="firstPay" id="firstPayAccount" data-tips="首付金额不能为空"  value="{{carInfo.firstPay}}" placeholder="请输入首付金额" />
+                                <input type="text" class="required" name="firstPay" id="firstPayAmount" data-tips="首付金额不能为空"  value="{{carInfo.firstPay}}" placeholder="请输入首付金额" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -418,8 +419,8 @@
                                 <span class="options_name">融资金额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" id="finance"  value="0" />
-                                <span class="value_text"><span class="value">0</span><span>元</span></span>
+                                <input type="hidden" id="finance" name="financeAmount" value="{{carInfo.financeAmount}}" />
+                                <span class="value_text"><span class="value">{{carInfo.financeAmount}}</span><span>元</span></span>
                             </div>
                         </div>
                         <div class="option_item">
@@ -463,8 +464,8 @@
                                 <span class="options_name">净融资金额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" id="netFinancingAmount" name="" value="{{carInfo.netFinancingAmount}}" />
-                                <span class="value_text"><span class="value">0</span><span>元</span></span>
+                                <input type="hidden" id="netFinancingAmount" name="netFinanceAmount" value="{{carInfo.netFinanceAmount}}" />
+                                <span class="value_text"><span class="value">{{carInfo.netFinanceAmount}}</span><span>元</span></span>
                             </div>
                         </div>
                         <div class="option_item">
@@ -480,8 +481,8 @@
                                 <span class="options_name">每期租金：</span>
                             </div>
                             <div class="column_val">
-                                <input type="hidden" name="" value="" id="eachRent" />
-                                <span class="value_text"><span class="value">0</span><span>元</span></span>
+                                <input type="hidden" name="eachRent" value="{{carInfo.eachRent}}" id="eachRent" />
+                                <span class="value_text"><span class="value">{{carInfo.eachRent}}</span><span>元</span></span>
                             </div>
                         </div>
                         <div class="option_item">
@@ -555,6 +556,103 @@
 <script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
 </html>
 <script>
+    /**
+     * 验证融资金额及首付比例是否合法。
+     * @desc :  【注：打包时最小首付比例 A = 20%，未打包时最小首付比例 A = 10%】
+     *          【新车定制】C1-328/329            融资金额20000-1500000  最小首付比例 A，最大100%
+     *
+     *          【新车定制】C1-328(新一证)/329     融资金额20000-100000   最小首付比例 A，最大100%
+     *          【新车定制】C1-328(新一证)/329     融资金额100000-120000  最小首付比例30%，最大100%
+     *          【新车定制】C1-328(新一证)/329     融资金额120000-150000  最小首付比例50%，最大100%
+     *
+     *          【新车定制】C1-328(新两证)/329     融资金额20000-150000  最小首付比例 A，最大100%
+     *          【新车定制】C1-328(新两证)/329     融资金额150000-180000  最小首付比例40%，最大100%
+     *          【新车定制】C1-328(新两证)/329     融资金额180000-200000  最小首付比例50%，最大100%
+     * @return {boolean}
+     */
+    function verifyAmount () {
+        var firstScaleE = $('#firstPayScale');      // 首付比例元素
+        var financeAmountE = $('#finance');     // 融资金额元素
+        var productE = $('#productName');
+
+        var selectedProduct = productE.find('option:selected');     // 选中的产品
+
+        var financeAmount = financeAmountE.val().trim().number();       // 融资金额
+        var firstScale = firstScaleE.val().trim().number();     // 首付比例
+        var productId = selectedProduct.data('product_id');     // 选中的产品的ID值（ksd自定义）
+        var isWrap = $('input[name="isWrap"]:checked').val().trim().number();     // 是否打包
+        var minimumFirstScale = null;       // 最小首付比例
+        // 根据是否打包约定最小首付比例
+        if (isWrap === 1) {
+            minimumFirstScale = 20;
+        } else if (isWrap === 2) {
+            minimumFirstScale = 10;
+        }
+        if (productId == 1 || productId == 4) {       // 【新车定制】C1-328 、【极致进店】329
+            if (financeAmount < 20000) {
+                $alert('【融资金额】不能低于20000元。');
+                return false;
+            } else if (financeAmount > 1500000) {
+                $alert('【融资金额】不能高于1500000元。');
+                return false;
+            }
+            if (firstScale < minimumFirstScale) {
+                $alert('【首付比例】不能低于'+ minimumFirstScale +'%。');
+                return false;
+            }
+        } else if (productId == 2 || productId == 5) {    // 【新车定制】C1-328（新一证）、【极致进店】329（新一证）
+            if (financeAmount < 20000) {
+                $alert('【融资金额】不能低于20000元。');
+                return false;
+            } else if (financeAmount >= 20000 && financeAmount <= 100000) {
+                if (firstScale < minimumFirstScale) {
+                    $alert('【首付比例】不能低于'+ minimumFirstScale +'%。');
+                    return false;
+                }
+            } else if (financeAmount > 100000 && financeAmount <= 120000) {
+                if (firstScale < 30) {
+                    $alert('【首付比例】不能低于30%。');
+                    return false;
+                }
+            } else if (financeAmount > 120000 && financeAmount <= 150000) {
+                if (firstScale < 50) {
+                    $alert('【首付比例】不能低于50%。');
+                    return false;
+                }
+            } else if (financeAmount > 150000) {
+                $alert('【融资金额】不能高于150000元。');
+                return false;
+            }
+        } else if (productId == 3 || productId == 6) {    // 【新车定制】C1-328（新两证）、【极致进店】329（新两证）
+            if (financeAmount < 20000) {
+                $alert('【融资金额】不能低于20000元。');
+                return false;
+            } else if (financeAmount >= 20000 && financeAmount <= 150000) {
+                if (firstScale < minimumFirstScale) {
+                    $alert('【首付比例】不能低于'+ minimumFirstScale +'%。');
+                    return false;
+                }
+            } else if (financeAmount > 150000 && financeAmount <= 180000) {
+                if (firstScale < 40) {
+                    $alert('【首付比例】不能低于40%。');
+                    return false;
+                }
+            } else if (financeAmount > 180000 && financeAmount <= 200000) {
+                if (firstScale < 50) {
+                    $alert('【首付比例】不能低于50%。');
+                    return false;
+                }
+            } else if (financeAmount > 200000) {
+                $alert('【融资金额】不能高于200000元。');
+                return false;
+            }
+        }
+        if (firstScale > 100) {
+            $alert('【首付比例】不能高于100%。');
+            return false;
+        }
+        return true;
+    }
     (function ($) {
         // 还款计划层的显示隐藏
         function showRepaymentPlan () {
@@ -575,14 +673,18 @@
         function carInfoEmptiedPrice () {
             $('#brand, #carSeries, #carModel, #carYear').on('change', function (){
                 $('#otherFee, #pawnValue, #buyTax, #assure').val(0);
-                calcFinanceAccount();
+                calcfinanceAmount();
             });
         }
         // 产品变动时间清空融资金额、附加融资额、服务费、保证金
         function productEmptiedPrice () {
+            var selectedProductId = $('#selectedProductId');        // 产品ID值
             $('#productName').on('change', function (){
+                var _this = $(this);
+                var value = _this.find('option:selected').data('product_id');     // 选中的产品productId
+                selectedProductId.val(value);
                 $('#cautionMoney, #serviceCharge, #finance, #attachFinance').val(0);
-                calcFinanceAccount();
+                calcfinanceAmount();
             });
         }
 
@@ -593,9 +695,9 @@
                 var t = $(this);
                 var v = Number(t.val());
                 if (v === 1) {
-                    calcFinanceAccount(true);
+                    calcfinanceAmount(true);
                 } else if (v === 2) {
-                    calcFinanceAccount(false);
+                    calcfinanceAmount(false);
                 }
             });
 
@@ -605,9 +707,11 @@
         function accountChange () {
             var elem = $('#otherFee, #pawnValue, #buyTax, #assure, #cautionMoney, #serviceCharge , #attachFinance');
             var oldValue = '';
-            var firstPayAccountE = $('#firstPayAccount');
-            var firstPayScaleE = $('#firstPayScale');
+            var firstPayAmountE = $('#firstPayAmount');     // 首付金额
+            var firstPayScaleE = $('#firstPayScale');       // 首付比例
             var attachFInanceE = $('#attachFinance');       // 附加融资额
+            var carAmount = $('#otherFee, #assure, #buyTax');       // 其他费用、保险、购置税
+            var pawnValueE = $('#pawnValue');       // 车辆实际价格
             elem.on('focus', function () {
                 var _this = $(this);
                 oldValue = $.trim(_this.val());
@@ -626,24 +730,38 @@
                         var pawnValue = Number($('#pawnValue').val());      //  车辆实际价格
                         if (countAmount > pawnValue) {
                             _this.siblings('.tips_info').show().find('.tips_text').text('净融资金额+附加融资额不能大于车辆实际价格。');
+                            _this.attr('verify', 0);
                             return false;
                         } else {
-                            calcFinanceAccount(true);
+                            _this.attr('verify', 1);
+                            calcfinanceAmount(true);
                         }
                     } else {
-                        calcFinanceAccount(true);
+                        calcfinanceAmount(true);
                     }
                     // 修改首付金额
                     if (_this.hasClass('pawnValue')) {
                         var firstPayScale = Number(firstPayScaleE.val()) * 100;     // 首付比例
                         var firstPayAmount =  (newValue * firstPayScale) / 10000;
-                        firstPayAccountE.val(firstPayAmount);
+                        firstPayAmountE.val(firstPayAmount);
                     }
                 }
             });
+            // 车辆实际价格监听
+            pawnValueE.on('input', function () {
+                var _this = $(this);
+                // 重置其他费用、保险、购置税
+                $('#otherFee, #assure, #buyTax').val(0).attr('verify', 1).siblings('.tips_info').hide().find('.tips_text').text('');
+
+                // 重置首付比例，并计算首付金额
+                var v = _this.val().trim().number();        // 车辆实际价格
+                firstPayScaleE.val(20);     // 车辆价格变动后首付比例重置为20%
+                var firstPayAmount = v * firstPayScaleE.val().trim().number() / 100;
+                firstPayAmountE.val(firstPayAmount);
+            });
 
             // 首付金额输入监听
-            firstPayAccountE.on('focus', function () {
+            firstPayAmountE.on('focus', function () {
                 var _this = $(this);
                 oldValue = $.trim(_this.val());
                 // 清楚默认的0值
@@ -651,7 +769,7 @@
                     _this.val('');
                 }
             });
-            firstPayAccountE.on('input', function () {
+            firstPayAmountE.on('input', function () {
                 var _this = $(this);
                 var newValue = $.trim(_this.val());
                 var pawnValue = Number($('#pawnValue').val());
@@ -661,34 +779,54 @@
                         _this.val('');
                         return false;
                     } else {
-                        if (newValue > oldValue) {
+                        if (newValue > pawnValue) {
                             _this.siblings('.tips_info').show().find('.tips_text').text('首付金额不能大于车辆实际价格。');
+                            _this.attr('verify', 0);
                             return false;
                         }
                         var firstPayScale = (newValue * 100 / pawnValue).toFixed(2);
                         if (firstPayScale < 20) {
                             _this.siblings('.tips_info').show().find('.tips_text').text('首付比例不能低于20%。');
+                            _this.attr('verify', 0);
                             return false;
                         } else {
-                            firstPayScale = firstPayScale;
+                            // firstPayScale = firstPayScale;
                             firstPayScaleE.val(firstPayScale);
-                            calcFinanceAccount(true);
+                            calcfinanceAmount(true);
                             _this.siblings('.tips_info').hide()
+                            _this.attr('verify', 1);
                         }
                     }
+                }
+            });
+
+            // 监听其他费用、保险、购置税与车辆实际价格的关系
+            carAmount.on('input', function () {
+                var _this = $(this);
+                var val = _this.val().trim().number();      // 当前输入框的值
+                var name = _this.parents('.option_item').find('.options_name').text().replace(/:/g, '');      // 当前输入框的键名
+                var pawnValue = $('#pawnValue').val().trim().number();       // 车辆实际价格
+                if ((val || val == 0) && val > pawnValue) {
+                    _this.siblings('.tips_info').show().find('.tips_text').text(name + '不能大于车辆实际价格。');
+                    _this.attr('verify', 0);
+                    return false;
+                } else {
+                    _this.siblings('.tips_info').hide().find('.tips_text').text('');
+                    _this.attr('verify', 1);
+                    return false;
                 }
             });
         }
 
         //  计算融资金额、项目金额、净融资金额
-        function calcFinanceAccount (type) {
+        function calcfinanceAmount (type) {
             var pawnValueE = $('#pawnValue');    // 车辆实际价格元素
             var buyTaxE = $('#buyTax');        // 购置税元素
             var assureE = $('#assure');        // 保险元素
             var otherFeeE = $('#otherFee');        // 其他费用元素
-            var firstPayAccountE = $('#firstPayAccount');        // 首付金额元素
+            var firstPayAmountE = $('#firstPayAmount');        // 首付金额元素
             var attachFinanceE = $('#attachFinance');        // 附加融资额元素
-            var projectAccountE = $('#projectAccount');     // 项目金额元素
+            var projectAmountE = $('#projectAmount');     // 项目金额元素
             var netFinancingAmountE = $('#netFinancingAmount');     // 净融资金额元素
             var financeE = $('#finance');       // 融资金额元素
             var cautionMoneyE = $('#cautionMoney');     // 保证金元素
@@ -699,11 +837,11 @@
             var buyTax = Number(buyTaxE.val());        // 购置税
             var assure = Number(assureE.val());        // 保险
             var otherFee = Number(otherFeeE.val());        // 其他费用
-            var firstPayAccount = Number(firstPayAccountE.val());        // 首付金额
+            var firstPayAmount = Number(firstPayAmountE.val());        // 首付金额
             var attachFinance = Number(attachFinanceE.val());        // 附加融资额
-            var projectAccount = Number(projectAccountE.val());     // 项目金额
+            var projectAmount = Number(projectAmountE.val());     // 项目金额
             var netFinancingAmount = Number(netFinancingAmountE.val());     // 净融资金额
-            var financeAccount = Number(financeE.val());        // 融资金额
+            var financeAmount = Number(financeE.val());        // 融资金额
             var cautionMoney = Number(cautionMoneyE.val());        // 保证金
             var serviceCharge = Number(serviceChargeE.val());        // 服务费
             var firstPayScale = Number(firstPayScaleE.val()) * 100;     // 首付比例
@@ -711,25 +849,25 @@
             // 项目金额 (是否打包)
             if (type === true) {    // 打包
                 // 项目金额 = 车辆实际价格 + 购置税 + 保险 + 其他费用
-                projectAccount = pawnValue + buyTax + assure + otherFee;
+                projectAmount = pawnValue + buyTax + assure + otherFee;
             } else if (type === false) {
                 // 项目金额 = 车辆实际价格
-                projectAccount = pawnValue;
+                projectAmount = pawnValue;
             }
             /*// 首付金额 = 车辆实际价格 * 首付比例
-            firstPayAccount = pawnValue * firstPayScale / 10000;*/
+            firstPayAmount = pawnValue * firstPayScale / 10000;*/
             // 融资金额 = 项目金额 - 首付金额 + 附加融资额
-            financeAccount = projectAccount - firstPayAccount + attachFinance;
+            financeAmount = projectAmount - firstPayAmount + attachFinance;
             // 净融资额 = 首付金额 - 保证金 - 服务费
-            netFinancingAmount = firstPayAccount - cautionMoney - serviceCharge;
+            netFinancingAmount = firstPayAmount - cautionMoney - serviceCharge;
             /*// 首付比例 = 首付金额 / 车辆实际价格
-            firstPayScale = firstPayAccount / pawnValue;*/
+            firstPayScale = firstPayAmount / pawnValue;*/
 
 
-            financeE.val(financeAccount).siblings('.value_text').find('.value').text(financeAccount);
-            projectAccountE.val(projectAccount).siblings('.value_text').find('.value').text(projectAccount);
+            financeE.val(financeAmount).siblings('.value_text').find('.value').text(financeAmount);
+            projectAmountE.val(projectAmount).siblings('.value_text').find('.value').text(projectAmount);
             netFinancingAmountE.val(netFinancingAmount).siblings('.value_text').find('.value').text(netFinancingAmount);
-            firstPayAccountE.val(firstPayAccount);
+            firstPayAmountE.val(firstPayAmount);
         }
 
         // 获取品牌并展示
@@ -788,6 +926,8 @@
                 }
             });
         }
+
+
 
 
         $(function() {

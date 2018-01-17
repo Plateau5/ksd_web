@@ -69,6 +69,9 @@ function validateBlurEmpty () {
             t.css({
                 'border-color' : '#e4e4e4'
             }).siblings('.tips_info').hide();
+            return true;
+        } else {
+            return false;
         }
     });
 }
@@ -98,29 +101,40 @@ function selectListener () {
  * @param max   {Number} 最大可输入值。
  */
 function intOrFloat (ele, max) {
-    ele.on("keyup", function () {
+    ele.on("input", function () {
         var reg = /^\d{0,7}(\.\d{0,2})?$/g;
         var _this = $(this);
-        var val = _this.val();
-        if (reg.test(val)) {
-            _this.siblings('.tips_info').hide();
-            return true;
-        } else {
-            val = Number(val);
-            if (!isNaN(val) && val != 0) {
-                val = (/\d+(\.\d{1,2})?/g.exec(val))[0];
-                _this.val(val);
+        var isVerify = _this.attr('verify');
+        if (isVerify == 1) {
+            var val = _this.val();
+            if (reg.test(val)) {
                 _this.siblings('.tips_info').hide();
+                _this.attr('verify', 1);
+                return true;
             } else {
-                _this.val(0);
-                _this.siblings('.tips_info').show().find('.tips_text').text("只允许输入数字,最多两位小数");
+                val = Number(val);
+                if (!isNaN(val) && val != 0) {
+                    val = (/\d+(\.\d{1,2})?/g.exec(val))[0];
+                    _this.val(val);
+                    _this.siblings('.tips_info').hide();
+                    _this.attr('verify', 1);
+                    return true;
+                } else {
+                    _this.val(0);
+                    _this.siblings('.tips_info').show().find('.tips_text').text("只允许输入数字,最多两位小数");
+                    _this.attr('verify', 0);
+                    return false;
+                }
+            }
+            if (val > max) {
+                _this.siblings('.tips_info').show().find('.tips_text').text("最大可输入数值为"+ max +".");
+                _this.attr('verify', 0);
+                return false;
+            } else {
+                _this.siblings('.tips_info').hide();
+                _this.attr('verify', 1);
                 return false;
             }
-        }
-        if (val > max) {
-            _this.siblings('.tips_info').show().find('.tips_text').text("最大可输入数值为"+ max +".");
-        } else {
-            _this.siblings('.tips_info').hide();
         }
     });
 }
@@ -159,6 +173,8 @@ function brandChoose () {
         year && (param.year = year);
         parent_id && (param.parent_id = parent_id);
         if (_this.hasClass('carSeries')) {
+            $('.car_year').val('');
+            $('.car_model').html('<option value="">请选择</option>');
             return false;
         }else if (_this.hasClass('car_model')) {
             var price = _this.find('option:selected').data('price');
@@ -171,6 +187,10 @@ function brandChoose () {
             var optStr = createBrandOption(brandData, queryType);
             nextBrand.html(optStr);
             priceELe.val(0).siblings('.value_text').find('.value').text(0);
+            if (!_this.hasClass('car_year')) {
+                $('.car_year').val('');
+                $('.car_model').html('<option value="">请选择</option>');
+            }
         }
 
     });
@@ -347,23 +367,7 @@ function verifyEmpty () {
                     });
                 }
             }
-        }/* else if (_spouse.length > 0 && !spouse.is(':hidden')) {  // 是配偶不是直系亲属
-            if (!v) {
-                isAleary = false;
-                _this.css({
-                    'border-color' : 'rgb(251, 39, 65)'
-                });
-                // return false;
-            }
-        } else if (_parent.length > 0 && !parent.is(':hidden')) {   // 是直系亲属不是配偶
-            if (!v) {
-                isAleary = false;
-                _this.css({
-                    'border-color' : 'rgb(251, 39, 65)'
-                });
-                // return false;
-            }
-        }*/
+        }
     });
 
     select.each(function () {
@@ -373,7 +377,7 @@ function verifyEmpty () {
         var _parent = _this.parents('.parent_info');
         var _spouse = _this.parents('.spouse_info');
         var _workInfo = _this.parents('.work_info');
-        if ((_parent.length <= 0 && _spouse.length <= 0 && _workInfo <= 0)
+        if ((_parent.length <= 0 && _spouse.length <= 0 && _workInfo.length <= 0)
             || (_spouse.length > 0 && !spouse.is(':hidden'))
             || (_parent.length > 0 && !parent.is(':hidden'))
             || (_workInfo.length > 0 && !workInfo.is(':hidden'))
@@ -387,6 +391,7 @@ function verifyEmpty () {
             }
         }
     });
+
 
     return isAleary;
 }
@@ -559,9 +564,9 @@ function saveAndGoNext (btn, nextPath, url) {
     var financeId = $.trim($('#financeId').val());
     var queryType = $.trim($('#queryType').val());
     var preCode = $.trim($('#preCode').val());
-    var workInfo = $('.work_info');     // 工作模块
-    var verifyPass = verifyEmpty();
-    if (verifyPass) {
+    var verifyPass = verifyEmpty();     // 是否填写完整
+    var verifyAmountPass = verifyAmount();      // 融资金额是否合法
+    if (verifyPass && verifyAmountPass) {
         btn.off('click');
         clearWorkInfo();    // 清除工作信息部分
         clearSpouseOrParentInfo();      // 清除配偶或是直系亲属信息
@@ -630,7 +635,6 @@ function calcRepaymentPlan () {
     // var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
     var rentDue = 12;
     var data = {
-        reachRent : null,       // 每期租金
         interestRateAmount : [],        // 利息金额
         principalAmount : []        // 本金金额
     };
