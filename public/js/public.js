@@ -58,6 +58,9 @@ String.prototype.number = function () {
 String.prototype.trim = function () {
     return $.trim(this);
 };
+Number.prototype.number = function() {
+    return Number(this);
+};
 // ----------------------------------------------------------------------
 // <summary>
 // 限制只能输入数字
