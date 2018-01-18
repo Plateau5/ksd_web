@@ -563,6 +563,7 @@ function bindSubmitEvent () {
 function saveAndGoNext (btn, nextPath, url) {
     var financeId = $.trim($('#financeId').val());
     var queryType = $.trim($('#queryType').val());
+    var nextQueryType = $('#nextQueryType').val().trim();
     var preCode = $.trim($('#preCode').val());
     var verifyPass = verifyEmpty();     // 是否填写完整
     if (!ISCARINFO || ISCARINFO === undefined) {
@@ -596,7 +597,7 @@ function saveAndGoNext (btn, nextPath, url) {
                             action : nextPath,
                             param : {
                                 finance_id : financeId,
-                                query_type : queryType,
+                                query_type : nextQueryType,
                                 preCode : preCode
                             }
                         })
@@ -766,6 +767,8 @@ function verifyImgPass () {
  * @author Arley Joe 2018-1-5 10:51:23
  */
 function fileSaveAndGoNext (btn, nextPath, url) {
+    var queryType = $.trim($('#queryType').val());
+    var nextQueryType = $('#nextQueryType').val().trim();
     var type = $.trim(btn.data('type')).number();
     var fileData = getData(type);
     fileData = JSON.stringify(fileData);
@@ -794,7 +797,7 @@ function fileSaveAndGoNext (btn, nextPath, url) {
                             action : nextPath,
                             param : {
                                 finance_id : financeId,
-                                query_type : 1
+                                query_type : nextQueryType
                             }
                         })
                     });

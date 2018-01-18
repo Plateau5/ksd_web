@@ -33,6 +33,7 @@
                         <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
                         <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
                         <input type="hidden" name="id" value="{{sponsorInfo.id}}" id="PAOrderId">
+                        <input type="hidden" name="nextQueryType" value="{{nextQueryType}}" id="nextQueryType">
                         <!-- 基本信息 Begin -->
                         <div class="options_title">基本信息</div>
                         <div class="option_item">

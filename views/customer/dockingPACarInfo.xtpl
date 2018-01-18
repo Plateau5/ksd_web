@@ -32,6 +32,7 @@
                         <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
                         <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
                         <input type="hidden" name="id" value="{{carInfo.id}}">
+                        <input type="hidden" name="nextQueryType" value="{{nextQueryType}}" id="nextQueryType">
                         <!-- 车辆基本信息 Begin -->
                         <div class="options_title">车辆信息</div>
                         <div class="option_item">
@@ -312,13 +313,14 @@
                             </div>
                             <div class="column_val">
                                 <input type="hidden" name="productId" value="{{carInfo.productId}}" id="selectedProductId" />
+                                <input type="hidden" name="productNumber" value="{{carInfo.productId}}" id="productNumber" />
                                 <select name="productName" id="productName">
                                     <option value="">请选择</option>
                                     {{#each (productData) }}
                                         {{#if (this.ID === carInfo.productId) }}
-                                            <option data-product_id="{{this.ID}}" value="{{this.PRODUCTID}}" data-price="{{this.INTERESTRATE}}" selected>{{this.NAME}}</option>
+                                            <option data-product_id="{{this.ID}}" data-product_number="{{this.PRODUCTID}}" value="{{this.NAME}}" data-price="{{this.INTERESTRATE}}" selected>{{this.NAME}}</option>
                                         {{else}}
-                                            <option data-product_id="{{this.ID}}" value="{{this.PRODUCTID}}" data-price="{{this.INTERESTRATE}}">{{this.NAME}}</option>
+                                            <option data-product_id="{{this.ID}}" data-product_number="{{this.PRODUCTID}}" value="{{this.NAME}}" data-price="{{this.INTERESTRATE}}">{{this.NAME}}</option>
                                         {{/if}}
                                     {{/each}}
                                 </select>
@@ -711,10 +713,13 @@
         // 产品变动时间清空融资金额、附加融资额、服务费、保证金
         function productEmptiedPrice () {
             var selectedProductId = $('#selectedProductId');        // 产品ID值
+            var selectedProductNum = $('#productNumber');       // 产品编码
             $('#productName').on('change', function (){
                 var _this = $(this);
                 var value = _this.find('option:selected').data('product_id');     // 选中的产品productId
+                var productNum = _this.find('option:selected').data('product_number');      // 选中产品的编码
                 selectedProductId.val(value);
+                selectedProductNum(productNum);
                 $('#cautionMoney, #serviceCharge, #finance, #attachFinance').val(0);
                 calcfinanceAmount();
             });

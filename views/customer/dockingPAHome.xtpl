@@ -134,6 +134,14 @@
                     });
                 }*/
                 var icon = _this.find('.xf_edit_home_icon'); // 是否是编辑完成的icon
+                var nextSibling = _this.next('.info_item');     // 当前元素的下一个兄弟元素节点
+                var isNextHasFinish = nextSibling.hasClass('xf_edit_home_icon');        // 下一个兄弟元素是否完成编辑
+                var nextQueryType = null;
+                if (isNextHasFinish) {
+                    nextQueryType = 1;
+                } else {
+                    nextQueryType = 0;
+                }
                 // 如果无已完成标识则判断兄弟元素是否编辑完成。
                 if (icon.length <= 0) {
                     var isPrevAlreardy = true;  // 兄弟元素是否已经编辑完成 完成(默认)：true, 未完成: false
@@ -141,7 +149,7 @@
                         var _thisSibiling = _this.siblings('.info_item').eq(i);
                         var moduleName = '';    // 当前兄弟元素的模块名称（中文）
                         var module = $.trim(_thisSibiling.data('module'));  // 当前兄弟元素的模块名称
-                        _icon = _thisSibiling.find('.xf_edit_home_icon');    // 当前兄弟元素的编辑完成icon
+                        var _icon = _thisSibiling.find('.xf_edit_home_icon');    // 当前兄弟元素的编辑完成icon
                         if (_icon.length <= 0) {
                             switch (module) {
                                 case 'car' :
@@ -178,7 +186,8 @@
                                 query_type : 0,
                                 finance_id : financeId,
                                 preCode : preCode,
-                                loanID : loanID
+                                loanID : loanID,
+                                nextQueryType : nextQueryType
                             }
                         });
                     }
@@ -191,7 +200,8 @@
                             query_type : 1,
                             finance_id : financeId,
                             preCode : preCode,
-                            loanID : loanID
+                            loanID : loanID,
+                            nextQueryType : nextQueryType
                         }
                     });
                 }
