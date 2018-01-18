@@ -900,6 +900,21 @@ function chooseSelectOccoupation () {
     });
 }
 
+/**
+ * 设置职业选中项的中文名称
+ * @author Arley Joe 2018-1-18 16:57:21
+ */
+function setOccupationName () {
+    var empOccupation = $('select.occupation');
+    empOccupation.on('change', function () {
+        var _this = $(this);
+        var opt = _this.find('option:selected');
+        var name = opt.text().trim();
+        var nameInput = _this.siblings('.occupationName');
+        nameInput.val(name);
+    });
+}
+
 
 /**
  * 获取省份数据并创建
@@ -977,6 +992,22 @@ function createCityList () {
         $('#'+ provinceType + 'City').html(citys);
     });
 
+}
+
+/**
+ * 设置省市的选中项中文名
+ * @author  Arley Joe 2018-1-18 16:30:24
+ */
+function setAddressName () {
+    var citySelect = $('select.province, select.city');
+    citySelect.on('change', function () {
+        var _this = $(this);
+        var opt = _this.find('option:selected');
+        var name = opt.text().trim();
+        var type = _this.data('name');      // 是省份还是城市
+        var nameInput = _this.siblings('.'+ type + 'Name');
+        nameInput.val(name);
+    });
 }
 
 /**

@@ -207,10 +207,12 @@
                                 <div class="column_val">
                                     <input type="hidden" class="provinceKey" value="{{renterInfo.homeProvince}}">
                                     <input type="hidden" class="cityKey" value="{{renterInfo.homeCity}}">
-                                    <select name="homeProvince" id="homeProvince" class="province" data-type="home" style="width: 108px;margin-right: 10px;">
+                                    <input type="hidden" class="provinceName" name="homeProvinceName" value="{{renterInfo.homeProvinceName}}">
+                                    <input type="hidden" class="cityName" name="homeCityName" value="{{renterInfo.homeCityName}}">
+                                    <select name="homeProvince" id="homeProvince" class="province" data-type="home" data-name="province" style="width: 108px;margin-right: 10px;">
                                         <option value="">请选择</option>
                                     </select>
-                                    <select name="homeCity" id="homeCity" class="city" style="width: 108px;">
+                                    <select name="homeCity" id="homeCity" class="city" data-name="city" data-type="home" style="width: 108px;">
                                         <option value="">请选择</option>
                                     </select>
                                 </div>
@@ -287,10 +289,12 @@
                                 <div class="column_val">
                                     <input type="hidden" class="provinceKey" value="{{renterInfo.estateProvince}}">
                                     <input type="hidden" class="cityKey" value="{{renterInfo.estateCity}}">
-                                    <select name="estateProvince" id="estateProvince" class="province" data-type="estate" style="width: 108px;margin-right: 10px;">
+                                    <input type="hidden" class="provinceName" name="estateProvinceName" value="{{renterInfo.estateProvinceName}}">
+                                    <input type="hidden" class="cityName" name="estateCityName" value="{{renterInfo.estateCityName}}">
+                                    <select name="estateProvince" id="estateProvince" class="province" data-name="province" data-type="estate" style="width: 108px;margin-right: 10px;">
                                         <option value="">请选择</option>
                                     </select>
-                                    <select name="estateCity" id="estateCity" class="city" style="width: 108px;">
+                                    <select name="estateCity" id="estateCity" data-name="city" data-type="estate" class="city" style="width: 108px;">
                                         <option value="">请选择</option>
                                     </select>
                                 </div>
@@ -657,10 +661,12 @@
                                 <div class="column_val">
                                     <input type="hidden" class="provinceKey" value="{{renterInfo.empProvince}}">
                                     <input type="hidden" class="cityKey" value="{{renterInfo.empCity}}">
-                                    <select name="empProvince" id="empProvince" class="province" data-type="emp" style="width: 108px;margin-right: 10px;">
+                                    <input type="hidden" class="provinceName" name="empProvinceName" value="{{renterInfo.empProvinceName}}">
+                                    <input type="hidden" class="cityName" name="empCityName" value="{{renterInfo.empCityName}}">
+                                    <select name="empProvince" id="empProvince" class="province" data-name="province" data-type="emp" style="width: 108px;margin-right: 10px;">
                                         <option value="">请选择</option>
                                     </select>
-                                    <select name="empCity" id="empCity" class="city" style="width: 108px;">
+                                    <select name="empCity" id="empCity" class="city" data-name="city" style="width: 108px;">
                                         <option value="">请选择</option>
                                     </select>
                                 </div>
@@ -671,6 +677,7 @@
                                 </div>
                                 <div class="column_val">
                                     <input type="hidden" value="{{renterInfo.empOccupation}}" class="occupationKey" />
+                                    <input type="hidden" value="{{renterInfo.empOccupationName}}" class="occupationName" />
                                     <select name="empOccupation" class="occupation">
                                         <option value="">请选择</option>
                                         {{#if (renterInfo.empOccupation) }}
@@ -999,6 +1006,8 @@
                 verifyGender();
             });       // 证件号码校验
             isHasCarLoan();     // 是否有车贷更改
+            setAddressName();       // 设置省市选中的中文。
+            setOccupationName();        // 设置职业选中的中文。
         });
     })(jQuery,undefined);
 </script>

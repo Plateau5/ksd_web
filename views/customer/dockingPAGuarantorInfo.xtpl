@@ -218,10 +218,12 @@
                             <div class="column_val">
                                 <input type="hidden" value="{{sponsorInfo.homeProvince}}" class="provinceKey">
                                 <input type="hidden" value="{{sponsorInfo.homeCity}}" class="cityKey">
-                                <select name="homeProvince" id="homeProvince" class="province" data-type="home" style="width: 108px;margin-right: 10px;">
+                                <input type="hidden" class="provinceName" name="homeProvinceName" value="{{sponsorInfo.homeProvinceName}}">
+                                <input type="hidden" class="cityName" name="homeCityName" value="{{sponsorInfo.homeCityName}}">
+                                <select name="homeProvince" id="homeProvince" class="province" data-name="province" data-type="home" style="width: 108px;margin-right: 10px;">
                                     <option value="">请选择</option>
                                 </select>
-                                <select name="homeCity" id="homeCity" class="city" style="width: 108px;">
+                                <select name="homeCity" id="homeCity" class="city"  data-name="city" style="width: 108px;">
                                     <option value="">请选择</option>
                                 </select>
                             </div>
@@ -297,10 +299,12 @@
                             <div class="column_val">
                                 <input type="hidden" value="{{sponsorInfo.estateProvince}}" class="provinceKey">
                                 <input type="hidden" value="{{sponsorInfo.estateCity}}" class="cityKey">
-                                <select name="estateProvince" id="estateProvince" class="province" data-type="estate" style="width: 108px;margin-right: 10px;">
+                                <input type="hidden" class="provinceName" name="estateProvinceName" value="{{sponsorInfo.estateProvinceName}}">
+                                <input type="hidden" class="cityName" name="estateCityName" value="{{sponsorInfo.estateCityName}}">
+                                <select name="estateProvince" id="estateProvince" class="province" data-name="province" data-type="estate" style="width: 108px;margin-right: 10px;">
 
                                 </select>
-                                <select name="estateCity" id="estateCity" class="city" style="width: 108px;">
+                                <select name="estateCity" id="estateCity" class="city" data-name="city" style="width: 108px;">
 
                                 </select>
                             </div>
@@ -432,10 +436,12 @@
                                 <div class="column_val">
                                     <input type="hidden" value="{{sponsorInfo.empProvince}}" class="provinceKey">
                                     <input type="hidden" value="{{sponsorInfo.empCity}}" class="cityKey">
-                                    <select name="empProvince" id="empProvince" class="province" data-type="emp" style="width: 108px;margin-right: 10px;">
+                                    <input type="hidden" class="provinceName" name="empProvinceName" value="{{sponsorInfo.empProvinceName}}">
+                                    <input type="hidden" class="cityName" name="empCityName" value="{{sponsorInfo.empCityName}}">
+                                    <select name="empProvince" id="empProvince" class="province" data-name="province" data-type="emp" style="width: 108px;margin-right: 10px;">
                                         <option value="">请选择</option>
                                     </select>
-                                    <select name="empCity" id="empCity" class="city" style="width: 108px;">
+                                    <select name="empCity" id="empCity" class="city"  data-name="city" style="width: 108px;">
                                         <option value="">请选择</option>
                                     </select>
                                 </div>
@@ -446,6 +452,7 @@
                                 </div>
                                 <div class="column_val">
                                     <input type="hidden" value="{{sponsorInfo.empOccupation}}" class="occupationKey">
+                                    <input type="hidden" value="{{sponsorInfo.empOccupationName}}" class="occupationName" />
                                     <select name="empOccupation" class="occupation">
                                         <option value="">请选择</option>
                                     </select>
@@ -516,6 +523,9 @@
             verifyLicense('.ID_num', function () {
                 verifyGender();     // 设置性别
             });       // 证件号码校验
+            setAddressName();       // 设置省市选中的中文。
+            setOccupationName();        // 设置职业选中的中文。
+
         });
     })(jQuery,undefined);
 </script>
