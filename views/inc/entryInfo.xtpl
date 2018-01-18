@@ -62,11 +62,11 @@
 			{{/if}}
 		{{/if}}
 		{{#if (vo.status === 4) }}
-
+			{{#if (verifyCode(1236))}}<!--todo  修改查看详情的权限-->
 			<a href="javascript:" id="viewDockingPADetail" data-id="{{finance_id}}" data-url="{{markUri}}/docking/pingan/detailHome" class="btn_item" lang="{{finance_id}}">
 				<div class="requestpayout_detail_btn view_docking_pingan_detail">查看详情</div>
 			</a>
-
+			{{/if}}
 		{{/if}}
 		{{#if (vo.status > 4) }}
 			<div class="cursor requestpayout_detail_btn requestpayout_download download_file" id="" alt="1" lang="{{finance_id}}">全部下载</div>

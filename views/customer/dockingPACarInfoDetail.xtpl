@@ -335,6 +335,7 @@
 
 
                 <!-- 还款计划表弹出层 -->
+                {{#if (repaymentPlan.length > 0) }}
                 <div class="repayment_plan_table">
                     <div class="content">
                         <table id="repaymentPlanTable">
@@ -355,14 +356,15 @@
                             </tr>
                             </thead>
                             <tbody>
+                            {{#each (repaymentPlan) }}
                                 <tr>
-                                    <td>2017-01-15</td>
-                                    <td>1</td>
-                                    <td>3543.11</td>
-                                    <td>380.67</td>
-                                    <td>3162.44</td>
+                                    <td>{{this.rentTime[xIndex]}}</td>
+                                    <td>{{xIndex + 1}}</td>
+                                    <td>{{this.eachRent}}</td>
+                                    <td>{{this.interestRateAmount[xIndex]}}</td>
+                                    <td>{{this.principalAmount[xIndex]}}</td>
                                 </tr>
-
+                            {{/each}}
                             </tbody>
                         </table>
                         <div class="confirm_btn_box">
@@ -370,6 +372,7 @@
                         </div>
                     </div>
                 </div>
+                {{/if}}
 
             </div>
             <!---- Part of Main info End ---->
@@ -393,23 +396,9 @@
         function showRepaymentPlan () {
             var btn = $('.confirm_btn, .repayment_plan');
             btn.off('click').on('click', function () {
-                var _this = $(this);
                 var p = $('.repayment_plan_table');
                 if (p.is(':hidden')) {
-                    var product = $('#productName');    // 产品元素
-                    var finance = $('#finance');    // 融资金额
-                    var rentDueE = $('#rentDue');    // 租赁期限
-
-
-                    var financeAmount = finance.val().number();        // 融资金额
-                    var interestRate = product.find('option:selected').data('price');    // 年利率
-                    var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
-                    if (financeAmount !== '' && interestRate !== '' && rentDue !== '') {
-                        createRepaymentPlanTable(financeAmount, interestRate, rentDue);     // 计算还款计划表
-                        p.show();
-                    } else {
-                        $alert('租赁期限、产品名称未选择或是融资金额不合法，请调整后查看。');
-                    }
+                    p.show();
                 } else {
                     p.hide();
                 }

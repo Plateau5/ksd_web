@@ -314,6 +314,7 @@
                             <div class="column_val">
                                 <input type="hidden" name="productId" value="{{carInfo.productId}}" id="selectedProductId" />
                                 <input type="hidden" name="productNumber" value="{{carInfo.productNumber}}" id="productNumber" />
+                                <input type="hidden" name="interestRate" value="{{carInfo.interestRate}}" id="interestRate" />
                                 <select name="productName" id="productName">
                                     <option value="">请选择</option>
                                     {{#each (productData) }}
@@ -714,12 +715,15 @@
         function productEmptiedPrice () {
             var selectedProductId = $('#selectedProductId');        // 产品ID值
             var selectedProductNum = $('#productNumber');       // 产品编码
+            var interestRate = $('#interestRate');      // 产品利率
             $('#productName').on('change', function (){
                 var _this = $(this);
                 var value = _this.find('option:selected').data('product_id');     // 选中的产品productId
                 var productNum = _this.find('option:selected').data('product_number');      // 选中产品的编码
+                var interestRateNumber = _this.find('option:selected').data('price');       // 产品利率
                 selectedProductId.val(value);
                 selectedProductNum.val(productNum);
+                interestRate.val(interestRateNumber);
                 $('#cautionMoney, #serviceCharge, #finance, #attachFinance').val(0);
                 calcfinanceAmount();
             });

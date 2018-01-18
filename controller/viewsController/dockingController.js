@@ -186,6 +186,7 @@ exports.VIEW_DOCKING_PINGAN_DETAILCAR = function(req, res, next) {
             var url = req.body.url;
             data.finance_id = finance_id;
             data.url = url;
+            data.repaymentPlan = calcRepaymentPlan (data.carInfo.financeAmount, data.carInfo.interestRate, data.carInfo.rentDue, data.time);
         }
     }, req, res, next);
 };
@@ -358,6 +359,53 @@ function formatCarInfoAmount (d) {
         d.carInfo.serviceCharge = 0;
         d.carInfo.attachFinance = 0;
     }
+}
+
+
+/**
+ * 还款计划表计算
+ * @author Arley Joe 2018-1-3 18:16:57
+ * @desc :   还款计划表公式：
+ *           每期租金（计划表中为：租金金额）=〔融资金额×月利率×(1＋月利率)^租赁期限〕÷〔(1＋月利率)^租赁期限-1〕
+ *           利息金额 = 融资金额 × 月利率 × 〔(1+月利率)^租赁期限-(1+月利率)^(租金期次-1)〕÷〔(1+月利率)^租赁期限-1〕
+ *           本金金额 = 融资金额×月利率×(1+月利率)^(租金期次-1)÷〔(1+月利率)^租赁期限-1〕
+ *
+ *           其中：328产品月利率=(11.21%÷12)；329产品月利率=(11.42%÷12)
+ */
+
+function calcRepaymentPlan (financeAmount, interestRate, rentDue, time) {
+    interestRate = interestRate / 100;
+    var data = {
+        interestRateAmount : [],        // 利息金额
+        principalAmount : [],        // 本金金额,
+        rentTime : []
+    };
+    var timeArr = time.split('-');
+    timeArr[0] = timeArr[0].number();
+    timeArr[1] = timeArr[1].number();
+    var month = timeArr[1],
+        year = timeArr[0];
+    var monthRent = Number((interestRate / 12));
+    data.eachRent = (financeAmount * monthRent * Math.pow((1 + monthRent), rentDue)  / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
+    for (var i = 1; i <= rentDue; i++) {
+        // 循环时间
+        month += 1;     // 首个还款日为下个月的15号
+        if (month == 12) {
+            year += 1;
+            month = 1;
+        }
+        // 每期利息金额
+        var a = (financeAmount * monthRent * (Math.pow((1 + monthRent), rentDue) - Math.pow((1 + monthRent), (i - 1))) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
+        // 本金金额
+        var b = (financeAmount * monthRent * Math.pow((1 + monthRent), (i - 1)) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
+        a = formatNum(a);
+        b = formatNum(b);
+        data.interestRateAmount.push(a);
+        data.principalAmount.push(b);
+        var payTime = year + '-' + ((month < 10) ? ('0' + month) : month) +'-15';
+        data.rentTime.push(payTime);
+    }
+    return data;
 }
 
 
