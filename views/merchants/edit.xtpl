@@ -200,7 +200,7 @@
                             {{#each (signList) }}
                             {{#if (detail.sign_ids.indexOf(this.id) !== -1) }}
                             <div class="form_group">
-                                <input type="checkbox" checked="checked" class="sign_ids" name="sign_ids" value="{{this.id }}" />
+                                <input type="checkbox" checked="checked" class="sign_org" name="sign_ids" value="{{this.id }}" />
                                 <label class="checked">{{this.value }}</label>
                             </div>
                             {{else}}

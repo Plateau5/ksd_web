@@ -1,0 +1,291 @@
+<!-- 录入—担保人信息(个人) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{include ("./../inc/cssSources")}}
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <title>{{title}}</title>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        {{include ('./../inc/header')}}
+        <!-------- Part of header End -------->
+
+        <!-------- Part of main Begin -------->
+        <div id="section" class="section normal_width">
+            <!---- Part of slide nav Begin ---->
+            {{include ('./../inc/sideNav')}}
+            <!---- Part of slide nav End ---->
+
+            <!---- Part of Main info Begin ---->
+            <div id="main" class="main docking_container docking_detail">
+                <div class="crumbs_nav">
+                    <a href="{{markUri}}/customer/loan/system" class="crumbs_item">贷款管理</a>
+                    <a href="{{markUri}}/customer/loan/alreadyAllot" class="crumbs_item">已分配</a>
+                    <a href="javascript:;" class="crumbs_item go_order_detail" data-detailUrl="{{url}}">查看详情</a>
+                    <a href="javascript:;" data-href="{{markUri}}/docking/pingan/home" class="crumbs_item go_docking_home">录入资料</a>
+                    <a href="javascript:;" class="crumbs_item">担保人信息</a>
+                </div>
+                <div class="form_content form_options">
+                    <form action="" class="basic_info_edit"  role="saveForm">
+                        <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
+                        <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
+                        <input type="hidden" name="id" value="{{sponsorInfo.id}}" id="PAOrderId">
+                        <!-- 基本信息 Begin -->
+                        <div class="options_title">基本信息</div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">姓名：</span>
+                            </div>
+                            <div class="column_val">
+                                {{sponsorInfo.name}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">手机号码：</span>
+                            </div>
+                            <div class="column_val">
+                                {{sponsorInfo.cellphone}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">证件类型：</span>
+                            </div>
+                            <div class="column_val">
+                                居民身份证
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">证件号码：</span>
+                            </div>
+                            <div class="column_val">
+                                {{sponsorInfo.IDnum}}
+                            </div>
+                        </div>
+                        <div class="option_item gender">
+                            <div class="column_name">
+                                <span class="options_name">性别：</span>
+                            </div>
+                            <div class="column_val">
+                                {{#if (sponsorInfo.sex === '1') }}
+                                男
+                                {{/if}}
+                                {{#if (sponsorInfo.sex === '2') }}
+                                女
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">出生日期：</span>
+                            </div>
+                            <div class="column_val">
+                                {{sponsorInfo.birthday}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">与承租人关系：</span>
+                            </div>
+                            <div class="column_val">
+                                {{#if (renterInfo.emgconRelation === '1') }}
+                                亲属
+                                {{elseif (renterInfo.emgconRelation === '2') }}
+                                朋友
+                                {{elseif (renterInfo.emgconRelation === '3') }}
+                                同事
+                                {{elseif (renterInfo.emgconRelation === '4') }}
+                                其他
+                                {{else}}
+                                其他
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">教育：</span>
+                            </div>
+                            <div class="column_val">
+                                {{#if (renterInfo.education === '1') }}
+                                本科以上
+                                {{elseif (renterInfo.education === '2') }}
+                                本科
+                                {{elseif (renterInfo.education === '3') }}
+                                专科
+                                {{elseif (renterInfo.education === '4') }}
+                                高中
+                                {{elseif (renterInfo.education === '5') }}
+                                中专
+                                {{elseif (renterInfo.education === '6') }}
+                                技校
+                                {{elseif (renterInfo.education === '7') }}
+                                高中以下
+                                {{else}}
+                                高中以下
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">身份证地址：</span>
+                            </div>
+                            <div class="column_val">
+                                {{sponsorInfo.homeProvinceName}}{{sponsorInfo.homeCityName}}{{sponsorInfo.homeAddressName}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">房产类型：</span>
+                            </div>
+                            <div class="column_val">
+                                {{#if (renterInfo.estateType === '1') }}
+                                自有无贷
+                                {{elseif (renterInfo.estateType === '2') }}
+                                融资业务买房
+                                {{elseif (renterInfo.estateType === '3') }}
+                                借住直系亲属
+                                {{elseif (renterInfo.estateType === '4') }}
+                                租房
+                                {{elseif (renterInfo.estateType === '5') }}
+                                单位房产
+                                {{elseif (renterInfo.estateType === '6') }}
+                                公房租赁
+                                {{elseif (renterInfo.estateType === '7') }}
+                                自建房
+                                {{else}}
+                                自建房
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">邮政编码：</span>
+                            </div>
+                            <div class="column_val">
+                                {{sponsorInfo.homezip}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">现居住地地址：</span>
+                            </div>
+                            <div class="column_val">
+                                {{sponsorInfo.estateProvinceName}}{{sponsorInfo.estateCityName}}{{sponsorInfo.estateAddressName}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">有无工作：</span>
+                            </div>
+                            <div class="column_val">
+                                    {{#if (sponsorInfo.work === '1') }}
+                                    有
+                                    {{/if}}
+                                    {{#if (sponsorInfo.work === '2') }}
+                                    无
+                                    {{/if}}
+                            </div>
+                        </div>
+                        <!--基本信息 End-->
+                        <!--工作单位信息  start-->
+                        {{#if (sponsorInfo.work === '1') }}
+                        <div class="work_info">
+                            <div class="options_title clearfix" style="padding-top: 20px;">工作单位</div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">单位名称：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{sponsorInfo.empName}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">企业性质：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{#if (renterInfo.empType === '1') }}
+                                    有限责任公司
+                                    {{elseif (renterInfo.empType === '2') }}
+                                    股份有限公司
+                                    {{elseif (renterInfo.empType === '3') }}
+                                    国有企业
+                                    {{elseif (renterInfo.empType === '4') }}
+                                    个人独资企业
+                                    {{elseif (renterInfo.empType === '5') }}
+                                    个体工商户
+                                    {{elseif (renterInfo.empType === '6') }}
+                                    外商投资企业
+                                    {{elseif (renterInfo.empType === '7') }}
+                                    私营企业
+                                    {{elseif (renterInfo.empType === '8') }}
+                                    其他
+                                    {{else}}
+                                    其他
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">本单位工作年限：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{sponsorInfo.workYear}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">单位电话：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{sponsorInfo.empPhone}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">单位地址：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{sponsorInfo.empProvinceName}}{{sponsorInfo.empCityName}}{{sponsorInfo.empAddressName}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">职业：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{sponsorInfo.empOccupationName}}
+                                </div>
+                            </div>
+                            <!--工作单位信息  end-->
+                        </div>
+                        {{/if}}
+                    </form>
+                </div>
+                <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
+                    <a href="javascript:window.history.back();" id="saveAndGoNext" class="btn orange_btn confirm edit_confirm">返回</a>
+                </div>
+
+
+            </div>
+            <!---- Part of Main info End ---->
+        </div>
+        <!-------- Part of main End -------->
+
+        <!-------- Part of footer Begin -------->
+        <!--<div id="footer" class="footer"></div>-->
+        <!-------- Part of footer End -------->
+    </div>
+    <div class="loading" id="loading" style="display: none;"></div>
+</body>
+{{include ('./../inc/jsSources')}}
+<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/jsonsql-0.1.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
+</html>

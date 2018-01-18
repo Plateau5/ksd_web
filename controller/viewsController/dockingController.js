@@ -137,6 +137,125 @@ exports.VIEW_DOCKING_PINGAN_CREDIT = function(req, res, next) {
     }, req, res, next);
 };
 
+// 平安对接-查看详情-跳转录入首页
+exports.VIEW_DOCKING_PINGAN_DETAILHOME = function(req, res, next) {
+    var financeId = req.body.finance_id;
+    var queryType = req.body.query_type;
+    var url = req.body.url;
+    common.getPageData({
+        url : '/api/docking/table',
+        title : '客户-查看录入资料',
+        page : './customer/dockingPAHomeDetail',
+        callback : function (data) {
+            data.finance_id = financeId;
+            data.query_type = queryType;
+            data.url = url;
+        }
+    }, req, res, next);
+};
+// 平安对接-查看详情-车辆信息页
+exports.VIEW_DOCKING_PINGAN_DETAILCAR = function(req, res, next) {
+    common.getPageData({
+        url : '/api/pingan/carInfo/detail',
+        title : '客户-查看车辆信息',
+        page : './customer/dockingPACarInfoDetail',
+        callback : function (data) {
+            if (data.carInfo) {
+                data.carInfo = JSON.parse(data.carInfo);
+            }
+            formatCarInfoAmount(data);
+            var queryType = req.body.query_type;
+            var finance_id = req.body.finance_id;
+            var preCode = req.body.preCode;
+            data.preCode = preCode;
+            data.query_type = queryType;
+            var url = req.body.url;
+            data.finance_id = finance_id;
+            data.url = url;
+        }
+    }, req, res, next);
+};
+// 平安对接-查看详情-承租人信息页
+exports.VIEW_DOCKING_PINGAN_DETAILLENDER = function(req, res, next) {
+    common.getPageData({
+        url : '/api/pingan/renterInfo/detail',
+        title : '客户-查看承租人信息',
+        page : './customer/dockingPARenterInfoDetail',
+        callback : function (data) {
+            data.renterInfo = JSON.parse(data.renterInfo);
+            var finance_id = req.body.finance_id;
+            var url = req.body.url;
+            var queryType = req.body.query_type;
+            var preCode = req.body.preCode;
+            data.preCode = preCode;
+            data.query_type = queryType;
+            data.finance_id = finance_id;
+            data.url = url;
+        }
+    }, req, res, next);
+};
+// 平安对接-查看详情-担保人信息页
+exports.VIEW_DOCKING_PINGAN_DETAILGUARGANTOR = function(req, res, next) {
+    common.getPageData({
+        url : '/api/pingan/sponsorInfos/detail',
+        title : '客户-担保人信息',
+        page : './customer/dockingPAGuarantorInfoDetail',
+        callback : function (data) {
+            if (data.sponsorInfo) {
+                data.sponsorInfo = JSON.parse(data.sponsorInfo);
+            }
+            var finance_id = req.body.finance_id;
+            var url = req.body.url;
+            var queryType = req.body.query_type;
+            var preCode = req.body.preCode;
+            data.preCode = preCode;
+            data.query_type = queryType;
+            data.finance_id = finance_id;
+            data.url = url;
+        }
+    }, req, res, next);
+};
+// 平安对接-查看详情-文件信息页
+exports.VIEW_DOCKING_PINGAN_DETAILFILES = function(req, res, next) {
+    common.getPageData({
+        url : '/api/docking/document/list',
+        title : '客户-产看文件信息',
+        page : './customer/dockingPARenterFilesInfoDetail',
+        callback : function (data) {
+            var finance_id = req.body.finance_id;
+            var url = req.body.url;
+            var queryType = req.body.query_type;
+            var preCode = req.body.preCode;
+            data.preCode = preCode;
+            data.query_type = queryType;
+            data.finance_id = finance_id;
+            data.url = url;
+            var formatRes = organizeData(data.data_material);
+            data.dataFiles = formatRes.dataFiles;
+            data.groupNum = formatRes.groupNum;
+            data.groupId = formatRes.groupId;
+        }
+    }, req, res, next);
+};
+// 平安对接-查看详情-征信查询信息页
+exports.VIEW_DOCKING_PINGAN_DETAILCREDIT = function(req, res, next) {
+    common.getPageData({
+        url : '/api/docking/credit/list',
+        title : '客户-征信查询信息',
+        page : './customer/dockingPACreditInfoDetail',
+        callback : function (data) {
+            var finance_id = req.body.finance_id;
+            var url = req.body.url;
+            var queryType = req.body.query_type;
+            var preCode = req.body.preCode;
+            data.preCode = preCode;
+            data.query_type = queryType;
+            data.finance_id = finance_id;
+            data.url = url;
+        }
+    }, req, res, next);
+};
+
 
 /**
  * 文件信息部分数据格式化

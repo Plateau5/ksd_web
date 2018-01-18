@@ -1,0 +1,256 @@
+<!-- 先锋对接录入——担保人（个人） -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{include ("./../inc/cssSources")}}
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <title>{{title}}</title>
+    <style>
+        .dialog-layer .dialog-btn .cancel{background: #1DC6BC !important;}
+        .dialog-layer .dialog-btn .cancel:hover{background: #0B9C94 !important;}
+    </style>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        {{include ('./../inc/header')}}
+        <!-------- Part of header End -------->
+
+        <!-------- Part of main Begin -------->
+        <div id="section" class="section normal_width">
+            <!---- Part of slide nav Begin ---->
+            {{include ('./../inc/sideNav')}}
+            <!---- Part of slide nav End ---->
+
+            <!---- Part of Main info Begin ---->
+            <div id="main" class="main docking_container">
+                <div class="crumbs_nav">
+                    <a href="{{markUri}}/customer/loan/system" class="crumbs_item">贷款管理</a>
+                    <a href="{{markUri}}/customer/loan/alreadyAllot" class="crumbs_item">已分配</a>
+                    <a href="javascript:;" class="crumbs_item go_order_detail" data-detailUrl="{{url}}">查看详情</a>
+                    <a href="javascript:;" class="crumbs_item">查看录入资料</a>
+                </div>
+                <div class="form_content content_box xf_edit_content">
+                    <ul class="edit_infos">
+                        <li class="info_item" data-module="car" data-route="{{markUri}}/docking/pingan/detaiCar">
+                            <a href="javascript:;">
+                                <div class="text text_center">
+                                    <span class="asterisk">*</span>
+                                    <span>车辆信息</span>
+                                </div>
+                                <em class="edit_status_icon xf_edit_home_icon"></em>
+                            </a>
+                        </li>
+                        <li class="info_item" data-module="renter" data-route="{{markUri}}/docking/pingan/detaiRenter">
+                            <a href="javascript:;">
+                                <div class="text text_center">
+                                    <span class="asterisk">*</span>
+                                    <span>承租人信息</span>
+                                </div>
+                                <em class="edit_status_icon xf_edit_home_icon "></em>
+                            </a>
+                        </li>
+                        {{#if (isSponsor === 0 || isSponsor === 1) }}
+                        <li class="info_item" data-module="guarantor" data-route="{{markUri}}/docking/pingan/detaiGuarantor">
+                            <a href="javascript:;">
+                                <div class="text text_center">
+                                    <span class="asterisk">*</span>
+                                    <span>担保人信息</span>
+                                </div>
+                                <em class="edit_status_icon xf_edit_home_icon "></em>
+                            </a>
+                        </li>
+                        {{/if}}
+                        <li class="info_item" data-module="files" data-route="{{markUri}}/docking/pingan/detaiFiles">
+                            <a href="javascript:;">
+                                <div class="text text_center">
+                                    <span class="asterisk">*</span>
+                                    <span>文件信息</span>
+                                </div>
+                                <em class="edit_status_icon xf_edit_home_icon"></em>
+                            </a>
+                        </li>
+                        {{#if (!preCode || preCode === '0') }}
+                        <li class="info_item last_item" data-module="credit" data-route="{{markUri}}/docking/pingan/detaiCredit">
+                            <a href="javascript:;">
+                                <div class="text text_center">
+                                    <span class="asterisk">*</span>
+                                    <span>征信查询信息</span>
+                                </div>
+                                <em class="edit_status_icon xf_edit_home_icon"></em>
+                            </a>
+                        </li>
+                        {{/if}}
+                    </ul>
+                </div>
+                <div class="btn_box text_left pad_btm_50 clearfix">
+                    <a href="javascript:window.history.back();" class="btn orange_btn confirm">返回</a>
+                </div>
+
+
+            </div>
+            <!---- Part of Main info End ---->
+        </div>
+        <!-------- Part of main End -------->
+
+        <!-------- Part of footer Begin -------->
+        <!--<div id="footer" class="footer"></div>-->
+        <!-------- Part of footer End -------->
+    </div>
+    <input type="hidden" name="preCode" value="{{preCode}}" id="preCode">
+    <input type="hidden" name="loanID" value="{{loanID}}" id="loanID">
+    <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
+    <div class="loading" id="loading"></div>
+</body>
+{{include ('./../inc/jsSources')}}
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
+</html>
+<script>
+    (function ($) {
+        var financeId = $.trim($('#financeId').val());
+        var preCode = $.trim($('#preCode').val());
+        var loanID = $.trim($('#loanID').val());
+        // 点击tab跳转下一页的逻辑
+        function toNextModule () {
+            var btn = $('.edit_infos .info_item');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                var index = _this.index();  // 当前模块的下标
+                /*if (index == 0) {   // 如果是第一个节点则直接跳转进入该模块编辑模式
+                    var pageUrl = $.trim(_this.data('route'));
+                    return locationTo({
+                        action : pageUrl,
+                        param : {
+                            query_type : 0,
+                            finance_id : financeId,
+                            preCode : preCode,
+                            loanID : loanID
+                        }
+                    });
+                }*/
+                var icon = _this.find('.xf_edit_home_icon'); // 是否是编辑完成的icon
+                // 如果无已完成标识则判断兄弟元素是否编辑完成。
+                if (icon.length <= 0) {
+                    var isPrevAlreardy = true;  // 兄弟元素是否已经编辑完成 完成(默认)：true, 未完成: false
+                    for (var i = 0; i < index; i ++) {
+                        var _thisSibiling = _this.siblings('.info_item').eq(i);
+                        var moduleName = '';    // 当前兄弟元素的模块名称（中文）
+                        var module = $.trim(_thisSibiling.data('module'));  // 当前兄弟元素的模块名称
+                        _icon = _thisSibiling.find('.xf_edit_home_icon');    // 当前兄弟元素的编辑完成icon
+                        if (_icon.length <= 0) {
+                            switch (module) {
+                                case 'car' :
+                                    moduleName = '车辆信息';
+                                    break;
+                                case 'renter' :
+                                    moduleName = '承租人信息';
+                                    break;
+                                case 'guarantor' :
+                                    moduleName = '担保人信息';
+                                    break;
+                                case 'files' :
+                                    moduleName = '文件信息';
+                                    break;
+                                case 'credit' :
+                                    moduleName = '征信查询信息';
+                                    break;
+                            }
+                            $alert('“' + moduleName + '”' + '模块还未填写完成，请先填写该模块。');
+                            isPrevAlreardy = false;
+                            break;
+                        }
+                    }
+                    /*var preSibilings = _this.prevAll('.info_item');
+                    preSibilings.each(function () {
+                        var t = $(this);
+
+                    });*/
+                    if (isPrevAlreardy) {   // 如果兄弟元素都已完成编辑，则该模块直接进入编辑模式
+                        var pageUrl = $.trim(_this.data('route'));
+                        locationTo({
+                            action : pageUrl,
+                            param : {
+                                query_type : 0,
+                                finance_id : financeId,
+                                preCode : preCode,
+                                loanID : loanID
+                            }
+                        });
+                    }
+                // 如果有已完成标识则直接进入编辑模式。
+                } else {
+                    var pageUrl = $.trim(_this.data('route'));
+                    locationTo({
+                        action : pageUrl,
+                        param : {
+                            query_type : 1,
+                            finance_id : financeId,
+                            preCode : preCode,
+                            loanID : loanID
+                        }
+                    });
+                }
+            });
+
+        }
+
+        // 注册提交按钮的点击事件
+        function bindSubmit () {
+            var btn = $('.confirm_submit');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                submitEvent(_this);
+            });
+        }
+
+        // 提交事件
+        function submitEvent (btn) {
+            btn.off('click');
+            var modules = $('.edit_infos .info_item');
+            var isSuccess = true;      // 是否填写完整
+            modules.each(function () {
+                var _this = $(this);
+                var success = _this.find('.xf_edit_home_icon');
+                if (success.length <= 0) {
+                    $alert('您还有模块未填写完成，请先填写完整后再提交。');
+                    isSuccess = false;
+                    return false;
+                }
+            });
+            if (isSuccess) {
+                redefineAjax({
+                    url : contextPath + '/api/pingan/submit',
+                    data : {
+                        finance_id : financeId,
+                        preCode : preCode,
+                        loanID : loanID
+                    },
+                    timeout : 20000,
+                    success : function (res) {
+                        if (res.error_code == 0) {
+                            locationTo({
+                                action : contextPath + markUri + '/customer/loan/alreadyAllot'
+                            });
+                        } else {
+                            $alert(res.error_msg, function () {
+                                bindSubmit();
+                            });
+                        }
+                    },
+                    error : function () {
+                        $alert('提交失败，请重新尝试。', function () {
+                            bindSubmit();
+                        });
+                    }
+                })
+            }
+
+        }
+
+        $(function() {
+            toNextModule();
+            bindSubmit();
+        });
+    })(jQuery,undefined);
+</script>

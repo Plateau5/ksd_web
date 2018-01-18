@@ -166,6 +166,28 @@
                                             </div>
                                         </li>
                                         <li class="item_row">
+                                            <div class="item_name long_text">是否与机构签约：</div>
+                                            <div class="item_value">
+                                                {{#if (detail.is_sign === 1) }}
+                                                是
+                                                {{else}}
+                                                否
+                                                {{/if}}
+                                            </div>
+                                        </li>
+                                        {{#if (detail.is_sign === 1) }}
+                                        <li class="item_row">
+                                            <div class="item_name">签约机构：</div>
+                                            <div class="item_value">
+                                                {{#each (signList) }}
+                                                    {{#if (detail.sign_ids.indexOf(this.id) !== -1) }}
+                                                        {{this.value}}
+                                                    {{/if}}
+                                                {{/each}}
+                                            </div>
+                                        </li>
+                                        {{/if}}
+                                        <li class="item_row">
                                             <div class="item_name">月销量：</div>
                                             <div class="item_value">
                                                 {{#if (!detail.sales_month_value || detail.sales_month_value === '' || detail.sales_month_value.length <= 0) }}

@@ -1,0 +1,423 @@
+<!-- 录入—车辆及贷款信息(个人) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{include ("./../inc/cssSources")}}
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <title>{{title}}</title>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        {{include ('./../inc/header')}}
+        <!-------- Part of header End -------->
+
+        <!-------- Part of main Begin -------->
+        <div id="section" class="section normal_width">
+            {{include ('./../inc/sideNav')}}
+            <!---- Part of slide nav End ---->
+
+            <!---- Part of Main info Begin ---->
+            <div id="main" class="main docking_container docking_detail">
+                <div class="crumbs_nav">
+                    <a href="{{markUri}}/customer/loan/system" class="crumbs_item">贷款管理</a>
+                    <a href="{{markUri}}/customer/loan/alreadyAllot" class="crumbs_item">已分配</a>
+                    <a href="javascript:;" class="crumbs_item go_order_detail" data-detailUrl="{{url}}">查看详情</a>
+                    <a href="javascript:;" data-href="{{markUri}}/docking/pingan/home" class="crumbs_item go_docking_home">录入资料</a>
+                    <a href="javascript:;" class="crumbs_item">车辆信息</a>
+                </div>
+                <div class="form_content form_options">
+                    <form action="" class="basic_info_edit" role="saveForm">
+                        <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
+                        <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
+                        <input type="hidden" name="id" value="{{carInfo.id}}">
+                        <!-- 车辆基本信息 Begin -->
+                        <div class="options_title">车辆信息</div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">品牌：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.carBrandName}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">车系：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.carSeriesName}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">年份：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.carYear}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">车型：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.carModelName}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">颜色：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.carColor}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">品牌指导价：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.price}}元
+                            </div>
+                        </div>
+                        <!--<div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">是否进口：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="text" name="" value="否" class="" placeholder="" disabled />
+                            </div>
+                        </div>-->
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">车辆实际价格：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.pawnValue}}元
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">购置税：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.buyTax}}元
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">其他费用：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.otherFee}}元
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">保险：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.assure}}元
+                            </div>
+                        </div>
+                        <!-- 车辆基本信息 End -->
+                        <!-- 经销商信息 Begin -->
+                        <div class="options_title">经销商信息</div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">经销商：</span>
+                            </div>
+                            <div class="column_val">
+                                    {{#each (dealerData) }}
+                                        {{#if (this.dealerId === root.carInfo.dealerId) }}
+                                            {{this.dealerName}}
+                                        {{/if}}
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">销售姓名：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.salesName}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">手机号码：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.contactWay}}
+                            </div>
+                        </div>
+                        <!-- 经销商信息 End -->
+                        <!-- 融资业务信息 Begin -->
+                        <div class="options_title">融资业务信息</div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">项目金额：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.projectAmount}}元
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">租赁方式：</span>
+                            </div>
+                            <div class="column_val">
+                                {{#if (carInfo.rentModel === '1' || (!carInfo.rentModel && carInfo.rentModel !== '0')) }}
+                                回租
+                                {{/if}}
+                                {{#if (carInfo.rentModel === '2') }}
+                                直租
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">汽车之家：</span>
+                            </div>
+                            <div class="column_val">
+                                否
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">产品名称：</span>
+                            </div>
+                            <div class="column_val">
+                                    {{#each (productData) }}
+                                        {{#if (this.ID === carInfo.productId) }}
+                                            {{this.NAME}}
+                                        {{/if}}
+                                    {{/each}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">是否打包：</span>
+                            </div>
+                            <div class="column_val">
+                                {{#if (carInfo.isWrap === '1' || (!carInfo.isWrap && carInfo.isWrap !== '0')) }}
+                                是
+                                {{/if}}
+                                {{#if (carInfo.isWrap === '2') }}
+                                否
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">是否安装GPS：</span>
+                            </div>
+                            <div class="column_val">
+                                    {{#if (carInfo.isInstallGPS === '1' || (!carInfo.isInstallGPS && carInfo.isInstallGPS !== '0')) }}
+                                    是
+                                    {{/if}}
+                                    {{#if (carInfo.isInstallGPS === '2') }}
+                                    否
+                                    {{/if}}
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">首付比例：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.firstPayScale}}%
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">首付金额：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.firstPay}}元
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">保证金：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.cautionMoney}}元
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">服务费：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.serviceCharge}}元
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">融资金额：</span>
+                            </div>
+                            <div class="column_val">
+                               {{carInfo.financeAmount}}元
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">租赁期限：</span>
+                            </div>
+                            <div class="column_val">
+                                    {{#each (rentDue) }}
+                                        {{#if (this === carInfo.rentDue) }}
+                                        {{this}}
+                                        {{/if}}
+                                    {{/each}}
+                            </div>
+                        </div>
+                        <!--<div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">成本金额：</span>
+                            </div>
+                            <div class="column_val">
+                                <input type="hidden" name="" value="0" />
+                                <span class="value_text"><span class="value">0</span><span>元</span></span>
+                            </div>
+                        </div>-->
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">附加融资额：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.attachFinance}}元
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">净融资金额：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.netFinanceAmount}}元
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">还款周期：</span>
+                            </div>
+                            <div class="column_val">
+                                按月
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name">每期租金：</span>
+                            </div>
+                            <div class="column_val">
+                                {{carInfo.eachRent}}元
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="column_name">
+                                <span class="options_name repayment_plan"><em class="repayment_plan_btn"></em>查看还款计划表</span>
+                            </div>
+                            <!--<div class="column_val">
+                                <em class="repayment_plan_btn"></em>
+                            </div>-->
+                        </div>
+                        <!-- 融资业务信息 End -->
+                    </form>
+                </div>
+                <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
+                    <a href="javascript:window.history.back();" class="btn orange_btn confirm edit_confirm">返回</a>
+                </div>
+
+
+                <!-- 还款计划表弹出层 -->
+                <div class="repayment_plan_table">
+                    <div class="content">
+                        <table id="repaymentPlanTable">
+                            <colgroup style="width: 100%;">
+                                <col style="width:  20%;">
+                                <col style="width:  20%;">
+                                <col style="width:  20%;">
+                                <col style="width:  20%;">
+                                <col>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>租金日</th>
+                                <th>租金期次</th>
+                                <th>租金金额</th>
+                                <th>利息金额</th>
+                                <th>本金金额</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2017-01-15</td>
+                                    <td>1</td>
+                                    <td>3543.11</td>
+                                    <td>380.67</td>
+                                    <td>3162.44</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="confirm_btn_box">
+                            <a href="javascript:;" class="confirm_btn">确认</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!---- Part of Main info End ---->
+        </div>
+        <!-------- Part of main End -------->
+
+        <!-------- Part of footer Begin -------->
+        <!--<div id="footer" class="footer"></div>-->
+        <!-------- Part of footer End -------->
+    </div>
+    <input type="hidden" value="{{time}}" id="rentTime">
+    <div class="loading" id="loading" style="display: none;"></div>
+</body>
+{{include ('./../inc/jsSources')}}
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
+</html>
+<script>
+    (function ($) {
+        // 还款计划层的显示隐藏
+        function showRepaymentPlan () {
+            var btn = $('.confirm_btn, .repayment_plan');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                var p = $('.repayment_plan_table');
+                if (p.is(':hidden')) {
+                    var product = $('#productName');    // 产品元素
+                    var finance = $('#finance');    // 融资金额
+                    var rentDueE = $('#rentDue');    // 租赁期限
+
+
+                    var financeAmount = finance.val().number();        // 融资金额
+                    var interestRate = product.find('option:selected').data('price');    // 年利率
+                    var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
+                    if (financeAmount !== '' && interestRate !== '' && rentDue !== '') {
+                        createRepaymentPlanTable(financeAmount, interestRate, rentDue);     // 计算还款计划表
+                        p.show();
+                    } else {
+                        $alert('租赁期限、产品名称未选择或是融资金额不合法，请调整后查看。');
+                    }
+                } else {
+                    p.hide();
+                }
+            });
+        }
+
+
+        $(function() {
+            showRepaymentPlan();    // 显示还款计划表
+        });
+    })(jQuery,undefined);
+</script>

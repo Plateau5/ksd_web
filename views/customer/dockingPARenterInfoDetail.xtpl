@@ -1,0 +1,537 @@
+<!-- 录入—车辆及贷款信息(个人) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{include ("./../inc/cssSources")}}
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
+    <title>{{title}}</title>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        {{include ('./../inc/header')}}
+        <!-------- Part of header End -------->
+
+        <!-------- Part of main Begin -------->
+        <div id="section" class="section normal_width">
+            <!---- Part of slide nav Begin ---->
+            {{include ('./../inc/sideNav')}}
+            <!---- Part of slide nav End ---->
+
+            <!---- Part of Main info Begin ---->
+            <div id="main" class="main docking_container docking_detail">
+                <div class="crumbs_nav">
+                    <a href="{{markUri}}/customer/loan/system" class="crumbs_item">贷款管理</a>
+                    <a href="{{markUri}}/customer/loan/alreadyAllot" class="crumbs_item">已分配</a>
+                    <a href="javascript:;" class="crumbs_item go_order_detail" data-detailUrl="{{url}}">查看详情</a>
+                    <a href="javascript:;" data-href="{{markUri}}/docking/pingan/home" class="crumbs_item go_docking_home">录入资料</a>
+                    <a href="javascript:;" class="crumbs_item">承租人信息</a>
+                </div>
+                <div class="form_content form_options">
+                    <form action="" class="basic_info_edit" role="saveForm">
+                        <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
+                        <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
+                        <input type="hidden" name="id" value="{{renterInfo.id}}">
+                        <!-- 基本信息 Begin -->
+                        <div class="basic_info_renter">
+                            <div class="options_title">基本信息</div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">姓名：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.name}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">手机号码：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.cellphone}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">证件类型：</span>
+                                </div>
+                                <div class="column_val">
+                                    居民身份证
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">证件号码：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.IDnum}}
+                                </div>
+                            </div>
+                            <div class="option_item gender">
+                                <div class="column_name">
+                                    <span class="options_name">性别：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{#if (renterInfo.sex === 1) }}
+                                    男
+                                    {{else}}
+                                    女
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">出生日期：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.birthday}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">婚姻状况：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{#if (renterInfo.marriage === '1') }}
+                                    单身
+                                    {{elseif (renterInfo.marriage === '2') }}
+                                    已婚
+                                    {{esleif (renterInfo.marriage === '3') }}
+                                    离异
+                                    {{elseif (renterInfo.marriage === '4') }}
+                                    丧偶
+                                    {{else}}
+                                    丧偶
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">教育：</span>
+                                </div>
+                                <div class="column_val">
+                                        {{#if (renterInfo.education === '1') }}
+                                        本科以上
+                                        {{elseif (renterInfo.education === '2') }}
+                                        本科
+                                        {{elseif (renterInfo.education === '3') }}
+                                        专科
+                                        {{elseif (renterInfo.education === '4') }}
+                                        高中
+                                        {{elseif (renterInfo.education === '5') }}
+                                        中专
+                                        {{elseif (renterInfo.education === '6') }}
+                                        技校
+                                        {{elseif (renterInfo.education === '7') }}
+                                        高中以下
+                                        {{else}}
+                                        高中以下
+                                        {{/if}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">身份证地址：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.homeProvinceName}}{{renterInfo.homeCityName}}{{renterInfo.homeAddressName}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">房产类型：</span>
+                                </div>
+                                <div class="column_val">
+                                        {{#if (renterInfo.estateType === '1') }}
+                                        自有无贷
+                                        {{elseif (renterInfo.estateType === '2') }}
+                                        融资业务买房
+                                        {{elseif (renterInfo.estateType === '3') }}
+                                        借住直系亲属
+                                        {{elseif (renterInfo.estateType === '4') }}
+                                        租房
+                                        {{elseif (renterInfo.estateType === '5') }}
+                                        单位房产
+                                        {{elseif (renterInfo.estateType === '6') }}
+                                        公房租赁
+                                        {{elseif (renterInfo.estateType === '7') }}
+                                        自建房
+                                        {{else}}
+                                        自建房
+                                        {{/if}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">每月家庭收入：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.familyInCome}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">现居住地地址：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.estateProvinceName}}{{renterInfo.estateCityName}}{{renterInfo.estateAddressName}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">月平均支出：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.familyExpend}}
+                                </div>
+                            </div>
+                            <div class="option_item is_first_buy_item">
+                                <div class="column_name">
+                                    <span class="options_name">是否为首次购车：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{#if (renterInfo.isFirstBuy === '1' || !renterInfo.isFirstBuy) }}
+                                    是
+                                    {{/if}}
+                                    {{#if (renterInfo.isFirstBuy === '2') }}
+                                    否
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">购车目的：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{#if (renterInfo.buyPurpose === '1' || !renterInfo.buyPurpose) }}
+                                    自用
+                                    {{/if}}
+                                    {{#if (renterInfo.buyPurpose === '2') }}
+                                    经营
+                                    {{/if}}
+                                </div>
+                            </div>
+                            {{#if (renterInfo.hascarloan) }}
+                            <div class="option_item hascarloan_item">
+                                <div class="column_name">
+                                    <span class="options_name">是否有车贷：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{#if (renterInfo.hascarloan === '1') }}
+                                    是
+                                    {{/if}}
+                                    {{#if (renterInfo.hascarloan === '2') }}
+                                    否
+                                    {{/if}}
+                                </div>
+                            </div>
+                            {{/if}}
+                            {{#if (renterInfo.oencarbrand) }}
+                            <div class="option_item oencarbrand_item">
+                                <div class="column_name">
+                                    <span class="options_name">现有车系：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.oencarbrand}}
+                                </div>
+                            </div>
+                            {{/if}}
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">准驾车型：</span>
+                                </div>
+                                <div class="column_val">
+                                        {{#if (renterInfo.driveType === 'A1') }}
+                                        A1:大型客车
+                                        {{elseif (renterInfo.driveType === 'A2') }}
+                                        A2:牵引车
+                                        {{elseif (renterInfo.driveType === 'A3') }}
+                                        A3:城市公共汽车
+                                        {{elseif (renterInfo.driveType === 'B1') }}
+                                        B1:中型客车
+                                        {{elseif (renterInfo.driveType === 'B2') }}
+                                        B2:大型货车
+                                        {{elseif (renterInfo.driveType === 'C1') }}
+                                        C1:小型汽车
+                                        {{elseif (renterInfo.driveType === 'C2') }}
+                                        C2:小型⾃动档汽车
+                                        {{elseif (renterInfo.driveType === 'C3') }}
+                                        C3:低速载货汽车
+                                        {{elseif (renterInfo.driveType === 'C4') }}
+                                        C4:三轮汽车
+                                        {{else}}
+                                        C4:三轮汽车
+                                        {{/if}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">有无工作：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{#if (renterInfo.work === '1') }}
+                                    有
+                                    {{/if}}
+                                    {{#if (renterInfo.work === '2') }}
+                                    无
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">银行卡号：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.bankCard}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">是否有担保人：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{#if (renterInfo.isSponsor === '1') }}
+                                    有
+                                    {{/if}}
+                                    {{#if (renterInfo.isSponsor === '2') }}
+                                    无
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="option_item" style="width: 100%;height: auto;">
+                                <div class="column_name" style="width: 12.5%;">
+                                    <span class="options_name">备注：</span>
+                                </div>
+                                <div class="column_val" style="width: 87.5%;">
+                                    {{renterInfo.comment}}
+                                </div>
+                            </div>
+                        </div>
+                        <!--基本信息 End-->
+                        {{#if (renterInfo.work === '1') }}
+                        <!--工作单位信息  start-->
+                        <div class="work_info">
+                            <div class="options_title clearfix" style="padding-top: 20px;">工作单位</div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">单位名称：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.empName}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">企业性质：</span>
+                                </div>
+                                <div class="column_val">
+                                        {{#if (renterInfo.empType === '1') }}
+                                        有限责任公司
+                                        {{elseif (renterInfo.empType === '2') }}
+                                        股份有限公司
+                                        {{elseif (renterInfo.empType === '3') }}
+                                        国有企业
+                                        {{elseif (renterInfo.empType === '4') }}
+                                        个人独资企业
+                                        {{elseif (renterInfo.empType === '5') }}
+                                        个体工商户
+                                        {{elseif (renterInfo.empType === '6') }}
+                                        外商投资企业
+                                        {{elseif (renterInfo.empType === '7') }}
+                                        私营企业
+                                        {{elseif (renterInfo.empType === '8') }}
+                                        其他
+                                        {{else}}
+                                        其他
+                                        {{/if}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">本单位工作年限：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.workYear}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">单位电话：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.empPhone}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">单位地址：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.empProvinceName}}{{renterInfo.empCityName}}{{renterInfo.empAddressName}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">职业：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.empOccupationName}}
+                                </div>
+                            </div>
+                        </div>
+                        {{/if}}
+                        <!--工作单位信息  end-->
+                        <!--配偶信息 Start-->
+                        {{#if (renterInfo.marriage === '2') }}
+                        <div class="spouse_info">
+                            <div class="options_title clearfix">配偶信息</div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">配偶姓名：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.spouseName}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">配偶手机号：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.spouseCellphone}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">证件类型：</span>
+                                </div>
+                                <div class="column_val">
+                                        {{#if (renterInfo.spouseIDtype === '1') }}
+                                        居民身份证
+                                        {{elseif (renterInfo.spouseIDtype === '2') }}
+                                        临时身份证
+                                        {{elseif (renterInfo.spouseIDtype === '3') }}
+                                        护照
+                                        {{elseif (renterInfo.spouseIDtype === '4') }}
+                                        户口簿
+                                        {{elseif (renterInfo.spouseIDtype === '5') }}
+                                        军人身份证
+                                        {{elseif (renterInfo.spouseIDtype === '6') }}
+                                        武装警察身份证
+                                        {{elseif (renterInfo.spouseIDtype === '7') }}
+                                        港澳居民身份证
+                                        {{elseif (renterInfo.spouseIDtype === '8') }}
+                                        台湾同胞往来内地通行证
+                                        {{elseif (renterInfo.spouseIDtype === '9') }}
+                                        外交人员身份证
+                                        {{elseif (renterInfo.spouseIDtype === '10') }}
+                                        外国人居留许可证
+                                        {{elseif (renterInfo.spouseIDtype === '11') }}
+                                        边民出入境通行证
+                                        {{elseif (renterInfo.spouseIDtype === '12') }}
+                                        其他
+                                        {{else}}
+                                        其他
+                                        {{/if}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">证件号码：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.spouseID}}
+                                </div>
+                            </div>
+                        </div>
+                        {{/if}}
+                        <!--配偶信息 End-->
+                        <!--直系亲属信息 start-->
+                        {{#if (renterInfo.marriage !== '2') }}
+                        <div class="parent_info">
+                            <div class="options_title clearfix">直系亲属信息</div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">直系亲属姓名：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.parentName}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">直系亲属手机号：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.parentCellphone}}
+                                </div>
+                            </div>
+                        </div>
+                        {{/if}}
+                        <!--直系亲属信息 End-->
+                        <!--紧急联系人 Start-->
+                        <div class="emergency_info">
+                            <div class="options_title clearfix">紧急联系人</div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">与承租人关系：</span>
+                                </div>
+                                <div class="column_val">
+                                        {{#if (renterInfo.emgconRelation === '1') }}
+                                        亲属
+                                        {{elseif (renterInfo.emgconRelation === '2') }}
+                                        朋友
+                                        {{elseif (renterInfo.emgconRelation === '3') }}
+                                        同事
+                                        {{elseif (renterInfo.emgconRelation === '4') }}
+                                        其他
+                                        {{else}}
+                                        其他
+                                        {{/if}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">姓名：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.emgconName}}
+                                </div>
+                            </div>
+                            <div class="option_item">
+                                <div class="column_name">
+                                    <span class="options_name">手机号：</span>
+                                </div>
+                                <div class="column_val">
+                                    {{renterInfo.emgconCellphone}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--紧急联系人 End-->
+
+                    </form>
+                </div>
+                <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
+                    <a href="javascript:window.history.back();" id="saveAndGoNext" class="btn orange_btn confirm edit_confirm">返回</a>
+                </div>
+
+
+            </div>
+            <!---- Part of Main info End ---->
+        </div>
+        <!-------- Part of main End -------->
+
+        <!-------- Part of footer Begin -------->
+        <!--<div id="footer" class="footer"></div>-->
+        <!-------- Part of footer End -------->
+    </div>
+    <div class="loading" id="loading" style="display: none;"></div>
+</body>
+{{include ('./../inc/jsSources')}}
+<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/jsonsql-0.1.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
+</html>

@@ -61,6 +61,13 @@
 				</a>
 			{{/if}}
 		{{/if}}
+		{{#if (vo.status === 4) }}
+
+			<a href="javascript:" id="viewDockingPADetail" data-id="{{finance_id}}" data-url="{{markUri}}/docking/pingan/detailHome" class="btn_item" lang="{{finance_id}}">
+				<div class="requestpayout_detail_btn view_docking_pingan_detail">查看详情</div>
+			</a>
+
+		{{/if}}
 		{{#if (vo.status > 4) }}
 			<div class="cursor requestpayout_detail_btn requestpayout_download download_file" id="" alt="1" lang="{{finance_id}}">全部下载</div>
 		{{/if}}
@@ -83,5 +90,28 @@
                 viewLargeImage('.imgDetail');
             });
         }
+
+        // 跳转查看对接详情页
+		function goDockingPADetail () {
+            var btn = $('#viewDockingPADetail');
+            if (btn.length > 0) {
+				btn.on('click', function () {
+				    var _this = $(this);
+				    var financeId = _this.data('id');
+				    var url = _this.data('url').trim();
+				    locationTo({
+						action : contextPath + url,
+						param : {
+						    finance_id : financeId,
+                            active : 'active',
+                            url : LOCALURL
+                        }
+					})
+				});
+			}
+		}
+		$(function () {
+            goDockingPADetail();
+		});
     })(window, undefined);
 </script>

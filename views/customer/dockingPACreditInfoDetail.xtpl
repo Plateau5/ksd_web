@@ -1,0 +1,154 @@
+<!-- 录入—征信信息 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{include ("./../inc/cssSources")}}
+    <link rel="stylesheet" href="{{markUri}}/static/css/customerService.css">
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css">
+    <title>{{title}}</title>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        {{include ('./../inc/header')}}
+        <!-------- Part of header End -------->
+
+        <!-------- Part of main Begin -------->
+        <div id="section" class="section normal_width">
+            <!---- Part of slide nav Begin ---->
+            {{include ('./../inc/sideNav')}}
+            <!---- Part of slide nav End ---->
+
+            <!---- Part of Main info Begin ---->
+            <div id="main" class="main docking_container">
+                <div class="crumbs_nav">
+                    <a href="{{markUri}}/customer/loan/system" class="crumbs_item">贷款管理</a>
+                    <a href="{{markUri}}/customer/loan/alreadyAllot" class="crumbs_item">已分配</a>
+                    <a href="javascript:;" class="crumbs_item go_order_detail" data-detailUrl="{{url}}">查看详情</a>
+                    <a href="javascript:;" data-href="{{markUri}}/docking/pingan/home" class="crumbs_item go_docking_home">录入资料</a>
+                    <a href="javascript:;" class="crumbs_item">征信信息</a>
+                </div>
+                <div class="form_content form_options">
+                    <form action="" class="basic_info_edit"  role="fileSaveForm">
+                        <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
+                        <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
+                        <!-- 基本信息 Begin -->
+                        <div class="credit_info renter_info" data-material_type="1" data-material_name="承租人征信查询" >
+                            <div class="options_title">承租人征信查询</div>
+                            <div class="option_item whole_line file_option_item credit_img" id="" >
+                                <div class="column_name">
+                                    <span class="options_name"><span class="require_icon">*</span>征信授权书：</span>
+                                </div>
+                                <div class="column_val">
+                                    <div class="img_md_box file_upload" data-material_type="1" data-material_name="承租人征信查询" data-file_type="1" data-file_name="征信授权书">
+                                        {{#each (data_file) }}
+                                            {{#if (this.material_type === 1) }}
+                                            <a href="javascript:;" class="img_item" data-id="{{this.authFileUid}}">
+                                                <img data-original="{{this.authFileUid_url}}"  src="{{this.authFileUid_120_90}}">
+                                                <div class="img_md_operate_box">
+                                                    <em class="img_md_operate_btn view" data-url="{{this.authFileUid_url}}" title="查看"></em>
+                                                    <em class="img_md_operate_btn delete" data-id="{{this.file_id}}" title="删除"></em>
+                                                </div>
+                                            </a>
+                                            {{/if}}
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="option_item whole_line file_option_item group_img">
+                                <div class="column_name">
+                                    <span class="options_name"><span class="require_icon">*</span>合照：</span>
+                                </div>
+                                <div class="column_val">
+                                    <div class="img_md_box file_upload"  data-material_type="1" data-material_name="承租人征信查询" data-file_type="2" data-file_name="征信授权书">
+                                        {{#each (data_file) }}
+                                        {{#if (this.material_type === 1) }}
+                                        <a href="javascript:;" class="img_item " data-id="{{this.groupPhotoUid}}">
+                                            <img data-original="{{this.groupPhotoUid_url}}"  src="{{this.groupPhotoUid_120_90}}">
+                                            <div class="img_md_operate_box">
+                                                <em class="img_md_operate_btn view" data-url="{{this.groupPhotoUid_url}}" title="查看"></em>
+                                                <em class="img_md_operate_btn delete" data-id="{{this.file_id}}" title="删除"></em>
+                                            </div>
+                                        </a>
+                                        {{/if}}
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{#if (isSponsor === '1') }}
+                            <div class="credit_info guarantor_info" data-material_type="2" data-material_name="担保人征信查询">
+                                <div class="options_title">担保人征信查询</div>
+                                <div class="option_item whole_line file_option_item credit_img">
+                                    <div class="column_name">
+                                        <span class="options_name"><span class="require_icon">*</span>征信授权书：</span>
+                                    </div>
+                                    <div class="column_val">
+                                        <div class="img_md_box file_upload"  data-material_type="2" data-material_name="担保人征信查询" data-file_type="1" data-file_name="征信授权书">
+                                            {{#each (data_file) }}
+                                                {{#if (this.material_type === 2) }}
+                                                    <a href="javascript:;" class="img_item " data-id="{{this.authFileUid}}">
+                                                        <img data-original="{{this.authFileUid_url}}"  src="{{this.authFileUid_120_90}}">
+                                                        <div class="img_md_operate_box">
+                                                            <em class="img_md_operate_btn view" data-url="{{this.authFileUid_url}}" title="查看"></em>
+                                                            <em class="img_md_operate_btn delete" data-id="{{this.file_id}}" title="删除"></em>
+                                                        </div>
+                                                    </a>
+                                                {{/if}}
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option_item whole_line file_option_item group_img" id="">
+                                    <div class="column_name">
+                                        <span class="options_name"><span class="require_icon">*</span>合照：</span>
+                                    </div>
+                                    <div class="column_val">
+                                        <div class="img_md_box file_upload"  data-material_type="2" data-material_name="担保人征信查询" data-file_type="2" data-file_name="征信授权书">
+                                            {{#each (data_file) }}
+                                                {{#if (this.material_type === 2) }}
+                                                    <a href="javascript:;" class="img_item " data-id="{{this.groupPhotoUid}}">
+                                                        <img data-original="{{this.groupPhotoUid_url}}"  src="{{this.groupPhotoUid_120_90}}">
+                                                        <div class="img_md_operate_box">
+                                                            <em class="img_md_operate_btn view" data-url="{{this.groupPhotoUid_url}}" title="查看"></em>
+                                                            <em class="img_md_operate_btn delete" data-id="{{this.file_id}}" title="删除"></em>
+                                                        </div>
+                                                    </a>
+                                                {{/if}}
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/if}}
+
+
+                        <!-- 基本信息  end -->
+                    </form>
+                </div>
+                <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
+                    <a href="javascript:" class="btn bg_btn edit_cancel">取消</a>
+                </div>
+            </div>
+            <!---- Part of Main info End ---->
+        </div>
+        <!-------- Part of main End -------->
+
+        <!-------- Part of footer Begin -------->
+        <!--<div id="footer" class="footer"></div>-->
+        <!-------- Part of footer End -------->
+    </div>
+    <div class="loading" id="loading" style="display: none;"></div>
+</body>
+{{include ('./../inc/jsSources')}}
+<script src="{{markUri}}/static/dialog/dialog-layer.js" type="text/javascript" charset="UTF-8"></script>
+<script src="{{markUri}}/static/js/docking-pingan.js" type="text/javascript" charset="UTF-8"></script>
+</html>
+<script>
+    (function ($) {
+        $(function() {
+            viewLargeImage('.img_md_box');
+            viewImages();       // 查看大图
+            uploadImage();      // 图片上传注册
+        });
+    })(jQuery,undefined);
+</script>
