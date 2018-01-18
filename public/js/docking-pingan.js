@@ -563,7 +563,7 @@ function bindSubmitEvent () {
 function saveAndGoNext (btn, nextPath, url) {
     var financeId = $.trim($('#financeId').val());
     var queryType = $.trim($('#queryType').val());
-    var nextQueryType = $('#nextQueryType').val().trim();
+    var nextQueryType = $('#nextQueryType').val().trim().number();
     var preCode = $.trim($('#preCode').val());
     var verifyPass = verifyEmpty();     // 是否填写完整
     if (!ISCARINFO || ISCARINFO === undefined) {
@@ -768,7 +768,7 @@ function verifyImgPass () {
  */
 function fileSaveAndGoNext (btn, nextPath, url) {
     var queryType = $.trim($('#queryType').val());
-    var nextQueryType = $('#nextQueryType').val().trim();
+    var nextQueryType = $('#nextQueryType').val().trim().number();
     var type = $.trim(btn.data('type')).number();
     var fileData = getData(type);
     fileData = JSON.stringify(fileData);

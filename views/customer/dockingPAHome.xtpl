@@ -135,9 +135,9 @@
                 }*/
                 var icon = _this.find('.xf_edit_home_icon'); // 是否是编辑完成的icon
                 var nextSibling = _this.next('.info_item');     // 当前元素的下一个兄弟元素节点
-                var isNextHasFinish = nextSibling.hasClass('xf_edit_home_icon');        // 下一个兄弟元素是否完成编辑
+                var isNextHasFinish = nextSibling.find('.xf_edit_home_icon');        // 下一个兄弟元素是否完成编辑
                 var nextQueryType = null;
-                if (isNextHasFinish) {
+                if (isNextHasFinish.length > 0) {
                     nextQueryType = 1;
                 } else {
                     nextQueryType = 0;

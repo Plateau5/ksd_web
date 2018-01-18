@@ -103,7 +103,7 @@
                                 <span class="options_name">性别：</span>
                             </div>
                             <div class="column_val">
-                                {{#if (sponsorInfo.IDnum.substring(16,17) % 2 === 1) }}
+                                {{#if (sponsorInfo.IDnum && sponsorInfo.IDnum.substring(16,17) % 2 === 1) }}
                                 <input type="hidden" name="sex" value="1" class="gender_h">
                                 {{else}}
                                 <input type="hidden" name="sex" value="2" class="gender_h">
