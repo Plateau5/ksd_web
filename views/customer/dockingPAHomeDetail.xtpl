@@ -130,6 +130,14 @@
                     });
                 }*/
                 var icon = _this.find('.xf_edit_home_icon'); // 是否是编辑完成的icon
+                var nextSibling = _this.next('.info_item');     // 当前元素的下一个兄弟元素节点
+                var isNextHasFinish = nextSibling.find('.xf_edit_home_icon');        // 下一个兄弟元素是否完成编辑
+                var nextQueryType = null;
+                if (isNextHasFinish.length > 0) {
+                    nextQueryType = 1;
+                } else {
+                    nextQueryType = 0;
+                }
                 // 如果无已完成标识则判断兄弟元素是否编辑完成。
                 if (icon.length <= 0) {
                     var isPrevAlreardy = true;  // 兄弟元素是否已经编辑完成 完成(默认)：true, 未完成: false
@@ -174,7 +182,8 @@
                                 query_type : 0,
                                 finance_id : financeId,
                                 preCode : preCode,
-                                loanID : loanID
+                                loanID : loanID,
+                                nextQueryType : nextQueryType
                             }
                         });
                     }
@@ -187,7 +196,8 @@
                             query_type : 1,
                             finance_id : financeId,
                             preCode : preCode,
-                            loanID : loanID
+                            loanID : loanID,
+                            nextQueryType : nextQueryType
                         }
                     });
                 }
@@ -195,62 +205,10 @@
 
         }
 
-        // 注册提交按钮的点击事件
-        function bindSubmit () {
-            var btn = $('.confirm_submit');
-            btn.off('click').on('click', function () {
-                var _this = $(this);
-                submitEvent(_this);
-            });
-        }
 
-        // 提交事件
-        function submitEvent (btn) {
-            btn.off('click');
-            var modules = $('.edit_infos .info_item');
-            var isSuccess = true;      // 是否填写完整
-            modules.each(function () {
-                var _this = $(this);
-                var success = _this.find('.xf_edit_home_icon');
-                if (success.length <= 0) {
-                    $alert('您还有模块未填写完成，请先填写完整后再提交。');
-                    isSuccess = false;
-                    return false;
-                }
-            });
-            if (isSuccess) {
-                redefineAjax({
-                    url : contextPath + '/api/pingan/submit',
-                    data : {
-                        finance_id : financeId,
-                        preCode : preCode,
-                        loanID : loanID
-                    },
-                    timeout : 20000,
-                    success : function (res) {
-                        if (res.error_code == 0) {
-                            locationTo({
-                                action : contextPath + markUri + '/customer/loan/alreadyAllot'
-                            });
-                        } else {
-                            $alert(res.error_msg, function () {
-                                bindSubmit();
-                            });
-                        }
-                    },
-                    error : function () {
-                        $alert('提交失败，请重新尝试。', function () {
-                            bindSubmit();
-                        });
-                    }
-                })
-            }
-
-        }
 
         $(function() {
             toNextModule();
-            bindSubmit();
         });
     })(jQuery,undefined);
 </script>

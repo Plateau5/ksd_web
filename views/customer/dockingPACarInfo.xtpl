@@ -313,7 +313,7 @@
                             </div>
                             <div class="column_val">
                                 <input type="hidden" name="productId" value="{{carInfo.productId}}" id="selectedProductId" />
-                                <input type="hidden" name="productNumber" value="{{carInfo.productId}}" id="productNumber" />
+                                <input type="hidden" name="productNumber" value="{{carInfo.productNumber}}" id="productNumber" />
                                 <select name="productName" id="productName">
                                     <option value="">请选择</option>
                                     {{#each (productData) }}
@@ -719,7 +719,7 @@
                 var value = _this.find('option:selected').data('product_id');     // 选中的产品productId
                 var productNum = _this.find('option:selected').data('product_number');      // 选中产品的编码
                 selectedProductId.val(value);
-                selectedProductNum(productNum);
+                selectedProductNum.val(productNum);
                 $('#cautionMoney, #serviceCharge, #finance, #attachFinance').val(0);
                 calcfinanceAmount();
             });
