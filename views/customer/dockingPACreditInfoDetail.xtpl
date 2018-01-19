@@ -19,7 +19,7 @@
             <!---- Part of slide nav End ---->
 
             <!---- Part of Main info Begin ---->
-            <div id="main" class="main docking_container">
+            <div id="main" class="main docking_container docking_detail_file">
                 <div class="crumbs_nav">
                     <a href="{{markUri}}/customer/loan/system" class="crumbs_item">贷款管理</a>
                     <a href="{{nodeUrl}}" class="crumbs_item">{{navigation}}</a>
