@@ -68,7 +68,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    var LOCALURL = window.location.pathname;
+    var LOCALURL = '{{local_url}}' || window.location.pathname;
     var DOMAIN = '{{domain}}';
     const VERSION = '{{version}}';
     var contextPath = '{{contextPath}}';

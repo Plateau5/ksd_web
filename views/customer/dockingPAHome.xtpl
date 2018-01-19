@@ -104,6 +104,9 @@
     <input type="hidden" name="preCode" value="{{preCode}}" id="preCode">
     <input type="hidden" name="loanID" value="{{loanID}}" id="loanID">
     <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
+    <input type="hidden" id="navigation" value="{{navigation}}">
+    <input type="hidden" id="nodeUrl" value="{{nodeUrl}}">
+    <input type="hidden" id="userName" value="{{userName}}">
     <div class="loading" id="loading"></div>
 </body>
 {{include ('./../inc/jsSources')}}
@@ -115,6 +118,9 @@
         var financeId = $.trim($('#financeId').val());
         var preCode = $.trim($('#preCode').val());
         var loanID = $.trim($('#loanID').val());
+        var navigation = $('#navigation').val().trim();
+        var nodeUrl = $('#nodeUrl').val().trim();
+        var userName = $('#userName').val().trim();
         // 点击tab跳转下一页的逻辑
         function toNextModule () {
             var btn = $('.edit_infos .info_item');
@@ -187,7 +193,10 @@
                                 finance_id : financeId,
                                 preCode : preCode,
                                 loanID : loanID,
-                                nextQueryType : nextQueryType
+                                nextQueryType : nextQueryType,
+                                navigation : navigation,
+                                nodeUrl : nodeUrl,
+                                userName : userName
                             }
                         });
                     }
@@ -201,7 +210,10 @@
                             finance_id : financeId,
                             preCode : preCode,
                             loanID : loanID,
-                            nextQueryType : nextQueryType
+                            nextQueryType : nextQueryType,
+                            navigation : navigation,
+                            nodeUrl : nodeUrl,
+                            userName : userName
                         }
                     });
                 }

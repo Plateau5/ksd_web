@@ -26,7 +26,7 @@
             <div id="main" class="main docking_container">
                 <div class="crumbs_nav">
                     <a href="{{markUri}}/customer/loan/system" class="crumbs_item">贷款管理</a>
-                    <a href="{{markUri}}/customer/loan/alreadyAllot" class="crumbs_item">已分配</a>
+                    <a href="{{nodeUrl}}" class="crumbs_item">{{navigation}}</a>
                     <a href="javascript:;" class="crumbs_item go_order_detail" data-detailUrl="{{url}}">查看详情({{userName}})</a>
                     <a href="javascript:;" class="crumbs_item">查看录入资料</a>
                 </div>
@@ -100,6 +100,9 @@
     <input type="hidden" name="preCode" value="{{preCode}}" id="preCode">
     <input type="hidden" name="loanID" value="{{loanID}}" id="loanID">
     <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
+    <input type="hidden" id="navigation" value="{{navigation}}">
+    <input type="hidden" id="nodeUrl" value="{{nodeUrl}}">
+    <input type="hidden" id="userName" value="{{userName}}">
     <div class="loading" id="loading"></div>
 </body>
 {{include ('./../inc/jsSources')}}
@@ -111,6 +114,9 @@
         var financeId = $.trim($('#financeId').val());
         var preCode = $.trim($('#preCode').val());
         var loanID = $.trim($('#loanID').val());
+        var navigation = $('#navigation').val().trim();
+        var nodeUrl = $('#nodeUrl').val().trim();
+        var userName = $('#userName').val().trim();
         // 点击tab跳转下一页的逻辑
         function toNextModule () {
             var btn = $('.edit_infos .info_item');
@@ -183,7 +189,10 @@
                                 finance_id : financeId,
                                 preCode : preCode,
                                 loanID : loanID,
-                                nextQueryType : nextQueryType
+                                nextQueryType : nextQueryType,
+                                navigation : navigation,
+                                nodeUrl : nodeUrl,
+                                userName : userName
                             }
                         });
                     }
@@ -197,7 +206,10 @@
                             finance_id : financeId,
                             preCode : preCode,
                             loanID : loanID,
-                            nextQueryType : nextQueryType
+                            nextQueryType : nextQueryType,
+                            navigation : navigation,
+                            nodeUrl : nodeUrl,
+                            userName : userName
                         }
                     });
                 }

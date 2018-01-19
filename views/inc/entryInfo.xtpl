@@ -61,7 +61,7 @@
 				</a>
 			{{/if}}
 		{{/if}}
-		{{#if (vo.status === 4 && (vo.is_docking === 1 && vo.sign_ids && vo.sign_ids.indexOf('10') !== -1)) }}
+		{{#if (vo.status >= 4 && (vo.is_docking === 1 && vo.sign_ids && vo.sign_ids.indexOf('10') !== -1)) }}
 			{{#if (verifyCode(1161))}}
 			<a href="javascript:" id="viewDockingPADetail" data-id="{{finance_id}}" data-url="{{markUri}}/docking/pingan/detailHome" class="btn_item" lang="{{finance_id}}">
 				<div class="requestpayout_detail_btn view_docking_pingan_detail">查看详情</div>
@@ -95,6 +95,8 @@
 		function goDockingPADetail () {
             var btn = $('#viewDockingPADetail');
             var userName = $('#userName').val();
+            var navigation = $('#navigation').val().trim();
+            var nodeUrl = $('#nodeUrl').val().trim();
             if (btn.length > 0) {
 				btn.on('click', function () {
 				    var _this = $(this);
@@ -106,7 +108,9 @@
 						    finance_id : financeId,
                             active : 'active',
                             url : LOCALURL,
-							userName : userName
+							userName : userName,
+                            navigation : navigation,
+                            nodeUrl : nodeUrl
                         }
 					})
 				});

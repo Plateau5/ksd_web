@@ -9,6 +9,8 @@ $(function(){
         var finance_id = $('#finance_id').val();
         var user_name = $('#userName').val().trim();
         var locationUrl = LOCALURL;
+        var navigation = $('#navigation').val().trim();
+        var nodeUrl = $('#nodeUrl').val().trim();
         if (is_docking == 0 || (sign_ids && sign_ids.indexOf('10') == -1)) {
             $.ajax({
                 type:"post",
@@ -26,7 +28,9 @@ $(function(){
                             param : {
                                 finance_id : finance_id,
                                 active : 'active',
-                                url : locationUrl
+                                url : locationUrl,
+                                navigation : navigation,
+                                nodeUrl : nodeUrl
                             }
                         })
                     }else{
@@ -41,7 +45,9 @@ $(function(){
                     finance_id : finance_id,
                     active : 'active',
                     url : locationUrl,
-                    userName : user_name
+                    userName : user_name,
+                    navigation : navigation,
+                    nodeUrl : nodeUrl
                 }
             })
         }
