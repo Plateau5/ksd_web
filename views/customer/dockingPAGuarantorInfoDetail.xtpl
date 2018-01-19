@@ -236,7 +236,7 @@
                                     <span class="options_name">本单位工作年限：</span>
                                 </div>
                                 <div class="column_val">
-                                    {{sponsorInfo.workYear}}
+                                    {{sponsorInfo.workYear}}年
                                 </div>
                             </div>
                             <div class="option_item">

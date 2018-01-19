@@ -414,6 +414,7 @@
                                 </div>
                                 <div class="column_val">
                                     <input type="text" class="required" maxlength="2" data-tips="本单位工作年限不能为空" name="workYear" value="{{sponsorInfo.workYear}}" placeholder="请输入本单位工作年限" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+                                    <span class="unit">年</span>
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
