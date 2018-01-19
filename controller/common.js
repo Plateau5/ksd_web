@@ -171,14 +171,15 @@ exports.httpRequest = function (opt, callback, req, res, next) {
                 } else if (result.error_code === 0) {
                     callback(result);
                 } else {
-                    LOGERROR(ERRORTYPES.HttpRequest + '：Background server (Java) returned an error message. Data:' + JSON.stringify(result));
+                    // LOGERROR(ERRORTYPES.HttpRequest + '：Background server (Java) returned an error message. Data:' + JSON.stringify(result));
                     callback(result);
+                    LOGERROR(e.stack);
                 }
                 // callback(result);
                 LOGERROR(ERRORTYPES.HttpRequest + '：The result of server return is not need to parse.');
             }
         } else {
-            LOGERROR(ERRORTYPES.HttpRequest + '：' + error);
+            // LOGERROR(ERRORTYPES.HttpRequest + '：' + error);
             res.render('./errorpage/404', {title: '404'});
         }
         res.end();
@@ -302,8 +303,8 @@ exports.getPageData = function(options, req, res, next) {
         this.httpRequest({
             url : apiServerPath + options.url,
             formData : body
-        }, function (result) {
-            data = result;
+        }, function (results) {
+            data = results;
             if (data.error_code === 0) {
                 data.title = options.title;
                 data.originUrl = localUrl;

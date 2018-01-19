@@ -381,12 +381,12 @@ function calcRepaymentPlan (financeAmount, interestRate, rentDue, time) {
         rentTime : []
     };
     var timeArr = time.split('-');
-    timeArr[0] = timeArr[0].number();
-    timeArr[1] = timeArr[1].number();
+    timeArr[0] = Number(timeArr[0]);
+    timeArr[1] = Number(timeArr[1]);
     var month = timeArr[1],
         year = timeArr[0];
     var monthRent = Number((interestRate / 12));
-    data.eachRent = (financeAmount * monthRent * Math.pow((1 + monthRent), rentDue)  / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
+    data.eachRent = Number((financeAmount * monthRent * Math.pow((1 + monthRent), rentDue)  / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2));
     for (var i = 1; i <= rentDue; i++) {
         // 循环时间
         month += 1;     // 首个还款日为下个月的15号
@@ -395,9 +395,9 @@ function calcRepaymentPlan (financeAmount, interestRate, rentDue, time) {
             month = 1;
         }
         // 每期利息金额
-        var a = (financeAmount * monthRent * (Math.pow((1 + monthRent), rentDue) - Math.pow((1 + monthRent), (i - 1))) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
+        var a = Number((financeAmount * monthRent * (Math.pow((1 + monthRent), rentDue) - Math.pow((1 + monthRent), (i - 1))) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2));
         // 本金金额
-        var b = (financeAmount * monthRent * Math.pow((1 + monthRent), (i - 1)) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2).number();
+        var b = Number((financeAmount * monthRent * Math.pow((1 + monthRent), (i - 1)) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2));
         a = formatNum(a);
         b = formatNum(b);
         data.interestRateAmount.push(a);
@@ -409,7 +409,26 @@ function calcRepaymentPlan (financeAmount, interestRate, rentDue, time) {
 }
 
 
-
+/**
+ * 保留两位小数自动补0
+ * @author Arley Joe 2018-1-7 10:14:16
+ * @param value {Number|String} 需要进行保留两位小数的值
+ * @return {*}
+ */
+function formatNum (value){
+    value = Math.round(parseFloat(value)*100)/100;
+    var xsd=value.toString().split(".");
+    if(xsd.length==1){
+        value=value.toString()+".00";
+        return value;
+    }
+    if(xsd.length>1){
+        if(xsd[1].length<2){
+            value=value.toString()+"0";
+        }
+        return value;
+    }
+}
 
 
 
