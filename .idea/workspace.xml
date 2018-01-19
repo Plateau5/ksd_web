@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
+    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="修改权限  2018年1月19日09:39:58">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/finance/img_detail.js" afterPath="$PROJECT_DIR$/public/js/finance/img_detail.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/entryInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -31,21 +30,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="entryInfo.xtpl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="entryInfo.xtpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/inc/entryInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+            <state relative-caret-position="559">
+              <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="img_detail.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="img_detail.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/finance/img_detail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+            <state relative-caret-position="380">
+              <caret line="29" column="26" lean-forward="true" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -226,8 +225,8 @@
         <option value="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
         <option value="$PROJECT_DIR$/controller/viewsController/dockingController.js" />
         <option value="$PROJECT_DIR$/views/customer/dockingPACarInfoDetail.xtpl" />
-        <option value="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
         <option value="$PROJECT_DIR$/public/js/finance/img_detail.js" />
+        <option value="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
       </list>
     </option>
   </component>
@@ -560,14 +559,7 @@
       <workItem from="1516070971175" duration="14763000" />
       <workItem from="1516153895328" duration="28806000" />
       <workItem from="1516241154779" duration="22116000" />
-      <workItem from="1516325746571" duration="240000" />
-    </task>
-    <task id="LOCAL-00122" summary="图片上传部分  2018年1月11日13:10:29">
-      <created>1515647437777</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1515647437777</updated>
+      <workItem from="1516325746571" duration="356000" />
     </task>
     <task id="LOCAL-00123" summary="跳转详情页  2018年1月11日13:18:08">
       <created>1515647894188</created>
@@ -905,11 +897,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516273639521</updated>
     </task>
-    <option name="localTasksCounter" value="171" />
+    <task id="LOCAL-00171" summary="修改权限  2018年1月19日09:39:58">
+      <created>1516326005578</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1516326005578</updated>
+    </task>
+    <option name="localTasksCounter" value="172" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="883425000" />
+    <option name="totallyTimeSpent" value="883541000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -986,7 +985,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="地址回显  2018年1月12日17:08:05" />
     <MESSAGE value="1、修复现有车系模块联动问题&#10;2、增加职业数据回显 &#10;2018年1月12日17:51:58" />
     <MESSAGE value="修复单位电话随便输入  2018年1月12日18:01:32" />
     <MESSAGE value="品牌车系回显  2018年1月12日19:24:07" />
@@ -1011,7 +1009,8 @@
     <MESSAGE value="增加nextQueryType  2018年1月18日17:45:48" />
     <MESSAGE value="修改图片  2018年1月18日18:28:52" />
     <MESSAGE value="创建详情页还款计划表  2018年1月18日19:07:11" />
-    <option name="LAST_COMMIT_MESSAGE" value="创建详情页还款计划表  2018年1月18日19:07:11" />
+    <MESSAGE value="修改权限  2018年1月19日09:39:58" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改权限  2018年1月19日09:39:58" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1370,6 +1369,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/finance/img_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="29" column="26" lean-forward="true" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controller/viewsController/dockingController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7296">
@@ -1380,16 +1387,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/inc/entryInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/finance/img_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+        <state relative-caret-position="559">
+          <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
           <folding />
         </state>
       </provider>
