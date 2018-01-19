@@ -420,6 +420,12 @@ function formatCarInfoAmount (d) {
         (!d.carInfo.cautionMoney && d.carInfo.cautionMoney != 0) && (d.carInfo.cautionMoney = 0);       // 保证金
         (!d.carInfo.serviceCharge && d.carInfo.serviceCharge != 0) && (d.carInfo.serviceCharge = 0);        // 服务费
         (!d.carInfo.attachFinance && d.carInfo.attachFinance != 0) && (d.carInfo.attachFinance = 0);        // 附加融资额
+        (!d.carInfo.price && d.carInfo.price != 0) && (d.carInfo.price = 0);        // 品牌指导价
+        (!d.carInfo.firstPay && d.carInfo.firstPay != 0) && (d.carInfo.firstPay = 0);        // 首付金额
+        (!d.carInfo.financeAmount && d.carInfo.financeAmount != 0) && (d.carInfo.financeAmount = 0);        // 融资金额
+        (!d.carInfo.netFinanceAmount && d.carInfo.netFinanceAmount != 0) && (d.carInfo.netFinanceAmount = 0);        // 净融资额
+        (!d.carInfo.eachRent && d.carInfo.eachRent != 0) && (d.carInfo.eachRent = 0);        // 每期租金
+        (!d.carInfo.projectAmount && d.carInfo.projectAmount != 0) && (d.carInfo.projectAmount = 0);        // 项目金额
     } else {
         d.carInfo = {};
         d.carInfo.buyTax = 0;
@@ -430,6 +436,12 @@ function formatCarInfoAmount (d) {
         d.carInfo.cautionMoney = 0;
         d.carInfo.serviceCharge = 0;
         d.carInfo.attachFinance = 0;
+        d.carInfo.price = 0;
+        d.carInfo.firstPay = 0;
+        d.carInfo.financeAmount = 0;
+        d.carInfo.netFinanceAmount = 0;
+        d.carInfo.eachRent = 0;
+        d.carInfo.projectAmount = 0;
     }
 }
 
