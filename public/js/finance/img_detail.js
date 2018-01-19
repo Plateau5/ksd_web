@@ -8,7 +8,7 @@ $(function(){
         var sign_ids = _this.data('sign_ids').toString();
         var finance_id = $('#finance_id').val();
         var locationUrl = LOCALURL;
-        /*if (is_docking == 0 || (sign_ids && sign_ids.indexOf('10') == -1)) {
+        if (is_docking == 0 || (sign_ids && sign_ids.indexOf('10') == -1)) {
             $.ajax({
                 type:"post",
                 url :contextPath + '/api/finance/startApplyloan',
@@ -33,7 +33,7 @@ $(function(){
                     }
                 }
             });
-        } else {*/
+        } else {
             locationTo({
                 action : contextPath + markUri + '/docking/pingan/home',
                 param : {
@@ -42,7 +42,7 @@ $(function(){
                     url : locationUrl
                 }
             })
-        // }
+        }
     });
 
     //确认申请
