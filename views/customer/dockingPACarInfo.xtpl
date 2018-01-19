@@ -678,7 +678,7 @@
                         createRepaymentPlanTable(financeAmount, interestRate, rentDue);     // 计算还款计划表
                         p.show();
                     } else {
-                        $alert('租赁期限、产品名称未选择或是融资金额不合法，请调整后查看。');
+                        $alert('请先完善“产品名称”、“租赁期限”、“车辆实际价格”、“首付金额”。');
                     }
                 } else {
                     p.hide();
