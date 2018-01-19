@@ -358,11 +358,11 @@
                             <tbody>
                             {{#each (repaymentPlan) }}
                                 <tr>
-                                    <td>{{this.rentTime[xIndex]}}</td>
-                                    <td>{{xIndex + 1}}</td>
+                                    <td>{{this.rentTime}}</td>
+                                    <td>{{xindex + 1}}</td>
                                     <td>{{this.eachRent}}</td>
-                                    <td>{{this.interestRateAmount[xIndex]}}</td>
-                                    <td>{{this.principalAmount[xIndex]}}</td>
+                                    <td>{{this.interestRateAmount}}</td>
+                                    <td>{{this.principalAmount}}</td>
                                 </tr>
                             {{/each}}
                             </tbody>
@@ -372,8 +372,7 @@
                         </div>
                     </div>
                 </div>
-                {{/if}}
-
+            {{/if}}
             </div>
             <!---- Part of Main info End ---->
         </div>

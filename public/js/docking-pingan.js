@@ -502,7 +502,7 @@ function uploadImage () {
  * @author Arley Joe 2017-11-2 11:33:18
  */
 function viewImages () {
-    var imagesParents = $('.merchants_edit');
+    var imagesParents = $('.docking_container');
     imagesParents.on('click', '.img_md_operate_box .view', function (e) {
         var e = e || window.event;
         e.stopPropagation();
@@ -514,6 +514,23 @@ function viewImages () {
         img.click();
     })
 }
+/**
+ * 删除图片
+ * @author Arley Joe 2017-11-2 11:38:04
+ */
+function deleteImages () {
+    var imagesParents = $('.docking_container');
+    imagesParents.on('click', '.img_md_operate_box .delete', function (e) {
+        var e = e || window.event;
+        e.stopPropagation();
+        e.preventDefault();
+        var _this = $(this);
+        var parent = _this.parents('a.img_item');
+        parent.remove();
+
+    })
+}
+
 
 /**
  * 清除配偶或是直系亲属信息

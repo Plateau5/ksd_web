@@ -374,23 +374,27 @@ function formatCarInfoAmount (d) {
  */
 
 function calcRepaymentPlan (financeAmount, interestRate, rentDue, time) {
+    financeAmount = Number(financeAmount);
+    interestRate = Number(interestRate);
+    rentDue = Number(rentDue);
     interestRate = interestRate / 100;
-    var data = {
+    /*var data = {
         interestRateAmount : [],        // 利息金额
         principalAmount : [],        // 本金金额,
         rentTime : []
-    };
+    };*/
+    var data = [];
     var timeArr = time.split('-');
     timeArr[0] = Number(timeArr[0]);
     timeArr[1] = Number(timeArr[1]);
     var month = timeArr[1],
         year = timeArr[0];
     var monthRent = Number((interestRate / 12));
-    data.eachRent = Number((financeAmount * monthRent * Math.pow((1 + monthRent), rentDue)  / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2));
+    var eachRent = Number((financeAmount * monthRent * Math.pow((1 + monthRent), rentDue)  / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2));
     for (var i = 1; i <= rentDue; i++) {
         // 循环时间
         month += 1;     // 首个还款日为下个月的15号
-        if (month == 12) {
+        if (month > 12) {
             year += 1;
             month = 1;
         }
@@ -398,12 +402,15 @@ function calcRepaymentPlan (financeAmount, interestRate, rentDue, time) {
         var a = Number((financeAmount * monthRent * (Math.pow((1 + monthRent), rentDue) - Math.pow((1 + monthRent), (i - 1))) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2));
         // 本金金额
         var b = Number((financeAmount * monthRent * Math.pow((1 + monthRent), (i - 1)) / (Math.pow((1 + monthRent), rentDue) - 1)).toFixed(2));
-        a = formatNum(a);
-        b = formatNum(b);
-        data.interestRateAmount.push(a);
-        data.principalAmount.push(b);
-        var payTime = year + '-' + ((month < 10) ? ('0' + month) : month) +'-15';
-        data.rentTime.push(payTime);
+        var o = {};
+        o.eachRent = eachRent;
+        o.interestRateAmount = formatNum(a);
+        o.principalAmount = formatNum(b);
+        /*data.interestRateAmount.push(a);
+        data.principalAmount.push(b);*/
+        // data.rentTime.push(payTime);
+        o.rentTime = year + '-' + ((month < 10) ? ('0' + month) : month) +'-15';
+        data.push(o);
     }
     return data;
 }

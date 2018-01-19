@@ -37,19 +37,12 @@
                             {{#if (this.type || this.type === 0) }}
                                 <div class="options_title" data-type="{{this.type}}">
                                     {{this.name}}
-                                    <span style="color:#808891; font-size: 12px;">(<span class="require_icon exp_require">*</span>项为必填项，<span style="color: #FF9200;">*</span>项为组内至少选填一项)</span>
                                 </div>
                                 {{#each (this.children) }}
                                 <div class="option_item whole_line file_option_item" data-name="{{this.file_name}}" group_id="{{this.group_id}}" group_num="{{this.group_num}}">
                                     <div class="column_name">
                                         <span class="options_name">
-                                            {{#if (this.require === '1') }}
-                                            <span class="require_icon">*</span>{{this.file_name}}：
-                                            {{elseif (this.group_id || this.group_id === '0' || this.group_id === 0)}}
-                                            <span style="color: #FF9200;">*</span>选填{{this.group_id}}-{{this.file_name}}：
-                                            {{else}}
                                                 {{this.file_name}}：
-                                            {{/if}}
                                         </span>
                                     </div>
                                     <div class="column_val">
@@ -60,7 +53,6 @@
                                                     <img data-original="{{this.thumbnail}}" alt="{{this.file_name}}" src="{{this.thumbnail_120_90}}">
                                                     <div class="img_md_operate_box">
                                                         <em class="img_md_operate_btn view" data-url="{{this.thumbnail}}" title="查看"></em>
-                                                        <em class="img_md_operate_btn delete" data-id="{{this.file_id}}" title="删除"></em>
                                                     </div>
                                                 </a>
                                                 {{/if}}
@@ -133,10 +125,23 @@
 </html>
 <script>
     (function ($) {
+        // 隐藏未上传的图片项。
+        function hideEmptyFileItem () {
+            var emptyFiles = $('.file_option_item');
+            emptyFiles.each(function () {
+                var _this = $(this);
+                var imgs = _this.find('.img_item');
+                if (imgs.length <= 0) {
+                    _this.remove();
+                }
+            });
+        }
+
         $(function() {
             viewLargeImage('.img_md_box');
             viewImages();       // 查看大图
             uploadImage();      // 图片上传注册
+            hideEmptyFileItem();
         });
     })(jQuery,undefined);
 </script>
