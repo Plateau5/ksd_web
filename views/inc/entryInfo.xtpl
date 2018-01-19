@@ -94,6 +94,7 @@
         // 跳转查看对接详情页
 		function goDockingPADetail () {
             var btn = $('#viewDockingPADetail');
+            var userName = $('#userName').val();
             if (btn.length > 0) {
 				btn.on('click', function () {
 				    var _this = $(this);
@@ -104,7 +105,8 @@
 						param : {
 						    finance_id : financeId,
                             active : 'active',
-                            url : LOCALURL
+                            url : LOCALURL,
+							userName : userName
                         }
 					})
 				});
