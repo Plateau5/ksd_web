@@ -32,6 +32,9 @@
                         <input type="hidden" name="finance_id" value="{{finance_id}}" id="financeId">
                         <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
                         <input type="hidden" name="nextQueryType" value="{{nextQueryType}}" id="nextQueryType">
+                        <input type="hidden" id="navigation" value="{{navigation}}">
+                        <input type="hidden" id="nodeUrl" value="{{nodeUrl}}">
+                        <input type="hidden" id="userName" value="{{userName}}">
                         <!-- 承租人文件信息 Begin -->
                         {{#each (dataFiles) }}
                             {{#if (this.type || this.type === 0) }}

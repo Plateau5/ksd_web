@@ -34,6 +34,9 @@
                         <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
                         <input type="hidden" name="id" value="{{renterInfo.id}}">
                         <input type="hidden" name="nextQueryType" value="{{nextQueryType}}" id="nextQueryType">
+                        <input type="hidden" id="navigation" value="{{navigation}}">
+                        <input type="hidden" id="nodeUrl" value="{{nodeUrl}}">
+                        <input type="hidden" id="userName" value="{{userName}}">
                         <!-- 基本信息 Begin -->
                         <div class="basic_info_renter">
                             <div class="options_title">基本信息</div>

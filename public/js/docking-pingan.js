@@ -602,6 +602,9 @@ function saveAndGoNext (btn, nextPath, url) {
     var queryType = $.trim($('#queryType').val());
     var nextQueryType = $('#nextQueryType').val().trim().number();
     var preCode = $.trim($('#preCode').val());
+    var navigation = $('#navigation').val().trim();
+    var nodeUrl = $('#nodeUrl').val().trim();
+    var userName = $('#userName').val().trim();
     var verifyPass = verifyEmpty();     // 是否填写完整
     if (!ISCARINFO || ISCARINFO === undefined) {
         var verifyAmountPass = true;
@@ -635,7 +638,10 @@ function saveAndGoNext (btn, nextPath, url) {
                             param : {
                                 finance_id : financeId,
                                 query_type : nextQueryType,
-                                preCode : preCode
+                                preCode : preCode,
+                                navigation : navigation,
+                                nodeUrl : nodeUrl,
+                                userName : userName
                             }
                         })
                     });
@@ -807,6 +813,9 @@ function fileSaveAndGoNext (btn, nextPath, url) {
     var queryType = $.trim($('#queryType').val());
     var nextQueryType = $('#nextQueryType').val().trim().number();
     var type = $.trim(btn.data('type')).number();
+    var navigation = $('#navigation').val().trim();
+    var nodeUrl = $('#nodeUrl').val().trim();
+    var userName = $('#userName').val().trim();
     var fileData = getData(type);
     fileData = JSON.stringify(fileData);
     var isValidate = verifyImgPass();
@@ -834,7 +843,10 @@ function fileSaveAndGoNext (btn, nextPath, url) {
                             action : nextPath,
                             param : {
                                 finance_id : financeId,
-                                query_type : nextQueryType
+                                query_type : nextQueryType,
+                                navigation : navigation,
+                                nodeUrl : nodeUrl,
+                                userName : userName
                             }
                         })
                     });
