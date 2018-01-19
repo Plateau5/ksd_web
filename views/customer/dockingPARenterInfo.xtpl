@@ -367,7 +367,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{#if (renterInfo.isFirstBuy === '2' || !renterInfo.isFirstBuy) }}
+                            {{#if (renterInfo.isFirstBuy === '2') }}
                             <div class="option_item hascarloan_item">
                                 <div class="column_name">
                                     <span class="options_name">是否有车贷：</span>
@@ -408,7 +408,7 @@
                                 </div>
                             </div>
                             {{/if}}
-                            {{#if (renterInfo.isFirstBuy === '2' || !renterInfo.isFirstBuy) }}
+                            {{#if (renterInfo.isFirstBuy === '2') }}
                             <div class="option_item oencarbrand_item" style="display: block;">
                             {{else}}
                             <div class="option_item oencarbrand_item" style="display: none;">
