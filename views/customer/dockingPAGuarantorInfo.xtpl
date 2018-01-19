@@ -42,9 +42,9 @@
                             </div>
                             <div class="column_val">
                                 {{#if (isPre === 1) }}
-                                <input type="text" class="required" readonly data-tips="姓名不能为空" name="name" value="{{sponsorInfo.name}}" placeholder="请输入姓名，比如：张三" />
+                                <input type="text" class="required" maxlength="30" readonly data-tips="姓名不能为空" name="name" value="{{sponsorInfo.name}}" placeholder="请输入姓名，比如：张三" />
                                 {{else}}
-                                <input type="text" class="required" data-tips="姓名不能为空" name="name" value="{{sponsorInfo.name}}" placeholder="请输入姓名，比如：张三" />
+                                <input type="text" class="required" maxlength="30" data-tips="姓名不能为空" name="name" value="{{sponsorInfo.name}}" placeholder="请输入姓名，比如：张三" />
                                 {{/if}}
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -143,8 +143,7 @@
                             </div>
                             <div class="column_val">
                                 <select name="relax" id="relax">
-                                    <option value="">请选择</option>
-                                    {{#if (sponsorInfo.relax === '1') }}
+                                    {{#if (sponsorInfo.relax === '1' || !sponsorInfo.relax) }}
                                     <option value="1" selected>亲属</option>
                                     {{else}}
                                     <option value="1">亲属</option>
@@ -173,8 +172,7 @@
                             </div>
                             <div class="column_val">
                                 <select name="education" id="sponsorInfo.education">
-                                    <option value="">请选择</option>
-                                    {{#if (sponsorInfo.education === '1') }}
+                                    {{#if (sponsorInfo.education === '1' || sponsorInfo.education) }}
                                     <option value="1" selected>本科以上</option>
                                     {{else}}
                                     <option value="1">本科以上</option>
@@ -235,8 +233,7 @@
                             </div>
                             <div class="column_val">
                                 <select name="estateType" id="">
-                                    <option value="">请选择</option>
-                                    {{#if (sponsorInfo.estateType === '1') }}
+                                    {{#if (sponsorInfo.estateType === '1' || !sponsorInfo.estateType) }}
                                     <option value="1" selected>自有无贷</option>
                                     {{else}}
                                     <option value="1">自有无贷</option>
@@ -280,7 +277,7 @@
                                 <span class="options_name"></span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="详细地址不能为空" name="homeAddress" value="{{sponsorInfo.homeAddress}}" placeholder="请输入详细地址" />
+                                <input type="text" class="required" maxlength="50" data-tips="详细地址不能为空" name="homeAddress" value="{{sponsorInfo.homeAddress}}" placeholder="请输入详细地址" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -341,7 +338,7 @@
                                 <span class="options_name"></span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="详细地址不能为空" name="estateAddress" value="{{sponsorInfo.estateAddress}}" placeholder="请输入详细地址" />
+                                <input type="text" class="required" maxlength="50" data-tips="详细地址不能为空" name="estateAddress" value="{{sponsorInfo.estateAddress}}" placeholder="请输入详细地址" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -358,7 +355,7 @@
                                     <span class="options_name">单位名称：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="单位名称不能为空" name="empName" value="{{sponsorInfo.empName}}" placeholder="请输入单位名称" />
+                                    <input type="text" class="required"  maxlength="30" data-tips="单位名称不能为空" name="empName" value="{{sponsorInfo.empName}}" placeholder="请输入单位名称" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -368,8 +365,7 @@
                                 </div>
                                 <div class="column_val">
                                     <select name="empType" id="">
-                                        <option value="">请选择</option>
-                                        {{#if (sponsorInfo.empType === '1') }}
+                                        {{#if (sponsorInfo.empType === '1' || !sponsorInfo.empType) }}
                                         <option value="1" selected>有限责任公司</option>
                                         {{else}}
                                         <option value="1">有限责任公司</option>
@@ -465,7 +461,7 @@
                                     <span class="options_name"></span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="详细地址不能为空" name="empAddress" value="{{sponsorInfo.empAddress}}" placeholder="请输入详细地址" />
+                                    <input type="text" class="required" maxlength="50" data-tips="详细地址不能为空" name="empAddress" value="{{sponsorInfo.empAddress}}" placeholder="请输入详细地址" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -526,6 +522,7 @@
             });       // 证件号码校验
             setAddressName();       // 设置省市选中的中文。
             setOccupationName();        // 设置职业选中的中文。
+            setBirthday();      // 设置生日
 
         });
     })(jQuery,undefined);

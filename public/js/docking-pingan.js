@@ -332,6 +332,26 @@ function verifyGender () {
         }
     }
 }
+/**
+ * 出生日期自动查询
+ * @author Arley Joe 2018年1月19日16:20:48
+ * @return {boolean}
+ */
+function setBirthday () {
+    var IDNum = $.trim($('input[name="IDnum"]').val());      // 身份证号
+    var birthday = $('.birthday');      // 性别选择容器
+    if (IDNum) {
+        // 获取身份证第17位或是15位。
+        if (IDNum.length == 18) {
+            var birthdayNum = IDNum.slice(6,14).number();
+            birthday.val(birthdayNum);
+        } else if (IDNum.length == 15) {
+            var birthdayNum = IDNum.slice(6,12).number();
+            birthday.val(birthdayNum);
+        }
+
+    }
+}
 
 // 校验必填项是否填写完整
 function verifyEmpty () {

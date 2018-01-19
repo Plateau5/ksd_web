@@ -132,8 +132,7 @@
                                 </div>
                                 <div class="column_val">
                                     <select name="marriage" id="renterMarriage">
-                                        <option value="">请选择</option>
-                                        {{#if (renterInfo.marriage === '1') }}
+                                        {{#if (renterInfo.marriage === '1' || !renterInfo.marriage) }}
                                         <option value="1" selected>单身</option>
                                         {{else}}
                                         <option value="1">单身</option>
@@ -162,8 +161,7 @@
                                 </div>
                                 <div class="column_val">
                                     <select name="education" id="education">
-                                        <option value="">请选择</option>
-                                        {{#if (renterInfo.education === '1') }}
+                                        {{#if (renterInfo.education === '1' || renterInfo.education) }}
                                         <option value="1" selected>本科以上</option>
                                         {{else}}
                                         <option value="1">本科以上</option>
@@ -224,8 +222,7 @@
                                 </div>
                                 <div class="column_val">
                                     <select name="estateType" id="estateType">
-                                        <option value="">请选择</option>
-                                        {{#if (renterInfo.estateType === '1') }}
+                                        {{#if (renterInfo.estateType === '1' || !renterInfo.estateType) }}
                                         <option value="1" selected>自有无贷</option>
                                         {{else}}
                                         <option value="1">自有无贷</option>
@@ -269,7 +266,7 @@
                                     <span class="options_name"></span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="详细地址不能为空" name="homeAddress" value="{{renterInfo.homeAddress}}" placeholder="请输入详细地址" />
+                                    <input type="text" class="required" maxlength="50" data-tips="详细地址不能为空" name="homeAddress" value="{{renterInfo.homeAddress}}" placeholder="请输入详细地址" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -310,12 +307,13 @@
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
+                            <!--现居住地址详细地址-->
                             <div class="option_item">
                                 <div class="column_name">
                                     <span class="options_name"></span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="详细地址不能为空" name="estateAddress" value="{{renterInfo.estateAddress}}" placeholder="请输入详细地址" />
+                                    <input type="text" class="required" maxlength="50" data-tips="详细地址不能为空" name="estateAddress" value="{{renterInfo.estateAddress}}" placeholder="请输入详细地址" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -460,7 +458,7 @@
                                         {{else}}
                                         <option value="B2">B2:大型货车</option>
                                         {{/if}}
-                                        {{#if (renterInfo.driveType === 'C1') }}
+                                        {{#if (renterInfo.driveType === 'C1' || !renterInfo.driveType) }}
                                         <option value="C1" selected>C1:小型汽车</option>
                                         {{else}}
                                         <option value="C1">C1:小型汽车</option>
@@ -566,7 +564,7 @@
                                     <span class="options_name">备注：</span>
                                 </div>
                                 <div class="column_val" style="width: 87.5%;">
-                                    <textarea name="comment" id="" style="width: 82%;" placeholder="请输入备注内容">{{renterInfo.comment}}</textarea>
+                                    <textarea name="comment" maxlength="200" id="comment" style="width: 82%;" placeholder="请输入备注内容">{{renterInfo.comment}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -583,7 +581,7 @@
                                     <span class="options_name">单位名称：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="单位名称不能为空" name="empName" value="{{renterInfo.empName}}" placeholder="请输入单位名称" />
+                                    <input type="text" class="required" maxlength="30" data-tips="单位名称不能为空" name="empName" value="{{renterInfo.empName}}" placeholder="请输入单位名称" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -593,8 +591,7 @@
                                 </div>
                                 <div class="column_val">
                                     <select name="empType" id="empType">
-                                        <option value="">请选择</option>
-                                        {{#if (renterInfo.empType === '1') }}
+                                        {{#if (renterInfo.empType === '1' || !renterInfo.empType) }}
                                         <option value="1" selected>有限责任公司</option>
                                         {{else}}
                                         <option value="1">有限责任公司</option>
@@ -693,7 +690,7 @@
                                     <span class="options_name"></span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="详细地址不能为空" name="empAddress" value="{{renterInfo.empAddress}}" placeholder="请输入详细地址" />
+                                    <input type="text" class="required" maxlength="50" data-tips="详细地址不能为空" name="empAddress" value="{{renterInfo.empAddress}}" placeholder="请输入详细地址" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -712,9 +709,9 @@
                                 </div>
                                 <div class="column_val">
                                     {{#if (isPre === 1) }}
-                                        <input type="text" class="required" readonly data-tips="配偶姓名不能为空" name="spouseName" value="{{renterInfo.spouseName}}" placeholder="请输入姓名，如：张三" />
+                                        <input type="text" class="required" maxlength="30" readonly data-tips="配偶姓名不能为空" name="spouseName" value="{{renterInfo.spouseName}}" placeholder="请输入姓名，如：张三" />
                                     {{else}}
-                                        <input type="text" class="required" data-tips="配偶姓名不能为空" name="spouseName" value="{{renterInfo.spouseName}}" placeholder="请输入姓名，如：张三" />
+                                        <input type="text" class="required" maxlength="30" data-tips="配偶姓名不能为空" name="spouseName" value="{{renterInfo.spouseName}}" placeholder="请输入姓名，如：张三" />
                                     {{/if}}
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
@@ -830,7 +827,7 @@
                                     <span class="options_name">直系亲属姓名：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="直系亲属姓名不能为空" name="parentName" value="{{renterInfo.parentName}}" placeholder="请输入姓名，如：张三" />
+                                    <input type="text" class="required"  maxlength="30" data-tips="直系亲属姓名不能为空" name="parentName" value="{{renterInfo.parentName}}" placeholder="请输入姓名，如：张三" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -854,8 +851,7 @@
                                 </div>
                                 <div class="column_val">
                                     <select name="emgconRelation" id="">
-                                        <option value="">请选择</option>
-                                        {{#if (renterInfo.emgconRelation === '1') }}
+                                        {{#if (renterInfo.emgconRelation === '1' || !renterInfo.emgconRelation) }}
                                         <option value="1" selected>亲属</option>
                                         {{else}}
                                         <option value="1">亲属</option>
@@ -883,7 +879,7 @@
                                     <span class="options_name">姓名：</span>
                                 </div>
                                 <div class="column_val">
-                                    <input type="text" class="required" data-tips="紧急联系人姓名不能为空" name="emgconName" value="{{renterInfo.emgconName}}" placeholder="请输入姓名，如：张三" />
+                                    <input type="text" class="required" data-tips="紧急联系人姓名不能为空" maxlength="30" name="emgconName" value="{{renterInfo.emgconName}}" placeholder="请输入姓名，如：张三" />
                                     <div class="tips_info">(*<span class="tips_text"></span>)</div>
                                 </div>
                             </div>
@@ -1009,6 +1005,7 @@
             isHasCarLoan();     // 是否有车贷更改
             setAddressName();       // 设置省市选中的中文。
             setOccupationName();        // 设置职业选中的中文。
+            setBirthday();      // 设置生日
         });
     })(jQuery,undefined);
 </script>

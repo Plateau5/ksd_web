@@ -94,6 +94,8 @@ exports.VIEW_DOCKING_PINGAN_LENDER = function(req, res, next) {
             data.query_type = queryType;
             data.finance_id = finance_id;
             data.url = url;
+            (!data.renterInfo.familyInCome && data.renterInfo.familyInCome != 0) && (data.renterInfo.familyInCome = 0);        // 每月家庭净收入
+            (!data.renterInfo.familyExpend && data.renterInfo.familyExpend != 0) && (data.renterInfo.familyExpend = 0);        // 每月支出
         }
     }, req, res, next);
 };
