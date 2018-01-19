@@ -7,6 +7,7 @@ $(function(){
         var is_docking = _this.data('is_docking');
         var sign_ids = _this.data('sign_ids').toString();
         var finance_id = $('#finance_id').val();
+        var user_name = $('#userName').val().trim();
         var locationUrl = LOCALURL;
         if (is_docking == 0 || (sign_ids && sign_ids.indexOf('10') == -1)) {
             $.ajax({
@@ -39,7 +40,8 @@ $(function(){
                 param : {
                     finance_id : finance_id,
                     active : 'active',
-                    url : locationUrl
+                    url : locationUrl,
+                    userName : user_name
                 }
             })
         }

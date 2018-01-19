@@ -18,6 +18,7 @@ exports.VIEW_DOCKING_PINGAN_HOME = function(req, res, next) {
     var financeId = req.body.finance_id;
     var queryType = req.body.query_type;
     var url = req.body.url;
+    var userName = req.body.userName;
     common.getPageData({
         url : '/api/docking/table',
         title : '客户-录入资料',
@@ -26,6 +27,7 @@ exports.VIEW_DOCKING_PINGAN_HOME = function(req, res, next) {
             data.finance_id = financeId;
             data.query_type = queryType;
             data.url = url;
+            data.userName = userName;
             /*data.carInfo = 1;
             data.renterInfo = 1;
             data.sponsorInfo = 1;
@@ -49,6 +51,8 @@ exports.VIEW_DOCKING_PINGAN_CAR = function(req, res, next) {
             var finance_id = req.body.finance_id;
             var preCode = req.body.preCode;
             var nextQueryType = req.body.nextQueryType;
+            var userName = req.body.userName;
+            data.userName = userName;
             data.nextQueryType = nextQueryType;
             data.preCode = preCode;
             data.query_type = queryType;
@@ -71,6 +75,8 @@ exports.VIEW_DOCKING_PINGAN_LENDER = function(req, res, next) {
             var queryType = req.body.query_type;
             var preCode = req.body.preCode;
             var nextQueryType = req.body.nextQueryType;
+            var userName = req.body.userName;
+            data.userName = userName;
             data.nextQueryType = nextQueryType;
             data.preCode = preCode;
             data.query_type = queryType;
@@ -94,6 +100,8 @@ exports.VIEW_DOCKING_PINGAN_GUARGANTOR = function(req, res, next) {
             var queryType = req.body.query_type;
             var preCode = req.body.preCode;
             var nextQueryType = req.body.nextQueryType;
+            var userName = req.body.userName;
+            data.userName = userName;
             data.nextQueryType = nextQueryType;
             data.preCode = preCode;
             data.query_type = queryType;
@@ -114,6 +122,8 @@ exports.VIEW_DOCKING_PINGAN_FILES = function(req, res, next) {
             var queryType = req.body.query_type;
             var preCode = req.body.preCode;
             var nextQueryType = req.body.nextQueryType;
+            var userName = req.body.userName;
+            data.userName = userName;
             data.nextQueryType = nextQueryType;
             data.preCode = preCode;
             data.query_type = queryType;
@@ -138,6 +148,8 @@ exports.VIEW_DOCKING_PINGAN_CREDIT = function(req, res, next) {
             var queryType = req.body.query_type;
             var preCode = req.body.preCode;
             var nextQueryType = req.body.nextQueryType;
+            var userName = req.body.userName;
+            data.userName = userName;
             data.nextQueryType = nextQueryType;
             data.preCode = preCode;
             data.query_type = queryType;
@@ -153,11 +165,13 @@ exports.VIEW_DOCKING_PINGAN_DETAILHOME = function(req, res, next) {
     var queryType = req.body.query_type;
     var url = req.body.url;
     var nextQueryType = req.body.nextQueryType;
+    var userName = req.body.userName;
     common.getPageData({
         url : '/api/docking/table',
         title : '客户-查看录入资料',
         page : './customer/dockingPAHomeDetail',
         callback : function (data) {
+            data.userName = userName;
             data.nextQueryType = nextQueryType;
             data.finance_id = financeId;
             data.query_type = queryType;
@@ -180,6 +194,8 @@ exports.VIEW_DOCKING_PINGAN_DETAILCAR = function(req, res, next) {
             var finance_id = req.body.finance_id;
             var preCode = req.body.preCode;
             var nextQueryType = req.body.nextQueryType;
+            var userName = req.body.userName;
+            data.userName = userName;
             data.nextQueryType = nextQueryType;
             data.preCode = preCode;
             data.query_type = queryType;
@@ -203,6 +219,8 @@ exports.VIEW_DOCKING_PINGAN_DETAILLENDER = function(req, res, next) {
             var queryType = req.body.query_type;
             var preCode = req.body.preCode;
             var nextQueryType = req.body.nextQueryType;
+            var userName = req.body.userName;
+            data.userName = userName;
             data.nextQueryType = nextQueryType;
             data.preCode = preCode;
             data.query_type = queryType;
@@ -215,7 +233,7 @@ exports.VIEW_DOCKING_PINGAN_DETAILLENDER = function(req, res, next) {
 exports.VIEW_DOCKING_PINGAN_DETAILGUARGANTOR = function(req, res, next) {
     common.getPageData({
         url : '/api/pingan/sponsorInfos/detail',
-        title : '客户-担保人信息',
+        title : '客户-查看担保人信息',
         page : './customer/dockingPAGuarantorInfoDetail',
         callback : function (data) {
             if (data.sponsorInfo) {
@@ -226,6 +244,8 @@ exports.VIEW_DOCKING_PINGAN_DETAILGUARGANTOR = function(req, res, next) {
             var queryType = req.body.query_type;
             var preCode = req.body.preCode;
             var nextQueryType = req.body.nextQueryType;
+            var userName = req.body.userName;
+            data.userName = userName;
             data.nextQueryType = nextQueryType;
             data.preCode = preCode;
             data.query_type = queryType;
@@ -238,7 +258,7 @@ exports.VIEW_DOCKING_PINGAN_DETAILGUARGANTOR = function(req, res, next) {
 exports.VIEW_DOCKING_PINGAN_DETAILFILES = function(req, res, next) {
     common.getPageData({
         url : '/api/docking/document/list',
-        title : '客户-产看文件信息',
+        title : '客户-查看文件信息',
         page : './customer/dockingPARenterFilesInfoDetail',
         callback : function (data) {
             var finance_id = req.body.finance_id;
@@ -246,6 +266,8 @@ exports.VIEW_DOCKING_PINGAN_DETAILFILES = function(req, res, next) {
             var queryType = req.body.query_type;
             var preCode = req.body.preCode;
             var nextQueryType = req.body.nextQueryType;
+            var userName = req.body.userName;
+            data.userName = userName;
             data.nextQueryType = nextQueryType;
             data.preCode = preCode;
             data.query_type = queryType;
@@ -262,7 +284,7 @@ exports.VIEW_DOCKING_PINGAN_DETAILFILES = function(req, res, next) {
 exports.VIEW_DOCKING_PINGAN_DETAILCREDIT = function(req, res, next) {
     common.getPageData({
         url : '/api/docking/credit/list',
-        title : '客户-征信查询信息',
+        title : '客户-查看征信查询信息',
         page : './customer/dockingPACreditInfoDetail',
         callback : function (data) {
             var finance_id = req.body.finance_id;
@@ -270,6 +292,8 @@ exports.VIEW_DOCKING_PINGAN_DETAILCREDIT = function(req, res, next) {
             var queryType = req.body.query_type;
             var preCode = req.body.preCode;
             var nextQueryType = req.body.nextQueryType;
+            var userName = req.body.userName;
+            data.userName = userName;
             data.nextQueryType = nextQueryType;
             data.preCode = preCode;
             data.query_type = queryType;
