@@ -674,7 +674,7 @@
                     var financeAmount = finance.val().number();        // 融资金额
                     var interestRate = product.find('option:selected').data('price');    // 年利率
                     var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
-                    if (financeAmount !== '' && interestRate !== '' && rentDue !== '') {
+                    if (financeAmount !== 0 && interestRate !== 0 && rentDue !== 0) {
                         createRepaymentPlanTable(financeAmount, interestRate, rentDue);     // 计算还款计划表
                         p.show();
                     } else {
@@ -698,7 +698,7 @@
                 var financeAmount = finance.val().number();        // 融资金额
                 var interestRate = product.find('option:selected').data('price');    // 年利率
                 var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
-                if (financeAmount !== '' && interestRate !== '' && rentDue !== '') {
+                if (financeAmount !== 0 && interestRate !== 0 && rentDue !== 0) {
                     createRepaymentPlanTable(financeAmount, interestRate, rentDue);     // 计算还款计划表
                 }
             });
@@ -918,7 +918,7 @@
 
             var interestRate = product.find('option:selected').data('price');    // 年利率
             var rentDue = rentDueE.find('option:selected').val().number();    // 租赁期限
-            if (financeAmount !== '' && interestRate !== '' && rentDue !== '') {
+            if (financeAmount !== 0 && interestRate !== 0 && rentDue !== 0) {
                 createRepaymentPlanTable(financeAmount, interestRate, rentDue);     // 计算还款计划表
             }
         }
