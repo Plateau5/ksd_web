@@ -840,7 +840,8 @@
                 var _this = $(this);
                 var newValueString = _this.val();
                 var newValue = Number(newValueString);
-                if (!isNaN(newValue) &&newValueString != oldValue) {
+//                if (!isNaN(newValue) &&newValueString != oldValue) {
+                if (!isNaN(newValue)) {
                     if (_this.hasClass('attachFinance')) {
                         var netFinancingAmount = $('#netFinancingAmount').val().number();  // 净融资金额
                         var countAmount = newValue + netFinancingAmount;
