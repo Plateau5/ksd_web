@@ -741,66 +741,18 @@
                                     <input type="hidden" name="spouseIDtype" value="1">
                                     <select name="" id="spouseIDtype" disabled>
                                         <option value="">请选择</option>
-                                        {{#if (renterInfo.spouseIDtype === '1') }}
-                                        <option value="1" selected>居民身份证</option>
-                                        {{else}}
-                                        <option value="1">居民身份证</option>
-                                        {{/if}}
-                                        {{#if (renterInfo.spouseIDtype === '2') }}
-                                        <option value="2" selected>临时身份证</option>
-                                        {{else}}
+                                        <option value="1" selected="selected">居民身份证</option>
                                         <option value="2">临时身份证</option>
-                                        {{/if}}
-                                        {{#if (renterInfo.spouseIDtype === '3') }}
-                                        <option value="3" selected>护照</option>
-                                        {{else}}
                                         <option value="3">护照</option>
-                                        {{/if}}
-                                        {{#if (renterInfo.spouseIDtype === '4') }}
-                                        <option value="4" selected>户口簿</option>
-                                        {{else}}
                                         <option value="4">户口簿</option>
-                                        {{/if}}
-                                        {{#if (renterInfo.spouseIDtype === '5') }}
-                                        <option value="5" selected>军人身份证</option>
-                                        {{else}}
                                         <option value="5">军人身份证</option>
-                                        {{/if}}
-                                        {{#if (renterInfo.spouseIDtype === '6') }}
-                                        <option value="6" selected>武装警察身份证</option>
-                                        {{else}}
                                         <option value="6">武装警察身份证</option>
-                                        {{/if}}
-                                        {{#if (renterInfo.spouseIDtype === '7') }}
-                                        <option value="7" selected>港澳居民身份证</option>
-                                        {{else}}
                                         <option value="7">港澳居民身份证</option>
-                                        {{/if}}
-                                        {{#if (renterInfo.spouseIDtype === '8') }}
-                                        <option value="8" selected>台湾同胞往来内地通行证</option>
-                                        {{else}}
                                         <option value="8">台湾同胞往来内地通行证</option>
-                                        {{/if}}
-                                        {{#if (renterInfo.spouseIDtype === '9') }}
-                                        <option value="9" selected>外交人员身份证</option>
-                                        {{else}}
                                         <option value="9">外交人员身份证</option>
-                                        {{/if}}
-                                        {{#if (renterInfo.spouseIDtype === '10') }}
-                                        <option value="10" selected>外国人居留许可证</option>
-                                        {{else}}
                                         <option value="10">外国人居留许可证</option>
-                                        {{/if}}
-                                        {{#if (renterInfo.spouseIDtype === '11') }}
-                                        <option value="11" selected>边民出入境通行证</option>
-                                        {{else}}
                                         <option value="11">边民出入境通行证</option>
-                                        {{/if}}
-                                        {{#if (renterInfo.spouseIDtype === '12') }}
-                                        <option value="12" selected>其他</option>
-                                        {{else}}
                                         <option value="12">其他</option>
-                                        {{/if}}
                                     </select>
                                 </div>
                             </div>
