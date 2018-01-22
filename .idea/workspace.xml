@@ -23,18 +23,8 @@
       <file leaf-file-name="dockingPACarInfo.xtpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="843" column="36" lean-forward="false" selection-start-line="843" selection-start-column="36" selection-end-line="843" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dockingPARenterInfo.xtpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/customer/dockingPARenterInfo.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="708" column="74" lean-forward="true" selection-start-line="708" selection-start-column="74" selection-end-line="708" selection-end-column="74" />
+            <state relative-caret-position="116">
+              <caret line="925" column="52" lean-forward="true" selection-start-line="925" selection-start-column="52" selection-end-line="925" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -71,7 +61,6 @@
       <find>img_md_operate_box</find>
       <find>view</find>
       <find>.view</find>
-      <find>createRepaymentPlanTable</find>
       <find>品牌</find>
       <find>销售</find>
       <find>银行</find>
@@ -83,6 +72,7 @@
       <find>question_container</find>
       <find>配偶</find>
       <find>产品</find>
+      <find>createRepaymentPlanTable</find>
     </findStrings>
     <replaceStrings>
       <replace>{{include (&quot;./../inc/metaData&quot;)}}</replace>
@@ -496,14 +486,7 @@
       <workItem from="1516153895328" duration="28806000" />
       <workItem from="1516241154779" duration="22116000" />
       <workItem from="1516325746571" duration="18728000" />
-      <workItem from="1516584992211" duration="12961000" />
-    </task>
-    <task id="LOCAL-00149" summary="品牌车系回显  2018年1月12日19:24:07">
-      <created>1515756297613</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1515756297613</updated>
+      <workItem from="1516584992211" duration="14269000" />
     </task>
     <task id="LOCAL-00150" summary="修复图片上传  2018年1月15日10:32:43">
       <created>1515983572429</created>
@@ -841,11 +824,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516609064693</updated>
     </task>
-    <option name="localTasksCounter" value="198" />
+    <task id="LOCAL-00198" summary="修改金额新旧值对比  2018年1月22日16:28:23">
+      <created>1516609709484</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1516609709484</updated>
+    </task>
+    <option name="localTasksCounter" value="199" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="914874000" />
+    <option name="totallyTimeSpent" value="916182000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -941,7 +931,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修复商户 2018年1月19日09:46:30" />
     <MESSAGE value="修复错误 2018年1月19日10:15:24" />
     <MESSAGE value="1.详情页的还款计划表&#10;2.修复图片查看按钮的显示&#10;2018年1月19日11:06:36" />
     <MESSAGE value="增加面包屑贷款人名字  2018年1月19日12:00:57" />
@@ -966,7 +955,8 @@
     <MESSAGE value="修复发送不合格通知无错误提示  2018年1月22日15:56:29" />
     <MESSAGE value="修复车辆无法提交  2018年1月22日16:01:27" />
     <MESSAGE value="修复配偶信息  2018年1月22日16:17:38" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复配偶信息  2018年1月22日16:17:38" />
+    <MESSAGE value="修改金额新旧值对比  2018年1月22日16:28:23" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改金额新旧值对比  2018年1月22日16:28:23" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1360,8 +1350,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="843" column="36" lean-forward="false" selection-start-line="843" selection-start-column="36" selection-end-line="843" selection-end-column="36" />
+        <state relative-caret-position="116">
+          <caret line="925" column="52" lean-forward="true" selection-start-line="925" selection-start-column="52" selection-end-line="925" selection-end-column="52" />
           <folding />
         </state>
       </provider>
