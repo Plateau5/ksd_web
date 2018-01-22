@@ -4,7 +4,6 @@
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" afterPath="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/entryInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,8 +23,8 @@
       <file leaf-file-name="dockingPACarInfo.xtpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="475" column="30" lean-forward="true" selection-start-line="475" selection-start-column="30" selection-end-line="475" selection-end-column="30" />
+            <state relative-caret-position="395">
+              <caret line="851" column="86" lean-forward="true" selection-start-line="851" selection-start-column="86" selection-end-line="851" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -34,7 +33,7 @@
       <file leaf-file-name="docking-pingan.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/docking-pingan.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
+            <state relative-caret-position="779">
               <caret line="116" column="60" lean-forward="true" selection-start-line="116" selection-start-column="60" selection-end-line="116" selection-end-column="60" />
               <folding>
                 <marker date="1516591735918" expanded="true" signature="14346:14359" ph="..." />
@@ -518,14 +517,7 @@
       <workItem from="1516153895328" duration="28806000" />
       <workItem from="1516241154779" duration="22116000" />
       <workItem from="1516325746571" duration="18728000" />
-      <workItem from="1516584992211" duration="4053000" />
-    </task>
-    <task id="LOCAL-00139" summary="修改征信groupId   2018年1月12日10:53:43">
-      <created>1515725628727</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1515725628727</updated>
+      <workItem from="1516584992211" duration="4495000" />
     </task>
     <task id="LOCAL-00140" summary="修改征信groupId   2018年1月12日10:53:43">
       <created>1515725750633</created>
@@ -863,11 +855,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516585386719</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL-00188" summary="修改金额限制 2018年1月22日11:31:19">
+      <created>1516591886688</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1516591886688</updated>
+    </task>
+    <option name="localTasksCounter" value="189" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="905966000" />
+    <option name="totallyTimeSpent" value="906408000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -963,7 +962,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加商户签约机构  2018年1月17日20:40:28" />
     <MESSAGE value="添加产看详情页面  2018年1月18日15:35:09" />
     <MESSAGE value="修改详情页跳转  2018年1月18日15:37:38" />
     <MESSAGE value="添加城市及职业的中文名称  2018年1月18日16:59:53" />
@@ -988,7 +986,8 @@
     <MESSAGE value="修改文案  2018年1月19日17:20:26" />
     <MESSAGE value="修复保存并继续的面包屑  2018年1月19日17:32:40" />
     <MESSAGE value="修改  2018年1月22日09:42:55" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改  2018年1月22日09:42:55" />
+    <MESSAGE value="修改金额限制 2018年1月22日11:31:19" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改金额限制 2018年1月22日11:31:19" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1365,7 +1364,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/docking-pingan.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
+        <state relative-caret-position="779">
           <caret line="116" column="60" lean-forward="true" selection-start-line="116" selection-start-column="60" selection-end-line="116" selection-end-column="60" />
           <folding>
             <marker date="1516591735918" expanded="true" signature="14346:14359" ph="..." />
@@ -1376,8 +1375,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="475" column="30" lean-forward="true" selection-start-line="475" selection-start-column="30" selection-end-line="475" selection-end-column="30" />
+        <state relative-caret-position="395">
+          <caret line="851" column="86" lean-forward="true" selection-start-line="851" selection-start-column="86" selection-end-line="851" selection-end-column="86" />
           <folding />
         </state>
       </provider>

@@ -848,7 +848,7 @@
             carAmount.on('input', function () {
                 var _this = $(this);
                 var val = _this.val().trim().number();      // 当前输入框的值
-                var name = _this.parents('.option_item').find('.options_name').text().replace(/:/g, '');      // 当前输入框的键名
+                var name = _this.parents('.option_item').find('.options_name').text().replace(/[:：]/g, '');      // 当前输入框的键名
                 var pawnValue = $('#pawnValue').val().trim().number();       // 车辆实际价格
                 if ((val || val == 0) && val > pawnValue) {
                     _this.siblings('.tips_info').show().find('.tips_text').text(name + '不能大于车辆实际价格。');
