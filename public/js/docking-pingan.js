@@ -104,8 +104,8 @@ function intOrFloat (ele, max) {
     ele.on("input", function () {
         var reg = /^\d{0,7}(\.\d{0,2})?$/g;
         var _this = $(this);
-        var isVerify = _this.attr('verify');
-        if (isVerify == 1) {
+        // var isVerify = _this.attr('verify');
+        // if (isVerify == 1) {
             var val = _this.val();
             if (reg.test(val)) {
                 _this.siblings('.tips_info').hide();
@@ -135,7 +135,7 @@ function intOrFloat (ele, max) {
                 _this.attr('verify', 1);
                 return false;
             }
-        }
+        // }
     });
 }
 

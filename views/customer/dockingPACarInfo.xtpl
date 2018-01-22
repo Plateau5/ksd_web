@@ -840,8 +840,7 @@
                 var _this = $(this);
                 var newValueString = _this.val();
                 var newValue = Number(newValueString);
-                var isVerify = newValueString.indexOf('-');
-                if (newValueString != oldValue && isVerify == -1) {
+                if (!isNaN(newValue) &&newValueString != oldValue) {
                     if (_this.hasClass('attachFinance')) {
                         var netFinancingAmount = $('#netFinancingAmount').val().number();  // 净融资金额
                         var countAmount = newValue + netFinancingAmount;
@@ -993,16 +992,16 @@
 
 
         $(function() {
+            intOrFloat($('#cautionMoney, #otherFee, #pawnValue, #buyTax, #assure, #cautionMoney, #serviceCharge , #attachFinance'), 9999999.99);    // 只允许输入数字
             carInfoEmptiedPrice();     // 车辆品牌等信息更改清空价格
             productEmptiedPrice();     // 产品更改后清空融资信息
+
             validateBlurEmpty();    // 输入框非空校验
-
             showRepaymentPlan();    // 显示还款计划表
-            autoCalcRepaymentTbale();       // 自动计算还款计划表
 
+            autoCalcRepaymentTbale();       // 自动计算还款计划表
             isBale();       // 是否打包切换
             accountChange();    // 车辆价格等金额发生变化监听
-            intOrFloat($('#cautionMoney, #otherFee, #pawnValue, #buyTax, #assure, #cautionMoney, #serviceCharge , #attachFinance'), 9999999.99);    // 只允许输入数字
 
             showBrand();        // 页面初始化加载品牌自数据
             chooseSelectBrand();
