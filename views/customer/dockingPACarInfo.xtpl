@@ -717,7 +717,7 @@
         // 产品变动时间清空融资金额、附加融资额、服务费、
         function productEmptiedPrice () {
             var selectedProductId = $('#selectedProductId');        // 产品ID值
-            var selectedProductNum = $('#productN保证金umber');       // 产品编码
+            var selectedProductNum = $('#productNumber');       // 产品编码
             var interestRate = $('#interestRate');      // 产品利率
             $('#productName').on('change', function (){
                 var _this = $(this);
