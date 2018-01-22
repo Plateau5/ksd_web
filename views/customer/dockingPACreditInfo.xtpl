@@ -139,7 +139,7 @@
                 </div>
                 <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
                     <a href="javascript:"  id="fileConfirm"  class="btn orange_btn confirm edit_confirm" data-type="2" data-url="{{contextPath}}/api/docking/credit/save" data-next="{{markUri}}/docking/pingan/home">保存并继续</a>
-                    <a href="javascript:window.history.back();" class="btn bg_btn edit_cancel">取消</a>
+                    <a href="javascript:;" class="btn bg_btn edit_cancel go_docking_home">取消</a>
                 </div>
 
 

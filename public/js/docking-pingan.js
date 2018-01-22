@@ -1071,12 +1071,14 @@ function setAddressName () {
 
 function goDockingHome (selector) {
     var financeId = $.trim($('#financeId').val());
+    var userName = $('#userName').val().trim();
     var homeUrl = $(selector).data('href');
     $(selector).on('click', function () {
         locationTo({
             action : homeUrl,
             param : {
-                finance_id : financeId
+                finance_id : financeId,
+                userName : userName
             }
         })
     });

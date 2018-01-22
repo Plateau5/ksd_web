@@ -122,7 +122,7 @@
                     {{else}}
                     <a href="javascript:"  id="fileConfirm"  class="btn orange_btn confirm edit_confirm" data-type="1"  data-url="{{contextPath}}/api/docking/document/save" data-next="{{markUri}}/docking/pingan/credit">保存并继续</a>
                     {{/if}}
-                    <a href="javascript:window.history.back();" class="btn bg_btn edit_cancel">取消</a>
+                    <a href="javascript:" class="btn bg_btn edit_cancel go_docking_home">取消</a>
                 </div>
 
 
