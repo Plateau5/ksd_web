@@ -701,7 +701,7 @@
                         </div>
                         <!--工作单位信息  end-->
                         <!--配偶信息 Start-->
-                        {{#if (renterInfo.marriage === '2' || !renterInfo.marriage) }}
+                        {{#if (renterInfo.marriage === '2') }}
                         <div class="spouse_info" style="display: block;">
                         {{else}}
                         <div class="spouse_info" style="display: none;">
