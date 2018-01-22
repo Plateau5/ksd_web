@@ -714,10 +714,10 @@
                 calcfinanceAmount();
             });
         }
-        // 产品变动时间清空融资金额、附加融资额、服务费、保证金
+        // 产品变动时间清空融资金额、附加融资额、服务费、
         function productEmptiedPrice () {
             var selectedProductId = $('#selectedProductId');        // 产品ID值
-            var selectedProductNum = $('#productNumber');       // 产品编码
+            var selectedProductNum = $('#productN保证金umber');       // 产品编码
             var interestRate = $('#interestRate');      // 产品利率
             $('#productName').on('change', function (){
                 var _this = $(this);
@@ -762,33 +762,6 @@
                 // 清楚默认的0值
                 if (oldValue == 0) {
                     _this.val('');
-                }
-            });
-            elem.on('input', function () {
-                var _this = $(this);
-                var newValue = Number($.trim(_this.val()));
-                if (newValue != oldValue) {
-                    if (_this.hasClass('attachFinance')) {
-                        var netFinancingAmount = $('#netFinancingAmount').val().number();  // 净融资金额
-                        var countAmount = newValue + netFinancingAmount;
-                        var pawnValue = Number($('#pawnValue').val());      //  车辆实际价格
-                        if (countAmount > pawnValue) {
-                            _this.siblings('.tips_info').show().find('.tips_text').text('净融资金额+附加融资额不能大于车辆实际价格。');
-                            _this.attr('verify', 0);
-                            return false;
-                        } else {
-                            _this.attr('verify', 1);
-                            calcfinanceAmount(true);
-                        }
-                    } else {
-                        calcfinanceAmount(true);
-                    }
-                    // 修改首付金额
-                    if (_this.hasClass('pawnValue')) {
-                        var firstPayScale = Number(firstPayScaleE.val()) * 100;     // 首付比例
-                        var firstPayAmount =  (newValue * firstPayScale) / 10000;
-                        firstPayAmountE.val(firstPayAmount);
-                    }
                 }
             });
             // 车辆实际价格监听
@@ -860,6 +833,37 @@
                     return true;
                 }
             });
+
+            elem.on('input', function () {
+                var _this = $(this);
+                var newValueString = _this.val();
+                var newValue = Number(newValueString);
+                var isVerify = newValueString.indexOf('-');
+                if (newValueString != oldValue && isVerify == -1) {
+                    if (_this.hasClass('attachFinance')) {
+                        var netFinancingAmount = $('#netFinancingAmount').val().number();  // 净融资金额
+                        var countAmount = newValue + netFinancingAmount;
+                        var pawnValue = Number($('#pawnValue').val());      //  车辆实际价格
+                        if (countAmount > pawnValue) {
+                            _this.siblings('.tips_info').show().find('.tips_text').text('净融资金额+附加融资额不能大于车辆实际价格。');
+                            _this.attr('verify', 0);
+                            return false;
+                        } else {
+                            _this.attr('verify', 1);
+                            calcfinanceAmount(true);
+                        }
+                    } else {
+                        calcfinanceAmount(true);
+                    }
+                    // 修改首付金额
+                    if (_this.hasClass('pawnValue')) {
+                        var firstPayScale = Number(firstPayScaleE.val()) * 100;     // 首付比例
+                        var firstPayAmount =  (newValue * firstPayScale) / 10000;
+                        firstPayAmountE.val(firstPayAmount);
+                    }
+                }
+            });
+
         }
 
         //  计算融资金额、项目金额、净融资金额

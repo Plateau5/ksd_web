@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/dockingPARenterInfo.xtpl" afterPath="$PROJECT_DIR$/views/customer/dockingPARenterInfo.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" afterPath="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,79 +20,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dockingPACarInfo.xtpl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dockingPACarInfo.xtpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="500" column="30" lean-forward="true" selection-start-line="500" selection-start-column="30" selection-end-line="500" selection-end-column="30" />
+            <state relative-caret-position="236">
+              <caret line="837" column="36" lean-forward="true" selection-start-line="837" selection-start-column="36" selection-end-line="837" selection-end-column="36" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dockingPACarInfoDetail.xtpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfoDetail.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="21" column="71" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="71" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dockingPACreditInfo.xtpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/customer/dockingPACreditInfo.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="141" column="88" lean-forward="false" selection-start-line="141" selection-start-column="88" selection-end-line="141" selection-end-column="88" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dockingPAGuarantorInfo.xtpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/customer/dockingPAGuarantorInfo.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="86" column="66" lean-forward="true" selection-start-line="74" selection-start-column="36" selection-end-line="86" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dockingPARenterFilesInfo.xtpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/customer/dockingPARenterFilesInfo.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="124" column="87" lean-forward="false" selection-start-line="124" selection-start-column="87" selection-end-line="124" selection-end-column="87" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dockingPARenterInfo.xtpl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/customer/dockingPARenterInfo.xtpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="740" column="87" lean-forward="true" selection-start-line="740" selection-start-column="87" selection-end-line="740" selection-end-column="87" />
-              <folding>
-                <element signature="n#style#0;n#div#19;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#20;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#20;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="docking-pingan.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/docking-pingan.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="1080" column="35" lean-forward="false" selection-start-line="1080" selection-start-column="35" selection-end-line="1080" selection-end-column="35" />
-              <folding>
-                <marker date="1516593931735" expanded="true" signature="14346:14359" ph="..." />
-                <marker date="1516593931735" expanded="true" signature="15048:15063" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -110,7 +43,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ID_num</find>
       <find>verifyGender</find>
       <find>verifyG</find>
       <find>证件号码</find>
@@ -140,6 +72,7 @@
       <find>银行</find>
       <find>attachFinance</find>
       <find>go_docking_home</find>
+      <find>calcfinanceAmount</find>
     </findStrings>
     <replaceStrings>
       <replace>{{include (&quot;./../inc/metaData&quot;)}}</replace>
@@ -240,11 +173,11 @@
         <option value="$PROJECT_DIR$/views/customer/dockingPARenterInfoDetail.xtpl" />
         <option value="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
         <option value="$PROJECT_DIR$/public/js/docking-pingan.js" />
-        <option value="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/customer/dockingPACreditInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/customer/dockingPAGuarantorInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/customer/dockingPARenterFilesInfo.xtpl" />
         <option value="$PROJECT_DIR$/views/customer/dockingPARenterInfo.xtpl" />
+        <option value="$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl" />
       </list>
     </option>
   </component>
@@ -571,14 +504,7 @@
       <workItem from="1516153895328" duration="28806000" />
       <workItem from="1516241154779" duration="22116000" />
       <workItem from="1516325746571" duration="18728000" />
-      <workItem from="1516584992211" duration="6325000" />
-    </task>
-    <task id="LOCAL-00142" summary="修改命名错误  2018年1月12日13:50:29">
-      <created>1515736238809</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1515736238809</updated>
+      <workItem from="1516584992211" duration="8937000" />
     </task>
     <task id="LOCAL-00143" summary="修改是否首次购车与是否有车贷、现有车系的编辑渲染  2018年1月12日14:57:34">
       <created>1515740262035</created>
@@ -916,11 +842,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516594049878</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="修改配偶证件类型选中 2018年1月22日12:09:15">
+      <created>1516594161425</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1516594161425</updated>
+    </task>
+    <option name="localTasksCounter" value="192" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="908238000" />
+    <option name="totallyTimeSpent" value="910850000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1016,7 +949,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加城市及职业的中文名称  2018年1月18日16:59:53" />
     <MESSAGE value="添加nextQueryType  2018年1月18日17:39:36" />
     <MESSAGE value="增加nextQueryType  2018年1月18日17:45:48" />
     <MESSAGE value="修改图片  2018年1月18日18:28:52" />
@@ -1041,7 +973,8 @@
     <MESSAGE value="修改金额限制 2018年1月22日11:31:19" />
     <MESSAGE value="修改name截取正则  2018年1月22日11:38:51" />
     <MESSAGE value="修改返回  2018年1月22日12:07:20" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改返回  2018年1月22日12:07:20" />
+    <MESSAGE value="修改配偶证件类型选中 2018年1月22日12:09:15" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改配偶证件类型选中 2018年1月22日12:09:15" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1385,14 +1318,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="500" column="30" lean-forward="true" selection-start-line="500" selection-start-column="30" selection-end-line="500" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfoDetail.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
@@ -1427,13 +1352,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPARenterInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="740" column="87" lean-forward="true" selection-start-line="740" selection-start-column="87" selection-end-line="740" selection-end-column="87" />
+        <state relative-caret-position="304">
+          <caret line="742" column="69" lean-forward="true" selection-start-line="742" selection-start-column="69" selection-end-line="742" selection-end-column="69" />
           <folding>
-            <element signature="n#style#0;n#div#19;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#20;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#20;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#19;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#20;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#20;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="837" column="36" lean-forward="true" selection-start-line="837" selection-start-column="36" selection-end-line="837" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
