@@ -23,8 +23,8 @@
       <file leaf-file-name="dockingPACarInfo.xtpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="837" column="36" lean-forward="true" selection-start-line="837" selection-start-column="36" selection-end-line="837" selection-end-column="36" />
+            <state relative-caret-position="350">
+              <caret line="789" column="15" lean-forward="true" selection-start-line="789" selection-start-column="15" selection-end-line="789" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -504,14 +504,7 @@
       <workItem from="1516153895328" duration="28806000" />
       <workItem from="1516241154779" duration="22116000" />
       <workItem from="1516325746571" duration="18728000" />
-      <workItem from="1516584992211" duration="8937000" />
-    </task>
-    <task id="LOCAL-00143" summary="修改是否首次购车与是否有车贷、现有车系的编辑渲染  2018年1月12日14:57:34">
-      <created>1515740262035</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1515740262035</updated>
+      <workItem from="1516584992211" duration="9192000" />
     </task>
     <task id="LOCAL-00144" summary="数据回显  2018-1-12 15:50:45">
       <created>1515743454362</created>
@@ -849,11 +842,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516594161425</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="修复金额 2018年1月22日15:21:09">
+      <created>1516605677246</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1516605677246</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="910850000" />
+    <option name="totallyTimeSpent" value="911105000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -949,7 +949,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加nextQueryType  2018年1月18日17:39:36" />
     <MESSAGE value="增加nextQueryType  2018年1月18日17:45:48" />
     <MESSAGE value="修改图片  2018年1月18日18:28:52" />
     <MESSAGE value="创建详情页还款计划表  2018年1月18日19:07:11" />
@@ -974,7 +973,8 @@
     <MESSAGE value="修改name截取正则  2018年1月22日11:38:51" />
     <MESSAGE value="修改返回  2018年1月22日12:07:20" />
     <MESSAGE value="修改配偶证件类型选中 2018年1月22日12:09:15" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改配偶证件类型选中 2018年1月22日12:09:15" />
+    <MESSAGE value="修复金额 2018年1月22日15:21:09" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复金额 2018年1月22日15:21:09" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1364,8 +1364,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPACarInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="837" column="36" lean-forward="true" selection-start-line="837" selection-start-column="36" selection-end-line="837" selection-end-column="36" />
+        <state relative-caret-position="350">
+          <caret line="789" column="15" lean-forward="true" selection-start-line="789" selection-start-column="15" selection-end-line="789" selection-end-column="15" />
           <folding />
         </state>
       </provider>

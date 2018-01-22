@@ -772,9 +772,11 @@
 
                 // 重置首付比例，并计算首付金额
                 var v = _this.val().trim().number();        // 车辆实际价格
-                firstPayScaleE.val(20);     // 车辆价格变动后首付比例重置为20%
-                var firstPayAmount = (v * firstPayScaleE.val().trim().number() / 100).toFixed(2);
-                firstPayAmountE.val(firstPayAmount);
+                if (!isNaN(v)) {
+                    firstPayScaleE.val(20);     // 车辆价格变动后首付比例重置为20%
+                    var firstPayAmount = (v * firstPayScaleE.val().trim().number() / 100).toFixed(2);
+                    firstPayAmountE.val(firstPayAmount);
+                }
             });
 
             // 首付金额输入监听
