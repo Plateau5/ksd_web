@@ -857,7 +857,7 @@
                 } else {
                     _this.siblings('.tips_info').hide().find('.tips_text').text('');
                     _this.attr('verify', 1);
-                    return false;
+                    return true;
                 }
             });
         }
