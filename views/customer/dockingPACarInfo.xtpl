@@ -184,7 +184,7 @@
                                 <span class="options_name">车辆实际价格：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required pawnValue" data-tips="车辆实际价格不能为空" id="pawnValue" name="pawnValue" value="{{carInfo.pawnValue}}" placeholder="请输入车辆实际价格" maxlength="10"  />
+                                <input type="text" class="required pawnValue" verify="1" data-tips="车辆实际价格不能为空" id="pawnValue" name="pawnValue" value="{{carInfo.pawnValue}}" placeholder="请输入车辆实际价格" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -194,7 +194,7 @@
                                 <span class="options_name">购置税：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="购置税不能为空" id="buyTax" name="buyTax" value="{{carInfo.buyTax}}" placeholder="请输入购置税" maxlength="10"  />
+                                <input type="text" class="required" verify="1" data-tips="购置税不能为空" id="buyTax" name="buyTax" value="{{carInfo.buyTax}}" placeholder="请输入购置税" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -204,7 +204,7 @@
                                 <span class="options_name">其他费用：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="其他费用不能为空" id="otherFee" name="otherFee" value="{{carInfo.otherFee}}" placeholder="请输入其他费用" maxlength="10"  />
+                                <input type="text" class="required"  verify="1" data-tips="其他费用不能为空" id="otherFee" name="otherFee" value="{{carInfo.otherFee}}" placeholder="请输入其他费用" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -214,7 +214,7 @@
                                 <span class="options_name">保险：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="保险不能为空" id="assure" name="assure" value="{{carInfo.assure}}" placeholder="请输入保险" maxlength="10"  />
+                                <input type="text" class="required"  verify="1" data-tips="保险不能为空" id="assure" name="assure" value="{{carInfo.assure}}" placeholder="请输入保险" maxlength="10"  />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -396,7 +396,7 @@
                                 <span class="options_name">首付金额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" name="firstPay" id="firstPayAmount" data-tips="首付金额不能为空"  value="{{carInfo.firstPay}}" placeholder="请输入首付金额" />
+                                <input type="text" class="required" verify="1" name="firstPay" id="firstPayAmount" data-tips="首付金额不能为空"  value="{{carInfo.firstPay}}" placeholder="请输入首付金额" />
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
                         </div>
@@ -405,7 +405,7 @@
                                 <span class="options_name">保证金：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="保证金不能为空" id="cautionMoney" name="cautionMoney" value="{{carInfo.cautionMoney}}" placeholder="0"   />
+                                <input type="text" class="required" verify="1" data-tips="保证金不能为空" id="cautionMoney" name="cautionMoney" value="{{carInfo.cautionMoney}}" placeholder="0"   />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -415,7 +415,7 @@
                                 <span class="options_name">服务费：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required" data-tips="服务费不能为空" id="serviceCharge" name="serviceCharge" value="{{carInfo.serviceCharge}}" placeholder="0"   />
+                                <input type="text" class="required" verify="1" data-tips="服务费不能为空" id="serviceCharge" name="serviceCharge" value="{{carInfo.serviceCharge}}" placeholder="0"   />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -460,7 +460,7 @@
                                 <span class="options_name">附加融资额：</span>
                             </div>
                             <div class="column_val">
-                                <input type="text" class="required attachFinance" data-tips="附加融资额不能为空" id="attachFinance" name="attachFinance" value="{{carInfo.attachFinance}}" placeholder="0"   />
+                                <input type="text" class="required attachFinance"  verify="1" data-tips="附加融资额不能为空" id="attachFinance" name="attachFinance" value="{{carInfo.attachFinance}}" placeholder="0"   />
                                 <span class="unit">元</span>
                                 <div class="tips_info">(*<span class="tips_text"></span>)</div>
                             </div>
@@ -800,7 +800,7 @@
                 // 重置首付比例，并计算首付金额
                 var v = _this.val().trim().number();        // 车辆实际价格
                 firstPayScaleE.val(20);     // 车辆价格变动后首付比例重置为20%
-                var firstPayAmount = v * firstPayScaleE.val().trim().number() / 100;
+                var firstPayAmount = (v * firstPayScaleE.val().trim().number() / 100).toFixed(2);
                 firstPayAmountE.val(firstPayAmount);
             });
 
@@ -901,9 +901,9 @@
             // 首付金额 = 车辆实际价格 * 首付比例
             // firstPayAmount = pawnValue * firstPayScale / 10000;
             // 融资金额 = 项目金额 - 首付金额 + 附加融资额
-            financeAmount = projectAmount - firstPayAmount + attachFinance;
+            financeAmount = (projectAmount - firstPayAmount + attachFinance).toFixed(2);
             // 净融资额 = 首付金额 - 保证金 - 服务费
-            netFinancingAmount = firstPayAmount - cautionMoney - serviceCharge;
+            netFinancingAmount = (firstPayAmount - cautionMoney - serviceCharge).toFixed(2);
             // 首付比例 = 首付金额 / 车辆实际价格
             // firstPayScale = firstPayAmount / pawnValue;
 
