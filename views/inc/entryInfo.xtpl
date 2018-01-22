@@ -95,8 +95,8 @@
 		function goDockingPADetail () {
             var btn = $('#viewDockingPADetail');
             var userName = $('#userName').val();
-            var navigation = $('#navigation').val().trim();
-            var nodeUrl = $('#nodeUrl').val().trim();
+            var navigation = $('#navigation').val();
+            var nodeUrl = $('#nodeUrl').val();
             if (btn.length > 0) {
 				btn.on('click', function () {
 				    var _this = $(this);
