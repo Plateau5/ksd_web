@@ -792,7 +792,7 @@
                 var _this = $(this);
                 var newValue = $.trim(_this.val());
                 var pawnValue = Number($('#pawnValue').val());
-                if (newValue != oldValue) {
+                if (!isNaN(newValue)) {
                     if (pawnValue == 0) {
                         _this.siblings('.tips_info').show().find('.tips_text').text('请先输入车辆实际价格后再输入首付金额。');
                         _this.val('');
