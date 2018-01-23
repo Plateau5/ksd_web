@@ -87,7 +87,7 @@
                     <a href="javascript:" class="btn orange_btn confirm confirm_submit">提交</a>
                     <!--<a href="javascript:" class="btn orange_btn confirm xf_edit_resubmit">重新提交</a>
                     <a href="xf_apply_reconsider.html" class="btn orange_btn confirm apply_reconsider">申请复议</a>-->
-                    <a href="javascript:window.history.back();" class="btn bg_btn btn_cancel">返回</a>
+                    <a href="javascript:" class="btn bg_btn btn_cancel go_order_detail">返回</a>
                     <!--<a href="xf_cancel_apply.html" class="btn bg_btn btn_cancel xf_edit_cancel_apply">取消申请</a>-->
                 </div>
 
@@ -253,7 +253,11 @@
                         loanID : loanID
                     },
                     timeout : 20000,
+                    beforeSend : function () {
+                        $('#loading').show();
+                    },
                     success : function (res) {
+                        $('#loading').hide();
                         if (res.error_code == 0) {
                             locationTo({
                                 action : contextPath + markUri + '/customer/loan/alreadyAllot'
@@ -265,6 +269,7 @@
                         }
                     },
                     error : function () {
+                        $('#loading').hide();
                         $alert('提交失败，请重新尝试。', function () {
                             bindSubmit();
                         });
@@ -275,6 +280,7 @@
         }
 
         $(function() {
+            goOrderDetail();
             toNextModule();
             bindSubmit();
         });

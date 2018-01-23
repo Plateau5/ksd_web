@@ -513,6 +513,7 @@ function uploadImage () {
                 }
             },
             error : function () {
+                $('#loading').hide();
                 $alert('图片上传失败，请重试');
             }
         });
@@ -632,9 +633,10 @@ function saveAndGoNext (btn, nextPath, url) {
                 $('#loading').show();
             },
             complete : function () {
-                $('#loading').hide();
+
             },
             success : function (res) {
+                $('#loading').hide();
                 if (res.error_code == 0) {
                     $toast('保存成功', function () {
                         locationTo({
@@ -655,6 +657,7 @@ function saveAndGoNext (btn, nextPath, url) {
                 }
             },
             error : function () {
+                $('#loading').hide();
                 $alert('提交保存失败，请稍后重试。');
                 bindSubmitEvent();
             }
