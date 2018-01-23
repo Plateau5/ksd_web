@@ -33,6 +33,9 @@
                         <input type="hidden" name="query_type" value="{{query_type}}" id="queryType">
                         <input type="hidden" name="id" value="{{carInfo.id}}">
                         <input type="hidden" name="nextQueryType" value="{{nextQueryType}}" id="nextQueryType">
+                        <input type="hidden" id="navigation" value="{{navigation}}">
+                        <input type="hidden" id="nodeUrl" value="{{nodeUrl}}">
+                        <input type="hidden" id="userName" value="{{userName}}">
                         <input type="hidden" id="preCode" value="{{preCode}}">
                         <!-- 车辆基本信息 Begin -->
                         <div class="options_title">车辆信息</div>
