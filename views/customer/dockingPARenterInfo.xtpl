@@ -685,7 +685,7 @@
                                 </div>
                                 <div class="column_val">
                                     <input type="hidden" value="{{renterInfo.empOccupation}}" class="occupationKey" />
-                                    <input type="hidden" value="{{renterInfo.empOccupationName}}" class="occupationName" />
+                                    <input type="hidden" value="{{renterInfo.empOccupationName}}" name="empOccupationName" class="occupationName" />
                                     <select name="empOccupation" class="occupation">
                                         <option value="">请选择</option>
                                         {{#if (renterInfo.empOccupation) }}
