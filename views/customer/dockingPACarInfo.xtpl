@@ -36,6 +36,7 @@
                         <input type="hidden" id="navigation" value="{{navigation}}">
                         <input type="hidden" id="nodeUrl" value="{{nodeUrl}}">
                         <input type="hidden" id="userName" value="{{userName}}">
+                        <input type="hidden" id="preCode" value="{{preCode}}">
                         <!-- 车辆基本信息 Begin -->
                         <div class="options_title">车辆信息</div>
                         <div class="option_item">

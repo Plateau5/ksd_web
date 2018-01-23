@@ -35,6 +35,7 @@
                         <input type="hidden" id="navigation" value="{{navigation}}">
                         <input type="hidden" id="nodeUrl" value="{{nodeUrl}}">
                         <input type="hidden" id="userName" value="{{userName}}">
+                        <input type="hidden" id="preCode" value="{{preCode}}">
                         <!-- 承租人文件信息 Begin -->
                         {{#each (dataFiles) }}
                             {{#if (this.type || this.type === 0) }}

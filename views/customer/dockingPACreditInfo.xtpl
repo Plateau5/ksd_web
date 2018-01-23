@@ -35,6 +35,7 @@
                         <input type="hidden" id="navigation" value="{{navigation}}">
                         <input type="hidden" id="nodeUrl" value="{{nodeUrl}}">
                         <input type="hidden" id="userName" value="{{userName}}">
+                        <input type="hidden" id="preCode" value="{{preCode}}">
                         <!-- 基本信息 Begin -->
                         <div class="credit_info renter_info" data-material_type="1" data-material_name="承租人征信查询" >
                             <div class="options_title">承租人征信查询</div>

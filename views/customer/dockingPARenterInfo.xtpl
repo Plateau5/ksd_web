@@ -37,6 +37,7 @@
                         <input type="hidden" id="navigation" value="{{navigation}}">
                         <input type="hidden" id="nodeUrl" value="{{nodeUrl}}">
                         <input type="hidden" id="userName" value="{{userName}}">
+                        <input type="hidden" id="preCode" value="{{preCode}}">
                         <!-- 基本信息 Begin -->
                         <div class="basic_info_renter">
                             <div class="options_title">基本信息</div>
