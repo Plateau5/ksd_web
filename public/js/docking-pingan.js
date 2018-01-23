@@ -148,6 +148,7 @@ function brandChoose () {
     var brand = $('select.brand');
     var priceELe = $('#price');     // 品牌指导价
     var pawnValue = $('#pawnValue');    // 车辆实际价格
+    var firstPayE = $('#firstPayAmount');        // 首付金额
     brand.on('change', function () {
         var param = {};
         var _this = $(this);
@@ -181,6 +182,9 @@ function brandChoose () {
             (price == '' || price == undefined || price == null) && (price = 0);
             priceELe.val(price).siblings('.value_text').find('.value').text(price);
             pawnValue.val(price);
+            // 设置首付金额
+            var firstPay = price * 20 / 100;
+            firstPayE.val(firstPay);
         } else {
             var brandData = getBrand(param);
             var nextBrand = $('select.brand[data-query_type="'+ (queryType) +'"]').not('.car_year');
@@ -453,10 +457,10 @@ function uploadImage () {
                 btn.parents('.img_md_box').find('.file_upload_btn').replaceWith('<input type="file" class="file_upload_btn" name="file"  value="上传图片" style="display: none" />');
             },
             complete : function () {
-                $('#loading').hide();
+                // $('#loading').hide();
             },
             success : function (res) {
-                //elem.loading.hide();
+                $('#loading').hide();
                 if (res.error_code == 0) {
                     $alert('图片上传成功');
                     var imgEle = '<a href="javascript:;" class="img_item" data-type="imgBox" data-id="'+ res.file_id +'">' +
