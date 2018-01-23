@@ -135,7 +135,7 @@
                                     <span class="options_name">婚姻状况：</span>
                                 </div>
                                 <div class="column_val">
-                                    {{#if (preCode || preCode === '0') }}
+                                    {{#if (preCode && preCode !== '0') }}
                                     <input type="hidden" value="{{renterInfo.marriage}}" name="marriage">
                                     <select name="marriage" id="renterMarriage" disabled="disabled">
                                     {{else}}
