@@ -747,7 +747,9 @@
                         firstPay.siblings('.tips_info').show().find('.tips_text').text('首付比例不能低于20%。');
                         firstPay.attr('verify', 0);
                     } else {
-                        firstPay.siblings('.tips_info').hide().find('.tips_text').text('');
+                        firstPay.css({
+                            'border-color' : '#e4e4e4'
+                        }).siblings('.tips_info').hide().find('.tips_text').text('');
                         firstPay.attr('verify', 1);
                     }
                     calcfinanceAmount(true);
@@ -756,7 +758,9 @@
                         firstPay.siblings('.tips_info').show().find('.tips_text').text('首付比例不能低于10%。');
                         firstPay.attr('verify', 0);
                     } else {
-                        firstPay.siblings('.tips_info').hide().find('.tips_text').text('');
+                        firstPay.css({
+                            'border-color' : '#e4e4e4'
+                        }).siblings('.tips_info').hide().find('.tips_text').text('');
                         firstPay.attr('verify', 1);
                     }
                     calcfinanceAmount(false);

@@ -841,9 +841,9 @@ function fileSaveAndGoNext (btn, nextPath, url) {
                 $('#loading').show();
             },
             complete : function () {
-                $('#loading').hide();
             },
             success : function (res) {
+                $('#loading').hide();
                 if (res.error_code == 0) {
                     $toast('保存成功', function () {
                         locationTo({
