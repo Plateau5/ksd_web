@@ -518,7 +518,7 @@
                     </form>
                 </div>
                 <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
-                    <a href="javascript:window.history.back();" id="saveAndGoNext" class="btn orange_btn confirm edit_confirm">返回</a>
+                    <a href="javascript:window.history.back();" class="btn orange_btn confirm edit_confirm">返回</a>
                 </div>
 
 
