@@ -812,7 +812,7 @@
                         } else {
                             // firstPayScale = firstPayScale;
                             firstPayScaleE.val(firstPayScale);
-                            calcfinanceAmount(true);
+                            calcfinanceAmount();
                             _this.siblings('.tips_info').hide()
                             _this.attr('verify', 1);
                         }
@@ -853,10 +853,10 @@
                             return false;
                         } else {
                             _this.attr('verify', 1);
-                            calcfinanceAmount(true);
+                            calcfinanceAmount();
                         }
                     } else {
-                        calcfinanceAmount(true);
+                        calcfinanceAmount();
                     }
                     // 修改首付金额
                     if (_this.hasClass('pawnValue')) {
@@ -871,6 +871,10 @@
 
         //  计算融资金额、项目金额、净融资金额
         function calcfinanceAmount (type) {
+            if (type == undefined) {
+                var isWrap = $('input[name="isWrap"]:checked').val();
+                type = (isWrap == 1) ? true : false;
+            }
             var pawnValueE = $('#pawnValue');    // 车辆实际价格元素
             var buyTaxE = $('#buyTax');        // 购置税元素
             var assureE = $('#assure');        // 保险元素
