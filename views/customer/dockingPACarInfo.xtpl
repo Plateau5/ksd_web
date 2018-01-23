@@ -736,12 +736,29 @@
         // 是否打包切换更改计算金额结果
         function isBale () {
             var baleInput = $('input[name="isWrap"]');  // 打包元素
+            var firstPay = $('#firstPayAmount');        // 首付金额
+            var firstScale = $('#firstPayScale');       // 首付比例
             baleInput.on('change', function () {
                 var t = $(this);
                 var v = Number(t.val());
+                var firstScaleV = firstScale.val().trim().number();
                 if (v === 1) {
+                    if (firstScaleV < 20) {
+                        firstPay.siblings('.tips_info').show().find('.tips_text').text('首付比例不能低于20%。');
+                        firstPay.attr('verify', 0);
+                    } else {
+                        firstPay.siblings('.tips_info').hide().find('.tips_text').text('');
+                        firstPay.attr('verify', 1);
+                    }
                     calcfinanceAmount(true);
                 } else if (v === 2) {
+                    if (firstScaleV < 10) {
+                        firstPay.siblings('.tips_info').show().find('.tips_text').text('首付比例不能低于10%。');
+                        firstPay.attr('verify', 0);
+                    } else {
+                        firstPay.siblings('.tips_info').hide().find('.tips_text').text('');
+                        firstPay.attr('verify', 1);
+                    }
                     calcfinanceAmount(false);
                 }
             });
@@ -784,10 +801,23 @@
             firstPayAmountE.on('focus', function () {
                 var _this = $(this);
                 oldValue = $.trim(_this.val());
+                var pawnValue = $('#pawnValue').val().number();
                 // 清楚默认的0值
                 if (oldValue == 0) {
                     _this.val('');
                 }
+                var isWrap = $('input[name="isWrap"]:checked').val();
+                var minFirstScale = isWrap == 1 ? 20 : 10;
+                if ((oldValue * 100 / pawnValue) < minFirstScale) {
+                    _this.siblings('.tips_info').show().find('.tips_text').text('首付比例不能低于'+ minFirstScale +'%。');
+                    _this.attr('verify', 0);
+                    return false;
+                } else {
+                    // firstPayScale = firstPayScale;
+                    _this.siblings('.tips_info').hide().find('.tips_text').text('');
+                    _this.attr('verify', 1);
+                }
+
             });
             firstPayAmountE.on('input', function () {
                 var _this = $(this);
@@ -805,17 +835,22 @@
                             return false;
                         }
                         var firstPayScale = (newValue * 100 / pawnValue).toFixed(2);
-                        if (firstPayScale < 20) {
-                            _this.siblings('.tips_info').show().find('.tips_text').text('首付比例不能低于20%。');
+                        /*var index = firstPayScale.toString().indexOf('.');
+                        alert(index);*/
+                        var isWrap = $('input[name="isWrap"]:checked').val();
+                        var minFirstScale = isWrap == 1 ? 20 : 10;
+                        firstPayScaleE.val(firstPayScale);
+                        calcfinanceAmount();
+                        if (firstPayScale < minFirstScale) {
+                            _this.siblings('.tips_info').show().find('.tips_text').text('首付比例不能低于'+ minFirstScale +'%。');
                             _this.attr('verify', 0);
                             return false;
                         } else {
                             // firstPayScale = firstPayScale;
-                            firstPayScaleE.val(firstPayScale);
-                            calcfinanceAmount();
                             _this.siblings('.tips_info').hide()
                             _this.attr('verify', 1);
                         }
+
                     }
                 }
             });
