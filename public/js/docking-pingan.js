@@ -387,7 +387,7 @@ function uploadImage () {
             type : "post",
             url : url,
             data : form,
-            async : false,
+            async : true,
             timeout : 300000,
             processData: false,
             contentType: false,
