@@ -24,7 +24,7 @@ var $toast = function(str, callback, type){
         });
         clearTimeout(timer);
     }, 2000);
-}
+};
 
 /**
  * 跳转订单详情页

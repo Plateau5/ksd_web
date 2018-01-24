@@ -259,8 +259,10 @@
                     success : function (res) {
                         $('#loading').hide();
                         if (res.error_code == 0) {
-                            locationTo({
-                                action : contextPath + markUri + '/customer/loan/alreadyAllot'
+                            $alert('已提交至平安租赁后台系统，请耐心等待审核', function () {
+                                locationTo({
+                                    action : contextPath + markUri + '/customer/loan/alreadyAllot'
+                                });
                             });
                         } else {
                             $alert(res.error_msg, function () {
