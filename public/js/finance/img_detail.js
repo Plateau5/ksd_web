@@ -11,47 +11,40 @@ $(function(){
         var locationUrl = LOCALURL;
         var navigation = $('#navigation').val().trim();
         var nodeUrl = $('#nodeUrl').val().trim();
-        if (is_docking == 1 && (sign_ids && sign_ids.indexOf('10') != -1)) {
-            locationTo({
-                action : contextPath + markUri + '/docking/pingan/home',
-                param : {
-                    finance_id : finance_id,
-                    active : 'active',
-                    url : locationUrl,
-                    userName : user_name,
-                    navigation : navigation,
-                    nodeUrl : nodeUrl
-                }
-            })
-        } else {
-            $.ajax({
-                type:"post",
-                url :contextPath + '/api/finance/startApplyloan',
-                dataType:"json",
-                data:{finance_id: finance_id},
-                async:false,
-                error:function(xhr,status,err){
-                    alert("系统异常");
-                },
-                success:function(data){
-                    if(data.error_code =='0'){
-                        locationTo({
-                            action : contextPath + markUri + '/customer/loan/detail',
-                            param : {
-                                finance_id : finance_id,
-                                active : 'active',
-                                url : locationUrl,
-                                navigation : navigation,
-                                nodeUrl : nodeUrl
-                            }
-                        })
-                    }else{
-                        alert(data.error_msg);
-                    }
-                }
-            });
 
-        }
+        $.ajax({
+            type:"post",
+            url :contextPath + '/api/finance/startApplyloan',
+            dataType:"json",
+            data:{finance_id: finance_id},
+            async:false,
+            error:function(xhr,status,err){
+                alert("系统异常");
+            },
+            success:function(data){
+                if(data.error_code =='0'){
+                    if (is_docking == 1 && (sign_ids && sign_ids.indexOf('10') != -1)) {
+                        var action  = contextPath + markUri + '/docking/pingan/home';
+                    } else {
+                        var action = contextPath + markUri + '/customer/loan/detail';
+
+                    }
+                    locationTo({
+                        action : contextPath + markUri + '/customer/loan/detail',
+                        param : {
+                            finance_id : finance_id,
+                            active : 'active',
+                            url : locationUrl,
+                            userName : user_name,
+                            navigation : navigation,
+                            nodeUrl : nodeUrl
+                        }
+                    })
+                }else{
+                    alert(data.error_msg);
+                }
+            }
+        });
     });
 
     //确认申请
