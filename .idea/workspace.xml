@@ -23,8 +23,8 @@
       <file leaf-file-name="img_detail.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/finance/img_detail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+            <state relative-caret-position="350">
+              <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -506,14 +506,7 @@
       <workItem from="1516325746571" duration="18728000" />
       <workItem from="1516584992211" duration="18519000" />
       <workItem from="1516673177736" duration="22947000" />
-      <workItem from="1516759770242" duration="14981000" />
-    </task>
-    <task id="LOCAL-00183" summary="修改工作年限  2018年1月19日17:12:44">
-      <created>1516353170784</created>
-      <option name="number" value="00183" />
-      <option name="presentableId" value="LOCAL-00183" />
-      <option name="project" value="LOCAL" />
-      <updated>1516353170785</updated>
+      <workItem from="1516759770242" duration="15054000" />
     </task>
     <task id="LOCAL-00184" summary="修改现有车系  2018年1月19日17:18:01">
       <created>1516353488758</created>
@@ -851,11 +844,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516787729620</updated>
     </task>
-    <option name="localTasksCounter" value="232" />
+    <task id="LOCAL-00232" summary="修改开始计时  2018年1月24日18:32:59">
+      <created>1516789984975</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL-00232" />
+      <option name="project" value="LOCAL" />
+      <updated>1516789984976</updated>
+    </task>
+    <option name="localTasksCounter" value="233" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="958360000" />
+    <option name="totallyTimeSpent" value="958433000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -932,7 +932,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加品牌更改后首付金额自动计算  2018年1月23日11:10:00" />
     <MESSAGE value="修复首页返回  2018年1月23日12:10:49" />
     <MESSAGE value="修改详情页  2018年1月23日12:25:18" />
     <MESSAGE value="修改详情页  2018年1月23日14:38:30" />
@@ -957,7 +956,8 @@
     <MESSAGE value="修改详情页错误  2018年1月24日17:51:01" />
     <MESSAGE value="修改elseif   2018年1月24日17:51:48" />
     <MESSAGE value="修改elseif   2018年1月24日17:55:18" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改elseif   2018年1月24日17:55:18" />
+    <MESSAGE value="修改开始计时  2018年1月24日18:32:59" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改开始计时  2018年1月24日18:32:59" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1373,8 +1373,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/finance/img_detail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+        <state relative-caret-position="350">
+          <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
           <folding />
         </state>
       </provider>

@@ -30,7 +30,7 @@ $(function(){
 
                     }
                     locationTo({
-                        action : contextPath + markUri + '/customer/loan/detail',
+                        action : action,
                         param : {
                             finance_id : finance_id,
                             active : 'active',
