@@ -512,7 +512,7 @@ function clearSpouseOrParentInfo () {
         var elem = null;
         if (spouseInfo.is(':hidden')) {
             elem = spouseInfo;
-        } else if (parentInfo.is('is:hidden')) {
+        } else if (parentInfo.is(':hidden')) {
             elem = parentInfo;
         }/* else {
             throw new Error('Bad change: Marriage status send a error. see the "isMarriage" function at docking-pingan.js.');
