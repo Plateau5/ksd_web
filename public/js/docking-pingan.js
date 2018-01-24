@@ -1021,11 +1021,17 @@ function goDockingHome (selector) {
     var financeId = $.trim($('#financeId').val());
     var userName = $('#userName').val().trim();
     var homeUrl = $(selector).data('href');
+    var navigation = $('#navigation').val().trim();
+    var nodeUrl = $('#nodeUrl').val().trim();
+    var userName = $('#userName').val().trim();
     $(selector).on('click', function () {
         locationTo({
             action : homeUrl,
             param : {
                 finance_id : financeId,
+                userName : userName,
+                navigation : navigation,
+                nodeUrl : nodeUrl,
                 userName : userName
             }
         })
