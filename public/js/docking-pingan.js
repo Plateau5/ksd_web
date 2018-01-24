@@ -139,66 +139,7 @@ function intOrFloat (ele, max) {
     });
 }
 
-/**
- * 品牌、车系、车型、年份联动
- * @author Arley Joe 2017-12-30 12:43:01
- *
- */
-function brandChoose () {
-    var brand = $('select.brand');
-    var priceELe = $('#price');     // 品牌指导价
-    var pawnValue = $('#pawnValue');    // 车辆实际价格
-    var firstPayE = $('#firstPayAmount');        // 首付金额
-    brand.on('change', function () {
-        var param = {};
-        var _this = $(this);
-        // 获取选中项的Name
-        var selectedOpt = _this.find('option:selected');
-        var nameInput = _this.siblings('.brand_val');
-        var selectedName = selectedOpt.text();
-        nameInput.val(selectedName);
 
-        var queryType = Number(_this.data('query_type')) + 1;
-        var year = $('#carYear').find('option:selected').val().trim();
-        /*if (queryType == 3 && year == '' && _this.hasClass('car_model')) {
-            $alert('请先选择年份后再选择车型。');
-            return false;
-        }*/
-        if (_this.hasClass('car_year')) {
-            var v = $('#carSeries').find('option:selected').val().trim();     // 当前元素的选中值
-        } else {
-            var v = _this.find('option:selected').val().trim();     // 当前元素的选中值
-        }
-        var parent_id = v;
-        param.query_type = queryType;
-        year && (param.year = year);
-        parent_id && (param.parent_id = parent_id);
-        if (_this.hasClass('carSeries')) {
-            $('.car_year').val('');
-            $('.car_model').html('<option value="">请选择</option>');
-            return false;
-        }else if (_this.hasClass('car_model')) {
-            var price = _this.find('option:selected').data('price');
-            (price == '' || price == undefined || price == null) && (price = 0);
-            priceELe.val(price).siblings('.value_text').find('.value').text(price);
-            pawnValue.val(price);
-            // 设置首付金额
-            var firstPay = price * 20 / 100;
-            firstPayE.val(firstPay);
-        } else {
-            var brandData = getBrand(param);
-            var nextBrand = $('select.brand[data-query_type="'+ (queryType) +'"]').not('.car_year');
-            var optStr = createBrandOption(brandData, queryType);
-            nextBrand.html(optStr);
-            priceELe.val(0).siblings('.value_text').find('.value').text(0);
-            if (!_this.hasClass('car_year')) {
-                $('.car_year').val('');
-                $('.car_model').html('<option value="">请选择</option>');
-            }
-        }
-
-    });
-}
 
 /**
  * 获取品牌信息
