@@ -174,7 +174,7 @@
                                     moduleName = '征信查询信息';
                                     break;
                             }
-                            $alert('“' + moduleName + '”' + '模块还未填写完成，请先填写该模块。');
+                            $alert('“' + moduleName + '”' + '未填写完整，请先补充完整。');
                             isPrevAlreardy = false;
                             break;
                         }
@@ -239,7 +239,7 @@
                 var _this = $(this);
                 var success = _this.find('.xf_edit_home_icon');
                 if (success.length <= 0) {
-                    $alert('您还有模块未填写完成，请先填写完整后再提交。');
+                    $alert('您还有模块未填写完整，请补充完整再提交。');
                     isSuccess = false;
                     return false;
                 }
