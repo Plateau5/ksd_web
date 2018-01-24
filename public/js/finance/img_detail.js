@@ -11,7 +11,19 @@ $(function(){
         var locationUrl = LOCALURL;
         var navigation = $('#navigation').val().trim();
         var nodeUrl = $('#nodeUrl').val().trim();
-        if (is_docking == 0 || (sign_ids && sign_ids.indexOf('10') == -1)) {
+        if (is_docking == 1 && (sign_ids && sign_ids.indexOf('10') != -1)) {
+            locationTo({
+                action : contextPath + markUri + '/docking/pingan/home',
+                param : {
+                    finance_id : finance_id,
+                    active : 'active',
+                    url : locationUrl,
+                    userName : user_name,
+                    navigation : navigation,
+                    nodeUrl : nodeUrl
+                }
+            })
+        } else {
             $.ajax({
                 type:"post",
                 url :contextPath + '/api/finance/startApplyloan',
@@ -38,18 +50,7 @@ $(function(){
                     }
                 }
             });
-        } else {
-            locationTo({
-                action : contextPath + markUri + '/docking/pingan/home',
-                param : {
-                    finance_id : finance_id,
-                    active : 'active',
-                    url : locationUrl,
-                    userName : user_name,
-                    navigation : navigation,
-                    nodeUrl : nodeUrl
-                }
-            })
+
         }
     });
 
