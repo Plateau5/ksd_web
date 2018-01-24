@@ -101,7 +101,7 @@
                                     单身
                                     {{elseif (renterInfo.marriage === '2') }}
                                     已婚
-                                    {{esleif (renterInfo.marriage === '3') }}
+                                    {{elseif (renterInfo.marriage === '3') }}
                                     离异
                                     {{elseif (renterInfo.marriage === '4') }}
                                     丧偶
