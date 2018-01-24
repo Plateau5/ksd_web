@@ -44,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/views/customer/dockingPARenterInfoDetail.xtpl">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
-              <caret line="96" column="88" lean-forward="false" selection-start-line="96" selection-start-column="88" selection-end-line="96" selection-end-column="88" />
+              <caret line="96" column="67" lean-forward="false" selection-start-line="96" selection-start-column="67" selection-end-line="96" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -519,14 +519,7 @@
       <workItem from="1516325746571" duration="18728000" />
       <workItem from="1516584992211" duration="18519000" />
       <workItem from="1516673177736" duration="22947000" />
-      <workItem from="1516759770242" duration="13458000" />
-    </task>
-    <task id="LOCAL-00181" summary="修改查看按钮位置  2018年1月19日15:45:16">
-      <created>1516347921775</created>
-      <option name="number" value="00181" />
-      <option name="presentableId" value="LOCAL-00181" />
-      <option name="project" value="LOCAL" />
-      <updated>1516347921775</updated>
+      <workItem from="1516759770242" duration="13670000" />
     </task>
     <task id="LOCAL-00182" summary="修改校验规则  2018年1月19日16:47:17">
       <created>1516351647966</created>
@@ -864,11 +857,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516787466902</updated>
     </task>
-    <option name="localTasksCounter" value="230" />
+    <task id="LOCAL-00230" summary="修改elseif   2018年1月24日17:51:48">
+      <created>1516787515607</created>
+      <option name="number" value="00230" />
+      <option name="presentableId" value="LOCAL-00230" />
+      <option name="project" value="LOCAL" />
+      <updated>1516787515607</updated>
+    </task>
+    <option name="localTasksCounter" value="231" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="956837000" />
+    <option name="totallyTimeSpent" value="957049000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -945,7 +945,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加新车标识  2018-1-23 10:23:36" />
     <MESSAGE value="修复打包情况的金额计算 2018年1月23日10:51:41" />
     <MESSAGE value="增加品牌更改后首付金额自动计算  2018年1月23日11:10:00" />
     <MESSAGE value="修复首页返回  2018年1月23日12:10:49" />
@@ -970,7 +969,8 @@
     <MESSAGE value="修复面包屑 2018年1月24日17:45:19" />
     <MESSAGE value="打开日志  2018年1月24日17:46:48" />
     <MESSAGE value="修改详情页错误  2018年1月24日17:51:01" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改详情页错误  2018年1月24日17:51:01" />
+    <MESSAGE value="修改elseif   2018年1月24日17:51:48" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改elseif   2018年1月24日17:51:48" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1386,7 +1386,7 @@
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPARenterInfoDetail.xtpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
-          <caret line="96" column="88" lean-forward="false" selection-start-line="96" selection-start-column="88" selection-end-line="96" selection-end-column="88" />
+          <caret line="96" column="67" lean-forward="false" selection-start-line="96" selection-start-column="67" selection-end-line="96" selection-end-column="67" />
           <folding />
         </state>
       </provider>

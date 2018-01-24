@@ -94,7 +94,7 @@
                             </div>
                             <div class="option_item">
                                 <div class="column_name">
-                                    <span class="options_name">婚姻状况{{renterInfo.marriage}}：</span>
+                                    <span class="options_name">婚姻状况：</span>
                                 </div>
                                 <div class="column_val">
                                     {{#if (renterInfo.marriage === '1') }}
