@@ -118,7 +118,7 @@
                     </form>
                 </div>
                 <div class="btn_box text_left pad_btm_50 clearfix" style="margin-top: 20px;">
-                    {{#if (preCode) }}
+                    {{#if (preCode && preCode !== '0') }}
                     <a href="javascript:"  id="fileConfirm"  class="btn orange_btn confirm edit_confirm" data-type="1"  data-url="{{contextPath}}/api/docking/document/save" data-next="{{markUri}}/docking/pingan/home">保存并继续</a>
                     {{else}}
                     <a href="javascript:"  id="fileConfirm"  class="btn orange_btn confirm edit_confirm" data-type="1"  data-url="{{contextPath}}/api/docking/document/save" data-next="{{markUri}}/docking/pingan/credit">保存并继续</a>
