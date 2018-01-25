@@ -304,10 +304,10 @@
                                 <input type="hidden" class="provinceName" name="estateProvinceName" value="{{sponsorInfo.estateProvinceName}}">
                                 <input type="hidden" class="cityName" name="estateCityName" value="{{sponsorInfo.estateCityName}}">
                                 <select name="estateProvince" id="estateProvince" class="province" data-name="province" data-type="estate" style="width: 108px;margin-right: 10px;">
-
+                                    <option value="">请选择</option>
                                 </select>
                                 <select name="estateCity" id="estateCity" class="city" data-name="city" style="width: 108px;">
-
+                                    <option value="">请选择</option>
                                 </select>
                             </div>
                         </div>
