@@ -74,6 +74,7 @@
 		{{/if}}
 	</div>
 </div>
+<input type="hidden" id="auditTime" value="{{vo.start_audit_time}}">
 <script type="text/javascript">
     (function (){
         var enting = $("#entering");
