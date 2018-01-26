@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="">
+    <list default="true" id="37581f5b-43da-461e-bab2-608ac4134b59" name="Default" comment="修改担保人现居住地址  2018年1月25日17:05:23">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/customer/dockingPAGuarantorInfo.xtpl" afterPath="$PROJECT_DIR$/views/customer/dockingPAGuarantorInfo.xtpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/inc/entryInfo.xtpl" afterPath="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,11 +20,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dockingPAGuarantorInfo.xtpl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/customer/dockingPAGuarantorInfo.xtpl">
+      <file leaf-file-name="entryInfo.xtpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/inc/entryInfo.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="309" column="65" lean-forward="false" selection-start-line="309" selection-start-column="65" selection-end-line="309" selection-end-column="65" />
+            <state relative-caret-position="228">
+              <caret line="67" column="63" lean-forward="true" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ordersList.xtpl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/inc/ordersList.xtpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="51" column="61" lean-forward="false" selection-start-line="51" selection-start-column="61" selection-end-line="51" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -175,9 +185,9 @@
         <option value="$PROJECT_DIR$/public/js/docking-pingan.js" />
         <option value="$PROJECT_DIR$/util/logger.js" />
         <option value="$PROJECT_DIR$/views/customer/dockingPARenterInfoDetail.xtpl" />
-        <option value="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
         <option value="$PROJECT_DIR$/public/js/finance/img_detail.js" />
         <option value="$PROJECT_DIR$/views/customer/dockingPAGuarantorInfo.xtpl" />
+        <option value="$PROJECT_DIR$/views/inc/entryInfo.xtpl" />
       </list>
     </option>
   </component>
@@ -205,10 +215,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1911" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1058" />
+    <option name="x" value="2077" />
+    <option name="y" value="139" />
+    <option name="width" value="1540" />
+    <option name="height" value="904" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -248,7 +258,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -275,13 +284,6 @@
             <path>
               <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="finance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ksd_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ksd_web" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -300,6 +302,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
@@ -503,14 +506,8 @@
       <workItem from="1516584992211" duration="18519000" />
       <workItem from="1516673177736" duration="22947000" />
       <workItem from="1516759770242" duration="15690000" />
-      <workItem from="1516845134203" duration="2480000" />
-    </task>
-    <task id="LOCAL-00187" summary="修改  2018年1月22日09:42:55">
-      <created>1516585386718</created>
-      <option name="number" value="00187" />
-      <option name="presentableId" value="LOCAL-00187" />
-      <option name="project" value="LOCAL" />
-      <updated>1516585386719</updated>
+      <workItem from="1516845134203" duration="3091000" />
+      <workItem from="1516931818392" duration="1065000" />
     </task>
     <task id="LOCAL-00188" summary="修改金额限制 2018年1月22日11:31:19">
       <created>1516591886688</created>
@@ -848,11 +845,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516862324256</updated>
     </task>
-    <option name="localTasksCounter" value="236" />
+    <task id="LOCAL-00236" summary="修改担保人现居住地址  2018年1月25日17:05:23">
+      <created>1516871130617</created>
+      <option name="number" value="00236" />
+      <option name="presentableId" value="LOCAL-00236" />
+      <option name="project" value="LOCAL" />
+      <updated>1516871130617</updated>
+    </task>
+    <option name="localTasksCounter" value="237" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="961549000" />
+    <option name="totallyTimeSpent" value="963225000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -929,7 +933,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改还款计划表的按钮  2018年1月23日15:56:37" />
     <MESSAGE value="修复首付金额联动  2018年1月23日19:18:46" />
     <MESSAGE value="修改首付金额与是否打包的联动  2018年1月23日19:31:07" />
     <MESSAGE value="修改职业信息中文  2018年1月23日20:20:05" />
@@ -954,7 +957,8 @@
     <MESSAGE value="修改开始计时  2018年1月24日18:34:11" />
     <MESSAGE value="修改开始录入展示  2018年1月25日14:33:30" />
     <MESSAGE value="修改开始录入计时  2018年1月25日14:38:38" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改开始录入计时  2018年1月25日14:38:38" />
+    <MESSAGE value="修改担保人现居住地址  2018年1月25日17:05:23" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改担保人现居住地址  2018年1月25日17:05:23" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1221,7 +1225,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="0" column="40462" lean-forward="false" selection-start-line="0" selection-start-column="40462" selection-end-line="0" selection-end-column="40462" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1239,13 +1242,6 @@
           <folding>
             <element signature="n#style#0;n#ul#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/ordersList.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="51" column="61" lean-forward="false" selection-start-line="51" selection-start-column="61" selection-end-line="51" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -1309,15 +1305,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1007">
           <caret line="53" column="49" lean-forward="false" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inc/entryInfo.xtpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="76" column="68" lean-forward="true" selection-start-line="76" selection-start-column="68" selection-end-line="76" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1325,14 +1312,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="42" column="41" lean-forward="true" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/customer/dockingPAGuarantorInfo.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="309" column="65" lean-forward="false" selection-start-line="309" selection-start-column="65" selection-end-line="309" selection-end-column="65" />
+        <state relative-caret-position="342">
+          <caret line="318" column="99" lean-forward="true" selection-start-line="318" selection-start-column="99" selection-end-line="318" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/entryInfo.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="67" column="63" lean-forward="true" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/inc/ordersList.xtpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="51" column="61" lean-forward="false" selection-start-line="51" selection-start-column="61" selection-end-line="51" selection-end-column="61" />
           <folding />
         </state>
       </provider>
