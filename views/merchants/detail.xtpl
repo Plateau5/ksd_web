@@ -416,7 +416,7 @@
                                 <!--备案信息材料图片-->
                                 <ul class="img_list" id="viewerImageList">
                                     {{#each (fileList) }}
-                                        <li class="list_item">
+                                        <li class="list_item img_item">
                                             <a href="javascript:;" data-type="imgBox">
                                                 <img data-original="{{this.url}}" src="{{this.thumbnail_120_90}}" alt="{{this.file_name}}"/>
                                             </a>
