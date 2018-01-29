@@ -5,7 +5,7 @@
         {{#if (verifyCode(1017)) }}
             <a href="{{markUri}}/customer/loan/pendingAllot" class="category_item wait_assign
                 {{#if (startWith(markUri + '/customer/loan/pendingAllot')) }}active{{/if}}
-            ">待分配 <span class="count_num">({{countvo.wait_allot}})</span></a>
+            ">待分配<!-- <span class="count_num">({{countvo.wait_allot}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1018)) }}
             <a href="{{markUri}}/customer/loan/alreadyAllot" class="category_item assigned {{#if (startWith(markUri + '/customer/loan/alreadyAllot')) }}active{{/if}}">
@@ -14,22 +14,22 @@
             {{else}}
                 已分配
             {{/if}}
-            <span class="count_num">({{countvo.checkin}})</span></a>
+           <!-- <span class="count_num">({{countvo.checkin}})</span></a>-->
         {{/if}}
         {{#if (verifyCode(1019)) }}
             <a href="{{markUri}}/customer/loan/entered" class="category_item registered
                 {{#if (startWith(markUri + '/customer/loan/entered')) }}active{{/if}}
-            ">已录入 <span class="count_num">({{countvo.review}})</span></a>
+            ">已录入<!-- <span class="count_num">({{countvo.review}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1020)) }}
             <a href="{{markUri}}/customer/loan/passed" class="category_item passed
                 {{#if (startWith(markUri + '/customer/loan/passed')) }}active{{/if}}
-            ">已通过 <span class="count_num">({{countvo.pass}})</span></a>
+            ">已通过<!-- <span class="count_num">({{countvo.pass}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1021)) }}
             <a href="{{markUri}}/customer/loan/unpass" class="category_item unpass
                 {{#if (startWith(markUri + '/customer/loan/unpass')) }}active{{/if}}
-            ">未通过 <span class="count_num">({{countvo.unpass}})</span></a>
+            ">未通过<!-- <span class="count_num">({{countvo.unpass}})</span>--></a>
         {{/if}}
     {{/if}}
     <!-- 客服主管、普通客服主操作分类 End -->
@@ -38,17 +38,17 @@
         {{#if (verifyCode(1261)) }}
             <a href="{{markUri}}/customer/compact/pendingPass" class="category_item wait_assign
                 {{#if (startWith(markUri + '/customer/compact/pendingPass')) }}active{{/if}}
-            ">待出合同 <span class="count_num">({{countvo.wait_check}})</span></a>
+            ">待出合同<!-- <span class="count_num">({{countvo.wait_check}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1262)) }}
             <a href="{{markUri}}/customer/compact/pass" class="category_item passed
                 {{#if (startWith(markUri + '/customer/compact/pass')) }}active{{/if}}
-            ">已通过 <span class="count_num">({{countvo.pass}})</span></a>
+            ">已通过<!-- <span class="count_num">({{countvo.pass}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1263)) }}
             <a href="{{markUri}}/customer/compact/unpass" class="category_item unpass
                 {{#if (startWith(markUri + '/customer/compact/unpass')) }}active{{/if}}
-            ">未通过 <span class="count_num">({{countvo.unpass}})</span></a>
+            ">未通过<!-- <span class="count_num">({{countvo.unpass}})</span>--></a>
         {{/if}}
     {{/if}}
     <!-- 合同客服主操作分类 End -->
@@ -58,34 +58,34 @@
             {{#if (verifyCode(1202)) }}
                 <a href="{{markUri}}/customer/requestpayout/pendingDispose" class="category_item wait_dispose
                 {{#if (startWith(markUri + '/customer/requestpayout/pendingDispose')) }}active{{/if}}
-        ">待请款 <span class="count_num">({{countvo.pending_dispose}})</span></a>
+        ">待请款<!-- <span class="count_num">({{countvo.pending_dispose}})</span>--></a>
         {{/if}}
         <!-- 请款客服待通过 -->
         {{#if (verifyCode(1203)) }}
             <a href="{{markUri}}/customer/requestpayout/pendingPass" class="category_item pending_pass
                 {{#if (startWith(markUri + '/customer/requestpayout/pendingPass')) }}active
             {{/if}}
-            ">待通过 <span class="count_num">({{countvo.pending_pass}})</span></a>
+            ">待通过<!-- <span class="count_num">({{countvo.pending_pass}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1110)) }}
             <a href="{{markUri}}/customer/requestpayout/pendingAudit" class="category_item pending_audit
                 {{#if (startWith(markUri + '/customer/requestpayout/pendingAudit')) }}active
             {{/if}}
-            ">待审批 <span class="count_num">({{countvo.wait_check}})</span></a>
+            ">待审批<!-- <span class="count_num">({{countvo.wait_check}})</span>--></a>
         {{/if}}
         <!-- 请款客服已通过 -->
         {{#if (verifyCode(1204)) }}
             <a href="{{markUri}}/customer/requestpayout/pass" class="category_item passed
                 {{#if (startWith(markUri + '/customer/requestpayout/pass')) }}active
             {{/if}}
-            ">已通过 <span class="count_num">({{countvo.pass}})</span></a>
+            ">已通过<!-- <span class="count_num">({{countvo.pass}})</span>--></a>
         {{/if}}
         <!-- 请款客服未通过 -->
         {{#if (verifyCode(1205)) }}
             <a href="{{markUri}}/customer/requestpayout/unpass" class="category_item unpass
                 {{#if (startWith(markUri + '/customer/requestpayout/unpass')) }}active
             {{/if}}
-            ">未通过 <span class="count_num">({{countvo.unpass}})</span></a>
+            ">未通过<!-- <span class="count_num">({{countvo.unpass}})</span>--></a>
         {{/if}}
     {{/if}}
         <!-- 请款客服主操作分类 End -->
@@ -95,13 +95,13 @@
                 <a href="{{markUri}}/customer/pigeonhole/pending" class="category_item wait_dispose
                 {{#if (startWith(markUri + '/customer/pigeonhole/pending')) }}active
         {{/if}}
-        ">待处理 <span class="count_num">({{countvo.already_return}})</span></a>
+        ">待处理<!-- <span class="count_num">({{countvo.already_return}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1178)) }}
             <a href="{{markUri}}/customer/pigeonhole/archived" class="category_item archived
                 {{#if (startWith(markUri + '/customer/pigeonhole/archived')) }}active
             {{/if}}
-            ">已归档 <span class="count_num">({{countvo.already_pigeonhole}})</span></a>
+            ">已归档<!-- <span class="count_num">({{countvo.already_pigeonhole}})</span>--></a>
         {{/if}}
     {{/if}}
         <!-- 归档客服主操作分类 End -->
@@ -110,22 +110,22 @@
          {{#if (verifyCode(1162)) }}
              <a href="{{markUri}}/customer/approval/pendingAudit" class="category_item pending_audit
              {{#if (startWith(markUri + '/customer/approval/pendingAudit')) }}active{{/if}}
-             ">待审批 <span class="count_num">({{countvo.wait_check}})</span></a>
+             ">待审批<!-- <span class="count_num">({{countvo.wait_check}})</span>--></a>
          {{/if}}
         {{#if (verifyCode(1206)) }}
             <a href="{{markUri}}/customer/approval/pass" class="category_item passed
                 {{#if (startWith(markUri + '/customer/approval/pass')) }}active{{/if}}
-            ">已通过 <span class="count_num">({{countvo.pass}})</span></a>
+            ">已通过<!-- <span class="count_num">({{countvo.pass}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1207)) }}
             <a href="{{markUri}}/customer/approval/unpass" class="category_item unpass
                 {{#if (startWith(markUri + '/customer/approval/unpass')) }}active{{/if}}
-            ">未通过 <span class="count_num">({{countvo.unpass}})</span></a>
+            ">未通过<!-- <span class="count_num">({{countvo.unpass}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1164)) }}
             <a href="{{markUri}}/customer/approval/return" class="category_item cashed_check
                 {{#if (startWith(markUri + '/customer/approval/return')) }}active{{/if}}
-            ">已回款 <span class="count_num">({{countvo.already_return}})</span></a>
+            ">已回款<!-- <span class="count_num">({{countvo.already_return}})</span>--></a>
         {{/if}}
     {{/if}}
         <!-- 运营主操作分类 End -->
@@ -134,27 +134,27 @@
         {{#if (verifyCode(1208)) }}
             <a href="{{markUri}}/customer/financial/pendingReturn" class="category_item wait_dispose
                 {{#if (startWith(markUri + '/customer/financial/pendingReturn')) }}active{{/if}}
-            ">待回款 <span class="count_num">({{countvo.pending_dispose}})</span></a>
+            ">待回款<!-- <span class="count_num">({{countvo.pending_dispose}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1170)) }}
             <a href="{{markUri}}/customer/financial/pendingAudit" class="category_item pending_audit
                 {{#if (startWith(markUri + '/customer/financial/pendingAudit')) }}active{{/if}}
-            ">待审批 <span class="count_num">({{countvo.wait_check}})</span></a>
+            ">待审批<!-- <span class="count_num">({{countvo.wait_check}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1209)) }}
             <a href="{{markUri}}/customer/financial/pass" class="category_item passed
                 {{#if (startWith(markUri + '/customer/financial/pass')) }}active{{/if}}
-            ">已通过 <span class="count_num">({{countvo.pass}})</span></a>
+            ">已通过<!-- <span class="count_num">({{countvo.pass}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1210)) }}
             <a href="{{markUri}}/customer/financial/unpass" class="category_item unpass
                 {{#if (startWith(markUri + '/customer/financial/unpass')) }}active{{/if}}
-            ">未通过 <span class="count_num">({{countvo.unpass}})</span></a>
+            ">未通过<!-- <span class="count_num">({{countvo.unpass}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1172)) }}
             <a href="{{markUri}}/customer/financial/return" class="category_item cashed_check
                 {{#if (startWith(markUri + '/customer/financial/return')) }}active{{/if}}
-            ">已回款 <span class="count_num">({{countvo.already_return}})</span></a>
+            ">已回款<!-- <span class="count_num">({{countvo.already_return}})</span>--></a>
         {{/if}}
     {{/if}}
         <!-- 财务主操作分类 End -->
@@ -163,17 +163,17 @@
         {{#if (verifyCode(1331)) }}
             <a href="{{markUri}}/customer/otherfund/pendingAudit" class="category_item pending_audit
             {{#if (startWith(markUri + '/customer/otherfund/pendingAudit')) }}active{{/if}}
-            ">待审批 <span class="count_num">({{countvo.wait_check}})</span></a>
+            ">待审批<!-- <span class="count_num">({{countvo.wait_check}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1332)) }}
             <a href="{{markUri}}/customer/otherfund/pass" class="category_item passed
                 {{#if (startWith(markUri + '/customer/otherfund/pass')) }}active{{/if}}
-            ">已通过 <span class="count_num">({{countvo.pass}})</span></a>
+            ">已通过<!-- <span class="count_num">({{countvo.pass}})</span>--></a>
         {{/if}}
         {{#if (verifyCode(1333)) }}
             <a href="{{markUri}}/customer/otherfund/unpass" class="category_item unpass
                 {{#if (startWith(markUri + '/customer/otherfund/unpass')) }}active{{/if}}
-            ">未通过 <span class="count_num">({{countvo.unpass}})</span></a>
+            ">未通过<!-- <span class="count_num">({{countvo.unpass}})</span>--></a>
         {{/if}}
     {{/if}}
         <!-- 其他款项主操作分类 End -->
