@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="{{markUri}}/static/css/statistics.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
+    <title>数据统计-商户统计</title>
+    <style>
+        body{
+            background: rgba(0,0,0,.08);
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide nav End ---->
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main">
+            <div class="statistics_box">
+                <!-- 商户统计 -->
+                <div class="statistics_item business_statistics">
+                    <div class="filtrate">
+                        <div class="filtrate_item date_conditions inline_block">
+                            <div class="conditions_name inline_block">时间筛选：</div>
+                            <select name="filtrate_car_type" class="filtrate_select" id="">
+                                <option value="">全部</option>
+                                <option value="">季度</option>
+                                <option value="" selected>月</option>
+                                <option value="">周</option>
+                            </select>
+                            <div class="conditions_name inline_block">业务类型：</div>
+                            <select>
+                                <option value="">全部</option>
+                                <option value="">新车</option>
+                                <option value="">二手车</option>
+                                <option value="">新车&二手车</option>
+                            </select>
+                            <div class="conditions_name inline_block">城市：</div>
+                            <select name="filtrate_car_type" class="filtrate_select" id="">
+                                <option value="">全部</option>
+                                <option value="">北京</option>
+                                <option value="">天津</option>
+                                <option value="">重庆</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="canvas_box onloading">
+
+                    </div>
+                </div>
+
+                <div class="statistics_item business_statistics">
+                    <div class="filtrate">
+                        <div class="filtrate_item date_conditions inline_block">
+                            <!--<div class="conditions_name inline_block">截止到今天</div>-->
+                            <div class="conditions_name inline_block">城市：</div>
+                            <select name="filtrate_car_type" class="filtrate_select" id="">
+                                <option value="">全部</option>
+                                <option value="">北京</option>
+                                <option value="">天津</option>
+                                <option value="">重庆</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="canvas_box onloading">
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!---- Part of Main info End ---->
+    </div>
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="{{markUri}}/static/js/echarts.min.js"></script>
+<script src="{{markUri}}/static/js/statistics.js"></script>
+<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js"></script>
+<script>
+    (function ($) {
+
+
+
+        $(function() {
+
+        });
+    })(jQuery,undefined);
+</script>
+</html>

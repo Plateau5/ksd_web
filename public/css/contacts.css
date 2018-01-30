@@ -288,9 +288,9 @@
   line-height: 30px;
   margin-left: 20px;
   border: 1px solid #1dc6bc;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   text-align: center;
   letter-spacing: 1px;
   color: #1dc6bc;
@@ -308,11 +308,11 @@
   color: #535e6a;
   background: #ebebeb;
   border: 1px solid #e4e4e4;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
 }
 .user_center .save_btn {
   width: 240px;

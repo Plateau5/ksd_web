@@ -236,3 +236,61 @@ exports.VIEW_STATISTICS_PERSONAL_BUSINESS = function(req, res, next) {
         }
     }, req, res, next);
 };
+
+// 数据统计-商户统计-首页跳转
+exports.VIEW_STATISTICS_MERCHANTS_SYNTHESIZE = function(req, res, next) {
+    /*var body = req.body;
+    common.httpRequest({
+        url : apiServerPath + '/api/statistics/personal/business',
+        formData : body
+    }, function (result) {
+        var data = result;
+        data.title = '人效统计-个人业务详情';
+        data.organizationId = data.organization_id;
+        if (data.error_code === 0) {
+            // res.send(data);
+            res.render('./dataStatistics/personBusiness', data);
+        } else {
+            res.render(data.error_msg);
+        }
+    }, req, res, next);*/
+    res.render('./dataStatistics/merchantsStatistics', { title : '数据统计-商户统计', markUri : markUri});
+};
+// 数据统计-商户统计-商户分类列表页跳转
+exports.VIEW_STATISTICS_MERCHANTS_TYPELIST = function(req, res, next) {
+    /*var body = req.body;
+    common.httpRequest({
+        url : apiServerPath + '/api/statistics/personal/business',
+        formData : body
+    }, function (result) {
+        var data = result;
+        data.title = '人效统计-个人业务详情';
+        data.organizationId = data.organization_id;
+        if (data.error_code === 0) {
+            // res.send(data);
+            res.render('./dataStatistics/personBusiness', data);
+        } else {
+            res.render(data.error_msg);
+        }
+    }, req, res, next);*/
+    res.render('./dataStatistics/merchantsTypeClassificationList', { title : '数据统计-商户分类列表', markUri : markUri});
+};
+// 数据统计-商户统计-商户详情页跳转
+exports.VIEW_STATISTICS_MERCHANTS_DETAIL = function(req, res, next) {
+    /*var body = req.body;
+    common.httpRequest({
+        url : apiServerPath + '/api/statistics/personal/business',
+        formData : body
+    }, function (result) {
+        var data = result;
+        data.title = '人效统计-个人业务详情';
+        data.organizationId = data.organization_id;
+        if (data.error_code === 0) {
+            // res.send(data);
+            res.render('./dataStatistics/personBusiness', data);
+        } else {
+            res.render(data.error_msg);
+        }
+    }, req, res, next);*/
+    res.render('./dataStatistics/merchantDetail', { title : '数据统计-商户主页', markUri : markUri});
+};

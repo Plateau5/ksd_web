@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="{{markUri}}/static/css/statistics.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
+    <title>数据统计-商户统计</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide nav End ---->
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main personal_detail">
+            <div class="crumbs_nav">
+                <a href="javascript:;" class="crumbs_item">商户统计</a>
+                <a href="javascript:;" class="crumbs_item">4s店</a>
+            </div>
+            <div class="statistics_list" style="margin-top: 0;">
+                <div class="table_legend">
+                    <span>截止到今天</span>
+                    <span class="contribution rf">
+                        <span>贡献值</span><em class="contribution_icon"></em>
+                        <span class="tips">贡献值=(出单数÷所在城市出单总数+回款数÷所在城市回款数)÷2×100%</span>
+                    </span>
+                </div>
+                <table class="normal">
+                    <colgroup style="width: 100%;">
+                        <col style="width: 22%;" />
+                        <col style="width: 13%;" />
+                        <col style="width: 13%;" />
+                        <col style="width: 13%;" />
+                        <col style="width: 13%;" />
+                        <col style="width: 13%;" />
+                        <col />
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>商户名称</th>
+                        <th>进件</th>
+                        <th>通过</th>
+                        <th>未通过</th>
+                        <th>汇款</th>
+                        <th>归档</th>
+                        <th>
+                            <span>贡献值</span>
+                            <em class="contribution_sequence"></em>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>北京奔驰</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>北京奔驰</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>北京奔驰</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>北京奔驰</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>北京奔驰</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>北京奔驰</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>北京奔驰</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>北京奔驰</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="page">
+                    <a href="javascript:" class="page-item home" data-currentPage="1" data-limit=""></a>
+                    <a href="javascript:" class="page-item prev" data-currentPage="" data-limit=""></a>
+                    <a href="javascript:" class="page-item next" data-currentPage="" data-limit=""></a>
+                    <a href="javascript:" class="page-item end" data-currentPage="" data-limit=""></a>
+                    <span class="total_page">共<span class="num">23456</span>条</span>
+                </div>
+            </div>
+        </div>
+        <!---- Part of Min info End ---->
+    </div>
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="{{markUri}}/static/js/echarts.min.js"></script>
+<script src="{{markUri}}/static/js/statistics.js"></script>
+<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js"></script>
+<script>
+    (function ($) {
+
+
+
+        $(function() {
+
+        });
+    })(jQuery,undefined);
+</script>
+</html>

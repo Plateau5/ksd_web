@@ -99,6 +99,7 @@
                         <col style="width: 25%;" />
                         <col />
                     </colgroup>
+                    <thead>
                     <tr>
                         <th>客户</th>
                         <th>类型</th>
@@ -107,27 +108,29 @@
                             用时(分钟)
                         </th>
                     </tr>
+                    </thead>
+                    <tbody>
                     {{#each (list) }}
-                        <tr>
-                            <td>{{this.user_name }}</td>
-                            <td>
-                                {{#if (this.car_type === 0) }}
-                                    新车
-                                {{elseif (this.car_type === 1) }}
-                                    二手车
-                                {{/if}}
-                            </td>
-                            <td>{{this.product_name }}</td>
-                            <td>
-                                {{#if (status === 1) }}
-                                    {{this.timeValue}}
-                                {{else}}
-                                    --
-                                {{/if}}
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>{{this.user_name }}</td>
+                        <td>
+                            {{#if (this.car_type === 0) }}
+                            新车
+                            {{elseif (this.car_type === 1) }}
+                            二手车
+                            {{/if}}
+                        </td>
+                        <td>{{this.product_name }}</td>
+                        <td>
+                            {{#if (status === 1) }}
+                            {{this.timeValue}}
+                            {{else}}
+                            --
+                            {{/if}}
+                        </td>
+                    </tr>
                     {{/each}}
-
+                    </tbody>
                 </table>
 
                 {{#if (count === 0) }}
