@@ -65,9 +65,11 @@
                                 <div class="conditions_name inline_block">时间筛选：</div>
                                 <select name="filtrate_car_type" class="filtrate_select" id="">
                                     <option value="">全部</option>
+                                    <option value="">年</option>
                                     <option value="">季度</option>
                                     <option value="" selected>月</option>
                                     <option value="">周</option>
+                                    <option value="">日</option>
                                 </select>
                             </div>
                         </div>

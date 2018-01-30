@@ -117,7 +117,7 @@
             </li>
         {{/if}}
         <li class="nav_item {{#if(startWith(markUri + '/statistics/merchants'))}}active{{/if}}">
-            <a href="{{markUri}}/statistics/merchants/detail" class="">商户统计</a>
+            <a href="{{markUri}}/statistics/merchants/typeList" class="">商户统计</a>
         </li>
         <li class="nav_item {{#if(startWith(markUri + '/statistics/suppliers'))}}active{{/if}}">
             <a href="{{markUri}}/statistics/supplier" class="">供应商统计</a>

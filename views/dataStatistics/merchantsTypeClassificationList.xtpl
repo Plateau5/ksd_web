@@ -53,7 +53,7 @@
                         <th>归档</th>
                         <th>
                             <span>贡献值</span>
-                            <em class="contribution_sequence"></em>
+                            <em class="contribution_sequence ascending descending"></em>
                         </th>
                     </tr>
                     </thead>
