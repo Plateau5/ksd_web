@@ -22,8 +22,8 @@
         <!---- Part of Main info Begin ---->
         <div id="main" class="main personal_detail">
             <div class="crumbs_nav">
-                <a href="javascript:;" class="crumbs_item">商户统计</a>
-                <a href="javascript:;" class="crumbs_item">4s店</a>
+                <a href="{{markUri}}/statistics/merchants/synthesize" class="crumbs_item">商户统计</a>
+                <a href="javascript:;" class="crumbs_item">{{merchants.name}}商户</a>
             </div>
             <div class="statistics_list" style="margin-top: 0;">
                 <div class="table_legend">
@@ -33,7 +33,13 @@
                         <span class="tips">贡献值=(出单数÷所在城市出单总数+回款数÷所在城市回款数)÷2×100%</span>
                     </span>
                 </div>
-                <table class="normal">
+                <form action="{{markUri}}/statistics/merchants/typeList" id="merchantsForm" role="form" method="post">
+                    <input type="hidden" value="{{merchants.type}}" name="type" id="merchantsType">
+                    <input type="hidden" value="{{merchants.city_id}}" name="city_id" id="cityId">
+                    <input type="hidden" value="{{merchants.order_by}}" name="order_by" id="orderBy">
+                    <input type="hidden" value="{{merchants.currentPage}}" name="current_page" id="currentPage">
+                </form>
+                <table class="normal" id="merchantsTable">
                     <colgroup style="width: 100%;">
                         <col style="width: 22%;" />
                         <col style="width: 13%;" />
@@ -53,91 +59,30 @@
                         <th>归档</th>
                         <th>
                             <span>贡献值</span>
-                            <em class="contribution_sequence ascending descending"></em>
+                            <em class="contribution_sequence {{#if (merchants.order_by === '2') }}ascending{{else}}descending{{/if}}" data-type="{{merchants.order_by}}"></em>
                         </th>
                     </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>北京奔驰</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>100</td>
+                        {{#each (data) }}
+                        <tr data-id="{{this.id}}">
+                            <td title="{{this.name}}">{{this.name}}</td>
+                            <td>{{this.order_count}}</td>
+                            <td>{{this.pass_count}}</td>
+                            <td>{{this.unpass_count}}</td>
+                            <td>{{this.return_count}}</td>
+                            <td>{{this.pigeonhole_count}}</td>
+                            <td>{{this.contribution}}</td>
                         </tr>
-                        <tr>
-                            <td>北京奔驰</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>北京奔驰</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>北京奔驰</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>北京奔驰</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>北京奔驰</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>北京奔驰</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>北京奔驰</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>20</td>
-                            <td>100</td>
-                        </tr>
+                        {{/each}}
                     </tbody>
                 </table>
                 <div class="page">
-                    <a href="javascript:" class="page-item home" data-currentPage="1" data-limit=""></a>
-                    <a href="javascript:" class="page-item prev" data-currentPage="" data-limit=""></a>
-                    <a href="javascript:" class="page-item next" data-currentPage="" data-limit=""></a>
-                    <a href="javascript:" class="page-item end" data-currentPage="" data-limit=""></a>
-                    <span class="total_page">共<span class="num">23456</span>条</span>
+                    <a href="javascript:" class="page-item home {{#if (current_page === 1) }}disabled{{/if}}" data-currentPage="1" data-limit="20"></a>
+                    <a href="javascript:" class="page-item prev {{#if (current_page === 1) }}disabled{{/if}}" data-currentPage="{{current_page}}" data-limit="20"></a>
+                    <a href="javascript:" class="page-item next {{#if (current_page === total_page) }}disabled{{/if}}" data-currentPage="{{current_page}}" data-limit="20"></a>
+                    <a href="javascript:" class="page-item end {{#if (current_page === total_page) }}disabled{{/if}}" data-currentPage="{{total_page}}" data-limit="20"></a>
+                    <span class="total_page">共<span class="num">{{total_count}}</span>条</span>
                 </div>
             </div>
         </div>
@@ -152,11 +97,131 @@
 <script src="{{markUri}}/static/dialog/dialog-layer.js"></script>
 <script>
     (function ($) {
+        // 获取列表数据
+        function getListData () {
+            var typeEle = $('#merchantsType');
+            var cityIdEle = $('#cityId');
+            var orderByEle = $('#orderBy');
+            var currentPageEle = $('#currentPage');
+
+            var endPage = $('.page .end');
+
+            var data = {
+                type : typeEle.val().trim().number(),
+                city_id : cityIdEle.val().trim().number(),
+                order_by : orderByEle.val().trim().number(),
+                current_page : currentPageEle.val().trim().number()
+            };
+            if (cityIdEle.val().trim() === '') {
+                delete data.city_id
+            }
+            if (currentPageEle.val().trim() === '') {
+                delete data.current_page
+            }
+            redefineAjax({
+                url : contextPath + '/api/web/supplier/statistics/list',
+                data : data,
+                async : false,
+                success : function (res) {
+                    if (res.error_code == 0) {
+                        createTable(res);
+                        var totalCount = res.total_count;
+                        var totalPage = res.total_page;
+                        $();
+                    } else {
+                        $alert(res.error_msg);
+                    }
+                },
+                error : function () {
+
+                }
+            });
+        }
+
+        function createTable (res) {
+            var container = $('#merchantsTable');
+            var data = res.data;
+            var str = '';
+            for(var i = 0, len = data.length; i < len; i++) {
+                str += '<tr data-id="'+ data[i].id +'">\n' +
+                    '                            <td title="'+ data[i].name +'">'+ data[i].name +'</td>\n' +
+                    '                            <td>'+ data[i].order_count +'</td>\n' +
+                    '                            <td>'+ data[i].pass_count +'</td>\n' +
+                    '                            <td>'+ data[i].unpass_count +'</td>\n' +
+                    '                            <td>'+ data[i].return_count +'</td>\n' +
+                    '                            <td>'+ data[i].pigeonhole_count +'</td>\n' +
+                    '                            <td>'+ data[i].contribution +'</td>\n' +
+                    '                        </tr>';
+            }
+            container.find('tbody').html(str);
+        }
 
 
+        // 贡献值排序切换
+        function switchContribution () {
+            var btn = $('.contribution_sequence');
+            var orderByEle = $('#orderBy');
+            var form = $('form[role="form"]');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                var type = _this.data(type);
+                if (_this.hasClass('ascending')) {
+                    _this.data('type', 1);      // 倒序
+                    _this.removeClass('ascending').addClass('descending');
+                    orderByEle.val(1);
+                } else {
+                    _this.data('type', 2);      // 正序
+                    _this.removeClass('descending').addClass('ascending');
+                    orderByEle.val(2);
+                }
+//                getListData();      // 注册获取数据
+                form.submit();
+            });
+        }
+
+        // 分页切换
+        function paginationSwitch () {
+            var btn = $('.page .page-item');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                var form = $('form[role="form"]');
+                var currentPage = _this.data('currentpage');
+                var nextPage = null;
+                if (!_this.hasClass('disabled')) {
+                    if (_this.hasClass('prev')) {
+                        nextPage = currentPage - 1;
+                    } else if (_this.hasClass('next')) {
+                        nextPage = currentPage + 1;
+                    } else {
+                        nextPage = currentPage;
+                    }
+                    $('#currentPage').val(nextPage);
+                    _this.data('currentpage', nextPage).siblings('.prev').data('currentpage', nextPage);
+//                    getListData();
+                    form.submit();
+                }
+            });
+        }
+
+        // 跳转下一页
+        function goMerchantDetail () {
+            var btn = $('#merchantsForm tbody tr');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                var id = _this.data('id');
+                locationTo({
+                    action : contextPath + markUri + '/statistics/merchants/detail',
+                    param : {
+                        supplier_id : id
+                    }
+                });
+            });
+        }
 
         $(function() {
-
+//            getListData();      // 注册获取数据
+            switchContribution();       // 贡献值排序切换
+            paginationSwitch();
         });
     })(jQuery,undefined);
 </script>
