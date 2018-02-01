@@ -205,7 +205,7 @@
 
         // 跳转下一页
         function goMerchantDetail () {
-            var btn = $('#merchantsForm tbody tr');
+            var btn = $('#merchantsTable tbody tr');
             btn.off('click').on('click', function () {
                 var _this = $(this);
                 var id = _this.data('id');
@@ -222,6 +222,7 @@
 //            getListData();      // 注册获取数据
             switchContribution();       // 贡献值排序切换
             paginationSwitch();
+            goMerchantDetail();     // 跳转下一页
         });
     })(jQuery,undefined);
 </script>

@@ -27,35 +27,53 @@
         <!---- Part of Main info Begin ---->
         <div id="main" class="main merchant_detail">
             <div class="crumbs_nav">
-                <a href="javascript:;" class="crumbs_item">商户统计</a>
-                <a href="javascript:;" class="crumbs_item">4s店</a>
-                <a href="javascript:;" class="crumbs_item">北京奔驰</a>
+                <a href="{{markUri}}/statistics/merchants/synthesize" class="crumbs_item">商户统计</a>
+                <a href="javascript:;" class="crumbs_item">4s店商户</a>
+                <a href="javascript:;" class="crumbs_item">{{name}}</a>
             </div>
             <div class="statistics_box" style="margin-top: 20px;">
                 <div class="merchant_info">
                     <div class="merchant_desc inline_block">
                         <div class="bg_photo">
                             <div class="bg_img_box">
-                                <img src="/static/img/normal_photo_bg.png"  class="bg_img" alt="">
+                                {{#if (image_url) }}
+                                <img src="{{image_url}}"  class="bg_img" alt="">
+                                {{else}}
+                                <img src=""  class="bg_img" alt="">
+                                {{/if}}
                             </div>
                         </div>
-                        <div class="name">北京极致车网科技有限公司</div>
+                        <div class="name">{{name}}</div>
                         <div class="attr_desc">
                             <div class="attr_item">
                                 <span class="attr_name">业务类型：</span>
-                                <span class="attr_value">新车</span>
+                                <span class="attr_value">
+                                    {{#if (car_type === 0) }}
+                                    新车
+                                    {{elseif (car_type === 1) }}
+                                    二手车
+                                    {{else}}
+                                    新车&二手车
+                                    {{/if}}
+                                </span>
                             </div>
                             <div class="attr_item">
                                 <span class="attr_name">城市：</span>
-                                <span class="attr_value">北京</span>
+                                <span class="attr_value">{{city_name}}</span>
                             </div>
                             <div class="attr_item">
                                 <span class="attr_name">备案状态：</span>
-                                <span class="attr_value">已备案</span>
+                                <span class="attr_value">
+                                    {{#if (flag === 3)}}
+                                    已备案
+                                    {{else}}
+                                    未备案
+                                    {{/if}}
+                                </span>
                             </div>
                             <div class="attr_item">
                                 <span class="attr_name">状态：</span>
-                                <span class="attr_value">通过</span>
+                                <span class="attr_value">{{status_value}}</span>
                             </div>
                         </div>
                     </div>
