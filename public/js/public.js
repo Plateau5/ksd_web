@@ -35,6 +35,19 @@ Date.prototype.format = function(fmt) {
     }
     return fmt;
 };
+Date.prototype.getQuarter = function() {
+    var month = this.getMonth();
+    if(month  < 3) {
+        return 1;
+    }else if(month < 6) {
+        return 2;
+    }else if(month < 9) {
+        return 3;
+    }else if(month < 12) {
+        return 4;
+    }
+};
+
 /**
  * 扩展数组的删除方法
  * @param val
@@ -1767,6 +1780,44 @@ function loading() {
 }
 
 /**
+ * 年份日期插件
+ * @author Arley Joe 2018年2月2日09:58:49
+ * @param target {elem} 触发元素
+ */
+function initDateOfYear (target) {
+    $(target).jeDate({
+        isinitVal:false,
+        festival:true,
+        ishmsVal:false,
+        determine:false,
+        format:"YYYY",
+        zIndex:3000,
+        minDate : '2017',
+        maxDate : $.nowDate({DD:0})
+    });
+    $(target).addClass('datainp wicon');
+}
+
+/**
+ * 年份日期插件
+ * @author Arley Joe 2018年2月2日10:09:23
+ * @param target {elem} 触发元素
+ */
+function initDateOfMonth (target) {
+    $(target).jeDate({
+        isinitVal:false,
+        festival:true,
+        ishmsVal:false,
+        determine:false,
+        format:"YYYY-MM",
+        zIndex:3000,
+        minDate : '2017-01-01',
+        maxDate : $.nowDate({DD:0})
+    });
+    $(target).addClass('datainp wicon');
+}
+
+/**
  * 加载日期插件
  * @author Arley Joe 2017-11-4 17:33:34
  * @param target {elem} 触发元素
@@ -1779,6 +1830,26 @@ function initDateAll (target, pattern) {
         format : pattern || "YYYY-MM-DD",
         zIndex : 3000,
         isClear : true
+    });
+    $(target).addClass('datainp wicon');
+}
+
+/**
+ * 加载日期插件
+ * @author Arley Joe 2017-11-4 17:33:34
+ * @param target {elem} 触发元素
+ */
+function datePicker (target, options) {
+    $(target).jeDate({
+        isinitVal : false,
+        festival : false,
+        ishmsVal : false,
+        format : options.format || "YYYY-MM-DD",
+        zIndex : 3000,
+        minDate : options.minDate || '',
+        maxDate : options.maxDate || '',
+        isClear : options.isClear ? true : false,
+        okfun : options.okfun || null
     });
     $(target).addClass('datainp wicon');
 }

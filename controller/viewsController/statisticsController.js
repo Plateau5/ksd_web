@@ -268,6 +268,8 @@ exports.VIEW_STATISTICS_MERCHANTS_DETAIL = function(req, res, next) {
         page : './dataStatistics/merchantDetail',
         callback : function (data) {
             data.merchants = req.body;
+            data.time = new Date().getTime();
+            data.supplier_id = req.body.supplier_id;
         }
     }, req, res, next);
     // res.render('./dataStatistics/merchantDetail', { title : '数据统计-商户主页', markUri : markUri});

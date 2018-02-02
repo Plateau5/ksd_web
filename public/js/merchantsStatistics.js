@@ -178,6 +178,8 @@ function merchantsLineChart (target, data) {
 
     lineChart.setOption(option);
 }
+
+
 /**
  * 格式化series的数据显示格式。
  * @param params {Array || Object} : echarts的官方提供参数
@@ -251,8 +253,7 @@ function merchantsTypeBarChart (target, data) {
                 splitLine: {           // 分隔线
                     show: false
                 },
-                boundaryGap: true,
-                rawdate : [1,2,1,2,1,2,2]
+                boundaryGap: true
             }
         ],
         yAxis : [
@@ -311,4 +312,238 @@ function merchantsTypeBarChart (target, data) {
         }
     }
     barChart.on('click', eConsole);
+}
+
+/**
+ * 创建商户进件雷达视图
+ * @param target
+ * @param data
+ */
+function merchantsRadarChart (target, data) {
+    var barChart = echarts.init(document.getElementById(target));
+    var option = {
+        title : {
+            text: '贡献值：' + data.contribution,
+            x : 30,
+            y : 10,
+            textStyle: {
+                fontSize: 14,
+                fontWeight: 'normal',
+                color: '#535e4a'          // 主标题文字颜色
+            }
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {
+                show : true,
+                type : 'cross'
+            }
+        },
+        legend: {
+            data:data.legend,
+            y : 10
+        },
+        grid: {
+            zlevel: 1000,
+            left: 80,
+            right: 80,
+            bottom: 60,
+            top: 80
+        },
+        color: ['#80D4FA','#BFE9FC'],
+        toolbox: {
+            show : true,
+            right: 30,
+            top : 10,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {show: true, type:  ['line', 'bar']},
+                // restore : {show: false},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                data : data.xaxis,
+                axisLabel:{
+                    interval:0
+                },
+                splitLine: {           // 分隔线
+                    show: false
+                },
+                boundaryGap: true
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                splitLine: {           // 分隔线
+                    show: false
+                }
+            }
+        ],
+        series : [
+            {
+                name:'',
+                type:'bar',
+                smooth:true,
+                data: data.yaxis,
+                stack : '总量',
+                /*itemStyle : { normal: {label : {show: true, position: 'insideTop'}}},
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                        formatter : function (params) {
+                            return params.value = formatterFn(params);
+                        }
+                    }
+                }*/
+            }
+        ]
+    };
+
+    barChart.setOption(option);
+}
+
+/**
+ * 创建商户趋势变化统计折线视图
+ * @param target
+ * @param data
+ */
+function merchantsOrdersLineChart (target, data) {
+    var lineChart = echarts.init(document.getElementById(target));
+    var option = {
+        title : {
+            text: '商户趋势变化(户)',
+            x : 30,
+            y : 10,
+            textStyle: {
+                fontSize: 14,
+                fontWeight: 'normal',
+                color: '#535e4a'          // 主标题文字颜色
+            }
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {
+                show : true,
+                type : 'cross'
+            }
+        },
+        legend: {
+            data:data.legend,
+            y : 10
+        },
+        grid: {
+            zlevel: 1000,
+            left: 80,
+            right: 80,
+            bottom: 60,
+            top: 80
+        },
+        color: ['#8ED06E','#1DC6BC','#FFB762', '#FD7459'],
+        toolbox: {
+            show : true,
+            right: 30,
+            top : 10,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {show: true, type: ['line', 'bar']},
+                // restore : {show: false},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                splitNumber:1,
+                boundaryGap : false,
+                data : data.xaxis,
+                axisLabel:{
+                    interval:0
+                },
+                splitLine: {           // 分隔线
+                    show: false
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                splitLine: {           // 分隔线
+                    show: false
+                }
+            }
+        ],
+        series : [
+            {
+                name:data.legend[0],
+                type:'line',
+                smooth:true,
+                data: data.yaxis.name0,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                        formatter : function (params) {
+                            return params.value = formatterFn(params);
+                        }
+                    }
+                }
+            },
+            {
+                name:data.legend[1],
+                type:'line',
+                smooth:true,
+                data: data.yaxis.name1,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                        formatter : function (params) {
+                            return params.value = formatterFn(params);
+                        }
+                    }
+                }
+            },
+            {
+                name:data.legend[2],
+                type:'line',
+                smooth:true,
+                data: data.yaxis.name2,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                        formatter : function (params) {
+                            return params.value = formatterFn(params);
+                        }
+                    }
+                }
+            },
+            {
+                name:data.legend[3],
+                type:'line',
+                smooth:true,
+                data: data.yaxis.name3,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                        formatter : function (params) {
+                            return params.value = formatterFn(params);
+                        }
+                    }
+                }
+            }
+        ]
+    };
+
+    lineChart.setOption(option);
 }
