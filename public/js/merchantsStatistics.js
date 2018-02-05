@@ -503,7 +503,7 @@ function merchantsOrderTypeBarChart (target, data) {
 function merchantsOrdersLineChart (target, data) {
     var lineChart = echarts.init(document.getElementById(target));
     var option = {
-        title : {
+        /*title : {
             text: '进件通过率统计(单)',
             x : 12,
             y : 10,
@@ -512,7 +512,7 @@ function merchantsOrdersLineChart (target, data) {
                 fontWeight: 'normal',
                 color: '#535e4a'          // 主标题文字颜色
             }
-        },
+        },*/
         tooltip : {
             trigger: 'axis',
             axisPointer : {
@@ -529,9 +529,9 @@ function merchantsOrdersLineChart (target, data) {
             left: 80,
             right: 80,
             bottom: 60,
-            top: 80
+            top: 65
         },
-        color: ['#8ED06E','#1DC6BC','#FFB762', '#FD7459'],
+        color: ['#8ED06E','#1DC6BC','#FD7459', '#717ACC', '#59B7FD'],
         toolbox: {
             show : true,
             right: 30,
@@ -618,6 +618,21 @@ function merchantsOrdersLineChart (target, data) {
                 type:'line',
                 smooth:true,
                 data: data.yaxis.name3,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                        formatter : function (params) {
+                            return params.value = formatterFn(params, '单');
+                        }
+                    }
+                }
+            },
+            {
+                name:data.legend[4],
+                type:'line',
+                smooth:true,
+                data: data.yaxis.name4,
                 label: {
                     normal: {
                         show: true,
