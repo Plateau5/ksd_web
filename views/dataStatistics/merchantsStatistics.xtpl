@@ -65,9 +65,7 @@
                             <div class="conditions_name inline_block">城市：</div>
                             <select name="filtrate_car_type" class="filtrate_select filtrate_citys" id="typeCityId">
                                 <option value="">全部</option>
-                                <option value="">北京</option>
-                                <option value="">天津</option>
-                                <option value="">重庆</option>
+
                             </select>
                         </div>
 

@@ -135,7 +135,6 @@
     </div>
 </div>
 </body>
-<input type="hidden" value="2017-06-08" id="aa">
 {{include('./../inc/jsSources')}}
 <script src="{{markUri}}/static/js/echarts.min.js"></script>
 <script src="{{markUri}}/static/js/statistics.js"></script>
