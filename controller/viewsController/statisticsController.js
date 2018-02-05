@@ -17,6 +17,8 @@ exports.VIEW_STATISTICS_SYSTEM = function(req, res, next) {
             res.redirect(markUri + '/statistics/business/list');
         } else if (common.checkPrivilege(1328, req)) {
             res.redirect(markUri + '/statistics/person/system');
+        } else if (common.checkPrivilege(1464, req)) {
+            res.redirect(markUri + '/statistics/merchants/synthesize');
         } else {
             throw new Error(ERRORTYPES.CheckPrivilege + ': The code 1327 | 1328 is not defined.');
         }
