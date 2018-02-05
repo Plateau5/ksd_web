@@ -285,6 +285,9 @@
                         elem.radar.canvas.removeClass('onloading').addClass('load_error');
                         console.error(res.error_msg);
                     }
+                },
+                error : function () {
+                    return false;
                 }
             })
         }
@@ -332,7 +335,7 @@
                 url : contextPath + '/api/web/supplier/statistics/mainLine',
                 data : data,
                 async : true,
-                timeout : 1000000,
+                timeout : 10000,
                 success : function (res) {
                     if (res.error_code == 0) {
                         // 格式化趋势数据
@@ -344,6 +347,9 @@
                         elem.order.canvas.removeClass('onloading').addClass('load_error');
                         console.error(res.error_msg);
                     }
+                },
+                error : function () {
+                    return false;
                 }
             })
         }

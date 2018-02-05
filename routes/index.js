@@ -348,9 +348,9 @@ router.post(markUri + '/statistics/personal/business', statisticsCtrl.VIEW_STATI
 // 数据统计-商户统计-首页跳转
 router.all(markUri + '/statistics/merchants/synthesize', statisticsCtrl.VIEW_STATISTICS_MERCHANTS_SYNTHESIZE);
 // 数据统计-商户统计-商户分类列表页跳转
-router.all(markUri + '/statistics/merchants/typeList', statisticsCtrl.VIEW_STATISTICS_MERCHANTS_TYPELIST);
+router.post(markUri + '/statistics/merchants/typeList', statisticsCtrl.VIEW_STATISTICS_MERCHANTS_TYPELIST);
 // 数据统计-商户统计-商户详情页跳转
-router.all(markUri + '/statistics/merchants/detail', statisticsCtrl.VIEW_STATISTICS_MERCHANTS_DETAIL);
+router.post(markUri + '/statistics/merchants/detail', statisticsCtrl.VIEW_STATISTICS_MERCHANTS_DETAIL);
 
 
 

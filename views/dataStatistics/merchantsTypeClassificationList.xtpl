@@ -41,51 +41,49 @@
                     <input type="hidden" value="{{merchants.name}}" name="name" id="merchantTypeName">
                     <input type="hidden" value="{{merchants.supplier_id}}" name="supplier_id" id="supplierId">
                 </form>
-                <table class="normal" id="merchantsTable">
-                    <colgroup style="width: 100%;">
-                        <col style="width: 22%;" />
-                        <col style="width: 13%;" />
-                        <col style="width: 13%;" />
-                        <col style="width: 13%;" />
-                        <col style="width: 13%;" />
-                        <col style="width: 13%;" />
-                        <col />
-                    </colgroup>
-                    <thead>
-                    <tr>
-                        <th>商户名称</th>
-                        <th>进件</th>
-                        <th>通过</th>
-                        <th>未通过</th>
-                        <th>汇款</th>
-                        <th>归档</th>
-                        <th>
-                            <span>贡献值</span>
-                            <em class="contribution_sequence {{#if (merchants.order_by === '2') }}ascending{{else}}descending{{/if}}" data-type="{{merchants.order_by}}"></em>
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        {{#each (data) }}
-                        <tr data-id="{{this.id}}">
-                            <td title="{{this.name}}">{{this.name}}</td>
-                            <td>{{this.order_count}}</td>
-                            <td>{{this.pass_count}}</td>
-                            <td>{{this.unpass_count}}</td>
-                            <td>{{this.return_count}}</td>
-                            <td>{{this.pigeonhole_count}}</td>
-                            <td>{{this.contribution}}</td>
+                {{#if (total_count > 0) }}
+                    <table class="normal" id="merchantsTable">
+                        <colgroup style="width: 100%;">
+                            <col style="width: 22%;" />
+                            <col style="width: 13%;" />
+                            <col style="width: 13%;" />
+                            <col style="width: 13%;" />
+                            <col style="width: 13%;" />
+                            <col style="width: 13%;" />
+                            <col />
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>商户名称</th>
+                            <th>进件</th>
+                            <th>通过</th>
+                            <th>未通过</th>
+                            <th>汇款</th>
+                            <th>归档</th>
+                            <th>
+                                <span>贡献值</span>
+                                <em class="contribution_sequence {{#if (merchants.order_by === '2') }}ascending{{else}}descending{{/if}}" data-type="{{merchants.order_by}}"></em>
+                            </th>
                         </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-                <div class="page">
-                    <a href="javascript:" class="page-item home {{#if (current_page === 1) }}disabled{{/if}}" data-currentPage="1" data-limit="20"></a>
-                    <a href="javascript:" class="page-item prev {{#if (current_page === 1) }}disabled{{/if}}" data-currentPage="{{current_page}}" data-limit="20"></a>
-                    <a href="javascript:" class="page-item next {{#if (current_page === total_page) }}disabled{{/if}}" data-currentPage="{{current_page}}" data-limit="20"></a>
-                    <a href="javascript:" class="page-item end {{#if (current_page === total_page) }}disabled{{/if}}" data-currentPage="{{total_page}}" data-limit="20"></a>
-                    <span class="total_page">共<span class="num">{{total_count}}</span>条</span>
-                </div>
+                        </thead>
+                        <tbody>
+                            {{#each (data) }}
+                            <tr data-id="{{this.id}}">
+                                <td title="{{this.name}}">{{this.name}}</td>
+                                <td>{{this.order_count}}</td>
+                                <td>{{this.pass_count}}</td>
+                                <td>{{this.unpass_count}}</td>
+                                <td>{{this.return_count}}</td>
+                                <td>{{this.pigeonhole_count}}</td>
+                                <td>{{this.contribution}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    {{include('./../inc/paginations.xtpl')}}
+                {{else}}
+                    {{include('./../inc/empty_data.xtpl')}}
+                {{/if}}
             </div>
         </div>
         <!---- Part of Min info End ---->

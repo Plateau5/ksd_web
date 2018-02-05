@@ -136,6 +136,9 @@
                         elem.tendency.canvas.removeClass('onloading').addClass('load_error');
                         console.error(res.error_msg);
                     }
+                },
+                error : function () {
+                    return false;
                 }
             })
         }
@@ -240,6 +243,9 @@
                         elem.type.canvas.removeClass('onloading').addClass('load_error');
                         console.error(res.error_msg);
                     }
+                },
+                error : function () {
+                    return false;
                 }
             })
         }
