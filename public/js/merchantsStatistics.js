@@ -413,7 +413,7 @@ function merchantsOrderTypeBarChart (target, data) {
             x : 14,
             y : 5,
             textStyle: {
-                fontSize: 14,
+                fontSize: 12,
                 fontWeight: 'normal',
                 color: '#535e4a'          // 主标题文字颜色
             }
