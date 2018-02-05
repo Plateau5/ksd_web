@@ -124,6 +124,7 @@
                 url : contextPath + '/api/web/supplier/statistics/status',
                 data : data,
                 async : true,
+                timeout : 10000,
                 success : function (res) {
                     if (res.error_code == 0) {
                         // 格式化趋势数据
@@ -227,6 +228,7 @@
                 url : contextPath + '/api/web/supplier/statistics/type',
                 data : data,
                 async : true,
+                timeout : 10000,
                 success : function (res) {
                     if (res.error_code == 0) {
                         // 格式化趋势数据

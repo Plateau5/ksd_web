@@ -28,13 +28,19 @@
         <div id="main" class="main merchant_detail">
             <div class="crumbs_nav">
                 <a href="{{markUri}}/statistics/merchants/synthesize" class="crumbs_item">商户统计</a>
-                <a href="javascript:;" class="crumbs_item">4s店商户</a>
+                <a href="javascript:;" class="crumbs_item go_type_class" data-type="{{merchants.name}}">{{merchants.name}}商户</a>
                 <a href="javascript:;" class="crumbs_item">{{name}}</a>
             </div>
             <div class="statistics_box" style="margin-top: 20px;">
-                <input type="hidden" value="{{time}}" id="serverTime">
-                <input type="hidden" value="{{supplier_id}}" id="supplierId">
-                <input type="hidden" value="{{city_id}}" id="cityId">
+                <form action="{{markUri}}/statistics/merchants/typeList" id="goTypeClassification" method="post">
+                    <input type="hidden" value="{{time}}" id="serverTime">
+                    <input type="hidden" value="{{supplier_id}}" id="supplierId">
+                    <input type="hidden" value="{{city_id}}" id="cityId">
+                    <input type="hidden" value="{{merchants.type}}" name="type" id="merchantsType">
+                    <input type="hidden" value="{{merchants.order_by}}" name="order_by" id="orderBy">
+                    <input type="hidden" value="{{merchants.current_page}}" name="current_page" id="currentPage">
+                    <input type="hidden" value="{{merchants.name}}" name="name" id="merchantTypeName">
+                </form>
                 <div class="merchant_info">
                     <div class="merchant_desc inline_block">
                         <div class="bg_photo">
@@ -42,7 +48,7 @@
                                 {{#if (image_url) }}
                                 <img src="{{image_url}}"  class="bg_img" alt="">
                                 {{else}}
-                                <img src=""  class="bg_img" alt="">
+                                <img src="{{markUri}}/static/img/merchant_nomal_head_photo.png"  class="bg_img" alt="">
                                 {{/if}}
                             </div>
                         </div>
@@ -133,7 +139,7 @@
 {{include('./../inc/jsSources')}}
 <script src="{{markUri}}/static/js/echarts.min.js"></script>
 <script src="{{markUri}}/static/js/statistics.js"></script>
-<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
+<script src="{{markUri}}/static/jedate/jquery.jedate.js"></script>
 <script src="{{markUri}}/static/dialog/dialog-layer.js"></script>
 <script src="{{markUri}}/static/js/merchantsStatistics.js"></script>
 <script>
@@ -154,89 +160,7 @@
             }
         };
 
-        /**
-         * 计算周、季度数据
-         * @author Arley Joe 2018年2月2日10:32:23
-         * @param type {Number} : 1-季度；2-周
-         */
-        function getTime (option) {
-            var options = {
-                type : option.type || 1,
-                time : option.time || (elem.time.val()+ '').trim().number() || new Date().getTime(),
-                minDate : option.minDate || '1970-01-01',
-                maxDate : option.maxDate || '',
-                callback : option.callback || null
-            };
-            const step = 86400000;       // 一天毫秒数
-            var result = [];
-            var date = '',      // 当前服务器时间或者最大时间
-                minYear = '',   // 最小年份
-                maxYear = '';   // 最大年份
-            if (options.maxDate != '') {
-                date = new Date(options.maxDate).getTime();
-                maxYear = options.maxDate.slice(0,4).number();
-            } else {
-                date = options.time;
-                maxYear = new Date(options.time).getFullYear();
-            }
-            if (options.minDate != '') {
-                minYear = options.minDate.slice(0,4).number();
-            } else {
-                minYear = 1970;
-            }
-            if (options.type === 1) {   // 季度
-                var _thisQ = new Date(date).getQuarter();        // 当前季度
-                var _minQ = new Date(options.minDate).getQuarter();     // 最小季度
-                var _thisYear = maxYear;      // 当前年份
-                for (var i = 0; i < 100000; i++) {
-                    var d = {};
-                    if (_thisQ <= _minQ && _thisYear <= minYear) {
-                        break;
-                    }
-                    if (_thisQ === 1) {
-                        _thisQ = 4;
-                        _thisYear--;
-                    } else {
-                        _thisQ--;
-                    }
-                    switch (_thisQ) {
-                        case 1:
-                            d.name = _thisYear + "年Q1";
-                            d.value = _thisYear + "-01," + _thisYear + '-03';
-                            break;
-                        case 2:
-                            d.name = _thisYear + "年Q2";
-                            d.value = _thisYear + "-04," + _thisYear + '-06';
-                            break;
-                        case 3:
-                            d.name = _thisYear + "年Q3";
-                            d.value = _thisYear + "-07," + _thisYear + '-09';
-                            break;
-                        case 4:
-                            d.name = _thisYear + "年Q4";
-                            d.value = _thisYear + "-10," + _thisYear + '-12';
-                            break;
-                    }
-                    result.push(d);
-                }
-                // console.log(result);
 
-            } else if (options.type === 2) {    // 周数据
-                var _week = new Date(date).getDay();   // 当前日期是周几
-                _week === 0 && (_week = 7);         // 重置周日
-                var minTime = new Date(options.minDate).getTime();      // 最小日期的时间戳
-                var endWeek = date - step * _week;     // 最大周日的时间戳
-                for (var k = 0; k < 100000000; k++) {
-                    var dateStr = new Date(endWeek).format('yyyy-MM-dd');
-                    result.push(dateStr);
-                    endWeek -= step * 7;
-                    if (endWeek < minTime) {
-                        break;
-                    }
-                }
-            }
-            return result;
-        }
 
         /**
          * 创建季度或是周数据
@@ -275,7 +199,8 @@
                         maxDate : $.nowDate({DD:0}),
                         format : 'YYYY',
                         isClear : false,
-                        okfun : okfun
+                        okfun : okfun,
+                        choosefun : okfun
                     });
                 } else if (v == 4) {
                     orderClassTime.hide();
@@ -290,7 +215,8 @@
                         maxDate : $.nowDate({DD:0}),
                         format : 'YYYY-MM',
                         isClear : false,
-                        okfun : okfun
+                        okfun : okfun,
+                        choosefun : okfun
                     });
                 } else if (v == 2) {
                     orderClassTime.hide();
@@ -305,6 +231,7 @@
                         maxDate : $.nowDate({DD:0}),
                         format : 'YYYY-MM-DD',
                         isClear : false,
+                        choosefun : okfun,
                         okfun : okfun
                     });
                 }
@@ -352,7 +279,7 @@
                         // 格式化趋势数据
                         merchantsData = formatRadarData(res);
                         // 创建图表
-                        merchantsRadarChart('radarCanvas', merchantsData);
+                        merchantsOrderTypeBarChart('radarCanvas', merchantsData);
                         elem.radar.canvas.removeClass('onloading load_error');
                     } else {
                         elem.radar.canvas.removeClass('onloading').addClass('load_error');
@@ -362,6 +289,8 @@
             })
         }
 
+
+        // 格式化商户订单各类型总量统计数据
         function formatRadarData (d) {
             var data = d.data;
             var result = {
@@ -389,7 +318,7 @@
 
 
         /**
-         * 获取商户趋势变化数据并创建图表
+         * 获取商户进件通过率数据并创建图表
          * @author Arley Joe 2018年1月31日09:54:52
          */
         function getMerchantsOrderData () {
@@ -420,7 +349,7 @@
         }
 
         /**
-         * 格式化商户趋势变化数据
+         * 格式化商户进件通过率数据
          * @author Arley Joe 2018年1月31日09:54:52
          */
         function formatOrderData (d, queryType) {
@@ -482,13 +411,23 @@
         }
 
         /**
-         * 商户趋势变化下拉框变更监听
+         * 商户趋进件通过率下拉框变更监听
          * @author Arley Joe 2018年2月1日09:56:15
          */
-        function tendencySelectChange () {
+        function passRateSelectChange () {
             var elem = $('#orderTime');
             elem.on('change', function () {
                 getMerchantsOrderData();
+            });
+        }
+
+        // 面包屑跳转商户类型统计列表页
+        function goTypeClassificationList () {
+            var btn = $('.go_type_class');
+            var form = $('#goTypeClassification');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                form.submit();
             });
         }
 
@@ -504,10 +443,12 @@
             });
             timeChange();       // 年、季度、月、周、日联动
             merchantOrderClassChange();     // 季度、周选择变动事件注册
-            initRadar();        // 初始化默认数据
+            initRadar();        // 初始化进件总量默认数据
 
-            getMerchantsOrderData();     // 初始化商户趋势变化图
-            tendencySelectChange();
+            getMerchantsOrderData();     // 初始化商户进件通过率图
+            passRateSelectChange();      // 注册商户进件通过率视图切换数据
+
+            goTypeClassificationList();     // 跳转商户类型分类列表页
         });
     })(jQuery,undefined);
 </script>

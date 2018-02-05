@@ -2,6 +2,91 @@
  * Created by Arley Joe on 2018/01/31
  */
 /**
+ * 计算周、季度数据
+ * @author Arley Joe 2018年2月2日10:32:23
+ * @param type {Number} : 1-季度；2-周
+ */
+function getTime (option) {
+    var options = {
+        type : option.type || 1,
+        time : option.time || ($('#serverTime').val()+ '').trim().number() || new Date().getTime(),
+        minDate : option.minDate || '1970-01-01',
+        maxDate : option.maxDate || '',
+        callback : option.callback || null
+    };
+    const step = 86400000;       // 一天毫秒数
+    var result = [];
+    var date = '',      // 当前服务器时间或者最大时间
+        minYear = '',   // 最小年份
+        maxYear = '';   // 最大年份
+    if (options.maxDate != '') {
+        date = new Date(options.maxDate).getTime();
+        maxYear = options.maxDate.slice(0,4).number();
+    } else {
+        date = options.time;
+        maxYear = new Date(options.time).getFullYear();
+    }
+    if (options.minDate != '') {
+        minYear = options.minDate.slice(0,4).number();
+    } else {
+        minYear = 1970;
+    }
+    if (options.type === 1) {   // 季度
+        var _thisQ = new Date(date).getQuarter();        // 当前季度
+        var _minQ = new Date(options.minDate).getQuarter();     // 最小季度
+        var _thisYear = maxYear;      // 当前年份
+        for (var i = 0; i < 100000; i++) {
+            var d = {};
+            if (_thisQ <= _minQ && _thisYear <= minYear) {
+                break;
+            }
+            if (_thisQ === 1) {
+                _thisQ = 4;
+                _thisYear--;
+            } else {
+                _thisQ--;
+            }
+            switch (_thisQ) {
+                case 1:
+                    d.name = _thisYear + "年Q1";
+                    d.value = _thisYear + "-01," + _thisYear + '-03';
+                    break;
+                case 2:
+                    d.name = _thisYear + "年Q2";
+                    d.value = _thisYear + "-04," + _thisYear + '-06';
+                    break;
+                case 3:
+                    d.name = _thisYear + "年Q3";
+                    d.value = _thisYear + "-07," + _thisYear + '-09';
+                    break;
+                case 4:
+                    d.name = _thisYear + "年Q4";
+                    d.value = _thisYear + "-10," + _thisYear + '-12';
+                    break;
+            }
+            result.push(d);
+        }
+        // console.log(result);
+
+    } else if (options.type === 2) {    // 周数据
+        var _week = new Date(date).getDay();   // 当前日期是周几
+        _week === 0 && (_week = 7);         // 重置周日
+        var minTime = new Date(options.minDate).getTime();      // 最小日期的时间戳
+        var endWeek = date - step * _week;     // 最大周日的时间戳
+        for (var k = 0; k < 100000000; k++) {
+            var dateStr = new Date(endWeek).format('yyyy-MM-dd');
+            result.push(dateStr);
+            endWeek -= step * 7;
+            if (endWeek < minTime) {
+                break;
+            }
+        }
+    }
+    return result;
+}
+
+
+/**
  * 获取城市数据
  * @author Arley Joe 2018年1月31日10:32:52
  * @return {Array}
@@ -123,7 +208,7 @@ function merchantsLineChart (target, data) {
                         show: true,
                         position: 'top',
                         formatter : function (params) {
-                            return params.value = formatterFn(params);
+                            return params.value = formatterFn(params, '户');
                         }
                     }
                 }
@@ -138,7 +223,7 @@ function merchantsLineChart (target, data) {
                         show: true,
                         position: 'top',
                         formatter : function (params) {
-                            return params.value = formatterFn(params);
+                            return params.value = formatterFn(params, '户');
                         }
                     }
                 }
@@ -153,7 +238,7 @@ function merchantsLineChart (target, data) {
                         show: true,
                         position: 'top',
                         formatter : function (params) {
-                            return params.value = formatterFn(params);
+                            return params.value = formatterFn(params, '户');
                         }
                     }
                 }
@@ -168,7 +253,7 @@ function merchantsLineChart (target, data) {
                         show: true,
                         position: 'top',
                         formatter : function (params) {
-                            return params.value = formatterFn(params);
+                            return params.value = formatterFn(params, '户');
                         }
                     }
                 }
@@ -183,13 +268,14 @@ function merchantsLineChart (target, data) {
 /**
  * 格式化series的数据显示格式。
  * @param params {Array || Object} : echarts的官方提供参数
+ * @param unit {String} ： 单位
  * @returns {*}
  */
-function formatterFn (params) {
+function formatterFn (params, unit) {
     if(params.value == 0){
         return ''
     } else {
-        return params.value = params.value + '户';
+        return params.value = params.value + unit;
     }
 }
 
@@ -315,17 +401,17 @@ function merchantsTypeBarChart (target, data) {
 }
 
 /**
- * 创建商户进件雷达视图
+ * 创建商户订单各类型总量柱状图
  * @param target
  * @param data
  */
-function merchantsRadarChart (target, data) {
+function merchantsOrderTypeBarChart (target, data) {
     var barChart = echarts.init(document.getElementById(target));
     var option = {
         title : {
             text: '贡献值：' + data.contribution,
-            x : 30,
-            y : 10,
+            x : 14,
+            y : 5,
             textStyle: {
                 fontSize: 14,
                 fontWeight: 'normal',
@@ -345,10 +431,10 @@ function merchantsRadarChart (target, data) {
         },
         grid: {
             zlevel: 1000,
-            left: 80,
-            right: 80,
+            left: 60,
+            right: 60,
             bottom: 60,
-            top: 80
+            top: 50
         },
         color: ['#80D4FA','#BFE9FC'],
         toolbox: {
@@ -392,16 +478,16 @@ function merchantsRadarChart (target, data) {
                 smooth:true,
                 data: data.yaxis,
                 stack : '总量',
-                /*itemStyle : { normal: {label : {show: true, position: 'insideTop'}}},
+                // itemStyle : { normal: {label : {show: true, position: 'insideTop'}}},
                 label: {
                     normal: {
                         show: true,
                         position: 'top',
                         formatter : function (params) {
-                            return params.value = formatterFn(params);
+                            return params.value = formatterFn(params, '单');
                         }
                     }
-                }*/
+                }
             }
         ]
     };
@@ -418,8 +504,8 @@ function merchantsOrdersLineChart (target, data) {
     var lineChart = echarts.init(document.getElementById(target));
     var option = {
         title : {
-            text: '商户趋势变化(户)',
-            x : 30,
+            text: '进件通过率统计(单)',
+            x : 12,
             y : 10,
             textStyle: {
                 fontSize: 14,
@@ -492,7 +578,7 @@ function merchantsOrdersLineChart (target, data) {
                         show: true,
                         position: 'top',
                         formatter : function (params) {
-                            return params.value = formatterFn(params);
+                            return params.value = formatterFn(params, '单');
                         }
                     }
                 }
@@ -507,7 +593,7 @@ function merchantsOrdersLineChart (target, data) {
                         show: true,
                         position: 'top',
                         formatter : function (params) {
-                            return params.value = formatterFn(params);
+                            return params.value = formatterFn(params, '单');
                         }
                     }
                 }
@@ -522,7 +608,7 @@ function merchantsOrdersLineChart (target, data) {
                         show: true,
                         position: 'top',
                         formatter : function (params) {
-                            return params.value = formatterFn(params);
+                            return params.value = formatterFn(params, '单');
                         }
                     }
                 }
@@ -537,7 +623,7 @@ function merchantsOrdersLineChart (target, data) {
                         show: true,
                         position: 'top',
                         formatter : function (params) {
-                            return params.value = formatterFn(params);
+                            return params.value = formatterFn(params, '单');
                         }
                     }
                 }

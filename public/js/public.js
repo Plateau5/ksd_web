@@ -1849,7 +1849,8 @@ function datePicker (target, options) {
         minDate : options.minDate || '',
         maxDate : options.maxDate || '',
         isClear : options.isClear ? true : false,
-        okfun : options.okfun || null
+        okfun : options.okfun || null,
+        choosefun : options.okfun || null
     });
     $(target).addClass('datainp wicon');
 }

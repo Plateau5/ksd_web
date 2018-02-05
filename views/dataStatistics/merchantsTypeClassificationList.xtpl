@@ -37,7 +37,9 @@
                     <input type="hidden" value="{{merchants.type}}" name="type" id="merchantsType">
                     <input type="hidden" value="{{merchants.city_id}}" name="city_id" id="cityId">
                     <input type="hidden" value="{{merchants.order_by}}" name="order_by" id="orderBy">
-                    <input type="hidden" value="{{merchants.currentPage}}" name="current_page" id="currentPage">
+                    <input type="hidden" value="{{current_page}}" name="current_page" id="currentPage">
+                    <input type="hidden" value="{{merchants.name}}" name="name" id="merchantTypeName">
+                    <input type="hidden" value="{{merchants.supplier_id}}" name="supplier_id" id="supplierId">
                 </form>
                 <table class="normal" id="merchantsTable">
                     <colgroup style="width: 100%;">
@@ -206,15 +208,24 @@
         // 跳转下一页
         function goMerchantDetail () {
             var btn = $('#merchantsTable tbody tr');
+            var merchantTypeName = $('#merchantTypeName').val().trim();
+            var merchantType = $('#merchantsType').val().trim();
+            var form = $('form[role="form"]');
+            var supplierId = $('#supplierId');
             btn.off('click').on('click', function () {
                 var _this = $(this);
                 var id = _this.data('id');
-                locationTo({
+                supplierId.val(id);
+                form.attr('action', contextPath + markUri + '/statistics/merchants/detail');
+                form.submit();
+                /*locationTo({
                     action : contextPath + markUri + '/statistics/merchants/detail',
                     param : {
-                        supplier_id : id
+                        supplier_id : id,
+                        merchantTypeName : merchantTypeName,
+                        merchantType : merchantType
                     }
-                });
+                });*/
             });
         }
 

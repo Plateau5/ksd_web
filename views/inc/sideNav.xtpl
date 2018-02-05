@@ -122,9 +122,9 @@
         </li>
         {{/if}}
         {{#if (verifyCode(1464)) }}
-        <li class="nav_item {{#if(startWith(markUri + '/statistics/suppliers'))}}active{{/if}}">
+        <!--<li class="nav_item {{#if(startWith(markUri + '/statistics/suppliers'))}}active{{/if}}">
             <a href="{{markUri}}/statistics/supplier" class="">供应商统计</a>
-        </li>
+        </li>-->
         {{/if}}
         {{#if (verifyCode(1328)) }}
             <li class="nav_item {{#if(startWith(markUri + '/statistics/person' + ' || ' + markUri + '/statistics/personal'))}}active{{/if}}">
