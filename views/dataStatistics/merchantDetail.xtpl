@@ -310,7 +310,21 @@
 
         // 初始化图表
         function initRadar () {
-            var date = new Date(elem.time.val().trim().number()).format('yyyy-MM');
+            var serverTime = new Date(elem.time.val().trim().number()).format('yyyy-MM');
+            var serverTimeArr = serverTime.split('-');
+            serverTimeArr[0] = serverTimeArr[0].number();
+            serverTimeArr[1] = serverTimeArr[1].number();
+            var initMonth = serverTimeArr[1] - 1;
+            if (initMonth <= 0) {
+                serverTimeArr[0] = serverTimeArr[0] - 1;
+                serverTimeArr[1] = 12;
+            } else if (initMonth < 10) {
+                serverTimeArr[1] = '0' + initMonth;
+            } else {
+                serverTimeArr[1] = initMonth;
+            }
+            var initTime = serverTimeArr.join('-');
+            var date = new Date(initTime).format('yyyy-MM');
             elem.radar.input.val(date);
             getRadarChartData();
         }
