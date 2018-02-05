@@ -135,7 +135,7 @@ function merchantsLineChart (target, data) {
     var option = {
         title : {
             text: '商户趋势变化(户)',
-            x : 30,
+            x : 15,
             y : 10,
             textStyle: {
                 fontSize: 14,
@@ -152,7 +152,10 @@ function merchantsLineChart (target, data) {
         },
         legend: {
             data:data.legend,
-            y : 10
+            y : 10,
+            textStyle : {
+                color : '#999999'
+            }
         },
         grid: {
             zlevel: 1000,
@@ -289,7 +292,7 @@ function merchantsTypeBarChart (target, data) {
     var option = {
         title : {
             text: '商户店面类型统计(户)',
-            x : 30,
+            x : 15,
             y : 10,
             textStyle: {
                 fontSize: 14,
@@ -306,7 +309,10 @@ function merchantsTypeBarChart (target, data) {
         },
         legend: {
             data:data.legend,
-            y : 10
+            y : 10,
+            textStyle : {
+                color : '#999999'
+            }
         },
         grid: {
             zlevel: 1000,
@@ -427,7 +433,10 @@ function merchantsOrderTypeBarChart (target, data) {
         },
         legend: {
             data:data.legend,
-            y : 10
+            y : 10,
+            textStyle : {
+                color : '#999999'
+            }
         },
         grid: {
             zlevel: 1000,
@@ -522,7 +531,10 @@ function merchantsOrdersLineChart (target, data) {
         },
         legend: {
             data:data.legend,
-            y : 10
+            y : 10,
+            textStyle : {
+                color : '#999999'
+            }
         },
         grid: {
             zlevel: 1000,
