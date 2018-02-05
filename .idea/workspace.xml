@@ -76,8 +76,8 @@
       <file leaf-file-name="merchantsTypeClassificationList.xtpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/dataStatistics/merchantsTypeClassificationList.xtpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="77" column="58" lean-forward="false" selection-start-line="77" selection-start-column="58" selection-end-line="77" selection-end-column="58" />
+            <state relative-caret-position="380">
+              <caret line="60" column="34" lean-forward="false" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#colgroup#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#col#0;n#colgroup#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -574,14 +574,7 @@
       <workItem from="1517364930054" duration="14780000" />
       <workItem from="1517449839975" duration="23396000" />
       <workItem from="1517535230660" duration="31228000" />
-      <workItem from="1517793093542" duration="11041000" />
-    </task>
-    <task id="LOCAL-00202" summary="修复按钮不能点击  2018年1月22日18:48:16">
-      <created>1516618102944</created>
-      <option name="number" value="00202" />
-      <option name="presentableId" value="LOCAL-00202" />
-      <option name="project" value="LOCAL" />
-      <updated>1516618102945</updated>
+      <workItem from="1517793093542" duration="11670000" />
     </task>
     <task id="LOCAL-00203" summary="修复preCode  2018年1月23日10:16:28">
       <created>1516673805066</created>
@@ -919,11 +912,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517803567142</updated>
     </task>
-    <option name="localTasksCounter" value="251" />
+    <task id="LOCAL-00251" summary="增加列表%  2018年2月5日14:13:19">
+      <created>1517811205686</created>
+      <option name="number" value="00251" />
+      <option name="presentableId" value="LOCAL-00251" />
+      <option name="project" value="LOCAL" />
+      <updated>1517811205686</updated>
+    </task>
+    <option name="localTasksCounter" value="252" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1081723000" />
+    <option name="totallyTimeSpent" value="1082352000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1000,7 +1000,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改审核时间等判断 2018年1月24日16:19:11" />
     <MESSAGE value="修改sign_ids判断 2018年1月24日16:39:00" />
     <MESSAGE value="修复面包屑 2018年1月24日17:45:19" />
     <MESSAGE value="打开日志  2018年1月24日17:46:48" />
@@ -1025,7 +1024,8 @@
     <MESSAGE value="增加请求错误  2018年2月5日11:44:55" />
     <MESSAGE value="优化   2018年2月5日11:46:48" />
     <MESSAGE value="修改商户进件量统计数据 2018年2月5日12:06:02" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改商户进件量统计数据 2018年2月5日12:06:02" />
+    <MESSAGE value="增加列表%  2018年2月5日14:13:19" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加列表%  2018年2月5日14:13:19" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1426,8 +1426,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/dataStatistics/merchantsTypeClassificationList.xtpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="77" column="58" lean-forward="false" selection-start-line="77" selection-start-column="58" selection-end-line="77" selection-end-column="58" />
+        <state relative-caret-position="380">
+          <caret line="60" column="34" lean-forward="false" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#colgroup#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#col#0;n#colgroup#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
