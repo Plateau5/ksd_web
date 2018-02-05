@@ -75,7 +75,7 @@
                                 <td>{{this.unpass_count}}</td>
                                 <td>{{this.return_count}}</td>
                                 <td>{{this.pigeonhole_count}}</td>
-                                <td>{{this.contribution}}</td>
+                                <td>{{this.contribution}}%</td>
                             </tr>
                             {{/each}}
                         </tbody>
