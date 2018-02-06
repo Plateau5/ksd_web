@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{include('./../inc/cssSources')}}
+    <link rel="stylesheet" href="{{markUri}}/static/css/statistics.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/dialog/dialog-layer.css"/>
+    <link rel="stylesheet" href="{{markUri}}/static/jedate/skin/jedate.css"/>
+    <title>数据统计-商户统计</title>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <!-------- Part of header Begin -------->
+    {{include('./../inc/header')}}
+    <!-------- Part of header End -------->
+
+    <!-------- Part of main Begin -------->
+    <div id="section" class="section normal_width">
+        <!---- Part of slide nav Begin ---->
+        {{include('./../inc/sideNav')}}
+        <!---- Part of slide nav End ---->
+        <!---- Part of Main info Begin ---->
+        <div id="main" class="main personal_detail">
+            <div class="crumbs_nav">
+                <a href="{{markUri}}/statistics/merchants/synthesize" class="crumbs_item">商户统计</a>
+                <a href="javascript:;" class="crumbs_item">{{merchants.name}}商户</a>
+            </div>
+            <div class="statistics_list" style="margin-top: 0;">
+                <div class="table_legend">
+                    <span>截止到今天</span>
+                    <span class="contribution rf">
+                        <span>贡献值</span><em class="contribution_icon"></em>
+                        <span class="tips">贡献值=(出单数÷所在城市出单总数+回款数÷所在城市回款数)÷2×100%</span>
+                    </span>
+                </div>
+                <form action="{{markUri}}/statistics/merchants/typeList" id="merchantsForm" role="form" method="post">
+                    <input type="hidden" value="{{merchants.type}}" name="type" id="merchantsType">
+                    <input type="hidden" value="{{merchants.city_id}}" name="city_id" id="cityId">
+                    <input type="hidden" value="{{merchants.order_by}}" name="order_by" id="orderBy">
+                    <input type="hidden" value="{{current_page}}" name="current_page" id="currentPage">
+                    <input type="hidden" value="{{merchants.name}}" name="name" id="merchantTypeName">
+                    <input type="hidden" value="{{merchants.supplier_id}}" name="supplier_id" id="supplierId">
+                </form>
+                {{#if (total_count > 0) }}
+                    <table class="normal" id="merchantsTable">
+                        <colgroup style="width: 100%;">
+                            <col style="width: 22%;" />
+                            <col style="width: 13%;" />
+                            <col style="width: 13%;" />
+                            <col style="width: 13%;" />
+                            <col style="width: 13%;" />
+                            <col style="width: 13%;" />
+                            <col />
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>商户名称</th>
+                            <th>进件</th>
+                            <th>通过</th>
+                            <th>未通过</th>
+                            <th>回款</th>
+                            <th>归档</th>
+                            <th>
+                                <span>贡献值</span>
+                                <em class="contribution_sequence {{#if (merchants.order_by === '2') }}ascending{{else}}descending{{/if}}" data-type="{{merchants.order_by}}"></em>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {{#each (data) }}
+                            <tr data-id="{{this.id}}">
+                                <td title="{{this.name}}">{{this.name}}</td>
+                                <td>{{this.order_count}}</td>
+                                <td>{{this.pass_count}}</td>
+                                <td>{{this.unpass_count}}</td>
+                                <td>{{this.return_count}}</td>
+                                <td>{{this.pigeonhole_count}}</td>
+                                <td>{{this.contribution}}%</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    {{include('./../inc/paginations.xtpl')}}
+                {{else}}
+                    {{include('./../inc/empty_data.xtpl')}}
+                {{/if}}
+            </div>
+        </div>
+        <!---- Part of Min info End ---->
+    </div>
+</div>
+</body>
+{{include('./../inc/jsSources')}}
+<script src="{{markUri}}/static/js/echarts.min.js"></script>
+<script src="{{markUri}}/static/js/statistics.js"></script>
+<script src="{{markUri}}/static/jedate/jquery.jedate.min.js"></script>
+<script src="{{markUri}}/static/dialog/dialog-layer.js"></script>
+<script>
+    (function ($) {
+        // 获取列表数据
+        function getListData () {
+            var typeEle = $('#merchantsType');
+            var cityIdEle = $('#cityId');
+            var orderByEle = $('#orderBy');
+            var currentPageEle = $('#currentPage');
+
+            var endPage = $('.page .end');
+
+            var data = {
+                type : typeEle.val().trim().number(),
+                city_id : cityIdEle.val().trim().number(),
+                order_by : orderByEle.val().trim().number(),
+                current_page : currentPageEle.val().trim().number()
+            };
+            if (cityIdEle.val().trim() === '') {
+                delete data.city_id
+            }
+            if (currentPageEle.val().trim() === '') {
+                delete data.current_page
+            }
+            redefineAjax({
+                url : contextPath + '/api/web/supplier/statistics/list',
+                data : data,
+                async : false,
+                success : function (res) {
+                    if (res.error_code == 0) {
+                        createTable(res);
+                        var totalCount = res.total_count;
+                        var totalPage = res.total_page;
+                        $();
+                    } else {
+                        $alert(res.error_msg);
+                    }
+                },
+                error : function () {
+
+                }
+            });
+        }
+
+        function createTable (res) {
+            var container = $('#merchantsTable');
+            var data = res.data;
+            var str = '';
+            for(var i = 0, len = data.length; i < len; i++) {
+                str += '<tr data-id="'+ data[i].id +'">\n' +
+                    '                            <td title="'+ data[i].name +'">'+ data[i].name +'</td>\n' +
+                    '                            <td>'+ data[i].order_count +'</td>\n' +
+                    '                            <td>'+ data[i].pass_count +'</td>\n' +
+                    '                            <td>'+ data[i].unpass_count +'</td>\n' +
+                    '                            <td>'+ data[i].return_count +'</td>\n' +
+                    '                            <td>'+ data[i].pigeonhole_count +'</td>\n' +
+                    '                            <td>'+ data[i].contribution +'</td>\n' +
+                    '                        </tr>';
+            }
+            container.find('tbody').html(str);
+        }
+
+
+        // 贡献值排序切换
+        function switchContribution () {
+            var btn = $('.contribution_sequence');
+            var orderByEle = $('#orderBy');
+            var form = $('form[role="form"]');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                var type = _this.data(type);
+                if (_this.hasClass('ascending')) {
+                    _this.data('type', 1);      // 倒序
+                    _this.removeClass('ascending').addClass('descending');
+                    orderByEle.val(1);
+                } else {
+                    _this.data('type', 2);      // 正序
+                    _this.removeClass('descending').addClass('ascending');
+                    orderByEle.val(2);
+                }
+//                getListData();      // 注册获取数据
+                form.submit();
+            });
+        }
+
+        // 分页切换
+        function paginationSwitch () {
+            var btn = $('.page .page-item');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                var form = $('form[role="form"]');
+                var currentPage = _this.data('currentpage');
+                var nextPage = null;
+                if (!_this.hasClass('disabled')) {
+                    if (_this.hasClass('prev')) {
+                        nextPage = currentPage - 1;
+                    } else if (_this.hasClass('next')) {
+                        nextPage = currentPage + 1;
+                    } else {
+                        nextPage = currentPage;
+                    }
+                    $('#currentPage').val(nextPage);
+                    _this.data('currentpage', nextPage).siblings('.prev').data('currentpage', nextPage);
+//                    getListData();
+                    form.submit();
+                }
+            });
+        }
+
+        // 跳转下一页
+        function goMerchantDetail () {
+            var btn = $('#merchantsTable tbody tr');
+            var merchantTypeName = $('#merchantTypeName').val().trim();
+            var merchantType = $('#merchantsType').val().trim();
+            var form = $('form[role="form"]');
+            var supplierId = $('#supplierId');
+            btn.off('click').on('click', function () {
+                var _this = $(this);
+                var id = _this.data('id');
+                supplierId.val(id);
+                form.attr('action', contextPath + markUri + '/statistics/merchants/detail');
+                form.submit();
+                /*locationTo({
+                    action : contextPath + markUri + '/statistics/merchants/detail',
+                    param : {
+                        supplier_id : id,
+                        merchantTypeName : merchantTypeName,
+                        merchantType : merchantType
+                    }
+                });*/
+            });
+        }
+
+        $(function() {
+//            getListData();      // 注册获取数据
+            switchContribution();       // 贡献值排序切换
+            paginationSwitch();
+            goMerchantDetail();     // 跳转下一页
+        });
+    })(jQuery,undefined);
+</script>
+</html>

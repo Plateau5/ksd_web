@@ -506,22 +506,22 @@
                                     {{#if (this.account_type === 1) }}
                                         <option selected value="1">公户</option>
                                     {{else}}
-                                        <option selected value="1">公户</option>
+                                        <option value="1">公户</option>
                                     {{/if}}
                                     {{#if (this.account_type === 2) }}
                                         <option selected value="2">法人</option>
                                     {{else}}
-                                        <option selected value="2">法人</option>
+                                        <option value="2">法人</option>
                                     {{/if}}
                                     {{#if (this.account_type === 3) }}
                                         <option selected value="3">其他合伙人</option>
                                     {{else}}
-                                        <option selected value="3">其他合伙人</option>
+                                        <option value="3">其他合伙人</option>
                                     {{/if}}
                                     {{#if (this.account_type === 4) }}
                                         <option selected value="4">其他人员</option>
                                     {{else}}
-                                        <option selected value="4">其他人员</option>
+                                        <option value="4">其他人员</option>
                                     {{/if}}
                                 </select>
                             </div>

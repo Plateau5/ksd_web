@@ -13,9 +13,9 @@
   padding: 0 15px 10px;
   margin-top: 15px;
   border: 1px dashed #CFCFCF;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 .merchants .merchants_filtrate .select_item {
   margin-right: 18px;
@@ -168,9 +168,9 @@
   margin-left: -300px;
   margin-top: -115px;
   background-color: #FFFFFF;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 .merchant_materials .create_box .title {
   text-align: center;

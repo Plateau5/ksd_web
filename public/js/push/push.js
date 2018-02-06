@@ -132,7 +132,8 @@ function getMessagesInfo(selector) {
 				alert("登录失效，请重新登录");
 				window.location.href = contextPath + "/login/logout";
 			} else {
-				alert(data.error_msg);
+				// alert(data.error_msg);
+				console.log(data.error_msg);
 			}
 		});
 		return newMessage;

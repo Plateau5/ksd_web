@@ -775,6 +775,7 @@ table.normal{
 }
 
 .main{
+    padding-bottom:  50px;
     .title{
         height: 54px;
         line-height: 54px;
@@ -868,6 +869,7 @@ table.normal{
     .conditions_name{
         //float: left;
         margin-right: 20px;
+        color: #999999;
     }
     .filtrate_box{
         //float: left;
@@ -1910,6 +1912,122 @@ input[type='checkbox'] + label.checked{
                 background-position: 0 -26px;
             }
         }
+    }
+}
+.page{
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    overflow: hidden;
+    .page-item{
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 28px;
+        line-height: 28px;
+        margin-right: 10px;
+        vertical-align: middle;
+        border: 1px solid @page-border;
+        -webkit-border-radius: @normal-radius;
+        -moz-border-radius: @normal-radius;
+        border-radius: @normal-radius;
+        transition: 0.2s all;
+        &:hover{
+            border-color: @active-color;
+            background-color: @active-color;
+        }
+        &.disabled{
+            border-color: @page-border;
+            background-color: #FFFFFF;
+            cursor: default;
+        }
+        &:before{
+            content: '';
+            position: absolute;
+            display: block;
+            background: url("../img/page-list-icon.png") no-repeat 0 0;
+        }
+    }
+    .home,.end{
+        &:before{
+            left: 14px;
+            top: 2px;
+            width: 22px;
+            height: 24px;
+        }
+    }
+    .prev,.next{
+        width: 70px;
+        &:before{
+            left: 17px;
+            top: 6px;
+            width: 36px;
+            height: 16px;
+        }
+    }
+    .home{
+        &:before{
+            background-position: 0 -40px;
+        }
+        &:hover{
+            &:before{
+                background-position: 0 -20px;
+            }
+        }
+        &.disabled{
+            &:before{
+                background-position: 0 0;
+            }
+        }
+    }
+    .prev{
+        &:before{
+            background-position: 0 -86px;
+        }
+        &:hover{
+            &:before{
+                background-position: 0 -73px;
+            }
+        }
+        &.disabled{
+            &:before{
+                background-position: 0 -60px;
+            }
+        }
+    }
+    .next{
+        &:before{
+            background-position: 0 -125px;
+        }
+        &:hover{
+            &:before{
+                background-position: 0 -112px;
+            }
+        }
+        &.disabled{
+            &:before{
+                background-position: 0 -99px;
+            }
+        }
+    }
+    .end{
+        &:before{
+            background-position: 0 -178px;
+        }
+        &:hover{
+            &:before{
+                background-position: 0 -158px;
+            }
+        }
+        &.disabled{
+            &:before{
+                background-position: 0 -138px;
+            }
+        }
+    }
+    .total_page{
+        margin-left: 20px;
+        color: #999999;
     }
 }
 /********** 分页样式 End **********/

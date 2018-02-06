@@ -17,6 +17,8 @@ exports.VIEW_STATISTICS_SYSTEM = function(req, res, next) {
             res.redirect(markUri + '/statistics/business/list');
         } else if (common.checkPrivilege(1328, req)) {
             res.redirect(markUri + '/statistics/person/system');
+        } else if (common.checkPrivilege(1464, req)) {
+            res.redirect(markUri + '/statistics/merchants/synthesize');
         } else {
             throw new Error(ERRORTYPES.CheckPrivilege + ': The code 1327 | 1328 is not defined.');
         }
@@ -235,4 +237,42 @@ exports.VIEW_STATISTICS_PERSONAL_BUSINESS = function(req, res, next) {
             res.render(data.error_msg);
         }
     }, req, res, next);
+};
+
+// 数据统计-商户统计-首页跳转
+exports.VIEW_STATISTICS_MERCHANTS_SYNTHESIZE = function(req, res, next) {
+    var data = {};
+    var localUrl = req.originalUrl;
+    data.title = '数据统计-商户分类列表';
+    data.originUrl = localUrl;
+    data.markUri = markUri;
+    data.apiServerPath = apiServerPath;
+    data.domain = domain;
+    res.render('./dataStatistics/merchantsStatistics', data);
+};
+// 数据统计-商户统计-商户分类列表页跳转
+exports.VIEW_STATISTICS_MERCHANTS_TYPELIST = function(req, res, next) {
+    common.getPageData({
+        url : '/api/web/supplier/statistics/list',
+        title : '数据统计-商户分类列表',
+        page : './dataStatistics/merchantsTypeClassificationList',
+        callback : function (data) {
+            data.merchants = req.body;
+        }
+    }, req, res, next);
+    // res.render('./dataStatistics/merchantsTypeClassificationList', { title : '数据统计-商户分类列表', markUri : markUri});
+};
+// 数据统计-商户统计-商户详情页跳转
+exports.VIEW_STATISTICS_MERCHANTS_DETAIL = function(req, res, next) {
+    common.getPageData({
+        url : '/api/web/supplier/statistics/main',
+        title : '数据统计-商户主页',
+        page : './dataStatistics/merchantDetail',
+        callback : function (data) {
+            data.merchants = req.body;
+            data.time = new Date().getTime();
+            data.supplier_id = req.body.supplier_id;
+        }
+    }, req, res, next);
+    // res.render('./dataStatistics/merchantDetail', { title : '数据统计-商户主页', markUri : markUri});
 };

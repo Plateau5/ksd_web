@@ -345,6 +345,17 @@ router.post('/api/statistics/personal/request', statisticsCtrl.API_STATISTICS_PE
 router.post('/api/statistics/personal/pigeonhole', statisticsCtrl.API_STATISTICS_PERSONAL_PIGEONHOLE_DATA);
 // 数据统计-人效统计-个人业务量统计跳转
 router.post(markUri + '/statistics/personal/business', statisticsCtrl.VIEW_STATISTICS_PERSONAL_BUSINESS);
+// 数据统计-商户统计-首页跳转
+router.all(markUri + '/statistics/merchants/synthesize', statisticsCtrl.VIEW_STATISTICS_MERCHANTS_SYNTHESIZE);
+// 数据统计-商户统计-商户分类列表页跳转
+router.post(markUri + '/statistics/merchants/typeList', statisticsCtrl.VIEW_STATISTICS_MERCHANTS_TYPELIST);
+// 数据统计-商户统计-商户详情页跳转
+router.post(markUri + '/statistics/merchants/detail', statisticsCtrl.VIEW_STATISTICS_MERCHANTS_DETAIL);
+
+
+
+
+
 
 // 系统管理主导航跳转
 router.get(markUri + '/systemManagement', systemManagementCtrl.VIEW_SYSTEMMANAGEMENT);

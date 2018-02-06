@@ -130,9 +130,9 @@
   width: 80px;
   text-align: center;
   border: 1px dashed #979797;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 .gps_create .warehouses_list .warehouse_item:hover,
 .gps_edit .warehouses_list .warehouse_item:hover,
@@ -200,9 +200,9 @@
   padding: 3px 15px;
   margin: 0 15px 15px 0;
   background: #f5f5f5;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 .gps_create .tags_box .tags_list .tag_item:hover,
 .gps_edit .tags_box .tags_list .tag_item:hover,
@@ -296,9 +296,9 @@
   display: none;
   width: 10px;
   height: 10px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   background-image: url('../img/close_icon.png');
   -webkit-background-size: cover;
   background-size: cover;
@@ -385,9 +385,9 @@
   height: 26px;
   line-height: 26px;
   margin: 0 15px 15px 0;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   text-align: center;
   background: #f5f5f5;
   overflow: hidden;
@@ -422,9 +422,9 @@
   height: 24px;
   text-indent: 1em;
   border: 1px solid #535e6a;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   vertical-align: top;
   font-size: 12px;
 }
@@ -792,9 +792,9 @@
   -moz-box-shadow: 0 0 5px 1px #1dc6bc;
   box-shadow: 0 0 5px 1px #1dc6bc;
   background-color: #FFFFFF;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 .set_box .user_list {
   max-height: 200px;
@@ -872,9 +872,9 @@
 .apply_detail .apply_list {
   height: auto;
   margin-bottom: 30px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   background-color: #f5f5f5;
   transition: all 0.5s;
 }
@@ -912,9 +912,9 @@
   height: 30px;
   line-height: 30px;
   margin: 15px 20px 0 0;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   background-color: rgba(0, 0, 0, 0.2);
   cursor: pointer;
   text-align: center;
@@ -942,8 +942,8 @@
   width: 4px;
   height: inherit;
   background: #FB2741;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 .apply_detail .form_options {
   margin: 0;
