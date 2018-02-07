@@ -25,66 +25,84 @@
                 <a href="{{markUri}}/statistics/merchants/synthesize" class="crumbs_item">商户统计</a>
                 <a href="javascript:;" class="crumbs_item">{{merchants.name}}商户</a>
             </div>
-            <div class="statistics_list" style="margin-top: 0;">
-                <div class="table_legend">
-                    <span>截止到今天</span>
-                    <span class="contribution rf">
-                        <span>贡献值</span><em class="contribution_icon"></em>
-                        <span class="tips">贡献值=(出单数÷所在城市出单总数+回款数÷所在城市回款数)÷2×100%</span>
-                    </span>
-                </div>
-                <form action="{{markUri}}/statistics/merchants/typeList" id="merchantsForm" role="form" method="post">
-                    <input type="hidden" value="{{merchants.type}}" name="type" id="merchantsType">
-                    <input type="hidden" value="{{merchants.city_id}}" name="city_id" id="cityId">
-                    <input type="hidden" value="{{merchants.order_by}}" name="order_by" id="orderBy">
-                    <input type="hidden" value="{{current_page}}" name="current_page" id="currentPage">
-                    <input type="hidden" value="{{merchants.name}}" name="name" id="merchantTypeName">
-                    <input type="hidden" value="{{merchants.supplier_id}}" name="supplier_id" id="supplierId">
-                </form>
-                {{#if (total_count > 0) }}
-                    <table class="normal" id="merchantsTable">
-                        <colgroup style="width: 100%;">
-                            <col style="width: 22%;" />
-                            <col style="width: 13%;" />
-                            <col style="width: 13%;" />
-                            <col style="width: 13%;" />
-                            <col style="width: 13%;" />
-                            <col style="width: 13%;" />
-                            <col />
-                        </colgroup>
-                        <thead>
-                        <tr>
-                            <th>商户名称</th>
-                            <th>进件</th>
-                            <th>通过</th>
-                            <th>未通过</th>
-                            <th>回款</th>
-                            <th>归档</th>
-                            <th>
-                                <span>贡献值</span>
-                                <em class="contribution_sequence {{#if (merchants.order_by === '2') }}ascending{{else}}descending{{/if}}" data-type="{{merchants.order_by}}"></em>
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            {{#each (data) }}
-                            <tr data-id="{{this.id}}">
-                                <td title="{{this.name}}">{{this.name}}</td>
-                                <td>{{this.order_count}}</td>
-                                <td>{{this.pass_count}}</td>
-                                <td>{{this.unpass_count}}</td>
-                                <td>{{this.return_count}}</td>
-                                <td>{{this.pigeonhole_count}}</td>
-                                <td>{{this.contribution}}%</td>
+            <form action="{{markUri}}/statistics/merchants/typeList" id="merchantsForm" role="form" method="post">
+                <input type="hidden" value="{{merchants.type}}" name="type" id="merchantsType">
+                <input type="hidden" value="{{merchants.city_id}}" name="city_id" id="cityId">
+                <input type="hidden" value="{{merchants.order_by}}" name="order_by" id="orderBy">
+                <input type="hidden" value="{{current_page}}" name="current_page" id="currentPage">
+                <input type="hidden" value="{{merchants.name}}" name="name" id="merchantTypeName">
+                <input type="hidden" value="{{merchants.supplier_id}}" name="supplier_id" id="supplierId">
+                <div class="statistics_list" style="margin-top: 0;">
+                    <div class="table_legend">
+                        <span>截止到今天</span>
+                        <span class="contribution rf">
+                            <span>贡献值</span><em class="contribution_icon"></em>
+                            <span class="tips">贡献值=(出单数÷所在城市出单总数+回款数÷所在城市回款数)÷2×100%</span>
+                        </span>
+                        <span class="filtrate rf" style="margin-right: 20px">
+                            <span class="filtrate_item date_conditions inline_block" style="margin-top: 0;">
+                                <div class="conditions_name inline_block">备案类型：</div>
+                                <select name="flag" class="filtrate_select" id="merchantStatus" style="width: 120px; font-size: 12px;">
+                                    <option value="">全部</option>
+                                    {{#if (flag === 1) }}
+                                    <option value="1" selected>已备案</option>
+                                    {{eles}}
+                                    <option value="1">已备案</option>
+                                    {{/if}}
+                                    {{#if (flag === 0) }}
+                                    <option value="0" selected>未备案</option>
+                                    {{else}}
+                                    <option value="0">未备案</option>
+                                    {{/if}}
+                                </select>
+                            </span>
+                        </span>
+                    </div>
+                    {{#if (total_count > 0) }}
+                        <table class="normal" id="merchantsTable">
+                            <colgroup style="width: 100%;">
+                                <col style="width: 22%;" />
+                                <col style="width: 13%;" />
+                                <col style="width: 13%;" />
+                                <col style="width: 13%;" />
+                                <col style="width: 13%;" />
+                                <col style="width: 13%;" />
+                                <col />
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>商户名称</th>
+                                <th>进件</th>
+                                <th>通过</th>
+                                <th>未通过</th>
+                                <th>回款</th>
+                                <th>归档</th>
+                                <th>
+                                    <span>贡献值</span>
+                                    <em class="contribution_sequence {{#if (merchants.order_by === '2') }}ascending{{else}}descending{{/if}}" data-type="{{merchants.order_by}}"></em>
+                                </th>
                             </tr>
-                            {{/each}}
-                        </tbody>
-                    </table>
-                    {{include('./../inc/paginations.xtpl')}}
-                {{else}}
-                    {{include('./../inc/empty_data.xtpl')}}
-                {{/if}}
-            </div>
+                            </thead>
+                            <tbody>
+                                {{#each (data) }}
+                                <tr data-id="{{this.id}}">
+                                    <td title="{{this.name}}">{{this.name}}</td>
+                                    <td>{{this.order_count}}</td>
+                                    <td>{{this.pass_count}}</td>
+                                    <td>{{this.unpass_count}}</td>
+                                    <td>{{this.return_count}}</td>
+                                    <td>{{this.pigeonhole_count}}</td>
+                                    <td>{{this.contribution}}%</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                        {{include('./../inc/paginations.xtpl')}}
+                    {{else}}
+                        {{include('./../inc/empty_data.xtpl')}}
+                    {{/if}}
+                </div>
+            </form>
         </div>
         <!---- Part of Min info End ---->
     </div>
@@ -210,6 +228,8 @@
             var merchantType = $('#merchantsType').val().trim();
             var form = $('form[role="form"]');
             var supplierId = $('#supplierId');
+
+
             btn.off('click').on('click', function () {
                 var _this = $(this);
                 var id = _this.data('id');
@@ -225,6 +245,18 @@
                     }
                 });*/
             });
+
+
+        }
+
+        // 备案类型筛选
+        function merchantsStatus () {
+            var statusSelect = $('#merchantStatus');
+            var form = $('form[role="form"]');
+            statusSelect.on('change',  function () {
+                form.attr('action', contextPath + markUri + '/statistics/merchants/typeList');
+                form.submit();
+            });
         }
 
         $(function() {
@@ -232,6 +264,7 @@
             switchContribution();       // 贡献值排序切换
             paginationSwitch();
             goMerchantDetail();     // 跳转下一页
+            merchantsStatus();      // 注册备案类型筛选
         });
     })(jQuery,undefined);
 </script>
