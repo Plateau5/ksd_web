@@ -46,7 +46,7 @@
                                     <option value="">全部</option>
                                     {{#if (flag === 1) }}
                                     <option value="1" selected>已备案</option>
-                                    {{eles}}
+                                    {{else}}
                                     <option value="1">已备案</option>
                                     {{/if}}
                                     {{#if (flag === 0) }}
