@@ -179,6 +179,7 @@
         function switchContribution () {
             var btn = $('.contribution_sequence');
             var orderByEle = $('#orderBy');
+            var currentPage = $('#currentPage');
             var form = $('form[role="form"]');
             btn.off('click').on('click', function () {
                 var _this = $(this);
@@ -192,6 +193,7 @@
                     _this.removeClass('descending').addClass('ascending');
                     orderByEle.val(2);
                 }
+                currentPage.val(1);
 //                getListData();      // 注册获取数据
                 form.submit();
             });
@@ -254,11 +256,11 @@
             var statusSelect = $('#merchantStatus');
             var orderBy = $('#orderBy');
             var currentPage = $('#currentPage');
-            orderBy.val(1);
-            currentPage.val(1);
             var form = $('form[role="form"]');
             statusSelect.on('change',  function () {
                 form.attr('action', contextPath + markUri + '/statistics/merchants/typeList');
+                orderBy.val(1);
+                currentPage.val(1);
                 form.submit();
             });
         }
