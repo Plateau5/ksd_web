@@ -262,7 +262,7 @@
                 typeBarIds.push(typeData[i].id);
                 type.xaxis.push(typeData[i].name);
                 type.yaxis.pass.push(typeData[i].pass_count);
-                var unpass = typeData[i].count - typeData[i].pass_count+200;
+                var unpass = typeData[i].count - typeData[i].pass_count;
                 type.yaxis.unpass.push(unpass);
             }
             return type;
