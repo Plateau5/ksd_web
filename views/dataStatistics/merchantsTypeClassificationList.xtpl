@@ -252,6 +252,10 @@
         // 备案类型筛选
         function merchantsStatus () {
             var statusSelect = $('#merchantStatus');
+            var orderBy = $('#orderBy');
+            var currentPage = $('#currentPage');
+            orderBy.val(1);
+            currentPage.val(1);
             var form = $('form[role="form"]');
             statusSelect.on('change',  function () {
                 form.attr('action', contextPath + markUri + '/statistics/merchants/typeList');
