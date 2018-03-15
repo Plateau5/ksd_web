@@ -21,6 +21,7 @@
                 {{/if}}
             </select>
         </div>
+        {{#if (cityList && cityList.length > 1) }}
         <div class="filtrate_item select_item inline_block">
             <div class="conditions_name inline_block" style="vertical-align: top;">城市：</div>
             <select name="city_id"  class="filtrate_select city_select" id="cityeSelect">
@@ -34,6 +35,7 @@
                 {{/each}}
             </select>
         </div>
+        {{/if}}
         <div class="filtrate_item select_item inline_block">
             <div class="conditions_name inline_block" style="vertical-align: top;">状态：</div>
             <select name="status"  class="filtrate_select merchants_state" id="merchantsState">
